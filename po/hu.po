@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-03 21:00+0000\n"
-"PO-Revision-Date: 2008-09-25 23:22+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&amp;component=VPN: vpnc\n"
+"POT-Creation-Date: 2008-12-15 17:05+0000\n"
+"PO-Revision-Date: 2008-12-16 21:07+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
@@ -17,48 +17,36 @@ msgstr ""
 "X-Generator: KBabel 1.11.4\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:118
 msgid "_Secondary Password:"
 msgstr "Jelszó _még egyszer:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "_Felhasználónév:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Tartomány:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:174
 msgid "_Password:"
 msgstr "_Jelszó:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Kapcsolódás _névtelenül"
+#: ../auth-dialog/gnome-two-password-dialog.c:255
+msgid "Sh_ow passwords"
+msgstr "_Jelszavak megjelenítése"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Csatlakozás _mint:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
+#: ../auth-dialog/gnome-two-password-dialog.c:315
 msgid "_Remember passwords for this session"
 msgstr "_Jelszavak megjegyzése erre a munkamenetre"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:468
+#: ../auth-dialog/gnome-two-password-dialog.c:316
 msgid "_Save passwords in keyring"
 msgstr "Jelszavak mentése a k_ulcstartóra"
 
-#: ../auth-dialog/main.c:67
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Azonosítania kell magát a(z) „%s” virtuális magánhálózat eléréséhez."
 
-#: ../auth-dialog/main.c:68
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "VPN azonosítás"
 
-#: ../auth-dialog/main.c:75
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
 msgstr "_Csoportjelszó:"
 
@@ -78,37 +66,51 @@ msgstr "Cisco-kompatibilis VPN kliens (vpnc)"
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
-msgstr "Kompatibilis számos Cisco, Juniper, Netscreen és Sonicwall IPSec-alapú VPN átjáróval."
+msgstr ""
+"Kompatibilis számos Cisco, Juniper, Netscreen és Sonicwall IPSec-alapú VPN "
+"átjáróval."
 
-#: ../properties/nm-vpnc.c:265
+#: ../properties/nm-vpnc.c:339
+msgid "Saved"
+msgstr "Mentett"
+
+#: ../properties/nm-vpnc.c:346
+msgid "Always Ask"
+msgstr "Kérdés mindig"
+
+#: ../properties/nm-vpnc.c:353
+msgid "Not Required"
+msgstr "Nem szükséges"
+
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Biztonságos (alapértelmezett)"
 
-#: ../properties/nm-vpnc.c:268
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Gyenge (óvatosan használja)"
 
-#: ../properties/nm-vpnc.c:276
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Nincs (nem biztonságos)"
 
-#: ../properties/nm-vpnc.c:314
-msgid "NAT-T (default)"
-msgstr "NAT-T (alapértelmezett)"
+#: ../properties/nm-vpnc.c:471
+msgid "Cisco UDP (default)"
+msgstr "Cisco UDP (alapértelmezett)"
 
-#: ../properties/nm-vpnc.c:321
-msgid "Cisco UDP"
-msgstr "Cisco UDP"
+#: ../properties/nm-vpnc.c:478
+msgid "NAT-T"
+msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:328
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Tiltva"
 
-#: ../properties/nm-vpnc.c:724
+#: ../properties/nm-vpnc.c:1104
 msgid "TCP tunneling not supported"
 msgstr "A TCP alagutazás nem támogatott"
 
-#: ../properties/nm-vpnc.c:726
+#: ../properties/nm-vpnc.c:1106
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
