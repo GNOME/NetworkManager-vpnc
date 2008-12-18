@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-27 20:55+0100\n"
-"PO-Revision-Date: 2008-11-27 20:55+0100\n"
+"POT-Creation-Date: 2008-12-19 00:20+0100\n"
+"PO-Revision-Date: 2008-12-19 00:20+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,48 +18,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:118
 msgid "_Secondary Password:"
 msgstr "_Sekundärt lösenord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "_Användarnamn:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Domän:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:174
 msgid "_Password:"
 msgstr "_Lösenord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Anslut anon_ymt"
+#: ../auth-dialog/gnome-two-password-dialog.c:255
+msgid "Sh_ow passwords"
+msgstr "Visa lösen_ord"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Anslut som _användare:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
+#: ../auth-dialog/gnome-two-password-dialog.c:315
 msgid "_Remember passwords for this session"
 msgstr "_Kom ihåg lösenord för denna session"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:468
+#: ../auth-dialog/gnome-two-password-dialog.c:316
 msgid "_Save passwords in keyring"
 msgstr "_Spara lösenord i nyckelring"
 
-#: ../auth-dialog/main.c:105
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Du måsta autentisera för att komma åt VPN-nätverket \"%s\"."
 
-#: ../auth-dialog/main.c:106
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "Autentisera VPN"
 
-#: ../auth-dialog/main.c:113
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
 msgstr "_Grupplösenord:"
 
@@ -79,47 +67,47 @@ msgstr "Cisco-kompatibel VPN (vpnc)"
 msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
 msgstr "Kompatibel med olika Cisco, Juniper, Netscreen och Sonicwall IPSec-baserade VPN-gateway."
 
-#: ../properties/nm-vpnc.c:325
+#: ../properties/nm-vpnc.c:339
 msgid "Saved"
 msgstr "Sparat"
 
-#: ../properties/nm-vpnc.c:332
+#: ../properties/nm-vpnc.c:346
 msgid "Always Ask"
 msgstr "Fråga alltid"
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:353
 msgid "Not Required"
 msgstr "Krävs inte"
 
-#: ../properties/nm-vpnc.c:398
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Säker (standard)"
 
-#: ../properties/nm-vpnc.c:401
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Svag (använd med försiktighet)"
 
-#: ../properties/nm-vpnc.c:409
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Ingen (totalt osäker)"
 
-#: ../properties/nm-vpnc.c:450
+#: ../properties/nm-vpnc.c:471
 msgid "Cisco UDP (default)"
 msgstr "Cisco UDP (standard)"
 
-#: ../properties/nm-vpnc.c:457
+#: ../properties/nm-vpnc.c:478
 msgid "NAT-T"
 msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:464
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Inaktiverad"
 
-#: ../properties/nm-vpnc.c:1085
+#: ../properties/nm-vpnc.c:1104
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnling stöds inte"
 
-#: ../properties/nm-vpnc.c:1087
+#: ../properties/nm-vpnc.c:1106
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
@@ -182,6 +170,14 @@ msgstr "_Gateway:"
 msgid "_User password:"
 msgstr "Användarlös_enord:"
 
+#~ msgid "_Username:"
+#~ msgstr "_Användarnamn:"
+#~ msgid "_Domain:"
+#~ msgstr "_Domän:"
+#~ msgid "Connect _anonymously"
+#~ msgstr "Anslut anon_ymt"
+#~ msgid "Connect as _user:"
+#~ msgstr "Anslut som _användare:"
 #~ msgid "NAT-T (default)"
 #~ msgstr "NAT-T (standard)"
 #~ msgid "G_roup Name:"
