@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&amp;component=general\n"
-"POT-Creation-Date: 2008-11-14 17:04+0000\n"
-"PO-Revision-Date: 2008-11-14 20:24+0100\n"
+"product=NetworkManager&amp;component=VPN: vpnc\n"
+"POT-Creation-Date: 2008-12-15 17:05+0000\n"
+"PO-Revision-Date: 2008-12-27 15:14+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,55 +24,39 @@ msgstr ""
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:118
 msgid "_Secondary Password:"
 msgstr "Contraseña _secundaria:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "Nombre de _usuario:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Dominio:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:174
 msgid "_Password:"
 msgstr "_Contraseña:"
 
-# include/printconf/dialogs.ycp:150
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Conectar _anónimamente"
-
-# include/scanner/scanner_overview.ycp:85
-# include/scanner/scanner_overview.ycp:85
-# include/scanner/scanner_overview.ycp:85
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Conectar como _usuario:"
+#: ../auth-dialog/gnome-two-password-dialog.c:255
+msgid "Sh_ow passwords"
+msgstr "M_ostrar contraseñas"
 
 # include/partitioning/custom_part_dialogs.ycp:67
 # include/partitioning/custom_part_dialogs.ycp:67
 # include/partitioning/custom_part_dialogs.ycp:67 include/partitioning/custom_part_dialogs.ycp:197
-#: ../auth-dialog/gnome-two-password-dialog.c:466
+#: ../auth-dialog/gnome-two-password-dialog.c:315
 msgid "_Remember passwords for this session"
 msgstr "_Recordar contraseñas para esta sesión"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:468
+#: ../auth-dialog/gnome-two-password-dialog.c:316
 msgid "_Save passwords in keyring"
 msgstr "_Guardar contraseñas en el depósito de claves"
 
-#: ../auth-dialog/main.c:105
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Debe autenticarse para acceder a la red privada virtual «%s»."
 
-#: ../auth-dialog/main.c:106
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "Autenticación VPN"
 
-#: ../auth-dialog/main.c:113
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
 msgstr "Contraseña del _grupo:"
 
@@ -97,47 +81,47 @@ msgstr ""
 "Compatible con varias puertas de enlace VPN basadas en IpSec como Cisco, "
 "Juniper, Netscreen y Sonicwall."
 
-#: ../properties/nm-vpnc.c:325
+#: ../properties/nm-vpnc.c:339
 msgid "Saved"
 msgstr "Guardado"
 
-#: ../properties/nm-vpnc.c:332
+#: ../properties/nm-vpnc.c:346
 msgid "Always Ask"
 msgstr "Preguntar siempre"
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:353
 msgid "Not Required"
 msgstr "No requerido"
 
-#: ../properties/nm-vpnc.c:398
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Seguro (predeterminado)"
 
-#: ../properties/nm-vpnc.c:401
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Débil (usar con cautela)"
 
-#: ../properties/nm-vpnc.c:409
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Ninguno (completamente inseguro)"
 
-#: ../properties/nm-vpnc.c:450
+#: ../properties/nm-vpnc.c:471
 msgid "Cisco UDP (default)"
 msgstr "Cisco UDP (predeterminado)"
 
-#: ../properties/nm-vpnc.c:457
+#: ../properties/nm-vpnc.c:478
 msgid "NAT-T"
 msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:464
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Desactivado"
 
-#: ../properties/nm-vpnc.c:1085
+#: ../properties/nm-vpnc.c:1104
 msgid "TCP tunneling not supported"
 msgstr "No se soporta el túnel por TCP"
 
-#: ../properties/nm-vpnc.c:1087
+#: ../properties/nm-vpnc.c:1106
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -207,6 +191,22 @@ msgstr "_Pasarela:"
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
 msgstr "Contraseña del _usuario:"
+
+#~ msgid "_Username:"
+#~ msgstr "Nombre de _usuario:"
+
+#~ msgid "_Domain:"
+#~ msgstr "_Dominio:"
+
+# include/printconf/dialogs.ycp:150
+#~ msgid "Connect _anonymously"
+#~ msgstr "Conectar _anónimamente"
+
+# include/scanner/scanner_overview.ycp:85
+# include/scanner/scanner_overview.ycp:85
+# include/scanner/scanner_overview.ycp:85
+#~ msgid "Connect as _user:"
+#~ msgstr "Conectar como _usuario:"
 
 #~ msgid "NAT-T (default)"
 #~ msgstr "NAT-T (predeterminado)"
