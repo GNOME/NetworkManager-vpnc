@@ -22,7 +22,7 @@
 #ifndef NM_VPNC_PLUGIN_H
 #define NM_VPNC_PLUGIN_H
 
-#include <glib/gtypes.h>
+#include <glib.h>
 #include <glib-object.h>
 #include <nm-vpn-plugin.h>
 
