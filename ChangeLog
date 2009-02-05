@@ -1,5 +1,27 @@
 2009-02-05  Dan Williams  <dcbw@redhat.com>
 
+	* configure.in
+		- Add configure-time option for running test cases on 'make check'
+
+	* properties/pcf-file.c
+	  properties/pcf-file.h
+		- (pcf_file_lookup_string, pcf_file_lookup_bool, pcf_file_lookup_int):
+			add helper functions to look up specific value types
+
+	* properties/nm-vpnc.c
+		- (import): use new value types helper functions; fix interpretation of
+			"EnableNat" and ensure default is Cisco NAT traversal; import
+			"DHGroup"
+		- (export): export "DHGroup" and "SaveUserPassword"; fix export of
+			static routes
+
+	* properties/tests/*
+	  nm-test-helpers.h
+	  Makefile.am
+		- Add testcases for .pcf file import/export
+
+2009-02-05  Dan Williams  <dcbw@redhat.com>
+
 	* properties/nm-vpnc.c
 		- (import): handle "SaveUserPassword" and "EnableLocalLAN"
 

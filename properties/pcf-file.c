@@ -23,6 +23,7 @@
 #include <string.h>
 #include <errno.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 #include "pcf-file.h"
 
@@ -92,6 +93,7 @@ pcf_file_load (const char *fname)
 			g_hash_table_insert (pcf, g_utf8_strdown (s+1, -1), group);
         } else {
 			PcfEntry *entry;
+			char *key;
 
             /* Normal assignment */
             if (!(e = strchr (s, '='))) {
@@ -111,13 +113,15 @@ pcf_file_load (const char *fname)
 			entry->value = g_strdup (e);
 
 			if (*s == '!') {
-				entry->key = g_utf8_strdown (s+1, -1);
+				key = g_utf8_strdown (s+1, -1);
 				entry->read_only = TRUE;
 			} else {
-				entry->key = g_utf8_strdown (s, -1);
+				key = g_utf8_strdown (s, -1);
 				entry->read_only = FALSE;
 			}
 
+			entry->key = g_strdup (g_strstrip (key));
+			g_free (key);
 			g_hash_table_insert (group, entry->key, entry);
         }
     }
@@ -139,8 +143,8 @@ fail:
 
 PcfEntry *
 pcf_file_lookup (GHashTable *pcf_file,
-				 const char *group,
-				 const char *key)
+                 const char *group,
+                 const char *key)
 {
 	gpointer section;
 	PcfEntry *entry = NULL;
@@ -164,16 +168,94 @@ pcf_file_lookup (GHashTable *pcf_file,
 	return entry;
 }
 
-const char *
-pcf_file_lookup_value (GHashTable *pcf_file,
-					   const char *group,
-					   const char *key)
+gboolean
+pcf_file_lookup_string (GHashTable *pcf_file,
+                        const char *group,
+                        const char *key,
+                        const char **value)
 {
 	PcfEntry *entry;
 
-	entry = pcf_file_lookup (pcf_file, group, key);
-	if (entry)
-		return entry->value;
+	g_return_val_if_fail (pcf_file != NULL, FALSE);
+	g_return_val_if_fail (group != NULL, FALSE);
+	g_return_val_if_fail (key != NULL, FALSE);
+	g_return_val_if_fail (value != NULL, FALSE);
 
-	return NULL;
+	*value = NULL;
+	entry = pcf_file_lookup (pcf_file, group, key);
+	if (!entry || !entry->value || !strlen (entry->value))
+		return FALSE;
+
+	*value = entry->value;
+	return TRUE;
 }
+
+gboolean
+pcf_file_lookup_bool (GHashTable *pcf_file,
+                      const char *group,
+                      const char *key,
+                      gboolean *value)
+{
+	const char *buf = NULL;
+	gboolean success = FALSE;
+
+	g_return_val_if_fail (pcf_file != NULL, FALSE);
+	g_return_val_if_fail (group != NULL, FALSE);
+	g_return_val_if_fail (key != NULL, FALSE);
+	g_return_val_if_fail (value != NULL, FALSE);
+
+	*value = FALSE;
+	if (!pcf_file_lookup_string (pcf_file, group, key, &buf))
+		return FALSE;
+
+	if (strlen (buf) == 1) {
+		if (strcmp (buf, "1") == 0) {
+			*value = TRUE;
+			success = TRUE;
+		} else if (strcmp (buf, "0") == 0) {
+			*value = FALSE;
+			success = TRUE;
+		}
+	} else {
+		if (   !strncasecmp (buf, "yes", 3)
+		    || !strncasecmp (buf, "true", 4)) {
+			*value = TRUE;
+			success = TRUE;
+		} else if (   !strncasecmp (buf, "no", 2)
+		           || !strncasecmp (buf, "false", 5)) {
+			*value = FALSE;
+			success = TRUE;
+		}
+	}
+
+	return success;
+}
+
+gboolean
+pcf_file_lookup_int (GHashTable *pcf_file,
+                     const char *group,
+                     const char *key,
+                     gint *value)
+{
+	const char *buf = NULL;
+	long int tmp;
+
+	g_return_val_if_fail (pcf_file != NULL, FALSE);
+	g_return_val_if_fail (group != NULL, FALSE);
+	g_return_val_if_fail (key != NULL, FALSE);
+	g_return_val_if_fail (value != NULL, FALSE);
+
+	*value = 0;
+	if (!pcf_file_lookup_string (pcf_file, group, key, &buf))
+		return FALSE;
+
+	errno = 0;
+	tmp = strtol (buf, NULL, 10);
+	if ((errno == 0) && (tmp > G_MININT) && (tmp < G_MAXINT)) {
+		*value = (gint) tmp;
+		return TRUE;
+	}
+
+	return FALSE;
+}
+
