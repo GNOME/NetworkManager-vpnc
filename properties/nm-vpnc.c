@@ -975,6 +975,8 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	GHashTable *pcf;
 	const char *buf;
 	gboolean have_value;
+	NMSettingIP4Config *s_ip4;
+	long int val;
 
 	pcf = pcf_file_load (path);
 	if (!pcf) {
@@ -990,6 +992,9 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	s_vpn = NM_SETTING_VPN (nm_setting_vpn_new ());
 	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_VPNC, NULL);
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
+
+	s_ip4 = NM_SETTING_IP4_CONFIG (nm_setting_ip4_config_new ());
+	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
 
 	/* Connection name */
 	if ((buf = pcf_file_lookup_value (pcf, "main", "Description")))
@@ -1033,6 +1038,18 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	if (have_value)
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD, buf);
 
+	buf = pcf_file_lookup_value (pcf, "main", "SaveUserPassword");
+	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
+	if (have_value) {
+		errno = 0;
+		val = strtol (buf, NULL, 10);
+		if ((errno == 0) && (val == 1)) {
+			nm_setting_vpn_add_data_item (s_vpn,
+			                              NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
+			                              NM_VPNC_PW_TYPE_SAVE);
+		}
+	}
+
 	buf = pcf_file_lookup_value (pcf, "main", "GroupPwd");
 	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
 	if (have_value)
@@ -1070,8 +1087,6 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, NM_VPNC_NATT_MODE_NATT);
 
 	if ((buf = pcf_file_lookup_value (pcf, "main", "PeerTimeout"))) {
-		long int val;
-
 		errno = 0;
 		val = strtol (buf, NULL, 10);
 		if ((errno == 0) && ((val == 0) || ((val >= 10) && (val <= 86400)))) {
@@ -1081,15 +1096,19 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		}
 	}
 
-	buf = pcf_file_lookup_value (pcf, "main", "X-NM-Routes");
+	buf = pcf_file_lookup_value (pcf, "main", "EnableLocalLAN");
 	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
 	if (have_value) {
-		NMSettingIP4Config *s_ip4;
-
-		s_ip4 = NM_SETTING_IP4_CONFIG (nm_setting_ip4_config_new ());
-		nm_connection_add_setting (connection, NM_SETTING (s_ip4));
-		add_routes (s_ip4, buf);
+		errno = 0;
+		val = strtol (buf, NULL, 10);
+		if ((errno == 0) && (val == 1))
+			g_object_set (s_ip4, NM_SETTING_IP4_CONFIG_NEVER_DEFAULT, TRUE, NULL);
 	}
+
+	buf = pcf_file_lookup_value (pcf, "main", "X-NM-Routes");
+	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
+	if (have_value)
+		add_routes (s_ip4, buf);
 
 	if ((buf = pcf_file_lookup_value (pcf, "main", "TunnelingMode"))) {
 		/* If applicable, put up warning that TCP tunneling will be disabled */
@@ -1100,10 +1119,10 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 
 			basename = g_path_get_basename (path);
 			dialog = gtk_message_dialog_new (NULL, GTK_DIALOG_DESTROY_WITH_PARENT,
-											 GTK_MESSAGE_WARNING, GTK_BUTTONS_CLOSE,
-											 _("TCP tunneling not supported"));
+			                                 GTK_MESSAGE_WARNING, GTK_BUTTONS_CLOSE,
+			                                 _("TCP tunneling not supported"));
 			gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
-													  _("The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n\nThe connection can still be created, with TCP tunneling disabled, however it may not work as expected."), basename);
+			                                          _("The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n\nThe connection can still be created, with TCP tunneling disabled, however it may not work as expected."), basename);
 			g_free (basename);
 			gtk_dialog_run (GTK_DIALOG (dialog));
 			gtk_widget_destroy (dialog);
