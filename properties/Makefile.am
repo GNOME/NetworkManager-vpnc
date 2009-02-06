@@ -1,3 +1,5 @@
+SUBDIRS=. tests
+
 INCLUDES = -I${top_srcdir}
 
 plugindir = $(libdir)/NetworkManager
@@ -31,6 +33,7 @@ libnm_vpnc_properties_la_LIBADD = \
 	$(GTK_LIBS) \
 	$(GCONF_LIBS) \
 	$(NM_UTILS_LIBS) \
+	$(GNOMEKEYRING_LIBS) \
 	$(top_builddir)/common-gnome/libnm-vpnc-common-gnome.la
 
 libnm_vpnc_properties_la_LDFLAGS = \

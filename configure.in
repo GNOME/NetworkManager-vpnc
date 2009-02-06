@@ -115,11 +115,27 @@ else
 	AC_MSG_RESULT(no)
 fi
 
+dnl
+dnl Tests
+dnl
+AC_ARG_WITH(tests, AC_HELP_STRING([--with-tests], [Build NetworkManager tests]))
+AM_CONDITIONAL(WITH_TESTS, test "x$with_tests" = "xyes")
+case $with_tests in
+    yes)
+        with_tests=yes
+        ;;
+    *)
+        with_tests=no
+        ;;
+esac
+
 AC_OUTPUT([
 Makefile
 src/Makefile
 common-gnome/Makefile
 auth-dialog/Makefile
 properties/Makefile
+properties/tests/Makefile
+properties/tests/pcf/Makefile
 po/Makefile.in
 ])

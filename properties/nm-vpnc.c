@@ -974,9 +974,9 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	NMSettingVPN *s_vpn;
 	GHashTable *pcf;
 	const char *buf;
-	gboolean have_value;
+	gboolean bool_value;
 	NMSettingIP4Config *s_ip4;
-	long int val;
+	gint val;
 
 	pcf = pcf_file_load (path);
 	if (!pcf) {
@@ -997,7 +997,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
 
 	/* Connection name */
-	if ((buf = pcf_file_lookup_value (pcf, "main", "Description")))
+	if (pcf_file_lookup_string (pcf, "main", "Description", &buf))
 		g_object_set (s_con, NM_SETTING_CONNECTION_ID, buf, NULL);
 	else {
 		g_set_error (error, 0, 0, "does not look like a %s VPN connection (parse failed)",
@@ -1007,7 +1007,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	}
 
 	/* Gateway */
-	if ((buf = pcf_file_lookup_value (pcf, "main", "Host")))
+	if (pcf_file_lookup_string (pcf, "main", "Host", &buf))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_GATEWAY, buf);
 	else {
 		g_set_error (error, 0, 0, "does not look like a %s VPN connection (no Host)",
@@ -1017,7 +1017,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	}
 
 	/* Group name */
-	if ((buf = pcf_file_lookup_value (pcf, "main", "GroupName")))
+	if (pcf_file_lookup_string (pcf, "main", "GroupName", &buf))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_ID, buf);
 	else {
 		g_set_error (error, 0, 0, "does not look like a %s VPN connection (no GroupName)",
@@ -1028,37 +1028,25 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 
 	/* Optional settings */
 
-	buf = pcf_file_lookup_value (pcf, "main", "UserName");
-	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-	if (have_value)
+	if (pcf_file_lookup_string (pcf, "main", "UserName", &buf))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, buf);
 
-	buf = pcf_file_lookup_value (pcf, "main", "UserPassword");
-	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-	if (have_value)
+	if (pcf_file_lookup_string (pcf, "main", "UserPassword", &buf))
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD, buf);
 
-	buf = pcf_file_lookup_value (pcf, "main", "SaveUserPassword");
-	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-	if (have_value) {
-		errno = 0;
-		val = strtol (buf, NULL, 10);
-		if ((errno == 0) && (val == 1)) {
+	if (pcf_file_lookup_bool (pcf, "main", "SaveUserPassword", &bool_value)) {
+		if (bool_value) {
 			nm_setting_vpn_add_data_item (s_vpn,
 			                              NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
 			                              NM_VPNC_PW_TYPE_SAVE);
 		}
 	}
 
-	buf = pcf_file_lookup_value (pcf, "main", "GroupPwd");
-	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-	if (have_value)
+	if (pcf_file_lookup_string (pcf, "main", "GroupPwd", &buf))
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_SECRET, buf);
 	else {
 		/* Handle encrypted passwords */
-		buf = pcf_file_lookup_value (pcf, "main", "enc_GroupPwd");
-		have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-		if (have_value) {
+		if (pcf_file_lookup_string (pcf, "main", "enc_GroupPwd", &buf)) {
 			char *decrypted;
 
 			decrypted = decrypt_cisco_key (buf);
@@ -1070,50 +1058,55 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		}
 	}
 
-	buf = pcf_file_lookup_value (pcf, "main", "NTDomain");
-	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-	if (have_value)
+	if (pcf_file_lookup_string (pcf, "main", "NTDomain", &buf))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, buf);
 
-	buf = pcf_file_lookup_value (pcf, "main", "SingleDES");
-	have_value = (buf == NULL ? FALSE : strcmp (buf, "0") != 0);
-	if (have_value)
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
+	if (pcf_file_lookup_bool (pcf, "main", "SingleDES", &bool_value)) {
+		if (bool_value)
+			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
+	}
 
 	/* Default is enabled, only disabled if explicit EnableNat=0 exists */
-	buf = pcf_file_lookup_value (pcf, "main", "EnableNat");
-	have_value = (buf ? strncmp (buf, "0", 1) == 0 : FALSE);
-	if (have_value)
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, NM_VPNC_NATT_MODE_NATT);
+	if (pcf_file_lookup_bool (pcf, "main", "EnableNat", &bool_value)) {
+		if (!bool_value) {
+			nm_setting_vpn_add_data_item (s_vpn,
+			                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
+			                              NM_VPNC_NATT_MODE_NONE);
+		}
+	}
 
-	if ((buf = pcf_file_lookup_value (pcf, "main", "PeerTimeout"))) {
-		errno = 0;
-		val = strtol (buf, NULL, 10);
-		if ((errno == 0) && ((val == 0) || ((val >= 10) && (val <= 86400)))) {
+	/* Default to Cisco UDP */
+	if (!nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE)) {
+		nm_setting_vpn_add_data_item (s_vpn,
+		                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
+		                              NM_VPNC_NATT_MODE_CISCO);
+	}
+
+	if (pcf_file_lookup_int (pcf, "main", "PeerTimeout", &val)) {
+		if ((val == 0) || ((val >= 10) && (val <= 86400))) {
 			char *tmp = g_strdup_printf ("%d", (gint) val);
 			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, tmp);
 			g_free (tmp);
 		}
 	}
 
-	buf = pcf_file_lookup_value (pcf, "main", "EnableLocalLAN");
-	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-	if (have_value) {
-		errno = 0;
-		val = strtol (buf, NULL, 10);
-		if ((errno == 0) && (val == 1))
+	if (pcf_file_lookup_bool (pcf, "main", "EnableLocalLAN", &bool_value)) {
+		if (bool_value)
 			g_object_set (s_ip4, NM_SETTING_IP4_CONFIG_NEVER_DEFAULT, TRUE, NULL);
 	}
 
-	buf = pcf_file_lookup_value (pcf, "main", "X-NM-Routes");
-	have_value = buf == NULL ? FALSE : strlen (buf) > 0;
-	if (have_value)
+	if (pcf_file_lookup_string (pcf, "main", "DHGroup", &buf)) {
+		if (!strcmp (buf, "1") || !strcmp (buf, "2") || !strcmp (buf, "5"))
+			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, buf);
+	}
+
+	if (pcf_file_lookup_string (pcf, "main", "X-NM-Routes", &buf))
 		add_routes (s_ip4, buf);
 
-	if ((buf = pcf_file_lookup_value (pcf, "main", "TunnelingMode"))) {
+	if (pcf_file_lookup_int (pcf, "main", "TunnelingMode", &val)) {
 		/* If applicable, put up warning that TCP tunneling will be disabled */
 
-		if (strncmp (buf, "1", 1) == 0) {
+		if (val == 1) {
 			GtkWidget *dialog;
 			char *basename;
 
@@ -1152,8 +1145,11 @@ export (NMVpnPluginUiInterface *iface,
 	const char *username = NULL;
 	const char *domain = NULL;
 	const char *peertimeout = NULL;
+	const char *dhgroup = NULL;
 	GString *routes = NULL;
 	gboolean success = FALSE;
+	guint32 routes_count = 0;
+	gboolean save_password = FALSE;
 
 	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
 	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
@@ -1188,7 +1184,7 @@ export (NMVpnPluginUiInterface *iface,
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DOMAIN);
 	if (value && strlen (value))
-		domain =  value;
+		domain = value;
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES);
 	if (value && !strcmp (value, "yes"))
@@ -1202,7 +1198,17 @@ export (NMVpnPluginUiInterface *iface,
 	if (value && strlen (value))
 		peertimeout = value;
 
-	routes = g_string_new ("");
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DHGROUP);
+	if (value && strlen (value))
+		dhgroup = value;
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
+	if (value && strlen (value)) {
+		if (!strcmp (value, NM_VPNC_PW_TYPE_SAVE))
+			save_password = TRUE;
+	}
+
+	routes = g_string_new ("X-NM-Routes=");
 	if (s_ip4 && nm_setting_ip4_config_get_num_routes (s_ip4)) {
 		int i;
 
@@ -1211,13 +1217,19 @@ export (NMVpnPluginUiInterface *iface,
 			char str_addr[INET_ADDRSTRLEN + 1];
 			struct in_addr num_addr;
 
-			if (routes->len)
+			if (routes_count)
 				g_string_append_c (routes, ' ');
 
 			num_addr.s_addr = nm_ip4_route_get_dest (route);
 			if (inet_ntop (AF_INET, &num_addr, &str_addr[0], INET_ADDRSTRLEN + 1))
 				g_string_append_printf (routes, "%s/%d", str_addr, nm_ip4_route_get_prefix (route));
+
+			routes_count++;
 		}
+	}
+	if (!routes_count) {
+		g_string_free (routes, TRUE);
+		routes = NULL;
 	}
 
 	fprintf (f, 
@@ -1232,7 +1244,7 @@ export (NMVpnPluginUiInterface *iface,
 		 "ISPConnect=\n"
 		 "ISPCommand=\n"
 		 "Username=%s\n"
-		 "SaveUserPassword=0\n"
+		 "SaveUserPassword=%s\n"
 		 "EnableBackup=0\n"
 		 "BackupServer=\n"
 		 "EnableNat=%s\n"
@@ -1241,7 +1253,7 @@ export (NMVpnPluginUiInterface *iface,
 		 "CertPath=\n"
 		 "CertSubjectName=\n"
 		 "CertSerialHash=\n"
-		 "DHGroup=2\n"
+		 "DHGroup=%s\n"
 		 "ForceKeepAlives=0\n"
 		 "enc_GroupPwd=\n"
 		 "UserPassword=\n"
@@ -1258,16 +1270,18 @@ export (NMVpnPluginUiInterface *iface,
 		 "EnableSplitDNS=1\n"
 		 "SingleDES=%s\n"
 		 "SPPhonebook=\n"
-		 "%s",
-		 /* Description */ nm_setting_connection_get_id (s_con),
-		 /* Host */        gateway,
-		 /* GroupName */   groupname,
-		 /* Username */    username != NULL ? username : "",
-		 /* EnableNat */   enablenat ? "1" : "0",
-		 /* NTDomain */    domain != NULL ? domain : "",
-		 /* PeerTimeout */ peertimeout != NULL ? peertimeout : "0",
-		 /* SingleDES */   singledes ? "1" : "0",
-		 /* X-NM-Routes */ routes->str ? routes->str : "");
+		 "%s\n",
+		 /* Description */   nm_setting_connection_get_id (s_con),
+		 /* Host */          gateway,
+		 /* GroupName */     groupname,
+		 /* Username */      username != NULL ? username : "",
+		 /* Save Password */ save_password ? "1" : "0",
+		 /* EnableNat */     enablenat ? "1" : "0",
+		 /* DHGroup */       dhgroup != NULL ? dhgroup : "2",
+		 /* NTDomain */      domain != NULL ? domain : "",
+		 /* PeerTimeout */   peertimeout != NULL ? peertimeout : "0",
+		 /* SingleDES */     singledes ? "1" : "0",
+		 /* X-NM-Routes */   (routes && routes->str) ? routes->str : "");
 
 	success = TRUE;
 

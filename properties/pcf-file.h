@@ -34,11 +34,23 @@ struct PcfEntry {
 
 GHashTable  *pcf_file_load        (const char *fname);
 PcfEntry    *pcf_file_lookup      (GHashTable *pcf_file,
-								   const char *group,
-								   const char *key);
+                                   const char *group,
+                                   const char *key);
 
-const char *pcf_file_lookup_value (GHashTable *pcf_file,
-								   const char *group,
-								   const char *key);
+gboolean pcf_file_lookup_string (GHashTable *pcf_file,
+                                 const char *group,
+                                 const char *key,
+                                 const char **value);
+
+gboolean pcf_file_lookup_bool (GHashTable *pcf_file,
+                               const char *group,
+                               const char *key,
+                               gboolean *value);
+
+gboolean pcf_file_lookup_int (GHashTable *pcf_file,
+                              const char *group,
+                              const char *key,
+                              gint *value);
 
 #endif /* PCF_FILE_H */
+
