@@ -1,3 +1,8 @@
+2009-02-05  Dan Williams  <dcbw@redhat.com>
+
+	* properties/nm-vpnc.c
+		- (import): handle "SaveUserPassword" and "EnableLocalLAN"
+
 2009-01-20  Przemysław Grzegorczyk  <pgrzegorczyk@gmail.com>
 
 	* src/nm-vpnc-service.h:
