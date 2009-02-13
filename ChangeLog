@@ -1,3 +1,8 @@
+2009-02-13  Dan Williams  <dcbw@redhat.com>
+
+	* nm-vpnc-service.conf
+		- Clean up dbus permissions; retain deny for compat with older dbus
+
 2009-02-05  Dan Williams  <dcbw@redhat.com>
 
 	* configure.in
