@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-11-19 20:20+0100\n"
-"PO-Revision-Date: 2008-11-19 20:21+0100\n"
+"POT-Creation-Date: 2009-02-17 02:48+0100\n"
+"PO-Revision-Date: 2009-02-17 02:49+0100\n"
 "Last-Translator: Tomasz Dominikowski <dominikowski@gmail.com>\n"
 "Language-Team: Aviary.pl <gnomepl@aviary.pl>\n"
 "MIME-Version: 1.0\n"
@@ -21,48 +21,36 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "Hasło _dodatkowe:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "Nazwa _użytkownika:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Domena:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "_Hasło:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Połączenie _anonimowe"
+#: ../auth-dialog/gnome-two-password-dialog.c:240
+msgid "Sh_ow passwords"
+msgstr "_Wyświetlanie haseł"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Połączenie jako _użytkownik:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Remember passwords for this session"
 msgstr "Zapamiętanie _hasła na czas tej sesji"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:468
+#: ../auth-dialog/gnome-two-password-dialog.c:301
 msgid "_Save passwords in keyring"
 msgstr "_Zapamiętanie hasła w bazie kluczy"
 
-#: ../auth-dialog/main.c:105
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Aby uzyskać dostęp do wirtualnej sieci prywatnej \"%s\", należy dokonać uwierzytelnienia."
 
-#: ../auth-dialog/main.c:106
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "Uwierzytelnianie VPN"
 
-#: ../auth-dialog/main.c:113
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
 msgstr "Hasło g_rupy:"
 
@@ -82,47 +70,47 @@ msgstr "Klient kompatybilny z Cisco VPN (vpnc)"
 msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
 msgstr "Kompatybilny z wieloma bramami VPN IPSec, jak Cisco, Juniper, Netscreen i Sonicwall."
 
-#: ../properties/nm-vpnc.c:325
+#: ../properties/nm-vpnc.c:339
 msgid "Saved"
 msgstr "Zapisano"
 
-#: ../properties/nm-vpnc.c:332
+#: ../properties/nm-vpnc.c:346
 msgid "Always Ask"
 msgstr "Pytanie zawsze"
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:353
 msgid "Not Required"
 msgstr "Niewymagane"
 
-#: ../properties/nm-vpnc.c:398
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Bezpieczne (domyślne)"
 
-#: ../properties/nm-vpnc.c:401
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Słabe (używać z ostrożnością)"
 
-#: ../properties/nm-vpnc.c:409
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Brak (całkowity brak zabezpieczeń)"
 
-#: ../properties/nm-vpnc.c:450
+#: ../properties/nm-vpnc.c:471
 msgid "Cisco UDP (default)"
 msgstr "Cisco UDP (domyślne)"
 
-#: ../properties/nm-vpnc.c:457
+#: ../properties/nm-vpnc.c:478
 msgid "NAT-T"
 msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:464
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Wyłączone"
 
-#: ../properties/nm-vpnc.c:1085
+#: ../properties/nm-vpnc.c:1116
 msgid "TCP tunneling not supported"
 msgstr "Tunelowanie TCP nie jest obsługiwane"
 
-#: ../properties/nm-vpnc.c:1087
+#: ../properties/nm-vpnc.c:1118
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
@@ -185,6 +173,14 @@ msgstr "_Brama:"
 msgid "_User password:"
 msgstr "Hasło _użytkownika:"
 
+#~ msgid "_Username:"
+#~ msgstr "Nazwa _użytkownika:"
+#~ msgid "_Domain:"
+#~ msgstr "_Domena:"
+#~ msgid "Connect _anonymously"
+#~ msgstr "Połączenie _anonimowe"
+#~ msgid "Connect as _user:"
+#~ msgstr "Połączenie jako _użytkownik:"
 #~ msgid "NAT-T (default)"
 #~ msgstr "NAT-T (domyślne)"
 #~ msgid "The following vpnc VPN connection will be created:"
