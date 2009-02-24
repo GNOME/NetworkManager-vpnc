@@ -24,7 +24,7 @@ test_import_export_LDADD = \
 	$(GNOMEKEYRING_LIBS) \
 	$(DBUS_LIBS) \
 	$(NM_UTILS_LIBS) \
-	$(top_builddir)/properties/.libs/libnm-vpnc-properties.a
+	$(top_builddir)/properties/libnm-vpnc-properties.la
 
 if WITH_TESTS
 
