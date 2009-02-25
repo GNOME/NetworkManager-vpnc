@@ -1,69 +1,57 @@
 # translation of ru.po to Russian
-# translation of ru.po to
-# Ukrainian translation of NetworkManager openvpn
+# Russian translation of NetworkManager vpnc
 # Copyright (C) Free Software Foundation, 2005
 # This file is distributed under the same license as the NetworkManager package.
 #
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007.
 # Leonid Kanter <leon@asplinux.ru>, 2007, 2008.
+# Артём Попов <artfwo@gmail.com>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-08 15:14+0300\n"
-"PO-Revision-Date: 2008-08-08 15:19+0300\n"
-"Last-Translator: Leonid Kanter <leon@asplinux.ru>\n"
-"Language-Team: Russian <ru@li.org>\n"
+"POT-Creation-Date: 2009-02-20 10:34+0300\n"
+"PO-Revision-Date: 2009-02-12 16:57+0600\n"
+"Last-Translator: Артём Попов <artfwo@gmail.com>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
+"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:144
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "_Вторичный пароль:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:258
-msgid "_Username:"
-msgstr "_Имя пользователя:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:260
-msgid "_Domain:"
-msgstr "_Домен:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:262
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "_Пароль:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:351
-msgid "Connect _anonymously"
-msgstr "Подключаться _анонимно"
+#: ../auth-dialog/gnome-two-password-dialog.c:240
+msgid "Sh_ow passwords"
+msgstr "П_оказать пароли"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:356
-msgid "Connect as _user:"
-msgstr "_Подключаться как пользователь:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:465
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Remember passwords for this session"
 msgstr "_Запомнить пароли для этого сеанса"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:467
+#: ../auth-dialog/gnome-two-password-dialog.c:301
 msgid "_Save passwords in keyring"
 msgstr "_Сохранить пароли на брелоке"
 
-#: ../auth-dialog/main.c:182
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Для доступа к виртуальной частной сети '%s' требуется аутентификация."
+msgstr "Для доступа к виртуальной частной сети «%s» требуется аутентификация."
 
-#: ../auth-dialog/main.c:183
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "Аутентификация VPN"
 
-#: ../auth-dialog/main.c:190
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
-msgstr "_Пароль группы:"
+msgstr "Пароль _группы:"
 
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
@@ -73,45 +61,57 @@ msgstr "Добавление, изменение и удаление соеди�
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Менеджер соединений VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:51
+#: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
-msgstr "Cisco-совместимый VPN (vpnc)"
+msgstr "Cisco-совместимая VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:52
+#: ../properties/nm-vpnc.c:54
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
 msgstr "Совместим с различными роутерами Cisco, Juniper, Netscreen, Sonicwall."
 
-#: ../properties/nm-vpnc.c:204
+#: ../properties/nm-vpnc.c:339
+msgid "Saved"
+msgstr "Сохранённый"
+
+#: ../properties/nm-vpnc.c:346
+msgid "Always Ask"
+msgstr "Всегда спрашивать"
+
+#: ../properties/nm-vpnc.c:353
+msgid "Not Required"
+msgstr "Не требуется"
+
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Строгое (по умолчанию)"
 
-#: ../properties/nm-vpnc.c:207
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Слабое (использовать с осторожностью)"
 
-#: ../properties/nm-vpnc.c:215
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Нет (без шифрования)"
 
-#: ../properties/nm-vpnc.c:260
-msgid "NAT-T (default)"
-msgstr "NAT-T (по умолчанию)"
+#: ../properties/nm-vpnc.c:471
+msgid "Cisco UDP (default)"
+msgstr "Cisco UDP (по умолчанию)"
 
-#: ../properties/nm-vpnc.c:267
-msgid "Cisco UDP"
-msgstr "Cisco UDP"
+#: ../properties/nm-vpnc.c:478
+msgid "NAT-T"
+msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:274
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Выключено"
 
-#: ../properties/nm-vpnc.c:697
+#: ../properties/nm-vpnc.c:1116
 msgid "TCP tunneling not supported"
 msgstr "Туннелирование TCP не поддерживается"
 
-#: ../properties/nm-vpnc.c:699
+#: ../properties/nm-vpnc.c:1118
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -148,22 +148,48 @@ msgid "Domain:"
 msgstr "Домен:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption Method:"
+msgid "Encryption method:"
 msgstr "Метод шифрования:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup Name:"
+msgid "G_roup name:"
 msgstr "Имя г_руппы:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "NAT Traversal:"
-msgstr "Traversal NAT:"
+msgid "Gro_up password:"
+msgstr "Пароль гр_уппы:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "NAT traversal:"
+msgstr "Обход NAT:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
+msgid "Show passwords"
+msgstr "Показать пароли"
+
+#: ../properties/nm-vpnc-dialog.glade.h:11
 msgid "User name:"
 msgstr "Имя пользователя:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.glade.h:12
 msgid "_Gateway:"
 msgstr "_Шлюз:"
 
+#: ../properties/nm-vpnc-dialog.glade.h:13
+msgid "_User password:"
+msgstr "Пароль _пользователя:"
+
+#~ msgid "_Username:"
+#~ msgstr "_Имя пользователя:"
+
+#~ msgid "_Domain:"
+#~ msgstr "_Домен:"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "Подключаться _анонимно"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "_Подключаться как пользователь:"
+
+#~ msgid "NAT-T (default)"
+#~ msgstr "NAT-T (по умолчанию)"
