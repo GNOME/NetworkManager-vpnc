@@ -1,17 +1,17 @@
 # French translation of NetworkManager-vpnc.
-# Copyright (C) 2007-2008 Free Software Foundation, Inc.
+# Copyright (C) 2007-2009 Free Software Foundation, Inc.
 # This file is distributed under the same license as the NetworkManager package.
 #
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2007.
-# Claude Paroz <claude@2xlibre.net>, 2007-2008.
+# Claude Paroz <claude@2xlibre.net>, 2007-2009.
 # Robert-André Mauchin <zebob.m@pengzone.org>, 2007-2008.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-25 22:56+0200\n"
-"PO-Revision-Date: 2008-09-25 22:58+0200\n"
+"POT-Creation-Date: 2009-03-10 10:43+0100\n"
+"PO-Revision-Date: 2009-03-10 10:47+0100\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,49 +19,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "Mot de passe _secondaire :"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "Nom d'_utilisateur :"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Domaine :"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "Mot de _passe :"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Se connecter _anonymement"
+#: ../auth-dialog/gnome-two-password-dialog.c:240
+msgid "Sh_ow passwords"
+msgstr "Afficher les _mots de passe"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Se connecter en _tant que :"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Remember passwords for this session"
 msgstr "_Conserver les mots de passe pour cette session"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:468
+#: ../auth-dialog/gnome-two-password-dialog.c:301
 msgid "_Save passwords in keyring"
 msgstr "_Enregistrer les mots de passe dans le trousseau"
 
-#: ../auth-dialog/main.c:66
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Vous devez vous authentifier pour accéder au réseau privé virtuel « %s »."
 
-#: ../auth-dialog/main.c:67
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "Authentifier le VPN"
 
-#: ../auth-dialog/main.c:74
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
 msgstr "Mot de passe du _groupe :"
 
@@ -85,35 +73,47 @@ msgstr ""
 "Compatible avec de nombreuses passerelles VPN basées sur IPSec de Cisco, "
 "Juniper, Netscreen et Sonicwall."
 
-#: ../properties/nm-vpnc.c:282
+#: ../properties/nm-vpnc.c:339
+msgid "Saved"
+msgstr "Enregistré"
+
+#: ../properties/nm-vpnc.c:346
+msgid "Always Ask"
+msgstr "Toujours demander"
+
+#: ../properties/nm-vpnc.c:353
+msgid "Not Required"
+msgstr "Pas nécessaire"
+
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Sécurisé (par défaut)"
 
-#: ../properties/nm-vpnc.c:285
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Faible (à utiliser avec précaution)"
 
-#: ../properties/nm-vpnc.c:293
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Aucun (complètement non sécurisé)"
 
-#: ../properties/nm-vpnc.c:331
-msgid "NAT-T (default)"
-msgstr "NAT-T (par défaut)"
+#: ../properties/nm-vpnc.c:471
+msgid "Cisco UDP (default)"
+msgstr "UDP Cisco (par défaut)"
 
-#: ../properties/nm-vpnc.c:338
-msgid "Cisco UDP"
-msgstr "UDP Cisco"
+#: ../properties/nm-vpnc.c:478
+msgid "NAT-T"
+msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:345
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: ../properties/nm-vpnc.c:809
+#: ../properties/nm-vpnc.c:1116
 msgid "TCP tunneling not supported"
 msgstr "Utilisation d'un tunnel TCP non pris en charge"
 
-#: ../properties/nm-vpnc.c:811
+#: ../properties/nm-vpnc.c:1118
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
