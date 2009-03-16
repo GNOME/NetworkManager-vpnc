@@ -1,14 +1,15 @@
-# Italian translation of  NetworkManager-VPNC.
-# Copyright (C) 2008 THE NetworkManager-VPNC'S COPYRIGHT HOLDER
+# Italian translation of NetworkManager-VPNC.
+# Copyright (C) 2006, 2007, 2008, 2009 the NetworkManager-VPNC'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-VPNC package.
-# Francesco Marletta <francesco.marletta@tiscali.it>, 2006-2008.
+# Francesco Marletta <francesco.marletta@tiscali.it>, 2006, 2007, 2008, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-VPNC 0.7\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-17 04:41+0000\n"
-"PO-Revision-Date: 2008-09-17 15:29-0400\n"
+"Project-Id-Version: NetworkManager-VPNC 0.7.1\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2009-03-06 05:45+0000\n"
+"PO-Revision-Date: 2009-03-07 23:31+0100\n"
 "Last-Translator: Francesco Marletta <francesco.marletta@tiscali.it>\n"
 "Language-Team: italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -16,49 +17,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "Password _secondaria:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "Nome _utente:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Dominio:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "_Password:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Connessione _anonima"
+#: ../auth-dialog/gnome-two-password-dialog.c:240
+msgid "Sh_ow passwords"
+msgstr "M_ostra le password"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Connessione come _utente:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Remember passwords for this session"
-msgstr "_Ricorda la password per questa sessione"
+msgstr "_Ricorda le password per questa sessione"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:468
+#: ../auth-dialog/gnome-two-password-dialog.c:301
 msgid "_Save passwords in keyring"
-msgstr "_Salva la password nel portachiavi"
+msgstr "_Salva le password nel portachiavi"
 
-#: ../auth-dialog/main.c:66
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
-"È necessario autenticarsi per accedere alla Rete Privata Virtuale (VPN) '%s'."
+"È necessario autenticarsi per accedere alla Rete Privata Virtuale (VPN) \"%s"
+"\"."
 
-#: ../auth-dialog/main.c:67
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "Autenticazione VPN"
 
-#: ../auth-dialog/main.c:74
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
 msgstr "Password di _gruppo:"
 
@@ -72,45 +62,60 @@ msgstr "Gestore connessioni VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
-msgstr "Compatibile con VPN Cisco (vpnc)"
+msgstr "VPN compatibile con Cisco (vpnc)"
 
+# NdT: ho cercato in rete, e tutti questi sono partner del consorzio VPNC
+#      ()www.wpnc.org)
+# NdT 2: SonicWALL è il nome corretto che appare sul sito.
 #: ../properties/nm-vpnc.c:54
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
 msgstr ""
-"Compatibile con vari gateway VPN Cisco, Juniper, Netscreen e basati su IPSec "
-"Sonicwall."
+"Compatibile con vari gateway VPN basati su IPSec di Cisco, Juniper, "
+"Netscreen e SonicWALL."
 
-#: ../properties/nm-vpnc.c:282
+#: ../properties/nm-vpnc.c:339
+msgid "Saved"
+msgstr "Salvato"
+
+#: ../properties/nm-vpnc.c:346
+msgid "Always Ask"
+msgstr "Chiedi sempre"
+
+#: ../properties/nm-vpnc.c:353
+msgid "Not Required"
+msgstr "Non richiesto"
+
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Sicuro (predefinito)"
 
-#: ../properties/nm-vpnc.c:285
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Debole (usare con cautela)"
 
-#: ../properties/nm-vpnc.c:293
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Nessuno (completamente insicuro)"
 
-#: ../properties/nm-vpnc.c:331
-msgid "NAT-T (default)"
-msgstr "NAT-T (predefinito)"
+#: ../properties/nm-vpnc.c:471
+msgid "Cisco UDP (default)"
+msgstr "UDP Cisco (predefinito)"
 
-#: ../properties/nm-vpnc.c:338
-msgid "Cisco UDP"
-msgstr "UDP Cisco"
+#: ../properties/nm-vpnc.c:478
+msgid "NAT-T"
+msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:345
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Disabilitato"
 
-#: ../properties/nm-vpnc.c:809
+#: ../properties/nm-vpnc.c:1116
 msgid "TCP tunneling not supported"
 msgstr "Tunnel TCP non supportato"
 
-#: ../properties/nm-vpnc.c:811
+#: ../properties/nm-vpnc.c:1118
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -119,8 +124,9 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"Il file di impostazioni VPN “%s” specifica the il traffico VPN deve passare "
-"in un tunnel TCP che non è attualmente supportato dal software vpnc.\n"
+"Il file di impostazioni VPN \"%s\" specifica the il traffico VPN deve "
+"passare attraverso un tunnel TCP, cosa che non è attualmente supportata dal "
+"software vpnc.\n"
 "\n"
 "La connessione può essere creata lo stesso, con il tunnel TCP disabilitato, "
 "comunque potrebbe non funzionare come ci si aspetta."

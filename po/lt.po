@@ -2,14 +2,15 @@
 # Copyright (C) 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the NetworkManager package.
 # Žygimantas Beručka <zygis@gnome.org>, 2008.
+# Gintautas Miliauskas <gintautas@miliauskas.lt>, 2009.
 #
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-25 00:32+0300\n"
-"PO-Revision-Date: 2008-09-25 00:32+0300\n"
+"POT-Creation-Date: 2009-03-12 13:38+0200\n"
+"PO-Revision-Date: 2009-03-12 13:38+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -18,50 +19,38 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n%"
 "100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:145
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "_Antrinis slaptažodis:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:259
-msgid "_Username:"
-msgstr "_Naudotojo vardas:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "S_ritis:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:263
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "_Slaptažodis:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:352
-msgid "Connect _anonymously"
-msgstr "Jungtis an_onimiškai"
+#: ../auth-dialog/gnome-two-password-dialog.c:240
+msgid "Sh_ow passwords"
+msgstr "_Rodyti slaptažodžius:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:357
-msgid "Connect as _user:"
-msgstr "Prisijungti kaip na_udotojas:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:466
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Remember passwords for this session"
 msgstr "_Atsiminti slaptažodžius šiam seansui"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:468
+#: ../auth-dialog/gnome-two-password-dialog.c:301
 msgid "_Save passwords in keyring"
 msgstr "Iš_saugoti slaptažodius raktinėje"
 
-#: ../auth-dialog/main.c:66
+#: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Norint gauti prieigą prie Virtualiojo Privačiojo Tinklo „%s“, reikia "
 "nustatyti jūsų tapatybę."
 
-#: ../auth-dialog/main.c:67
+#: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
 msgstr "Nustatyti tapatybę VPN"
 
-#: ../auth-dialog/main.c:74
+#: ../auth-dialog/main.c:175
 msgid "_Group Password:"
 msgstr "_Grupės slaptažodis:"
 
@@ -85,35 +74,47 @@ msgstr ""
 "Suderinamas su įvairiais Cisco, Juniper, Netscreen ir Sonicwall IPSec "
 "pagrįstais VPN šliuzais."
 
-#: ../properties/nm-vpnc.c:282
+#: ../properties/nm-vpnc.c:339
+msgid "Saved"
+msgstr "Įrašyta"
+
+#: ../properties/nm-vpnc.c:346
+msgid "Always Ask"
+msgstr "Visada klausti"
+
+#: ../properties/nm-vpnc.c:353
+msgid "Not Required"
+msgstr "Nereikia"
+
+#: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
 msgstr "Saugus (numatytasis)"
 
-#: ../properties/nm-vpnc.c:285
+#: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
 msgstr "Silpnas (naudokite atsargiai)"
 
-#: ../properties/nm-vpnc.c:293
+#: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Nėra (visiškai nesaugu)"
 
-#: ../properties/nm-vpnc.c:331
-msgid "NAT-T (default)"
-msgstr "NAT-T (numatytasis)"
+#: ../properties/nm-vpnc.c:471
+msgid "Cisco UDP (default)"
+msgstr "Cisco UDP (numatytasis)"
 
-#: ../properties/nm-vpnc.c:338
-msgid "Cisco UDP"
-msgstr "Cisco UDP"
+#: ../properties/nm-vpnc.c:478
+msgid "NAT-T"
+msgstr "NAT-T"
 
-#: ../properties/nm-vpnc.c:345
+#: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Išjungta"
 
-#: ../properties/nm-vpnc.c:809
+#: ../properties/nm-vpnc.c:1116
 msgid "TCP tunneling not supported"
 msgstr "TCP tuneliavimas nepalaikomas"
 
-#: ../properties/nm-vpnc.c:811
+#: ../properties/nm-vpnc.c:1118
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -179,3 +180,18 @@ msgstr "Š_liuzas:"
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
 msgstr "_Naudotojo slaptažodis:"
+
+#~ msgid "_Username:"
+#~ msgstr "_Naudotojo vardas:"
+
+#~ msgid "_Domain:"
+#~ msgstr "S_ritis:"
+
+#~ msgid "Connect _anonymously"
+#~ msgstr "Jungtis an_onimiškai"
+
+#~ msgid "Connect as _user:"
+#~ msgstr "Prisijungti kaip na_udotojas:"
+
+#~ msgid "NAT-T (default)"
+#~ msgstr "NAT-T (numatytasis)"
