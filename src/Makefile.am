@@ -24,8 +24,7 @@ nm_vpnc_service_SOURCES = \
 nm_vpnc_service_LDADD = \
 				$(DBUS_LIBS) \
 				$(GTHREAD_LIBS) \
-				$(NM_UTILS_LIBS) \
-				-lnm_glib_vpn
+				$(NM_UTILS_LIBS)
 
 
 nm_vpnc_service_vpnc_helper_SOURCES = \
