@@ -5,7 +5,7 @@ AC_CONFIG_AUX_DIR(.)
 AM_INIT_AUTOMAKE([subdir-objects])
 AM_MAINTAINER_MODE
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS([config.h])
 
 dnl
 dnl Require programs
@@ -129,7 +129,7 @@ case $with_tests in
         ;;
 esac
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 src/Makefile
 common-gnome/Makefile
@@ -139,3 +139,4 @@ properties/tests/Makefile
 properties/tests/pcf/Makefile
 po/Makefile.in
 ])
+AC_OUTPUT
