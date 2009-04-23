@@ -191,7 +191,6 @@ vpn_password_dialog_new (const char *title,
 	GtkWidget *vbox;
 	GtkWidget *main_vbox;
 	GtkWidget *dialog_icon;
-	GSList *group;
 
 	dialog = gtk_widget_new (VPN_TYPE_PASSWORD_DIALOG, NULL);
 	if (!dialog)

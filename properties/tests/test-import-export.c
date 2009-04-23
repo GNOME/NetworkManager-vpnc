@@ -48,13 +48,13 @@ item_count_func (const char *key, const char *value, gpointer user_data)
 }
 
 static void
-test_items (const char *detail, NMSettingVPN *s_vpn, Item *test_items, gboolean secrets)
+test_items (const char *detail, NMSettingVPN *s_vpn, Item *items, gboolean secrets)
 {
 	Item *iter;
 	guint32 expected_count = 0, actual_count = 0;
 	const char *value;
 
-	for (iter = test_items; iter->name; iter++) {
+	for (iter = items; iter->name; iter++) {
 		if (secrets)
 			value = nm_setting_vpn_get_secret (s_vpn, iter->name);
 		else
@@ -141,7 +141,6 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	const char *expected_route1_gw = "0.0.0.0";
 	const char *expected_route2_dest = "172.16.0.0";
 	const char *expected_route2_gw = "0.0.0.0";
-	const char *value;
 
 	connection = get_basic_connection ("basic-import", plugin, dir, "basic.pcf");
 	ASSERT (connection != NULL, "basic-import", "failed to import connection");
@@ -311,7 +310,6 @@ test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "All your traffic are belong to VPN";
-	const char *value;
 
 	pcf = g_build_path ("/", dir, "everything-via-vpn.pcf", NULL);
 	ASSERT (pcf != NULL,
