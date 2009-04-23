@@ -242,9 +242,8 @@ get_connection_info (const char *vpn_uuid,
                      char **out_upw_type,
                      char **out_gpw_type)
 {
-	char *key, *str;
+	char *key;
 	char *connection_path = NULL;
-	char *upw_type = NULL, *gpw_type = NULL;
 	GConfClient *gconf_client;
 
 	connection_path = find_connection_path (vpn_uuid);

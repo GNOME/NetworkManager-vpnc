@@ -707,7 +707,7 @@ save_secrets (NMVpnPluginUiWidgetInterface *iface,
 	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (iface);
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	NMSettingConnection *s_con;
-	const char *str, *id, *uuid;
+	const char *id, *uuid;
 
 	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
 	if (!s_con) {
