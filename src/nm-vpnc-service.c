@@ -68,6 +68,7 @@ static ValidProperty valid_properties[] = {
 	{ NM_VPNC_KEY_DOMAIN,                G_TYPE_STRING, 0, 0 },
 	{ NM_VPNC_KEY_DHGROUP,               G_TYPE_STRING, 0, 0 },
 	{ NM_VPNC_KEY_PERFECT_FORWARD,       G_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_VENDOR,                G_TYPE_STRING, 0, 0 },
 	{ NM_VPNC_KEY_APP_VERSION,           G_TYPE_STRING, 0, 0 },
 	{ NM_VPNC_KEY_SINGLE_DES,            G_TYPE_BOOLEAN, 0, 0 },
 	{ NM_VPNC_KEY_NO_ENCRYPTION,         G_TYPE_BOOLEAN, 0, 0 },
