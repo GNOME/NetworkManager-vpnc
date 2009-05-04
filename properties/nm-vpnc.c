@@ -980,7 +980,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 
 	pcf = pcf_file_load (path);
 	if (!pcf) {
-		g_set_error (error, 0, 0, "does not look like a %s VPN connection",
+		g_set_error (error, 0, 0, "does not look like a %s VPN connection (parse failed)",
 		             VPNC_PLUGIN_NAME);
 		return NULL;
 	}
@@ -995,16 +995,6 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 
 	s_ip4 = NM_SETTING_IP4_CONFIG (nm_setting_ip4_config_new ());
 	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
-
-	/* Connection name */
-	if (pcf_file_lookup_string (pcf, "main", "Description", &buf))
-		g_object_set (s_con, NM_SETTING_CONNECTION_ID, buf, NULL);
-	else {
-		g_set_error (error, 0, 0, "does not look like a %s VPN connection (parse failed)",
-		             VPNC_PLUGIN_NAME);
-		g_object_unref (connection);
-		return NULL;
-	}
 
 	/* Gateway */
 	if (pcf_file_lookup_string (pcf, "main", "Host", &buf))
@@ -1027,6 +1017,10 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	}
 
 	/* Optional settings */
+
+	/* Connection name */
+	if (pcf_file_lookup_string (pcf, "main", "Description", &buf))
+		g_object_set (s_con, NM_SETTING_CONNECTION_ID, buf, NULL);
 
 	if (pcf_file_lookup_string (pcf, "main", "UserName", &buf))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, buf);

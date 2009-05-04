@@ -125,6 +125,10 @@ pcf_file_load (const char *fname)
 			g_hash_table_insert (group, entry->key, entry);
         }
     }
+
+    /* Contains a main section? */
+    if (!g_hash_table_lookup (pcf, "main"))
+        goto fail;
     
     fclose (fo);
         
