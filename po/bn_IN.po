@@ -1,100 +1,100 @@
+# translation of bn_IN.po to Bengali INDIA
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# sankarshan mukhopadhyay <sankarshan@fedoraproject.org>, 2009.
+# Runa Bhattacharjee <runab@redhat.com>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-vpnc.master.bn_IN\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2009-06-10 00:55+0000\n"
-"PO-Revision-Date: 2009-06-30 10:21+0530\n"
-"Last-Translator: sankarshan mukhopadhyay <sankarshan@fedoraproject.org>\n"
-"Language-Team: Bengali (India) <discuss@lists.ankur.org.in>\n"
+"Project-Id-Version: bn_IN\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2009-08-12 12:15+0000\n"
+"PO-Revision-Date: 2009-08-13 19:38+0530\n"
+"Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
+"Language-Team: Bengali INDIA <anubad@lists.ankur.org.in>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
-msgstr ""
+msgstr "দ্বিতীয় পাসওয়ার্ড: (_S)"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
-msgstr "(_P):"
+msgstr "পাসওয়ার্ড: (_P)"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
-msgstr "  (_o)"
+msgstr "পাসওয়ার্ড প্রদর্শন (_o)"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
-msgstr "     (_R)"
+msgstr "বর্তমান সেশানের জন্য পাসওয়ার্ড মনে রাখা হবে (_R)"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
-msgstr "--   (_S)"
+msgstr "কি-রিংয়ের মধ্যে পাসওয়ার্ড সংরক্ষণ করা হবে (_S)"
 
 #: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Virtual Private Network '%s'     "
+msgstr "ভার্চুয়াল প্রাইভেট নেটওয়ার্ক '%s'-র সাথে সংযোগ স্থাপনের জন্য পরিচয় প্রমাণ করা আবশ্যক।"
 
 #: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
-msgstr "VPN  "
+msgstr "VPN-এ পরিচয় প্রমাণ করুন"
 
 #: ../auth-dialog/main.c:175
 msgid "_Group Password:"
-msgstr " (_G):"
+msgstr "দলের পাসওয়ার্ড: (_G)"
 
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
-msgstr "VPN   ,    "
+msgstr "VPN সংযোগ যোগ, অপসারণ অথবা পরিবর্তন করুন"
 
 #: ../nm-vpnc.desktop.in.h:2
 msgid "VPN Connection Manager (vpnc)"
-msgstr "VPN Connection Manager (vpnc)"
+msgstr "VPN সংযোগ পরিচালনব্যবস্থা (vpnc)"
 
 #: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
-msgstr "Cisco Compatible VPN (vpnc)"
+msgstr "Cisco-র সাথে সুসংগত VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
-msgstr " Cisco, Juniper, Netscreen,  Sonicwall IPSec-based VPN   "
+msgstr "বিভিন্ন Cisco, Juniper, Netscreen, ও Sonicwall IPSec-ভিত্তিক VPN গেটওয়ের সাথে সুসংগত।"
 
 #: ../properties/nm-vpnc.c:339
 msgid "Saved"
-msgstr "  "
+msgstr "সংরক্ষিত"
 
 #: ../properties/nm-vpnc.c:346
 msgid "Always Ask"
-msgstr ""
+msgstr "সর্বদা জিজ্ঞাসা করা হবে"
 
 #: ../properties/nm-vpnc.c:353
 msgid "Not Required"
-msgstr " "
+msgstr "প্রয়োজন নেই"
 
 #: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
-msgstr ""
+msgstr "নিরাপদ (ডিফল্ট)"
 
 #: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
-msgstr ""
+msgstr "দুর্বল (সতর্কতাসহ প্রয়োগ করুন)"
 
 #: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
-msgstr " "
+msgstr "শূণ্য (নিরাপত্তাহীন)"
 
 #: ../properties/nm-vpnc.c:471
 msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (default)"
+msgstr "Cisco UDP (ডিফল্ট)"
 
 #: ../properties/nm-vpnc.c:478
 msgid "NAT-T"
@@ -102,11 +102,11 @@ msgstr "NAT-T"
 
 #: ../properties/nm-vpnc.c:485
 msgid "Disabled"
-msgstr "Disabled"
+msgstr "নিষ্ক্রিয়"
 
 #: ../properties/nm-vpnc.c:1110
 msgid "TCP tunneling not supported"
-msgstr ""
+msgstr "TCP টানেলিং ব্যবস্থা সমর্থিত হয়"
 
 #: ../properties/nm-vpnc.c:1112
 #, c-format
@@ -117,55 +117,60 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
+"VPN বৈশিষ্ট্য চিহ্নকারী '%s' ফাইল দ্বারা VPN-র সকল ট্রাফিকের ক্ষেত্রে TCP-র মাধ্যমে টানেল করার নির্দেশ দেওয়া "
+"হয়েছে। কিন্তু vpnc সফ্টওয়্যার দ্বারা বর্তমানে এই বৈশিষ্ট্য সমর্থিত হয় না।\n"
+"\n"
+"তথাপি, TCP টানেলিং ব্যবস্থা নিষ্ক্রিয় করে এই সংযোগটি স্থাপন করা যাবে। কিন্তু তা সঠিকভাবে না চলার সম্ভবনা রয়েছে।"
 
 #: ../properties/nm-vpnc-dialog.glade.h:1
 msgid " "
-msgstr ""
+msgstr " "
 
 #: ../properties/nm-vpnc-dialog.glade.h:2
 msgid "<b>General</b>"
-msgstr "<b>General</b>"
+msgstr "<b>সাধারণ</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:3
 msgid "<b>Optional</b>"
-msgstr ""
+msgstr "<b>ঐচ্ছিক</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
 msgid "Disable Dead Peer Detection"
-msgstr ""
+msgstr "ডেড পিয়ার সনাক্তকরণ ব্যবস্থা নিষ্ক্রিয় করা হবে"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
 msgid "Domain:"
-msgstr ":"
+msgstr "ডোমেইন:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
 msgid "Encryption method:"
-msgstr ""
+msgstr "এনক্রিপশন পদ্ধতি:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
 msgid "G_roup name:"
-msgstr " (_r):"
+msgstr "দলের নাম: (_r)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
 msgid "Gro_up password:"
-msgstr " (_u):"
+msgstr "দলের পাসওয়ার্ড: (_u)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
 msgid "NAT traversal:"
-msgstr "NAT :"
+msgstr "NAT পারাপার:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
 msgid "Show passwords"
-msgstr "  "
+msgstr "পাসওয়ার্ড প্রদর্শন"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
 msgid "User name:"
-msgstr " :"
+msgstr "ব্যবহারকারীর নাম:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
 msgid "_Gateway:"
-msgstr "(_G):"
+msgstr "গেটওয়ে: (_G)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
-msgstr " (_U):"
+msgstr "ব্যবহারকারীর পাসওয়ার্ড: (_U)"
+
