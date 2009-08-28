@@ -42,6 +42,14 @@ dnl
 AC_ARG_WITH(gnome, AS_HELP_STRING([--without-gnome], [Build NetworkManager-vpnc without GNOME support, e.g. vpn service only]))
 AM_CONDITIONAL(WITH_GNOME, test x"$with_gnome" != xno)
 
+dnl ensure that when the Automake generated makefile calls aclocal,
+dnl it honours the $ACLOCAL_FLAGS environment variable
+ACLOCAL_AMFLAGS="\${ACLOCAL_FLAGS}"
+if test -n "$ac_macro_dir"; then
+	ACLOCAL_AMFLAGS="-I $ac_macro_dir $ACLOCAL_AMFLAGS"
+fi
+AC_SUBST([ACLOCAL_AMFLAGS])
+
 GETTEXT_PACKAGE=NetworkManager-vpnc
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [Gettext package])
