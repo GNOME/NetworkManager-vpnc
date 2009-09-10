@@ -285,6 +285,7 @@ main (int argc, char *argv[])
 	GValue *val;
 	GError *err = NULL;
 	struct in_addr temp_addr;
+	long int mtu = 1412;
 
 	g_type_init ();
 
@@ -368,10 +369,18 @@ main (int argc, char *argv[])
 	if (val)
 		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_BANNER, val);
 
-	/* Set MTU to 1412 */
-	val = uint_to_gvalue (1412);
-	if (val)
-		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_MTU, val);
+	/* MTU */
+	tmp = getenv ("INTERNAL_IP4_MTU");
+	if (tmp && strlen (tmp)) {
+		errno = 0;
+		mtu = strtol (tmp, NULL, 10);
+		if (errno || mtu < 0 || mtu > 20000) {
+			nm_warning ("Ignoring invalid tunnel MTU '%s'", tmp);
+			mtu = 1412;
+		}
+	}
+	val = uint_to_gvalue ((guint32) mtu);
+	g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_MTU, val);
 
 	/* Send the config info to nm-vpnc-service */
 	send_ip4_config (connection, config);
