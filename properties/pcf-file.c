@@ -110,7 +110,7 @@ pcf_file_load (const char *fname)
             *(e++) = 0;
 
 			entry = g_new (PcfEntry, 1);
-			entry->value = g_strdup (e);
+			entry->value = g_strdup (g_strstrip (e));
 
 			if (*s == '!') {
 				key = g_utf8_strdown (s+1, -1);
