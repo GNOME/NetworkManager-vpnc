@@ -23,6 +23,7 @@
 #include <dbus/dbus-glib.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
+#include <locale.h>
 
 #include <nm-utils.h>
 #include <nm-setting-connection.h>
@@ -427,6 +428,42 @@ test_always_ask (NMVpnPluginUiInterface *plugin, const char *dir)
 	g_free (pcf);
 }
 
+static void
+test_non_utf8_import (NMVpnPluginUiInterface *plugin, const char *dir)
+{
+	NMConnection *connection;
+	NMSettingConnection *s_con;
+	NMSettingVPN *s_vpn;
+	const char *expected_id = "Att äta en ko";
+	const char *charset = NULL;
+
+	/* Change charset to ISO-8859-15 to match iso885915.pcf */
+	g_get_charset (&charset);
+	setlocale (LC_ALL, "de_DE@euro");
+	connection = get_basic_connection ("non-utf8-import", plugin, dir, "iso885915.pcf");
+	setlocale (LC_ALL, charset);
+
+	ASSERT (connection != NULL, "non-utf8-import", "failed to import connection");
+
+	/* Connection setting */
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	ASSERT (s_con != NULL,
+	        "non-utf8-import", "missing 'connection' setting");
+
+	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
+	        "non-utf8-import", "unexpected connection ID");
+
+	ASSERT (nm_setting_connection_get_uuid (s_con) == NULL,
+	        "non-utf8-import", "unexpected valid UUID");
+
+	/* VPN setting */
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	ASSERT (s_vpn != NULL,
+	        "non-utf8-import", "missing 'vpn' setting");
+
+	g_object_unref (connection);
+}
+
 int main (int argc, char **argv)
 {
 	GError *error = NULL;
@@ -454,6 +491,7 @@ int main (int argc, char **argv)
 	test_everything_via_vpn (plugin, argv[1]);
 	test_no_natt (plugin, argv[1]);
 	test_always_ask (plugin, argv[1]);
+	test_non_utf8_import (plugin, argv[1]);
 
 	test_basic_export (plugin, argv[1]);
 

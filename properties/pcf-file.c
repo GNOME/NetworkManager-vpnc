@@ -63,12 +63,28 @@ pcf_file_load (const char *fname)
 
     line = 0;
     while (!feof (fo)) {
-        char ln[256], *s, *e;
+        char ln[1024]; /* 4x what we think to allow for possible UTF-8 conversion */
+        char *s, *e;
         
-        if (!(fgets (ln, sizeof (ln), fo)))
+        if (!(fgets (ln, sizeof (ln) / 4, fo)))
             break;
 
         line++;
+
+		if (!g_utf8_validate (ln, -1, NULL)) {
+			char *tmp;
+			GError *error = NULL;
+
+			tmp = g_locale_to_utf8 (ln, -1, NULL, NULL, &error);
+			if (error) {
+				/* ignore the error; leave 'ln' alone.  We tried. */
+				g_error_free (error);
+			} else {
+				g_assert (tmp);
+				strcpy (ln, tmp);  /* update ln with the UTF-8 safe text */
+			}
+			g_free (tmp);
+		}
 
         s = ln + strspn (ln, " \t");
         s[strcspn (s, "\r\n")] = 0;
