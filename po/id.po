@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Andika Triwidada <andika@gmail.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: network manager vpnc master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2009-08-28 20:31+0000\n"
+"PO-Revision-Date: 2009-09-19 05:03+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: LANGUAGE <id@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Indonesian\n"
+"X-Poedit-Country: Indonesia\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:103
+msgid "_Secondary Password:"
+msgstr "Kata Sandi _Sekunder:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:159
+msgid "_Password:"
+msgstr "_Kata Sandi:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:239
+msgid "Sh_ow passwords"
+msgstr "Tampilkan kata sa_ndi"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:299
+msgid "_Remember passwords for this session"
+msgstr "Ingat kata sandi untuk +sesi ini"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:300
+msgid "_Save passwords in keyring"
+msgstr "_Simpan kata sandi dalam gantungan kunci"
+
+#: ../auth-dialog/main.c:170
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "Anda perlu melakukan otentikasi untuk mengakses Virtual Private Network '%s'."
+
+#: ../auth-dialog/main.c:171
+msgid "Authenticate VPN"
+msgstr "Otentikasikan VPN"
+
+#: ../auth-dialog/main.c:175
+msgid "_Group Password:"
+msgstr "Kata Sandi _Grup:"
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "Tambah, Hapus, dan Sunting Sambungan VPN"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "Manajer Sambungan VPN (vpnc)"
+
+#: ../properties/nm-vpnc.c:53
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "VPN Kompatibel Cisco (vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
+msgstr "Kompatibel dengan berbagai gateway VPN berbasis IPSec Cisco, Juniper, Netscreen, dan Sonicwall."
+
+#: ../properties/nm-vpnc.c:339
+msgid "Saved"
+msgstr "Disimpan"
+
+#: ../properties/nm-vpnc.c:346
+msgid "Always Ask"
+msgstr "Selalu Bertanya"
+
+#: ../properties/nm-vpnc.c:353
+msgid "Not Required"
+msgstr "Tak Diperlukan"
+
+#: ../properties/nm-vpnc.c:412
+msgid "Secure (default)"
+msgstr "Aman (baku)"
+
+#: ../properties/nm-vpnc.c:415
+msgid "Weak (use with caution)"
+msgstr "Lemah (gunakan dengan hati-hati)"
+
+#: ../properties/nm-vpnc.c:423
+msgid "None (completely insecure)"
+msgstr "Tak satupun (sepenuhnya tak aman)"
+
+#: ../properties/nm-vpnc.c:471
+msgid "Cisco UDP (default)"
+msgstr "Cisco UDP (baku)"
+
+#: ../properties/nm-vpnc.c:478
+msgid "NAT-T"
+msgstr "NAT-T"
+
+#: ../properties/nm-vpnc.c:485
+msgid "Disabled"
+msgstr "Dimatikan"
+
+#: ../properties/nm-vpnc.c:1110
+msgid "TCP tunneling not supported"
+msgstr "TCP tunneling tak didukung"
+
+#: ../properties/nm-vpnc.c:1112
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it may not work as expected."
+msgstr ""
+"Berkas tatanan VPN '%s' menyatakan bahwa lalu lintas VPN mesti diterowongkan melalui TCP yang kini tak didukung oleh perangkat lunak vpnc.\n"
+"\n"
+"Sambungan masih dapat dibuat, dengan penerowongan TCP dimatikan, namun ini mungkin tak bekerja seperti yang diharapkan."
+
+#: ../properties/nm-vpnc-dialog.glade.h:1
+msgid " "
+msgstr " "
+
+#: ../properties/nm-vpnc-dialog.glade.h:2
+msgid "<b>General</b>"
+msgstr "<b>Umum</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:3
+msgid "<b>Optional</b>"
+msgstr "<b>Pilihan</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:4
+msgid "Disable Dead Peer Detection"
+msgstr "Disable Dead Peer Detection"
+
+#: ../properties/nm-vpnc-dialog.glade.h:5
+msgid "Domain:"
+msgstr "Domain:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:6
+msgid "Encryption method:"
+msgstr "Metoda Penyandian:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:7
+msgid "G_roup name:"
+msgstr "Nama grup:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:8
+msgid "Gro_up password:"
+msgstr "Kata sandi gr_up:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "NAT traversal:"
+msgstr "NAT traversal:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
+msgid "Show passwords"
+msgstr "Tampilkan kata sandi"
+
+#: ../properties/nm-vpnc-dialog.glade.h:11
+msgid "User name:"
+msgstr "Nama pengguna:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:12
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:13
+msgid "_User password:"
+msgstr "Kata sandi pengg_una:"
+
