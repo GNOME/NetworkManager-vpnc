@@ -407,6 +407,9 @@ nm_vpnc_config_write (gint vpnc_fd,
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
+	if (getenv ("VPNC_DEBUG"))
+		write_config_option (vpnc_fd, "Debug 3\n");
+
 	write_config_option (vpnc_fd, "Script " NM_VPNC_HELPER_PATH "\n");
 
 	write_config_option (vpnc_fd,
@@ -472,6 +475,9 @@ real_connect (NMVPNPlugin   *plugin,
 	vpnc_fd = nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), error);
 	if (vpnc_fd < 0)
 		goto out;
+
+	if (getenv ("NM_VPNC_DUMP_CONNECTION"))
+		nm_connection_dump (connection);
 
 	if (!nm_vpnc_config_write (vpnc_fd, s_vpn, error))
 		goto out;
