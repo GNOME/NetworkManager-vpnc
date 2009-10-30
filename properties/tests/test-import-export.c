@@ -159,7 +159,7 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 
 	/* IP4 setting */
 	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
-	ASSERT (s_con != NULL,
+	ASSERT (s_ip4 != NULL,
 	        "basic-import", "missing 'ip4-config' setting");
 
 	ASSERT (nm_setting_ip4_config_get_num_addresses (s_ip4) == 0,
@@ -332,7 +332,7 @@ test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
 
 	/* IP4 setting */
 	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
-	ASSERT (s_con != NULL,
+	ASSERT (s_ip4 != NULL,
 	        "everything-via-vpn", "missing 'ip4-config' setting");
 
 	ASSERT (nm_setting_ip4_config_get_never_default (s_ip4) == FALSE,
