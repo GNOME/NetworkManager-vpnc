@@ -611,9 +611,13 @@ main (int argc, char *argv[])
 
 	main_loop = g_main_loop_new (NULL, FALSE);
 
-	g_signal_connect (plugin, "quit",
-				   G_CALLBACK (quit_mainloop),
-				   main_loop);
+	if (   (argc != 2)
+	    || !argv[1]
+	    || strcmp (argv[1], "--persist")) {
+		g_signal_connect (plugin, "quit",
+					   G_CALLBACK (quit_mainloop),
+					   main_loop);
+	}
 
 	g_main_loop_run (main_loop);
 
