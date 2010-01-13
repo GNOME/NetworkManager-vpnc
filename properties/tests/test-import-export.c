@@ -260,7 +260,7 @@ remove_secrets (NMConnection *connection)
 	g_slist_free (keys);
 }
 
-#define EXPORTED_NAME "basic-export-test.pcf"
+#define BASIC_EXPORTED_NAME "basic-export-test.pcf"
 static void
 test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 {
@@ -274,7 +274,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 	connection = get_basic_connection ("basic-export", plugin, dir, "basic.pcf");
 	ASSERT (connection != NULL, "basic-export", "failed to import connection");
 
-	path = g_build_path ("/", dir, EXPORTED_NAME, NULL);
+	path = g_build_path ("/", dir, BASIC_EXPORTED_NAME, NULL);
 	success = nm_vpn_plugin_ui_interface_export (plugin, path, connection, &error);
 	if (!success) {
 		if (!error)
@@ -284,7 +284,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 	}
 
 	/* Now re-import it and compare the connections to ensure they are the same */
-	reimported = get_basic_connection ("basic-export", plugin, dir, EXPORTED_NAME);
+	reimported = get_basic_connection ("basic-export", plugin, dir, BASIC_EXPORTED_NAME);
 	ret = unlink (path);
 	ASSERT (connection != NULL, "basic-export", "failed to re-import connection");
 
@@ -301,6 +301,52 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 	g_free (path);
 }
 
+#define NAT_EXPORTED_NAME "nat-export-test.pcf"
+static void
+test_nat_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *nat_mode)
+{
+	NMConnection *connection;
+	NMSettingVPN *s_vpn;
+	NMConnection *reimported;
+	char *path;
+	gboolean success;
+	GError *error = NULL;
+	int ret;
+
+	connection = get_basic_connection ("nat-export", plugin, dir, "basic.pcf");
+	ASSERT (connection != NULL, "nat-export", "failed to import connection");
+
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	ASSERT (s_vpn != NULL, "nat-export", "imported connection had no VPN setting");
+
+	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, nat_mode);
+
+	path = g_build_path ("/", dir, NAT_EXPORTED_NAME, NULL);
+	success = nm_vpn_plugin_ui_interface_export (plugin, path, connection, &error);
+	if (!success) {
+		if (!error)
+			FAIL ("nat-export", "export failed with missing error");
+		else
+			FAIL ("nat-export", "export failed: %s", error->message);
+	}
+
+	/* Now re-import it and compare the connections to ensure they are the same */
+	reimported = get_basic_connection ("nat-export", plugin, dir, NAT_EXPORTED_NAME);
+	ret = unlink (path);
+	ASSERT (connection != NULL, "nat-export", "failed to re-import connection");
+
+	/* Clear secrets first, since they don't get exported, and thus would
+	 * make the connection comparison below fail.
+	 */
+	remove_secrets (connection);
+
+	ASSERT (nm_connection_compare (connection, reimported, NM_SETTING_COMPARE_FLAG_EXACT) == TRUE,
+	        "nat-export", "original and reimported connection differ");
+
+	g_object_unref (reimported);
+	g_object_unref (connection);
+	g_free (path);
+}
 
 static void
 test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
@@ -383,6 +429,92 @@ test_no_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "no-natt", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
 	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_NONE) == 0,
 	        "no-natt", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+
+	g_free (pcf);
+}
+
+static void
+test_nat_cisco (NMVpnPluginUiInterface *plugin, const char *dir)
+{
+	NMConnection *connection;
+	NMSettingConnection *s_con;
+	NMSettingVPN *s_vpn;
+	GError *error = NULL;
+	char *pcf;
+	const char *expected_id = "NAT-Cisco";
+	const char *value;
+
+	pcf = g_build_path ("/", dir, "nat-cisco.pcf", NULL);
+	ASSERT (pcf != NULL,
+	        "nat-cisco", "failed to create pcf path");
+
+	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	if (error)
+		FAIL ("nat-cisco", "error importing %s: %s", pcf, error->message);
+	ASSERT (connection != NULL,
+	        "nat-cisco", "error importing %s: (unknown)", pcf);
+
+	/* Connection setting */
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	ASSERT (s_con != NULL,
+	        "nat-cisco", "missing 'connection' setting");
+
+	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
+	        "nat-cisco", "unexpected connection ID");
+
+	/* VPN setting */
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	ASSERT (s_vpn != NULL,
+	        "nat-cisco", "missing 'vpn' setting");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	ASSERT (value != NULL,
+	        "nat-cisco", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_CISCO) == 0,
+	        "nat-cisco", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+
+	g_free (pcf);
+}
+
+static void
+test_nat_natt (NMVpnPluginUiInterface *plugin, const char *dir)
+{
+	NMConnection *connection;
+	NMSettingConnection *s_con;
+	NMSettingVPN *s_vpn;
+	GError *error = NULL;
+	char *pcf;
+	const char *expected_id = "NAT-T";
+	const char *value;
+
+	pcf = g_build_path ("/", dir, "natt.pcf", NULL);
+	ASSERT (pcf != NULL,
+	        "natt", "failed to create pcf path");
+
+	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	if (error)
+		FAIL ("natt", "error importing %s: %s", pcf, error->message);
+	ASSERT (connection != NULL,
+	        "natt", "error importing %s: (unknown)", pcf);
+
+	/* Connection setting */
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	ASSERT (s_con != NULL,
+	        "natt", "missing 'connection' setting");
+
+	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
+	        "natt", "unexpected connection ID");
+
+	/* VPN setting */
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	ASSERT (s_vpn != NULL,
+	        "natt", "missing 'vpn' setting");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	ASSERT (value != NULL,
+	        "natt", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_NATT) == 0,
+	        "natt", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
 
 	g_free (pcf);
 }
@@ -490,10 +622,14 @@ int main (int argc, char **argv)
 	test_basic_import (plugin, argv[1]);
 	test_everything_via_vpn (plugin, argv[1]);
 	test_no_natt (plugin, argv[1]);
+	test_nat_cisco (plugin, argv[1]);
+	test_nat_natt (plugin, argv[1]);
 	test_always_ask (plugin, argv[1]);
 	test_non_utf8_import (plugin, argv[1]);
 
 	test_basic_export (plugin, argv[1]);
+	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_CISCO);
+	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_NATT);
 
 	g_object_unref (plugin);
 
