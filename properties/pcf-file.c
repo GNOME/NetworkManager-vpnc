@@ -19,6 +19,12 @@
  * (C) Copyright 2007 - 2008 Novell, Inc.
  */
 
+/* See the following link for more information on PCF file format and keys:
+ *
+ * http://www.cisco.com/en/US/products/sw/secursw/ps2308/products_administration_guide_chapter09186a00800bd98d.html#wp1169242
+ *
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
