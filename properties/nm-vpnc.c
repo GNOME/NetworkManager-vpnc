@@ -1060,20 +1060,29 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
 	}
 
-	/* Default is enabled, only disabled if explicit EnableNat=0 exists */
+	/* Disable all NAT Traversal if explicit EnableNat=0 exists, otherwise
+	 * default to NAT-T which is newer and standardized.  If EnableNat=1, then
+	 * use Cisco-UDP like always; but if the key "X-NM-Use-NAT-T" is set, then
+	 * use NAT-T.
+	 */
+	nm_setting_vpn_add_data_item (s_vpn,
+	                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
+	                              NM_VPNC_NATT_MODE_CISCO);
+
 	if (pcf_file_lookup_bool (pcf, "main", "EnableNat", &bool_value)) {
-		if (!bool_value) {
+		if (bool_value) {
+			bool_value = FALSE;
+			if (   pcf_file_lookup_bool (pcf, "main", "X-NM-Use-NAT-T", &bool_value)
+			    && bool_value) {
+				nm_setting_vpn_add_data_item (s_vpn,
+				                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
+				                              NM_VPNC_NATT_MODE_NATT);
+			}
+		} else {
 			nm_setting_vpn_add_data_item (s_vpn,
 			                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
 			                              NM_VPNC_NATT_MODE_NONE);
 		}
-	}
-
-	/* Default to Cisco UDP */
-	if (!nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE)) {
-		nm_setting_vpn_add_data_item (s_vpn,
-		                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
-		                              NM_VPNC_NATT_MODE_CISCO);
 	}
 
 	if (pcf_file_lookup_int (pcf, "main", "PeerTimeout", &val)) {
@@ -1144,6 +1153,7 @@ export (NMVpnPluginUiInterface *iface,
 	gboolean success = FALSE;
 	guint32 routes_count = 0;
 	gboolean save_password = FALSE;
+	gboolean use_natt = FALSE;
 
 	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
 	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
@@ -1185,8 +1195,15 @@ export (NMVpnPluginUiInterface *iface,
 		singledes = TRUE;
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	if (value && strlen (value) && strcmp (value, NM_VPNC_NATT_MODE_NONE))
-		enablenat = TRUE;
+	if (value && strlen (value)) {
+		if (!strcmp (value, NM_VPNC_NATT_MODE_CISCO)) {
+			enablenat = TRUE;
+			use_natt = FALSE;
+		} else if (!strcmp (value, NM_VPNC_NATT_MODE_NATT)) {
+			enablenat = TRUE;
+			use_natt = TRUE;
+		}
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT);
 	if (value && strlen (value))
@@ -1264,6 +1281,7 @@ export (NMVpnPluginUiInterface *iface,
 		 "EnableSplitDNS=1\n"
 		 "SingleDES=%s\n"
 		 "SPPhonebook=\n"
+		 "X-NM-Use-NAT-T=%s\n"
 		 "%s\n",
 		 /* Description */   nm_setting_connection_get_id (s_con),
 		 /* Host */          gateway,
@@ -1275,6 +1293,7 @@ export (NMVpnPluginUiInterface *iface,
 		 /* NTDomain */      domain != NULL ? domain : "",
 		 /* PeerTimeout */   peertimeout != NULL ? peertimeout : "0",
 		 /* SingleDES */     singledes ? "1" : "0",
+		 /* X-NM-Use-NAT-T */ use_natt ? "1" : "0",
 		 /* X-NM-Routes */   (routes && routes->str) ? routes->str : "");
 
 	success = TRUE;
