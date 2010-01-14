@@ -86,7 +86,7 @@ send_ip4_config (DBusGConnection *connection, GHashTable *config)
 				    G_TYPE_INVALID);
 
 	if (err) {
-		nm_warning ("Could not send failure information: %s", err->message);
+		nm_warning ("Could not send IPv4 configuration: %s", err->message);
 		g_error_free (err);
 	}
 
