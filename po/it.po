@@ -2,18 +2,19 @@
 # Copyright (C) 2006, 2007, 2008, 2009 the NetworkManager-VPNC'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-VPNC package.
 # Francesco Marletta <francesco.marletta@tiscali.it>, 2006, 2007, 2008, 2009.
+# Luca Ferretti <elle.uca@libero.it>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-VPNC 0.7.1\n"
+"Project-Id-Version: NetworkManager-VPNC 0.8.x\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2009-03-06 05:45+0000\n"
-"PO-Revision-Date: 2009-03-07 23:31+0100\n"
-"Last-Translator: Francesco Marletta <francesco.marletta@tiscali.it>\n"
-"Language-Team: italian <tp@lists.linux.it>\n"
+"POT-Creation-Date: 2010-01-13 20:28+0000\n"
+"PO-Revision-Date: 2010-01-25 22:56+0100\n"
+"Last-Translator: Luca Ferretti <elle.uca@libero.it>\n"
+"Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
@@ -23,17 +24,17 @@ msgstr "Password _secondaria:"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
-msgstr "_Password:"
+msgstr "Pass_word:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:240
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "M_ostra le password"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "_Ricorda le password per questa sessione"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:301
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "_Salva le password nel portachiavi"
 
@@ -41,8 +42,7 @@ msgstr "_Salva le password nel portachiavi"
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
-"È necessario autenticarsi per accedere alla Rete Privata Virtuale (VPN) \"%s"
-"\"."
+"È necessario autenticarsi per accedere alla VPN (rete privata virtuale) «%s»."
 
 #: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
@@ -75,17 +75,20 @@ msgstr ""
 "Compatibile con vari gateway VPN basati su IPSec di Cisco, Juniper, "
 "Netscreen e SonicWALL."
 
+# femminile perché riferito a password
 #: ../properties/nm-vpnc.c:339
 msgid "Saved"
-msgstr "Salvato"
+msgstr "Salvata"
 
+# sempre riferito a password
 #: ../properties/nm-vpnc.c:346
 msgid "Always Ask"
-msgstr "Chiedi sempre"
+msgstr "Chiedere ogni volta"
 
+# ancora riferito a password
 #: ../properties/nm-vpnc.c:353
 msgid "Not Required"
-msgstr "Non richiesto"
+msgstr "Non richiesta"
 
 #: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
@@ -100,22 +103,24 @@ msgid "None (completely insecure)"
 msgstr "Nessuno (completamente insicuro)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "UDP Cisco (predefinito)"
+#| msgid "Secure (default)"
+msgid "NAT-T (default)"
+msgstr "NAT-T (predefinito)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+#| msgid "Cisco UDP (default)"
+msgid "Cisco UDP"
+msgstr "UDP Cisco"
 
 #: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Disabilitato"
 
-#: ../properties/nm-vpnc.c:1116
+#: ../properties/nm-vpnc.c:1119
 msgid "TCP tunneling not supported"
 msgstr "Tunnel TCP non supportato"
 
-#: ../properties/nm-vpnc.c:1118
+#: ../properties/nm-vpnc.c:1121
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -124,9 +129,9 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"Il file di impostazioni VPN \"%s\" specifica the il traffico VPN deve "
-"passare attraverso un tunnel TCP, cosa che non è attualmente supportata dal "
-"software vpnc.\n"
+"Il file di impostazioni VPN «%s» specifica the il traffico VPN deve passare "
+"attraverso un tunnel TCP, cosa che non è attualmente supportata dal software "
+"vpnc.\n"
 "\n"
 "La connessione può essere creata lo stesso, con il tunnel TCP disabilitato, "
 "comunque potrebbe non funzionare come ci si aspetta."
@@ -141,7 +146,7 @@ msgstr "<b>Generale</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:3
 msgid "<b>Optional</b>"
-msgstr "<b>Opzionale</b>"
+msgstr "<b>Opzionali</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
 msgid "Disable Dead Peer Detection"
@@ -182,3 +187,6 @@ msgstr "_Gateway:"
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
 msgstr "Password _utente:"
+
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
