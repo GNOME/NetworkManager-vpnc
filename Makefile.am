@@ -12,14 +12,18 @@ dbusservice_DATA = nm-vpnc-service.conf
 nmvpnservicedir = $(sysconfdir)/NetworkManager/VPN
 nmvpnservice_DATA = nm-vpnc-service.name
 
+desktopfile = nm-vpnc.desktop.in
+iconfile = gnome-mime-application-x-cisco-vpn-settings.png
+
 if WITH_GNOME
-desktopdir = $(datadir)/applications
-desktop_in_files = nm-vpnc.desktop.in
-desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
-@INTLTOOL_DESKTOP_RULE@
+# FIXME: uncomment when nmce gets --import support
+#desktopdir = $(datadir)/applications
+#desktop_in_files = $(desktopfile)
+#desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+#@INTLTOOL_DESKTOP_RULE@
 
 icondir = $(datadir)/icons/hicolor/48x48/apps
-icon_DATA = gnome-mime-application-x-cisco-vpn-settings.png
+icon_DATA = $(iconfile)
 endif
 
 nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in
@@ -27,8 +31,8 @@ nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in
 
 EXTRA_DIST = nm-vpnc-service.name.in \
              $(dbusservice_DATA)  \
-             $(desktop_in_files)  \
-             $(icon_DATA)         \
+             $(desktopfile) \
+             $(iconfile) \
              intltool-extract.in  \
              intltool-merge.in    \
              intltool-update.in \
