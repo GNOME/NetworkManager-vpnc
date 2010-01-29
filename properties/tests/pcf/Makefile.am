@@ -3,5 +3,7 @@ EXTRA_DIST = \
 	everything-via-vpn.pcf \
 	no-natt.pcf \
 	always-ask.pcf \
-	iso885915.pcf
+	iso885915.pcf \
+	nat-cisco.pcf \
+	natt.pcf
 
