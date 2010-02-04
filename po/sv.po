@@ -1,7 +1,7 @@
 # Swedish messages for NetworkManager-vpnc.
-# Copyright (C) 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
-# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008.
+# Copyright (C) 2004, 2005, 2006, 2007, 2008, 2010 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004, 2005, 2006.
+# Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2010.
 #
 # $Id: sv.po,v 1.2 2006/07/12 12:49:06 menthos Exp $
 #
@@ -9,32 +9,32 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-19 00:20+0100\n"
-"PO-Revision-Date: 2008-12-19 00:20+0100\n"
+"POT-Creation-Date: 2010-02-04 22:38+0100\n"
+"PO-Revision-Date: 2010-02-04 22:38+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
-"Language-Team: Swedish <sv@li.org>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:118
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "_Sekundärt lösenord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:174
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "_Lösenord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:255
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "Visa lösen_ord"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:315
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "_Kom ihåg lösenord för denna session"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:316
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "_Spara lösenord i nyckelring"
 
@@ -92,22 +92,22 @@ msgid "None (completely insecure)"
 msgstr "Ingen (totalt osäker)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (standard)"
+msgid "NAT-T (default)"
+msgstr "NAT-T (standard)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
 
 #: ../properties/nm-vpnc.c:485
 msgid "Disabled"
 msgstr "Inaktiverad"
 
-#: ../properties/nm-vpnc.c:1104
+#: ../properties/nm-vpnc.c:1119
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnling stöds inte"
 
-#: ../properties/nm-vpnc.c:1106
+#: ../properties/nm-vpnc.c:1121
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
@@ -170,6 +170,8 @@ msgstr "_Gateway:"
 msgid "_User password:"
 msgstr "Användarlös_enord:"
 
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
 #~ msgid "_Username:"
 #~ msgstr "_Användarnamn:"
 #~ msgid "_Domain:"
@@ -178,8 +180,6 @@ msgstr "Användarlös_enord:"
 #~ msgstr "Anslut anon_ymt"
 #~ msgid "Connect as _user:"
 #~ msgstr "Anslut som _användare:"
-#~ msgid "NAT-T (default)"
-#~ msgstr "NAT-T (standard)"
 #~ msgid "G_roup Name:"
 #~ msgstr "G_ruppnamn:"
 #~ msgid "The following vpnc VPN connection will be created:"
