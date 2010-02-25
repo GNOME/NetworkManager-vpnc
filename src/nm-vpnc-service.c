@@ -432,6 +432,10 @@ nm_vpnc_config_write (gint vpnc_fd,
 		write_config_option (vpnc_fd,
 		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s\n",
 		                     NM_VPNC_NATT_MODE_CISCO);
+	} else if (props_natt_mode && (!strcmp (props_natt_mode, NM_VPNC_NATT_MODE_NATT_ALWAYS))) {
+		write_config_option (vpnc_fd,
+		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s\n",
+		                     NM_VPNC_NATT_MODE_NATT_ALWAYS);
 	}
 
 	info = g_malloc0 (sizeof (WriteConfigInfo));

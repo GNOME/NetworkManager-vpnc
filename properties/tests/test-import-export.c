@@ -520,6 +520,49 @@ test_nat_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
+test_nat_force_natt (NMVpnPluginUiInterface *plugin, const char *dir)
+{
+	NMConnection *connection;
+	NMSettingConnection *s_con;
+	NMSettingVPN *s_vpn;
+	GError *error = NULL;
+	char *pcf;
+	const char *expected_id = "Force NAT-T";
+	const char *value;
+
+	pcf = g_build_path ("/", dir, "force-natt.pcf", NULL);
+	ASSERT (pcf != NULL,
+	        "force-natt", "failed to create pcf path");
+
+	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	if (error)
+		FAIL ("force-natt", "error importing %s: %s", pcf, error->message);
+	ASSERT (connection != NULL,
+	        "force-natt", "error importing %s: (unknown)", pcf);
+
+	/* Connection setting */
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	ASSERT (s_con != NULL,
+	        "force-natt", "missing 'connection' setting");
+
+	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
+	        "force-natt", "unexpected connection ID");
+
+	/* VPN setting */
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	ASSERT (s_vpn != NULL,
+	        "force-natt", "missing 'vpn' setting");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	ASSERT (value != NULL,
+	        "force-natt", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_NATT_ALWAYS) == 0,
+	        "force-natt", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+
+	g_free (pcf);
+}
+
+static void
 test_always_ask (NMVpnPluginUiInterface *plugin, const char *dir)
 {
 	NMConnection *connection;
@@ -624,12 +667,14 @@ int main (int argc, char **argv)
 	test_no_natt (plugin, argv[1]);
 	test_nat_cisco (plugin, argv[1]);
 	test_nat_natt (plugin, argv[1]);
+	test_nat_force_natt (plugin, argv[1]);
 	test_always_ask (plugin, argv[1]);
 	test_non_utf8_import (plugin, argv[1]);
 
 	test_basic_export (plugin, argv[1]);
 	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_CISCO);
 	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_NATT);
+	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_NATT_ALWAYS);
 
 	g_object_unref (plugin);
 
