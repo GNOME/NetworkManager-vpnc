@@ -468,24 +468,31 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 		natt_mode = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
 
 	gtk_list_store_append (store, &iter);
-	gtk_list_store_set (store, &iter, 0, _("NAT-T (default)"), 1, NM_VPNC_NATT_MODE_NATT, -1);
+	gtk_list_store_set (store, &iter, 0, _("NAT-T when available (default)"), 1, NM_VPNC_NATT_MODE_NATT, -1);
 	if ((active < 0) && natt_mode) {
 		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_NATT))
 			active = 0;
 	}
 
 	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("NAT-T always"), 1, NM_VPNC_NATT_MODE_NATT_ALWAYS, -1);
+	if ((active < 0) && natt_mode) {
+		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_NATT_ALWAYS))
+			active = 1;
+	}
+
+	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Cisco UDP"), 1, NM_VPNC_NATT_MODE_CISCO, -1);
 	if ((active < 0) && natt_mode) {
 		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_CISCO))
-			active = 1;
+			active = 2;
 	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Disabled"), 1, NM_VPNC_NATT_MODE_NONE, -1);
 	if ((active < 0) && natt_mode) {
 		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_NONE))
-			active = 2;
+			active = 3;
 	}
 
 	widget = glade_xml_get_widget (priv->xml, "natt_combo");
@@ -1063,7 +1070,9 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	/* Disable all NAT Traversal if explicit EnableNat=0 exists, otherwise
 	 * default to NAT-T which is newer and standardized.  If EnableNat=1, then
 	 * use Cisco-UDP like always; but if the key "X-NM-Use-NAT-T" is set, then
-	 * use NAT-T.
+	 * use NAT-T.  If the key "X-NM-Force-NAT-T" is set then force NAT-T always
+	 * on.  See vpnc documentation for more information on what the different
+	 * NAT modes are.
 	 */
 	nm_setting_vpn_add_data_item (s_vpn,
 	                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
@@ -1071,9 +1080,19 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 
 	if (pcf_file_lookup_bool (pcf, "main", "EnableNat", &bool_value)) {
 		if (bool_value) {
-			bool_value = FALSE;
-			if (   pcf_file_lookup_bool (pcf, "main", "X-NM-Use-NAT-T", &bool_value)
-			    && bool_value) {
+			gboolean natt = FALSE, force_natt = FALSE;
+
+			if (!pcf_file_lookup_bool (pcf, "main", "X-NM-Use-NAT-T", &natt))
+				natt = FALSE;
+			if (!pcf_file_lookup_bool (pcf, "main", "X-NM-Force-NAT-T", &force_natt))
+				force_natt = FALSE;
+
+			/* force-natt takes precence over plain natt */
+			if (force_natt) {
+				nm_setting_vpn_add_data_item (s_vpn,
+				                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
+				                              NM_VPNC_NATT_MODE_NATT_ALWAYS);
+			} else if (natt) {
 				nm_setting_vpn_add_data_item (s_vpn,
 				                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
 				                              NM_VPNC_NATT_MODE_NATT);
@@ -1154,6 +1173,7 @@ export (NMVpnPluginUiInterface *iface,
 	guint32 routes_count = 0;
 	gboolean save_password = FALSE;
 	gboolean use_natt = FALSE;
+	gboolean use_force_natt = FALSE;
 
 	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
 	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
@@ -1202,6 +1222,10 @@ export (NMVpnPluginUiInterface *iface,
 		} else if (!strcmp (value, NM_VPNC_NATT_MODE_NATT)) {
 			enablenat = TRUE;
 			use_natt = TRUE;
+		} else if (!strcmp (value, NM_VPNC_NATT_MODE_NATT_ALWAYS)) {
+			enablenat = TRUE;
+			use_natt = TRUE;
+			use_force_natt = TRUE;
 		}
 	}
 
@@ -1282,6 +1306,7 @@ export (NMVpnPluginUiInterface *iface,
 		 "SingleDES=%s\n"
 		 "SPPhonebook=\n"
 		 "X-NM-Use-NAT-T=%s\n"
+		 "X-NM-Force-NAT-T=%s\n"
 		 "%s\n",
 		 /* Description */   nm_setting_connection_get_id (s_con),
 		 /* Host */          gateway,
@@ -1294,6 +1319,7 @@ export (NMVpnPluginUiInterface *iface,
 		 /* PeerTimeout */   peertimeout != NULL ? peertimeout : "0",
 		 /* SingleDES */     singledes ? "1" : "0",
 		 /* X-NM-Use-NAT-T */ use_natt ? "1" : "0",
+		 /* X-NM-Force-NAT-T */ use_force_natt ? "1" : "0",
 		 /* X-NM-Routes */   (routes && routes->str) ? routes->str : "");
 
 	success = TRUE;
