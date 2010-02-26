@@ -5,5 +5,6 @@ EXTRA_DIST = \
 	always-ask.pcf \
 	iso885915.pcf \
 	nat-cisco.pcf \
-	natt.pcf
+	natt.pcf \
+	force-natt.pcf
 
