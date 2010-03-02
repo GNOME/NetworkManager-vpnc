@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-02-04 22:38+0100\n"
-"PO-Revision-Date: 2010-02-04 22:38+0100\n"
+"POT-Creation-Date: 2010-03-02 19:21+0100\n"
+"PO-Revision-Date: 2010-03-02 19:21+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -92,22 +92,26 @@ msgid "None (completely insecure)"
 msgstr "Ingen (totalt osäker)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "NAT-T (default)"
-msgstr "NAT-T (standard)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T om möjligt (standard)"
 
 #: ../properties/nm-vpnc.c:478
+msgid "NAT-T always"
+msgstr "NAT-T alltid"
+
+#: ../properties/nm-vpnc.c:485
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Inaktiverad"
 
-#: ../properties/nm-vpnc.c:1119
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnling stöds inte"
 
-#: ../properties/nm-vpnc.c:1121
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
