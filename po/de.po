@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Thomas Gier <info@thomasgier.de>, 2007.
 # Mario Blättermann <mariobl@gnome.org>, 2008, 2010.
-#
+# Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2010-01-13 20:28+0000\n"
-"PO-Revision-Date: 2010-01-15 19:15+0100\n"
-"Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
-"Language-Team: de <gnome-de@gnome.org>\n"
+"POT-Creation-Date: 2010-03-02 18:22+0000\n"
+"PO-Revision-Date: 2010-03-06 11:24+0100\n"
+"Last-Translator: Christian Kirbach <Christian.Kirbach@googlemail.com>\n"
+"Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
@@ -97,24 +98,26 @@ msgid "None (completely insecure)"
 msgstr "Keine (komplett unsicher)"
 
 #: ../properties/nm-vpnc.c:471
-#| msgid "Secure (default)"
-msgid "NAT-T (default)"
-msgstr "NAT-T (Vorgabe)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T wenn verfügbar (Vorgabe)"
 
 #: ../properties/nm-vpnc.c:478
-#| msgid "Cisco UDP (default)"
+msgid "NAT-T always"
+msgstr "Immer NAT-T"
+
+#: ../properties/nm-vpnc.c:485
 msgid "Cisco UDP"
 msgstr "Cisco-UDP"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Deaktiviert"
 
-#: ../properties/nm-vpnc.c:1119
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "TCP-Tunneling wird nicht unterstützt"
 
-#: ../properties/nm-vpnc.c:1121
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -260,8 +263,8 @@ msgstr "Ben_utzerpasswort:"
 #~ msgstr "Verbindungsname"
 
 #~ msgid ""
-#~ "Name used to identify the connection to the private network, e.g. \"Campus "
-#~ "VPN\" or \"Corporate Network\""
+#~ "Name used to identify the connection to the private network, e.g. "
+#~ "\"Campus VPN\" or \"Corporate Network\""
 #~ msgstr ""
 #~ "Name, der zur Identifikation der Verbindung zum privaten Netzwerk "
 #~ "verwendet wird, z.B. »Campus VPN« oder »Firmennetzwerk«"
@@ -301,21 +304,21 @@ msgstr "Ben_utzerpasswort:"
 
 #~ msgid "The VPN login failed because the VPN program could not be started."
 #~ msgstr ""
-#~ "Die VPN-Anmeldung scheiterte, weil das VPN-Porgramm nicht gestartet werden "
-#~ "konnte."
+#~ "Die VPN-Anmeldung scheiterte, weil das VPN-Porgramm nicht gestartet "
+#~ "werden konnte."
 
 #~ msgid ""
 #~ "The VPN login failed because the VPN program could not connect to the VPN "
 #~ "server."
 #~ msgstr ""
-#~ "Die VPN-Anmeldung scheiterte, weil das VPN-Programm sich nicht mit dem VPN-"
-#~ "Server verbinden konnte."
+#~ "Die VPN-Anmeldung scheiterte, weil das VPN-Programm sich nicht mit dem "
+#~ "VPN-Server verbinden konnte."
 
 #~ msgid ""
 #~ "The VPN login failed because the VPN configuration options were invalid."
 #~ msgstr ""
-#~ "Die VPN-Anmeldung scheiterte, weil die VPN-Konfigurationsoptionen ungültig "
-#~ "waren."
+#~ "Die VPN-Anmeldung scheiterte, weil die VPN-Konfigurationsoptionen "
+#~ "ungültig waren."
 
 #~ msgid ""
 #~ "The VPN login failed because the VPN program received an invalid "
