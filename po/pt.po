@@ -2,37 +2,37 @@
 # Copyright © 2007, 2009 NetworkManager-vpnc
 # This file is distributed under the same license as the NetworkManager-vpnc package.
 # Duarte Loreto <happyguy_pt@hotmail.com>, 2007.
-# Filipe Gomes <filipefgomes@gmail.com>, 2009.
 #
+# Filipe Gomes <filipefgomes@gmail.com>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: 2.26\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?\n"
-"POT-Creation-Date: 2008-12-15 17:05+0000\n"
-"PO-Revision-Date: 2009-03-13 18:49+0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-03-08 01:12+0000\n"
+"PO-Revision-Date: 2010-03-07 15:38+0000\n"
 "Last-Translator: Filipe Gomes <filipefgomes@gmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:118
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "_Senha Secundária:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:174
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "_Senha:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:255
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "A_presentar senhas"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:315
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "_Recordar as senhas durante esta sessão"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:316
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "_Gravar as senhas no chaveiro"
 
@@ -65,7 +65,9 @@ msgstr "VPN Compatível com Cisco (vpnc)"
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
-msgstr "Compatível com vários gateways VPN baseados no IPSec da Cisco, Juniper, Netscreen e Sonicwall."
+msgstr ""
+"Compatível com vários gateways VPN baseados no IPSec da Cisco, Juniper, "
+"Netscreen e Sonicwall."
 
 #: ../properties/nm-vpnc.c:339
 msgid "Saved"
@@ -92,22 +94,26 @@ msgid "None (completely insecure)"
 msgstr "Nenhum (completamente inseguro)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "UDP Cisco (omissão)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T quando disponível (omissão)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "NAT-T sempre"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "UDP Cisco"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Desactivado"
 
-#: ../properties/nm-vpnc.c:1104
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "Tunneling TCP não suportado"
 
-#: ../properties/nm-vpnc.c:1106
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -174,6 +180,9 @@ msgstr "_Gateway:"
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
 msgstr "Senha do _utlizador:"
+
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "Ligar-se _anonimamente"
