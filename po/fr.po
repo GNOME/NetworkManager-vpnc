@@ -9,8 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-10 10:43+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2010-02-25 21:45+0000\n"
 "PO-Revision-Date: 2009-03-10 10:47+0100\n"
 "Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
@@ -27,15 +28,15 @@ msgstr "Mot de passe _secondaire :"
 msgid "_Password:"
 msgstr "Mot de _passe :"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:240
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "Afficher les _mots de passe"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "_Conserver les mots de passe pour cette session"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:301
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "_Enregistrer les mots de passe dans le trousseau"
 
@@ -98,22 +99,26 @@ msgid "None (completely insecure)"
 msgstr "Aucun (complètement non sécurisé)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "UDP Cisco (par défaut)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T si disponible (par défaut)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "Toujours NAT-T"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "UDP Cisco"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: ../properties/nm-vpnc.c:1116
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "Utilisation d'un tunnel TCP non pris en charge"
 
-#: ../properties/nm-vpnc.c:1118
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -180,3 +185,6 @@ msgstr "_Passerelle :"
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
 msgstr "Mot de passe _utilisateur :"
+
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
