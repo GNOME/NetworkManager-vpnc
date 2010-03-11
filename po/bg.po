@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-27 11:21+0300\n"
-"PO-Revision-Date: 2009-09-03 10:10+0200\n"
+"POT-Creation-Date: 2010-03-11 22:01+0200\n"
+"PO-Revision-Date: 2010-03-11 09:08+0200\n"
 "Last-Translator: Krasimir Chonov <mk2616@abv.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -96,22 +96,26 @@ msgid "None (completely insecure)"
 msgstr "Никаква (напълно несигурно)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (стандартно)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T — когато е наличен (стандартно)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "NAT-T — винаги"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Изключено"
 
-#: ../properties/nm-vpnc.c:1110
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "Не се поддържа тунелиране по TCP"
 
-#: ../properties/nm-vpnc.c:1112
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -177,3 +181,6 @@ msgstr "_Шлюз:"
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
 msgstr "_Парола:"
+
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
