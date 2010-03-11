@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the NetworkManager-vpnc package.
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Jiří Eischmann <jiri@eischmann.cz>, 2008.
-# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009.
+# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2009-03-10 09:46+0000\n"
-"PO-Revision-Date: 2009-03-08 10:27+0100\n"
+"POT-Creation-Date: 2010-03-10 21:42+0000\n"
+"PO-Revision-Date: 2010-02-26 19:32+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -27,15 +27,15 @@ msgstr "Ověření _hesla:"
 msgid "_Password:"
 msgstr "_Heslo:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:240
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "Z_obrazit hesla"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "_Zapamatovat si hesla pro toto sezení"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:301
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "_Uložit hesla do svazku klíčů"
 
@@ -97,22 +97,26 @@ msgid "None (completely insecure)"
 msgstr "Žádné (kompletně nezabezpečené)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (výchozí)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T, pokud je dostupné (výchozí)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "Vždy NAT-T"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Zakázáno"
 
-#: ../properties/nm-vpnc.c:1116
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "TCP tunelování není podporováno"
 
-#: ../properties/nm-vpnc.c:1118
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -179,17 +183,3 @@ msgstr "_Brána:"
 msgid "_User password:"
 msgstr "_Uživ. heslo:"
 
-#~ msgid "_Username:"
-#~ msgstr "_Uživ. jméno:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Doména:"
-
-#~ msgid "Connect _anonymously"
-#~ msgstr "Připojit _anonymně"
-
-#~ msgid "Connect as _user:"
-#~ msgstr "Připojit jako _uživatel:"
-
-#~ msgid "NAT-T (default)"
-#~ msgstr "NAT-T (výchozí)"
