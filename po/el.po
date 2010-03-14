@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-07 15:57+0000\n"
-"PO-Revision-Date: 2008-12-07 01:08+0200\n"
-"Last-Translator: Jennie Petoumenou <epetoumenou@gmail.com>\n"
+"POT-Creation-Date: 2010-03-14 12:50+0200\n"
+"PO-Revision-Date: 2010-03-14 12:51+0200\n"
+"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,32 +18,30 @@ msgstr ""
 "X-Generator: Lokalize 0.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:118
+#: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
 msgstr "_Δευτερεύον συνθηματικό:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:174
+#: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
 msgstr "_Συνθηματικό:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:255
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "Εμ_φάνιση συνθηματικών"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:315
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "Απο_μνημόνευση συνθηματικών για αυτή τη συνεδρία"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:316
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "Απο_θήκευση συνθηματικών στην κλειδοθήκη"
 
 #: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr ""
-"Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Ιδιωτικό Εικονικό "
-"Δίκτυο (VPN) '%s'."
+msgstr "Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Ιδιωτικό Εικονικό Δίκτυο (VPN) '%s'."
 
 #: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
@@ -66,12 +64,8 @@ msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Συμβατός με Cisco πελάτης VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
-msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
-"VPN gateways."
-msgstr ""
-"Συμβατός με διάφορες βασισμένες στο IPSec πύλες VPN των Cisco, Juniper, "
-"Netscreen και Sonicwall."
+msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
+msgstr "Συμβατός με διάφορες βασισμένες στο IPSec πύλες VPN των Cisco, Juniper, Netscreen και Sonicwall."
 
 #: ../properties/nm-vpnc.c:339
 msgid "Saved"
@@ -98,36 +92,35 @@ msgid "None (completely insecure)"
 msgstr "Καμία (καθόλου ασφάλεια)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (προεπιλογή)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T όταν είναι διαθέσιμο (προεπιλογή)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "NAT-T πάντα"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Απενεργοποιημένη"
 
-#: ../properties/nm-vpnc.c:1104
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "Το TCP tunneling  δεν υποστηρίζεται"
 
-#: ../properties/nm-vpnc.c:1106
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
-"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
-"through TCP which is currently not supported in the vpnc software.\n"
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
 "\n"
-"The connection can still be created, with TCP tunneling disabled, however it "
-"may not work as expected."
+"The connection can still be created, with TCP tunneling disabled, however it may not work as expected."
 msgstr ""
-"Το αρχείο ρυθμίσεων VPN '%s' καθορίζει ότι η κυκλοφορία VPN θα πρέπει να "
-"δρομολογηθεί μέσω TCP, κάτι που δεν υποστηρίζεται αυτή τη στιγμή από το "
-"λογισμικό vpnc.\n"
+"Το αρχείο ρυθμίσεων VPN '%s' καθορίζει ότι η κυκλοφορία VPN θα πρέπει να δρομολογηθεί μέσω TCP, κάτι που δεν υποστηρίζεται αυτή τη στιγμή από το λογισμικό vpnc.\n"
 " \n"
-"Παρόλ' αυτά η σύνδεση μπορεί να δημιουργηθεί, αλλά με το TCP tunneling "
-"απενεργοποιημένο. Ενδέχεται, όμως, να μη λειτουργήσει σωστά. "
+"Παρόλ' αυτά η σύνδεση μπορεί να δημιουργηθεί, αλλά με το TCP tunneling απενεργοποιημένο. Ενδέχεται, όμως, να μη λειτουργήσει σωστά. "
 
 #: ../properties/nm-vpnc-dialog.glade.h:1
 msgid " "
@@ -181,14 +174,14 @@ msgstr "_Πύλη:"
 msgid "_User password:"
 msgstr "_Συνθηματικό χρήστη:"
 
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
 #~ msgid "_Username:"
 #~ msgstr "Ό_νομα χρήστη:"
-
 #~ msgid "_Domain:"
 #~ msgstr "_Τομέας:"
-
 #~ msgid "Connect _anonymously"
 #~ msgstr "_Ανώνυμη σύνδεση"
-
 #~ msgid "Connect as _user:"
 #~ msgstr "Σύνδεση ως _χρήστης:"
+
