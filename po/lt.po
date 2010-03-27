@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-12 13:38+0200\n"
-"PO-Revision-Date: 2009-03-12 13:38+0200\n"
+"POT-Creation-Date: 2010-03-27 12:42+0200\n"
+"PO-Revision-Date: 2010-03-27 12:42+0200\n"
 "Last-Translator: Žygimantas Beručka <zygis@gnome.org>\n"
 "Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
 "MIME-Version: 1.0\n"
@@ -27,15 +27,15 @@ msgstr "_Antrinis slaptažodis:"
 msgid "_Password:"
 msgstr "_Slaptažodis:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:240
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "_Rodyti slaptažodžius:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "_Atsiminti slaptažodžius šiam seansui"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:301
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "Iš_saugoti slaptažodius raktinėje"
 
@@ -99,22 +99,26 @@ msgid "None (completely insecure)"
 msgstr "Nėra (visiškai nesaugu)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (numatytasis)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T kai įmanoma (numatytasis)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "NAT-T visada"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Išjungta"
 
-#: ../properties/nm-vpnc.c:1116
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "TCP tuneliavimas nepalaikomas"
 
-#: ../properties/nm-vpnc.c:1118
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -181,6 +185,9 @@ msgstr "Š_liuzas:"
 msgid "_User password:"
 msgstr "_Naudotojo slaptažodis:"
 
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
+
 #~ msgid "_Username:"
 #~ msgstr "_Naudotojo vardas:"
 
@@ -192,6 +199,3 @@ msgstr "_Naudotojo slaptažodis:"
 
 #~ msgid "Connect as _user:"
 #~ msgstr "Prisijungti kaip na_udotojas:"
-
-#~ msgid "NAT-T (default)"
-#~ msgstr "NAT-T (numatytasis)"
