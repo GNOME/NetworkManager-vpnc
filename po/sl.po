@@ -1,16 +1,16 @@
-# Slovenian translation of NetworkManager-vpnc.
+# Slovenian translation of network-manager-vpnc.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-vpnc package.
 #
 # Matic Žgur <mr.zgur@gmail.com>, 2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2009.
+# Matej Urbančič <mateju@svn.gnome.org>, 2009 - 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-vpnc\n"
+"Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2009-04-17 10:54+0000\n"
-"PO-Revision-Date: 2009-10-06 11:01+0100\n"
+"POT-Creation-Date: 2010-04-02 12:02+0000\n"
+"PO-Revision-Date: 2010-04-03 08:52+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -29,23 +29,22 @@ msgstr "_Drugotno geslo:"
 msgid "_Password:"
 msgstr "_Geslo:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:240
-#| msgid "_Group Password:"
+#: ../auth-dialog/gnome-two-password-dialog.c:239
 msgid "Sh_ow passwords"
 msgstr "_Pokaži gesla"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:299
 msgid "_Remember passwords for this session"
 msgstr "_Zapomni si geslo za to sejo"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:301
+#: ../auth-dialog/gnome-two-password-dialog.c:300
 msgid "_Save passwords in keyring"
 msgstr "_Shrani geslo v zbirko ključev"
 
 #: ../auth-dialog/main.c:170
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Overiti je treba dostop do navideznega zasebnega omrežja '%s'."
+msgstr "Dostop do navideznega zasebnega omrežja '%s' zahteva overitev."
 
 #: ../auth-dialog/main.c:171
 msgid "Authenticate VPN"
@@ -61,16 +60,15 @@ msgstr "Dodajanje, odstranjevanje in urejanje povezav VPN"
 
 #: ../nm-vpnc.desktop.in.h:2
 msgid "VPN Connection Manager (vpnc)"
-msgstr "Upravitelj povezav VPN (vpnc)"
+msgstr "Upravljalnik povezav VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:53
-#| msgid "Compatible Cisco VPN client (vpnc)"
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco VPN združljivi odjemalec (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
 msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
-msgstr "Skladno z različnimi prehodi; Cisco, Juniper, Netscreen in Sonicwall IPSec VPN."
+msgstr "Združljivo z različnimi prehodi; Cisco, Juniper, Netscreen in Sonicwall IPSec VPN."
 
 #: ../properties/nm-vpnc.c:339
 msgid "Saved"
@@ -90,36 +88,40 @@ msgstr "Varno (privzeto)"
 
 #: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
-msgstr "Šibko (nepriporočeno)"
+msgstr "Šibko (ni priporočeno)"
 
 #: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
 msgstr "Brez (nezavarovan način)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (privzeto)"
+msgid "NAT-T when available (default)"
+msgstr "Uporabi NAT-T, kadar je na voljo (privzeto)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "Vedno uporabi NAT-T"
 
 #: ../properties/nm-vpnc.c:485
-msgid "Disabled"
-msgstr "Neomogočeno"
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:1116
+#: ../properties/nm-vpnc.c:492
+msgid "Disabled"
+msgstr "Onemogočeno"
+
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "TCP tuneliranje ni podprto"
 
-#: ../properties/nm-vpnc.c:1118
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
 "\n"
 "The connection can still be created, with TCP tunneling disabled, however it may not work as expected."
 msgstr ""
-"Datoteka z nastavitvami za VPN '%s' določa, da mora biti promet VPN tuneliran skozi TCP, kar trenutno ni podprto v programski opremi vpnc.\n"
+"Datoteka z nastavitvami za VPN '%s' določa, da mora biti promet VPN tuneliran preko TCP, kar pa trenutno ni podprto v programski opremi vpnc.\n"
 "\n"
 "Povezava je lahko še vedno ustvarjena, z onemogočenim TCP tuneliranjem, vendar lahko ne deluje po pričakovanjih."
 
@@ -132,30 +134,26 @@ msgid "<b>General</b>"
 msgstr "<b>Splošno</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:3
-#| msgid "<b>Connection Name</b>"
 msgid "<b>Optional</b>"
-msgstr "<i>Izbirno</i>"
+msgstr "<b>Izbirno</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "Onemogoči zaznavo nedejavnih odjemalcev"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-#| msgid "_Domain:"
 msgid "Domain:"
-msgstr "_Domena:"
+msgstr "Domena:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
 msgid "Encryption method:"
 msgstr "Način šifriranja:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-#| msgid "G_roup Name:"
 msgid "G_roup name:"
 msgstr "I_me skupine:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-#| msgid "_Group Password:"
 msgid "Gro_up password:"
 msgstr "_Skupinsko geslo:"
 
@@ -164,12 +162,10 @@ msgid "NAT traversal:"
 msgstr "Prečkanje NAT:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-#| msgid "_Group Password:"
 msgid "Show passwords"
 msgstr "Pokaži gesla"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-#| msgid "_Username:"
 msgid "User name:"
 msgstr "Uporabniško ime:"
 
@@ -178,10 +174,11 @@ msgid "_Gateway:"
 msgstr "_Prehod:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-#| msgid "_Password:"
 msgid "_User password:"
 msgstr "_Uporabnikovo geslo:"
 
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
 #~ msgid "Connect _anonymously"
 #~ msgstr "Poveži _anonimno"
 #~ msgid "Connect as _user:"
@@ -231,11 +228,11 @@ msgstr "_Uporabnikovo geslo:"
 #~ "Please enter the information provided by your system administrator below. "
 #~ "Do not enter your password here as you will be prompted when connecting."
 #~ msgstr ""
-#~ "Prosim, spodaj vnesite informacije, ki vam jih je priskrbel sistemski "
-#~ "administrator. Ne vnesite svojega gesla tukaj, saj boste ponovno vprašani "
-#~ "zanj med povezovanjem."
+#~ "Vnesite podrobnosti, ki vam jih je priskrbel sistemski administrator. Ne "
+#~ "vnesite svojega gesla tukaj, saj boste ponovno vprašani zanj med "
+#~ "povezovanjem."
 #~ msgid "Use _domain for authentication"
-#~ msgstr "Uporabi _domeno za overovitev"
+#~ msgstr "Uporabi overitev _domene "
 #~ msgid "_Import Saved Configuration..."
 #~ msgstr "_Uvozi shranjene nastavitve ..."
 #~ msgid ""
