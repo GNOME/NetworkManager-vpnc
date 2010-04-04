@@ -5,14 +5,14 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: network manager vpnc master\n"
+"Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2009-08-28 20:31+0000\n"
-"PO-Revision-Date: 2009-09-19 05:03+0700\n"
+"POT-Creation-Date: 2010-04-03 06:53+0000\n"
+"PO-Revision-Date: 2010-04-04 10:02+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
-"Language-Team: LANGUAGE <id@li.org>\n"
+"Language-Team: Indonesian Translators <id@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Indonesian\n"
 "X-Poedit-Country: Indonesia\n"
@@ -92,22 +92,26 @@ msgid "None (completely insecure)"
 msgstr "Tak satupun (sepenuhnya tak aman)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (baku)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T bila tersedia (bawaan)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "Selalu NAT-T"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Dimatikan"
 
-#: ../properties/nm-vpnc.c:1110
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "TCP tunneling tak didukung"
 
-#: ../properties/nm-vpnc.c:1112
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
