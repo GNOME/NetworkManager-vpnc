@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-22 00:11+0100\n"
-"PO-Revision-Date: 2010-01-22 00:08+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2010-04-09 17:54+0000\n"
+"PO-Revision-Date: 2010-06-05 19:24+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome at fsf dot hu>\n"
 "MIME-Version: 1.0\n"
@@ -95,22 +95,26 @@ msgid "None (completely insecure)"
 msgstr "Nincs (nem biztonságos)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "NAT-T (default)"
-msgstr "NAT-T (alapértelmezett)"
+msgid "NAT-T when available (default)"
+msgstr "NAT-T ha elérhető (alapértelmezett)"
 
 #: ../properties/nm-vpnc.c:478
+msgid "NAT-T always"
+msgstr "NAT-T mindig"
+
+#: ../properties/nm-vpnc.c:485
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "Tiltva"
 
-#: ../properties/nm-vpnc.c:1119
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "A TCP alagutazás nem támogatott"
 
-#: ../properties/nm-vpnc.c:1121
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -176,3 +180,4 @@ msgstr "Á_tjáró:"
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
 msgstr "_Felhasználó jelszava:"
+
