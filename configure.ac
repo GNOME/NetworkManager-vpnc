@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT(NetworkManager-vpnc, 0.7.2.996, dcbw@redhat.com, NetworkManager-vpnc)
+AC_INIT(NetworkManager-vpnc, 0.7.3, dcbw@redhat.com, NetworkManager-vpnc)
 AM_INIT_AUTOMAKE([subdir-objects no-dist-gzip dist-bzip2])
 AM_MAINTAINER_MODE
 
@@ -87,7 +87,7 @@ if test x"$with_gnome" != xno; then
 	AC_SUBST(GNOMEKEYRING_LIBS)
 fi
 
-PKG_CHECK_MODULES(NM_UTILS, NetworkManager >= 0.7.2 libnm-util libnm_glib libnm_glib_vpn)
+PKG_CHECK_MODULES(NM_UTILS, NetworkManager >= 0.7.3 libnm-util libnm_glib libnm_glib_vpn)
 AC_SUBST(NM_UTILS_CFLAGS)
 AC_SUBST(NM_UTILS_LIBS)
 
