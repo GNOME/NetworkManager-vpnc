@@ -15,9 +15,11 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * (C) Copyright 2005 - 2008 Red Hat, Inc.
+ * (C) Copyright 2005 - 2010 Red Hat, Inc.
  * (C) Copyright 2007 - 2008 Novell, Inc.
  */
+
+#include <config.h>
 
 #include <stdio.h>
 #include <string.h>
@@ -32,6 +34,12 @@
 #include <nm-setting-vpn.h>
 #include "nm-vpnc-service.h"
 #include "nm-utils.h"
+
+#if !defined(DIST_VERSION)
+# define DIST_VERSION VERSION
+#endif
+
+static gboolean debug = FALSE;
 
 G_DEFINE_TYPE (NMVPNCPlugin, nm_vpnc_plugin, NM_TYPE_VPN_PLUGIN)
 
@@ -303,6 +311,10 @@ write_config_option (int fd, const char *format, ...)
 	va_start (args, format);
 	string = g_strdup_vprintf (format, args);
 	x = write (fd, string, strlen (string));
+
+	if (debug)
+		g_print ("Config: %s", string);
+
 	g_free (string);
 	va_end (args);
 }
@@ -407,7 +419,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
-	if (getenv ("VPNC_DEBUG"))
+	if (debug)
 		write_config_option (vpnc_fd, "Debug 3\n");
 
 	write_config_option (vpnc_fd, "Script " NM_VPNC_HELPER_PATH "\n");
@@ -480,7 +492,7 @@ real_connect (NMVPNPlugin   *plugin,
 	if (vpnc_fd < 0)
 		goto out;
 
-	if (getenv ("NM_VPNC_DUMP_CONNECTION"))
+	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
 
 	if (!nm_vpnc_config_write (vpnc_fd, s_vpn, error))
@@ -603,8 +615,35 @@ main (int argc, char *argv[])
 {
 	NMVPNCPlugin *plugin;
 	GMainLoop *main_loop;
+	gboolean persist = FALSE;
+	GOptionContext *opt_ctx = NULL;
+
+	GOptionEntry options[] = {
+		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, "Don't quit when VPN connection terminates", NULL },
+		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, "Enable verbose debug logging (may expose passwords)", NULL },
+		{NULL}
+	};
 
 	g_type_init ();
+
+	/* Parse options */
+	opt_ctx = g_option_context_new ("");
+	g_option_context_set_translation_domain (opt_ctx, "UTF-8");
+	g_option_context_set_ignore_unknown_options (opt_ctx, FALSE);
+	g_option_context_set_help_enabled (opt_ctx, TRUE);
+	g_option_context_add_main_entries (opt_ctx, options, NULL);
+
+	g_option_context_set_summary (opt_ctx,
+		"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager.");
+
+	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
+	g_option_context_free (opt_ctx);
+
+	if (getenv ("VPNC_DEBUG"))
+		debug = TRUE;
+
+	if (debug)
+		g_message ("nm-vpnc-service (version " DIST_VERSION ") starting...");
 
 	if (system ("/sbin/modprobe tun") == -1)
 		exit (EXIT_FAILURE);
@@ -615,13 +654,8 @@ main (int argc, char *argv[])
 
 	main_loop = g_main_loop_new (NULL, FALSE);
 
-	if (   (argc != 2)
-	    || !argv[1]
-	    || strcmp (argv[1], "--persist")) {
-		g_signal_connect (plugin, "quit",
-					   G_CALLBACK (quit_mainloop),
-					   main_loop);
-	}
+	if (!persist)
+		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), main_loop);
 
 	g_main_loop_run (main_loop);
 
