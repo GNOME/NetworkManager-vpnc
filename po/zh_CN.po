@@ -1,39 +1,39 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# Chinese (China) translation of network-manager-vpnc
+# Copyright (C) 2009, 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as the network-manager-vpnc package.
 # Funda Wang <fundawang@linux.net.cn>, 2006.
 # Wei Mingzhi <whistler@openoffice.org>, 2009.
+# Aron Xu <aronxu@gnome.org>, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-vpnc HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2009-02-17 01:49+0000\n"
-"PO-Revision-Date: 2009-02-18 15:07+0800\n"
-"Last-Translator: Wei Mingzhi <whistler@openoffice.org>\n"
-"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"Project-Id-Version: NetworkManager-vpnc master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-11 21:37+0800\n"
+"PO-Revision-Date: 2010-08-11 22:24+0800\n"
+"Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
-msgstr "次要密码(_S):"
+msgstr "次要密码(_S)："
 
 #: ../auth-dialog/gnome-two-password-dialog.c:159
 msgid "_Password:"
-msgstr "密码(_P):"
+msgstr "密码(_P)："
 
-#: ../auth-dialog/gnome-two-password-dialog.c:240
+#: ../auth-dialog/gnome-two-password-dialog.c:243
 msgid "Sh_ow passwords"
 msgstr "显示密码(_O)"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:303
 msgid "_Remember passwords for this session"
 msgstr "本次会话记住密码(_R)"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:301
+#: ../auth-dialog/gnome-two-password-dialog.c:304
 msgid "_Save passwords in keyring"
 msgstr "在密钥环中保存密码(_S)"
 
@@ -48,7 +48,7 @@ msgstr "认证 VPN"
 
 #: ../auth-dialog/main.c:175
 msgid "_Group Password:"
-msgstr "组密码(_G):"
+msgstr "组密码(_G)："
 
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
@@ -84,33 +84,37 @@ msgstr "不需要"
 
 #: ../properties/nm-vpnc.c:412
 msgid "Secure (default)"
-msgstr "安全的 (默认)"
+msgstr "安全(默认)"
 
 #: ../properties/nm-vpnc.c:415
 msgid "Weak (use with caution)"
-msgstr "弱安全性 (谨慎使用)"
+msgstr "弱安全性(谨慎使用)"
 
 #: ../properties/nm-vpnc.c:423
 msgid "None (completely insecure)"
-msgstr "无 (完全不安全)"
+msgstr "无(不安全)"
 
 #: ../properties/nm-vpnc.c:471
-msgid "Cisco UDP (default)"
-msgstr "Cisco UDP (默认)"
+msgid "NAT-T when available (default)"
+msgstr "可用时使用 NAT-T (默认)"
 
 #: ../properties/nm-vpnc.c:478
-msgid "NAT-T"
-msgstr "NAT-T"
+msgid "NAT-T always"
+msgstr "总是使用 NAT-T"
 
 #: ../properties/nm-vpnc.c:485
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:492
 msgid "Disabled"
 msgstr "禁用"
 
-#: ../properties/nm-vpnc.c:1116
+#: ../properties/nm-vpnc.c:1138
 msgid "TCP tunneling not supported"
 msgstr "不支持 TCP 隧道"
 
-#: ../properties/nm-vpnc.c:1118
+#: ../properties/nm-vpnc.c:1140
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -129,7 +133,7 @@ msgstr " "
 
 #: ../properties/nm-vpnc-dialog.glade.h:2
 msgid "<b>General</b>"
-msgstr "<b>一般</b>"
+msgstr "<b>常规</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:3
 msgid "<b>Optional</b>"
@@ -149,11 +153,11 @@ msgstr "加密方法:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
 msgid "G_roup name:"
-msgstr "组名称(_R):"
+msgstr "组名称(_R)："
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
 msgid "Gro_up password:"
-msgstr "组密码(_U):"
+msgstr "组密码(_U)："
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
 msgid "NAT traversal:"
@@ -169,11 +173,14 @@ msgstr "用户名:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
 msgid "_Gateway:"
-msgstr "网关(_G):"
+msgstr "网关(_G)："
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_User password:"
-msgstr "用户密码(_U):"
+msgstr "用户密码(_U)："
+
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "匿名连接(_A)"
