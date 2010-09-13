@@ -40,6 +40,7 @@
 #endif
 
 static gboolean debug = FALSE;
+static GMainLoop *loop = NULL;
 
 G_DEFINE_TYPE (NMVPNCPlugin, nm_vpnc_plugin, NM_TYPE_VPN_PLUGIN)
 
@@ -605,6 +606,27 @@ nm_vpnc_plugin_new (void)
 }
 
 static void
+signal_handler (int signo)
+{
+	if (signo == SIGINT || signo == SIGTERM)
+		g_main_loop_quit (loop);
+}
+
+static void
+setup_signals (void)
+{
+	struct sigaction action;
+	sigset_t mask;
+
+	sigemptyset (&mask);
+	action.sa_handler = signal_handler;
+	action.sa_mask = mask;
+	action.sa_flags = 0;
+	sigaction (SIGTERM,  &action, NULL);
+	sigaction (SIGINT,  &action, NULL);
+}
+
+static void
 quit_mainloop (NMVPNCPlugin *plugin, gpointer user_data)
 {
 	g_main_loop_quit ((GMainLoop *) user_data);
@@ -614,7 +636,6 @@ int
 main (int argc, char *argv[])
 {
 	NMVPNCPlugin *plugin;
-	GMainLoop *main_loop;
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
 
@@ -652,14 +673,15 @@ main (int argc, char *argv[])
 	if (!plugin)
 		exit (EXIT_FAILURE);
 
-	main_loop = g_main_loop_new (NULL, FALSE);
+	loop = g_main_loop_new (NULL, FALSE);
 
 	if (!persist)
-		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), main_loop);
+		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), loop);
 
-	g_main_loop_run (main_loop);
+	setup_signals ();
+	g_main_loop_run (loop);
 
-	g_main_loop_unref (main_loop);
+	g_main_loop_unref (loop);
 	g_object_unref (plugin);
 
 	exit (EXIT_SUCCESS);
