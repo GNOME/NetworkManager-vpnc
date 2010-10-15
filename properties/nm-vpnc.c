@@ -6,6 +6,7 @@
  *
  * Copyright (C) 2005 David Zeuthen, <davidz@redhat.com>
  * Copyright (C) 2005 - 2008 Dan Williams, <dcbw@redhat.com>
+ * Copyright (C) 2005 - 2010 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -61,6 +62,8 @@
 #define PW_TYPE_SAVE   0
 #define PW_TYPE_ASK	   1
 #define PW_TYPE_UNUSED 2
+
+#define NM_VPNC_LOCAL_PORT_DEFAULT 500
 
 /************** plugin class **************/
 
@@ -574,7 +577,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 {
 	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (iface);
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	NMSettingVPN *s_vpn;
+	NMSettingVPN *s_vpn, *s_vpn_orig;
 	GtkWidget *widget;
 	char *str;
 	GtkTreeModel *model;
@@ -665,6 +668,16 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 		if (str && strlen (str) && (gpw_type != PW_TYPE_UNUSED))
 			nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_SECRET, str);
+	}
+
+	/* Local Port is not in GUI (yet?). So when present in the connection,
+	 * copy it from the old VPN setting to the new one to preserve it.
+	 */
+	s_vpn_orig = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	if (s_vpn_orig) {
+		const char *local_port = nm_setting_vpn_get_data_item (s_vpn_orig, NM_VPNC_KEY_LOCAL_PORT);
+		if (local_port && strlen (local_port))
+			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT, local_port);
 	}
 
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
@@ -984,6 +997,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	gboolean bool_value;
 	NMSettingIP4Config *s_ip4;
 	gint val;
+	gboolean found;
 
 	pcf = pcf_file_load (path);
 	if (!pcf) {
@@ -1144,6 +1158,18 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		}
 	}
 
+	/* UseLegacyIKEPort=0 uses dynamic source IKE port instead of 500.
+	 * http://www.cisco.com/en/US/products/sw/secursw/ps2308/products_administration_guide_chapter09186a008015cfdc.html#1192555
+	 * See also: http://support.microsoft.com/kb/928310
+	 */
+	found = pcf_file_lookup_int (pcf, "main", "UseLegacyIKEPort", &val);
+	if (!found || val != 0) {
+		char *tmp;
+		tmp = g_strdup_printf ("%d", (gint) NM_VPNC_LOCAL_PORT_DEFAULT); /* Use default vpnc local port: 500 */
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT, tmp);
+		g_free (tmp);
+	}
+
 	g_hash_table_destroy (pcf);
 
 	return connection;
@@ -1169,6 +1195,7 @@ export (NMVpnPluginUiInterface *iface,
 	const char *peertimeout = NULL;
 	const char *dhgroup = NULL;
 	GString *routes = NULL;
+	GString *uselegacyikeport = NULL;
 	gboolean success = FALSE;
 	guint32 routes_count = 0;
 	gboolean save_password = FALSE;
@@ -1267,6 +1294,11 @@ export (NMVpnPluginUiInterface *iface,
 		routes = NULL;
 	}
 
+	uselegacyikeport = g_string_new ("");
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
+	if (!value || !strcmp (value, "0"))
+		g_string_assign (uselegacyikeport, "UseLegacyIKEPort=0\n");
+
 	fprintf (f, 
 		 "[main]\n"
 		 "Description=%s\n"
@@ -1305,6 +1337,7 @@ export (NMVpnPluginUiInterface *iface,
 		 "EnableSplitDNS=1\n"
 		 "SingleDES=%s\n"
 		 "SPPhonebook=\n"
+		 "%s"
 		 "X-NM-Use-NAT-T=%s\n"
 		 "X-NM-Force-NAT-T=%s\n"
 		 "%s\n",
@@ -1318,6 +1351,7 @@ export (NMVpnPluginUiInterface *iface,
 		 /* NTDomain */      domain != NULL ? domain : "",
 		 /* PeerTimeout */   peertimeout != NULL ? peertimeout : "0",
 		 /* SingleDES */     singledes ? "1" : "0",
+		 /* UseLegacyIKEPort */ (uselegacyikeport->len) ? uselegacyikeport->str : "",
 		 /* X-NM-Use-NAT-T */ use_natt ? "1" : "0",
 		 /* X-NM-Force-NAT-T */ use_force_natt ? "1" : "0",
 		 /* X-NM-Routes */   (routes && routes->str) ? routes->str : "");
@@ -1327,6 +1361,8 @@ export (NMVpnPluginUiInterface *iface,
 done:
 	if (routes)
 		g_string_free (routes, TRUE);
+	if (uselegacyikeport)
+		g_string_free (uselegacyikeport, TRUE);
 	fclose (f);
 	return success;
 }

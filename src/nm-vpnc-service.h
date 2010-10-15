@@ -15,7 +15,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * (C) Copyright 2005 - 2008 Red Hat, Inc.
+ * (C) Copyright 2005 - 2010 Red Hat, Inc.
  * (C) Copyright 2007 - 2008 Novell, Inc.
  */
 
@@ -54,6 +54,7 @@
 #define NM_VPNC_KEY_NAT_TRAVERSAL_MODE "NAT Traversal Mode"
 #define NM_VPNC_KEY_DPD_IDLE_TIMEOUT "DPD idle timeout (our side)"
 #define NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT "Cisco UDP Encapsulation Port"
+#define NM_VPNC_KEY_LOCAL_PORT "Local Port"
 
 #define NM_VPNC_NATT_MODE_NATT        "natt"
 #define NM_VPNC_NATT_MODE_NONE        "none"

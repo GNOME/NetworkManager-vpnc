@@ -60,6 +60,7 @@ static const char *vpnc_binary_paths[] =
 
 #define NM_VPNC_HELPER_PATH		LIBEXECDIR"/nm-vpnc-service-vpnc-helper"
 #define NM_VPNC_UDP_ENCAPSULATION_PORT	0 /* random port */
+#define NM_VPNC_LOCAL_PORT_ISAKMP	0 /* random port */
 
 typedef struct {
 	const char *name;
@@ -84,6 +85,7 @@ static ValidProperty valid_properties[] = {
 	{ NM_VPNC_KEY_DPD_IDLE_TIMEOUT,      G_TYPE_INT, 0, 86400 },
 	{ NM_VPNC_KEY_NAT_TRAVERSAL_MODE,    G_TYPE_STRING, 0, 0 },
 	{ NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT, G_TYPE_INT, 0, 65535 },
+	{ NM_VPNC_KEY_LOCAL_PORT,            G_TYPE_INT, 0, 65535 },
 	/* Ignored option for internal use */
 	{ NM_VPNC_KEY_SECRET_TYPE,           G_TYPE_NONE, 0, 0 },
 	{ NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,   G_TYPE_NONE, 0, 0 },
@@ -417,6 +419,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 	const char *props_natt_mode;
 	const char *default_username;
 	const char *pw_type;
+	const char *local_port;
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
@@ -428,6 +431,16 @@ nm_vpnc_config_write (gint vpnc_fd,
 	write_config_option (vpnc_fd,
 	                     NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT " %d\n",
 	                     NM_VPNC_UDP_ENCAPSULATION_PORT);
+
+	local_port = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
+	if (!local_port) {
+		/* Configure 'Local Port' to 0 (random port) if the value is not set in the setting.
+		 * Otherwise vpnc would try to use 500 and could clash with other IKE processes.
+		 */
+		write_config_option (vpnc_fd,
+		                     NM_VPNC_KEY_LOCAL_PORT " %d\n",
+		                     NM_VPNC_LOCAL_PORT_ISAKMP);
+	}
 
 	/* Fill username if it's not present */
 	props_username = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER);
