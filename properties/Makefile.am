@@ -19,7 +19,7 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 	$(GTK_CFLAGS) \
 	$(GCONF_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
-	$(NM_UTILS_CFLAGS) \
+	$(NETWORKMANAGER_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DGLADEDIR=\""$(gladedir)"\" \
 	-DG_DISABLE_DEPRECATED \
@@ -32,7 +32,7 @@ libnm_vpnc_properties_la_LIBADD = \
 	$(GLADE_LIBS) \
 	$(GTK_LIBS) \
 	$(GCONF_LIBS) \
-	$(NM_UTILS_LIBS) \
+	$(NETWORKMANAGER_LIBS) \
 	$(GNOMEKEYRING_LIBS) \
 	$(top_builddir)/common-gnome/libnm-vpnc-common-gnome.la
 
