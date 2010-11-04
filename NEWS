@@ -1,0 +1,11 @@
+=======================================================
+network-manager-vpnc-0.8.2
+Overview of changes since network-manager-vpnc-0.8.1
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Updated translations
+* Better debugging options
+* Use random IKE source port by default
+
