@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Alexandru Palcuie <palcuiealex@yahoo.com>, 2010.
+# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2010-11-09 17:25+0000\n"
+"PO-Revision-Date: 2010-11-27 03:30+0300\n"
+"Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
+"Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2);;\n"
+"X-Generator: Virtaal 0.6.1\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:103
+msgid "_Secondary Password:"
+msgstr "Parolă _secundară:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:159
+msgid "_Password:"
+msgstr "_Parolă:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "Sh_ow passwords"
+msgstr "_Arată parolele"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:303
+msgid "_Remember passwords for this session"
+msgstr "_Reține parolele pentru această sesiune"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:304
+msgid "_Save passwords in keyring"
+msgstr "_Salvează parolele în inelul de chei"
+
+#: ../auth-dialog/main.c:170
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+"Trebuie să vă autentificați pentru a accesa Rețeaua privată virtuală „%s”."
+
+#: ../auth-dialog/main.c:171
+msgid "Authenticate VPN"
+msgstr "Autentifică VPN"
+
+#: ../auth-dialog/main.c:175
+msgid "_Group Password:"
+msgstr "_Grup de parole:"
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "Adaugă, șterge sau modifică conexiuni VPN"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "Manager conexiuni VPN (vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "VPN compatibil Cisco (vpnc)"
+
+#: ../properties/nm-vpnc.c:55
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr ""
+"Compatibil cu diferite gateway-uri VPN Cisco, Juniper, Netscreen și "
+"Sonicwall bazate pe IPSec."
+
+#: ../properties/nm-vpnc.c:342
+msgid "Saved"
+msgstr "Salvat"
+
+#: ../properties/nm-vpnc.c:349
+msgid "Always Ask"
+msgstr "Întreabă mereu"
+
+#: ../properties/nm-vpnc.c:356
+msgid "Not Required"
+msgstr "Nu este necesar"
+
+#: ../properties/nm-vpnc.c:415
+msgid "Secure (default)"
+msgstr "Securizat (implicit)"
+
+#: ../properties/nm-vpnc.c:418
+msgid "Weak (use with caution)"
+msgstr "Slabă (folosiți cu precauție)"
+
+#: ../properties/nm-vpnc.c:426
+msgid "None (completely insecure)"
+msgstr "Niciuna (complet nesecurizat)"
+
+#: ../properties/nm-vpnc.c:474
+msgid "NAT-T when available (default)"
+msgstr "NAT-T când este disponibilă (implicit)"
+
+#: ../properties/nm-vpnc.c:481
+msgid "NAT-T always"
+msgstr "Întotdeauna NAT-T"
+
+#: ../properties/nm-vpnc.c:488
+msgid "Cisco UDP"
+msgstr "UDP Cisco"
+
+#: ../properties/nm-vpnc.c:495
+msgid "Disabled"
+msgstr "Dezactivată"
+
+#: ../properties/nm-vpnc.c:1152
+msgid "TCP tunneling not supported"
+msgstr "Tunelarea TCP nu este suportată"
+
+#: ../properties/nm-vpnc.c:1154
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+"În fișierul de configurări VPN „%s” se precizează că traficul VPN ar trebui "
+"tunelat prin TCP, funcție care momentan nu este suportată de către aplicația "
+"vpnc.\n"
+"\n"
+"Conexiunea poate fi creată, cu tunelarea TCP dezactivată, însă este posibil "
+"ca ea să nu funcționeze cum vă așteptați."
+
+#: ../properties/nm-vpnc-dialog.glade.h:1
+msgid " "
+msgstr " "
+
+#: ../properties/nm-vpnc-dialog.glade.h:2
+msgid "<b>General</b>"
+msgstr "<b>Generale</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:3
+msgid "<b>Optional</b>"
+msgstr "<b>Opționale</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:4
+msgid "Disable Dead Peer Detection"
+msgstr "Dezactivați detecția de parteneri deconectați"
+
+#: ../properties/nm-vpnc-dialog.glade.h:5
+msgid "Domain:"
+msgstr "Domeniu:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:6
+msgid "Encryption method:"
+msgstr "Metodă de criptare:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:7
+msgid "G_roup name:"
+msgstr "Nume g_rup:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:8
+msgid "Gro_up password:"
+msgstr "Parolă gr_up:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "NAT traversal:"
+msgstr "Traversare NAT:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
+msgid "Show passwords"
+msgstr "Arată parolele"
+
+#: ../properties/nm-vpnc-dialog.glade.h:11
+msgid "User name:"
+msgstr "Nume utilizator:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:12
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:13
+msgid "_User password:"
+msgstr "Parolă _utilizator:"
