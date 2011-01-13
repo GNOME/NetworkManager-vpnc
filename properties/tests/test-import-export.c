@@ -76,7 +76,7 @@ test_items (const char *detail, NMSettingVPN *s_vpn, Item *items, gboolean secre
 		nm_setting_vpn_foreach_data_item (s_vpn, item_count_func, &actual_count);
 
 	ASSERT (actual_count == expected_count,
-	        detail, "unexpected number of items (got %d, expected %d", actual_count, expected_count);
+	        detail, "unexpected number of items (got %d, expected %d)", actual_count, expected_count);
 }
 
 
