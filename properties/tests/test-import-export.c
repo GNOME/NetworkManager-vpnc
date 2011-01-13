@@ -640,6 +640,90 @@ test_non_utf8_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	g_object_unref (connection);
 }
 
+static void
+test_legacy_ike_port_0_import (NMVpnPluginUiInterface *plugin, const char *dir)
+{
+	NMConnection *connection;
+	NMSettingConnection *s_con;
+	NMSettingVPN *s_vpn;
+	GError *error = NULL;
+	char *pcf;
+	const char *expected_id = "Use Legacy IKE Port (i.e. dynamic)";
+	const char *value;
+
+	pcf = g_build_path ("/", dir, "use-legacy-ike-port-0.pcf", NULL);
+	ASSERT (pcf != NULL,
+	        "use-legacy-ike-port-0", "failed to create pcf path");
+
+	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	if (error)
+		FAIL ("", "error importing %s: %s", pcf, error->message);
+	ASSERT (connection != NULL,
+	        "use-legacy-ike-port-0", "error importing %s: (unknown)", pcf);
+
+	/* Connection setting */
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	ASSERT (s_con != NULL,
+	        "use-legacy-ike-port-0", "missing 'connection' setting");
+
+	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
+	        "use-legacy-ike-port-0", "unexpected connection ID");
+
+	/* VPN setting */
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	ASSERT (s_vpn != NULL,
+	        "use-legacy-ike-port-0", "missing 'vpn' setting");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
+	ASSERT (value == NULL || strcmp (value, "0") == 0,
+	        "use-legacy-ike-port-0", "item %s should not be present or should be 0", NM_VPNC_KEY_LOCAL_PORT);
+
+	g_free (pcf);
+}
+
+static void
+test_legacy_ike_port_1_import (NMVpnPluginUiInterface *plugin, const char *dir)
+{
+	NMConnection *connection;
+	NMSettingConnection *s_con;
+	NMSettingVPN *s_vpn;
+	GError *error = NULL;
+	char *pcf;
+	const char *expected_id = "Don't use Legacy IKE Port (500)";
+	const char *value;
+
+	pcf = g_build_path ("/", dir, "use-legacy-ike-port-1.pcf", NULL);
+	ASSERT (pcf != NULL,
+	        "use-legacy-ike-port-1", "failed to create pcf path");
+
+	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	if (error)
+		FAIL ("", "error importing %s: %s", pcf, error->message);
+	ASSERT (connection != NULL,
+	        "use-legacy-ike-port-1", "error importing %s: (unknown)", pcf);
+
+	/* Connection setting */
+	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	ASSERT (s_con != NULL,
+	        "use-legacy-ike-port-1", "missing 'connection' setting");
+
+	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
+	        "use-legacy-ike-port-1", "unexpected connection ID");
+
+	/* VPN setting */
+	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	ASSERT (s_vpn != NULL,
+	        "use-legacy-ike-port-1", "missing 'vpn' setting");
+
+	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
+	ASSERT (value != NULL,
+	        "use-legacy-ike-port-1", "unexpected missing value for item %s", NM_VPNC_KEY_LOCAL_PORT);
+	ASSERT (strcmp (value, "500") == 0,
+	        "use-legacy-ike-port-1", "unexpected value for item %s", NM_VPNC_KEY_LOCAL_PORT);
+
+	g_free (pcf);
+}
+
 int main (int argc, char **argv)
 {
 	GError *error = NULL;
@@ -671,6 +755,8 @@ int main (int argc, char **argv)
 	test_nat_force_natt (plugin, argv[1]);
 	test_always_ask (plugin, argv[1]);
 	test_non_utf8_import (plugin, argv[1]);
+	test_legacy_ike_port_0_import (plugin, argv[1]);
+	test_legacy_ike_port_1_import (plugin, argv[1]);
 
 	test_basic_export (plugin, argv[1]);
 	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_CISCO);
