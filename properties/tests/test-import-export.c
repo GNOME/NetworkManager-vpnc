@@ -95,6 +95,7 @@ static Item basic_items[] = {
 	{ NM_VPNC_KEY_NAT_TRAVERSAL_MODE,    NM_VPNC_NATT_MODE_CISCO },
 	{ NM_VPNC_KEY_DPD_IDLE_TIMEOUT,      "90" },
 	{ NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT, NULL },
+	{ NM_VPNC_KEY_LOCAL_PORT,            "500" },
 	{ NULL, NULL }
 };
 
