@@ -240,21 +240,6 @@
                       <placeholder/>
                     </child>
                     <child>
-                      <widget class="GtkCheckButton" id="disable_dpd_checkbutton">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="label" translatable="yes">Disable Dead Peer Detection</property>
-                        <property name="response_id">0</property>
-                        <property name="draw_indicator">True</property>
-                      </widget>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="right_attach">2</property>
-                        <property name="top_attach">4</property>
-                        <property name="bottom_attach">5</property>
-                      </packing>
-                    </child>
-                    <child>
                       <widget class="GtkComboBox" id="encryption_combo">
                         <property name="visible">True</property>
                         <property name="items" translatable="yes"> </property>
@@ -346,6 +331,44 @@
                         <property name="right_attach">2</property>
                         <property name="top_attach">3</property>
                         <property name="bottom_attach">4</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkLabel" id="label5">
+                        <property name="visible">True</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">IKE DH Group:</property>
+                      </widget>
+                      <packing>
+                        <property name="top_attach">4</property>
+                        <property name="bottom_attach">5</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkComboBox" id="dhgroup_combo">
+                        <property name="visible">True</property>
+                        <property name="items" translatable="yes"> </property>
+                      </widget>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">4</property>
+                        <property name="bottom_attach">5</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkCheckButton" id="disable_dpd_checkbutton">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="label" translatable="yes">Disable Dead Peer Detection</property>
+                        <property name="response_id">0</property>
+                        <property name="draw_indicator">True</property>
+                      </widget>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">5</property>
+                        <property name="bottom_attach">6</property>
                       </packing>
                     </child>
                   </widget>

@@ -15,7 +15,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * (C) Copyright 2005 - 2010 Red Hat, Inc.
+ * (C) Copyright 2005 - 2011 Red Hat, Inc.
  * (C) Copyright 2007 - 2008 Novell, Inc.
  */
 
@@ -64,6 +64,10 @@
 #define NM_VPNC_PW_TYPE_SAVE   "save"
 #define NM_VPNC_PW_TYPE_ASK    "ask"
 #define NM_VPNC_PW_TYPE_UNUSED "unused"
+
+#define NM_VPNC_DHGROUP_DH1 "dh1"
+#define NM_VPNC_DHGROUP_DH2 "dh2"
+#define NM_VPNC_DHGROUP_DH5 "dh5"
 
 typedef struct {
 	NMVPNPlugin parent;

@@ -380,6 +380,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	const char *value = NULL;
 	int active = -1;
 	const char *natt_mode = NULL;
+	const char *ike_dh_group = NULL;
 
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 
@@ -505,6 +506,41 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	g_object_unref (store);
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
+	active = -1;
+	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
+	if (s_vpn)
+		ike_dh_group = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DHGROUP);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 1"), 1, NM_VPNC_DHGROUP_DH1, -1);
+	if ((active < 0) && ike_dh_group) {
+		if (!strcmp (ike_dh_group, NM_VPNC_DHGROUP_DH1))
+			active = 0;
+	}
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 2 (default)"), 1, NM_VPNC_DHGROUP_DH2, -1);
+	if ((active < 0) && ike_dh_group) {
+		if (!strcmp (ike_dh_group, NM_VPNC_DHGROUP_DH2))
+			active = 1;
+	}
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 5"), 1, NM_VPNC_DHGROUP_DH5, -1);
+	if ((active < 0) && ike_dh_group) {
+		if (!strcmp (ike_dh_group, NM_VPNC_DHGROUP_DH5))
+			active = 2;
+	}
+
+	widget = glade_xml_get_widget (priv->xml, "dhgroup_combo");
+	g_return_val_if_fail (widget != NULL, FALSE);
+	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
+	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
+	g_object_unref (store);
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 1 : active);
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
 
 	widget = glade_xml_get_widget (priv->xml, "disable_dpd_checkbutton");
 	g_return_val_if_fail (widget != NULL, FALSE);
@@ -634,6 +670,16 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, mode);
 	} else
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, NM_VPNC_NATT_MODE_NATT);
+
+	widget = glade_xml_get_widget (priv->xml, "dhgroup_combo");
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
+	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
+		const char *dhgroup = NULL;
+
+		gtk_tree_model_get (model, &iter, 1, &dhgroup, -1);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, dhgroup);
+	} else
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, NM_VPNC_DHGROUP_DH2);
 
 	widget = glade_xml_get_widget (priv->xml, "disable_dpd_checkbutton");
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
