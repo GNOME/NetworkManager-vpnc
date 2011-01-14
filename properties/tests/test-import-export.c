@@ -1,6 +1,7 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /*
  * Copyright (C) 2009 Dan Williams, <dcbw@redhat.com>
+ * Copyright (C) 2009 - 2011 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -87,7 +88,7 @@ static Item basic_items[] = {
 	{ NM_VPNC_KEY_XAUTH_USER,            "bsmith" },
 	{ NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,   NM_VPNC_PW_TYPE_SAVE },
 	{ NM_VPNC_KEY_DOMAIN,                "COMPANY" },
-	{ NM_VPNC_KEY_DHGROUP,               "2" },
+	{ NM_VPNC_KEY_DHGROUP,               "dh2" },
 	{ NM_VPNC_KEY_PERFECT_FORWARD,       NULL },
 	{ NM_VPNC_KEY_APP_VERSION,           NULL },
 	{ NM_VPNC_KEY_SINGLE_DES,            NULL },
