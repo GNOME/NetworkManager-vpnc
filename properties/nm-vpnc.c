@@ -6,7 +6,7 @@
  *
  * Copyright (C) 2005 David Zeuthen, <davidz@redhat.com>
  * Copyright (C) 2005 - 2008 Dan Williams, <dcbw@redhat.com>
- * Copyright (C) 2005 - 2010 Red Hat, Inc.
+ * Copyright (C) 2005 - 2011 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -1132,8 +1132,12 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	}
 
 	if (pcf_file_lookup_string (pcf, "main", "DHGroup", &buf)) {
-		if (!strcmp (buf, "1") || !strcmp (buf, "2") || !strcmp (buf, "5"))
-			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, buf);
+		if (!strcmp (buf, "1") || !strcmp (buf, "2") || !strcmp (buf, "5")) {
+			char *tmp;
+			tmp = g_strdup_printf ("dh%s", buf);
+			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, tmp);
+			g_free (tmp);
+		}
 	}
 
 	if (pcf_file_lookup_string (pcf, "main", "X-NM-Routes", &buf))
@@ -1261,8 +1265,9 @@ export (NMVpnPluginUiInterface *iface,
 		peertimeout = value;
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DHGROUP);
-	if (value && strlen (value))
-		dhgroup = value;
+	if (value && strlen (value)) {
+		dhgroup = (value[0] == 'd' && value[1] == 'h') ? value + 2 : NULL;
+	}
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
 	if (value && strlen (value)) {
