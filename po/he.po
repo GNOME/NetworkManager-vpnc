@@ -1,0 +1,200 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-vpnc\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-18 23:45+0200\n"
+"PO-Revision-Date: 2011-01-19 00:57+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: Hebrew <sh.yaron@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural= (n !=1 );\n"
+"X-Poedit-Language: Hebrew\n"
+"X-Poedit-Country: ISRAEL\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:103
+msgid "_Secondary Password:"
+msgstr "ססמה מש_נית:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:159
+msgid "_Password:"
+msgstr "_ססמה:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "Sh_ow passwords"
+msgstr "ה_צגת הססמאות"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:303
+msgid "_Remember passwords for this session"
+msgstr "_שמירת הססמאות להפעלה זו"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:304
+msgid "_Save passwords in keyring"
+msgstr "שמירת הססמאות ב_קבוצת המפתחות"
+
+#: ../auth-dialog/main.c:170
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "עליך להזדהות כדי לגשת לרשת הווירטואלית הפרטית '%s'."
+
+#: ../auth-dialog/main.c:171
+msgid "Authenticate VPN"
+msgstr "אימות מול VPN"
+
+#: ../auth-dialog/main.c:175
+msgid "_Group Password:"
+msgstr "ססמת הקבו_צה:"
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "הוספה, הסרה ועריכה של חיבורי VPN"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "מנהל חיבורי ה־VPN‏ (vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "VPN תואם Cisco‏ (vpnc)"
+
+#: ../properties/nm-vpnc.c:55
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr ""
+"תואם למגוון שערי גישה ל־VPN מבוססי IPSec של היצרנים Cisco,‏ Juniper,‏ "
+"Netscreen ו־Sonicwall"
+
+#: ../properties/nm-vpnc.c:342
+msgid "Saved"
+msgstr "נשמר"
+
+#: ../properties/nm-vpnc.c:349
+msgid "Always Ask"
+msgstr "תמיד לשמור"
+
+#: ../properties/nm-vpnc.c:356
+msgid "Not Required"
+msgstr "לא נחוץ"
+
+#: ../properties/nm-vpnc.c:416
+msgid "Secure (default)"
+msgstr "מאובטח (בררת מחדל)"
+
+#: ../properties/nm-vpnc.c:419
+msgid "Weak (use with caution)"
+msgstr "חלש (להשתמש בזהירות)"
+
+#: ../properties/nm-vpnc.c:427
+msgid "None (completely insecure)"
+msgstr "ללא (ממש לא בטוח)"
+
+#: ../properties/nm-vpnc.c:475
+msgid "NAT-T when available (default)"
+msgstr "מעקף NAT כשניתן (בררת מחדל)"
+
+#: ../properties/nm-vpnc.c:482
+msgid "NAT-T always"
+msgstr "תמיד לעקוף את ה־NAT"
+
+#: ../properties/nm-vpnc.c:489
+msgid "Cisco UDP"
+msgstr "UDP של Cisco"
+
+#: ../properties/nm-vpnc.c:496
+msgid "Disabled"
+msgstr "מנוטרל"
+
+#: ../properties/nm-vpnc.c:516
+msgid "DH Group 1"
+msgstr "קבוצת DH‏ 1"
+
+#: ../properties/nm-vpnc.c:523
+msgid "DH Group 2 (default)"
+msgstr "קבוצת DH‏ 2 (בררת מחדל)"
+
+#: ../properties/nm-vpnc.c:530
+msgid "DH Group 5"
+msgstr "קבוצת DH‏ 5"
+
+#: ../properties/nm-vpnc.c:1202
+msgid "TCP tunneling not supported"
+msgstr "תיעול TCP לא נתמך"
+
+#: ../properties/nm-vpnc.c:1204
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+"קובץ הגדרות ה־VPN '%s' מגדיר כי תעבורת ה־VPN אמורה להיות מנותבת דרך TCP שזאת "
+"הגדרה שאינה נתמכת על ידי תכנת ה־vpnc.\n"
+"\n"
+"עדיין ניתן ליצור את החיבור, עם נטרול אפשרות הניתוב דרך TCP, עם זאת יתכן "
+"שהחיבור לא יעבוד כמצופה."
+
+#: ../properties/nm-vpnc-dialog.glade.h:1
+msgid " "
+msgstr " "
+
+#: ../properties/nm-vpnc-dialog.glade.h:2
+msgid "<b>General</b>"
+msgstr "<b>כללי</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:3
+msgid "<b>Optional</b>"
+msgstr "<b>לא מחייב</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:4
+msgid "Disable Dead Peer Detection"
+msgstr "נטרול איתור עמיתים מושבתים"
+
+#: ../properties/nm-vpnc-dialog.glade.h:5
+msgid "Domain:"
+msgstr "מתחם:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:6
+msgid "Encryption method:"
+msgstr "שיטת ההצפנה:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:7
+msgid "G_roup name:"
+msgstr "שם הקבו_צה:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:8
+msgid "Gro_up password:"
+msgstr "ססמת ה_קבוצה:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "IKE DH Group:"
+msgstr "קבוצת DH ל־IKE:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
+msgid "NAT traversal:"
+msgstr "מעקף NAT:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:11
+msgid "Show passwords"
+msgstr "הצגת ססמאות"
+
+#: ../properties/nm-vpnc-dialog.glade.h:12
+msgid "User name:"
+msgstr "שם המשתמש:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:13
+msgid "_Gateway:"
+msgstr "שער _גישה:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:14
+msgid "_User password:"
+msgstr "ססמת המ_שתמש:"
