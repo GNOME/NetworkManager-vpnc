@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-19 14:54+0100\n"
-"PO-Revision-Date: 2011-01-19 14:57+0100\n"
+"POT-Creation-Date: 2011-01-27 03:06+0100\n"
+"PO-Revision-Date: 2011-01-24 17:58+0100\n"
 "Last-Translator: Fran Diéguez <frandieguez@ubuntu.com>\n"
 "Language-Team: Galician <gnome-gl-list@gnome.org>\n"
 "Language: gl\n"
@@ -98,7 +98,7 @@ msgstr "Ningunha (totalmente insegura)"
 
 #: ../properties/nm-vpnc.c:475
 msgid "NAT-T when available (default)"
-msgstr "NAT-T cando estea dispoñíbel (predefinido)"
+msgstr "NAT-T cando estea dispoñíbel (valor predeterminado)"
 
 #: ../properties/nm-vpnc.c:482
 msgid "NAT-T always"
