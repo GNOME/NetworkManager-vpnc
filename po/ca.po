@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-25 22:05+0100\n"
-"PO-Revision-Date: 2010-11-26 12:52+0100\n"
-"Last-Translator: Jordi Estrada <jordi.estrada@gmail.com>\n"
+"POT-Creation-Date: 2011-01-29 10:30+0100\n"
+"PO-Revision-Date: 2011-01-22 14:38+0100\n"
+"Last-Translator: David Planella <david.planella@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
@@ -85,39 +85,51 @@ msgstr "Demana-ho sempre"
 msgid "Not Required"
 msgstr "No necessària"
 
-#: ../properties/nm-vpnc.c:415
+#: ../properties/nm-vpnc.c:416
 msgid "Secure (default)"
 msgstr "Segura (predeterminat)"
 
-#: ../properties/nm-vpnc.c:418
+#: ../properties/nm-vpnc.c:419
 msgid "Weak (use with caution)"
 msgstr "Dèbil (utilitzeu amb compte)"
 
-#: ../properties/nm-vpnc.c:426
+#: ../properties/nm-vpnc.c:427
 msgid "None (completely insecure)"
 msgstr "Cap (completament insegura)"
 
-#: ../properties/nm-vpnc.c:474
+#: ../properties/nm-vpnc.c:475
 msgid "NAT-T when available (default)"
 msgstr "NAT-T quan estigui disponible (predeterminat)"
 
-#: ../properties/nm-vpnc.c:481
+#: ../properties/nm-vpnc.c:482
 msgid "NAT-T always"
 msgstr "NAT-T sempre"
 
-#: ../properties/nm-vpnc.c:488
+#: ../properties/nm-vpnc.c:489
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:495
+#: ../properties/nm-vpnc.c:496
 msgid "Disabled"
 msgstr "Inhabilitat"
 
-#: ../properties/nm-vpnc.c:1152
+#: ../properties/nm-vpnc.c:516
+msgid "DH Group 1"
+msgstr "Grup DH 1"
+
+#: ../properties/nm-vpnc.c:523
+msgid "DH Group 2 (default)"
+msgstr "Grup DH 2 (predeterminat)"
+
+#: ../properties/nm-vpnc.c:530
+msgid "DH Group 5"
+msgstr "Grup DH 5"
+
+#: ../properties/nm-vpnc.c:1202
 msgid "TCP tunneling not supported"
 msgstr "No estan implementats els túnels TCP"
 
-#: ../properties/nm-vpnc.c:1154
+#: ../properties/nm-vpnc.c:1204
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -167,22 +179,26 @@ msgid "Gro_up password:"
 msgstr "Contrasenya del _grup:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "IKE DH Group:"
+msgstr "Grup IKE DH:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
 msgid "NAT traversal:"
 msgstr "Travessament del NAT:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.glade.h:11
 msgid "Show passwords"
 msgstr "Mostra les contrasenyes"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.glade.h:12
 msgid "User name:"
 msgstr "Nom d'usuari:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_Gateway:"
 msgstr "_Passarel·la:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.glade.h:14
 msgid "_User password:"
 msgstr "_Contrasenya d'usuari:"
 
