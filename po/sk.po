@@ -1,0 +1,205 @@
+# Slovak translation for network-manager-vpnc.
+# Copyright (C) 2009, 2010 Free Software Foundation, Inc.
+# This file is distributed under the same license as the network-manager-vpnc package.
+# Pavol Šimo <palo.simo@gmail.com>, 2009, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-vpnc\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2011-01-17 07:58+0000\n"
+"PO-Revision-Date: 2010-03-11 12:21+0100\n"
+"Last-Translator: Pavol Šimo <palo.simo@gmail.com>\n"
+"Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:103
+msgid "_Secondary Password:"
+msgstr "_Sekundárne heslo:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:159
+msgid "_Password:"
+msgstr "_Heslo:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "Sh_ow passwords"
+msgstr "Z_obraziť heslá"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:303
+msgid "_Remember passwords for this session"
+msgstr "_Zapamätať si heslá pre túto reláciu"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:304
+msgid "_Save passwords in keyring"
+msgstr "_Uložiť heslá do zväzku kľúčov"
+
+#: ../auth-dialog/main.c:170
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+"Na prístup do Virtuálnej privátnej siete '%s' musí byť overená vaša "
+"totožnosť."
+
+#: ../auth-dialog/main.c:171
+msgid "Authenticate VPN"
+msgstr "Overenie totožnosti VPN"
+
+#: ../auth-dialog/main.c:175
+msgid "_Group Password:"
+msgstr "_Skupinové heslo:"
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "Pridať, odstrániť a upraviť VPN pripojenia"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "Správca VPN pripojení (vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "VPN kompatibilná s Cisco (vpnc)"
+
+#: ../properties/nm-vpnc.c:55
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr ""
+"Kompatibilné s rôznymi VPN bránami založenými na IPSec (napr. Cisco, "
+"Juniper, Netscreen a Sonicwall)."
+
+#: ../properties/nm-vpnc.c:342
+msgid "Saved"
+msgstr "Uložené"
+
+#: ../properties/nm-vpnc.c:349
+msgid "Always Ask"
+msgstr "Vždy sa pýtať"
+
+#: ../properties/nm-vpnc.c:356
+msgid "Not Required"
+msgstr "Nie je nutné"
+
+#: ../properties/nm-vpnc.c:416
+msgid "Secure (default)"
+msgstr "Zabezpečené (predvolené)"
+
+#: ../properties/nm-vpnc.c:419
+msgid "Weak (use with caution)"
+msgstr "Slabé (používať opatrne)"
+
+#: ../properties/nm-vpnc.c:427
+msgid "None (completely insecure)"
+msgstr "Žiadne (úplne nezabezpečené)"
+
+#: ../properties/nm-vpnc.c:475
+msgid "NAT-T when available (default)"
+msgstr "NAT-T ak je dostupné (predvolené)"
+
+#: ../properties/nm-vpnc.c:482
+msgid "NAT-T always"
+msgstr "NAT-T vždy"
+
+#: ../properties/nm-vpnc.c:489
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:496
+msgid "Disabled"
+msgstr "Zakázané"
+
+#: ../properties/nm-vpnc.c:516
+msgid "DH Group 1"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:523
+#, fuzzy
+#| msgid "Secure (default)"
+msgid "DH Group 2 (default)"
+msgstr "Zabezpečené (predvolené)"
+
+#: ../properties/nm-vpnc.c:530
+msgid "DH Group 5"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:1202
+msgid "TCP tunneling not supported"
+msgstr "TCP tunelovanie nie je podporované"
+
+#: ../properties/nm-vpnc.c:1204
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+"Súbor '%s' s nastaveniami VPN určuje, že by VPN komunikácia mala byť "
+"tunelovaná cez TCP, čo momentálne nie je podporované softvérom vpnc.\n"
+"\n"
+"Pripojenie môže byť aj tak vytvorené, no s TCP tunelovaním zakázaným, takže "
+"nemusí fungovať podľa očakávania."
+
+#: ../properties/nm-vpnc-dialog.glade.h:1
+msgid " "
+msgstr " "
+
+#: ../properties/nm-vpnc-dialog.glade.h:2
+msgid "<b>General</b>"
+msgstr "<b>Všeobecné</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:3
+msgid "<b>Optional</b>"
+msgstr "<b>Voliteľné</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:4
+msgid "Disable Dead Peer Detection"
+msgstr "Zakázať detekciu odpojenia druhej strany"
+
+#: ../properties/nm-vpnc-dialog.glade.h:5
+msgid "Domain:"
+msgstr "Doména:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:6
+msgid "Encryption method:"
+msgstr "Metóda šifrovania:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:7
+msgid "G_roup name:"
+msgstr "S_kupinový názov:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:8
+msgid "Gro_up password:"
+msgstr "Sk_upinové heslo:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "IKE DH Group:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
+msgid "NAT traversal:"
+msgstr "Prechádzanie cez NAT:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:11
+msgid "Show passwords"
+msgstr "Zobraziť heslá"
+
+#: ../properties/nm-vpnc-dialog.glade.h:12
+msgid "User name:"
+msgstr "Používateľské meno:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:13
+msgid "_Gateway:"
+msgstr "_Brána:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:14
+msgid "_User password:"
+msgstr "_Používateľské heslo:"
+
+#~ msgid "NAT-T"
+#~ msgstr "NAT-T"
