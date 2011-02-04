@@ -1,0 +1,189 @@
+# Uyghur translation for network-manager-vpnc.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Gheyret Kenji <gheyret@yahoo.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-vpnc\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: vpnc\n"
+"POT-Creation-Date: 2011-01-29 09:30+0000\n"
+"PO-Revision-Date: 2011-01-31 15:04+0000\n"
+"Last-Translator: Gheyret Kenji <gheyret@yahoo.com>\n"
+"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:103
+msgid "_Secondary Password:"
+msgstr "ئىككىنچى ئىم(_S):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:159
+msgid "_Password:"
+msgstr "ئىم(_P):"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:243
+msgid "Sh_ow passwords"
+msgstr "ئىملارنى كۆرسەت(_O)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:303
+msgid "_Remember passwords for this session"
+msgstr "بۇ ئەڭگىمەدە ئىمنى ئەستە تۇت(_R)"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:304
+msgid "_Save passwords in keyring"
+msgstr "ئىمنى keyring دا ساقلا(_S)"
+
+#: ../auth-dialog/main.c:170
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "مەۋھۇم شەخسىي تور(VPN) '%s' نى زىيارەت قىلىش ئۈچۈن دەلىللەشتىن ئۆتىشىڭىز كېرەك."
+
+#: ../auth-dialog/main.c:171
+msgid "Authenticate VPN"
+msgstr "VPN دەلىللەش"
+
+#: ../auth-dialog/main.c:175
+msgid "_Group Password:"
+msgstr "گۇرۇپپا ئىمى(_G):"
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "VPN باغلىنىشىنى قوشىدۇ، چىقىرىۋېتىدۇ ۋە تەھرىرلەيدۇ"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "VPN باغلىنىشىنى باشقۇرغۇ(vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "Cisco بىلەن ماسلىشىدىغان VPN (vpnc)"
+
+#: ../properties/nm-vpnc.c:55
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr "ھەر خىل Cisco، Juniper، Netscreen، ۋە  Sonicwall IPSec ئاساسىدىكى VPN تور ئۆتكىلى بىلەن ماسلىشىدۇ."
+
+#: ../properties/nm-vpnc.c:342
+msgid "Saved"
+msgstr "ساقلاندى"
+
+#: ../properties/nm-vpnc.c:349
+msgid "Always Ask"
+msgstr "دائىم سورا"
+
+#: ../properties/nm-vpnc.c:356
+msgid "Not Required"
+msgstr "زۆرۈر ئەمەس"
+
+#: ../properties/nm-vpnc.c:416
+msgid "Secure (default)"
+msgstr "بىخەتەر(كۆڭۈلدىكى)"
+
+#: ../properties/nm-vpnc.c:419
+msgid "Weak (use with caution)"
+msgstr "ئاجىز(ئېھتىيات بىلەن ئىشلىتىڭ)"
+
+#: ../properties/nm-vpnc.c:427
+msgid "None (completely insecure)"
+msgstr "يوق(زادىلا بىخەتەر ئەمەس)"
+
+#: ../properties/nm-vpnc.c:475
+msgid "NAT-T when available (default)"
+msgstr "NAT-T بولسا ئىشلىتىش(كۆڭۈلدىكى)"
+
+#: ../properties/nm-vpnc.c:482
+msgid "NAT-T always"
+msgstr "NAT-T نى ھەمىشە ئىشلىتىش"
+
+#: ../properties/nm-vpnc.c:489
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc.c:496
+msgid "Disabled"
+msgstr "چەكلەنگەن"
+
+#: ../properties/nm-vpnc.c:516
+msgid "DH Group 1"
+msgstr "DH گۇرۇپپا 1"
+
+#: ../properties/nm-vpnc.c:523
+msgid "DH Group 2 (default)"
+msgstr "DH گۇرۇپپا 2(كۆڭۈلدىكى)"
+
+#: ../properties/nm-vpnc.c:530
+msgid "DH Group 5"
+msgstr "DH گۇرۇپپا 5"
+
+#: ../properties/nm-vpnc.c:1202
+msgid "TCP tunneling not supported"
+msgstr "TCP تونېللاش(tunneling) نى ئىشلەتكىلى بولمايدۇ"
+
+#: ../properties/nm-vpnc.c:1204
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.glade.h:1
+msgid " "
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.glade.h:2
+msgid "<b>General</b>"
+msgstr "<b>ئادەتتىكى</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:3
+msgid "<b>Optional</b>"
+msgstr "<b>ئىختىيار</b>"
+
+#: ../properties/nm-vpnc-dialog.glade.h:4
+msgid "Disable Dead Peer Detection"
+msgstr "Dead Peer Detection نى چەكلەش"
+
+#: ../properties/nm-vpnc-dialog.glade.h:5
+msgid "Domain:"
+msgstr "دائىرە:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:6
+msgid "Encryption method:"
+msgstr "شىفىرلاش ئۇسۇلى:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:7
+msgid "G_roup name:"
+msgstr "گۇرۇپپا ئاتى(_R):"
+
+#: ../properties/nm-vpnc-dialog.glade.h:8
+msgid "Gro_up password:"
+msgstr "گۇرۇپپا ئىمى(_U):"
+
+#: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "IKE DH Group:"
+msgstr "IKE DH گۇرۇپپىسى:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
+msgid "NAT traversal:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.glade.h:11
+msgid "Show passwords"
+msgstr "ئىم كۆرسەت"
+
+#: ../properties/nm-vpnc-dialog.glade.h:12
+msgid "User name:"
+msgstr "ئىشلەتكۈچى ئاتى:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:13
+msgid "_Gateway:"
+msgstr "تور ئۆتكىلى(_G):"
+
+#: ../properties/nm-vpnc-dialog.glade.h:14
+msgid "_User password:"
+msgstr "ئىشلەتكۈچى ئىمى(_U):"
