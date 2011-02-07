@@ -11,17 +11,16 @@ libnm_vpnc_properties_la_SOURCES = \
 	nm-vpnc.c \
 	nm-vpnc.h
 
-gladedir = $(datadir)/gnome-vpn-properties/vpnc
-glade_DATA = nm-vpnc-dialog.glade
+uidir = $(datadir)/gnome-vpn-properties/vpnc
+ui_DATA = nm-vpnc-dialog.ui
 
 libnm_vpnc_properties_la_CPPFLAGS = \
-	$(GLADE_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(GCONF_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	$(NETWORKMANAGER_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
-	-DGLADEDIR=\""$(gladedir)"\" \
+	-DUIDIR=\""$(uidir)"\" \
 	-DG_DISABLE_DEPRECATED \
 	-DGDK_DISABLE_DEPRECATED \
 	-DGNOME_DISABLE_DEPRECATED \
@@ -29,7 +28,6 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\"
 
 libnm_vpnc_properties_la_LIBADD = \
-	$(GLADE_LIBS) \
 	$(GTK_LIBS) \
 	$(GCONF_LIBS) \
 	$(NETWORKMANAGER_LIBS) \
@@ -39,6 +37,6 @@ libnm_vpnc_properties_la_LIBADD = \
 libnm_vpnc_properties_la_LDFLAGS = \
         -avoid-version
 
-CLEANFILES = *.bak *.gladep *~
+CLEANFILES = *.bak *~
 
-EXTRA_DIST = $(glade_DATA)
+EXTRA_DIST = $(ui_DATA)

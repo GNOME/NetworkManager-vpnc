@@ -35,7 +35,6 @@
 #include <glib/gi18n-lib.h>
 #include <string.h>
 #include <gtk/gtk.h>
-#include <glade/glade.h>
 #include <gnome-keyring.h>
 #include <gnome-keyring-memory.h>
 
@@ -84,7 +83,7 @@ G_DEFINE_TYPE_EXTENDED (VpncPluginUiWidget, vpnc_plugin_ui_widget, G_TYPE_OBJECT
 #define VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidgetPrivate))
 
 typedef struct {
-	GladeXML *xml;
+	GtkBuilder *builder;
 	GtkWidget *widget;
 	GtkSizeGroup *group;
 	gint orig_dpd_timeout;
@@ -137,7 +136,7 @@ check_validity (VpncPluginUiWidget *self, GError **error)
 	GtkWidget *widget;
 	char *str;
 
-	widget = glade_xml_get_widget (priv->xml, "gateway_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str) || strstr (str, " ") || strstr (str, "\t")) {
 		g_set_error (error,
@@ -147,7 +146,7 @@ check_validity (VpncPluginUiWidget *self, GError **error)
 		return FALSE;
 	}
 
-	widget = glade_xml_get_widget (priv->xml, "group_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
@@ -216,7 +215,7 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 	}
 
 	/* User password */
-	widget = glade_xml_get_widget (priv->xml, "user_password_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
 	if (!widget)
 		goto out;
 	if (password)
@@ -225,7 +224,7 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
 	/* Group password */
-	widget = glade_xml_get_widget (priv->xml, "group_password_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_password_entry"));
 	if (!widget)
 		goto out;
 	if (group_password)
@@ -251,11 +250,11 @@ show_toggled_cb (GtkCheckButton *button, VpncPluginUiWidget *self)
 
 	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
 
-	widget = glade_xml_get_widget (priv->xml, "user_password_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
 	g_assert (widget);
 	gtk_entry_set_visibility (GTK_ENTRY (widget), visible);
 
-	widget = glade_xml_get_widget (priv->xml, "group_password_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_password_entry"));
 	g_assert (widget);
 	gtk_entry_set_visibility (GTK_ENTRY (widget), visible);
 }
@@ -271,18 +270,18 @@ pw_type_changed_helper (VpncPluginUiWidget *self, GtkWidget *combo)
 	/* If the user chose "Not required", desensitize and clear the correct
 	 * password entry.
 	 */
-	widget = glade_xml_get_widget (priv->xml, "user_pass_type_combo");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_pass_type_combo"));
 	if (combo == widget)
 		entry = "user_password_entry";
 	else {
-		widget = glade_xml_get_widget (priv->xml, "group_pass_type_combo");
+		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_pass_type_combo"));
 		if (combo == widget)
 			entry = "group_password_entry";
 	}
 	if (!entry)
 		return;
 
-	widget = glade_xml_get_widget (priv->xml, entry);
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, entry));
 	g_assert (widget);
 
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (combo));
@@ -325,7 +324,7 @@ init_one_pw_combo (VpncPluginUiWidget *self,
 	/* If there's already a password and the password type can't be found in
 	 * the VPN settings, default to saving it.  Otherwise, always ask for it.
 	 */
-	widget = glade_xml_get_widget (priv->xml, entry_name);
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, entry_name));
 	if (widget) {
 		const char *tmp;
 
@@ -359,7 +358,7 @@ init_one_pw_combo (VpncPluginUiWidget *self,
 			active = 2;
 	}
 
-	widget = glade_xml_get_widget (priv->xml, combo_name);
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, combo_name));
 	g_assert (widget);
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
@@ -386,7 +385,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 
 	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
-	widget = glade_xml_get_widget (priv->xml, "gateway_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
@@ -396,7 +395,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "group_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
@@ -406,7 +405,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "encryption_combo");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 
@@ -446,7 +445,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	init_one_pw_combo (self, s_vpn, "group_pass_type_combo",
 	                   NM_VPNC_KEY_SECRET_TYPE, "group_password_entry");
 
-	widget = glade_xml_get_widget (priv->xml, "user_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
@@ -456,7 +455,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "domain_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
@@ -499,7 +498,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 			active = 3;
 	}
 
-	widget = glade_xml_get_widget (priv->xml, "natt_combo");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "natt_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
@@ -533,7 +532,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 			active = 2;
 	}
 
-	widget = glade_xml_get_widget (priv->xml, "dhgroup_combo");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
@@ -542,7 +541,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
 
-	widget = glade_xml_get_widget (priv->xml, "disable_dpd_checkbutton");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT);
@@ -560,7 +559,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	}
 	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (stuff_changed_cb), self);
 
-	widget = glade_xml_get_widget (priv->xml, "show_passwords_checkbutton");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "show_passwords_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	g_signal_connect (G_OBJECT (widget), "toggled",
 	                  (GCallback) show_toggled_cb,
@@ -579,13 +578,13 @@ get_widget (NMVpnPluginUiWidgetInterface *iface)
 }
 
 static guint32
-handle_one_pw_type (NMSettingVPN *s_vpn, GladeXML *xml, const char *name, const char *key)
+handle_one_pw_type (NMSettingVPN *s_vpn, GtkBuilder *builder, const char *name, const char *key)
 {
 	GtkWidget *widget;
 	GtkTreeModel *model;
 	guint32 pw_type;
 
-	widget = glade_xml_get_widget (xml, name);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, name));
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
 
 	pw_type = gtk_combo_box_get_active (GTK_COMBO_BOX (widget));
@@ -627,28 +626,28 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_VPNC, NULL);
 
 	/* Gateway */
-	widget = glade_xml_get_widget (priv->xml, "gateway_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_GATEWAY, str);
 
 	/* Group name */
-	widget = glade_xml_get_widget (priv->xml, "group_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_ID, str);
 
-	widget = glade_xml_get_widget (priv->xml, "user_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, str);
 
-	widget = glade_xml_get_widget (priv->xml, "domain_entry");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, str);
 
-	widget = glade_xml_get_widget (priv->xml, "encryption_combo");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
 	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (widget))) {
 	case ENC_TYPE_WEAK:
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
@@ -661,7 +660,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		break;
 	}
 
-	widget = glade_xml_get_widget (priv->xml, "natt_combo");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "natt_combo"));
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
 	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
 		const char *mode = NULL;
@@ -671,7 +670,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	} else
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, NM_VPNC_NATT_MODE_NATT);
 
-	widget = glade_xml_get_widget (priv->xml, "dhgroup_combo");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
 	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
 		const char *dhgroup = NULL;
@@ -681,7 +680,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	} else
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, NM_VPNC_DHGROUP_DH2);
 
-	widget = glade_xml_get_widget (priv->xml, "disable_dpd_checkbutton");
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, "0");
 	} else {
@@ -696,21 +695,21 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		}
 	}
 
-	upw_type = handle_one_pw_type (s_vpn, priv->xml, "user_pass_type_combo", NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
-	gpw_type = handle_one_pw_type (s_vpn, priv->xml, "group_pass_type_combo", NM_VPNC_KEY_SECRET_TYPE);
+	upw_type = handle_one_pw_type (s_vpn, priv->builder, "user_pass_type_combo", NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
+	gpw_type = handle_one_pw_type (s_vpn, priv->builder, "group_pass_type_combo", NM_VPNC_KEY_SECRET_TYPE);
 
 	/* System secrets get stored in the connection, user secrets are saved
 	 * via the save_secrets() hook.
 	 */
 	if (nm_connection_get_scope (connection) == NM_CONNECTION_SCOPE_SYSTEM) {
 		/* User password */
-		widget = glade_xml_get_widget (priv->xml, "user_password_entry");
+		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
 		str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 		if (str && strlen (str) && (upw_type != PW_TYPE_UNUSED))
 			nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD, str);
 
 		/* Group password */
-		widget = glade_xml_get_widget (priv->xml, "group_password_entry");
+		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_password_entry"));
 		str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 		if (str && strlen (str) && (gpw_type != PW_TYPE_UNUSED))
 			nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_SECRET, str);
@@ -731,7 +730,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 }
 
 static void
-save_one_password (GladeXML *xml,
+save_one_password (GtkBuilder *builder,
                    const char *keyring_tag,
                    const char *uuid,
                    const char *id,
@@ -745,11 +744,11 @@ save_one_password (GladeXML *xml,
 	GtkTreeModel *model;
 	gboolean saved = FALSE;
 
-	widget = glade_xml_get_widget (xml, combo);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, combo));
 	g_assert (widget);
 	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
 	if (gtk_combo_box_get_active (GTK_COMBO_BOX (widget)) == PW_TYPE_SAVE) {
-		widget = glade_xml_get_widget (xml, entry);
+		widget = GTK_WIDGET (gtk_builder_get_object (builder, entry));
 		g_assert (widget);
 		password = gtk_entry_get_text (GTK_ENTRY (widget));
 		if (password && strlen (password)) {
@@ -787,9 +786,9 @@ save_secrets (NMVpnPluginUiWidgetInterface *iface,
 	id = nm_setting_connection_get_id (s_con);
 	uuid = nm_setting_connection_get_uuid (s_con);
 
-	save_one_password (priv->xml, VPNC_USER_PASSWORD, uuid, id,
+	save_one_password (priv->builder, VPNC_USER_PASSWORD, uuid, id,
 	                   "user_password_entry", "user_pass_type_combo", "user password");
-	save_one_password (priv->xml, VPNC_GROUP_PASSWORD, uuid, id,
+	save_one_password (priv->builder, VPNC_GROUP_PASSWORD, uuid, id,
 	                   "group_password_entry", "group_pass_type_combo", "group password");
 
 	return TRUE;
@@ -800,7 +799,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 {
 	NMVpnPluginUiWidgetInterface *object;
 	VpncPluginUiWidgetPrivate *priv;
-	char *glade_file;
+	char *ui_file;
 
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
@@ -813,18 +812,24 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (object);
 
-	glade_file = g_strdup_printf ("%s/%s", GLADEDIR, "nm-vpnc-dialog.glade");
-	priv->xml = glade_xml_new (glade_file, "vpnc-vbox", GETTEXT_PACKAGE);
-	if (priv->xml == NULL) {
+	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-vpnc-dialog.ui");
+	priv->builder = gtk_builder_new ();
+
+	if (!gtk_builder_add_from_file (priv->builder, ui_file, error)) {
+		g_warning ("Couldn't load builder file: %s",
+		           error && *error ? (*error)->message : "(unknown)");
+		g_clear_error (error);
 		g_set_error (error, VPNC_PLUGIN_UI_ERROR, 0,
-		             "could not load required resources at %s", glade_file);
-		g_free (glade_file);
+		             "could not load required resources at %s", ui_file);
+		g_free (ui_file);
 		g_object_unref (object);
 		return NULL;
 	}
-	g_free (glade_file);
+	g_free (ui_file);
 
-	priv->widget = glade_xml_get_widget (priv->xml, "vpnc-vbox");
+	gtk_builder_set_translation_domain (priv->builder, GETTEXT_PACKAGE);
+
+	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-vbox"));
 	if (!priv->widget) {
 		g_set_error (error, VPNC_PLUGIN_UI_ERROR, 0, "could not load UI widget");
 		g_object_unref (object);
@@ -852,8 +857,8 @@ dispose (GObject *object)
 	if (priv->widget)
 		g_object_unref (priv->widget);
 
-	if (priv->xml)
-		g_object_unref (priv->xml);
+	if (priv->builder)
+		g_object_unref (priv->builder);
 
 	G_OBJECT_CLASS (vpnc_plugin_ui_widget_parent_class)->dispose (object);
 }
