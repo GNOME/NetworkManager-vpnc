@@ -9,7 +9,6 @@ nm_vpnc_auth_dialog_CPPFLAGS = \
 	$(GCONF_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
-	-DGLADEDIR=\""$(gladedir)"\" \
 	-DBINDIR=\""$(bindir)"\" \
 	-DG_DISABLE_DEPRECATED \
 	-DGDK_DISABLE_DEPRECATED \
