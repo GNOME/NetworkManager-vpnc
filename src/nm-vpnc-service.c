@@ -89,6 +89,8 @@ static ValidProperty valid_properties[] = {
 	/* Ignored option for internal use */
 	{ NM_VPNC_KEY_SECRET_TYPE,           G_TYPE_NONE, 0, 0 },
 	{ NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,   G_TYPE_NONE, 0, 0 },
+	{ NM_VPNC_KEY_SECRET"-flags",        G_TYPE_NONE, 0, 0 },
+	{ NM_VPNC_KEY_XAUTH_PASSWORD"-flags",G_TYPE_NONE, 0, 0 },
 	/* Legacy options that are ignored */
 	{ LEGACY_NAT_KEEPALIVE,              G_TYPE_STRING, 0, 0 },
 	{ NULL,                              G_TYPE_NONE, 0, 0 }
@@ -420,6 +422,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 	const char *default_username;
 	const char *pw_type;
 	const char *local_port;
+	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
@@ -468,14 +471,25 @@ nm_vpnc_config_write (gint vpnc_fd,
 	info->fd = vpnc_fd;
 
 	/* Check for ignored user password */
-	pw_type = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
-	if (pw_type && !strcmp (pw_type, NM_VPNC_PW_TYPE_UNUSED))
-		info->upw_ignored = TRUE;
+	if (nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, &secret_flags, NULL)) {
+		if (secret_flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED)
+			info->upw_ignored = TRUE;
+	} else {
+		pw_type = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
+		if (pw_type && !strcmp (pw_type, NM_VPNC_PW_TYPE_UNUSED))
+			info->upw_ignored = TRUE;
+	}
 
 	/* Check for ignored group password */
-	pw_type = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_SECRET_TYPE);
-	if (pw_type && !strcmp (pw_type, NM_VPNC_PW_TYPE_UNUSED))
-		info->gpw_ignored = TRUE;
+	secret_flags = NM_SETTING_SECRET_FLAG_NONE;
+	if (nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, &secret_flags, NULL)) {
+		if (secret_flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED)
+			info->gpw_ignored = TRUE;
+	} else {
+		pw_type = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_SECRET_TYPE);
+		if (pw_type && !strcmp (pw_type, NM_VPNC_PW_TYPE_UNUSED))
+			info->gpw_ignored = TRUE;
+	}
 
 	nm_setting_vpn_foreach_data_item (s_vpn, write_one_property, info);
 	nm_setting_vpn_foreach_secret (s_vpn, write_one_property, info);
