@@ -198,8 +198,7 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 		if (!password && (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
 			keyring_helpers_get_one_secret (nm_setting_connection_get_uuid (s_con),
 				                            VPNC_USER_PASSWORD,
-				                            &password,
-				                            NULL);
+				                            &password);
 		}
 
 		secret_flags = NM_SETTING_SECRET_FLAG_NONE;
@@ -207,8 +206,7 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 		if (!group_password && (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
 			keyring_helpers_get_one_secret (nm_setting_connection_get_uuid (s_con),
 			                                VPNC_GROUP_PASSWORD,
-			                                &group_password,
-			                                NULL);
+			                                &group_password);
 		}
 	}
 
