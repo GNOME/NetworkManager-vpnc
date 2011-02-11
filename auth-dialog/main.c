@@ -33,6 +33,7 @@
 
 #include <nm-setting-vpn.h>
 #include <nm-setting-connection.h>
+#include <nm-vpn-plugin-utils.h>
 
 #include "common-gnome/keyring-helpers.h"
 #include "src/nm-vpnc-service.h"
@@ -181,81 +182,6 @@ get_secrets (const char *vpn_uuid,
 	return success;
 }
 
-#define DATA_KEY_TAG "DATA_KEY="
-#define DATA_VAL_TAG "DATA_VAL="
-#define SECRET_KEY_TAG "SECRET_KEY="
-#define SECRET_VAL_TAG "SECRET_VAL="
-
-static gboolean
-get_existing_data_and_secrets (GHashTable **data, GHashTable **secrets)
-{
-	gboolean success = FALSE;
-	gchar c;
-	GString *line;
-	char *key = NULL, *val = NULL;
-
-	g_return_val_if_fail (data != NULL, FALSE);
-	g_return_val_if_fail (*data == NULL, FALSE);
-	g_return_val_if_fail (secrets != NULL, FALSE);
-	g_return_val_if_fail (*secrets == NULL, FALSE);
-
-	*data = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, g_free);
-	*secrets = g_hash_table_new_full (g_str_hash, g_str_equal, g_free, gnome_keyring_memory_free);
-
-	line = g_string_new ("");
-
-	/* Read stdin for data and secret items until we get a DONE */
-	while (1) {
-		ssize_t nr;
-		GHashTable *hash = NULL;
-
-		errno = 0;
-		nr = read (0, &c, 1);
-		if (nr == -1) {
-			if (errno == EAGAIN) {
-				g_usleep (100);
-				continue;
-			}
-			break;
-		}
-
-		if (c != '\n') {
-			g_string_append_c (line, c);
-			continue;
-		}
-
-		/* Check for the finish marker */
-		if (strcmp (line->str, "DONE") == 0)
-			break;
-
-		/* Otherwise it's a data/secret item */
-		if (strncmp (line->str, DATA_KEY_TAG, strlen (DATA_KEY_TAG)) == 0) {
-			hash = *data;
-			key = g_strdup (line->str + strlen (DATA_KEY_TAG));
-		} else if (strncmp (line->str, DATA_VAL_TAG, strlen (DATA_VAL_TAG)) == 0) {
-			hash = *data;
-			val = g_strdup (line->str + strlen (DATA_VAL_TAG));
-		} else if (strncmp (line->str, SECRET_KEY_TAG, strlen (SECRET_KEY_TAG)) == 0) {
-			hash = *secrets;
-			key = g_strdup (line->str + strlen (SECRET_KEY_TAG));
-		} else if (strncmp (line->str, SECRET_VAL_TAG, strlen (SECRET_VAL_TAG)) == 0) {
-			hash = *secrets;
-			val = gnome_keyring_memory_strdup (line->str + strlen (SECRET_VAL_TAG));
-		}
-		g_string_truncate (line, 0);
-
-		if (key && val && hash) {
-			g_hash_table_insert (hash, key, val);
-			key = NULL;
-			val = NULL;
-			success = TRUE;  /* Got at least one value */
-		}
-	}
-
-	g_string_free (line, TRUE);
-	return success;
-}
-
 static void
 wait_for_quit (void)
 {
@@ -282,19 +208,14 @@ wait_for_quit (void)
 }
 
 static NMSettingSecretFlags
-get_pw_flags (GHashTable *hash, const char *flags_name, const char *type_name)
+get_pw_flags (GHashTable *hash, const char *secret_name, const char *type_name)
 {
 	const char *val;
-	unsigned long tmp;
+	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
 
 	/* Try new flags value first */
-	val = g_hash_table_lookup (hash, flags_name);
-	if (val) {
-		errno = 0;
-		tmp = strtoul (val, NULL, 10);
-		if (errno == 0 && tmp < G_MAXUINT)
-			return (NMSettingSecretFlags) tmp;
-	}
+	if (nm_vpn_plugin_utils_get_secret_flags (hash, secret_name, &flags))
+		return flags;
 
 	/* Otherwise try old "password type" value */
 	val = g_hash_table_lookup (hash, type_name);
@@ -356,18 +277,14 @@ main (int argc, char *argv[])
 		return 1;
 	}
 
-	if (!get_existing_data_and_secrets (&data, &secrets)) {
+	if (!nm_vpn_plugin_utils_read_vpn_details (0, &data, &secrets)) {
 		fprintf (stderr, "Failed to read '%s' (%s) data and secrets from stdin.\n",
 		         vpn_name, vpn_uuid);
 		return 1;
 	}
 
-	upw_flags = get_pw_flags (data,
-	                          NM_VPNC_KEY_XAUTH_PASSWORD"-flags",
-	                          NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
-	gpw_flags = get_pw_flags (data,
-	                          NM_VPNC_KEY_SECRET"-flags",
-	                          NM_VPNC_KEY_SECRET_TYPE);
+	upw_flags = get_pw_flags (data, NM_VPNC_KEY_XAUTH_PASSWORD, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
+	gpw_flags = get_pw_flags (data, NM_VPNC_KEY_SECRET, NM_VPNC_KEY_SECRET_TYPE);
 
 	if (!get_secrets (vpn_uuid, vpn_name, retry, allow_interaction,
 	                  g_hash_table_lookup (secrets, NM_VPNC_KEY_XAUTH_PASSWORD),

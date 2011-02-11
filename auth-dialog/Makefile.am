@@ -22,6 +22,7 @@ nm_vpnc_auth_dialog_SOURCES = \
 
 nm_vpnc_auth_dialog_LDADD = \
 	$(GTK_LIBS) \
+	$(NETWORKMANAGER_LIBS) \
 	$(top_builddir)/common-gnome/libnm-vpnc-common-gnome.la
 
 CLEANFILES = *~
