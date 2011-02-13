@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT(NetworkManager-vpnc, 0.8.991, dcbw@redhat.com, NetworkManager-vpnc)
+AC_INIT(NetworkManager-vpnc, 0.8.992, dcbw@redhat.com, NetworkManager-vpnc)
 AM_INIT_AUTOMAKE([subdir-objects no-dist-gzip dist-bzip2])
 AM_MAINTAINER_MODE
 
@@ -90,10 +90,10 @@ if test x"$with_gnome" != xno; then
 fi
 
 PKG_CHECK_MODULES(NETWORKMANAGER,
-                  NetworkManager >= 0.8.991
-                  libnm-util >= 0.8.991
-                  libnm-glib >= 0.8.991
-                  libnm-glib-vpn >= 0.8.991)
+                  NetworkManager >= 0.8.992
+                  libnm-util >= 0.8.992
+                  libnm-glib >= 0.8.992
+                  libnm-glib-vpn >= 0.8.992)
 AC_SUBST(NETWORKMANAGER_CFLAGS)
 AC_SUBST(NETWORKMANAGER_LIBS)
 
