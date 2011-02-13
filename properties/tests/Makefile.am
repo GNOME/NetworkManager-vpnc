@@ -10,7 +10,6 @@ test_import_export_SOURCES = \
 test_import_export_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
-	$(GCONF_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	$(NETWORKMANAGER_CFLAGS) \
 	$(DBUS_CFLAGS)
@@ -18,7 +17,6 @@ test_import_export_CPPFLAGS = \
 test_import_export_LDADD = \
 	$(GTHREAD_LIBS) \
 	$(GTK_LIBS) \
-	$(GCONF_LIBS) \
 	$(GNOMEKEYRING_LIBS) \
 	$(DBUS_LIBS) \
 	$(NETWORKMANAGER_LIBS) \

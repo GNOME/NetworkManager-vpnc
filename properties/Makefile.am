@@ -16,7 +16,6 @@ ui_DATA = nm-vpnc-dialog.ui
 
 libnm_vpnc_properties_la_CPPFLAGS = \
 	$(GTK_CFLAGS) \
-	$(GCONF_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	$(NETWORKMANAGER_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
@@ -29,7 +28,6 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 
 libnm_vpnc_properties_la_LIBADD = \
 	$(GTK_LIBS) \
-	$(GCONF_LIBS) \
 	$(NETWORKMANAGER_LIBS) \
 	$(GNOMEKEYRING_LIBS) \
 	$(top_builddir)/common-gnome/libnm-vpnc-common-gnome.la

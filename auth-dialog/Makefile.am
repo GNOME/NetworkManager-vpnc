@@ -6,7 +6,6 @@ nm_vpnc_auth_dialog_CPPFLAGS = \
 	$(NETWORKMANAGER_CFLAGS) \
 	$(GTHREAD_CFLAGS) \
 	$(GTK_CFLAGS) \
-	$(GCONF_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DBINDIR=\""$(bindir)"\" \
@@ -23,7 +22,7 @@ nm_vpnc_auth_dialog_SOURCES = \
 
 nm_vpnc_auth_dialog_LDADD = \
 	$(GTK_LIBS) \
-	$(GCONF_LIBS) \
+	$(NETWORKMANAGER_LIBS) \
 	$(top_builddir)/common-gnome/libnm-vpnc-common-gnome.la
 
 CLEANFILES = *~
