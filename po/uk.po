@@ -2,20 +2,22 @@
 # Copyright (C) Free Software Foundation, 2005
 # This file is distributed under the same license as the NetworkManager package.
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2010
-#
+# Korostil Daniel <ted.korostiled@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-02 15:02+0300\n"
-"PO-Revision-Date: 2010-04-02 03:32+0200\n"
-"Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
-"Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
+"POT-Creation-Date: 2011-02-18 08:25+0200\n"
+"PO-Revision-Date: 2011-02-18 08:42+0300\n"
+"Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
+"Language-Team: translation@linux.org.ua\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Virtaal 0.6.1\n"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
@@ -25,34 +27,35 @@ msgstr "_Вторинний пароль:"
 msgid "_Password:"
 msgstr "_Пароль:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:239
+#: ../auth-dialog/gnome-two-password-dialog.c:245
 msgid "Sh_ow passwords"
-msgstr "П_оказати паролі:"
+msgstr "П_оказати паролі"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:299
+#: ../auth-dialog/gnome-two-password-dialog.c:305
 msgid "_Remember passwords for this session"
 msgstr "Па_м'ятати пароль для цього сеансу"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:306
 msgid "_Save passwords in keyring"
-msgstr "З_берегти пароль у в'язці паролів"
+msgstr "З_берегти пароль у сховищі паролів"
 
-#: ../auth-dialog/main.c:170
+#: ../auth-dialog/main.c:112
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Для доступу до приватної мережі '%s' потрібна автентифікація."
+msgstr ""
+"Для доступу до віртуальної приватної мережі «%s» потрібна автентифікація."
 
-#: ../auth-dialog/main.c:171
+#: ../auth-dialog/main.c:113
 msgid "Authenticate VPN"
 msgstr "Автентифікація VPN"
 
-#: ../auth-dialog/main.c:175
+#: ../auth-dialog/main.c:117
 msgid "_Group Password:"
 msgstr "Пароль _групи:"
 
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Додавання, видалення та редагування з'єднань типу VPN"
+msgstr "Додавання, вилучення та редагування з'єднань VPN"
 
 #: ../nm-vpnc.desktop.in.h:2
 msgid "VPN Connection Manager (vpnc)"
@@ -60,61 +63,73 @@ msgstr "Менеджер з'єднань VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
-msgstr "Cisco-сумісна VPN (vpnc)"
+msgstr "Сумісна з Cisco VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
 msgstr ""
-"Сумісний з різними VPN-шлюзами Cisco, Juniper, Netscreen та Sonicwall на "
+"Сумісний з різними шлюзами VPN Cisco, Juniper, Netscreen та Sonicwall на "
 "основі IPSec."
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:351
 msgid "Saved"
-msgstr "Збережений"
+msgstr "Збережено"
 
-#: ../properties/nm-vpnc.c:346
+#: ../properties/nm-vpnc.c:358
 msgid "Always Ask"
 msgstr "Завжди запитувати"
 
-#: ../properties/nm-vpnc.c:353
+#: ../properties/nm-vpnc.c:365
 msgid "Not Required"
-msgstr "Не вимагається"
+msgstr "Не потрібно"
 
-#: ../properties/nm-vpnc.c:412
+#: ../properties/nm-vpnc.c:425
 msgid "Secure (default)"
 msgstr "Безпечне (типово)"
 
-#: ../properties/nm-vpnc.c:415
+#: ../properties/nm-vpnc.c:428
 msgid "Weak (use with caution)"
 msgstr "Слабке (використовувати обережно)"
 
-#: ../properties/nm-vpnc.c:423
+#: ../properties/nm-vpnc.c:436
 msgid "None (completely insecure)"
 msgstr "Нема (без шифрування)"
 
-#: ../properties/nm-vpnc.c:471
+#: ../properties/nm-vpnc.c:484
 msgid "NAT-T when available (default)"
 msgstr "NAT-T, якщо доступний (типово)"
 
-#: ../properties/nm-vpnc.c:478
+#: ../properties/nm-vpnc.c:491
 msgid "NAT-T always"
-msgstr "завжди NAT-T"
+msgstr "Завжди NAT-T"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:498
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:492
+#: ../properties/nm-vpnc.c:505
 msgid "Disabled"
 msgstr "Вимкнено"
 
-#: ../properties/nm-vpnc.c:1138
+#: ../properties/nm-vpnc.c:525
+msgid "DH Group 1"
+msgstr "Група DH 1"
+
+#: ../properties/nm-vpnc.c:532
+msgid "DH Group 2 (default)"
+msgstr "Група DH 2 (типово)"
+
+#: ../properties/nm-vpnc.c:539
+msgid "DH Group 5"
+msgstr "Група DH 5"
+
+#: ../properties/nm-vpnc.c:1230
 msgid "TCP tunneling not supported"
 msgstr "Тунелювання TCP не підтримується"
 
-#: ../properties/nm-vpnc.c:1140
+#: ../properties/nm-vpnc.c:1232
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -123,60 +138,64 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"У файлі параметрів VPN '%s' вказано, що трафік VPN повинен тунелюватись "
+"У файлі налаштувань VPN «%s» вказано, що трафік VPN повинен тунелюватись "
 "через TCP, що наразі не підтримується програмою vpnc.\n"
 "\n"
 "З'єднання буде створено з вимкненим тунелюванням TCP, але воно може не "
 "працювати належним чином."
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
+#: ../properties/nm-vpnc-dialog.ui.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "<b>General</b>"
-msgstr "<b>Загальні</b>"
+msgstr "<b>Загальне</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "<b>Optional</b>"
-msgstr "<b>Необов'язкові</b>"
+msgstr "<b>Необов'язкове</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "Вимкнути Dead Peer Detection"
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "Домен:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
-msgstr "Метод шифрування:"
+msgstr "Спосіб шифрування:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "Назва г_рупи:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Gro_up password:"
-msgstr "Пароль гр_уппи:"
+msgstr "Пароль гр_упи:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "IKE DH Group:"
+msgstr "Група IKE DH:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
-msgstr "Прохід NAT:"
+msgstr "Обхід NAT:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Show passwords"
 msgstr "Показати паролі"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User name:"
-msgstr "Ім'я користувача:"
+msgstr "Користувач:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Шлюз:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "_Пароль користувача:"
