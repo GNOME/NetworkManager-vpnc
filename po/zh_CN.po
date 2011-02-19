@@ -1,18 +1,20 @@
 # Chinese (China) translation of network-manager-vpnc
-# Copyright (C) 2009, 2010 Free Software Foundation, Inc.
+# Copyright (C) 2009, 2010, 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the network-manager-vpnc package.
 # Funda Wang <fundawang@linux.net.cn>, 2006.
 # Wei Mingzhi <whistler@openoffice.org>, 2009.
 # Aron Xu <aronxu@gnome.org>, 2010.
+# Lele Long <schemacs@gmail.com>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-11 21:37+0800\n"
-"PO-Revision-Date: 2010-08-11 22:24+0800\n"
-"Last-Translator: Aron Xu <happyaron.xu@gmail.com>\n"
+"POT-Creation-Date: 2011-02-19 20:58+0800\n"
+"PO-Revision-Date: 2011-02-19 21:00+0800\n"
+"Last-Translator: Lele Long <schemacs@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,28 +27,28 @@ msgstr "次要密码(_S)："
 msgid "_Password:"
 msgstr "密码(_P)："
 
-#: ../auth-dialog/gnome-two-password-dialog.c:243
+#: ../auth-dialog/gnome-two-password-dialog.c:245
 msgid "Sh_ow passwords"
 msgstr "显示密码(_O)"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:303
+#: ../auth-dialog/gnome-two-password-dialog.c:305
 msgid "_Remember passwords for this session"
 msgstr "本次会话记住密码(_R)"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:304
+#: ../auth-dialog/gnome-two-password-dialog.c:306
 msgid "_Save passwords in keyring"
 msgstr "在密钥环中保存密码(_S)"
 
-#: ../auth-dialog/main.c:170
+#: ../auth-dialog/main.c:112
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "您需要进行身份验证才能访问“%s”。"
 
-#: ../auth-dialog/main.c:171
+#: ../auth-dialog/main.c:113
 msgid "Authenticate VPN"
 msgstr "认证 VPN"
 
-#: ../auth-dialog/main.c:175
+#: ../auth-dialog/main.c:117
 msgid "_Group Password:"
 msgstr "组密码(_G)："
 
@@ -70,51 +72,63 @@ msgstr ""
 "与多种 Cisco, Juniper, Netscreen 以及 Sonicwall 的基于 IPSec 的 VPN 网关兼"
 "容。"
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:351
 msgid "Saved"
 msgstr "已保存"
 
-#: ../properties/nm-vpnc.c:346
+#: ../properties/nm-vpnc.c:358
 msgid "Always Ask"
 msgstr "总是提示"
 
-#: ../properties/nm-vpnc.c:353
+#: ../properties/nm-vpnc.c:365
 msgid "Not Required"
 msgstr "不需要"
 
-#: ../properties/nm-vpnc.c:412
+#: ../properties/nm-vpnc.c:425
 msgid "Secure (default)"
 msgstr "安全(默认)"
 
-#: ../properties/nm-vpnc.c:415
+#: ../properties/nm-vpnc.c:428
 msgid "Weak (use with caution)"
 msgstr "弱安全性(谨慎使用)"
 
-#: ../properties/nm-vpnc.c:423
+#: ../properties/nm-vpnc.c:436
 msgid "None (completely insecure)"
 msgstr "无(不安全)"
 
-#: ../properties/nm-vpnc.c:471
+#: ../properties/nm-vpnc.c:484
 msgid "NAT-T when available (default)"
 msgstr "可用时使用 NAT-T (默认)"
 
-#: ../properties/nm-vpnc.c:478
+#: ../properties/nm-vpnc.c:491
 msgid "NAT-T always"
 msgstr "总是使用 NAT-T"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:498
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:492
+#: ../properties/nm-vpnc.c:505
 msgid "Disabled"
 msgstr "禁用"
 
-#: ../properties/nm-vpnc.c:1138
+#: ../properties/nm-vpnc.c:525
+msgid "DH Group 1"
+msgstr "DH 组 1"
+
+#: ../properties/nm-vpnc.c:532
+msgid "DH Group 2 (default)"
+msgstr "DH 组 2 (默认)"
+
+#: ../properties/nm-vpnc.c:539
+msgid "DH Group 5"
+msgstr "DH 组 5"
+
+#: ../properties/nm-vpnc.c:1230
 msgid "TCP tunneling not supported"
 msgstr "不支持 TCP 隧道"
 
-#: ../properties/nm-vpnc.c:1140
+#: ../properties/nm-vpnc.c:1232
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -127,55 +141,59 @@ msgstr ""
 "\n"
 "连接仍然可以建立，但 TCP 隧道将被禁用。连接可能无法正确工作。"
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
+#: ../properties/nm-vpnc-dialog.ui.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "<b>General</b>"
 msgstr "<b>常规</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "<b>Optional</b>"
 msgstr "<b>可选</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "禁用死端检测"
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "域:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
 msgstr "加密方法:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "组名称(_R)："
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Gro_up password:"
 msgstr "组密码(_U)："
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "IKE DH Group:"
+msgstr "IKE DH 组："
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
 msgstr "NAT 遍历:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Show passwords"
 msgstr "显示密码"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User name:"
 msgstr "用户名:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "网关(_G)："
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "用户密码(_U)："
 
