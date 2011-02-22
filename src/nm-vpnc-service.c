@@ -534,14 +534,39 @@ out:
 	return success;
 }
 
+static NMSettingSecretFlags
+get_pw_flags (NMSettingVPN *s_vpn, const char *secret_name, const char *type_name)
+{
+	const char *val;
+	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
+
+	/* Try new flags value first */
+	if (nm_setting_get_secret_flags (NM_SETTING (s_vpn), secret_name, &flags, NULL))
+		return flags;
+
+	/* Otherwise try old "password type" value */
+	val = nm_setting_vpn_get_data_item (s_vpn, type_name);
+	if (val) {
+		if (g_strcmp0 (val, NM_VPNC_PW_TYPE_ASK) == 0)
+			return NM_SETTING_SECRET_FLAG_NOT_SAVED;
+		else if (g_strcmp0 (val, NM_VPNC_PW_TYPE_UNUSED) == 0)
+			return NM_SETTING_SECRET_FLAG_NOT_REQUIRED;
+
+		/* NM_VPNC_PW_TYPE_SAVE means FLAG_NONE */
+	}
+
+	return NM_SETTING_SECRET_FLAG_NONE;
+}
+
 static gboolean
 real_need_secrets (NMVPNPlugin *plugin,
                    NMConnection *connection,
-                   char **setting_name,
+                   char **out_setting_name,
                    GError **error)
 {
 	NMSettingVPN *s_vpn;
-	const char *pw_type;
+	NMSettingSecretFlags pw_flags;
+	const char *pw = NULL;
 
 	g_return_val_if_fail (NM_IS_VPN_PLUGIN (plugin), FALSE);
 	g_return_val_if_fail (NM_IS_CONNECTION (connection), FALSE);
@@ -556,20 +581,20 @@ real_need_secrets (NMVPNPlugin *plugin,
 		return FALSE;
 	}
 
-	pw_type = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_SECRET_TYPE);
-	if (!pw_type || strcmp (pw_type, NM_VPNC_PW_TYPE_UNUSED)) {
-		if (!nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_SECRET)) {
-			*setting_name = NM_SETTING_VPN_SETTING_NAME;
-			return TRUE;
-		}
+	/* User password */
+	pw = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_SECRET);
+	pw_flags = get_pw_flags (s_vpn, NM_VPNC_KEY_SECRET, NM_VPNC_KEY_SECRET_TYPE);
+	if (!pw && !(pw_flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED)) {
+		*out_setting_name = NM_SETTING_VPN_SETTING_NAME;
+		return TRUE;
 	}
 
-	pw_type = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
-	if (!pw_type || strcmp (pw_type, NM_VPNC_PW_TYPE_UNUSED)) {
-		if (!nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD)) {
-			*setting_name = NM_SETTING_VPN_SETTING_NAME;
-			return TRUE;
-		}
+	/* Group password */
+	pw = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD);
+	pw_flags = get_pw_flags (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
+	if (!pw && !(pw_flags & NM_SETTING_SECRET_FLAG_NOT_REQUIRED)) {
+		*out_setting_name = NM_SETTING_VPN_SETTING_NAME;
+		return TRUE;
 	}
 
 	return FALSE;
