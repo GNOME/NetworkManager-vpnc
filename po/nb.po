@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-25 22:00+0100\n"
-"PO-Revision-Date: 2011-01-25 22:03+0100\n"
+"POT-Creation-Date: 2011-02-24 10:05+0100\n"
+"PO-Revision-Date: 2011-02-24 10:06+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -24,29 +24,29 @@ msgstr "_Sekundært passord:"
 msgid "_Password:"
 msgstr "_Passord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:243
+#: ../auth-dialog/gnome-two-password-dialog.c:245
 msgid "Sh_ow passwords"
 msgstr "V_is passord"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:303
+#: ../auth-dialog/gnome-two-password-dialog.c:305
 msgid "_Remember passwords for this session"
 msgstr "_Husk passord for denne sesjonen"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:304
+#: ../auth-dialog/gnome-two-password-dialog.c:306
 msgid "_Save passwords in keyring"
 msgstr "_Lagre passord i nøkkelring"
 
-#: ../auth-dialog/main.c:170
+#: ../auth-dialog/main.c:112
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Du må autentisere deg for å få tilgang til virtuelt privat nettverk «%s»."
 
-#: ../auth-dialog/main.c:171
+#: ../auth-dialog/main.c:113
 msgid "Authenticate VPN"
 msgstr "Autentiser VPN"
 
-#: ../auth-dialog/main.c:175
+#: ../auth-dialog/main.c:117
 msgid "_Group Password:"
 msgstr "_Gruppepassord:"
 
@@ -58,73 +58,73 @@ msgstr "Legg til, fjern og regiger VPN-tilkoblinger"
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Håndtering av VPN-tilkobling (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibelt VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:55
+#: ../properties/nm-vpnc.c:54
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
-msgstr ""
+msgstr "Kompatibel med forskjellige IPSec-baserte VPN-gateways fra Cisco, Juniper, Netscreen og Sonicwall."
 
-#: ../properties/nm-vpnc.c:342
+#: ../properties/nm-vpnc.c:351
 msgid "Saved"
 msgstr "Lagret"
 
-#: ../properties/nm-vpnc.c:349
+#: ../properties/nm-vpnc.c:358
 msgid "Always Ask"
 msgstr "Alltid spør"
 
-#: ../properties/nm-vpnc.c:356
+#: ../properties/nm-vpnc.c:365
 msgid "Not Required"
 msgstr "Ikke nødvendig"
 
-#: ../properties/nm-vpnc.c:416
+#: ../properties/nm-vpnc.c:425
 msgid "Secure (default)"
 msgstr "Sikker (forvalgt)"
 
-#: ../properties/nm-vpnc.c:419
+#: ../properties/nm-vpnc.c:428
 msgid "Weak (use with caution)"
 msgstr "Svak (bruk med forsiktighet)"
 
-#: ../properties/nm-vpnc.c:427
+#: ../properties/nm-vpnc.c:436
 msgid "None (completely insecure)"
 msgstr "Ingen (helt usikker)"
 
-#: ../properties/nm-vpnc.c:475
+#: ../properties/nm-vpnc.c:484
 msgid "NAT-T when available (default)"
 msgstr "NAT-T når tilgjengelig (forvalg)"
 
-#: ../properties/nm-vpnc.c:482
+#: ../properties/nm-vpnc.c:491
 msgid "NAT-T always"
 msgstr "NAT-T alltid"
 
-#: ../properties/nm-vpnc.c:489
+#: ../properties/nm-vpnc.c:498
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:496
+#: ../properties/nm-vpnc.c:505
 msgid "Disabled"
 msgstr "Slått av"
 
-#: ../properties/nm-vpnc.c:516
+#: ../properties/nm-vpnc.c:525
 msgid "DH Group 1"
 msgstr "DH-gruppe 1"
 
-#: ../properties/nm-vpnc.c:523
+#: ../properties/nm-vpnc.c:532
 msgid "DH Group 2 (default)"
 msgstr "DH-gruppe 2 (forvalgt)"
 
-#: ../properties/nm-vpnc.c:530
+#: ../properties/nm-vpnc.c:539
 msgid "DH Group 5"
 msgstr "DH-gruppe 5"
 
-#: ../properties/nm-vpnc.c:1202
+#: ../properties/nm-vpnc.c:1230
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnelering ikke støttet"
 
-#: ../properties/nm-vpnc.c:1204
+#: ../properties/nm-vpnc.c:1232
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -139,58 +139,58 @@ msgstr ""
 "Tilkoblingen kan fremdeles opprettes med TCP-tunnelering deaktivert, men det "
 "er ikke sikkert at dette vil fungere som forventet."
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
+#: ../properties/nm-vpnc-dialog.ui.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "<b>General</b>"
 msgstr "<b>Generelt</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "<b>Optional</b>"
 msgstr "<b>Valgfri</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
-msgstr ""
+msgstr "Slå av gjenkjenning av død peer"
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "Domene:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
 msgstr "Krypteringsmetode:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "G_ruppenavn:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Gro_up password:"
 msgstr "Gr_uppepassord:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "IKE DH Group:"
-msgstr ""
+msgstr "IKE DH-gruppe:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
 msgstr "NAT-traversering:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Show passwords"
 msgstr "Vis passord"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User name:"
 msgstr "Brukernavn:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "Passord for br_uker:"
