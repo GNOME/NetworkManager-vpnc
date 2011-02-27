@@ -1,5 +1,5 @@
 # French translation of NetworkManager-vpnc.
-# Copyright (C) 2007-2009 Free Software Foundation, Inc.
+# Copyright (C) 2007-2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the NetworkManager package.
 #
 # Jonathan Ernst <jonathan@ernstfamily.ch>, 2007.
@@ -11,9 +11,9 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2010-02-25 21:45+0000\n"
-"PO-Revision-Date: 2009-03-10 10:47+0100\n"
-"Last-Translator: Claude Paroz <claude@2xlibre.net>\n"
+"POT-Creation-Date: 2011-02-08 18:53+0000\n"
+"PO-Revision-Date: 2011-02-27 20:05+0100\n"
+"Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,15 +28,15 @@ msgstr "Mot de passe _secondaire :"
 msgid "_Password:"
 msgstr "Mot de _passe :"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:239
+#: ../auth-dialog/gnome-two-password-dialog.c:243
 msgid "Sh_ow passwords"
 msgstr "Afficher les _mots de passe"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:299
+#: ../auth-dialog/gnome-two-password-dialog.c:303
 msgid "_Remember passwords for this session"
 msgstr "_Conserver les mots de passe pour cette session"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:304
 msgid "_Save passwords in keyring"
 msgstr "_Enregistrer les mots de passe dans le trousseau"
 
@@ -74,51 +74,63 @@ msgstr ""
 "Compatible avec de nombreuses passerelles VPN basées sur IPSec de Cisco, "
 "Juniper, Netscreen et Sonicwall."
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:341
 msgid "Saved"
 msgstr "Enregistré"
 
-#: ../properties/nm-vpnc.c:346
+#: ../properties/nm-vpnc.c:348
 msgid "Always Ask"
 msgstr "Toujours demander"
 
-#: ../properties/nm-vpnc.c:353
+#: ../properties/nm-vpnc.c:355
 msgid "Not Required"
 msgstr "Pas nécessaire"
 
-#: ../properties/nm-vpnc.c:412
+#: ../properties/nm-vpnc.c:415
 msgid "Secure (default)"
 msgstr "Sécurisé (par défaut)"
 
-#: ../properties/nm-vpnc.c:415
+#: ../properties/nm-vpnc.c:418
 msgid "Weak (use with caution)"
 msgstr "Faible (à utiliser avec précaution)"
 
-#: ../properties/nm-vpnc.c:423
+#: ../properties/nm-vpnc.c:426
 msgid "None (completely insecure)"
 msgstr "Aucun (complètement non sécurisé)"
 
-#: ../properties/nm-vpnc.c:471
+#: ../properties/nm-vpnc.c:474
 msgid "NAT-T when available (default)"
 msgstr "NAT-T si disponible (par défaut)"
 
-#: ../properties/nm-vpnc.c:478
+#: ../properties/nm-vpnc.c:481
 msgid "NAT-T always"
 msgstr "Toujours NAT-T"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:488
 msgid "Cisco UDP"
 msgstr "UDP Cisco"
 
-#: ../properties/nm-vpnc.c:492
+#: ../properties/nm-vpnc.c:495
 msgid "Disabled"
 msgstr "Désactivé"
 
-#: ../properties/nm-vpnc.c:1138
+#: ../properties/nm-vpnc.c:515
+msgid "DH Group 1"
+msgstr "Groupe DH 1"
+
+#: ../properties/nm-vpnc.c:522
+msgid "DH Group 2 (default)"
+msgstr "Groupe DH 2 (par défaut)"
+
+#: ../properties/nm-vpnc.c:529
+msgid "DH Group 5"
+msgstr "Groupe DH 5"
+
+#: ../properties/nm-vpnc.c:1207
 msgid "TCP tunneling not supported"
 msgstr "Utilisation d'un tunnel TCP non pris en charge"
 
-#: ../properties/nm-vpnc.c:1140
+#: ../properties/nm-vpnc.c:1209
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -134,57 +146,59 @@ msgstr ""
 "La connexion sera néanmoins créée sans tunnel TCP ; pour cette raison, la "
 "connexion pourrait ne pas fonctionner comme prévu."
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
+#: ../properties/nm-vpnc-dialog.ui.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "<b>General</b>"
 msgstr "<b>Général</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "<b>Optional</b>"
 msgstr "<b>Facultatif</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "Désactiver la détection des pairs bloqués"
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "Domaine :"
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
 msgstr "Méthode de chiffrement :"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "Nom de g_roupe :"
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Gro_up password:"
 msgstr "Mot de passe du _groupe :"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "IKE DH Group:"
+msgstr "Groupe DH IKE"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
 msgstr "Traversée du NAT :"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Show passwords"
 msgstr "Afficher les mots de passe"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User name:"
 msgstr "Nom d'utilisateur :"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Passerelle :"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "Mot de passe _utilisateur :"
 
-#~ msgid "NAT-T"
-#~ msgstr "NAT-T"
