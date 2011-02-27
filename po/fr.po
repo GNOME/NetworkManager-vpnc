@@ -180,7 +180,7 @@ msgstr "Mot de passe du _groupe :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "IKE DH Group:"
-msgstr "Groupe DH IKE"
+msgstr "Groupe DH IKE :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
