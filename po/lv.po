@@ -2,19 +2,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2010.
+# Rudolfs <rudolfs.mazurs@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2010-03-21 13:21+0000\n"
-"PO-Revision-Date: 2010-03-26 11:15+0200\n"
-"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
-"Language-Team: Latviešu <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2011-01-17 07:58+0000\n"
+"PO-Revision-Date: 2011-02-07 02:01+0200\n"
+"Last-Translator: Rudolfs <rudolfs.mazurs@gmail.com>\n"
+"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
@@ -26,15 +27,15 @@ msgstr "_Sekundārā parole:"
 msgid "_Password:"
 msgstr "_Parole:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:239
+#: ../auth-dialog/gnome-two-password-dialog.c:243
 msgid "Sh_ow passwords"
 msgstr "Rādīt par_oles"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:299
+#: ../auth-dialog/gnome-two-password-dialog.c:303
 msgid "_Remember passwords for this session"
 msgstr "Atce_rēties paroles šai sesija"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:304
 msgid "_Save passwords in keyring"
 msgstr "_Saglabāt paroli atslēgu saišķī"
 
@@ -60,64 +61,76 @@ msgstr "Pievienot, noņemt un rediģēt VPN savienojumus"
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN savienojumu pārvaldnieks (vpnc)"
 
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:54
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco savietojams VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:55
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
 msgstr ""
-"Savietojams ar dažādiem Cisco, Juniper, Netscreen un Sonicwall "
-"IPSec-balstītām "
-"VPN vārtejām."
+"Savietojams ar dažādiem Cisco, Juniper, Netscreen un Sonicwall IPSec-"
+"balstītām VPN vārtejām."
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:342
 msgid "Saved"
 msgstr "Saglabāts"
 
-#: ../properties/nm-vpnc.c:346
+#: ../properties/nm-vpnc.c:349
 msgid "Always Ask"
 msgstr "Vienmēr jautāt"
 
-#: ../properties/nm-vpnc.c:353
+#: ../properties/nm-vpnc.c:356
 msgid "Not Required"
 msgstr "Nav nepieciešams"
 
-#: ../properties/nm-vpnc.c:412
+#: ../properties/nm-vpnc.c:416
 msgid "Secure (default)"
 msgstr "Drošs (noklusētais)"
 
-#: ../properties/nm-vpnc.c:415
+#: ../properties/nm-vpnc.c:419
 msgid "Weak (use with caution)"
 msgstr "Vājš (izmantojiet uzmanīgi)"
 
-#: ../properties/nm-vpnc.c:423
+#: ../properties/nm-vpnc.c:427
 msgid "None (completely insecure)"
 msgstr "Nav (pilnīgi nedroši)"
 
-#: ../properties/nm-vpnc.c:471
+#: ../properties/nm-vpnc.c:475
 msgid "NAT-T when available (default)"
 msgstr "NAT-T kad pieejams (noklusētais)"
 
-#: ../properties/nm-vpnc.c:478
+#: ../properties/nm-vpnc.c:482
 msgid "NAT-T always"
 msgstr "NAT-T vienmēr"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:489
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:492
+#: ../properties/nm-vpnc.c:496
 msgid "Disabled"
 msgstr "Atslēgts"
 
-#: ../properties/nm-vpnc.c:1138
+#: ../properties/nm-vpnc.c:516
+msgid "DH Group 1"
+msgstr "DH grupa 1"
+
+#: ../properties/nm-vpnc.c:523
+#| msgid "Secure (default)"
+msgid "DH Group 2 (default)"
+msgstr "DH grupa 2 (noklusētais)"
+
+#: ../properties/nm-vpnc.c:530
+msgid "DH Group 5"
+msgstr "DH grupa 5"
+
+#: ../properties/nm-vpnc.c:1202
 msgid "TCP tunneling not supported"
 msgstr "TCP tunelēšana nav atbalstīta"
 
-#: ../properties/nm-vpnc.c:1140
+#: ../properties/nm-vpnc.c:1204
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -165,23 +178,26 @@ msgid "Gro_up password:"
 msgstr "Gr_upas parole:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
+msgid "IKE DH Group:"
+msgstr "IKE DH grupa:"
+
+#: ../properties/nm-vpnc-dialog.glade.h:10
 msgid "NAT traversal:"
 msgstr "NAT apvads:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.glade.h:11
 msgid "Show passwords"
 msgstr "Rādīt paroles"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.glade.h:12
 msgid "User name:"
 msgstr "Lietotājvārds:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.glade.h:13
 msgid "_Gateway:"
 msgstr "_Vārtejas:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.glade.h:14
 msgid "_User password:"
 msgstr "_Lietotāja parole:"
-
 
