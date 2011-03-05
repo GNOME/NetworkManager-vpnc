@@ -223,14 +223,14 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			nm_warning ("vpnc exited with error code %d", error);
+			g_warning ("vpnc exited with error code %d", error);
 	}
 	else if (WIFSTOPPED (status))
-		nm_warning ("vpnc stopped unexpectedly with signal %d", WSTOPSIG (status));
+		g_warning ("vpnc stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		nm_warning ("vpnc died with signal %d", WTERMSIG (status));
+		g_warning ("vpnc died with signal %d", WTERMSIG (status));
 	else
-		nm_warning ("vpnc died from an unknown cause");
+		g_warning ("vpnc died from an unknown cause");
 
 	/* Reap child if needed. */
 	waitpid (priv->pid, NULL, WNOHANG);
@@ -290,12 +290,12 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 							 G_SPAWN_DO_NOT_REAP_CHILD, NULL, NULL, &pid, &stdin_fd,
 							 NULL, NULL, error)) {
 		g_ptr_array_free (vpnc_argv, TRUE);
-		nm_warning ("vpnc failed to start.  error: '%s'", (*error)->message);
+		g_warning ("vpnc failed to start.  error: '%s'", (*error)->message);
 		return -1;
 	}
 	g_ptr_array_free (vpnc_argv, TRUE);
 
-	nm_info ("vpnc started with pid %d", pid);
+	g_message ("vpnc started with pid %d", pid);
 
 	NM_VPNC_PLUGIN_GET_PRIVATE (plugin)->pid = pid;
 	vpnc_watch = g_child_watch_source_new (pid);
@@ -406,8 +406,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		/* ignored */
 	} else {
 		/* Just ignore unknown properties */
-		nm_warning ("Don't know how to write property '%s' with type %s",
-				  (char *) key, g_type_name (type));
+		g_warning ("Don't know how to write property '%s' with type %s", key, g_type_name (type));
 	}
 }
 
@@ -623,7 +622,7 @@ real_disconnect (NMVPNPlugin   *plugin,
 		else
 			kill (priv->pid, SIGKILL);
 
-		nm_info ("Terminated vpnc daemon with PID %d.", priv->pid);
+		g_message ("Terminated vpnc daemon with PID %d.", priv->pid);
 		priv->pid = 0;
 	}
 
