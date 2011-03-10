@@ -194,7 +194,7 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 				group_password = gnome_keyring_memory_strdup (tmp);
 		}
 
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), VPNC_USER_PASSWORD, &secret_flags, NULL);
+		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, &secret_flags, NULL);
 		if (!password && (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
 			keyring_helpers_get_one_secret (nm_setting_connection_get_uuid (s_con),
 				                            VPNC_USER_PASSWORD,
@@ -202,7 +202,7 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 		}
 
 		secret_flags = NM_SETTING_SECRET_FLAG_NONE;
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), VPNC_GROUP_PASSWORD, &secret_flags, NULL);
+		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, &secret_flags, NULL);
 		if (!group_password && (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
 			keyring_helpers_get_one_secret (nm_setting_connection_get_uuid (s_con),
 			                                VPNC_GROUP_PASSWORD,
