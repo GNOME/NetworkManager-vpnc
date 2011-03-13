@@ -1,22 +1,23 @@
 # translation of NetworkManager-vpnc.HEAD.po to
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Kostas Papadimas <pkst@gnome.org>, 2007.
 # Jennie Petoumenou <epetoumenou@gmail.com>, 2008.
+# Michael Kotsarinis <mk73628@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-03-14 12:50+0200\n"
-"PO-Revision-Date: 2010-03-14 12:51+0200\n"
-"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
-"Language-Team: Greek <team@gnome.gr>\n"
+"POT-Creation-Date: 2011-03-13 19:27+0200\n"
+"PO-Revision-Date: 2011-02-15 12:29+0300\n"
+"Last-Translator: Michael Kotsarinis <mk73628@gmail.com>\n"
+"Language-Team: team@gnome.gr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.2\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.6.1\n"
 
 #: ../auth-dialog/gnome-two-password-dialog.c:103
 msgid "_Secondary Password:"
@@ -26,28 +27,30 @@ msgstr "_Δευτερεύον συνθηματικό:"
 msgid "_Password:"
 msgstr "_Συνθηματικό:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:239
+#: ../auth-dialog/gnome-two-password-dialog.c:245
 msgid "Sh_ow passwords"
 msgstr "Εμ_φάνιση συνθηματικών"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:299
+#: ../auth-dialog/gnome-two-password-dialog.c:305
 msgid "_Remember passwords for this session"
 msgstr "Απο_μνημόνευση συνθηματικών για αυτή τη συνεδρία"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:300
+#: ../auth-dialog/gnome-two-password-dialog.c:306
 msgid "_Save passwords in keyring"
 msgstr "Απο_θήκευση συνθηματικών στην κλειδοθήκη"
 
-#: ../auth-dialog/main.c:170
+#: ../auth-dialog/main.c:112
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Ιδιωτικό Εικονικό Δίκτυο (VPN) '%s'."
+msgstr ""
+"Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Ιδιωτικό Εικονικό "
+"Δίκτυο (VPN) '%s'."
 
-#: ../auth-dialog/main.c:171
+#: ../auth-dialog/main.c:113
 msgid "Authenticate VPN"
 msgstr "Πιστοποίηση VPN"
 
-#: ../auth-dialog/main.c:175
+#: ../auth-dialog/main.c:117
 msgid "_Group Password:"
 msgstr "Συνθηματικό ο_μάδας:"
 
@@ -64,124 +67,152 @@ msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Συμβατός με Cisco πελάτης VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
-msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
-msgstr "Συμβατός με διάφορες βασισμένες στο IPSec πύλες VPN των Cisco, Juniper, Netscreen και Sonicwall."
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr ""
+"Συμβατός με διάφορες βασισμένες στο IPSec πύλες VPN των Cisco, Juniper, "
+"Netscreen και Sonicwall."
 
-#: ../properties/nm-vpnc.c:339
+#: ../properties/nm-vpnc.c:354
 msgid "Saved"
 msgstr "Αποθηκευμένη"
 
-#: ../properties/nm-vpnc.c:346
+#: ../properties/nm-vpnc.c:361
 msgid "Always Ask"
 msgstr "Να γίνεται πάντα ερώτηση"
 
-#: ../properties/nm-vpnc.c:353
+#: ../properties/nm-vpnc.c:368
 msgid "Not Required"
 msgstr "Δεν απαιτείται"
 
-#: ../properties/nm-vpnc.c:412
+#: ../properties/nm-vpnc.c:428
 msgid "Secure (default)"
 msgstr "Ασφαλής (προεπιλογή)"
 
-#: ../properties/nm-vpnc.c:415
+#: ../properties/nm-vpnc.c:431
 msgid "Weak (use with caution)"
 msgstr "Ασθενής (να χρησιμοποιείται με προσοχή)"
 
-#: ../properties/nm-vpnc.c:423
+#: ../properties/nm-vpnc.c:439
 msgid "None (completely insecure)"
 msgstr "Καμία (καθόλου ασφάλεια)"
 
-#: ../properties/nm-vpnc.c:471
+#: ../properties/nm-vpnc.c:495
 msgid "NAT-T when available (default)"
 msgstr "NAT-T όταν είναι διαθέσιμο (προεπιλογή)"
 
-#: ../properties/nm-vpnc.c:478
+#: ../properties/nm-vpnc.c:502
 msgid "NAT-T always"
 msgstr "NAT-T πάντα"
 
-#: ../properties/nm-vpnc.c:485
+#: ../properties/nm-vpnc.c:509
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:492
+#: ../properties/nm-vpnc.c:516
 msgid "Disabled"
 msgstr "Απενεργοποιημένη"
 
-#: ../properties/nm-vpnc.c:1138
+#: ../properties/nm-vpnc.c:536
+msgid "DH Group 1"
+msgstr "DH Group 1"
+
+#: ../properties/nm-vpnc.c:543
+msgid "DH Group 2 (default)"
+msgstr "DH Group 2 (προεπιλογή)"
+
+#: ../properties/nm-vpnc.c:550
+msgid "DH Group 5"
+msgstr "DH Group 5"
+
+#: ../properties/nm-vpnc.c:1252
 msgid "TCP tunneling not supported"
 msgstr "Το TCP tunneling  δεν υποστηρίζεται"
 
-#: ../properties/nm-vpnc.c:1140
+#: ../properties/nm-vpnc.c:1254
 #, c-format
 msgid ""
-"The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
 "\n"
-"The connection can still be created, with TCP tunneling disabled, however it may not work as expected."
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
 msgstr ""
-"Το αρχείο ρυθμίσεων VPN '%s' καθορίζει ότι η κυκλοφορία VPN θα πρέπει να δρομολογηθεί μέσω TCP, κάτι που δεν υποστηρίζεται αυτή τη στιγμή από το λογισμικό vpnc.\n"
+"Το αρχείο ρυθμίσεων VPN '%s' καθορίζει ότι η κυκλοφορία VPN θα πρέπει να "
+"δρομολογηθεί μέσω TCP, κάτι που δεν υποστηρίζεται αυτή τη στιγμή από το "
+"λογισμικό vpnc.\n"
 " \n"
-"Παρόλ' αυτά η σύνδεση μπορεί να δημιουργηθεί, αλλά με το TCP tunneling απενεργοποιημένο. Ενδέχεται, όμως, να μη λειτουργήσει σωστά. "
+"Παρόλ' αυτά η σύνδεση μπορεί να δημιουργηθεί, αλλά με το TCP tunneling "
+"απενεργοποιημένο. Ενδέχεται, όμως, να μη λειτουργήσει σωστά. "
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
+#: ../properties/nm-vpnc-dialog.ui.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "<b>General</b>"
 msgstr "<b>Γενικά</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "<b>Optional</b>"
 msgstr "<b>Προαιρετικά</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "Απενεργοποίηση του Dead Peer Detection "
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "Τομέας:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
 msgstr "Μέθοδος κρυπτογράφησης:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "Όνομα ομά_δας:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Gro_up password:"
 msgstr "Συνθηματικό ο_μάδας:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "IKE DH Group:"
+msgstr "IKE DH Group:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
 msgstr "Διάβαση μέσα από NAT:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Show passwords"
 msgstr "Εμφάνιση συνθηματικών"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User name:"
 msgstr "Όνομα χρήστη:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Πύλη:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "_Συνθηματικό χρήστη:"
 
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"
+
 #~ msgid "_Username:"
 #~ msgstr "Ό_νομα χρήστη:"
+
 #~ msgid "_Domain:"
 #~ msgstr "_Τομέας:"
+
 #~ msgid "Connect _anonymously"
 #~ msgstr "_Ανώνυμη σύνδεση"
+
 #~ msgid "Connect as _user:"
 #~ msgstr "Σύνδεση ως _χρήστης:"
-
