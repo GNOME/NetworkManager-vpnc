@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2010-11-09 17:25+0000\n"
+"POT-Creation-Date: 2011-02-08 18:53+0000\n"
 "PO-Revision-Date: 2010-11-27 03:30+0300\n"
 "Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
@@ -62,11 +62,11 @@ msgstr "Adaugă, șterge sau modifică conexiuni VPN"
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Manager conexiuni VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "VPN compatibil Cisco (vpnc)"
 
-#: ../properties/nm-vpnc.c:55
+#: ../properties/nm-vpnc.c:54
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
@@ -74,15 +74,15 @@ msgstr ""
 "Compatibil cu diferite gateway-uri VPN Cisco, Juniper, Netscreen și "
 "Sonicwall bazate pe IPSec."
 
-#: ../properties/nm-vpnc.c:342
+#: ../properties/nm-vpnc.c:341
 msgid "Saved"
 msgstr "Salvat"
 
-#: ../properties/nm-vpnc.c:349
+#: ../properties/nm-vpnc.c:348
 msgid "Always Ask"
 msgstr "Întreabă mereu"
 
-#: ../properties/nm-vpnc.c:356
+#: ../properties/nm-vpnc.c:355
 msgid "Not Required"
 msgstr "Nu este necesar"
 
@@ -114,11 +114,25 @@ msgstr "UDP Cisco"
 msgid "Disabled"
 msgstr "Dezactivată"
 
-#: ../properties/nm-vpnc.c:1152
+#: ../properties/nm-vpnc.c:515
+msgid "DH Group 1"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:522
+#, fuzzy
+#| msgid "Secure (default)"
+msgid "DH Group 2 (default)"
+msgstr "Securizat (implicit)"
+
+#: ../properties/nm-vpnc.c:529
+msgid "DH Group 5"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:1207
 msgid "TCP tunneling not supported"
 msgstr "Tunelarea TCP nu este suportată"
 
-#: ../properties/nm-vpnc.c:1154
+#: ../properties/nm-vpnc.c:1209
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -134,54 +148,58 @@ msgstr ""
 "Conexiunea poate fi creată, cu tunelarea TCP dezactivată, însă este posibil "
 "ca ea să nu funcționeze cum vă așteptați."
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
+#: ../properties/nm-vpnc-dialog.ui.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "<b>General</b>"
 msgstr "<b>Generale</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "<b>Optional</b>"
 msgstr "<b>Opționale</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "Dezactivați detecția de parteneri deconectați"
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "Domeniu:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
 msgstr "Metodă de criptare:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "Nume g_rup:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Gro_up password:"
 msgstr "Parolă gr_up:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "IKE DH Group:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
 msgstr "Traversare NAT:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Show passwords"
 msgstr "Arată parolele"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User name:"
 msgstr "Nume utilizator:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "Parolă _utilizator:"
