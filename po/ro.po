@@ -2,20 +2,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Alexandru Palcuie <palcuiealex@yahoo.com>, 2010.
-# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010.
+# Lucian Adrian Grijincu <lucian.grijincu@gmail.com>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&component=VPN: vpnc\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=Networ"
+"kManager&component=VPN: vpnc\n"
 "POT-Creation-Date: 2011-02-08 18:53+0000\n"
-"PO-Revision-Date: 2010-11-27 03:30+0300\n"
+"PO-Revision-Date: 2011-03-14 14:41+0200\n"
 "Last-Translator: Lucian Adrian Grijincu <lucian.grijincu@gmail.com>\n"
 "Language-Team: Romanian Gnome Team <gnomero-list@lists.sourceforge.net>\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ro\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2);;\n"
 "X-Generator: Virtaal 0.6.1\n"
@@ -116,17 +116,16 @@ msgstr "Dezactivată"
 
 #: ../properties/nm-vpnc.c:515
 msgid "DH Group 1"
-msgstr ""
+msgstr "Grup DH 1"
 
 #: ../properties/nm-vpnc.c:522
-#, fuzzy
 #| msgid "Secure (default)"
 msgid "DH Group 2 (default)"
-msgstr "Securizat (implicit)"
+msgstr "Grup DH 2 (implicit)"
 
 #: ../properties/nm-vpnc.c:529
 msgid "DH Group 5"
-msgstr ""
+msgstr "Grup DH 5"
 
 #: ../properties/nm-vpnc.c:1207
 msgid "TCP tunneling not supported"
@@ -182,7 +181,7 @@ msgstr "Parolă gr_up:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "IKE DH Group:"
-msgstr ""
+msgstr "Grup DH IKE:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
