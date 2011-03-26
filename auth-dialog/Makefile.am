@@ -25,5 +25,18 @@ nm_vpnc_auth_dialog_LDADD = \
 	$(NETWORKMANAGER_LIBS) \
 	$(top_builddir)/common-gnome/libnm-vpnc-common-gnome.la
 
-CLEANFILES = *~
+@INTLTOOL_DESKTOP_RULE@
+desktopdir = $(datadir)/applications
+desktop_in_in_files = nm-vpnc-auth-dialog.desktop.in.in
+desktop_in_files = nm-vpnc-auth-dialog.desktop.in
+desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
+EXTRA_DIST = \
+	$(desktop_in_in_files)
+
+CLEANFILES = \
+	*~ \
+	$(desktop_DATA)
+
+DISTCLEANFILES = \
+	$(desktop_in_files)
