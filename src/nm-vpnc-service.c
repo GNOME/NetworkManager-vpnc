@@ -30,6 +30,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <errno.h>
+#include <glib/gi18n.h>
 
 #include <nm-setting-vpn.h>
 #include "nm-vpnc-service.h"
@@ -144,7 +145,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "invalid integer property '%s' or out of range [%d -> %d]",
+			             _("invalid integer property '%s' or out of range [%d -> %d]"),
 			             key, prop.int_min, prop.int_max);
 			break;
 		case G_TYPE_BOOLEAN:
@@ -154,14 +155,14 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "invalid boolean property '%s' (not yes or no)",
+			             _("invalid boolean property '%s' (not yes or no)"),
 			             key);
 			break;
 		default:
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "unhandled property '%s' type %s",
+			             _("unhandled property '%s' type %s"),
 			             key, g_type_name (prop.type));
 			break;
 		}
@@ -172,7 +173,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 		g_set_error (info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             "property '%s' invalid or not supported",
+		             _("property '%s' invalid or not supported"),
 		             key);
 	}
 }
@@ -188,7 +189,7 @@ nm_vpnc_properties_validate (NMSettingVPN *s_vpn, GError **error)
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 		             "%s",
-		             "No VPN configuration options.");
+		             _("No VPN configuration options."));
 		return FALSE;
 	}
 
@@ -206,7 +207,7 @@ nm_vpnc_secrets_validate (NMSettingVPN *s_vpn, GError **error)
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 		             "%s",
-		             "No VPN secrets!");
+		             _("No VPN secrets!"));
 		return FALSE;
 	}
 
@@ -275,7 +276,7 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
 		             "%s",
-		             "Could not find vpnc binary.");
+		             _("Could not find vpnc binary."));
 		return -1;
 	}
 
@@ -367,7 +368,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		g_set_error (&info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             "Config option '%s' invalid or unknown.",
+		             _("Config option '%s' invalid or unknown."),
 		             (const char *) key);
 	}	
 
@@ -399,7 +400,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 			g_set_error (&info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "Config option '%s' not an integer.",
+			             _("Config option '%s' not an integer."),
 			             (const char *) key);
 		}
 	} else if (type == G_TYPE_NONE) {
@@ -576,7 +577,7 @@ real_need_secrets (NMVPNPlugin *plugin,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
 		             "%s",
-		             "Could not process the request because the VPN connection settings were invalid.");
+		             _("Could not process the request because the VPN connection settings were invalid."));
 		return FALSE;
 	}
 
@@ -691,8 +692,8 @@ main (int argc, char *argv[])
 	GOptionContext *opt_ctx = NULL;
 
 	GOptionEntry options[] = {
-		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, "Don't quit when VPN connection terminates", NULL },
-		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, "Enable verbose debug logging (may expose passwords)", NULL },
+		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
+		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
 		{NULL}
 	};
 
@@ -706,7 +707,7 @@ main (int argc, char *argv[])
 	g_option_context_add_main_entries (opt_ctx, options, NULL);
 
 	g_option_context_set_summary (opt_ctx,
-		"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager.");
+		_("nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager."));
 
 	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
 	g_option_context_free (opt_ctx);
