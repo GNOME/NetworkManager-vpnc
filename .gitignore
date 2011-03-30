@@ -15,6 +15,7 @@ ltmain.sh
 missing
 mkinstalldirs
 POTFILES
+*.pot
 stamp-*
 .deps
 .libs
@@ -28,6 +29,8 @@ m4/libtool.m4
 m4/lt*.m4
 
 auth-dialog/nm-vpnc-auth-dialog
+auth-dialog/nm-vpnc-auth-dialog.desktop
+auth-dialog/nm-vpnc-auth-dialog.desktop.in
 nm-vpnc-service.name
 nm-vpnc.desktop
 properties/tests/test-import-export
