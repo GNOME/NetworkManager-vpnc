@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-11 09:16+0100\n"
-"PO-Revision-Date: 2011-03-11 09:17+0100\n"
+"POT-Creation-Date: 2011-04-04 08:26+0200\n"
+"PO-Revision-Date: 2011-04-04 08:27+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -55,6 +55,14 @@ msgstr "Uwierzytelnianie VPN"
 #: ../auth-dialog/main.c:117
 msgid "_Group Password:"
 msgstr "Ha_sło grupy:"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
+msgid "Network"
+msgstr "Sieć"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
+msgid "Request VPN authentication"
+msgstr "Żądanie uwierzytelnienia VPN"
 
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
@@ -201,3 +209,73 @@ msgstr "_Brama:"
 #: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "Hasło _użytkownika:"
+
+#: ../src/nm-vpnc-service.c:148
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr ""
+"nieprawidłowa własność liczby całkowitej \"%s\" lub jest poza zakresem [%d -"
+"> %d]"
+
+#: ../src/nm-vpnc-service.c:158
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+"nieprawidłowa własność zmiennej logicznej \"%s\" (nie wynosi \"yes\" lub \"no"
+"\")"
+
+#: ../src/nm-vpnc-service.c:165
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr "nieobsługiwana własność \"%s\" typu \"%s\""
+
+#: ../src/nm-vpnc-service.c:176
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "własność \"%s\" jest nieprawidłowa lub nieobsługiwana"
+
+#: ../src/nm-vpnc-service.c:192
+msgid "No VPN configuration options."
+msgstr "Brak opcji konfiguracji VPN."
+
+#: ../src/nm-vpnc-service.c:210
+msgid "No VPN secrets!"
+msgstr "Brak haseł VPN."
+
+#: ../src/nm-vpnc-service.c:279
+msgid "Could not find vpnc binary."
+msgstr "Nie można odnaleźć pliku binarnego vpnc."
+
+#: ../src/nm-vpnc-service.c:371
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Opcja konfiguracji \"%s\" jest nieprawidłowa lub nieznana."
+
+#: ../src/nm-vpnc-service.c:403
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Opcja konfiguracji \"%s\" nie jest liczbą całkowitą."
+
+#: ../src/nm-vpnc-service.c:580
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+"Nie można przetworzyć żądania, ponieważ ustawienia połączenia VPN są "
+"nieprawidłowe."
+
+#: ../src/nm-vpnc-service.c:695
+msgid "Don't quit when VPN connection terminates"
+msgstr "Nie kończy działania, kiedy połączenie VPN jest kończone"
+
+#: ../src/nm-vpnc-service.c:696
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Włącza więcej komunikatów debugowania (może wyjawić hasła)"
+
+#: ../src/nm-vpnc-service.c:710
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-service dostarcza zintegrowaną możliwość nawiązywania połączeń VPN "
+"IPSec Cisco Legacy dla usługi NetworkManager."
