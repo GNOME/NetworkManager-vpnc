@@ -1151,15 +1151,19 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	}
 
 	if (pcf_file_lookup_bool (pcf, "main", "SaveUserPassword", &bool_value)) {
+		NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
+
 		if (bool_value) {
 			nm_setting_vpn_add_data_item (s_vpn,
 			                              NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
 			                              NM_VPNC_PW_TYPE_SAVE);
-			nm_setting_set_secret_flags (NM_SETTING (s_vpn),
-			                             NM_VPNC_KEY_XAUTH_PASSWORD,
-			                             NM_SETTING_SECRET_FLAG_AGENT_OWNED | NM_SETTING_SECRET_FLAG_NOT_SAVED,
-			                             NULL);
-		}
+		} else
+			flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
+
+		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+			                         NM_VPNC_KEY_XAUTH_PASSWORD,
+			                         flags,
+			                         NULL);
 	}
 
 	if (pcf_file_lookup_string (pcf, "main", "GroupPwd", &buf)) {
@@ -1319,6 +1323,7 @@ export (NMVpnPluginUiInterface *iface,
 	gboolean save_password = FALSE;
 	gboolean use_natt = FALSE;
 	gboolean use_force_natt = FALSE;
+	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
 
 	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
 	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
@@ -1383,10 +1388,15 @@ export (NMVpnPluginUiInterface *iface,
 		dhgroup = (value[0] == 'd' && value[1] == 'h') ? value + 2 : NULL;
 	}
 
-	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
-	if (value && strlen (value)) {
-		if (!strcmp (value, NM_VPNC_PW_TYPE_SAVE))
+	if (nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, &flags, NULL)) {
+		if (!(flags & NM_SETTING_SECRET_FLAG_NOT_SAVED))
 			save_password = TRUE;
+	} else {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
+		if (value && strlen (value)) {
+			if (!strcmp (value, NM_VPNC_PW_TYPE_SAVE))
+				save_password = TRUE;
+		}
 	}
 
 	routes = g_string_new ("X-NM-Routes=");
