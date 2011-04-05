@@ -66,7 +66,8 @@ test_items (const char *detail, NMSettingVPN *s_vpn, Item *items, gboolean secre
 			ASSERT (value == NULL, detail, "unexpected item '%s'", iter->name);
 		} else {
 			ASSERT (value != NULL, detail, "unexpected missing value for item %s", iter->name);
-			ASSERT (strcmp (value, iter->value) == 0, detail, "unexpected value for item %s", iter->name);
+			ASSERT (strcmp (value, iter->value) == 0, detail, "unexpected value for item %s (%s != %s",
+			        iter->name, value, iter->value);
 			expected_count++;
 		}
 	}
@@ -97,6 +98,8 @@ static Item basic_items[] = {
 	{ NM_VPNC_KEY_DPD_IDLE_TIMEOUT,      "90" },
 	{ NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT, NULL },
 	{ NM_VPNC_KEY_LOCAL_PORT,            "500" },
+	{ NM_VPNC_KEY_SECRET"-flags",        "1" },
+	{ NM_VPNC_KEY_XAUTH_PASSWORD"-flags","1" },
 	{ NULL, NULL }
 };
 
@@ -268,6 +271,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMConnection *reimported;
+	NMSetting *s_vpn;
 	char *path;
 	gboolean success;
 	GError *error = NULL;
@@ -294,6 +298,15 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 	 * make the connection comparison below fail.
 	 */
 	remove_secrets (connection);
+
+	/* Since we don't export the user password, but the original connection
+	 * had one, we need to add secret flags to the re-imported connection.
+	 */
+	s_vpn = nm_connection_get_setting (reimported, NM_TYPE_SETTING_VPN);
+	nm_setting_set_secret_flags (s_vpn,
+	                             NM_VPNC_KEY_SECRET,
+	                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+	                             NULL);
 
 	ASSERT (nm_connection_compare (connection, reimported, NM_SETTING_COMPARE_FLAG_EXACT) == TRUE,
 	        "basic-export", "original and reimported connection differ");
@@ -341,6 +354,15 @@ test_nat_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *na
 	 * make the connection comparison below fail.
 	 */
 	remove_secrets (connection);
+
+	/* Since we don't export the user password, but the original connection
+	 * had one, we need to add secret flags to the re-imported connection.
+	 */
+	s_vpn = nm_connection_get_setting_vpn (reimported);
+	nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+	                             NM_VPNC_KEY_SECRET,
+	                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+	                             NULL);
 
 	ASSERT (nm_connection_compare (connection, reimported, NM_SETTING_COMPARE_FLAG_EXACT) == TRUE,
 	        "nat-export", "original and reimported connection differ");
