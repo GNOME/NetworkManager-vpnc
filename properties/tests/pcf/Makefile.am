@@ -6,5 +6,6 @@ EXTRA_DIST = \
 	iso885915.pcf \
 	nat-cisco.pcf \
 	natt.pcf \
-	force-natt.pcf
-
+	force-natt.pcf \
+	use-legacy-ike-port-0.pcf \
+	use-legacy-ike-port-1.pcf
