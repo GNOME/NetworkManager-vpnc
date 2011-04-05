@@ -1142,20 +1142,33 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	if (pcf_file_lookup_string (pcf, "main", "UserName", &buf))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, buf);
 
-	if (pcf_file_lookup_string (pcf, "main", "UserPassword", &buf))
+	if (pcf_file_lookup_string (pcf, "main", "UserPassword", &buf)) {
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD, buf);
+		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+		                             NM_VPNC_KEY_XAUTH_PASSWORD,
+		                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+		                             NULL);
+	}
 
 	if (pcf_file_lookup_bool (pcf, "main", "SaveUserPassword", &bool_value)) {
 		if (bool_value) {
 			nm_setting_vpn_add_data_item (s_vpn,
 			                              NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
 			                              NM_VPNC_PW_TYPE_SAVE);
+			nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+			                             NM_VPNC_KEY_XAUTH_PASSWORD,
+			                             NM_SETTING_SECRET_FLAG_AGENT_OWNED | NM_SETTING_SECRET_FLAG_NOT_SAVED,
+			                             NULL);
 		}
 	}
 
-	if (pcf_file_lookup_string (pcf, "main", "GroupPwd", &buf))
+	if (pcf_file_lookup_string (pcf, "main", "GroupPwd", &buf)) {
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_SECRET, buf);
-	else {
+		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+		                             NM_VPNC_KEY_SECRET,
+		                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+		                             NULL);
+	} else {
 		/* Handle encrypted passwords */
 		if (pcf_file_lookup_string (pcf, "main", "enc_GroupPwd", &buf)) {
 			char *decrypted;
@@ -1165,6 +1178,11 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 				nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_SECRET, decrypted);
 				memset (decrypted, 0, strlen (decrypted));
 				g_free (decrypted);
+
+				nm_setting_set_secret_flags (NM_SETTING (s_vpn),
+				                             NM_VPNC_KEY_SECRET,
+				                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
+				                             NULL);
 			}
 		}
 	}
