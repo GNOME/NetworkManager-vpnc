@@ -264,7 +264,7 @@ remove_secrets (NMConnection *connection)
 
 #define BASIC_EXPORTED_NAME "basic-export-test.pcf"
 static void
-test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
+test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *tmpdir)
 {
 	NMConnection *connection;
 	NMConnection *reimported;
@@ -276,7 +276,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 	connection = get_basic_connection ("basic-export", plugin, dir, "basic.pcf");
 	ASSERT (connection != NULL, "basic-export", "failed to import connection");
 
-	path = g_build_path ("/", dir, BASIC_EXPORTED_NAME, NULL);
+	path = g_build_path ("/", tmpdir, BASIC_EXPORTED_NAME, NULL);
 	success = nm_vpn_plugin_ui_interface_export (plugin, path, connection, &error);
 	if (!success) {
 		if (!error)
@@ -286,7 +286,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 	}
 
 	/* Now re-import it and compare the connections to ensure they are the same */
-	reimported = get_basic_connection ("basic-export", plugin, dir, BASIC_EXPORTED_NAME);
+	reimported = get_basic_connection ("basic-export", plugin, tmpdir, BASIC_EXPORTED_NAME);
 	ret = unlink (path);
 	ASSERT (connection != NULL, "basic-export", "failed to re-import connection");
 
@@ -305,7 +305,10 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir)
 
 #define NAT_EXPORTED_NAME "nat-export-test.pcf"
 static void
-test_nat_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *nat_mode)
+test_nat_export (NMVpnPluginUiInterface *plugin,
+                 const char *dir,
+                 const char *tmpdir,
+                 const char *nat_mode)
 {
 	NMConnection *connection;
 	NMSettingVPN *s_vpn;
@@ -323,7 +326,7 @@ test_nat_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *na
 
 	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, nat_mode);
 
-	path = g_build_path ("/", dir, NAT_EXPORTED_NAME, NULL);
+	path = g_build_path ("/", tmpdir, NAT_EXPORTED_NAME, NULL);
 	success = nm_vpn_plugin_ui_interface_export (plugin, path, connection, &error);
 	if (!success) {
 		if (!error)
@@ -333,7 +336,7 @@ test_nat_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *na
 	}
 
 	/* Now re-import it and compare the connections to ensure they are the same */
-	reimported = get_basic_connection ("nat-export", plugin, dir, NAT_EXPORTED_NAME);
+	reimported = get_basic_connection ("nat-export", plugin, tmpdir, NAT_EXPORTED_NAME);
 	ret = unlink (path);
 	ASSERT (connection != NULL, "nat-export", "failed to re-import connection");
 
@@ -732,8 +735,8 @@ int main (int argc, char **argv)
 	char *basename;
 	NMVpnPluginUiInterface *plugin = NULL;
 
-	if (argc != 2)
-		FAIL ("args", "usage: %s <pcf path>", argv[0]);
+	if (argc != 3)
+		FAIL ("args", "usage: %s <pcf path> <tmp path>", argv[0]);
 
 	g_type_init ();
 	bus = dbus_g_bus_get (DBUS_BUS_SESSION, NULL);
@@ -759,10 +762,10 @@ int main (int argc, char **argv)
 	test_legacy_ike_port_0_import (plugin, argv[1]);
 	test_legacy_ike_port_1_import (plugin, argv[1]);
 
-	test_basic_export (plugin, argv[1]);
-	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_CISCO);
-	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_NATT);
-	test_nat_export (plugin, argv[1], NM_VPNC_NATT_MODE_NATT_ALWAYS);
+	test_basic_export (plugin, argv[1], argv[2]);
+	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_CISCO);
+	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_NATT);
+	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_NATT_ALWAYS);
 
 	g_object_unref (plugin);
 
