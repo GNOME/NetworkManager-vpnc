@@ -1,0 +1,269 @@
+# Persian translation for network-manager-vpnc.
+# Copyright (C) 2010 network-manager-vpnc's COPYRIGHT HOLDER
+# This file is distributed under the same license as the network-manager-vpnc package.
+# Arash Mousavi <mousavi.arash@gmail.com>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-vpnc master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
+"POT-Creation-Date: 2011-03-30 17:56+0000\n"
+"PO-Revision-Date: 2010-10-20 21:19+0330\n"
+"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
+"Language-Team: Persian <fa@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:103
+msgid "_Secondary Password:"
+msgstr "_دومین گذرواژه:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:159
+msgid "_Password:"
+msgstr "_گذرواژه:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "Sh_ow passwords"
+msgstr "_نمایش گذرواژه‌ها"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:305
+msgid "_Remember passwords for this session"
+msgstr "_به خاظر س‍پردن گذرواژه‌ها برای این نشست"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:306
+msgid "_Save passwords in keyring"
+msgstr "_ذخیره گذرواژه در دسته کلید"
+
+#: ../auth-dialog/main.c:112
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr "برای دسترسی به شبکه خصوصی مجازی احتیاج به تایید هویت دارید «%s»."
+
+#: ../auth-dialog/main.c:113
+msgid "Authenticate VPN"
+msgstr "تایید هوست وی‌پی‌ان"
+
+#: ../auth-dialog/main.c:117
+msgid "_Group Password:"
+msgstr "_گذرواژه گروه:"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
+msgid "Network"
+msgstr ""
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
+msgid "Request VPN authentication"
+msgstr ""
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "اضافه، حذف و ویرایش اتصال‌های وی‌پی‌ان"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "مدیریت اتصال وی‌پی‌ان (vpnc)"
+
+#: ../properties/nm-vpnc.c:53
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "وی‌پی‌ان سازگار سیسکو (vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr ""
+"سازگار با دروازه‌های وی‌پی‌ان  Cisco، Juniper، Netscreen، و Sonicwall IPSec-"
+"based"
+
+#: ../properties/nm-vpnc.c:354
+msgid "Saved"
+msgstr "ذخیره شد"
+
+#: ../properties/nm-vpnc.c:361
+msgid "Always Ask"
+msgstr "همیشه سوال شود"
+
+#: ../properties/nm-vpnc.c:368
+msgid "Not Required"
+msgstr "لازم نیست"
+
+#: ../properties/nm-vpnc.c:428
+msgid "Secure (default)"
+msgstr "ایمن (پیش‌فرض)"
+
+#: ../properties/nm-vpnc.c:431
+msgid "Weak (use with caution)"
+msgstr "ضعیف (استفاده با احتیاط)"
+
+#: ../properties/nm-vpnc.c:439
+msgid "None (completely insecure)"
+msgstr "هیچکدام (کاملا ناامن)"
+
+#: ../properties/nm-vpnc.c:495
+msgid "NAT-T when available (default)"
+msgstr "استفاده از NAT-T در صورت وجود (پیش‌فرض)"
+
+#: ../properties/nm-vpnc.c:502
+msgid "NAT-T always"
+msgstr "همیشه NAT-T"
+
+#: ../properties/nm-vpnc.c:509
+msgid "Cisco UDP"
+msgstr "UDP سیسکو"
+
+#: ../properties/nm-vpnc.c:516
+msgid "Disabled"
+msgstr "غیرفعال شد"
+
+#: ../properties/nm-vpnc.c:536
+msgid "DH Group 1"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:543
+#, fuzzy
+#| msgid "Secure (default)"
+msgid "DH Group 2 (default)"
+msgstr "ایمن (پیش‌فرض)"
+
+#: ../properties/nm-vpnc.c:550
+msgid "DH Group 5"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:1252
+msgid "TCP tunneling not supported"
+msgstr "تونل TCP پشتیبانی نمی‌شود"
+
+#: ../properties/nm-vpnc.c:1254
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+"پرونده‌ی تنظیمات وی‌پی‌ان «%s» مشخص می‌کند که لازم است از تونل TCP که هم‌اکنون در "
+"برنامه‌ی vpnc پشتیبانی نمی‌شود استفاده کرد.\n"
+"\n"
+"اتصال با غیرفعال کردن تونل TCP هنوز هم می‌تواند ساخته شود. با این حال ممکن "
+"است با آن شکل که انتظار می‌رود کار نکند."
+
+#: ../properties/nm-vpnc-dialog.ui.h:1
+msgid " "
+msgstr " "
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "<b>General</b>"
+msgstr "<b>عمومی</b>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid "<b>Optional</b>"
+msgstr "<b>اختیاری</b>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:4
+msgid "Disable Dead Peer Detection"
+msgstr "غیرفعال کردن تشخیص همتای از بین‌رفته"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "Domain:"
+msgstr "دامنه:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "Encryption method:"
+msgstr "روش رمزنگاری:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr "نام _گروه:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "Gro_up password:"
+msgstr "گذرواژه گ_روه:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "IKE DH Group:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid "NAT traversal:"
+msgstr "پیمایش NAT:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "Show passwords"
+msgstr "نمایش گذرواژه‌ها"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid "User name:"
+msgstr "نام کاربری:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid "_Gateway:"
+msgstr "_دروازه:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "_User password:"
+msgstr "_گذرواژه کاربر:"
+
+#: ../src/nm-vpnc-service.c:148
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:158
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:165
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:176
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:192
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:210
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:279
+msgid "Could not find vpnc binary."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:371
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:403
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:580
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:695
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:696
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:710
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"NetworkManager."
+msgstr ""
