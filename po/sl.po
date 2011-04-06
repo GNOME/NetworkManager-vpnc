@@ -8,15 +8,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&component=VPN: vpnc\n"
-"POT-Creation-Date: 2011-01-27 02:07+0000\n"
-"PO-Revision-Date: 2011-01-27 20:42+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
+"POT-Creation-Date: 2011-04-05 16:30+0000\n"
+"PO-Revision-Date: 2011-04-06 10:38+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-Country: SLOVENIA\n"
 "X-Poedit-Language: Slovenian\n"
@@ -30,30 +30,38 @@ msgstr "_Drugotno geslo:"
 msgid "_Password:"
 msgstr "_Geslo:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:243
+#: ../auth-dialog/gnome-two-password-dialog.c:245
 msgid "Sh_ow passwords"
 msgstr "_Pokaži gesla"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:303
+#: ../auth-dialog/gnome-two-password-dialog.c:305
 msgid "_Remember passwords for this session"
 msgstr "_Zapomni si geslo za to sejo"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:304
+#: ../auth-dialog/gnome-two-password-dialog.c:306
 msgid "_Save passwords in keyring"
 msgstr "_Shrani geslo v zbirko ključev"
 
-#: ../auth-dialog/main.c:170
+#: ../auth-dialog/main.c:112
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Dostop do navideznega zasebnega omrežja '%s' zahteva overitev."
 
-#: ../auth-dialog/main.c:171
+#: ../auth-dialog/main.c:113
 msgid "Authenticate VPN"
 msgstr "Overi VPN"
 
-#: ../auth-dialog/main.c:175
+#: ../auth-dialog/main.c:117
 msgid "_Group Password:"
 msgstr "_Skupinsko geslo:"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
+msgid "Network"
+msgstr "Omrežje"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
+msgid "Request VPN authentication"
+msgstr "Zahtevaj overitev VPN"
 
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
@@ -63,71 +71,71 @@ msgstr "Dodajanje, odstranjevanje in urejanje povezav VPN"
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Upravljalnik povezav VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco VPN združljivi odjemalec (vpnc)"
 
-#: ../properties/nm-vpnc.c:55
+#: ../properties/nm-vpnc.c:54
 msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
 msgstr "Združljivo z različnimi prehodi; Cisco, Juniper, Netscreen in Sonicwall IPSec VPN."
 
-#: ../properties/nm-vpnc.c:342
+#: ../properties/nm-vpnc.c:354
 msgid "Saved"
 msgstr "Shranjeno"
 
-#: ../properties/nm-vpnc.c:349
+#: ../properties/nm-vpnc.c:361
 msgid "Always Ask"
 msgstr "Vedno vprašaj"
 
-#: ../properties/nm-vpnc.c:356
+#: ../properties/nm-vpnc.c:368
 msgid "Not Required"
 msgstr "Ni zahtevano"
 
-#: ../properties/nm-vpnc.c:416
+#: ../properties/nm-vpnc.c:428
 msgid "Secure (default)"
 msgstr "Varno (privzeto)"
 
-#: ../properties/nm-vpnc.c:419
+#: ../properties/nm-vpnc.c:431
 msgid "Weak (use with caution)"
 msgstr "Šibko (ni priporočeno)"
 
-#: ../properties/nm-vpnc.c:427
+#: ../properties/nm-vpnc.c:439
 msgid "None (completely insecure)"
 msgstr "Brez (nezavarovan način)"
 
-#: ../properties/nm-vpnc.c:475
+#: ../properties/nm-vpnc.c:495
 msgid "NAT-T when available (default)"
 msgstr "Uporabi NAT-T, kadar je na voljo (privzeto)"
 
-#: ../properties/nm-vpnc.c:482
+#: ../properties/nm-vpnc.c:502
 msgid "NAT-T always"
 msgstr "Vedno uporabi NAT-T"
 
-#: ../properties/nm-vpnc.c:489
+#: ../properties/nm-vpnc.c:509
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:496
+#: ../properties/nm-vpnc.c:516
 msgid "Disabled"
 msgstr "Onemogočeno"
 
-#: ../properties/nm-vpnc.c:516
+#: ../properties/nm-vpnc.c:536
 msgid "DH Group 1"
 msgstr "DH skupina 1"
 
-#: ../properties/nm-vpnc.c:523
+#: ../properties/nm-vpnc.c:543
 msgid "DH Group 2 (default)"
 msgstr "DH skupina 2 (privzeto)"
 
-#: ../properties/nm-vpnc.c:530
+#: ../properties/nm-vpnc.c:550
 msgid "DH Group 5"
 msgstr "DH skupina 5"
 
-#: ../properties/nm-vpnc.c:1202
+#: ../properties/nm-vpnc.c:1274
 msgid "TCP tunneling not supported"
 msgstr "TCP tuneliranje ni podprto"
 
-#: ../properties/nm-vpnc.c:1204
+#: ../properties/nm-vpnc.c:1276
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
@@ -138,105 +146,183 @@ msgstr ""
 "\n"
 "Povezava je lahko še vedno ustvarjena, z onemogočenim TCP tuneliranjem, vendar lahko ne deluje po pričakovanjih."
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
+#: ../properties/nm-vpnc-dialog.ui.h:1
 msgid " "
 msgstr " "
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "<b>General</b>"
 msgstr "<b>Splošno</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "<b>Optional</b>"
 msgstr "<b>Izbirno</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "Onemogoči zaznavo nedejavnih odjemalcev"
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "Domena:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
 msgstr "Način šifriranja:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "I_me skupine:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Gro_up password:"
 msgstr "_Skupinsko geslo:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "IKE DH Group:"
 msgstr "IKE DH skupina:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "NAT traversal:"
 msgstr "Prečkanje NAT:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Show passwords"
 msgstr "Pokaži gesla"
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User name:"
 msgstr "Uporabniško ime:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Prehod:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "_User password:"
 msgstr "_Uporabnikovo geslo:"
 
+#: ../src/nm-vpnc-service.c:148
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr "neveljavna lastnost celega števila '%s', ki je izven območja [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:158
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "neveljavna logična lastnost '%s' (ni vrednost da oziroma ne)"
+
+#: ../src/nm-vpnc-service.c:165
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr "neupravljana lastnost  '%s' vrste %s"
+
+#: ../src/nm-vpnc-service.c:176
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "lastnost  '%s' ni veljavna ali pa ni podprta"
+
+#: ../src/nm-vpnc-service.c:192
+msgid "No VPN configuration options."
+msgstr "Ni možnosti nastavitev VPN."
+
+#: ../src/nm-vpnc-service.c:210
+msgid "No VPN secrets!"
+msgstr "Ni skrivnih podatkov VPN!"
+
+#: ../src/nm-vpnc-service.c:279
+msgid "Could not find vpnc binary."
+msgstr "Programa vpnc ni mogoče najti."
+
+#: ../src/nm-vpnc-service.c:371
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Možnost nastavitve '%s' ni veljavna ali pa ni znana."
+
+#: ../src/nm-vpnc-service.c:403
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Možnost nastavitve '%s' ni celoštevilska vrednost"
+
+#: ../src/nm-vpnc-service.c:580
+msgid "Could not process the request because the VPN connection settings were invalid."
+msgstr "Zahteve ni mogoče izvesti, ker so nastavitve povezave VPN neveljavne."
+
+#: ../src/nm-vpnc-service.c:695
+msgid "Don't quit when VPN connection terminates"
+msgstr "Ne končaj, ko se povezava VPN zaustavi"
+
+#: ../src/nm-vpnc-service.c:696
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Omogoči podrobno beleženje razhroščevanja (lahko razkrije gesla)"
+
+#: ../src/nm-vpnc-service.c:710
+msgid "nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager."
+msgstr "Storitev nm-vpnc-service omogoča podporo Cisco Legacy IPSec VPN za program NetworkManager."
+
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"
+
 #~ msgid "Connect _anonymously"
 #~ msgstr "Poveži _brezimno"
+
 #~ msgid "Connect as _user:"
 #~ msgstr "Poveži se kot _uporabnik:"
+
 #~ msgid "The following vpnc VPN connection will be created:"
 #~ msgstr "Ustvarjena bo naslednja povezava VPN vpnc:"
+
 #~ msgid "Name:  %s"
 #~ msgstr "Ime: %s"
+
 #~ msgid "Gateway:  %s"
 #~ msgstr "Prehod: %s"
+
 #~ msgid "Group Name:  %s"
 #~ msgstr "Ime skupine: %s"
+
 #~ msgid "Username:  %s"
 #~ msgstr "Uporabniško ime: %s"
+
 #~ msgid "Domain:  %s"
 #~ msgstr "Domena: %s"
+
 #~ msgid "Routes:  %s"
 #~ msgstr "Smeri: %s"
+
 #~ msgid "The connection details can be changed using the \"Edit\" button."
 #~ msgstr ""
 #~ "Podrobnosti povezavi je mogoče spremeniti z uporabo gumba \"Uredi\"."
+
 #~ msgid "Cannot import settings"
 #~ msgstr "Ni mogoče uvoziti nastavitev"
+
 #~ msgid "The VPN settings file '%s' does not contain valid data."
 #~ msgstr "Datoteka z nastavitvami za VPN '%s' ne vsebuje veljavnih podatkov."
+
 #~ msgid "Select file to import"
 #~ msgstr "Izberite datoteko za uvoz"
+
 #~ msgid "Save as..."
 #~ msgstr "Shrani kot ..."
+
 #~ msgid "A file named \"%s\" already exists."
 #~ msgstr "Datoteka z imenom \"%s\" že obstaja."
+
 #~ msgid "Do you want to replace it with the one you are saving?"
 #~ msgstr "Ali jo želite zamenjati s to, ki jo shranjujete?"
+
 #~ msgid "Failed to export configuration"
 #~ msgstr "Izvoz nastavitev ni uspel"
+
 #~ msgid "Failed to save file %s"
 #~ msgstr "Shranjevanje datoteke %s ni uspelo"
+
 #~ msgid "<b>Required Information</b>"
 #~ msgstr "<b>Zahtevane podrobnosti</b>"
+
 #~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
 #~ msgstr "<i>primer: 172.16.0.0/16 10.11.12.0/24</i>"
+
 #~ msgid "O_ptional Information"
 #~ msgstr "D_odatne podrobnosti"
-
