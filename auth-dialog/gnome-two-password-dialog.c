@@ -245,20 +245,9 @@ vpn_password_dialog_new (const char *title,
 	priv->show_passwords_checkbox = gtk_check_button_new_with_mnemonic (_("Sh_ow passwords"));
 
 	/* We want to hold on to these during the table rearrangement */
-#if GLIB_CHECK_VERSION (2, 10, 0)
 	g_object_ref_sink (priv->password_entry);
 	g_object_ref_sink (priv->password_entry_secondary);
 	g_object_ref_sink (priv->show_passwords_checkbox);
-#else
-	g_object_ref (priv->password_entry);
-	gtk_object_sink (GTK_OBJECT (priv->password_entry));
-
-	g_object_ref (priv->password_entry_secondary);
-	gtk_object_sink (GTK_OBJECT (priv->password_entry_secondary));
-
-	g_object_ref (priv->show_passwords_checkbox);
-	gtk_object_sink (GTK_OBJECT (priv->show_passwords_checkbox));
-#endif
 	
 	gtk_entry_set_visibility (GTK_ENTRY (priv->password_entry), FALSE);
 	gtk_entry_set_visibility (GTK_ENTRY (priv->password_entry_secondary), FALSE);
