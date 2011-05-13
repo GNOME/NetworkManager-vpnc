@@ -134,6 +134,17 @@ uint_to_gvalue (guint32 num)
 }
 
 static GValue *
+bool_to_gvalue (gboolean b)
+{
+	GValue *val;
+
+	val = g_slice_new0 (GValue);
+	g_value_init (val, G_TYPE_BOOLEAN);
+	g_value_set_boolean (val, b);
+	return val;
+}
+
+static GValue *
 addr_to_gvalue (const char *str)
 {
 	struct in_addr	temp_addr;
@@ -361,9 +372,12 @@ main (int argc, char *argv[])
 
 	/* Routes */
 	val = get_routes ();
-	if (val)
+	if (val) {
 		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_ROUTES, val);
-
+		/* If routes-to-include were provided, that means no default route */
+		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
+		                     bool_to_gvalue (TRUE));
+	}
 	/* Banner */
 	val = str_to_gvalue (getenv ("CISCO_BANNER"), TRUE);
 	if (val)
