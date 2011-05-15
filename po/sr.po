@@ -1,0 +1,270 @@
+# Language network-manager-vpnc translations for F package.
+# Copyright (C) 2011 THE F'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the F package.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: F 677-CF0E\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
+"POT-Creation-Date: 2011-05-07 23:42+0000\n"
+"PO-Revision-Date: 2011-05-15 19:53+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <gnom@prevod.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: Serbian (sr)\n"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:103
+msgid "_Secondary Password:"
+msgstr "_Секундарна лозинка:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:159
+msgid "_Password:"
+msgstr "_Лозинка:"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:245
+msgid "Sh_ow passwords"
+msgstr "При_кажи лозинку"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:294
+msgid "_Remember passwords for this session"
+msgstr "_Запамти лозинку за ову сесију"
+
+#: ../auth-dialog/gnome-two-password-dialog.c:295
+msgid "_Save passwords in keyring"
+msgstr "_Сачувај лозинку у привеску кључева"
+
+#: ../auth-dialog/main.c:112
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+"Морате да потврдите идентитет да бисте могли да приступите Виртуелној "
+"приватној мрежи „%s“."
+
+#: ../auth-dialog/main.c:113
+msgid "Authenticate VPN"
+msgstr "Потврди ВПН"
+
+#: ../auth-dialog/main.c:117
+msgid "_Group Password:"
+msgstr "_Групна лозинка:"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
+msgid "Network"
+msgstr "Мрежа"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
+msgid "Request VPN authentication"
+msgstr "Потрбно је ВПН потврђивање"
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "Додајте, уклањајте и уређујте ВПН везе"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "Управник ВПН веза (vpnc)"
+
+#: ../properties/nm-vpnc.c:53
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "Циско компатибилан ВПН (vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr ""
+"Компатибилно са разним ВПН мрежним пролазима заснованим на Циско, Џанипер, "
+"Нетскрин и Сониквол ИПСец-у."
+
+#: ../properties/nm-vpnc.c:355
+msgid "Saved"
+msgstr "Сачувано је"
+
+#: ../properties/nm-vpnc.c:362
+msgid "Always Ask"
+msgstr "Питај увек"
+
+#: ../properties/nm-vpnc.c:369
+msgid "Not Required"
+msgstr "Није затражено"
+
+#: ../properties/nm-vpnc.c:429
+msgid "Secure (default)"
+msgstr "Безбедност (основно)"
+
+#: ../properties/nm-vpnc.c:432
+msgid "Weak (use with caution)"
+msgstr "Слабо (користите са опрезом)"
+
+#: ../properties/nm-vpnc.c:440
+msgid "None (completely insecure)"
+msgstr "Ништа (потпуно несигурна)"
+
+#: ../properties/nm-vpnc.c:496
+msgid "NAT-T when available (default)"
+msgstr "НАТ-Т када је доступно (основно)"
+
+#: ../properties/nm-vpnc.c:503
+msgid "NAT-T always"
+msgstr "НАТ-Т увек"
+
+#: ../properties/nm-vpnc.c:510
+msgid "Cisco UDP"
+msgstr "Циско УДП"
+
+#: ../properties/nm-vpnc.c:517
+msgid "Disabled"
+msgstr "Искључено"
+
+#: ../properties/nm-vpnc.c:537
+msgid "DH Group 1"
+msgstr "ДХ група 1"
+
+#: ../properties/nm-vpnc.c:544
+msgid "DH Group 2 (default)"
+msgstr "ДХ група 2 (основно)"
+
+#: ../properties/nm-vpnc.c:551
+msgid "DH Group 5"
+msgstr "ДХ група 5"
+
+#: ../properties/nm-vpnc.c:1299
+msgid "TCP tunneling not supported"
+msgstr "ТЦП тунелисање није подржано"
+
+#: ../properties/nm-vpnc.c:1301
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+"Датотека ВПН подешавања „%s“ одређује да ВПН саобраћај треба бити тунелисан "
+"кроз ТЦП а који тренутно није подржан у впнц софтверу.\n"
+"\n"
+"Веза може још увек бити направљена, са искљученим ТЦП тунелисањем, међутим "
+"можда неће радити како што се очекује."
+
+#: ../properties/nm-vpnc-dialog.ui.h:1
+msgid " "
+msgstr " "
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "<b>General</b>"
+msgstr "<b>Опште</b>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid "<b>Optional</b>"
+msgstr "<b>Опционално</b>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:4
+msgid "Disable Dead Peer Detection"
+msgstr "Искључи откривање неактивних парњака"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "Domain:"
+msgstr "Домен:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "Encryption method:"
+msgstr "Начин шифровања:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr "Име г_рупе:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "Gro_up password:"
+msgstr "Лозинка гр_упе:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "IKE DH Group:"
+msgstr "ИКЕ ДХ група:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid "NAT traversal:"
+msgstr "НАТ пролаз:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "Show passwords"
+msgstr "Прикажи лозинку"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid "User name:"
+msgstr "Корисничко име:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid "_Gateway:"
+msgstr "_Мрежни пролаз:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "_User password:"
+msgstr "Лозинка _корисника:"
+
+#: ../src/nm-vpnc-service.c:148
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:158
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:165
+#, c-format
+msgid "unhandled property '%s' type %s"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:176
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:192
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:210
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:279
+msgid "Could not find vpnc binary."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:371
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:403
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:580
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:695
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:696
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:710
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"NetworkManager."
+msgstr ""
