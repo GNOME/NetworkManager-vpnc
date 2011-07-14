@@ -121,7 +121,6 @@ AS_AC_EXPAND(LIBEXECDIR, $libexecdir)
 AC_CONFIG_FILES([
 Makefile
 src/Makefile
-common-gnome/Makefile
 auth-dialog/Makefile
 auth-dialog/nm-vpnc-auth-dialog.desktop.in
 properties/Makefile
