@@ -37,7 +37,7 @@
 #include <nm-vpn-plugin-utils.h>
 
 #include "src/nm-vpnc-service.h"
-#include "gnome-two-password-dialog.h"
+#include "vpn-password-dialog.h"
 
 #define VPNC_USER_PASSWORD "password"
 #define VPNC_GROUP_PASSWORD "group-password"
@@ -153,7 +153,6 @@ get_secrets (const char *vpn_uuid,
 	dialog = VPN_PASSWORD_DIALOG (vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL));
 	g_free (prompt);
 
-	vpn_password_dialog_set_show_remember (dialog, FALSE);
 	vpn_password_dialog_set_password_secondary_label (dialog, _("_Group Password:"));
 
 	/* Don't show the user password entry if the user password isn't required,
