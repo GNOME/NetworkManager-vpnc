@@ -35,7 +35,6 @@
 #include <glib/gi18n-lib.h>
 #include <string.h>
 #include <gtk/gtk.h>
-#include <gnome-keyring.h>
 #include <gnome-keyring-memory.h>
 
 #define NM_VPN_API_SUBJECT_TO_CHANGE
@@ -46,7 +45,6 @@
 #include <nm-setting-ip4-config.h>
 
 #include "src/nm-vpnc-service.h"
-#include "common-gnome/keyring-helpers.h"
 #include "pcf-file.h"
 #include "nm-vpnc.h"
 
@@ -175,16 +173,12 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 	char *password = NULL;
 	char *group_password = NULL;
 
-	/* Grab secrets from the connection or the keyring */
+	/* Grab secrets from the connection */
 	if (connection) {
-		NMSettingConnection *s_con;
 		NMSettingVPN *s_vpn;
-		NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
 		const char *tmp;
 
-		s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
-
-		s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+		s_vpn = nm_connection_get_setting_vpn (connection);
 		if (s_vpn) {
 			tmp = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD);
 			if (tmp)
@@ -193,21 +187,6 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 			tmp = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_SECRET);
 			if (tmp)
 				group_password = gnome_keyring_memory_strdup (tmp);
-		}
-
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, &secret_flags, NULL);
-		if (!password && (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
-			keyring_helpers_get_one_secret (nm_setting_connection_get_uuid (s_con),
-				                            VPNC_USER_PASSWORD,
-				                            &password);
-		}
-
-		secret_flags = NM_SETTING_SECRET_FLAG_NONE;
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, &secret_flags, NULL);
-		if (!group_password && (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED)) {
-			keyring_helpers_get_one_secret (nm_setting_connection_get_uuid (s_con),
-			                                VPNC_GROUP_PASSWORD,
-			                                &group_password);
 		}
 	}
 

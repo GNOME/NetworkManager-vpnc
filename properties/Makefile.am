@@ -28,8 +28,7 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 libnm_vpnc_properties_la_LIBADD = \
 	$(GTK_LIBS) \
 	$(NETWORKMANAGER_LIBS) \
-	$(GNOMEKEYRING_LIBS) \
-	$(top_builddir)/common-gnome/libnm-vpnc-common-gnome.la
+	$(GNOMEKEYRING_LIBS)
 
 libnm_vpnc_properties_la_LDFLAGS = \
         -avoid-version
