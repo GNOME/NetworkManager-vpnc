@@ -1128,6 +1128,25 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		}
 	}
 
+	/* Group Password Flags */
+	if (pcf_file_lookup_bool (pcf, "main", "X-NM-SaveGroupPassword", &bool_value)) {
+		NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
+
+		if (bool_value) {
+			nm_setting_vpn_add_data_item (s_vpn,
+			                              NM_VPNC_KEY_SECRET_TYPE,
+			                              NM_VPNC_PW_TYPE_SAVE);
+		} else
+			flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
+
+		nm_setting_set_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, flags, NULL);
+	} else {
+		/* If the key isn't present, assume "saved" */
+		nm_setting_vpn_add_data_item (s_vpn,
+		                              NM_VPNC_KEY_SECRET_TYPE,
+		                              NM_VPNC_PW_TYPE_SAVE);
+	}
+
 	if (pcf_file_lookup_string (pcf, "main", "NTDomain", &buf))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, buf);
 
@@ -1253,11 +1272,13 @@ export (NMVpnPluginUiInterface *iface,
 	const char *domain = NULL;
 	const char *peertimeout = NULL;
 	const char *dhgroup = NULL;
+	const char *group_pw = NULL;
 	GString *routes = NULL;
 	GString *uselegacyikeport = NULL;
 	gboolean success = FALSE;
 	guint32 routes_count = 0;
 	gboolean save_password = FALSE;
+	gboolean save_group_password = FALSE;
 	gboolean use_natt = FALSE;
 	gboolean use_force_natt = FALSE;
 	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
@@ -1336,6 +1357,20 @@ export (NMVpnPluginUiInterface *iface,
 		}
 	}
 
+	/* Group password stuff */
+	if (nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, &flags, NULL)) {
+		if (!(flags & NM_SETTING_SECRET_FLAG_NOT_SAVED))
+			save_group_password = TRUE;
+	} else {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_SECRET_TYPE);
+		if (value && strlen (value)) {
+			if (!strcmp (value, NM_VPNC_PW_TYPE_SAVE))
+				save_group_password = TRUE;
+		}
+	}
+	if (save_group_password)
+		group_pw = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_SECRET);
+
 	routes = g_string_new ("X-NM-Routes=");
 	if (s_ip4 && nm_setting_ip4_config_get_num_routes (s_ip4)) {
 		int i;
@@ -1371,7 +1406,7 @@ export (NMVpnPluginUiInterface *iface,
 		 "Host=%s\n"
 		 "AuthType=1\n"
 		 "GroupName=%s\n"
-		 "GroupPwd=\n"
+		 "GroupPwd=%s\n"
 		 "EnableISPConnect=0\n"
 		 "ISPConnectType=0\n"
 		 "ISPConnect=\n"
@@ -1406,10 +1441,12 @@ export (NMVpnPluginUiInterface *iface,
 		 "%s"
 		 "X-NM-Use-NAT-T=%s\n"
 		 "X-NM-Force-NAT-T=%s\n"
+		 "X-NM-SaveGroupPassword=%s\n"
 		 "%s\n",
 		 /* Description */   nm_setting_connection_get_id (s_con),
 		 /* Host */          gateway,
 		 /* GroupName */     groupname,
+		 /* GroupPassword */ group_pw ? group_pw : "",
 		 /* Username */      username != NULL ? username : "",
 		 /* Save Password */ save_password ? "1" : "0",
 		 /* EnableNat */     enablenat ? "1" : "0",
@@ -1420,6 +1457,7 @@ export (NMVpnPluginUiInterface *iface,
 		 /* UseLegacyIKEPort */ (uselegacyikeport->len) ? uselegacyikeport->str : "",
 		 /* X-NM-Use-NAT-T */ use_natt ? "1" : "0",
 		 /* X-NM-Force-NAT-T */ use_force_natt ? "1" : "0",
+		 /* X-NM-SaveGroupPassword */ save_group_password ? "1" : "0",
 		 /* X-NM-Routes */   (routes && routes->str) ? routes->str : "");
 
 	success = TRUE;

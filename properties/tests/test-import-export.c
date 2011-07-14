@@ -50,9 +50,9 @@ item_count_func (const char *key, const char *value, gpointer user_data)
 }
 
 static void
-test_items (const char *detail, NMSettingVPN *s_vpn, Item *items, gboolean secrets)
+test_items (const char *detail, NMSettingVPN *s_vpn, const Item *items, gboolean secrets)
 {
-	Item *iter;
+	const Item *iter;
 	guint32 expected_count = 0, actual_count = 0;
 	const char *value;
 
@@ -82,10 +82,10 @@ test_items (const char *detail, NMSettingVPN *s_vpn, Item *items, gboolean secre
 }
 
 
-static Item basic_items[] = {
+static const Item basic_items[] = {
 	{ NM_VPNC_KEY_GATEWAY,               "10.20.30.40" },
 	{ NM_VPNC_KEY_ID,                    "blahblah" },
-	{ NM_VPNC_KEY_SECRET_TYPE,           NULL },
+	{ NM_VPNC_KEY_SECRET_TYPE,           NM_VPNC_PW_TYPE_SAVE },
 	{ NM_VPNC_KEY_XAUTH_USER,            "bsmith" },
 	{ NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,   NM_VPNC_PW_TYPE_SAVE },
 	{ NM_VPNC_KEY_DOMAIN,                "COMPANY" },
@@ -240,29 +240,16 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-save_one_key (const char *key, const char *value, gpointer user_data)
-{
-	GSList **list = user_data;
-
-	*list = g_slist_append (*list, g_strdup (key));
-}
-
-static void
-remove_secrets (NMConnection *connection)
+remove_user_password (NMConnection *connection)
 {
 	NMSettingVPN *s_vpn;
-	GSList *keys = NULL, *iter;
 
 	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
 	if (!s_vpn)
 		return;
 
-	nm_setting_vpn_foreach_secret (s_vpn, save_one_key, &keys);
-	for (iter = keys; iter; iter = g_slist_next (iter))
-		nm_setting_vpn_remove_secret (s_vpn, (const char *) iter->data);
-
-	g_slist_foreach (keys, (GFunc) g_free, NULL);
-	g_slist_free (keys);
+	if (nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD))
+		nm_setting_vpn_remove_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD);
 }
 
 #define BASIC_EXPORTED_NAME "basic-export-test.pcf"
@@ -297,7 +284,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *
 	/* Clear secrets first, since they don't get exported, and thus would
 	 * make the connection comparison below fail.
 	 */
-	remove_secrets (connection);
+	remove_user_password (connection);
 
 	/* Since we don't export the user password, but the original connection
 	 * had one, we need to add secret flags to the re-imported connection.
@@ -356,7 +343,7 @@ test_nat_export (NMVpnPluginUiInterface *plugin,
 	/* Clear secrets first, since they don't get exported, and thus would
 	 * make the connection comparison below fail.
 	 */
-	remove_secrets (connection);
+	remove_user_password (connection);
 
 	/* Since we don't export the user password, but the original connection
 	 * had one, we need to add secret flags to the re-imported connection.
