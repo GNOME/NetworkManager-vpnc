@@ -165,32 +165,26 @@ stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 }
 
 static gboolean
-fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
+fill_vpn_passwords (VpncPluginUiWidget *self, NMSettingVPN *s_vpn)
 {
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
 	GtkWidget *widget;
 	gboolean success = FALSE;
 	char *password = NULL;
 	char *group_password = NULL;
+	const char *tmp;
+	NMSettingSecretFlags secret_flags;
 
 	/* Grab secrets from the connection */
-	if (connection) {
-		NMSettingVPN *s_vpn;
-		const char *tmp;
+	if (s_vpn) {
+		tmp = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD);
+		password = gnome_keyring_memory_strdup (tmp);
 
-		s_vpn = nm_connection_get_setting_vpn (connection);
-		if (s_vpn) {
-			tmp = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD);
-			if (tmp)
-				password = gnome_keyring_memory_strdup (tmp);
-
-			tmp = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_SECRET);
-			if (tmp)
-				group_password = gnome_keyring_memory_strdup (tmp);
-		}
+		tmp = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_SECRET);
+		group_password = gnome_keyring_memory_strdup (tmp);
 	}
 
-	/* User password */
+	/* User password and original flags */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
 	if (!widget)
 		goto out;
@@ -198,6 +192,12 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 		gtk_entry_set_text (GTK_ENTRY (widget), password);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
+	if (s_vpn) {
+		secret_flags = NM_SETTING_SECRET_FLAG_NONE;
+		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, &secret_flags, NULL);
+		g_object_set_data (G_OBJECT (widget), "flags", GUINT_TO_POINTER (secret_flags));
+	}
 
 	/* Group password */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_password_entry"));
@@ -207,6 +207,12 @@ fill_vpn_passwords (VpncPluginUiWidget *self, NMConnection *connection)
 		gtk_entry_set_text (GTK_ENTRY (widget), group_password);
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
+	if (s_vpn) {
+		secret_flags = NM_SETTING_SECRET_FLAG_NONE;
+		nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, &secret_flags, NULL);
+		g_object_set_data (G_OBJECT (widget), "flags", GUINT_TO_POINTER (secret_flags));
+	}
 
 	success = TRUE;
 
@@ -365,7 +371,7 @@ static gboolean
 init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **error)
 {
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	NMSettingVPN *s_vpn;
+	NMSettingVPN *s_vpn = NULL;
 	GtkWidget *widget;
 	GtkListStore *store;
 	GtkTreeIter iter;
@@ -374,7 +380,8 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	const char *natt_mode = NULL;
 	const char *ike_dh_group = NULL;
 
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	if (connection)
+		s_vpn = nm_connection_get_setting_vpn (connection);
 
 	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
@@ -431,7 +438,7 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	/* Fill the VPN passwords *before* initializing the PW type combos, since
 	 * knowing if there are passwords when initializing the combos is helpful.
 	 */
-	fill_vpn_passwords (self, connection);
+	fill_vpn_passwords (self, s_vpn);
 
 	init_one_pw_combo (self,
 	                   s_vpn,
@@ -580,6 +587,7 @@ get_widget (NMVpnPluginUiWidgetInterface *iface)
 static guint32
 handle_one_pw_type (NMSettingVPN *s_vpn,
                     GtkBuilder *builder,
+                    const char *entry_name,
                     const char *combo_name,
                     const char *secret_key,
                     const char *type_key,
@@ -590,7 +598,8 @@ handle_one_pw_type (NMSettingVPN *s_vpn,
 	guint32 pw_type;
 	const char *data_val = NULL;
 
-	nm_setting_get_secret_flags (NM_SETTING (s_vpn), secret_key, &flags, NULL);
+	widget = GTK_WIDGET (gtk_builder_get_object (builder, entry_name));
+	flags = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (widget), "flags"));
 	flags &= ~(NM_SETTING_SECRET_FLAG_NOT_SAVED | NM_SETTING_SECRET_FLAG_NOT_REQUIRED);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (builder, combo_name));
@@ -713,12 +722,14 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 
 	upw_type = handle_one_pw_type (s_vpn,
 	                               priv->builder,
+	                               "user_password_entry",
 	                               "user_pass_type_combo",
 	                               NM_VPNC_KEY_XAUTH_PASSWORD,
 	                               NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
 	                               priv->new_connection);
 	gpw_type = handle_one_pw_type (s_vpn,
 	                               priv->builder,
+	                               "group_password_entry",
 	                               "group_pass_type_combo",
 	                               NM_VPNC_KEY_SECRET,
 	                               NM_VPNC_KEY_SECRET_TYPE,
