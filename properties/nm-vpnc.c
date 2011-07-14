@@ -772,83 +772,6 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 }
 
 static void
-save_one_password (GtkBuilder *builder,
-                   const char *keyring_tag,
-                   const char *uuid,
-                   const char *id,
-                   const char *entry,
-                   const char *combo,
-                   const char *desc)
-{
-	GnomeKeyringResult ret;
-	GtkWidget *widget;
-	const char *password;
-	GtkTreeModel *model;
-	gboolean saved = FALSE;
-
-	widget = GTK_WIDGET (gtk_builder_get_object (builder, combo));
-	g_assert (widget);
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	if (gtk_combo_box_get_active (GTK_COMBO_BOX (widget)) == PW_TYPE_SAVE) {
-		widget = GTK_WIDGET (gtk_builder_get_object (builder, entry));
-		g_assert (widget);
-		password = gtk_entry_get_text (GTK_ENTRY (widget));
-		if (password && strlen (password)) {
-			ret = keyring_helpers_save_secret (uuid, id, NULL, keyring_tag, password);
-			if (ret == GNOME_KEYRING_RESULT_OK)
-				saved = TRUE;
-			else
-				g_warning ("%s: failed to save %s to keyring.", __func__, desc);
-		}
-	}
-
-	if (!saved)
-		keyring_helpers_delete_secret (uuid, keyring_tag);
-}
-
-static gboolean
-save_secrets (NMVpnPluginUiWidgetInterface *iface,
-              NMConnection *connection,
-              GError **error)
-{
-	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (iface);
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
-	const char *id, *uuid;
-	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
-
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
-	if (!s_con || !s_vpn) {
-		g_set_error (error,
-		             VPNC_PLUGIN_UI_ERROR,
-		             VPNC_PLUGIN_UI_ERROR_INVALID_CONNECTION,
-		             "missing connection or VPN settings");
-		return FALSE;
-	}
-
-	id = nm_setting_connection_get_id (s_con);
-	uuid = nm_setting_connection_get_uuid (s_con);
-
-	if (nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, &secret_flags, NULL)) {
-		if (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED) {
-			save_one_password (priv->builder, VPNC_USER_PASSWORD, uuid, id,
-					           "user_password_entry", "user_pass_type_combo", "user password");
-		}
-	}
-
-	if (nm_setting_get_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, &secret_flags, NULL)) {
-		if (secret_flags & NM_SETTING_SECRET_FLAG_AGENT_OWNED) {
-			save_one_password (priv->builder, VPNC_GROUP_PASSWORD, uuid, id,
-					           "group_password_entry", "group_pass_type_combo", "group password");
-		}
-	}
-
-	return TRUE;
-}
-
-static void
 is_new_func (const char *key, const char *value, gpointer user_data)
 {
 	gboolean *is_new = user_data;
@@ -954,7 +877,6 @@ vpnc_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class)
 	/* interface implementation */
 	iface_class->get_widget = get_widget;
 	iface_class->update_connection = update_connection;
-	iface_class->save_secrets = save_secrets;
 }
 
 static void
@@ -1544,36 +1466,6 @@ get_capabilities (NMVpnPluginUiInterface *iface)
 	return (NM_VPN_PLUGIN_UI_CAPABILITY_IMPORT | NM_VPN_PLUGIN_UI_CAPABILITY_EXPORT);
 }
 
-static gboolean
-delete_connection (NMVpnPluginUiInterface *iface,
-                   NMConnection *connection,
-                   GError **error)
-{
-	NMSettingConnection *s_con;
-	const char *id, *uuid;
-
-	/* Remove any secrets in the keyring associated with this connection's UUID */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
-	if (!s_con) {
-		g_set_error (error,
-		             VPNC_PLUGIN_UI_ERROR,
-		             VPNC_PLUGIN_UI_ERROR_INVALID_CONNECTION,
-		             "missing 'connection' setting");
-		return FALSE;
-	}
-
-	id = nm_setting_connection_get_id (s_con);
-	uuid = nm_setting_connection_get_uuid (s_con);
-
-	if (!keyring_helpers_delete_secret (uuid, VPNC_USER_PASSWORD))
-		g_message ("%s: couldn't delete user password for '%s'", __func__, id);
-
-	if (!keyring_helpers_delete_secret (uuid, VPNC_GROUP_PASSWORD))
-		g_message ("%s: couldn't delete group password for '%s'", __func__, id);
-
-	return TRUE;
-}
-
 static NMVpnPluginUiWidgetInterface *
 ui_factory (NMVpnPluginUiInterface *iface, NMConnection *connection, GError **error)
 {
@@ -1634,7 +1526,6 @@ vpnc_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class)
 	iface_class->import_from_file = import;
 	iface_class->export_to_file = export;
 	iface_class->get_suggested_name = get_suggested_name;
-	iface_class->delete_connection = delete_connection;
 }
 
 
