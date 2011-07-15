@@ -39,9 +39,6 @@
 #include "src/nm-vpnc-service.h"
 #include "vpn-password-dialog.h"
 
-#define VPNC_USER_PASSWORD "password"
-#define VPNC_GROUP_PASSWORD "group-password"
-
 #define KEYRING_UUID_TAG "connection-uuid"
 #define KEYRING_SN_TAG "setting-name"
 #define KEYRING_SK_TAG "setting-key"
@@ -104,7 +101,11 @@ get_secrets (const char *vpn_uuid,
 		if (in_upw)
 			upw = gnome_keyring_memory_strdup (in_upw);
 		else
-			upw = keyring_lookup_secret (vpn_uuid, VPNC_USER_PASSWORD);
+			upw = keyring_lookup_secret (vpn_uuid, NM_VPNC_KEY_XAUTH_PASSWORD);
+
+		/* Try the old name */
+		if (upw == NULL)
+			upw = keyring_lookup_secret (vpn_uuid, "password");
 	}
 
 	if (   !(gpw_flags & NM_SETTING_SECRET_FLAG_NOT_SAVED)
@@ -112,7 +113,11 @@ get_secrets (const char *vpn_uuid,
 		if (in_gpw)
 			gpw = gnome_keyring_memory_strdup (in_gpw);
 		else
-			gpw = keyring_lookup_secret (vpn_uuid, VPNC_GROUP_PASSWORD);
+			gpw = keyring_lookup_secret (vpn_uuid, NM_VPNC_KEY_SECRET);
+
+		/* Try the old name */
+		if (gpw == NULL)
+			gpw = keyring_lookup_secret (vpn_uuid, "group-password");
 	}
 
 	if (!retry) {
