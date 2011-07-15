@@ -32,8 +32,11 @@
 #include <arpa/inet.h>
 #include <errno.h>
 #include <stdlib.h>
-#include <glib/gi18n-lib.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
+#include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 #include <gnome-keyring-memory.h>
 
@@ -86,6 +89,7 @@ typedef struct {
 	GtkSizeGroup *group;
 	gint orig_dpd_timeout;
 	gboolean new_connection;
+	GtkWidget *advanced_dialog;
 } VpncPluginUiWidgetPrivate;
 
 
@@ -162,6 +166,26 @@ static void
 stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 {
 	g_signal_emit_by_name (VPNC_PLUGIN_UI_WIDGET (user_data), "changed");
+}
+
+static void
+hybrid_toggled_cb (GtkWidget *widget, gpointer user_data)
+{
+	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (user_data);
+	gboolean enabled = FALSE;
+	GtkWidget *cafile_label, *ca_file_chooser;
+
+	cafile_label = GTK_WIDGET (gtk_builder_get_object (priv->builder, "cafile_label"));
+	g_return_if_fail (cafile_label);
+	ca_file_chooser = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
+	g_return_if_fail (ca_file_chooser);
+
+	enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+
+	gtk_widget_set_sensitive (cafile_label, enabled);
+	gtk_widget_set_sensitive (ca_file_chooser, enabled);
+
+	stuff_changed_cb (widget, user_data);
 }
 
 static gboolean
@@ -367,6 +391,87 @@ init_one_pw_combo (VpncPluginUiWidget *self,
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (pw_type_combo_changed_cb), self);
 }
 
+static void
+toggle_advanced_dialog_cb (GtkWidget *button, gpointer user_data)
+{
+	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (user_data);
+	GtkWidget *toplevel;
+
+	if (gtk_widget_get_visible (priv->advanced_dialog))
+		gtk_widget_hide (priv->advanced_dialog);
+	else {
+		toplevel = gtk_widget_get_toplevel (priv->widget);
+		if (gtk_widget_is_toplevel (toplevel))
+			gtk_window_set_transient_for (GTK_WINDOW (priv->advanced_dialog), GTK_WINDOW (toplevel));
+		gtk_widget_show_all (priv->advanced_dialog);
+	}
+}
+
+static const char *
+find_tag (const char *tag, const char *buf, gsize len)
+{
+	gsize i, taglen;
+
+	taglen = strlen (tag);
+	if (len < taglen)
+		return NULL;
+
+	for (i = 0; i < len - taglen + 1; i++) {
+		if (memcmp (buf + i, tag, taglen) == 0)
+			return buf + i;
+	}
+	return NULL;
+}
+
+static const char *pem_cert_begin = "-----BEGIN CERTIFICATE-----";
+
+static gboolean
+cert_filter (const GtkFileFilterInfo *filter_info, gpointer data)
+{
+	char *contents = NULL, *p, *ext;
+	gsize bytes_read = 0;
+	gboolean show = FALSE;
+	struct stat statbuf;
+
+	if (!filter_info->filename)
+		return FALSE;
+
+	p = strrchr (filter_info->filename, '.');
+	if (!p)
+		return FALSE;
+
+	ext = g_ascii_strdown (p, -1);
+	if (!ext)
+		return FALSE;
+
+	if (strcmp (ext, ".pem") && strcmp (ext, ".crt") && strcmp (ext, ".cer")) {
+		g_free (ext);
+		return FALSE;
+	}
+	g_free (ext);
+
+	/* Ignore files that are really large */
+	if (!stat (filter_info->filename, &statbuf)) {
+		if (statbuf.st_size > 500000)
+			return FALSE;
+	}
+
+	if (!g_file_get_contents (filter_info->filename, &contents, &bytes_read, NULL))
+		return FALSE;
+
+	if (bytes_read < 400)  /* needs to be lower? */
+		goto out;
+
+	if (find_tag (pem_cert_begin, (const char *) contents, bytes_read)) {
+		show = TRUE;
+		goto out;
+	}
+
+out:
+	g_free (contents);
+	return show;
+}
+
 static gboolean
 init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **error)
 {
@@ -379,6 +484,8 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	int active = -1;
 	const char *natt_mode = NULL;
 	const char *ike_dh_group = NULL;
+	gboolean enabled = FALSE;
+	GtkFileFilter *filter;
 
 	if (connection)
 		s_vpn = nm_connection_get_setting_vpn (connection);
@@ -572,6 +679,60 @@ init_plugin_ui (VpncPluginUiWidget *self, NMConnection *connection, GError **err
 	                  (GCallback) show_toggled_cb,
 	                  self);
 
+	/* hybrid auth */
+
+	enabled = FALSE;
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "hybrid_checkbutton"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	if (s_vpn) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_AUTHMODE);
+		if (value && !strcmp("hybrid", value)) {
+			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+			enabled = TRUE;
+		}
+	}
+	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (hybrid_toggled_cb), self);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	gtk_size_group_add_widget (priv->group, widget);
+	gtk_widget_set_sensitive (widget, enabled);
+	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
+	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
+	                                   _("Choose a Certificate Authority (CA) certificate..."));
+
+	filter = gtk_file_filter_new ();
+	gtk_file_filter_add_custom (filter, GTK_FILE_FILTER_FILENAME, cert_filter, NULL, NULL);
+	gtk_file_filter_set_name (filter, _("PEM certificates (*.pem, *.crt, *.cer)"));
+	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget), filter);
+
+	if (s_vpn) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_CA_FILE);
+		if (value && strlen (value))
+			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
+	}
+	g_signal_connect (G_OBJECT (widget), "file-set", G_CALLBACK (stuff_changed_cb), self);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "cafile_label"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	gtk_widget_set_sensitive (widget, enabled);
+
+	/* advanced dialog */
+
+	priv->advanced_dialog = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-advanced-dialog"));
+	g_return_val_if_fail (priv->advanced_dialog != NULL, FALSE);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "advanced_button"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	g_signal_connect (G_OBJECT (widget), "clicked",
+	                  (GCallback) toggle_advanced_dialog_cb,
+	                  self);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "apply_button"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	g_signal_connect (G_OBJECT (widget), "clicked",
+	                  (GCallback) toggle_advanced_dialog_cb,
+	                  self);
 	return TRUE;
 }
 
@@ -757,6 +918,16 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT, local_port);
 	}
 
+	/* hybrid auth */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "hybrid_checkbutton"));
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_AUTHMODE, "hybrid");
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
+	str = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
+	if (str && strlen (str))
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_CA_FILE, str);
+
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 	return TRUE;
 }
@@ -839,6 +1010,9 @@ dispose (GObject *object)
 
 	if (priv->widget)
 		g_object_unref (priv->widget);
+
+	if (priv->advanced_dialog)
+		gtk_widget_destroy (priv->advanced_dialog);
 
 	if (priv->builder)
 		g_object_unref (priv->builder);
