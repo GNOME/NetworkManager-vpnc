@@ -62,9 +62,18 @@ static const char *vpnc_binary_paths[] =
 #define NM_VPNC_UDP_ENCAPSULATION_PORT	0 /* random port */
 #define NM_VPNC_LOCAL_PORT_ISAKMP	0 /* random port */
 
+typedef enum {
+	ITEM_TYPE_UNKNOWN = 0,
+	ITEM_TYPE_IGNORED,
+	ITEM_TYPE_STRING,
+	ITEM_TYPE_BOOLEAN,
+	ITEM_TYPE_INT,
+	ITEM_TYPE_PATH
+} ItemType;
+
 typedef struct {
 	const char *name;
-	GType type;
+	guint32 type;
 	gint int_min;
 	gint int_max;
 } ValidProperty;
@@ -72,32 +81,35 @@ typedef struct {
 #define LEGACY_NAT_KEEPALIVE "NAT-Keepalive packet interval"
 
 static ValidProperty valid_properties[] = {
-	{ NM_VPNC_KEY_GATEWAY,               G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_ID,                    G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_XAUTH_USER,            G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_DOMAIN,                G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_DHGROUP,               G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_PERFECT_FORWARD,       G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_VENDOR,                G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_APP_VERSION,           G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_SINGLE_DES,            G_TYPE_BOOLEAN, 0, 0 },
-	{ NM_VPNC_KEY_NO_ENCRYPTION,         G_TYPE_BOOLEAN, 0, 0 },
-	{ NM_VPNC_KEY_DPD_IDLE_TIMEOUT,      G_TYPE_INT, 0, 86400 },
-	{ NM_VPNC_KEY_NAT_TRAVERSAL_MODE,    G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT, G_TYPE_INT, 0, 65535 },
-	{ NM_VPNC_KEY_LOCAL_PORT,            G_TYPE_INT, 0, 65535 },
+	{ NM_VPNC_KEY_GATEWAY,               ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_ID,                    ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_XAUTH_USER,            ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_DOMAIN,                ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_DHGROUP,               ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_PERFECT_FORWARD,       ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_VENDOR,                ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_APP_VERSION,           ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_SINGLE_DES,            ITEM_TYPE_BOOLEAN, 0, 0 },
+	{ NM_VPNC_KEY_NO_ENCRYPTION,         ITEM_TYPE_BOOLEAN, 0, 0 },
+	{ NM_VPNC_KEY_DPD_IDLE_TIMEOUT,      ITEM_TYPE_INT, 0, 86400 },
+	{ NM_VPNC_KEY_NAT_TRAVERSAL_MODE,    ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT, ITEM_TYPE_INT, 0, 65535 },
+	{ NM_VPNC_KEY_LOCAL_PORT,            ITEM_TYPE_INT, 0, 65535 },
+	/* Hybrid Auth */
+	{ NM_VPNC_KEY_AUTHMODE,              ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_CA_FILE,               ITEM_TYPE_PATH, 0, 0 },
 	/* Ignored option for internal use */
-	{ NM_VPNC_KEY_SECRET_TYPE,           G_TYPE_NONE, 0, 0 },
-	{ NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,   G_TYPE_NONE, 0, 0 },
+	{ NM_VPNC_KEY_SECRET_TYPE,           ITEM_TYPE_IGNORED, 0, 0 },
+	{ NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,   ITEM_TYPE_IGNORED, 0, 0 },
 	/* Legacy options that are ignored */
-	{ LEGACY_NAT_KEEPALIVE,              G_TYPE_STRING, 0, 0 },
-	{ NULL,                              G_TYPE_NONE, 0, 0 }
+	{ LEGACY_NAT_KEEPALIVE,              ITEM_TYPE_STRING, 0, 0 },
+	{ NULL,                              ITEM_TYPE_UNKNOWN, 0, 0 }
 };
 
 static ValidProperty valid_secrets[] = {
-	{ NM_VPNC_KEY_SECRET,                G_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_XAUTH_PASSWORD,        G_TYPE_STRING, 0, 0 },
-	{ NULL,                              G_TYPE_NONE, 0, 0 }
+	{ NM_VPNC_KEY_SECRET,                ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_XAUTH_PASSWORD,        ITEM_TYPE_STRING, 0, 0 },
+	{ NULL,                              ITEM_TYPE_UNKNOWN, 0, 0 }
 };
 
 typedef struct ValidateInfo {
@@ -110,6 +122,8 @@ static void
 validate_one_property (const char *key, const char *value, gpointer user_data)
 {
 	ValidateInfo *info = (ValidateInfo *) user_data;
+	ValidProperty *prop = NULL;
+	long int tmp;
 	int i;
 
 	if (*(info->error))
@@ -122,56 +136,68 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 		return;
 
 	for (i = 0; info->table[i].name; i++) {
-		ValidProperty prop = info->table[i];
-		long int tmp;
-
-		if (strcmp (prop.name, key))
-			continue;
-
-		switch (prop.type) {
-		case G_TYPE_NONE:
-			return; /* technically valid, but unused */
-		case G_TYPE_STRING:
-			return; /* valid */
-		case G_TYPE_INT:
-			errno = 0;
-			tmp = strtol (value, NULL, 10);
-			if (errno == 0 && tmp >= prop.int_min && tmp <= prop.int_max)
-				return; /* valid */
-
-			g_set_error (info->error,
-			             NM_VPN_PLUGIN_ERROR,
-			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "invalid integer property '%s' or out of range [%d -> %d]",
-			             key, prop.int_min, prop.int_max);
+		prop = &info->table[i];
+		if (g_strcmp0 (prop->name, key) == 0)
 			break;
-		case G_TYPE_BOOLEAN:
-			if (!strcmp (value, "yes") || !strcmp (value, "no"))
-				return; /* valid */
-
-			g_set_error (info->error,
-			             NM_VPN_PLUGIN_ERROR,
-			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "invalid boolean property '%s' (not yes or no)",
-			             key);
-			break;
-		default:
-			g_set_error (info->error,
-			             NM_VPN_PLUGIN_ERROR,
-			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             "unhandled property '%s' type %s",
-			             key, g_type_name (prop.type));
-			break;
-		}
 	}
 
 	/* Did not find the property from valid_properties or the type did not match */
-	if (!info->table[i].name) {
+	if (!prop || !prop->name) {
 		g_set_error (info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 		             "property '%s' invalid or not supported",
 		             key);
+		return;
+	}
+
+	/* Validate the property */
+	switch (prop->type) {
+	case ITEM_TYPE_IGNORED:
+		break; /* technically valid, but unused */
+	case ITEM_TYPE_STRING:
+		break; /* valid */
+	case ITEM_TYPE_PATH:
+		if (   !value
+		    || !strlen (value)
+		    || !g_path_is_absolute (value)
+		    || !g_file_test (value, G_FILE_TEST_EXISTS)) {
+			g_set_error (info->error,
+			             NM_VPN_PLUGIN_ERROR,
+			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+			             "property '%s' file path '%s' is not absolute or does not exist",
+			             key, value);
+		}
+		break;
+	case ITEM_TYPE_INT:
+		errno = 0;
+		tmp = strtol (value, NULL, 10);
+		if (errno == 0 && tmp >= prop->int_min && tmp <= prop->int_max)
+			break; /* valid */
+
+		g_set_error (info->error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+		             "invalid integer property '%s' or out of range [%d -> %d]",
+		             key, prop->int_min, prop->int_max);
+		break;
+	case ITEM_TYPE_BOOLEAN:
+		if (!strcmp (value, "yes") || !strcmp (value, "no"))
+			break; /* valid */
+
+		g_set_error (info->error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+		             "invalid boolean property '%s' (not yes or no)",
+		             key);
+		break;
+	default:
+		g_set_error (info->error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+		             "unhandled property '%s' type %d",
+		             key, prop->type);
+		break;
 	}
 }
 
@@ -333,7 +359,7 @@ static void
 write_one_property (const char *key, const char *value, gpointer user_data)
 {
 	WriteConfigInfo *info = (WriteConfigInfo *) user_data;
-	GType type = G_TYPE_INVALID;
+	guint32 type = ITEM_TYPE_UNKNOWN;
 	int i;
 
 	if (info->error)
@@ -351,7 +377,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 	}
 
 	/* Try the valid secrets table */
-	for (i = 0; type == G_TYPE_INVALID && valid_secrets[i].name; i++) {
+	for (i = 0; type == ITEM_TYPE_UNKNOWN && valid_secrets[i].name; i++) {
 		ValidProperty prop = valid_secrets[i];
 
 		if (!strcmp (prop.name, (char *) key)) {
@@ -361,13 +387,14 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		}
 	}
 
-	if (type == G_TYPE_INVALID) {
+	if (type == ITEM_TYPE_UNKNOWN) {
 		g_set_error (&info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
 		             "Config option '%s' invalid or unknown.",
 		             (const char *) key);
-	}	
+		return;
+	}
 
 	/* Don't write ignored secrets */
 	if (!strcmp (key, NM_VPNC_KEY_XAUTH_PASSWORD) && info->upw_ignored)
@@ -375,12 +402,12 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 	if (!strcmp (key, NM_VPNC_KEY_SECRET) && info->gpw_ignored)
 		return;
 
-	if (type == G_TYPE_STRING)
+	if (type == ITEM_TYPE_STRING || type == ITEM_TYPE_PATH)
 		write_config_option (info->fd, "%s %s\n", (char *) key, (char *) value);
-	else if (type == G_TYPE_BOOLEAN) {
+	else if (type == ITEM_TYPE_BOOLEAN) {
 		if (!strcmp (value, "yes"))
 			write_config_option (info->fd, "%s\n", (char *) key);
-	} else if (type == G_TYPE_INT) {
+	} else if (type == ITEM_TYPE_INT) {
 		long int tmp_int;
 		char *tmp_str;
 
@@ -400,12 +427,11 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 			             "Config option '%s' not an integer.",
 			             (const char *) key);
 		}
-	} else if (type == G_TYPE_NONE) {
+	} else if (type == ITEM_TYPE_IGNORED) {
 		/* ignored */
 	} else {
 		/* Just ignore unknown properties */
-		nm_warning ("Don't know how to write property '%s' with type %s",
-				  (char *) key, g_type_name (type));
+		g_warning ("Don't know how to write property '%s' with type %d", key, type);
 	}
 }
 
