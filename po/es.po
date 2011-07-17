@@ -8,22 +8,22 @@
 # Javier Moreno <javier.moreno@alufis35.uv.es>, 2000.
 # Jordi Jaen Pallares <jordi@suse.de>, 1999, 2000, 2001.
 # Pablo Iranzo Gómez <Pablo.Iranzo@uv.es>, 2000.
-# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2010, 2011.
 # Daniel Mustieles <daniel.mustieles@gmail.com>, 2011.
+# Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2010, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2011-07-15 21:28+0000\n"
-"PO-Revision-Date: 2011-07-16 10:45+0200\n"
-"Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español <gnome-es-list@gnome.org>\n"
+"POT-Creation-Date: 2011-07-16 16:38+0000\n"
+"PO-Revision-Date: 2011-07-17 15:52+0200\n"
+"Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
+"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: ../auth-dialog/vpn-password-dialog.c:96
@@ -220,7 +220,6 @@ msgid "Transport and Security"
 msgstr "Transporte y seguridad"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-#| msgid "Request VPN authentication"
 msgid "Use hybrid authenticaton"
 msgstr "Usar autenticación híbrida"
 
@@ -245,6 +244,7 @@ msgstr "propiedad «%s» no válida o no soportada"
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr ""
+"la propiedad «%s» de la ruta del archivo «%s» no es absoluta o no existe"
 
 #: ../src/nm-vpnc-service.c:184
 #, c-format
@@ -257,10 +257,9 @@ msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "propiedad booleana «%s» no válida (no es «sí» o «no»)"
 
 #: ../src/nm-vpnc-service.c:201
-#, fuzzy, c-format
-#| msgid "unhandled property '%s' type %s"
+#, c-format
 msgid "unhandled property '%s' type %d"
-msgstr "no se puede manejar la propiedad «%s» tipo %s"
+msgstr "no se puede manejar la propiedad «%s» de tipo %d"
 
 #: ../src/nm-vpnc-service.c:218
 msgid "No VPN configuration options."
