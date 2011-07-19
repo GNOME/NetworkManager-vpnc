@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-24 10:05+0100\n"
-"PO-Revision-Date: 2011-02-24 10:06+0100\n"
+"POT-Creation-Date: 2011-07-19 13:12+0200\n"
+"PO-Revision-Date: 2011-07-19 13:23+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -16,39 +16,39 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:103
+#: ../auth-dialog/vpn-password-dialog.c:96
 msgid "_Secondary Password:"
 msgstr "_Sekundært passord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:159
+#: ../auth-dialog/vpn-password-dialog.c:152
 msgid "_Password:"
 msgstr "_Passord:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:245
+#: ../auth-dialog/vpn-password-dialog.c:238
 msgid "Sh_ow passwords"
 msgstr "V_is passord"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:305
-msgid "_Remember passwords for this session"
-msgstr "_Husk passord for denne sesjonen"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:306
-msgid "_Save passwords in keyring"
-msgstr "_Lagre passord i nøkkelring"
-
-#: ../auth-dialog/main.c:112
+#: ../auth-dialog/main.c:157
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Du må autentisere deg for å få tilgang til virtuelt privat nettverk «%s»."
 
-#: ../auth-dialog/main.c:113
+#: ../auth-dialog/main.c:158
 msgid "Authenticate VPN"
 msgstr "Autentiser VPN"
 
-#: ../auth-dialog/main.c:117
+#: ../auth-dialog/main.c:161
 msgid "_Group Password:"
 msgstr "_Gruppepassord:"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
+msgid "Network"
+msgstr "Nettverk"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
+msgid "Request VPN authentication"
+msgstr "Be om VPN-autentisering"
 
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
@@ -58,73 +58,83 @@ msgstr "Legg til, fjern og regiger VPN-tilkoblinger"
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Håndtering av VPN-tilkobling (vpnc)"
 
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:54
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibelt VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:55
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
-msgstr "Kompatibel med forskjellige IPSec-baserte VPN-gateways fra Cisco, Juniper, Netscreen og Sonicwall."
+msgstr ""
+"Kompatibel med forskjellige IPSec-baserte VPN-gateways fra Cisco, Juniper, "
+"Netscreen og Sonicwall."
 
-#: ../properties/nm-vpnc.c:351
+#: ../properties/nm-vpnc.c:331
 msgid "Saved"
 msgstr "Lagret"
 
-#: ../properties/nm-vpnc.c:358
+#: ../properties/nm-vpnc.c:338
 msgid "Always Ask"
 msgstr "Alltid spør"
 
-#: ../properties/nm-vpnc.c:365
+#: ../properties/nm-vpnc.c:345
 msgid "Not Required"
 msgstr "Ikke nødvendig"
 
-#: ../properties/nm-vpnc.c:425
+#: ../properties/nm-vpnc.c:492
 msgid "Secure (default)"
 msgstr "Sikker (forvalgt)"
 
-#: ../properties/nm-vpnc.c:428
+#: ../properties/nm-vpnc.c:495
 msgid "Weak (use with caution)"
 msgstr "Svak (bruk med forsiktighet)"
 
-#: ../properties/nm-vpnc.c:436
+#: ../properties/nm-vpnc.c:503
 msgid "None (completely insecure)"
 msgstr "Ingen (helt usikker)"
 
-#: ../properties/nm-vpnc.c:484
+#: ../properties/nm-vpnc.c:568
 msgid "NAT-T when available (default)"
 msgstr "NAT-T når tilgjengelig (forvalg)"
 
-#: ../properties/nm-vpnc.c:491
+#: ../properties/nm-vpnc.c:575
 msgid "NAT-T always"
 msgstr "NAT-T alltid"
 
-#: ../properties/nm-vpnc.c:498
+#: ../properties/nm-vpnc.c:582
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:505
+#: ../properties/nm-vpnc.c:589
 msgid "Disabled"
 msgstr "Slått av"
 
-#: ../properties/nm-vpnc.c:525
+#: ../properties/nm-vpnc.c:609
 msgid "DH Group 1"
 msgstr "DH-gruppe 1"
 
-#: ../properties/nm-vpnc.c:532
+#: ../properties/nm-vpnc.c:616
 msgid "DH Group 2 (default)"
 msgstr "DH-gruppe 2 (forvalgt)"
 
-#: ../properties/nm-vpnc.c:539
+#: ../properties/nm-vpnc.c:623
 msgid "DH Group 5"
 msgstr "DH-gruppe 5"
 
-#: ../properties/nm-vpnc.c:1230
+#: ../properties/nm-vpnc.c:681
+msgid "Choose a Certificate Authority (CA) certificate..."
+msgstr "Velg sertifikat fra sertifikatautoritet (CA) …"
+
+#: ../properties/nm-vpnc.c:685
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "PEM-sertifikater (*.pem, *.crt, *.cer)"
+
+#: ../properties/nm-vpnc.c:1366
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnelering ikke støttet"
 
-#: ../properties/nm-vpnc.c:1232
+#: ../properties/nm-vpnc.c:1368
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -148,49 +158,132 @@ msgid "<b>General</b>"
 msgstr "<b>Generelt</b>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "<b>Optional</b>"
-msgstr "<b>Valgfri</b>"
+msgid "Advanced Options"
+msgstr "Avanserte alternativer"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
+msgid "CA File:"
+msgstr "CA-fil:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Disable Dead Peer Detection"
 msgstr "Slå av gjenkjenning av død peer"
 
-#: ../properties/nm-vpnc-dialog.ui.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Domain:"
 msgstr "Domene:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "Encryption method:"
 msgstr "Krypteringsmetode:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "G_roup name:"
 msgstr "G_ruppenavn:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "Gro_up password:"
 msgstr "Gr_uppepassord:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "IKE DH Group:"
 msgstr "IKE DH-gruppe:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "Identification"
+msgstr "Identifisering"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "NAT traversal:"
 msgstr "NAT-traversering:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "Show passwords"
 msgstr "Vis passord"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Transport and Security"
+msgstr "Transport og sikkerhet"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid "Use hybrid authenticaton"
+msgstr "Bruk hybrid autentisering"
+
+#: ../properties/nm-vpnc-dialog.ui.h:16
 msgid "User name:"
 msgstr "Brukernavn:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "_User password:"
 msgstr "Passord for br_uker:"
+
+#: ../src/nm-vpnc-service.c:152
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "eggenskap «%s» er ugyldig eller ikke støttet"
+
+#: ../src/nm-vpnc-service.c:171
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr "egenskap «%s», sti til fil «%s» er ikke absolutt eller eksisterer ikke"
+
+#: ../src/nm-vpnc-service.c:184
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr "ugyldig heltallsegenskap «%s» eller utenfor gyldig område [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:194
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "ugyldig boolsk egenskap «%s» (ikke ja eller nei)"
+
+#: ../src/nm-vpnc-service.c:201
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr "uhåndtert egenskap «%s», type %d"
+
+#: ../src/nm-vpnc-service.c:218
+msgid "No VPN configuration options."
+msgstr "Ingen konfigurasjonsalternativer for VPN."
+
+#: ../src/nm-vpnc-service.c:236
+msgid "No VPN secrets!"
+msgstr "Ingen VPN-hemmeligheter!"
+
+#: ../src/nm-vpnc-service.c:305
+msgid "Could not find vpnc binary."
+msgstr "Fant ikke vpnc-binærfil."
+
+#: ../src/nm-vpnc-service.c:397
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Konfigurasjonsalternativ «%s» er ugyldig eller ukjent."
+
+#: ../src/nm-vpnc-service.c:430
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Konfigurasjonsalternativ «%s» er ikke et heltall."
+
+#: ../src/nm-vpnc-service.c:607
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr "Kunne ikke prosessere forespørsel fordi innstillingene for VPN-tilkobling var ugyldige."
+
+#: ../src/nm-vpnc-service.c:722
+msgid "Don't quit when VPN connection terminates"
+msgstr "Ikke avslutt når VPN-tilkobling termineres"
+
+#: ../src/nm-vpnc-service.c:723
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Vis mer feilsøkingsinformasjon (kan eksponere passord)"
+
+#: ../src/nm-vpnc-service.c:737
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"NetworkManager."
+msgstr "nm-vpnc-service tilbyr integrert støtte for gamle Cisco IPSec VPN i NetworkManager."
