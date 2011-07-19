@@ -1,4 +1,15 @@
 =======================================================
+network-manager-vpnc-0.8.6
+Overview of changes since network-manager-vpnc-0.8.4
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Support for Hybrid XAUTH authentication has been added
+* Don't claim the default route if the concentrator sends explicit routes
+
+
+=======================================================
 network-manager-vpnc-0.8.4
 Overview of changes since network-manager-vpnc-0.8.2
 =======================================================
