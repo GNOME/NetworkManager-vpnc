@@ -298,6 +298,7 @@ main (int argc, char *argv[])
 	struct in_addr temp_addr;
 	long int mtu = 1412;
 	guint32 prefix = 0;
+	gboolean netmask_found = FALSE;
 
 	g_type_init ();
 
@@ -353,13 +354,19 @@ main (int argc, char *argv[])
 		pfx = strtoul (tmp, NULL, 10);
 		if (pfx >= 0 && pfx <= 32 && errno == 0)
 			prefix = (guint32) pfx;
+		netmask_found = TRUE;
 	}
 
 	if (!prefix) {
 		tmp = getenv ("INTERNAL_IP4_NETMASK");
 		if (tmp && inet_pton (AF_INET, tmp, &temp_addr) > 0)
 			prefix = nm_utils_ip4_netmask_to_prefix (temp_addr.s_addr);
+		netmask_found = TRUE;
 	}
+
+	/* If no netmask was given, that means point-to-point, ie /32 */
+	if (netmask_found == FALSE)
+		prefix = 32;
 
 	if (prefix) {
 		val = uint_to_gvalue (prefix);
