@@ -297,6 +297,7 @@ main (int argc, char *argv[])
 	GError *err = NULL;
 	struct in_addr temp_addr;
 	long int mtu = 1412;
+	guint32 prefix = 0;
 
 	g_type_init ();
 
@@ -343,16 +344,27 @@ main (int argc, char *argv[])
 	else
 		helper_failed (connection, "IP4 PTP Address");
 
-	/* Netmask */
-	tmp = getenv ("INTERNAL_IP4_NETMASK");
-	if (tmp && inet_pton (AF_INET, tmp, &temp_addr) > 0) {
-		GValue *value;
+	/* Netmask / Prefix */
+	tmp = getenv ("INTERNAL_IP4_NETMASKLEN");
+	if (tmp) {
+		unsigned long pfx;
 
-		value = g_slice_new0 (GValue);
-		g_value_init (value, G_TYPE_UINT);
-		g_value_set_uint (value, nm_utils_ip4_netmask_to_prefix (temp_addr.s_addr));
+		errno = 0;
+		pfx = strtoul (tmp, NULL, 10);
+		if (pfx >= 0 && pfx <= 32 && errno == 0)
+			prefix = (guint32) pfx;
+	}
 
-		g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_PREFIX, value);
+	if (!prefix) {
+		tmp = getenv ("INTERNAL_IP4_NETMASK");
+		if (tmp && inet_pton (AF_INET, tmp, &temp_addr) > 0)
+			prefix = nm_utils_ip4_netmask_to_prefix (temp_addr.s_addr);
+	}
+
+	if (prefix) {
+		val = uint_to_gvalue (prefix);
+		if (val)
+			g_hash_table_insert (config, NM_VPN_PLUGIN_IP4_CONFIG_PREFIX, val);
 	}
 
 	/* DNS */
