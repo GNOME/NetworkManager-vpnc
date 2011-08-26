@@ -1,0 +1,45 @@
+=======================================================
+network-manager-vpnc-0.9.0
+Overview of changes since network-manager-vpnc-0.8.x
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Updated for NM 0.9 simplified configuration and secrets handling
+
+
+=======================================================
+network-manager-vpnc-0.8.6
+Overview of changes since network-manager-vpnc-0.8.4
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Support for Hybrid XAUTH authentication has been added
+* Don't claim the default route if the concentrator sends explicit routes
+
+
+=======================================================
+network-manager-vpnc-0.8.4
+Overview of changes since network-manager-vpnc-0.8.2
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Updated translations
+* Fix import of DHGroup parameter from PCF files
+* Add IKE DH Group option to the UI
+* Convert to GtkBuilder; glade is no longer a build requirement
+
+
+=======================================================
+network-manager-vpnc-0.8.2
+Overview of changes since network-manager-vpnc-0.8.1
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Updated translations
+* Better debugging options
+* Use random IKE source port by default
+
