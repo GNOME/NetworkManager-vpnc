@@ -12,9 +12,9 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2011-07-16 13:39+0000\n"
-"PO-Revision-Date: 2011-07-16 16:48+0200\n"
-"Last-Translator: Wolfgang Stoeggl <c72578@yahoo.de>\n"
+"POT-Creation-Date: 2011-08-19 20:46+0000\n"
+"PO-Revision-Date: 2011-08-27 18:41+0100\n"
+"Last-Translator: Mario Blättermann <mariobl@freenet.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,71 +76,71 @@ msgstr ""
 "Kompatibel zu verschiedenen VPN-Gateways von Cisco, Juniper, Netscreen und "
 "Sonicwall (IPSec-basiert)."
 
-#: ../properties/nm-vpnc.c:364
+#: ../properties/nm-vpnc.c:331
 msgid "Saved"
 msgstr "Gespeichert"
 
-#: ../properties/nm-vpnc.c:371
+#: ../properties/nm-vpnc.c:338
 msgid "Always Ask"
 msgstr "Immer fragen"
 
-#: ../properties/nm-vpnc.c:378
+#: ../properties/nm-vpnc.c:345
 msgid "Not Required"
 msgstr "Nicht notwendig"
 
-#: ../properties/nm-vpnc.c:522
+#: ../properties/nm-vpnc.c:492
 msgid "Secure (default)"
 msgstr "Sicher (Vorgabe)"
 
-#: ../properties/nm-vpnc.c:525
+#: ../properties/nm-vpnc.c:495
 msgid "Weak (use with caution)"
 msgstr "Schwach (mit Vorsicht zu verwenden)"
 
-#: ../properties/nm-vpnc.c:533
+#: ../properties/nm-vpnc.c:503
 msgid "None (completely insecure)"
 msgstr "Keine (komplett unsicher)"
 
-#: ../properties/nm-vpnc.c:589
+#: ../properties/nm-vpnc.c:568
 msgid "NAT-T when available (default)"
 msgstr "NAT-T wenn verfügbar (Vorgabe)"
 
-#: ../properties/nm-vpnc.c:596
+#: ../properties/nm-vpnc.c:575
 msgid "NAT-T always"
 msgstr "Immer NAT-T"
 
-#: ../properties/nm-vpnc.c:603
+#: ../properties/nm-vpnc.c:582
 msgid "Cisco UDP"
 msgstr "Cisco-UDP"
 
-#: ../properties/nm-vpnc.c:610
+#: ../properties/nm-vpnc.c:589
 msgid "Disabled"
 msgstr "Deaktiviert"
 
-#: ../properties/nm-vpnc.c:630
+#: ../properties/nm-vpnc.c:609
 msgid "DH Group 1"
 msgstr "DH-Gruppe 1"
 
-#: ../properties/nm-vpnc.c:637
+#: ../properties/nm-vpnc.c:616
 msgid "DH Group 2 (default)"
 msgstr "DH-Gruppe 2 (Voreinstellung)"
 
-#: ../properties/nm-vpnc.c:644
+#: ../properties/nm-vpnc.c:623
 msgid "DH Group 5"
 msgstr "DH-Gruppe 5"
 
-#: ../properties/nm-vpnc.c:702
+#: ../properties/nm-vpnc.c:681
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Wählen Sie ein CA-Zertifikat …"
 
-#: ../properties/nm-vpnc.c:706
+#: ../properties/nm-vpnc.c:685
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM-Zertifikate (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1404
+#: ../properties/nm-vpnc.c:1366
 msgid "TCP tunneling not supported"
 msgstr "TCP-Tunneling wird nicht unterstützt"
 
-#: ../properties/nm-vpnc.c:1406
+#: ../properties/nm-vpnc.c:1368
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -169,62 +169,66 @@ msgid "Advanced Options"
 msgstr "Erweiterte Einstellungen"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
+msgid "Advanced..."
+msgstr "Erweitert …"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "CA File:"
 msgstr "CA-Datei:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Disable Dead Peer Detection"
 msgstr "Peer-To-Peer-Erkennung deaktivieren"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "Domain:"
 msgstr "Domäne:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Encryption method:"
 msgstr "Verschlüsselungsmethode:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "G_roup name:"
 msgstr "G_ruppenname:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "Gro_up password:"
 msgstr "_Gruppenpasswort:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "IKE DH Group:"
 msgstr "IKE DH-Gruppe:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "Identification"
 msgstr "Identifikation"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "NAT traversal:"
 msgstr "NAT-Traversal:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Show passwords"
 msgstr "Passwörter anzeigen"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:15
 msgid "Transport and Security"
 msgstr "Übertragung und Sicherheit"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:16
 msgid "Use hybrid authenticaton"
 msgstr "Hybrid-Legitimierung verwenden"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "User name:"
 msgstr "Benutzername:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
+#: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:18
+#: ../properties/nm-vpnc-dialog.ui.h:19
 msgid "_User password:"
 msgstr "Ben_utzerpasswort:"
 
