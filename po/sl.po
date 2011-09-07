@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2011-08-27 16:45+0000\n"
-"PO-Revision-Date: 2011-08-29 20:09+0100\n"
+"POT-Creation-Date: 2011-09-04 10:28+0000\n"
+"PO-Revision-Date: 2011-09-07 15:41+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: \n"
@@ -147,78 +147,74 @@ msgstr ""
 "Povezava je lahko še vedno ustvarjena, z onemogočenim TCP tuneliranjem, vendar lahko ne deluje po pričakovanjih."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
-msgid " "
-msgstr " "
-
-#: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "<b>General</b>"
-msgstr "<b>Splošno</b>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "Advanced Options"
 msgstr "Napredne možnosti"
 
-#: ../properties/nm-vpnc-dialog.ui.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "Advanced..."
 msgstr "Napredno ..."
 
-#: ../properties/nm-vpnc-dialog.ui.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "CA File:"
 msgstr "Datoteka overitelja potrdil:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
 msgstr "Onemogoči zaznavo nedejavnih odjemalcev"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Domain:"
 msgstr "Domena:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Encryption method:"
 msgstr "Način šifriranja:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "I_me skupine:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "General"
+msgstr "Splošno"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "Gro_up password:"
 msgstr "_Skupinsko geslo:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "IKE DH Group:"
 msgstr "IKE DH skupina:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Identification"
 msgstr "Določitev istovetnosti"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "NAT traversal:"
 msgstr "Prečkanje NAT:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "Show passwords"
 msgstr "Pokaži gesla"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Transport and Security"
 msgstr "Prenos in varnost"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
+#: ../properties/nm-vpnc-dialog.ui.h:15
 msgid "Use hybrid authenticaton"
 msgstr "Uporabi hibridno overitev"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
+#: ../properties/nm-vpnc-dialog.ui.h:16
 msgid "User name:"
 msgstr "Uporabniško ime:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:18
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "_Gateway:"
 msgstr "_Prehod:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:19
+#: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "_User password:"
 msgstr "_Uporabnikovo geslo:"
 
@@ -284,6 +280,9 @@ msgstr "Omogoči podrobno beleženje razhroščevanja (lahko razkrije gesla)"
 #: ../src/nm-vpnc-service.c:737
 msgid "nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager."
 msgstr "Storitev nm-vpnc-service omogoča podporo Cisco Legacy IPSec VPN za program NetworkManager."
+
+#~ msgid " "
+#~ msgstr " "
 
 #~ msgid "_Remember passwords for this session"
 #~ msgstr "_Zapomni si geslo za to sejo"
