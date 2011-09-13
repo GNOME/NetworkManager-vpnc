@@ -6,10 +6,10 @@ plugindir = $(libdir)/NetworkManager
 plugin_LTLIBRARIES = libnm-vpnc-properties.la
 
 libnm_vpnc_properties_la_SOURCES = \
-	pcf-file.c \
-	pcf-file.h \
 	nm-vpnc.c \
-	nm-vpnc.h
+	nm-vpnc.h \
+	nm-vpnc-helper.c \
+	nm-vpnc-helper.h
 
 uidir = $(datadir)/gnome-vpn-properties/vpnc
 ui_DATA = nm-vpnc-dialog.ui

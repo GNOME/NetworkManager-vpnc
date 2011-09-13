@@ -48,7 +48,7 @@
 #include <nm-setting-ip4-config.h>
 
 #include "src/nm-vpnc-service.h"
-#include "pcf-file.h"
+#include "nm-vpnc-helper.h"
 #include "nm-vpnc.h"
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
@@ -1158,21 +1158,22 @@ decrypt_cisco_key (const char* enc_key)
 static NMConnection *
 import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 {
-	NMConnection *connection;
+	NMConnection *connection = NULL;
 	NMSettingConnection *s_con;
 	NMSettingVPN *s_vpn;
-	GHashTable *pcf;
-	const char *buf;
+	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
+	GKeyFile *keyfile;
+	char *buf;
 	gboolean bool_value;
 	NMSettingIP4Config *s_ip4;
 	gint val;
 	gboolean found;
 
-	pcf = pcf_file_load (path);
-	if (!pcf) {
+	keyfile = g_key_file_new ();
+	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
 		g_set_error (error, 0, 0, "does not look like a %s VPN connection (parse failed)",
 		             VPNC_PLUGIN_NAME);
-		return NULL;
+		goto error;
 	}
 
 	connection = nm_connection_new ();
@@ -1187,67 +1188,75 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
 
 	/* Gateway */
-	if (pcf_file_lookup_string (pcf, "main", "Host", &buf))
+	buf = key_file_get_string_helper (keyfile, "main", "Host", NULL);
+	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_GATEWAY, buf);
-	else {
+		g_free (buf);
+	} else {
 		g_set_error (error, 0, 0, "does not look like a %s VPN connection (no Host)",
 		             VPNC_PLUGIN_NAME);
-		g_object_unref (connection);
-		return NULL;
+		goto error;
 	}
 
 	/* Group name */
-	if (pcf_file_lookup_string (pcf, "main", "GroupName", &buf))
+	buf = key_file_get_string_helper (keyfile, "main", "GroupName", NULL);
+	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_ID, buf);
-	else {
+		g_free (buf);
+	} else {
 		g_set_error (error, 0, 0, "does not look like a %s VPN connection (no GroupName)",
 		             VPNC_PLUGIN_NAME);
-		g_object_unref (connection);
-		return NULL;
+		goto error;
 	}
 
 	/* Optional settings */
 
 	/* Connection name */
-	if (pcf_file_lookup_string (pcf, "main", "Description", &buf))
+	buf = key_file_get_string_helper (keyfile, "main", "Description", NULL);
+	if (buf) {
 		g_object_set (s_con, NM_SETTING_CONNECTION_ID, buf, NULL);
+		g_free (buf);
+	}
 
-	if (pcf_file_lookup_string (pcf, "main", "UserName", &buf))
+	buf = key_file_get_string_helper (keyfile, "main", "Username", NULL);
+	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, buf);
+		g_free (buf);
+	}
 
-	if (pcf_file_lookup_string (pcf, "main", "UserPassword", &buf)) {
+	buf = key_file_get_string_helper (keyfile, "main", "UserPassword", NULL);
+	if (buf) {
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD, buf);
 		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
 		                             NM_VPNC_KEY_XAUTH_PASSWORD,
 		                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 		                             NULL);
+		g_free (buf);
 	}
 
-	if (pcf_file_lookup_bool (pcf, "main", "SaveUserPassword", &bool_value)) {
-		NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
-
-		if (bool_value) {
-			nm_setting_vpn_add_data_item (s_vpn,
-			                              NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
-			                              NM_VPNC_PW_TYPE_SAVE);
-		} else
-			flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
-
-		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
-			                         NM_VPNC_KEY_XAUTH_PASSWORD,
-			                         flags,
-			                         NULL);
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "SaveUserPassword", NULL);
+	flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
+	if (bool_value) {
+		nm_setting_vpn_add_data_item (s_vpn,
+		                              NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
+		                              NM_VPNC_PW_TYPE_SAVE);
+	} else {
+		flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
 	}
+	nm_setting_set_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, flags, NULL);
 
-	if (pcf_file_lookup_string (pcf, "main", "GroupPwd", &buf)) {
+	buf = key_file_get_string_helper (keyfile, "main", "GroupPwd", NULL);
+	if (buf) {
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_SECRET, buf);
 		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
 		                             NM_VPNC_KEY_SECRET,
 		                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 		                             NULL);
+		g_free (buf);
 	} else {
 		/* Handle encrypted passwords */
-		if (pcf_file_lookup_string (pcf, "main", "enc_GroupPwd", &buf)) {
+		buf = key_file_get_string_helper (keyfile, "main", "enc_GroupPwd", NULL);
+		if (buf) {
 			char *decrypted;
 
 			decrypted = decrypt_cisco_key (buf);
@@ -1261,35 +1270,38 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 				                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 				                             NULL);
 			}
+			g_free (buf);
 		}
 	}
 
 	/* Group Password Flags */
-	if (pcf_file_lookup_bool (pcf, "main", "X-NM-SaveGroupPassword", &bool_value)) {
-		NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
+	if (key_file_has_key_helper (keyfile, "main", "X-NM-SaveGroupPassword")) {
+		flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
 
+		bool_value = key_file_get_boolean_helper (keyfile, "main", "X-NM-SaveGroupPassword", NULL);
 		if (bool_value) {
 			nm_setting_vpn_add_data_item (s_vpn,
 			                              NM_VPNC_KEY_SECRET_TYPE,
 			                              NM_VPNC_PW_TYPE_SAVE);
-		} else
+		} else {
 			flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
+		}
 
 		nm_setting_set_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, flags, NULL);
 	} else {
 		/* If the key isn't present, assume "saved" */
-		nm_setting_vpn_add_data_item (s_vpn,
-		                              NM_VPNC_KEY_SECRET_TYPE,
-		                              NM_VPNC_PW_TYPE_SAVE);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SECRET_TYPE, NM_VPNC_PW_TYPE_SAVE);
 	}
 
-	if (pcf_file_lookup_string (pcf, "main", "NTDomain", &buf))
+	buf = key_file_get_string_helper (keyfile, "main", "NTDomain", NULL);
+	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, buf);
-
-	if (pcf_file_lookup_bool (pcf, "main", "SingleDES", &bool_value)) {
-		if (bool_value)
-			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
+		g_free (buf);
 	}
+
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "SingleDES", NULL);
+	if (bool_value)
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
 
 	/* Disable all NAT Traversal if explicit EnableNat=0 exists, otherwise
 	 * default to NAT-T which is newer and standardized.  If EnableNat=1, then
@@ -1302,33 +1314,32 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
 	                              NM_VPNC_NATT_MODE_CISCO);
 
-	if (pcf_file_lookup_bool (pcf, "main", "EnableNat", &bool_value)) {
-		if (bool_value) {
-			gboolean natt = FALSE, force_natt = FALSE;
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "EnableNat", NULL);
+	if (bool_value) {
+		gboolean natt = FALSE;
+		gboolean force_natt = FALSE;
 
-			if (!pcf_file_lookup_bool (pcf, "main", "X-NM-Use-NAT-T", &natt))
-				natt = FALSE;
-			if (!pcf_file_lookup_bool (pcf, "main", "X-NM-Force-NAT-T", &force_natt))
-				force_natt = FALSE;
+		natt = key_file_get_boolean_helper (keyfile, "main", "X-NM-Use-NAT-T", NULL);
+		force_natt = key_file_get_boolean_helper (keyfile, "main", "X-NM-Force-NAT-T", NULL);
 
-			/* force-natt takes precence over plain natt */
-			if (force_natt) {
-				nm_setting_vpn_add_data_item (s_vpn,
-				                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
-				                              NM_VPNC_NATT_MODE_NATT_ALWAYS);
-			} else if (natt) {
-				nm_setting_vpn_add_data_item (s_vpn,
-				                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
-				                              NM_VPNC_NATT_MODE_NATT);
-			}
-		} else {
+		/* force-natt takes precence over plain natt */
+		if (force_natt) {
 			nm_setting_vpn_add_data_item (s_vpn,
 			                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
-			                              NM_VPNC_NATT_MODE_NONE);
+			                              NM_VPNC_NATT_MODE_NATT_ALWAYS);
+		} else if (natt) {
+			nm_setting_vpn_add_data_item (s_vpn,
+			                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
+			                              NM_VPNC_NATT_MODE_NATT);
 		}
+	} else if (key_file_has_key_helper (keyfile, "main", "EnableNat")) {
+		/* explicit EnableNat=0 disables NAT */
+		nm_setting_vpn_add_data_item (s_vpn,
+		                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
+		                              NM_VPNC_NATT_MODE_NONE);
 	}
 
-	if (pcf_file_lookup_int (pcf, "main", "PeerTimeout", &val)) {
+	if (key_file_get_integer_helper (keyfile, "main", "PeerTimeout", &val)) {
 		if ((val == 0) || ((val >= 10) && (val <= 86400))) {
 			char *tmp = g_strdup_printf ("%d", (gint) val);
 			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, tmp);
@@ -1336,26 +1347,29 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		}
 	}
 
-	if (pcf_file_lookup_bool (pcf, "main", "EnableLocalLAN", &bool_value)) {
-		if (bool_value)
-			g_object_set (s_ip4, NM_SETTING_IP4_CONFIG_NEVER_DEFAULT, TRUE, NULL);
-	}
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "EnableLocalLAN", NULL);
+	if (bool_value)
+		g_object_set (s_ip4, NM_SETTING_IP4_CONFIG_NEVER_DEFAULT, TRUE, NULL);
 
-	if (pcf_file_lookup_string (pcf, "main", "DHGroup", &buf)) {
+	buf = key_file_get_string_helper (keyfile, "main", "DHGroup", NULL);
+	if (buf) {
 		if (!strcmp (buf, "1") || !strcmp (buf, "2") || !strcmp (buf, "5")) {
 			char *tmp;
 			tmp = g_strdup_printf ("dh%s", buf);
 			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, tmp);
 			g_free (tmp);
 		}
+		g_free (buf);
 	}
 
-	if (pcf_file_lookup_string (pcf, "main", "X-NM-Routes", &buf))
+	buf = key_file_get_string_helper (keyfile, "main", "X-NM-Routes", NULL);
+	if (buf) {
 		add_routes (s_ip4, buf);
+		g_free (buf);
+	}
 
-	if (pcf_file_lookup_int (pcf, "main", "TunnelingMode", &val)) {
+	if (key_file_get_integer_helper (keyfile, "main", "TunnelingMode", &val)) {
 		/* If applicable, put up warning that TCP tunneling will be disabled */
-
 		if (val == 1) {
 			GtkWidget *dialog;
 			char *basename;
@@ -1365,7 +1379,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 			                                 GTK_MESSAGE_WARNING, GTK_BUTTONS_CLOSE,
 			                                 _("TCP tunneling not supported"));
 			gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
-			                                          _("The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n\nThe connection can still be created, with TCP tunneling disabled, however it may not work as expected."), basename);
+									_("The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n\nThe connection can still be created, with TCP tunneling disabled, however it may not work as expected."), basename);
 			g_free (basename);
 			gtk_dialog_run (GTK_DIALOG (dialog));
 			gtk_widget_destroy (dialog);
@@ -1376,7 +1390,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	 * http://www.cisco.com/en/US/products/sw/secursw/ps2308/products_administration_guide_chapter09186a008015cfdc.html#1192555
 	 * See also: http://support.microsoft.com/kb/928310
 	 */
-	found = pcf_file_lookup_int (pcf, "main", "UseLegacyIKEPort", &val);
+	found = key_file_get_integer_helper (keyfile, "main", "UseLegacyIKEPort", &val);
 	if (!found || val != 0) {
 		char *tmp;
 		tmp = g_strdup_printf ("%d", (gint) NM_VPNC_LOCAL_PORT_DEFAULT); /* Use default vpnc local port: 500 */
@@ -1384,9 +1398,14 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		g_free (tmp);
 	}
 
-	g_hash_table_destroy (pcf);
-
+	g_key_file_free (keyfile);
 	return connection;
+
+error:
+	if (connection)
+		g_object_unref (connection);
+	g_key_file_free (keyfile);
+	return NULL;
 }
 
 static gboolean
