@@ -9,48 +9,41 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2011-03-30 17:56+0000\n"
-"PO-Revision-Date: 2011-03-31 03:01+0300\n"
+"POT-Creation-Date: 2011-09-02 19:49+0000\n"
+"PO-Revision-Date: 2011-09-16 13:53+0300\n"
 "Last-Translator: Rūdofls Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
+"Language: lv\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:103
+#: ../auth-dialog/vpn-password-dialog.c:96
 msgid "_Secondary Password:"
 msgstr "_Sekundārā parole:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:159
+#: ../auth-dialog/vpn-password-dialog.c:152
 msgid "_Password:"
 msgstr "_Parole:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:245
+#: ../auth-dialog/vpn-password-dialog.c:238
 msgid "Sh_ow passwords"
 msgstr "Rādīt par_oles"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:305
-msgid "_Remember passwords for this session"
-msgstr "Atce_rēties paroles šai sesija"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:306
-msgid "_Save passwords in keyring"
-msgstr "_Saglabāt paroli atslēgu saišķī"
-
-#: ../auth-dialog/main.c:112
+#: ../auth-dialog/main.c:157
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Jums ir jāautentificējas, lai piekļūtu virtuālajiem privātajiem tīkliem '%s'."
 
-#: ../auth-dialog/main.c:113
+#: ../auth-dialog/main.c:158
 msgid "Authenticate VPN"
 msgstr "Autentificēt VPN"
 
-#: ../auth-dialog/main.c:117
+#: ../auth-dialog/main.c:161
 msgid "_Group Password:"
 msgstr "_Grupas parole:"
 
@@ -70,11 +63,11 @@ msgstr "Pievienot, noņemt un rediģēt VPN savienojumus"
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN savienojumu pārvaldnieks (vpnc)"
 
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:54
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco savietojams VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:55
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
 "VPN gateways."
@@ -82,63 +75,71 @@ msgstr ""
 "Savietojams ar dažādiem Cisco, Juniper, Netscreen un Sonicwall IPSec-"
 "balstītām VPN vārtejām."
 
-#: ../properties/nm-vpnc.c:354
+#: ../properties/nm-vpnc.c:331
 msgid "Saved"
 msgstr "Saglabāts"
 
-#: ../properties/nm-vpnc.c:361
+#: ../properties/nm-vpnc.c:338
 msgid "Always Ask"
 msgstr "Vienmēr jautāt"
 
-#: ../properties/nm-vpnc.c:368
+#: ../properties/nm-vpnc.c:345
 msgid "Not Required"
 msgstr "Nav nepieciešams"
 
-#: ../properties/nm-vpnc.c:428
+#: ../properties/nm-vpnc.c:492
 msgid "Secure (default)"
 msgstr "Drošs (noklusētais)"
 
-#: ../properties/nm-vpnc.c:431
+#: ../properties/nm-vpnc.c:495
 msgid "Weak (use with caution)"
 msgstr "Vājš (izmantojiet uzmanīgi)"
 
-#: ../properties/nm-vpnc.c:439
+#: ../properties/nm-vpnc.c:503
 msgid "None (completely insecure)"
 msgstr "Nav (pilnīgi nedroši)"
 
-#: ../properties/nm-vpnc.c:495
+#: ../properties/nm-vpnc.c:568
 msgid "NAT-T when available (default)"
 msgstr "NAT-T kad pieejams (noklusētais)"
 
-#: ../properties/nm-vpnc.c:502
+#: ../properties/nm-vpnc.c:575
 msgid "NAT-T always"
 msgstr "NAT-T vienmēr"
 
-#: ../properties/nm-vpnc.c:509
+#: ../properties/nm-vpnc.c:582
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:516
+#: ../properties/nm-vpnc.c:589
 msgid "Disabled"
 msgstr "Atslēgts"
 
-#: ../properties/nm-vpnc.c:536
+#: ../properties/nm-vpnc.c:609
 msgid "DH Group 1"
 msgstr "DH grupa 1"
 
-#: ../properties/nm-vpnc.c:543
+#: ../properties/nm-vpnc.c:616
 msgid "DH Group 2 (default)"
 msgstr "DH grupa 2 (noklusētais)"
 
-#: ../properties/nm-vpnc.c:550
+#: ../properties/nm-vpnc.c:623
 msgid "DH Group 5"
 msgstr "DH grupa 5"
 
-#: ../properties/nm-vpnc.c:1252
+#: ../properties/nm-vpnc.c:681
+msgid "Choose a Certificate Authority (CA) certificate..."
+msgstr "Izvēlieties sertificēšanas institūcijas (CA) sertifikātu..."
+
+#: ../properties/nm-vpnc.c:685
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "PEM sertifikāti (*pem, *.crt, *.cer)"
+
+#: ../properties/nm-vpnc.c:1366
 msgid "TCP tunneling not supported"
 msgstr "TCP tunelēšana nav atbalstīta"
 
-#: ../properties/nm-vpnc.c:1254
+#: ../properties/nm-vpnc.c:1368
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -154,16 +155,16 @@ msgstr ""
 "kā to varētu sagaidīt."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
-msgid " "
-msgstr " "
+msgid "Advanced Options"
+msgstr "Paplašinātās opcijas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "<b>General</b>"
-msgstr "<b>Vispārējs</b>"
+msgid "Advanced..."
+msgstr "Paplašināti..."
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "<b>Optional</b>"
-msgstr "<b>Neobligāts</b>"
+msgid "CA File:"
+msgstr "CA fails:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead Peer Detection"
@@ -182,76 +183,100 @@ msgid "G_roup name:"
 msgstr "G_rupas nosaukums:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
+#| msgid "<b>General</b>"
+msgid "General"
+msgstr "Vispārīgi"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "Gro_up password:"
 msgstr "Gr_upas parole:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "IKE DH Group:"
 msgstr "IKE DH grupa:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "Identification"
+msgstr "Identifikācija"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "NAT traversal:"
 msgstr "NAT apvads:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "Show passwords"
 msgstr "Rādīt paroles"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Transport and Security"
+msgstr "Transports un drošība"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+#| msgid "Request VPN authentication"
+msgid "Use hybrid authenticaton"
+msgstr "Lietot hibrīda autentificēšanos"
+
+#: ../properties/nm-vpnc-dialog.ui.h:16
 msgid "User name:"
 msgstr "Lietotājvārds:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "_Gateway:"
 msgstr "_Vārtejas:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "_User password:"
 msgstr "_Lietotāja parole:"
 
-#: ../src/nm-vpnc-service.c:148
-#, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
-msgstr "nederīga veselā skaitļa īpašība '%s' vai ārpus apgabala [%d -> %d]"
-
-#: ../src/nm-vpnc-service.c:158
-#, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "nederīga būla īpašība '%s' (nav jā vai nē)"
-
-#: ../src/nm-vpnc-service.c:165
-#, c-format
-msgid "unhandled property '%s' type %s"
-msgstr "neapstrādāts īpašības '%s' tips %s"
-
-#: ../src/nm-vpnc-service.c:176
+#: ../src/nm-vpnc-service.c:152
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "īpašība '%s' nederīga vai nav atbalstīta"
 
-#: ../src/nm-vpnc-service.c:192
+#: ../src/nm-vpnc-service.c:171
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr "īpašības '%s' faila ceļš '%s' nav absolūts vai neeksistē"
+
+#: ../src/nm-vpnc-service.c:184
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr "nederīga veselā skaitļa īpašība '%s' vai ārpus apgabala [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:194
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "nederīga būla īpašība '%s' (nav jā vai nē)"
+
+#: ../src/nm-vpnc-service.c:201
+#, c-format
+#| msgid "unhandled property '%s' type %s"
+msgid "unhandled property '%s' type %d"
+msgstr "neapstrādāts īpašības '%s' tips %d"
+
+#: ../src/nm-vpnc-service.c:218
 msgid "No VPN configuration options."
 msgstr "Nav VPN konfigurācijas opciju."
 
-#: ../src/nm-vpnc-service.c:210
+#: ../src/nm-vpnc-service.c:236
 msgid "No VPN secrets!"
 msgstr "Nav VPN noslēpumu!"
 
-#: ../src/nm-vpnc-service.c:279
+#: ../src/nm-vpnc-service.c:305
 msgid "Could not find vpnc binary."
 msgstr "Nevarēja atrast vpnc bināro failu."
 
-#: ../src/nm-vpnc-service.c:371
+#: ../src/nm-vpnc-service.c:397
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "Konfigurācijas opcija '%s' nederīga vai nezināma."
 
-#: ../src/nm-vpnc-service.c:403
+#: ../src/nm-vpnc-service.c:430
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "Konfigurācijas opcija '%s' nav vesels skaitlis."
 
-#: ../src/nm-vpnc-service.c:580
+#: ../src/nm-vpnc-service.c:607
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -259,15 +284,15 @@ msgstr ""
 "Neizdevās apstrādāt pieprasījumu, jo VPN savienojuma iestatījumi bija "
 "nederīgi."
 
-#: ../src/nm-vpnc-service.c:695
+#: ../src/nm-vpnc-service.c:722
 msgid "Don't quit when VPN connection terminates"
 msgstr "Neiziet, kad tiek pārtraukts VPN savienojums"
 
-#: ../src/nm-vpnc-service.c:696
+#: ../src/nm-vpnc-service.c:723
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Aktivēt detalizētu atkļūdošanas reģistrēšanu (var atklāt paroles)"
 
-#: ../src/nm-vpnc-service.c:710
+#: ../src/nm-vpnc-service.c:737
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
 "NetworkManager."
@@ -275,3 +300,14 @@ msgstr ""
 "nm-vpnc-service nodrošina NetworkManager integrētu Cisco Legacy IPSec VPN "
 "iespēju."
 
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "Atce_rēties paroles šai sesija"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "_Saglabāt paroli atslēgu saišķī"
+
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgid "<b>Optional</b>"
+#~ msgstr "<b>Neobligāts</b>"
