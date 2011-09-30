@@ -701,6 +701,9 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	priv->advanced_dialog = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-advanced-dialog"));
 	g_return_val_if_fail (priv->advanced_dialog != NULL, FALSE);
 
+	g_signal_connect (G_OBJECT (priv->advanced_dialog), "delete-event",
+	                  G_CALLBACK (gtk_widget_hide_on_delete), self);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "advanced_button"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	g_signal_connect (G_OBJECT (widget), "clicked",
