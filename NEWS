@@ -7,6 +7,8 @@ This is a new stable release of network-manager-vpnc.  Notable changes include:
 
 * Support for Hybrid XAUTH authentication has been added
 * Don't claim the default route if the concentrator sends explicit routes
+* Use the right prefix for point-to-point tunnels
+* Fix some untranslated UI strings
 
 
 =======================================================
