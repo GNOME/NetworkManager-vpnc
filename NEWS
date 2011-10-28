@@ -1,4 +1,16 @@
 =======================================================
+network-manager-vpnc-0.9.2
+Overview of changes since network-manager-vpnc-0.9.0
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Clean up .pcf file import code
+* Updated translations
+* Fix empty "Advanced" window after clicking the window's close button
+
+
+=======================================================
 network-manager-vpnc-0.9.0
 Overview of changes since network-manager-vpnc-0.8.x
 =======================================================
