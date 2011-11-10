@@ -3,7 +3,7 @@ INCLUDES = -I${top_srcdir}
 libexec_PROGRAMS = nm-vpnc-auth-dialog
 
 nm_vpnc_auth_dialog_CPPFLAGS = \
-	$(NETWORKMANAGER_CFLAGS) \
+	$(NM_CFLAGS) \
 	$(GTHREAD_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
@@ -21,7 +21,7 @@ nm_vpnc_auth_dialog_SOURCES = \
 
 nm_vpnc_auth_dialog_LDADD = \
 	$(GTK_LIBS) \
-	$(NETWORKMANAGER_LIBS) \
+	$(NM_LIBS) \
 	$(GNOMEKEYRING_LIBS)
 
 @INTLTOOL_DESKTOP_RULE@

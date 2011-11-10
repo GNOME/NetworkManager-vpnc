@@ -11,7 +11,7 @@ test_import_export_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
-	$(NETWORKMANAGER_CFLAGS) \
+	$(NM_CFLAGS) \
 	$(DBUS_CFLAGS)
 
 test_import_export_LDADD = \
@@ -19,7 +19,7 @@ test_import_export_LDADD = \
 	$(GTK_LIBS) \
 	$(GNOMEKEYRING_LIBS) \
 	$(DBUS_LIBS) \
-	$(NETWORKMANAGER_LIBS) \
+	$(NM_LIBS) \
 	$(top_builddir)/properties/libnm-vpnc-properties.la
 
 if WITH_TESTS
