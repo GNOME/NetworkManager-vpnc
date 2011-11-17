@@ -1,0 +1,282 @@
+# Esperanto translation for network-manager-vpnc.
+# Copyright (C) 2011 Free Software Foundation, Inc.
+# This file is distributed under the same license as the network-manager-vpnc package.
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: network-manager-vpnc master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
+"POT-Creation-Date: 2011-11-14 23:10+0000\n"
+"PO-Revision-Date: 2011-11-17 17:09+0100\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bits\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: ../auth-dialog/vpn-password-dialog.c:96
+msgid "_Secondary Password:"
+msgstr "_Duaranga pasvorto:"
+
+#: ../auth-dialog/vpn-password-dialog.c:152
+msgid "_Password:"
+msgstr "_Pasvorto:"
+
+#: ../auth-dialog/vpn-password-dialog.c:238
+msgid "Sh_ow passwords"
+msgstr "M_ontri pasvortojn"
+
+#: ../auth-dialog/main.c:157
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgstr ""
+
+#: ../auth-dialog/main.c:158
+msgid "Authenticate VPN"
+msgstr ""
+
+#: ../auth-dialog/main.c:161
+msgid "_Group Password:"
+msgstr "_Gruppasvorto:"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
+msgid "Network"
+msgstr "Reto"
+
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
+msgid "Request VPN authentication"
+msgstr ""
+
+#: ../nm-vpnc.desktop.in.h:1
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "Aldoni, forigi kaj redakti VPN-konektojn"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "VPN Connection Manager (vpnc)"
+msgstr "VPN-konekto-administrilo (vpnc)"
+
+#: ../properties/nm-vpnc.c:54
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:55
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"VPN gateways."
+msgstr ""
+
+#: ../properties/nm-vpnc.c:331
+msgid "Saved"
+msgstr "Konservite"
+
+#: ../properties/nm-vpnc.c:338
+msgid "Always Ask"
+msgstr "Demandi ĉiufoje"
+
+#: ../properties/nm-vpnc.c:345
+msgid "Not Required"
+msgstr "Ne bezonata"
+
+#: ../properties/nm-vpnc.c:492
+msgid "Secure (default)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:495
+msgid "Weak (use with caution)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:503
+msgid "None (completely insecure)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:568
+msgid "NAT-T when available (default)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:575
+msgid "NAT-T always"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:582
+msgid "Cisco UDP"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:589
+msgid "Disabled"
+msgstr "Elŝaltite"
+
+#: ../properties/nm-vpnc.c:609
+msgid "DH Group 1"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:616
+msgid "DH Group 2 (default)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:623
+msgid "DH Group 5"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:681
+msgid "Choose a Certificate Authority (CA) certificate..."
+msgstr ""
+
+#: ../properties/nm-vpnc.c:685
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:1383
+msgid "TCP tunneling not supported"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:1385
+#, c-format
+msgid ""
+"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "Advanced Options"
+msgstr "Altnivelaj agordoj"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "Advanced..."
+msgstr "Altnivele..."
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid "CA File:"
+msgstr "CA-dosiero:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:4
+msgid "Disable Dead Peer Detection"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "Domain:"
+msgstr "Domajno:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "Encryption method:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "General"
+msgstr "Ĝenerale"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "Gro_up password:"
+msgstr "Gr_uppasvorto:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid "IKE DH Group:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "Identification"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid "NAT traversal:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid "Show passwords"
+msgstr "Montri pasvortojn"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Transport and Security"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid "Use hybrid authenticaton"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:16
+msgid "User name:"
+msgstr "Uzantonomo:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "_Gateway:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "_User password:"
+msgstr "_Uzantopasvorto:"
+
+#: ../src/nm-vpnc-service.c:152
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:171
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:184
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:194
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:201
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:218
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:236
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:305
+msgid "Could not find vpnc binary."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:397
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:430
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:607
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:722
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:723
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:737
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"NetworkManager."
+msgstr ""
