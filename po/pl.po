@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-09-02 23:09+0200\n"
-"PO-Revision-Date: 2011-09-02 23:10+0200\n"
+"PO-Revision-Date: 2011-12-13 17:25+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -211,7 +211,7 @@ msgid "Transport and Security"
 msgstr "Przesyłanie i zabezpieczenia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr "Użycie hybrydowego uwierzytelnienia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
