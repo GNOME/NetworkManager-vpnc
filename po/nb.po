@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-19 13:12+0200\n"
-"PO-Revision-Date: 2011-07-19 13:23+0200\n"
+"POT-Creation-Date: 2011-12-14 22:25+0100\n"
+"PO-Revision-Date: 2011-12-14 22:26+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -130,11 +130,11 @@ msgstr "Velg sertifikat fra sertifikatautoritet (CA) …"
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM-sertifikater (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1366
+#: ../properties/nm-vpnc.c:1383
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnelering ikke støttet"
 
-#: ../properties/nm-vpnc.c:1368
+#: ../properties/nm-vpnc.c:1385
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -150,74 +150,130 @@ msgstr ""
 "er ikke sikkert at dette vil fungere som forventet."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
-msgid " "
-msgstr " "
+msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
+msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "<b>General</b>"
-msgstr "<b>Generelt</b>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "Advanced Options"
 msgstr "Avanserte alternativer"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid "Advanced..."
+msgstr "Avansert …"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "CA File:"
 msgstr "CA-fil:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "CA certificate in PEM format&#10;config: CA-File"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Disable Dead Peer Detection"
 msgstr "Slå av gjenkjenning av død peer"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)&#10;config: DPD idle timeout "
+"(our side) 0"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Domain:"
 msgstr "Domene:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password."
+"&#10;config: IKE Authmode hybrid"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid ""
+"Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for "
+"Weak, 'Enable no encryption' for None"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Encryption method:"
 msgstr "Krypteringsmetode:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "G_roup name:"
 msgstr "G_ruppenavn:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid "General"
+msgstr "Generelt"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Gro_up password:"
 msgstr "Gr_uppepassord:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid "Group name&#10;config: IPSec ID <group_name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:16
+msgid "Group password&#10;config: IPSec secret <group_password>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "IKE DH Group:"
 msgstr "IKE DH-gruppe:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "IP/hostname of IPsec gateway&#10;config: IPSec gateway <gateway>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
 msgid "Identification"
 msgstr "Identifisering"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:20
+msgid ""
+"NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-"
+"natt/cisco-udp>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "NAT traversal:"
 msgstr "NAT-traversering:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
 msgid "Show passwords"
 msgstr "Vis passord"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Transport and Security"
 msgstr "Transport og sikkerhet"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Use hybrid authenticaton"
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "Use hybrid authentication"
 msgstr "Bruk hybrid autentisering"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "User name for the connection&#10;config: Xauth username <user_name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "User name:"
 msgstr "Brukernavn:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
+#: ../properties/nm-vpnc-dialog.ui.h:28
+msgid "User password for the connection&#10;config: Xauth password <password>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:18
+#: ../properties/nm-vpnc-dialog.ui.h:30
 msgid "_User password:"
 msgstr "Passord for br_uker:"
 
@@ -272,7 +328,9 @@ msgstr "Konfigurasjonsalternativ «%s» er ikke et heltall."
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
-msgstr "Kunne ikke prosessere forespørsel fordi innstillingene for VPN-tilkobling var ugyldige."
+msgstr ""
+"Kunne ikke prosessere forespørsel fordi innstillingene for VPN-tilkobling "
+"var ugyldige."
 
 #: ../src/nm-vpnc-service.c:722
 msgid "Don't quit when VPN connection terminates"
@@ -286,4 +344,6 @@ msgstr "Vis mer feilsøkingsinformasjon (kan eksponere passord)"
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
 "NetworkManager."
-msgstr "nm-vpnc-service tilbyr integrert støtte for gamle Cisco IPSec VPN i NetworkManager."
+msgstr ""
+"nm-vpnc-service tilbyr integrert støtte for gamle Cisco IPSec VPN i "
+"NetworkManager."
