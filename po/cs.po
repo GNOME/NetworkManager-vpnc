@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2011-09-02 19:49+0000\n"
-"PO-Revision-Date: 2011-09-05 08:15+0100\n"
+"POT-Creation-Date: 2011-12-13 14:35+0000\n"
+"PO-Revision-Date: 2011-12-16 17:02+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -129,11 +129,11 @@ msgstr "Vybrat certifikát certifikační autority (CA)…"
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Certifikáty PEM  (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1366
+#: ../properties/nm-vpnc.c:1383
 msgid "TCP tunneling not supported"
 msgstr "Tunelování TCP není podporováno"
 
-#: ../properties/nm-vpnc.c:1368
+#: ../properties/nm-vpnc.c:1385
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
@@ -145,76 +145,123 @@ msgstr ""
 "Připojení půjde navázat bez TCP tunelování, ale je možné, že nebude fungovat korektně."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
+msgstr "Název autentizační domény (NT)&#10;config: Domain <doména>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "Advanced Options"
 msgstr "Rozšířené volby"
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "Advanced..."
 msgstr "Rozšířené…"
 
-#: ../properties/nm-vpnc-dialog.ui.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "CA File:"
 msgstr "Soubor CA:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "CA certificate in PEM format&#10;config: CA-File"
+msgstr "Certifikát CA ve formátu PEM&#10;config: CA-File"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Disable Dead Peer Detection"
 msgstr "Zakázat Dead Peer Detection"
 
-#: ../properties/nm-vpnc-dialog.ui.h:5
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "Disable sending DPD packets (sets timeout to 0)&#10;config: DPD idle timeout (our side) 0"
+msgstr "Zablokovat posílání rámců DPD (nastaví časový limit na 0)&#10;config: DPD idle timeout (our side) 0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid "Domain:"
 msgstr "Doména:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "Enable hybrid authentication, i.e. use certificate in addition to password.&#10;config: IKE Authmode hybrid"
+msgstr "Povolit hybridní autentizaci, tzn. použití ceritikátu a hesla.&#10;config: IKE Authmode hybrid"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid "Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None"
+msgstr "Metoda šifrování&#10;config: nic pro Secure, „Enable Single DES“ pro Weak, „Enable no encryption“ pro None"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Encryption method:"
 msgstr "Metoda šifrování:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "G_roup name:"
 msgstr "J_méno skupiny:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
-#| msgid "<b>General</b>"
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "General"
 msgstr "Obecné"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Gro_up password:"
 msgstr "Heslo sk_upiny:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid "Group name&#10;config: IPSec ID <group_name>"
+msgstr "Název skupiny&#10;config: IPSec ID <název_skupiny>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:16
+msgid "Group password&#10;config: IPSec secret <group_password>"
+msgstr "Heslo skupiny&#10;config: IPSec secret <heslo_skupiny>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "IKE DH Group:"
 msgstr "Skupina IKE DH:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "IP/hostname of IPsec gateway&#10;config: IPSec gateway <gateway>"
+msgstr "IP/názv počítače brány IPSec&#10;config: IPSec gateway <brána>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
 msgid "Identification"
 msgstr "Identifikace"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:20
+msgid "NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr "Použitá metoda překonávání NAT&#10;config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "NAT traversal:"
 msgstr "NAT traversal:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
+msgstr "Název skupiny IKE DH&#10;config: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
 msgid "Show passwords"
 msgstr "Zobrazit hesla"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Transport and Security"
 msgstr "Přenos a bezpečnost"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
-#| msgid "Request VPN authentication"
-msgid "Use hybrid authenticaton"
+#: ../properties/nm-vpnc-dialog.ui.h:25
+#| msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr "Použít hybridní autentizaci"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "User name for the connection&#10;config: Xauth username <user_name>"
+msgstr "Uživatelské jméno pro toto připojení&#10;config: Xauth username <jméno_uživatele>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "User name:"
 msgstr "Uživatelské jméno:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
+#: ../properties/nm-vpnc-dialog.ui.h:28
+msgid "User password for the connection&#10;config: Xauth password <password>"
+msgstr "Heslo uživatele pro toto připojení&#10;config: Xauth password <heslo>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "_Gateway:"
 msgstr "_Brána:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:18
+#: ../properties/nm-vpnc-dialog.ui.h:30
 msgid "_User password:"
 msgstr "_Uživatelské heslo:"
 
@@ -240,7 +287,6 @@ msgstr "pravdivostní volba „%s“ není platná (není ano či ne)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
-#| msgid "unhandled property '%s' type %s"
 msgid "unhandled property '%s' type %d"
 msgstr "neošetřená volba '%s' typu %d"
 
