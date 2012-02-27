@@ -6,7 +6,7 @@
  *
  * Copyright (C) 2005 David Zeuthen, <davidz@redhat.com>
  * Copyright (C) 2005 - 2008 Dan Williams, <dcbw@redhat.com>
- * Copyright (C) 2005 - 2011 Red Hat, Inc.
+ * Copyright (C) 2005 - 2012 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -454,6 +454,8 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	int active = -1;
 	const char *natt_mode = NULL;
 	const char *ike_dh_group = NULL;
+	const char *vendor = NULL;
+	const char *pfs_group = NULL;
 	gboolean enabled = FALSE;
 	GtkFileFilter *filter;
 
@@ -559,6 +561,34 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
+	/* Vendor combo */
+	active = -1;
+	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
+	if (s_vpn)
+		vendor = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_VENDOR);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("Cisco (default)"), 1, NM_VPNC_VENDOR_CISCO, -1);
+	if ((active < 0) && vendor) {
+		if (!strcmp (vendor, NM_VPNC_VENDOR_CISCO))
+			active = 0;
+	}
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("Netscreen"), 1, NM_VPNC_VENDOR_NETSCREEN, -1);
+	if ((active < 0) && vendor) {
+		if (!strcmp (vendor, NM_VPNC_VENDOR_NETSCREEN))
+			active = 1;
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
+	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
+	g_object_unref (store);
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
 	active = -1;
 	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
 	if (s_vpn)
@@ -651,6 +681,55 @@ init_plugin_ui (VpncPluginUiWidget *self,
 		}
 	}
 	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (stuff_changed_cb), self);
+
+	/* Perfect Forward Secrecy combo */
+	active = -1;
+	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
+	if (s_vpn)
+		pfs_group = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("Server (default)"), 1, NM_VPNC_PFS_SERVER, -1);
+	if ((active < 0) && pfs_group) {
+		if (!strcmp (pfs_group, NM_VPNC_PFS_SERVER))
+			active = 0;
+	}
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("None"), 1, NM_VPNC_PFS_NOPFS, -1);
+	if ((active < 0) && pfs_group) {
+		if (!strcmp (pfs_group, NM_VPNC_PFS_NOPFS))
+			active = 1;
+	}
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 1"), 1, NM_VPNC_PFS_DH1, -1);
+	if ((active < 0) && pfs_group) {
+		if (!strcmp (pfs_group, NM_VPNC_PFS_DH1))
+			active = 2;
+	}
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 2"), 1, NM_VPNC_PFS_DH2, -1);
+	if ((active < 0) && pfs_group) {
+		if (!strcmp (pfs_group, NM_VPNC_PFS_DH2))
+			active = 3;
+	}
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 5"), 1, NM_VPNC_PFS_DH5, -1);
+	if ((active < 0) && pfs_group) {
+		if (!strcmp (pfs_group, NM_VPNC_PFS_DH5))
+			active = 4;
+	}
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
+	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
+	g_object_unref (store);
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "show_passwords_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
@@ -810,6 +889,16 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, str);
 
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
+	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
+		const char *vendor = NULL;
+
+		gtk_tree_model_get (model, &iter, 1, &vendor, -1);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, vendor);
+	} else
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, NM_VPNC_VENDOR_CISCO);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
 	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (widget))) {
 	case ENC_TYPE_WEAK:
@@ -842,6 +931,16 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, dhgroup);
 	} else
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, NM_VPNC_DHGROUP_DH2);
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
+	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
+		const char *pfs = NULL;
+
+		gtk_tree_model_get (model, &iter, 1, &pfs, -1);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD, pfs);
+	} else
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD, NM_VPNC_PFS_SERVER);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
