@@ -29,7 +29,9 @@ endif
 nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' $< >$@
 
-DISTCHECK_CONFIGURE_FLAGS = --with-tests=yes
+DISTCHECK_CONFIGURE_FLAGS = \
+	--with-tests=yes \
+	--enable-more-warnings=yes
 
 EXTRA_DIST = nm-vpnc-service.name.in \
              $(dbusservice_DATA)  \
