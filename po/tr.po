@@ -211,7 +211,7 @@ msgid "Transport and Security"
 msgstr "Aktarım ve Güvenlik"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr "Hibrit kimlik doğrulama kullan"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17

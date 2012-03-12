@@ -215,7 +215,7 @@ msgid "Transport and Security"
 msgstr "Przesyłanie i zabezpieczenia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr "Użycie hybrydowego uwierzytelnienia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
