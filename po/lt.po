@@ -200,7 +200,7 @@ msgid "Transport and Security"
 msgstr "Transportas ir saugumas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr "Naudoti hibridinį tapatybės patvirtinimą"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16

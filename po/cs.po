@@ -241,7 +241,6 @@ msgid "Transport and Security"
 msgstr "Přenos a bezpečnost"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-#| msgid "Use hybrid authenticaton"
 msgid "Use hybrid authentication"
 msgstr "Použít hybridní autentizaci"
 

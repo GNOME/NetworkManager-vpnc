@@ -199,7 +199,7 @@ msgid "Transport and Security"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:16

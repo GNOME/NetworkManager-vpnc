@@ -206,7 +206,7 @@ msgid "Transport and Security"
 msgstr "Keamanan dan Transpor"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr "Gunakan otentikasi hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17

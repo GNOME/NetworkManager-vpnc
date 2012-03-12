@@ -212,8 +212,7 @@ msgid "Transport and Security"
 msgstr "Transports un drošība"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-#| msgid "Request VPN authentication"
-msgid "Use hybrid authenticaton"
+msgid "Use hybrid authentication"
 msgstr "Lietot hibrīda autentificēšanos"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
