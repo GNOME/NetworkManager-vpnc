@@ -8,6 +8,7 @@ This is a new stable release of network-manager-vpnc.  Notable changes include:
 * Support for Juniper/Netscreen devices
 * Support for "external UI mode" for DE-native dialogs (ie, GNOME Shell and others)
 * Config dialog tooltips now refer to corresponding vpnc config option
+* Pass multiple domain names for NetworkManager if given by vpnc
 * Updated translations
 
 
