@@ -232,7 +232,7 @@ msgid ""
 "NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-"
 "natt/cisco-udp>"
 msgstr ""
-"Używana metoda przekierowywania NAT&#10;konfiguracja: NAT Traversal Mode "
+"Używana metoda omijania NAT&#10;konfiguracja: NAT Traversal Mode "
 "<natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
