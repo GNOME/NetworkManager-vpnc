@@ -207,7 +207,8 @@ get_secrets (const char *vpn_uuid,
 		/* If interaction isn't allowed, just return existing secrets */
 		*out_upw = upw;
 		*out_gpw = gpw;
-		goto out;
+		g_free (prompt);
+		return TRUE;
 	}
 
 	dialog = VPN_PASSWORD_DIALOG (vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL));
