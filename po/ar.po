@@ -142,7 +142,7 @@ msgid "<b>Optional</b>"
 msgstr "خياري"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
@@ -166,7 +166,7 @@ msgstr "عطل الإرسال عبر NAT"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
 #, fuzzy
-msgid "User name:"
+msgid "User na_me:"
 msgstr "ا_سم المستخدم:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10

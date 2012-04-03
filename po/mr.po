@@ -137,15 +137,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>वैक्लपिक</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Dead Peer Detection अकार्यान्वीत करा"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "क्षेत्र:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "एनक्रिपशन पद्धत:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -157,15 +157,15 @@ msgid "Gro_up password:"
 msgstr "गटाचे परवलीचा शब्द (_u):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT मार्ग:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "परवलीचा शब्द दाखवा"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User name:"
+msgid "User na_me:"
 msgstr "वापकर्ता नाव:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
@@ -173,6 +173,6 @@ msgid "_Gateway:"
 msgstr "गेटवे (_G):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_User password:"
+msgid "User _password:"
 msgstr "वापरकर्ता परवलीचा शब्द (_U):"
 

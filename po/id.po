@@ -158,23 +158,23 @@ msgid "Advanced Options"
 msgstr "Opsi Tingkat Lanjut"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr "Tingkat lanjut..."
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "Berkas CA:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Disable Dead Peer Detection"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domain:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Metoda Penyandian:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
@@ -186,7 +186,7 @@ msgid "Gro_up password:"
 msgstr "Sandi gr_up:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "Grup IKE DH:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
@@ -194,11 +194,11 @@ msgid "Identification"
 msgstr "Identifikasi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT traversal:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Tampilkan sandi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
@@ -206,11 +206,11 @@ msgid "Transport and Security"
 msgstr "Keamanan dan Transpor"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Gunakan otentikasi hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Nama pengguna:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
@@ -218,7 +218,7 @@ msgid "_Gateway:"
 msgstr "_Gateway:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_User password:"
+msgid "User _password:"
 msgstr "Sandi pengg_una:"
 
 #: ../src/nm-vpnc-service.c:152

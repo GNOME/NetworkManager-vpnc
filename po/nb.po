@@ -158,11 +158,11 @@ msgid "Advanced Options"
 msgstr "Avanserte alternativer"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr "Avansert …"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "CA-fil:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
@@ -170,7 +170,7 @@ msgid "CA certificate in PEM format&#10;config: CA-File"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Slå av gjenkjenning av død peer"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -180,7 +180,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domene:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
@@ -196,7 +196,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Krypteringsmetode:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
@@ -220,7 +220,7 @@ msgid "Group password&#10;config: IPSec secret <group_password>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH-gruppe:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
@@ -238,7 +238,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT-traversering:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
@@ -246,7 +246,7 @@ msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:23
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Vis passord"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
@@ -254,7 +254,7 @@ msgid "Transport and Security"
 msgstr "Transport og sikkerhet"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Bruk hybrid autentisering"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
@@ -262,7 +262,7 @@ msgid "User name for the connection&#10;config: Xauth username <user_name>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Brukernavn:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
@@ -274,7 +274,7 @@ msgid "_Gateway:"
 msgstr "_Gateway:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "_User password:"
+msgid "User _password:"
 msgstr "Passord for br_uker:"
 
 #: ../src/nm-vpnc-service.c:152

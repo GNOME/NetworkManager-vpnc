@@ -156,15 +156,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>לא מחייב</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "נטרול איתור עמיתים מושבתים"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "מתחם:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "שיטת ההצפנה:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -176,19 +176,19 @@ msgid "Gro_up password:"
 msgstr "ססמת ה_קבוצה:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "קבוצת DH ל־IKE:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "מעקף NAT:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "הצגת ססמאות"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "User name:"
+msgid "User na_me:"
 msgstr "שם המשתמש:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
@@ -196,5 +196,5 @@ msgid "_Gateway:"
 msgstr "שער _גישה:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:14
-msgid "_User password:"
+msgid "User _password:"
 msgstr "ססמת המ_שתמש:"

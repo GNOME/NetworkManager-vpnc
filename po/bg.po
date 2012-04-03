@@ -156,15 +156,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>Допълнителни</b>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Изключване на откриването на забилите съседи"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Домейн:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Метод на шифриране:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -176,19 +176,19 @@ msgid "Gro_up password:"
 msgstr "_Парола на групата:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "Размяна на ключове по Дифи-Хелман:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Преминаване на NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Показване на паролите"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Потребителско име:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
@@ -196,5 +196,5 @@ msgid "_Gateway:"
 msgstr "_Шлюз:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Парола:"

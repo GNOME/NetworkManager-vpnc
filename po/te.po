@@ -139,15 +139,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>ఐచ్చిక</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "చనిపోయిన పీర్ గుర్తింపును అచేతనముచేయుము"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "డొమైన్:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "ఎన్క్రిప్షన్ పద్దతి:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -159,15 +159,15 @@ msgid "Gro_up password:"
 msgstr "సమూహము సంకేతపదము (_u):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT విహరణము:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "సంకేతపదములను చూపుము"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User name:"
+msgid "User na_me:"
 msgstr "వినియోగదారి నామము:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
@@ -175,6 +175,6 @@ msgid "_Gateway:"
 msgstr "గేట్‌వే (_G):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_User password:"
+msgid "User _password:"
 msgstr "వినియోగదారి సంకేతపదము (_U):"
 

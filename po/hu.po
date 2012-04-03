@@ -156,23 +156,23 @@ msgid "Advanced Options"
 msgstr "Speciális beállítások…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr "Speciális…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "CA fájl:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Halott partnerek felismerésének kikapcsolása"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Tartomány:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Titkosítási mód:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -188,7 +188,7 @@ msgid "Gro_up password:"
 msgstr "_Csoportjelszó:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH csoport:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
@@ -196,11 +196,11 @@ msgid "Identification"
 msgstr "Azonosítás"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT bejárás:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Jelszavak megjelenítése"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
@@ -208,11 +208,11 @@ msgid "Transport and Security"
 msgstr "Átvitel és biztonság"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Hibrid hitelesítés használata"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Felhasználónév:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
@@ -220,7 +220,7 @@ msgid "_Gateway:"
 msgstr "Á_tjáró:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Felhasználó jelszava:"
 
 #: ../src/nm-vpnc-service.c:152

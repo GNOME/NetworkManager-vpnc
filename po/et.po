@@ -128,13 +128,13 @@ msgstr "<b>Üldine</b>"
 msgid "<b>Optional</b>"
 msgstr "<b>Valikuline</b>"
 
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Surnud masina tuvastamise (DPD) keelamine"
 
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domeen:"
 
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Krüpteerimise meetod:"
 
 msgid "G_roup name:"
@@ -143,20 +143,20 @@ msgstr "G_rupi nimi:"
 msgid "Gro_up password:"
 msgstr "_Grupiparool:"
 
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH grupp:"
 
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT-traversal:"
 
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Paroole näidatakse"
 
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Kasutajanimi:"
 
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Kasutaja parool:"

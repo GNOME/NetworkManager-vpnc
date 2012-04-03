@@ -196,7 +196,7 @@ msgid "Identification"
 msgstr "Identifikācija"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domēns:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
@@ -204,7 +204,7 @@ msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
 msgstr "(NT-)Domēna nosaukuma autentifikācija&#10;config: Domēns <domain>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Vendor:"
+msgid "_Vendor:"
 msgstr "Ražotājs:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
@@ -224,11 +224,11 @@ msgstr ""
 "vājai, 'Neaktivēt šifrēšanu' nekādai"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Šifrēšanas metode:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT apvads:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
@@ -241,7 +241,7 @@ msgstr ""
 "natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH grupa:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
@@ -249,7 +249,7 @@ msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
 msgstr "IKE DH grupas nosaukums&#10;config: IKE DH grupa <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "Perfect Forward Secrecy:"
+msgid "Perfect _Forward Secrecy:"
 msgstr "Perfect Forward Secrecy:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
@@ -261,7 +261,7 @@ msgstr ""
 "<nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Atslēgt mirušu dalībnieku noteikšanu"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
@@ -277,7 +277,7 @@ msgid "General"
 msgstr "Vispārīgi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Rādīt paroles"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
@@ -306,7 +306,7 @@ msgid "Group name&#10;config: IPSec ID <group_name>"
 msgstr "Grupas nosaukums&#10;config: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Lietotāja parole:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
@@ -319,11 +319,11 @@ msgstr ""
 "Lietotāja vārds savienojumam &#10;config: Xauth lietotāja vārds <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Lietotājvārds:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Lietot hibrīda autentificēšanos"
 
 #: ../properties/nm-vpnc-dialog.ui.h:31
@@ -335,7 +335,7 @@ msgstr ""
 "&#10;config: IKE Authmode hibrīds"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "CA fails:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
@@ -343,7 +343,7 @@ msgid "CA certificate in PEM format&#10;config: CA-File"
 msgstr "CA sertifikāts PEM formātā&#10;config: CA-fails"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr "Paplašināti..."
 
 #: ../src/nm-vpnc-service.c:152

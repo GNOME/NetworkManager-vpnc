@@ -155,16 +155,16 @@ msgid "<b>Optional</b>"
 msgstr "<b>Optional</b>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Disable Dead Peer Detection"
-msgstr "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
+msgstr "Disable Dead _Peer Detection"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Domain:"
-msgstr "Domain:"
+msgid "_Domain:"
+msgstr "_Domain:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Encryption method:"
-msgstr "Encryption method:"
+msgid "_Encryption method:"
+msgstr "_Encryption method:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
@@ -175,28 +175,28 @@ msgid "Gro_up password:"
 msgstr "Gro_up password:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "IKE DH Group:"
-msgstr "IKE DH Group:"
+msgid "_IKE DH Group:"
+msgstr "_IKE DH Group:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "NAT traversal:"
-msgstr "NAT traversal:"
+msgid "_NAT traversal:"
+msgstr "_NAT traversal:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Show passwords"
-msgstr "Show passwords"
+msgid "Sho_w passwords"
+msgstr "Sho_w passwords"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User name:"
-msgstr "User name:"
+msgid "User na_me:"
+msgstr "User na_me:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "_Gateway:"
 msgstr "_Gateway:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "_User password:"
-msgstr "_User password:"
+msgid "User _password:"
+msgstr "User _password:"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "Connect _anonymously"

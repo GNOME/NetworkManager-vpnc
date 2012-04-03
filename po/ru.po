@@ -168,15 +168,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>Необязательные</b>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Отключить Dead Peer Detection"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Домен:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Метод шифрования:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -188,19 +188,19 @@ msgid "Gro_up password:"
 msgstr "Пароль гр_уппы:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "Группа IKE DH:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Обход NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Показать пароли"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Имя пользователя:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
@@ -208,7 +208,7 @@ msgid "_Gateway:"
 msgstr "_Шлюз:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "_User password:"
+msgid "User _password:"
 msgstr "Пароль _пользователя:"
 
 #: ../src/nm-vpnc-service.c:148

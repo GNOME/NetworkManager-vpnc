@@ -186,7 +186,7 @@ msgid "Identification"
 msgstr "Določitev istovetnosti"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domena:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
@@ -194,7 +194,7 @@ msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
 msgstr "(NT-) ime domene za overitev&#10;nastavitev: Domain <domena>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Vendor:"
+msgid "_Vendor:"
 msgstr "Ponudnik:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
@@ -210,11 +210,11 @@ msgid "Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for
 msgstr "Način šifriranja&#10;nastavitev: brez za varno, 'Omogoči DES' za šibko, 'Brez šifriranja' za brez"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Način šifriranja:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Prečkanje NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
@@ -222,7 +222,7 @@ msgid "NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/for
 msgstr "Način NAT za uporabo&#10;nastavitev: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH skupina:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
@@ -230,7 +230,7 @@ msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
 msgstr "Ime skupine IKE DH group&#10;nastavitev: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "Perfect Forward Secrecy:"
+msgid "Perfect _Forward Secrecy:"
 msgstr "Popolna tajnost dostave (PFS):"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
@@ -238,7 +238,7 @@ msgid "Diffie-Hellman group to use for PFS&#10;config: Perfect Forward Secrecy <
 msgstr "Skupina Diffie-Hellman za uporabo za PFS&#10;config: Popolna tajnost dostave (PFS) <nopfs/dh1/dh2/dh5/strežnik>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Onemogoči zaznavo nedejavnih odjemalcev"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
@@ -250,7 +250,7 @@ msgid "General"
 msgstr "Splošno"
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Pokaži gesla"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
@@ -278,7 +278,7 @@ msgid "Group name&#10;config: IPSec ID <group_name>"
 msgstr "Ime skupine&#10;nastavitev: IPSec ID <ime_skupine>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Uporabnikovo geslo:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
@@ -290,11 +290,11 @@ msgid "User name for the connection&#10;config: Xauth username <user_name>"
 msgstr "Uporabniško ime povezave&#10;nastavitev: Xauth username <uporabniško_ime>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Uporabniško ime:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Uporabi hibridno overitev"
 
 #: ../properties/nm-vpnc-dialog.ui.h:31
@@ -302,7 +302,7 @@ msgid "Enable hybrid authentication, i.e. use certificate in addition to passwor
 msgstr "Omogoči  hibridno overitev, t.j. uporaba potrdila skupaj z geslom.&#10;nastavitev: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "Datoteka overitelja potrdil:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
@@ -310,7 +310,7 @@ msgid "CA certificate in PEM format&#10;config: CA-File"
 msgstr "Potrdilo CA v zapisu PEM&#10;nastavitev: Datoteka potrdila CA"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr "Napredno ..."
 
 #: ../src/nm-vpnc-service.c:152

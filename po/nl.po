@@ -26,10 +26,6 @@ msgstr "_Secondair wachtwoord:"
 msgid "_Username:"
 msgstr "_Gebruikersnaam:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Domein:"
-
 #: ../auth-dialog/gnome-two-password-dialog.c:263
 msgid "_Password:"
 msgstr "_Wachtwoord:"
@@ -143,15 +139,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>Optioneel</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Detectie van ‘Dead peers’ uitschakelen"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
-msgstr "Domein:"
+msgid "_Domain:"
+msgstr "_Domein:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Versleutelingsmethode:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -163,15 +159,15 @@ msgid "Gro_up password:"
 msgstr "_Groepswachtwoord:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT-traversal:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Wachtwoorden tonen"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Gebruikersnaam:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
@@ -179,7 +175,7 @@ msgid "_Gateway:"
 msgstr "_Gateway:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Gebuikerswachtwoord:"
 
 #~ msgid "The following vpnc VPN connection will be created:"

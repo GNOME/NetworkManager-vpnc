@@ -151,15 +151,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>Opzionali</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Disabilitare riconoscimento del peer morto"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Dominio:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Metodo di cifratura:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -171,15 +171,15 @@ msgid "Gro_up password:"
 msgstr "Password di gr_uppo:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Attraversamento NAT:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Mostra le password"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Nome utente:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
@@ -187,5 +187,5 @@ msgid "_Gateway:"
 msgstr "_Gateway:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_User password:"
+msgid "User _password:"
 msgstr "Password _utente:"

@@ -159,15 +159,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>Προαιρετικά</b>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Απενεργοποίηση του Dead Peer Detection "
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Τομέας:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Μέθοδος κρυπτογράφησης:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -179,19 +179,19 @@ msgid "Gro_up password:"
 msgstr "Συνθηματικό ο_μάδας:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH Group:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Διάβαση μέσα από NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Εμφάνιση συνθηματικών"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Όνομα χρήστη:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
@@ -199,7 +199,7 @@ msgid "_Gateway:"
 msgstr "_Πύλη:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Συνθηματικό χρήστη:"
 
 #~ msgid "NAT-T"
@@ -207,9 +207,6 @@ msgstr "_Συνθηματικό χρήστη:"
 
 #~ msgid "_Username:"
 #~ msgstr "Ό_νομα χρήστη:"
-
-#~ msgid "_Domain:"
-#~ msgstr "_Τομέας:"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "_Ανώνυμη σύνδεση"

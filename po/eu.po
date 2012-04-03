@@ -142,15 +142,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>Aukerakoa</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Desgaitu hildako parekoen detekzioa"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domeinua:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Enkripzio-metodoa:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -162,15 +162,15 @@ msgid "Gro_up password:"
 msgstr "_Taldearen pasahitza:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Zeharretako NAT-a:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Erakutsi pasahitzak"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Erabiltzaile-izena:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
@@ -178,6 +178,6 @@ msgid "_Gateway:"
 msgstr "_Atebidea:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Erabiltzailearen pasahitza:"
 

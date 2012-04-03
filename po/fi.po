@@ -25,10 +25,6 @@ msgstr "_Toissijainen salasana:"
 msgid "_Username:"
 msgstr "_Käyttäjätunnus:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:261
-msgid "_Domain:"
-msgstr "_Toimialue:"
-
 #: ../auth-dialog/gnome-two-password-dialog.c:263
 msgid "_Password:"
 msgstr "_Salasana:"
@@ -150,15 +146,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>Lisäasetukset</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Älä havaitse vastapään katoamista"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
-msgstr "Toimialue:"
+msgid "_Domain:"
+msgstr "_Toimialue:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Salausmenetelmä:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -170,15 +166,15 @@ msgid "Gro_up password:"
 msgstr "_Ryhmän salasana:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT-läpäisytapa:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Näytä salasanat"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Käyttäjätunnus:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
@@ -186,7 +182,7 @@ msgid "_Gateway:"
 msgstr "_Yhdyskäytävä:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Käyttäjän salasana:"
 
 #~ msgid "NAT-T (default)"

@@ -165,11 +165,11 @@ msgid "Advanced Options"
 msgstr "Erweiterte Einstellungen"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr "Erweitert …"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "CA-Datei:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
@@ -177,7 +177,7 @@ msgid "CA certificate in PEM format&#10;config: CA-File"
 msgstr "Zertifizierungsstellendatei im .pem-Format.&#10;config: CA-Datei"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Peer-To-Peer-Erkennung deaktivieren"
 
 # CHECK
@@ -190,7 +190,7 @@ msgstr ""
 "config: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domäne:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
@@ -210,7 +210,7 @@ msgstr ""
 "für Weich, »Enable no encryption« für Keine"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Verschlüsselungsmethode:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
@@ -234,7 +234,7 @@ msgid "Group password&#10;config: IPSec secret <group_password>"
 msgstr "Gruppenpasswort&#10;config: IPSec secret <Gruppenpasswort>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH-Gruppe:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
@@ -254,7 +254,7 @@ msgstr ""
 "force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT-Traversal:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
@@ -262,7 +262,7 @@ msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
 msgstr "Name der IKE-DH-Gruppe&#10;config: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:23
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Passwörter anzeigen"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
@@ -270,7 +270,7 @@ msgid "Transport and Security"
 msgstr "Übertragung und Sicherheit"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Hybrid-Authentifizierung verwenden"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
@@ -279,7 +279,7 @@ msgstr ""
 "Benutzername für die Verbindung&#10;config: Xauth username <Benutzername>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Benutzername:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
@@ -292,7 +292,7 @@ msgid "_Gateway:"
 msgstr "_Gateway:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "_User password:"
+msgid "User _password:"
 msgstr "Ben_utzerpasswort:"
 
 #: ../src/nm-vpnc-service.c:152

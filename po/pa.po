@@ -142,15 +142,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>ਚੋਣਵਾਂ</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "ਡੈੱਡ ਪੀਅਰ ਖੋਜ ਆਯੋਗ"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "ਡੋਮੇਨ:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ ਢੰਗ:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -162,15 +162,15 @@ msgid "Gro_up password:"
 msgstr "ਗਰੁੱਪ ਪਾਸਵਰਡ(_u):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT ਟਰਾਂਸਵਰਸਲ:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "ਪਾਸਵਰਡ ਵੇਖੋ"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User name:"
+msgid "User na_me:"
 msgstr "ਯੂਜ਼ਰ ਨਾਂ:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
@@ -178,7 +178,7 @@ msgid "_Gateway:"
 msgstr "ਗੇਟਵੇ(_G):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_User password:"
+msgid "User _password:"
 msgstr "ਯੂਜ਼ਰ ਪਾਸਵਰਡ(_U):"
 
 #~ msgid "NAT-T"

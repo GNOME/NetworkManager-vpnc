@@ -145,15 +145,15 @@ msgid "<b>Optional</b>"
 msgstr "<b>ئىختىيار</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Dead Peer Detection نى چەكلەش"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "دائىرە:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "شىفىرلاش ئۇسۇلى:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -165,19 +165,19 @@ msgid "Gro_up password:"
 msgstr "گۇرۇپپا ئىمى(_U):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH گۇرۇپپىسى:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "ئىم كۆرسەت"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "User name:"
+msgid "User na_me:"
 msgstr "ئىشلەتكۈچى ئاتى:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
@@ -185,5 +185,5 @@ msgid "_Gateway:"
 msgstr "تور ئۆتكىلى(_G):"
 
 #: ../properties/nm-vpnc-dialog.glade.h:14
-msgid "_User password:"
+msgid "User _password:"
 msgstr "ئىشلەتكۈچى ئىمى(_U):"

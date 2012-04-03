@@ -160,11 +160,11 @@ msgid "Advanced Options"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "CA File:"
+msgid "CA _File:"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
@@ -172,7 +172,7 @@ msgid "CA certificate in PEM format&#10;config: CA-File"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "デッドピア検知を無効にする"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -182,7 +182,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "ドメイン名:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
@@ -198,7 +198,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "暗号化方式:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
@@ -224,7 +224,7 @@ msgid "Group password&#10;config: IPSec secret <group_password>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH グループ:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
@@ -242,7 +242,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT traversal:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
@@ -250,7 +250,7 @@ msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:23
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "パスワードを表示する"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
@@ -260,7 +260,7 @@ msgstr ""
 #: ../properties/nm-vpnc-dialog.ui.h:25
 #, fuzzy
 #| msgid "Request VPN authentication"
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "VPN 認証を要求する"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
@@ -268,7 +268,7 @@ msgid "User name for the connection&#10;config: Xauth username <user_name>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "User name:"
+msgid "User na_me:"
 msgstr "ユーザー名:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
@@ -280,7 +280,7 @@ msgid "_Gateway:"
 msgstr "ゲートウェイ(_G):"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "_User password:"
+msgid "User _password:"
 msgstr "ユーザーパスワード(_U):"
 
 #: ../src/nm-vpnc-service.c:152

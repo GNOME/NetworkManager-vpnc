@@ -26,10 +26,6 @@ msgstr "_Втора лозинка:"
 msgid "_Username:"
 msgstr "_Корисничко име:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:260
-msgid "_Domain:"
-msgstr "_Домен:"
-
 #: ../auth-dialog/gnome-two-password-dialog.c:262
 msgid "_Password:"
 msgstr "_Лозинка:"
@@ -141,12 +137,12 @@ msgid "<b>Optional</b>"
 msgstr "<b>Дополнително</b>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
-msgstr "Домен:"
+msgid "_Domain:"
+msgstr "_Домен:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
 msgid "Encryption Method:"
@@ -161,7 +157,7 @@ msgid "NAT Traversal:"
 msgstr "NAT Traversal:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Корисничко име:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10

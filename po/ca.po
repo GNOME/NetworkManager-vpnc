@@ -159,15 +159,15 @@ msgstr "<b>Opcional</b>"
 
 # FIXME això queda molt macabre (dpm)
 #: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Inhabilita la detecció de l'homòleg mort"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domini:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Mètode d'encriptació:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -179,19 +179,19 @@ msgid "Gro_up password:"
 msgstr "Contrasenya del _grup:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "Grup IKE DH:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Travessament del NAT:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Mostra les contrasenyes"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Nom d'usuari:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
@@ -199,7 +199,7 @@ msgid "_Gateway:"
 msgstr "_Passarel·la:"
 
 #: ../properties/nm-vpnc-dialog.glade.h:14
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Contrasenya d'usuari:"
 
 #~ msgid "NAT-T"

@@ -160,23 +160,23 @@ msgid "Advanced Options"
 msgstr "Options avancées"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Advanced..."
+msgid "Advance_d..."
 msgstr "Avancé…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "Fichier de CA :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Désactiver la détection des pairs bloqués"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Domain:"
+msgid "_Domain:"
 msgstr "Domaine :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Méthode de chiffrement :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -192,7 +192,7 @@ msgid "Gro_up password:"
 msgstr "Mot de passe du _groupe :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "Groupe DH IKE :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
@@ -200,11 +200,11 @@ msgid "Identification"
 msgstr "Identification"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "Traversée du NAT :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Afficher les mots de passe"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
@@ -212,11 +212,11 @@ msgid "Transport and Security"
 msgstr "Transport et sécurité"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Utiliser une authentification hybride"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Nom d'utilisateur :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
@@ -224,7 +224,7 @@ msgid "_Gateway:"
 msgstr "_Passerelle :"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "_User password:"
+msgid "User _password:"
 msgstr "Mot de passe _utilisateur :"
 
 #: ../src/nm-vpnc-service.c:152

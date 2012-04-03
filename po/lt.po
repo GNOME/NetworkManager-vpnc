@@ -156,19 +156,19 @@ msgid "Advanced Options"
 msgstr "Sudėtingesnės parinktys"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "CA File:"
+msgid "CA _File:"
 msgstr "Liudijimo failas:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Disable Dead Peer Detection"
+msgid "Disable Dead _Peer Detection"
 msgstr "Išjungti neatsakančių lygiarangių aptikimą"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Domain:"
-msgstr "Sritis:"
+msgid "_Domain:"
+msgstr "_Sritis:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "Encryption method:"
+msgid "_Encryption method:"
 msgstr "Šifravimo metodas:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
@@ -180,7 +180,7 @@ msgid "Gro_up password:"
 msgstr "Gr_upės slaptažodis:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "IKE DH Group:"
+msgid "_IKE DH Group:"
 msgstr "IKE DH grupė:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
@@ -188,11 +188,11 @@ msgid "Identification"
 msgstr "Identifikacija"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "NAT traversal:"
+msgid "_NAT traversal:"
 msgstr "NAT perėjimas:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "Show passwords"
+msgid "Sho_w passwords"
 msgstr "Rodyti slaptažodžius:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
@@ -200,11 +200,11 @@ msgid "Transport and Security"
 msgstr "Transportas ir saugumas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Use hybrid authentication"
+msgid "Use _hybrid authentication"
 msgstr "Naudoti hibridinį tapatybės patvirtinimą"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "User name:"
+msgid "User na_me:"
 msgstr "Naudotojo vardas:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
@@ -212,7 +212,7 @@ msgid "_Gateway:"
 msgstr "Š_liuzas:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "_User password:"
+msgid "User _password:"
 msgstr "_Naudotojo slaptažodis:"
 
 #: ../src/nm-vpnc-service.c:152
@@ -292,9 +292,6 @@ msgstr "nm-vpnc-service suteikia NetworkManager integruotą Cisco Legacy IPSec V
 
 #~ msgid "_Username:"
 #~ msgstr "_Naudotojo vardas:"
-
-#~ msgid "_Domain:"
-#~ msgstr "S_ritis:"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "Jungtis an_onimiškai"
