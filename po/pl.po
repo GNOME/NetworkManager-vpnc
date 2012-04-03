@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-16 22:28+0100\n"
-"PO-Revision-Date: 2012-03-16 22:29+0100\n"
+"POT-Creation-Date: 2012-04-03 16:16+0200\n"
+"PO-Revision-Date: 2012-04-03 16:17+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -40,7 +40,7 @@ msgstr ""
 "Aby uzyskać dostęp do wirtualnej sieci prywatnej \"%s\", należy się "
 "uwierzytelnić."
 
-#: ../auth-dialog/main.c:194 ../auth-dialog/main.c:213
+#: ../auth-dialog/main.c:194 ../auth-dialog/main.c:214
 msgid "Authenticate VPN"
 msgstr "Uwierzytelnianie VPN"
 
@@ -52,7 +52,7 @@ msgstr "Hasło:"
 msgid "Group Password:"
 msgstr "Hasło grupy:"
 
-#: ../auth-dialog/main.c:215
+#: ../auth-dialog/main.c:216
 msgid "_Group Password:"
 msgstr "Ha_sło grupy:"
 
@@ -192,7 +192,7 @@ msgstr "Identyfikacja"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "_Domain:"
-msgstr "Domena:"
+msgstr "_Domena:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "_Vendor:"
-msgstr "Producent:"
+msgstr "_Producent:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Vendor of your IPsec gateway&#10;config: Vendor <cisco/netscreen>"
@@ -221,23 +221,23 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "_Encryption method:"
-msgstr "Metoda szyfrowania:"
+msgstr "Metoda _szyfrowania:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid "_NAT traversal:"
-msgstr "Omijanie NAT:"
+msgstr "_Omijanie NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
 msgid ""
 "NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-"
 "natt/cisco-udp>"
 msgstr ""
-"Używana metoda omijania NAT&#10;konfiguracja: NAT Traversal Mode "
-"<natt/none/force-natt/cisco-udp>"
+"Używana metoda omijania NAT&#10;konfiguracja: NAT Traversal Mode <natt/none/"
+"force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "_IKE DH Group:"
-msgstr "Grupa IKE DH:"
+msgstr "Grupa _IKE DH:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
@@ -245,7 +245,7 @@ msgstr "Nazwa grupy IKE DH&#10;konfiguracja: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Perfect _Forward Secrecy:"
-msgstr "Idealne przekierowanie haseł:"
+msgstr "Idealne p_rzekierowanie haseł:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
@@ -257,7 +257,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
 msgid "Disable Dead _Peer Detection"
-msgstr "Wyłączenie wykrywania martwych partnerów"
+msgstr "Wyłączenie wykrywania _martwych partnerów"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid ""
@@ -273,7 +273,7 @@ msgstr "Ogólne"
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
 msgid "Sho_w passwords"
-msgstr "Wyświetlanie haseł"
+msgstr "_Wyświetlanie haseł"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
 msgid "Group password&#10;config: IPSec secret <group_password>"
@@ -303,7 +303,7 @@ msgstr "Nazwa grupy&#10;konfiguracja: IPSec ID <nazwa_grupy>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "User _password:"
-msgstr "Hasło _użytkownika:"
+msgstr "_Hasło użytkownika:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "User password for the connection&#10;config: Xauth password <password>"
@@ -318,11 +318,11 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "User na_me:"
-msgstr "Nazwa użytkownika:"
+msgstr "_Nazwa użytkownika:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
 msgid "Use _hybrid authentication"
-msgstr "Użycie hybrydowego uwierzytelnienia"
+msgstr "Użycie hy_brydowego uwierzytelnienia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
@@ -334,7 +334,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "CA _File:"
-msgstr "Plik CA:"
+msgstr "_Plik CA:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "CA certificate in PEM format&#10;config: CA-File"
@@ -342,7 +342,7 @@ msgstr "Certyfikat CA w formacie PEM&#10;konfiguracja: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid "Advance_d..."
-msgstr "Zaawansowane..."
+msgstr "_Zaawansowane..."
 
 #: ../src/nm-vpnc-service.c:152
 #, c-format
