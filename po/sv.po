@@ -187,15 +187,21 @@ msgid "_Domain:"
 msgstr "_Domän:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
-msgstr "(NT-)domännamn för autentisering&#10;config: Domain <domän>"
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+"(NT-)domännamn för autentisering\n"
+"config: Domain <domän>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "_Vendor:"
 msgstr "Tillverkare:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Vendor of your IPsec gateway&#10;config: Vendor <cisco/netscreen>"
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
@@ -203,7 +209,9 @@ msgid "Transport and Security"
 msgstr "Transport och säkerhet"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None"
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
@@ -215,7 +223,9 @@ msgid "_NAT traversal:"
 msgstr "NAT-traversering:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
@@ -223,7 +233,9 @@ msgid "_IKE DH Group:"
 msgstr "IKE DH-grupp:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
@@ -231,7 +243,9 @@ msgid "Perfect _Forward Secrecy:"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Diffie-Hellman group to use for PFS&#10;config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
@@ -239,7 +253,9 @@ msgid "Disable Dead _Peer Detection"
 msgstr "Inaktivera Dead Peer Detection"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "Disable sending DPD packets (sets timeout to 0)&#10;config: DPD idle timeout (our side) 0"
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
@@ -251,8 +267,12 @@ msgid "Sho_w passwords"
 msgstr "Visa lösenord"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
-msgid "Group password&#10;config: IPSec secret <group_password>"
-msgstr "Grupplösenord&#10;config: IPSec secret <grupplösenord>"
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Grupplösenord\n"
+"config: IPSec secret <grupplösenord>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "Gro_up password:"
@@ -267,24 +287,38 @@ msgid "G_roup name:"
 msgstr "G_ruppnamn:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "IP/hostname of IPsec gateway&#10;config: IPSec gateway <gateway>"
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "Group name&#10;config: IPSec ID <group_name>"
-msgstr "Gruppnamn&#10;config: IPSec ID <gruppnamn>"
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Gruppnamn\n"
+"config: IPSec ID <gruppnamn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "User _password:"
 msgstr "Användarlös_enord:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "User password for the connection&#10;config: Xauth password <password>"
-msgstr "Användarens lösenord för anslutningen&#10;config: Xauth password <lösenord>"
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Användarens lösenord för anslutningen\n"
+"config: Xauth password <lösenord>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "User name for the connection&#10;config: Xauth username <user_name>"
-msgstr "Användarnamn för anslutningen&#10;config: Xauth username <användarnamn>"
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"Användarnamn för anslutningen\n"
+"config: Xauth username <användarnamn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "User na_me:"
@@ -295,7 +329,9 @@ msgid "Use _hybrid authentication"
 msgstr "Använd hybridautentisering"
 
 #: ../properties/nm-vpnc-dialog.ui.h:31
-msgid "Enable hybrid authentication, i.e. use certificate in addition to password.&#10;config: IKE Authmode hybrid"
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
@@ -303,8 +339,12 @@ msgid "CA _File:"
 msgstr "CA-fil:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "CA certificate in PEM format&#10;config: CA-File"
-msgstr "CA-certifikat i PEM-format&#10;config: CA-File"
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"CA-certifikat i PEM-format\n"
+"config: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid "Advance_d..."

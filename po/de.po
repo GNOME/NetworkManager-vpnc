@@ -157,8 +157,12 @@ msgstr ""
 "allerdings besteht die Möglichkeit, dass sie nicht wie erwartet funktioniert."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
-msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
-msgstr "(NT-)Domainname für Authentifizierung&#10;config: Domain <domain>"
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+"(NT-)Domainname für Authentifizierung\n"
+"config: Domain <domain>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "Advanced Options"
@@ -173,8 +177,12 @@ msgid "CA _File:"
 msgstr "CA-Datei:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "CA certificate in PEM format&#10;config: CA-File"
-msgstr "Zertifizierungsstellendatei im .pem-Format.&#10;config: CA-Datei"
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"Zertifizierungsstellendatei im .pem-Format.\n"
+"config: CA-Datei"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "Disable Dead _Peer Detection"
@@ -183,10 +191,12 @@ msgstr "Peer-To-Peer-Erkennung deaktivieren"
 # CHECK
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid ""
-"Disable sending DPD packets (sets timeout to 0)&#10;config: DPD idle timeout "
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout "
 "(our side) 0"
 msgstr ""
-"Senden von DPD-Paketen deaktivieren (setzt die Zeitüberschreitung auf 0)&#10;"
+"Senden von DPD-Paketen deaktivieren (setzt die Zeitüberschreitung auf 0)\n"
+""
 "config: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
@@ -196,17 +206,21 @@ msgstr "Domäne:"
 #: ../properties/nm-vpnc-dialog.ui.h:9
 msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password."
-"&#10;config: IKE Authmode hybrid"
+"\n"
+"config: IKE Authmode hybrid"
 msgstr ""
 "Hybrid-Authentifizierung zulassen, Zertifikat zusätzlich zum Passwort "
-"benutzen.&#10;config: IKE Authmode hybrid"
+"benutzen.\n"
+"config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
-"Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for "
+"Encryption method\n"
+"config: nothing for Secure, 'Enable Single DES' for "
 "Weak, 'Enable no encryption' for None"
 msgstr ""
-"Verschlüsselungsmethode&#10;config: nichts für Sicher, »Enable Single DES« "
+"Verschlüsselungsmethode\n"
+"config: nichts für Sicher, »Enable Single DES« "
 "für Weich, »Enable no encryption« für Keine"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
@@ -226,20 +240,32 @@ msgid "Gro_up password:"
 msgstr "_Gruppenpasswort:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Group name&#10;config: IPSec ID <group_name>"
-msgstr "Gruppenname&#10;config: IPSec ID <Gruppenname>"
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Gruppenname\n"
+"config: IPSec ID <Gruppenname>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "Group password&#10;config: IPSec secret <group_password>"
-msgstr "Gruppenpasswort&#10;config: IPSec secret <Gruppenpasswort>"
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Gruppenpasswort\n"
+"config: IPSec secret <Gruppenpasswort>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "_IKE DH Group:"
 msgstr "IKE DH-Gruppe:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "IP/hostname of IPsec gateway&#10;config: IPSec gateway <gateway>"
-msgstr "IP/Rechnername des IPsec-Gateways&#10;config: IPSec-Gateway <Gateway>"
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IP/Rechnername des IPsec-Gateways\n"
+"config: IPSec-Gateway <Gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
 msgid "Identification"
@@ -247,10 +273,12 @@ msgstr "Identifikation"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
 msgid ""
-"NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-"
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-"
 "natt/cisco-udp>"
 msgstr ""
-"Zu benutzende NAT-Traversalmethode&#10;config: NAT Traversal Mode <natt/none/"
+"Zu benutzende NAT-Traversalmethode\n"
+"config: NAT Traversal Mode <natt/none/"
 "force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
@@ -258,8 +286,12 @@ msgid "_NAT traversal:"
 msgstr "NAT-Traversal:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
-msgstr "Name der IKE-DH-Gruppe&#10;config: IKE DH Group <dh1/dh2/dh5>"
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Name der IKE-DH-Gruppe\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:23
 msgid "Sho_w passwords"
@@ -274,18 +306,24 @@ msgid "Use _hybrid authentication"
 msgstr "Hybrid-Authentifizierung verwenden"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
-msgid "User name for the connection&#10;config: Xauth username <user_name>"
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
 msgstr ""
-"Benutzername für die Verbindung&#10;config: Xauth username <Benutzername>"
+"Benutzername für die Verbindung\n"
+"config: Xauth username <Benutzername>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "User na_me:"
 msgstr "Benutzername:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "User password for the connection&#10;config: Xauth password <password>"
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
 msgstr ""
-"Benutzerpasswort für die Verbindung&#10;config: Xauth password <Passwort>"
+"Benutzerpasswort für die Verbindung\n"
+"config: Xauth password <Passwort>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "_Gateway:"

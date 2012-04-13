@@ -179,7 +179,8 @@
                         <property name="can_focus">True</property>
                         <property name="invisible_char">•</property>
                         <property name="invisible_char_set">True</property>
-                        <property name="tooltip_text" translatable="yes">(NT-)Domain name for authentication&#10;config: Domain &lt;domain&gt;</property>
+                        <property name="tooltip_text" translatable="yes">(NT-)Domain name for authentication
+config: Domain &lt;domain&gt;</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -206,7 +207,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="model">model6</property>
-                        <property name="tooltip_text" translatable="yes">Vendor of your IPsec gateway&#10;config: Vendor &lt;cisco/netscreen&gt;</property>
+                        <property name="tooltip_text" translatable="yes">Vendor of your IPsec gateway
+config: Vendor &lt;cisco/netscreen&gt;</property>
                         <child>
                           <object class="GtkCellRendererText" id="renderer6"/>
                           <attributes>
@@ -276,7 +278,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="model">model3</property>
-                        <property name="tooltip_text" translatable="yes">Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None</property>
+                        <property name="tooltip_text" translatable="yes">Encryption method
+config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None</property>
                         <child>
                           <object class="GtkCellRendererText" id="renderer3"/>
                           <attributes>
@@ -318,7 +321,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="model">model4</property>
-                        <property name="tooltip_text" translatable="yes">NAT traversal method to use&#10;config: NAT Traversal Mode &lt;natt/none/force-natt/cisco-udp&gt;</property>
+                        <property name="tooltip_text" translatable="yes">NAT traversal method to use
+config: NAT Traversal Mode &lt;natt/none/force-natt/cisco-udp&gt;</property>
                         <child>
                           <object class="GtkCellRendererText" id="renderer4"/>
                           <attributes>
@@ -352,7 +356,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="model">model5</property>
-                        <property name="tooltip_text" translatable="yes">Name of the IKE DH group&#10;config: IKE DH Group &lt;dh1/dh2/dh5&gt;</property>
+                        <property name="tooltip_text" translatable="yes">Name of the IKE DH group
+config: IKE DH Group &lt;dh1/dh2/dh5&gt;</property>
                         <child>
                           <object class="GtkCellRendererText" id="renderer5"/>
                           <attributes>
@@ -386,7 +391,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="model">model7</property>
-                        <property name="tooltip_text" translatable="yes">Diffie-Hellman group to use for PFS&#10;config: Perfect Forward Secrecy &lt;nopfs/dh1/dh2/dh5/server&gt;</property>
+                        <property name="tooltip_text" translatable="yes">Diffie-Hellman group to use for PFS
+config: Perfect Forward Secrecy &lt;nopfs/dh1/dh2/dh5/server&gt;</property>
                         <child>
                           <object class="GtkCellRendererText" id="renderer7"/>
                           <attributes>
@@ -410,7 +416,8 @@
                         <property name="receives_default">False</property>
                         <property name="use_action_appearance">False</property>
                         <property name="draw_indicator">True</property>
-                        <property name="tooltip_text" translatable="yes">Disable sending DPD packets (sets timeout to 0)&#10;config: DPD idle timeout (our side) 0</property>
+                        <property name="tooltip_text" translatable="yes">Disable sending DPD packets (sets timeout to 0)
+config: DPD idle timeout (our side) 0</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -544,7 +551,8 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="visibility">False</property>
-                    <property name="tooltip_text" translatable="yes">Group password&#10;config: IPSec secret &lt;group_password&gt;</property>
+                    <property name="tooltip_text" translatable="yes">Group password
+config: IPSec secret &lt;group_password&gt;</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -604,7 +612,8 @@
                   <object class="GtkEntry" id="gateway_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">IP/hostname of IPsec gateway&#10;config: IPSec gateway &lt;gateway&gt;</property>
+                    <property name="tooltip_text" translatable="yes">IP/hostname of IPsec gateway
+config: IPSec gateway &lt;gateway&gt;</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -616,7 +625,8 @@
                   <object class="GtkEntry" id="group_entry">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="tooltip_text" translatable="yes">Group name&#10;config: IPSec ID &lt;group_name&gt;</property>
+                    <property name="tooltip_text" translatable="yes">Group name
+config: IPSec ID &lt;group_name&gt;</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -647,7 +657,8 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="visibility">False</property>
-                    <property name="tooltip_text" translatable="yes">User password for the connection&#10;config: Xauth password &lt;password&gt;</property>
+                    <property name="tooltip_text" translatable="yes">User password for the connection
+config: Xauth password &lt;password&gt;</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -663,7 +674,8 @@
                     <property name="can_focus">True</property>
                     <property name="invisible_char">•</property>
                     <property name="invisible_char_set">True</property>
-                    <property name="tooltip_text" translatable="yes">User name for the connection&#10;config: Xauth username &lt;user_name&gt;</property>
+                    <property name="tooltip_text" translatable="yes">User name for the connection
+config: Xauth username &lt;user_name&gt;</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -699,7 +711,8 @@
                     <property name="use_action_appearance">False</property>
                     <property name="xalign">0</property>
                     <property name="draw_indicator">True</property>
-                    <property name="tooltip_text" translatable="yes">Enable hybrid authentication, i.e. use certificate in addition to password.&#10;config: IKE Authmode hybrid</property>
+                    <property name="tooltip_text" translatable="yes">Enable hybrid authentication, i.e. use certificate in addition to password.
+config: IKE Authmode hybrid</property>
                   </object>
                   <packing>
                     <property name="right_attach">3</property>
@@ -732,7 +745,8 @@
                   <object class="GtkFileChooserButton" id="ca_file_chooser">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="tooltip_text" translatable="yes">CA certificate in PEM format&#10;config: CA-File</property>
+                    <property name="tooltip_text" translatable="yes">CA certificate in PEM format
+config: CA-File</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>

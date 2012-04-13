@@ -194,24 +194,36 @@ msgid "_Domain:"
 msgstr "Domain:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
-msgstr "(NT-)Nama domain bagi otentikasi&#10;config: Domain <domain>"
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+"(NT-)Nama domain bagi otentikasi\n"
+"config: Domain <domain>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "_Vendor:"
 msgstr "_Vendor:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Vendor of your IPsec gateway&#10;config: Vendor <cisco/netscreen>"
-msgstr "Vendor gateway IPsec Anda&#10;config: Vendor <cisco/netscreen>"
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
+msgstr ""
+"Vendor gateway IPsec Anda\n"
+"config: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "Transport and Security"
 msgstr "Keamanan dan Transpor"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None"
-msgstr "Metoda enkripsi&#10;config: nothing untuk Aman, 'Enable Single DES' untuk Lemah, 'Enable no encryption' untuk Tak ada"
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None"
+msgstr ""
+"Metoda enkripsi\n"
+"config: nothing untuk Aman, 'Enable Single DES' untuk Lemah, 'Enable no encryption' untuk Tak ada"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "_Encryption method:"
@@ -222,32 +234,48 @@ msgid "_NAT traversal:"
 msgstr "NAT traversal:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr "Metoda traversal NAT yang dipakai&#10;config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"Metoda traversal NAT yang dipakai\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "_IKE DH Group:"
 msgstr "Grup IKE DH:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
-msgstr "Nama dari grup DH IKE&#10;config: IKE DH Group <dh1/dh2/dh5>"
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Nama dari grup DH IKE\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Perfect _Forward Secrecy:"
 msgstr "Perfect _Forward Secrecy:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "Diffie-Hellman group to use for PFS&#10;config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr "Grup Diffie-Hellman yang dipakai untuk PFS&#10;config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Grup Diffie-Hellman yang dipakai untuk PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
 msgid "Disable Dead _Peer Detection"
 msgstr "Disable Dead Peer Detection"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "Disable sending DPD packets (sets timeout to 0)&#10;config: DPD idle timeout (our side) 0"
-msgstr "Tak usah mengirim paket DPD (tata timeout ke 0)&#10;config: DPD idle timeout (our side) 0"
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Tak usah mengirim paket DPD (tata timeout ke 0)\n"
+"config: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 #| msgid "<b>General</b>"
@@ -259,8 +287,12 @@ msgid "Sho_w passwords"
 msgstr "Tampilkan sandi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
-msgid "Group password&#10;config: IPSec secret <group_password>"
-msgstr "Sandi grup&#10;config: IPSec secret <group_password>"
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Sandi grup\n"
+"config: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "Gro_up password:"
@@ -275,24 +307,40 @@ msgid "G_roup name:"
 msgstr "Nama grup:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "IP/hostname of IPsec gateway&#10;config: IPSec gateway <gateway>"
-msgstr "IP/nama host dari gateway IPSEC&#10;config: IPSec gateway <gateway>"
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IP/nama host dari gateway IPSEC\n"
+"config: IPSec gateway <gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "Group name&#10;config: IPSec ID <group_name>"
-msgstr "Nama grup&#10;config: IPSec ID <group_name>"
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Nama grup\n"
+"config: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "User _password:"
 msgstr "Sandi pengg_una:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "User password for the connection&#10;config: Xauth password <password>"
-msgstr "Sandi pengguna bagi koneksi&#10;config: Xauth password <password>"
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Sandi pengguna bagi koneksi\n"
+"config: Xauth password <password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "User name for the connection&#10;config: Xauth username <user_name>"
-msgstr "Nama pengguna bagi koneksi&#10;config: Xauth username <user_name>"
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"Nama pengguna bagi koneksi\n"
+"config: Xauth username <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "User na_me:"
@@ -303,16 +351,24 @@ msgid "Use _hybrid authentication"
 msgstr "Gunakan otentikasi hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:31
-msgid "Enable hybrid authentication, i.e. use certificate in addition to password.&#10;config: IKE Authmode hybrid"
-msgstr "Aktifkan otentikasi hibrida, yaitu memakai sertifikat sebagai tambahan sandi.&#10;config: IKE Authmode hybrid"
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+"Aktifkan otentikasi hibrida, yaitu memakai sertifikat sebagai tambahan sandi.\n"
+"config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "CA _File:"
 msgstr "Berkas CA:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "CA certificate in PEM format&#10;config: CA-File"
-msgstr "Sertifikat CA dalam format PEM&#10;config: CA-File"
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"Sertifikat CA dalam format PEM\n"
+"config: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid "Advance_d..."

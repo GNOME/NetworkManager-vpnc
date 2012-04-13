@@ -200,16 +200,24 @@ msgid "_Domain:"
 msgstr "Domēns:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "(NT-)Domain name for authentication&#10;config: Domain <domain>"
-msgstr "(NT-)Domēna nosaukuma autentifikācija&#10;config: Domēns <domain>"
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+"(NT-)Domēna nosaukuma autentifikācija\n"
+"config: Domēns <domain>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "_Vendor:"
 msgstr "Ražotājs:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Vendor of your IPsec gateway&#10;config: Vendor <cisco/netscreen>"
-msgstr "Jūsu IPsec vārtejas ražotājs &#10;config: Ražotājs <cisco/netscreen>"
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
+msgstr ""
+"Jūsu IPsec vārtejas ražotājs \n"
+"config: Ražotājs <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "Transport and Security"
@@ -217,10 +225,12 @@ msgstr "Transports un drošība"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
-"Encryption method&#10;config: nothing for Secure, 'Enable Single DES' for "
+"Encryption method\n"
+"config: nothing for Secure, 'Enable Single DES' for "
 "Weak, 'Enable no encryption' for None"
 msgstr ""
-"Šifrēšanas metode&#10;config: nekas drošai, 'Aktivēt vienu DES'  "
+"Šifrēšanas metode\n"
+"config: nekas drošai, 'Aktivēt vienu DES'  "
 "vājai, 'Neaktivēt šifrēšanu' nekādai"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
@@ -233,10 +243,12 @@ msgstr "NAT apvads:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
 msgid ""
-"NAT traversal method to use&#10;config: NAT Traversal Mode <natt/none/force-"
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-"
 "natt/cisco-udp>"
 msgstr ""
-"Kādu NAT šķērsošanas metodi izmantot&#10;config: NAT šķērsošanas režīms <"
+"Kādu NAT šķērsošanas metodi izmantot\n"
+"config: NAT šķērsošanas režīms <"
 "natt/none/force-"
 "natt/cisco-udp>"
 
@@ -245,8 +257,12 @@ msgid "_IKE DH Group:"
 msgstr "IKE DH grupa:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "Name of the IKE DH group&#10;config: IKE DH Group <dh1/dh2/dh5>"
-msgstr "IKE DH grupas nosaukums&#10;config: IKE DH grupa <dh1/dh2/dh5>"
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"IKE DH grupas nosaukums\n"
+"config: IKE DH grupa <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Perfect _Forward Secrecy:"
@@ -254,10 +270,12 @@ msgstr "Perfect Forward Secrecy:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
-"Diffie-Hellman group to use for PFS&#10;config: Perfect Forward Secrecy "
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy "
 "<nopfs/dh1/dh2/dh5/server>"
 msgstr ""
-"Diffie-Hellman grupa, ko lietot PFS&#10;config: Perfect Forward Secrecy "
+"Diffie-Hellman grupa, ko lietot PFS\n"
+"config: Perfect Forward Secrecy "
 "<nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
@@ -266,10 +284,12 @@ msgstr "Atslēgt mirušu dalībnieku noteikšanu"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid ""
-"Disable sending DPD packets (sets timeout to 0)&#10;config: DPD idle timeout "
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout "
 "(our side) 0"
 msgstr ""
-"Deaktivēt DPD pakešu sūtīšanu (iestata noildzi uz 0)&#10;config: DPD "
+"Deaktivēt DPD pakešu sūtīšanu (iestata noildzi uz 0)\n"
+"config: DPD "
 "dīkstāves noildze (mūsu puse) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
@@ -281,8 +301,12 @@ msgid "Sho_w passwords"
 msgstr "Rādīt paroles"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
-msgid "Group password&#10;config: IPSec secret <group_password>"
-msgstr "Grupas parole&#10;config: IPSec noslēpums <group_password>"
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Grupas parole\n"
+"config: IPSec noslēpums <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "Gro_up password:"
@@ -297,26 +321,40 @@ msgid "G_roup name:"
 msgstr "G_rupas nosaukums:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "IP/hostname of IPsec gateway&#10;config: IPSec gateway <gateway>"
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
 msgstr ""
-"IP/servera nosaukums IPsec vārtejai&#10;config: IPSec vārteja <gateway>"
+"IP/servera nosaukums IPsec vārtejai\n"
+"config: IPSec vārteja <gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "Group name&#10;config: IPSec ID <group_name>"
-msgstr "Grupas nosaukums&#10;config: IPSec ID <group_name>"
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Grupas nosaukums\n"
+"config: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "User _password:"
 msgstr "_Lietotāja parole:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "User password for the connection&#10;config: Xauth password <password>"
-msgstr "Savienojumam lietot paroli&#10;config: Xauth parole <password>"
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Savienojumam lietot paroli\n"
+"config: Xauth parole <password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "User name for the connection&#10;config: Xauth username <user_name>"
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
 msgstr ""
-"Lietotāja vārds savienojumam &#10;config: Xauth lietotāja vārds <user_name>"
+"Lietotāja vārds savienojumam \n"
+"config: Xauth lietotāja vārds <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "User na_me:"
@@ -329,18 +367,24 @@ msgstr "Lietot hibrīda autentificēšanos"
 #: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password."
-"&#10;config: IKE Authmode hybrid"
+"\n"
+"config: IKE Authmode hybrid"
 msgstr ""
 "Aktivēt hibrīda autentifikāciju, t.i. lietot sertifikātu kopā ar paroli."
-"&#10;config: IKE Authmode hibrīds"
+"\n"
+"config: IKE Authmode hibrīds"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "CA _File:"
 msgstr "CA fails:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "CA certificate in PEM format&#10;config: CA-File"
-msgstr "CA sertifikāts PEM formātā&#10;config: CA-fails"
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"CA sertifikāts PEM formātā\n"
+"config: CA-fails"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid "Advance_d..."
