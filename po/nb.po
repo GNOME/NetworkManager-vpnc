@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-14 22:25+0100\n"
-"PO-Revision-Date: 2011-12-14 22:26+0100\n"
+"POT-Creation-Date: 2012-06-10 19:00+0200\n"
+"PO-Revision-Date: 2012-06-10 19:02+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -28,17 +28,25 @@ msgstr "_Passord:"
 msgid "Sh_ow passwords"
 msgstr "V_is passord"
 
-#: ../auth-dialog/main.c:157
+#: ../auth-dialog/main.c:185
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Du må autentisere deg for å få tilgang til virtuelt privat nettverk «%s»."
 
-#: ../auth-dialog/main.c:158
+#: ../auth-dialog/main.c:194 ../auth-dialog/main.c:214
 msgid "Authenticate VPN"
 msgstr "Autentiser VPN"
 
-#: ../auth-dialog/main.c:161
+#: ../auth-dialog/main.c:197
+msgid "Password:"
+msgstr "Passord:"
+
+#: ../auth-dialog/main.c:199
+msgid "Group Password:"
+msgstr "Gruppepassord:"
+
+#: ../auth-dialog/main.c:216
 msgid "_Group Password:"
 msgstr "_Gruppepassord:"
 
@@ -51,12 +59,12 @@ msgid "Request VPN authentication"
 msgstr "Be om VPN-autentisering"
 
 #: ../nm-vpnc.desktop.in.h:1
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Legg til, fjern og regiger VPN-tilkoblinger"
-
-#: ../nm-vpnc.desktop.in.h:2
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Håndtering av VPN-tilkobling (vpnc)"
+
+#: ../nm-vpnc.desktop.in.h:2
+msgid "Add, Remove, and Edit VPN Connections"
+msgstr "Legg til, fjern og regiger VPN-tilkoblinger"
 
 #: ../properties/nm-vpnc.c:54
 msgid "Cisco Compatible VPN (vpnc)"
@@ -82,59 +90,79 @@ msgstr "Alltid spør"
 msgid "Not Required"
 msgstr "Ikke nødvendig"
 
-#: ../properties/nm-vpnc.c:492
+#: ../properties/nm-vpnc.c:494
 msgid "Secure (default)"
 msgstr "Sikker (forvalgt)"
 
-#: ../properties/nm-vpnc.c:495
+#: ../properties/nm-vpnc.c:497
 msgid "Weak (use with caution)"
 msgstr "Svak (bruk med forsiktighet)"
 
-#: ../properties/nm-vpnc.c:503
+#: ../properties/nm-vpnc.c:505
 msgid "None (completely insecure)"
 msgstr "Ingen (helt usikker)"
 
-#: ../properties/nm-vpnc.c:568
+#: ../properties/nm-vpnc.c:571
+msgid "Cisco (default)"
+msgstr "Cisco (forvalgt)"
+
+#: ../properties/nm-vpnc.c:578
+msgid "Netscreen"
+msgstr "Netscreen"
+
+#: ../properties/nm-vpnc.c:598
 msgid "NAT-T when available (default)"
 msgstr "NAT-T når tilgjengelig (forvalg)"
 
-#: ../properties/nm-vpnc.c:575
+#: ../properties/nm-vpnc.c:605
 msgid "NAT-T always"
 msgstr "NAT-T alltid"
 
-#: ../properties/nm-vpnc.c:582
+#: ../properties/nm-vpnc.c:612
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:589
+#: ../properties/nm-vpnc.c:619
 msgid "Disabled"
 msgstr "Slått av"
 
-#: ../properties/nm-vpnc.c:609
+#: ../properties/nm-vpnc.c:639 ../properties/nm-vpnc.c:706
 msgid "DH Group 1"
 msgstr "DH-gruppe 1"
 
-#: ../properties/nm-vpnc.c:616
+#: ../properties/nm-vpnc.c:646
 msgid "DH Group 2 (default)"
 msgstr "DH-gruppe 2 (forvalgt)"
 
-#: ../properties/nm-vpnc.c:623
+#: ../properties/nm-vpnc.c:653 ../properties/nm-vpnc.c:720
 msgid "DH Group 5"
 msgstr "DH-gruppe 5"
 
-#: ../properties/nm-vpnc.c:681
+#: ../properties/nm-vpnc.c:692
+msgid "Server (default)"
+msgstr "Tjener (forvalgt)"
+
+#: ../properties/nm-vpnc.c:699
+msgid "None"
+msgstr "Ingen"
+
+#: ../properties/nm-vpnc.c:713
+msgid "DH Group 2"
+msgstr "DH-gruppe 2"
+
+#: ../properties/nm-vpnc.c:760
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Velg sertifikat fra sertifikatautoritet (CA) …"
 
-#: ../properties/nm-vpnc.c:685
+#: ../properties/nm-vpnc.c:764
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM-sertifikater (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1383
+#: ../properties/nm-vpnc.c:1482
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnelering ikke støttet"
 
-#: ../properties/nm-vpnc.c:1385
+#: ../properties/nm-vpnc.c:1484
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -150,152 +178,169 @@ msgstr ""
 "er ikke sikkert at dette vil fungere som forventet."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "Advanced Options"
+msgstr "Avanserte alternativer"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "Identification"
+msgstr "Identifisering"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid "_Domain:"
+msgstr "Domene:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:4
 msgid ""
 "(NT-)Domain name for authentication\n"
 "config: Domain <domain>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Advanced Options"
-msgstr "Avanserte alternativer"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "Advance_d..."
-msgstr "Avansert …"
-
-#: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "CA _File:"
-msgstr "CA-fil:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "Disable Dead _Peer Detection"
-msgstr "Slå av gjenkjenning av død peer"
+msgid "_Vendor:"
+msgstr "Le_verandør:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout "
-"(our side) 0"
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
 msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "_Domain:"
-msgstr "Domene:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password."
-"\n"
-"config: IKE Authmode hybrid"
-msgstr ""
+msgid "Transport and Security"
+msgstr "Transport og sikkerhet"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
 "Encryption method\n"
-"config: nothing for Secure, 'Enable Single DES' for "
-"Weak, 'Enable no encryption' for None"
+"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
+"encryption' for None"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "_Encryption method:"
 msgstr "Krypteringsmetode:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "G_roup name:"
-msgstr "G_ruppenavn:"
-
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "General"
-msgstr "Generelt"
-
-#: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "Gro_up password:"
-msgstr "Gr_uppepassord:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:16
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "_IKE DH Group:"
-msgstr "IKE DH-gruppe:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:18
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "Identification"
-msgstr "Identifisering"
-
-#: ../properties/nm-vpnc-dialog.ui.h:20
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-"
-"natt/cisco-udp>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "_NAT traversal:"
 msgstr "NAT-traversering:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:22
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:16
+msgid "_IKE DH Group:"
+msgstr "IKE DH-gruppe:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid ""
 "Name of the IKE DH group\n"
 "config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid "Perfect _Forward Secrecy:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:20
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid "Disable Dead _Peer Detection"
+msgstr "Slå av gjenkjenning av død peer"
+
 #: ../properties/nm-vpnc-dialog.ui.h:23
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "General"
+msgstr "Generelt"
+
+#: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Sho_w passwords"
 msgstr "Vis passord"
 
-#: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "Transport and Security"
-msgstr "Transport og sikkerhet"
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "Use _hybrid authentication"
-msgstr "Bruk hybrid autentisering"
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
+#: ../properties/nm-vpnc-dialog.ui.h:27
 msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
+"Group password\n"
+"config: IPSec secret <group_password>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "User na_me:"
-msgstr "Brukernavn:"
+#: ../properties/nm-vpnc-dialog.ui.h:29
+msgid "Gro_up password:"
+msgstr "Gr_uppepassord:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:28
+#: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:31
+msgid "G_roup name:"
+msgstr "G_ruppenavn:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:34
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:36
+msgid "User _password:"
+msgstr "Passord for br_uker:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:37
 msgid ""
 "User password for the connection\n"
 "config: Xauth password <password>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:29
-msgid "_Gateway:"
-msgstr "_Gateway:"
+#: ../properties/nm-vpnc-dialog.ui.h:39
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "User _password:"
-msgstr "Passord for br_uker:"
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "User na_me:"
+msgstr "Brukernavn:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "Use _hybrid authentication"
+msgstr "Bruk hybrid autentisering"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:45
+msgid "CA _File:"
+msgstr "CA-fil:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:48
+msgid "Advance_d..."
+msgstr "Avansert …"
 
 #: ../src/nm-vpnc-service.c:152
 #, c-format
