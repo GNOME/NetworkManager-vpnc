@@ -37,6 +37,7 @@
 #include "nm-test-helpers.h"
 #include "properties/nm-vpnc.h"
 #include "src/nm-vpnc-service.h"
+#include "properties/nm-vpnc-helper.h"
 
 typedef struct {
 	const char *name;
@@ -737,6 +738,29 @@ test_legacy_ike_port_1_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	g_free (pcf);
 }
 
+static void
+test_empty_keyfile_string_null (const char *dir)
+{
+	char *pcf, *val;
+	GError *error = NULL;
+	GKeyFile *kf;
+	gboolean success;
+
+	pcf = g_build_path ("/", dir, "basic.pcf", NULL);
+	g_assert (pcf);
+
+	kf = g_key_file_new ();
+	success = g_key_file_load_from_file (kf, pcf, 0, &error);
+	g_assert_no_error (error);
+	g_assert (success);
+
+	val = key_file_get_string_helper (kf, "main", "ISPCommand", NULL);
+	g_assert (val == NULL);
+
+	g_free (pcf);
+	g_key_file_free (kf);
+}
+
 int main (int argc, char **argv)
 {
 	GError *error = NULL;
@@ -775,6 +799,8 @@ int main (int argc, char **argv)
 	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_CISCO);
 	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_NATT);
 	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_NATT_ALWAYS);
+
+	test_empty_keyfile_string_null (argv[1]);
 
 	g_object_unref (plugin);
 

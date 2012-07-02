@@ -96,14 +96,16 @@ get_string_as_utf8 (GKeyFile *keyfile,
 	char *raw, *buf = NULL;
 
 	raw = g_key_file_get_value (keyfile, group_name, key, error);
-	if (g_utf8_validate (raw, -1, NULL))
-		buf = g_key_file_get_string (keyfile, group_name, key, error);
-	else {
-		/* Attempt to force to UTF8 using current locale, which is about
-		 * as good as we can do since the file doesn't say what locale
-		 * it's in.
-		 */
-		buf = g_locale_to_utf8 (raw, -1, NULL, NULL, error);
+	if (raw && raw[0]) {
+		if (g_utf8_validate (raw, -1, NULL))
+			buf = g_key_file_get_string (keyfile, group_name, key, error);
+		else {
+			/* Attempt to force to UTF8 using current locale, which is about
+			 * as good as we can do since the file doesn't say what locale
+			 * it's in.
+			 */
+			buf = g_locale_to_utf8 (raw, -1, NULL, NULL, error);
+		}
 	}
 	g_free (raw);
 	return buf;
