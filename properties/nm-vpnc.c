@@ -589,6 +589,17 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
+	/* Application version */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
+	if (s_vpn) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION);
+		if (value && strlen (value))
+			gtk_entry_set_text (GTK_ENTRY (widget), value);
+	}
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
 	active = -1;
 	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
 	if (s_vpn)
@@ -898,6 +909,12 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, vendor);
 	} else
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, NM_VPNC_VENDOR_CISCO);
+
+	/* Application version */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
+	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	if (str && strlen (str))
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION, str);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
 	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (widget))) {
