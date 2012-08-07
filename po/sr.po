@@ -4,11 +4,11 @@
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: F 677-CF0E\n"
+"Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=Networ"
 "kManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2012-02-28 09:48+0000\n"
-"PO-Revision-Date: 2012-03-14 11:09+0200\n"
+"POT-Creation-Date: 2012-07-17 14:38+0000\n"
+"PO-Revision-Date: 2012-08-07 23:12+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -31,28 +31,26 @@ msgstr "_Лозинка:"
 msgid "Sh_ow passwords"
 msgstr "При_кажи лозинку"
 
-#: ../auth-dialog/main.c:181
+#: ../auth-dialog/main.c:185
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
-"Морате да потврдите идентитет да бисте могли да приступите Виртуелној "
+"Морате да потврдите идентитет да бисте могли да приступите виртуелној "
 "приватној мрежи „%s“."
 
-#: ../auth-dialog/main.c:190 ../auth-dialog/main.c:209
+#: ../auth-dialog/main.c:194 ../auth-dialog/main.c:214
 msgid "Authenticate VPN"
 msgstr "Потврди ВПН"
 
-#: ../auth-dialog/main.c:193
-#| msgid "_Password:"
+#: ../auth-dialog/main.c:197
 msgid "Password:"
 msgstr "Лозинка:"
 
-#: ../auth-dialog/main.c:195
-#| msgid "_Group Password:"
+#: ../auth-dialog/main.c:199
 msgid "Group Password:"
 msgstr "Лозинка групе:"
 
-#: ../auth-dialog/main.c:211
+#: ../auth-dialog/main.c:216
 msgid "_Group Password:"
 msgstr "Лозинка _групе:"
 
@@ -109,7 +107,6 @@ msgid "None (completely insecure)"
 msgstr "Ништа (потпуно несигурна)"
 
 #: ../properties/nm-vpnc.c:571
-#| msgid "Secure (default)"
 msgid "Cisco (default)"
 msgstr "Циско (основно)"
 
@@ -117,61 +114,59 @@ msgstr "Циско (основно)"
 msgid "Netscreen"
 msgstr "Нетскрин"
 
-#: ../properties/nm-vpnc.c:598
+#: ../properties/nm-vpnc.c:609
 msgid "NAT-T when available (default)"
 msgstr "НАТ-Т када је доступно (основно)"
 
-#: ../properties/nm-vpnc.c:605
+#: ../properties/nm-vpnc.c:616
 msgid "NAT-T always"
 msgstr "НАТ-Т увек"
 
-#: ../properties/nm-vpnc.c:612
+#: ../properties/nm-vpnc.c:623
 msgid "Cisco UDP"
 msgstr "Циско УДП"
 
-#: ../properties/nm-vpnc.c:619
+#: ../properties/nm-vpnc.c:630
 msgid "Disabled"
 msgstr "Искључено"
 
-#: ../properties/nm-vpnc.c:639 ../properties/nm-vpnc.c:706
+#: ../properties/nm-vpnc.c:650 ../properties/nm-vpnc.c:717
 msgid "DH Group 1"
 msgstr "ДХ група 1"
 
-#: ../properties/nm-vpnc.c:646
+#: ../properties/nm-vpnc.c:657
 msgid "DH Group 2 (default)"
 msgstr "ДХ група 2 (основно)"
 
-#: ../properties/nm-vpnc.c:653 ../properties/nm-vpnc.c:720
+#: ../properties/nm-vpnc.c:664 ../properties/nm-vpnc.c:731
 msgid "DH Group 5"
 msgstr "ДХ група 5"
 
-#: ../properties/nm-vpnc.c:692
-#| msgid "Secure (default)"
+#: ../properties/nm-vpnc.c:703
 msgid "Server (default)"
 msgstr "Сервер (основно)"
 
-#: ../properties/nm-vpnc.c:699
+#: ../properties/nm-vpnc.c:710
 msgid "None"
 msgstr "Ништа"
 
-#: ../properties/nm-vpnc.c:713
-#| msgid "DH Group 1"
+#: ../properties/nm-vpnc.c:724
 msgid "DH Group 2"
 msgstr "ДХ група 2"
 
-#: ../properties/nm-vpnc.c:760
+#: ../properties/nm-vpnc.c:771
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Изаберите уверење издавача овлашћења..."
 
-#: ../properties/nm-vpnc.c:764
+#: ../properties/nm-vpnc.c:775
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "ПЕМ уверења (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1482
+#: ../properties/nm-vpnc.c:1499
 msgid "TCP tunneling not supported"
 msgstr "ТЦП тунелисање није подржано"
 
-#: ../properties/nm-vpnc.c:1484
+#: ../properties/nm-vpnc.c:1501
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -196,7 +191,7 @@ msgstr "Идентификација"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
 msgid "_Domain:"
-msgstr "Домен:"
+msgstr "_Домен:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid ""
@@ -206,56 +201,65 @@ msgstr ""
 "Назив (НТ-)домена за потврду идентитета\n"
 "подешавање: Домен <domain>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "_Vendor:"
-msgstr "Продавац:"
-
 #: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "_Vendor:"
+msgstr "_Продавац:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Продавац вашег ИПбезбедности мрежног пролаза\n"
-"подешавање: Продавац "
-"<cisco/netscreen>"
+"подешавање: Продавац <cisco/netscreen>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid "Ve_rsion:"
+msgstr "_Издање:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid ""
+"Application version to report. \n"
+"config: Application version <ASCII string>"
+msgstr ""
+"Издање програма за извештавање. \n"
+"подешав: Издање <АСКРИ ниска> програма"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "Transport and Security"
 msgstr "Пренос и безбедност"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
 "Encryption method\n"
-"config: nothing for Secure, 'Enable Single DES' for "
-"Weak, 'Enable no encryption' for None"
+"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
+"encryption' for None"
 msgstr ""
 "Начин шифровања\n"
-"подешавање: ништа за безбедну, „Укључи један ДЕС“ за "
-"слабу, „Не укључуј шифровање“ за ништа"
+"подешавање: ништа за безбедну, „Укључи један ДЕС“ за слабу, „Не укључуј "
+"шифровање“ за ништа"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:15
 msgid "_Encryption method:"
-msgstr "Начин шифровања:"
+msgstr "Начин _шифровања:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:16
 msgid "_NAT traversal:"
-msgstr "НАТ пролаз:"
+msgstr "_НАТ пролаз:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid ""
 "NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-"
-"natt/cisco-udp>"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
 "Начин НАТ пролаза за употребу\n"
-"подешавање: Режим НАТ пролаза <natt/none"
-"/force-natt/cisco-udp>"
+"подешавање: Режим НАТ пролаза <natt/none/force-natt/cisco-udp>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:19
 msgid "_IKE DH Group:"
-msgstr "ИКЕ ДХ група:"
+msgstr "_ИКЕ ДХ група:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:20
 msgid ""
 "Name of the IKE DH group\n"
 "config: IKE DH Group <dh1/dh2/dh5>"
@@ -263,44 +267,39 @@ msgstr ""
 "Назив ИКЕ ДХ групе\n"
 "подешавање: ИКЕ ДХ група <dh1/dh2/dh5>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid "Perfect _Forward Secrecy:"
-msgstr "Савршена тајност прослеђивања:"
+msgstr "Савршена тајност _прослеђивања:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:23
 msgid ""
 "Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy "
-"<nopfs/dh1/dh2/dh5/server>"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 msgstr ""
 "Дифи-Хелман група за коришћење за ПФС\n"
-"подешавање: Савршена тајност "
-"прослеђивања <nopfs/dh1/dh2/dh5/server>"
+"подешавање: Савршена тајност прослеђивања <nopfs/dh1/dh2/dh5/server>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
+#: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Disable Dead _Peer Detection"
-msgstr "Искључи откривање неактивних парњака"
+msgstr "Искључи откривање _неактивних парњака"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
+#: ../properties/nm-vpnc-dialog.ui.h:26
 msgid ""
 "Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout "
-"(our side) 0"
+"config: DPD idle timeout (our side) 0"
 msgstr ""
 "Искључи слање ОНП пакета (поставља временски рок на 0)\n"
-"подешавање: "
-"Временски рок ОНП мировања (наша страна) 0"
+"подешавање: Временски рок ОНП мировања (наша страна) 0"
 
-#: ../properties/nm-vpnc-dialog.ui.h:18
-#| msgid "<b>General</b>"
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid "General"
 msgstr "Опште"
 
-#: ../properties/nm-vpnc-dialog.ui.h:19
+#: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "Sho_w passwords"
-msgstr "Прикажи лозинку"
+msgstr "Прикажи _лозинке"
 
-#: ../properties/nm-vpnc-dialog.ui.h:20
+#: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
 "Group password\n"
 "config: IPSec secret <group_password>"
@@ -308,28 +307,27 @@ msgstr ""
 "Лозинка групе\n"
 "подешавања: Тајност ИПБезбедности <group_password>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:21
+#: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "Gro_up password:"
 msgstr "Лозинка гр_упе:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:22
+#: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "_Gateway:"
 msgstr "_Мрежни пролаз:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:23
+#: ../properties/nm-vpnc-dialog.ui.h:34
 msgid "G_roup name:"
 msgstr "Назив г_рупе:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:24
+#: ../properties/nm-vpnc-dialog.ui.h:35
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
 msgstr ""
 "ИП/домаћин мрежног пролаза ИПбезбедности\n"
-"подешавање: мрежни пролаз "
-"ИПБезбедности <gateway>"
+"подешавање: мрежни пролаз ИПБезбедности <gateway>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
+#: ../properties/nm-vpnc-dialog.ui.h:37
 msgid ""
 "Group name\n"
 "config: IPSec ID <group_name>"
@@ -337,52 +335,48 @@ msgstr ""
 "Назив групе\n"
 "подешавање: ИБ ИПБезбедности <group_name>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:26
+#: ../properties/nm-vpnc-dialog.ui.h:39
 msgid "User _password:"
-msgstr "Лозинка _корисника:"
+msgstr "Корисничка _лозинка:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:27
+#: ../properties/nm-vpnc-dialog.ui.h:40
 msgid ""
 "User password for the connection\n"
 "config: Xauth password <password>"
 msgstr ""
 "Корисничка лозинка за везу\n"
-"подешавање: Лозинка Икс овлашћивања "
-"<password>"
+"подешавање: Лозинка Икс овлашћивања <password>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:28
+#: ../properties/nm-vpnc-dialog.ui.h:42
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
 msgstr ""
 "Корисничко име за везу\n"
-"подешавање: Корисничко име Икс овлашћивања "
-"<user_name>"
+"подешавање: Корисничко име Икс овлашћивања <user_name>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:29
+#: ../properties/nm-vpnc-dialog.ui.h:44
 msgid "User na_me:"
-msgstr "Корисничко име:"
+msgstr "Корисничко _име:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:30
-#| msgid "Request VPN authentication"
+#: ../properties/nm-vpnc-dialog.ui.h:45
 msgid "Use _hybrid authentication"
-msgstr "Користи мешовито потврђивање"
+msgstr "Користи _мешовито потврђивање"
 
-#: ../properties/nm-vpnc-dialog.ui.h:31
+#: ../properties/nm-vpnc-dialog.ui.h:46
 msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password."
-"\n"
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
 "config: IKE Authmode hybrid"
 msgstr ""
 "Укључите мешовито потврђивање идентитета, нпр. користите уверење као додатак "
 "лозинки.\n"
 "подешавање: ИКЕ хибридни режим потврђивања"
 
-#: ../properties/nm-vpnc-dialog.ui.h:32
+#: ../properties/nm-vpnc-dialog.ui.h:48
 msgid "CA _File:"
-msgstr "ЦА датотека:"
+msgstr "ЦА _датотека:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:33
+#: ../properties/nm-vpnc-dialog.ui.h:49
 msgid ""
 "CA certificate in PEM format\n"
 "config: CA-File"
@@ -390,9 +384,9 @@ msgstr ""
 "ЦА уверење у ПЕМ облику\n"
 "подешавање: ЦА-датотека"
 
-#: ../properties/nm-vpnc-dialog.ui.h:34
+#: ../properties/nm-vpnc-dialog.ui.h:51
 msgid "Advance_d..."
-msgstr "Напредно..."
+msgstr "_Напредно..."
 
 #: ../src/nm-vpnc-service.c:152
 #, c-format
@@ -454,8 +448,7 @@ msgstr "Не прекида када се завршава ВПН веза"
 #: ../src/nm-vpnc-service.c:723
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
-"Укључује опширно записивање зарад исправљања грешака (може да изложи "
-"лозинке)"
+"Укључује опширно записивање зарад исправљања грешака (може да изложи лозинке)"
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
@@ -464,15 +457,3 @@ msgid ""
 msgstr ""
 "нм-впнц-услуга обезбеђује Управнику мреже обједињену Циско Легаси ИПСец ВПН "
 "могућност."
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "_Запамти лозинку за ову сесију"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "_Сачувај лозинку у привеску кључева"
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Опционално</b>"
