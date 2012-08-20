@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-VPNC\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-20 19:07+0200\n"
-"PO-Revision-Date: 2012-08-20 19:06+0200\n"
+"PO-Revision-Date: 2012-08-20 19:14+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -411,7 +411,7 @@ msgstr "proprietà intera «%s» non valida o fuori intervallo [%d → %d]"
 #: ../src/nm-vpnc-service.c:194
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "proprietà booleana «%s» non valida (non era sì o no)"
+msgstr "proprietà booleana «%s» non valida (non yes o no)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
@@ -454,7 +454,7 @@ msgstr "Non esce quando la connessione VPN termina"
 
 #: ../src/nm-vpnc-service.c:723
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Abilita output prolisso (potrebbe rivelare le password)"
+msgstr "Abilita output prolisso per il debug (potrebbe visualizzare password)"
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
