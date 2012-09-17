@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
   <requires lib="gtk+" version="2.22"/>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="lower">0</property>
+    <property name="upper">65535</property>
+    <property name="value">0</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <object class="GtkImage" id="image1">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -438,6 +445,38 @@ config: Perfect Forward Secrecy &lt;nopfs/dh1/dh2/dh5/server&gt;</property>
                       </packing>
                     </child>
                     <child>
+                      <object class="GtkLabel" id="local_port_label">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">_Local port:</property>
+                        <property name="use_underline">True</property>
+                        <property name="mnemonic_widget">local_port_spinbutton</property>
+                      </object>
+                      <packing>
+                        <property name="top_attach">4</property>
+                        <property name="bottom_attach">5</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkSpinButton" id="local_port_spinbutton">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="width_chars">5</property>
+                        <property name="adjustment">adjustment1</property>
+                        <property name="climb_rate">1</property>
+                        <property name="numeric">True</property>
+                        <property name="tooltip_text" translatable="yes">Local ISAKMP port to use (0 means random port; 500 is vpnc's default)
+config: Local Port &lt;0-65535&gt;</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">4</property>
+                        <property name="bottom_attach">5</property>
+                      </packing>
+                    </child>
+                    <child>
                       <object class="GtkCheckButton" id="disable_dpd_checkbutton">
                         <property name="label" translatable="yes">Disable Dead _Peer Detection</property>
                         <property name="visible">True</property>
@@ -452,8 +491,8 @@ config: DPD idle timeout (our side) 0</property>
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">2</property>
-                        <property name="top_attach">4</property>
-                        <property name="bottom_attach">5</property>
+                        <property name="top_attach">5</property>
+                        <property name="bottom_attach">6</property>
                       </packing>
                     </child>
                     <child>
