@@ -188,6 +188,14 @@ hybrid_toggled_cb (GtkWidget *widget, gpointer user_data)
 }
 
 static void
+spinbutton_changed_cb (GtkWidget *widget, gpointer user_data)
+{
+	gtk_spin_button_update (GTK_SPIN_BUTTON (widget));
+
+	stuff_changed_cb (widget, user_data);
+}
+
+static void
 setup_password_widget (VpncPluginUiWidget *self,
                        const char *entry_name,
                        NMSettingVPN *s_vpn,
@@ -675,6 +683,25 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 1 : active);
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
+	/* Local Port */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
+	if (s_vpn) {
+		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
+		if (value) {
+			long int tmp;
+
+			errno = 0;
+			tmp = strtol (value, NULL, 10);
+			if (errno != 0 || tmp < 0 || tmp > 65535)
+				tmp = 0;
+			widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
+			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp);
+		}
+	}
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (spinbutton_changed_cb), self);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	if (s_vpn) {
@@ -866,9 +893,10 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 {
 	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (iface);
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	NMSettingVPN *s_vpn, *s_vpn_orig;
+	NMSettingVPN *s_vpn;
 	GtkWidget *widget;
 	char *str;
+	guint32 port;
 	GtkTreeModel *model;
 	GtkTreeIter iter;
 
@@ -959,6 +987,11 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	} else
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD, NM_VPNC_PFS_SERVER);
 
+	/* Local port */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
+	port = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT, g_strdup_printf ("%d", port));
+
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
 	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, "0");
@@ -989,16 +1022,6 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	                   "group_pass_type_combo",
 	                   NM_VPNC_KEY_SECRET,
 	                   NM_VPNC_KEY_SECRET_TYPE);
-
-	/* Local Port is not in GUI (yet?). So when present in the connection,
-	 * copy it from the old VPN setting to the new one to preserve it.
-	 */
-	s_vpn_orig = nm_connection_get_setting_vpn (connection);
-	if (s_vpn_orig) {
-		const char *local_port = nm_setting_vpn_get_data_item (s_vpn_orig, NM_VPNC_KEY_LOCAL_PORT);
-		if (local_port && strlen (local_port))
-			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT, local_port);
-	}
 
 	/* hybrid auth */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "hybrid_checkbutton"));
