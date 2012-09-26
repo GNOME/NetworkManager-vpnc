@@ -40,7 +40,7 @@ GType vpnc_plugin_ui_error_get_type (void);
 #define VPNC_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_PLUGIN_UI, VpncPluginUi))
 #define VPNC_PLUGIN_UI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), VPNC_TYPE_PLUGIN_UI, VpncPluginUiClass))
 #define VPNC_IS_PLUGIN_UI(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VPNC_TYPE_PLUGIN_UI))
-#define VPNC_IS_PLUGIN_UI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), VPNC_TYPE_PLUGIN_UI))
+#define VPNC_IS_PLUGIN_UI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VPNC_TYPE_PLUGIN_UI))
 #define VPNC_PLUGIN_UI_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), VPNC_TYPE_PLUGIN_UI, VpncPluginUiClass))
 
 typedef struct _VpncPluginUi VpncPluginUi;
@@ -61,7 +61,7 @@ GType vpnc_plugin_ui_get_type (void);
 #define VPNC_PLUGIN_UI_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidget))
 #define VPNC_PLUGIN_UI_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidgetClass))
 #define VPNC_IS_PLUGIN_UI_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VPNC_TYPE_PLUGIN_UI_WIDGET))
-#define VPNC_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((obj), VPNC_TYPE_PLUGIN_UI_WIDGET))
+#define VPNC_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VPNC_TYPE_PLUGIN_UI_WIDGET))
 #define VPNC_PLUGIN_UI_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidgetClass))
 
 typedef struct _VpncPluginUiWidget VpncPluginUiWidget;
