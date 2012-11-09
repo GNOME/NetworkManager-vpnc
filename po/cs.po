@@ -316,7 +316,7 @@ msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
 msgstr ""
-"IP/názv počítače brány IPsec\n"
+"IP/název počítače brány IPsec\n"
 "config: IPSec gateway <brána>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
@@ -432,7 +432,7 @@ msgstr "Nelze zpracovat požadavek protože nastavení VPN nejsou platná."
 
 #: ../src/nm-vpnc-service.c:722
 msgid "Don't quit when VPN connection terminates"
-msgstr "Nevypínat pokud se spojení VPN ukončuje"
+msgstr "Neukončovat při uzavření spojení VPN"
 
 #: ../src/nm-vpnc-service.c:723
 msgid "Enable verbose debug logging (may expose passwords)"
@@ -440,4 +440,4 @@ msgstr "Povolit podrobný ladicí výpis (může prozradit hesla)"
 
 #: ../src/nm-vpnc-service.c:737
 msgid "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to NetworkManager."
-msgstr "nm-vpnc-service poskytuje podporu pro Cisco IPsec VPN integrovanou v aplikaci NetworkManager."
+msgstr "nm-vpnc-service umožňuje NetworkManageru poskytovat služby pro připojování k Cisco IPsec VPN."
