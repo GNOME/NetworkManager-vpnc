@@ -12,7 +12,8 @@ AM_CPPFLAGS = \
 	-DLIBDIR=\""$(libdir)"\" \
 	-DLIBEXECDIR=\""$(libexecdir)"\" \
 	-DLOCALSTATEDIR=\""$(localstatedir)"\" \
-	-DDATADIR=\"$(datadir)\"
+	-DDATADIR=\"$(datadir)\" \
+	-DNM_VPNC_LOCALEDIR=\"$(datadir)/locale\"
 
 libexec_PROGRAMS = nm-vpnc-service nm-vpnc-service-vpnc-helper
 
