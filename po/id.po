@@ -224,7 +224,7 @@ msgid ""
 "config: Application version <ASCII string>"
 msgstr ""
 "Versi aplikasi yang dilaporkan.\n"
-"config: Versi aplikasi <string ASCII>"
+"config: Application version <string ASCII>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "Transport and Security"

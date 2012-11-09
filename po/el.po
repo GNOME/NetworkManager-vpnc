@@ -202,7 +202,7 @@ msgid ""
 "config: Domain <domain>"
 msgstr ""
 "Όνομα (NT-)τομέα προς πιστοποίηση\n"
-"config: Τομέας <domain>"
+"config: Domain <domain>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Vendor:"
@@ -214,7 +214,7 @@ msgid ""
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Κατασκευαστής της πύλης IPsec\n"
-"config: Κατασκευαστής <cisco/netscreen>"
+"config: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "Transport and Security"
@@ -227,8 +227,8 @@ msgid ""
 "encryption' for None"
 msgstr ""
 "Μέθοδος κρυπτογράφησης\n"
-"config: τίποτα για Ασφαλής, 'Ενεργοποίηση μονού DES' για Ασθενής, "
-"'Ενεργοποίηση καμίας κρυπτογράφησης' για Καμία"
+"config: τίποτα για Ασφαλής, 'Enable Single DES' για Ασθενής, "
+"'Enable no encryption' για Καμία"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "_Encryption method:"

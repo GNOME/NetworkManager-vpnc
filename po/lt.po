@@ -216,7 +216,7 @@ msgid ""
 "config: Application version <ASCII string>"
 msgstr ""
 "Pranešamas programos versija. \n"
-"konfig: Applications version <ASCII eilutė>"
+"konfig: Application version <ASCII eilutė>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "Transport and Security"
@@ -292,7 +292,7 @@ msgid ""
 "config: DPD idle timeout (our side) 0"
 msgstr ""
 "Išjungti DPD paketų siuntimą (nustato laikmatį į 0)\n"
-"konfig: DPD idle timeout (mūsų pusėje) 0"
+"konfig: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:31
 msgid "General"
