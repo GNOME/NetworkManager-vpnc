@@ -390,7 +390,7 @@ msgid ""
 "config: CA-File"
 msgstr ""
 "Zertifizierungsstellendatei im .pem-Format.\n"
-"config: CA-Datei"
+"config: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:51
 msgid "Advance_d..."

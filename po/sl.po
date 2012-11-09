@@ -231,7 +231,7 @@ msgid ""
 "config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None"
 msgstr ""
 "Način šifriranja\n"
-"nastavitev: brez za varno, 'Omogoči DES' za šibko, 'Brez šifriranja' za brez"
+"nastavitev: brez za varno, 'Enable Single DES' za šibko, 'Enable no encryption' za brez"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
 msgid "_Encryption method:"
@@ -271,7 +271,7 @@ msgid ""
 "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 msgstr ""
 "Skupina Diffie-Hellman za uporabo za PFS\n"
-"nastavitev: Perfect Forward Secrecy (PFS) <nopfs/dh1/dh2/dh5/server>"
+"nastavitev: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "_Local port:"

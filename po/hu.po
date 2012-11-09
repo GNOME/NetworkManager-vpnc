@@ -221,7 +221,7 @@ msgid ""
 "config: Application version <ASCII string>"
 msgstr ""
 "Jelentendő alkalmazásverzió.\n"
-"config: Alkalmazásverzió <ASCII karakterlánc>"
+"config: Application version <ASCII karakterlánc>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "Transport and Security"
@@ -288,7 +288,7 @@ msgid ""
 "config: Local Port <0-65535>"
 msgstr ""
 "Használandó helyi ISAKMP port (0=véletlenszerű, 500=a vpnc alapértelmezése)\n"
-"config: Helyi port <0-65535>"
+"config: Local Port <0-65535>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid "Disable Dead _Peer Detection"

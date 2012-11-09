@@ -205,7 +205,7 @@ msgid ""
 "config: Domain <domain>"
 msgstr ""
 "(NT-)Domēna nosaukuma autentifikācija\n"
-"config: Domēns <domain>"
+"config: Domain <domēna>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "_Vendor:"
@@ -217,7 +217,7 @@ msgid ""
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Jūsu IPsec vārtejas ražotājs \n"
-"config: Ražotājs <cisco/netscreen>"
+"config: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "Transport and Security"
@@ -230,8 +230,8 @@ msgid ""
 "Weak, 'Enable no encryption' for None"
 msgstr ""
 "Šifrēšanas metode\n"
-"config: nekas drošai, 'Aktivēt vienu DES'  "
-"vājai, 'Neaktivēt šifrēšanu' nekādai"
+"config: nekas drošai, 'Enable Single DES'  "
+"vājai, 'Enable no encryption' nekādai"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
 msgid "_Encryption method:"
@@ -244,13 +244,10 @@ msgstr "NAT apvads:"
 #: ../properties/nm-vpnc-dialog.ui.h:11
 msgid ""
 "NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-"
-"natt/cisco-udp>"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
 "Kādu NAT šķērsošanas metodi izmantot\n"
-"config: NAT šķērsošanas režīms <"
-"natt/none/force-"
-"natt/cisco-udp>"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "_IKE DH Group:"
@@ -262,7 +259,7 @@ msgid ""
 "config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 "IKE DH grupas nosaukums\n"
-"config: IKE DH grupa <dh1/dh2/dh5>"
+"config: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "Perfect _Forward Secrecy:"
@@ -289,8 +286,8 @@ msgid ""
 "(our side) 0"
 msgstr ""
 "Deaktivēt DPD pakešu sūtīšanu (iestata noildzi uz 0)\n"
-"config: DPD "
-"dīkstāves noildze (mūsu puse) 0"
+"config: DPD idle timeout "
+"(our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "General"
@@ -346,7 +343,7 @@ msgid ""
 "config: Xauth password <password>"
 msgstr ""
 "Savienojumam lietot paroli\n"
-"config: Xauth parole <password>"
+"config: Xauth password <password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -354,7 +351,7 @@ msgid ""
 "config: Xauth username <user_name>"
 msgstr ""
 "Lietotāja vārds savienojumam \n"
-"config: Xauth lietotāja vārds <user_name>"
+"config: Xauth username <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:29
 msgid "User na_me:"
@@ -372,7 +369,7 @@ msgid ""
 msgstr ""
 "Aktivēt hibrīda autentifikāciju, t.i. lietot sertifikātu kopā ar paroli."
 "\n"
-"config: IKE Authmode hibrīds"
+"config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "CA _File:"
@@ -384,7 +381,7 @@ msgid ""
 "config: CA-File"
 msgstr ""
 "CA sertifikāts PEM formātā\n"
-"config: CA-fails"
+"config: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid "Advance_d..."

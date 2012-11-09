@@ -288,7 +288,7 @@ msgid ""
 msgstr ""
 "Porto ISAKMP local a usar (0 significa un porto aleatorio, 500 é o "
 "predefinido para vpnc)\n"
-"config: Porto local <0-65535>"
+"config: Local Port <0-65535>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid "Disable Dead _Peer Detection"
