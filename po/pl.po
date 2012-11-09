@@ -81,10 +81,10 @@ msgstr "Zgodny z Cisco VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Zgodny z wieloma bramami VPN IPSec, jak Cisco, Juniper, Netscreen i "
+"Zgodny z wieloma bramami VPN IPsec, jak Cisco, Juniper, Netscreen i "
 "Sonicwall."
 
 #: ../properties/nm-vpnc.c:339
@@ -475,8 +475,8 @@ msgstr "Włącza więcej komunikatów debugowania (może wyjawić hasła)"
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
 "nm-vpnc-service dostarcza zintegrowaną możliwość nawiązywania połączeń VPN "
-"IPSec Cisco Legacy dla usługi NetworkManager."
+"IPsec Cisco Legacy dla usługi NetworkManager."

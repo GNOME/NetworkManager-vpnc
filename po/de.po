@@ -82,11 +82,11 @@ msgstr "Cisco-kompatibler VPN-Client (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
 "Kompatibel zu verschiedenen VPN-Gateways von Cisco, Juniper, Netscreen und "
-"Sonicwall (IPSec-basiert)."
+"Sonicwall (IPsec-basiert)."
 
 #: ../properties/nm-vpnc.c:331
 msgid "Saved"
@@ -464,10 +464,10 @@ msgstr ""
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service integriert Cisco Legacy IPSec-VPN-Funktionalität in "
+"nm-vpnc-service integriert Cisco Legacy IPsec-VPN-Funktionalität in "
 "NetworkManager."
 
 #~ msgid " "

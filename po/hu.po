@@ -74,10 +74,10 @@ msgstr "Cisco-kompatibilis VPN-kliens (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Kompatibilis számos Cisco, Juniper, Netscreen és Sonicwall IPSec-alapú VPN-"
+"Kompatibilis számos Cisco, Juniper, Netscreen és Sonicwall IPsec-alapú VPN-"
 "átjáróval."
 
 #: ../properties/nm-vpnc.c:339
@@ -465,8 +465,8 @@ msgstr "Részletes hibakeresési naplózás engedélyezése (jelszavak is "
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
 "Az nm-vpnc-service a Hálózatkezelőbe integrált támogatást nyújt az örökölt "
-"Cisco IPSec VPN-hez."
+"Cisco IPsec VPN-hez."

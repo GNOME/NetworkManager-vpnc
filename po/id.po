@@ -77,10 +77,10 @@ msgstr "VPN Kompatibel Cisco (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Kompatibel dengan berbagai gateway VPN berbasis IPSec Cisco, Juniper, "
+"Kompatibel dengan berbagai gateway VPN berbasis IPsec Cisco, Juniper, "
 "Netscreen, dan Sonicwall."
 
 #: ../properties/nm-vpnc.c:339
@@ -465,8 +465,8 @@ msgstr "Aktifkan log pengawakutuan verbose (mungkin mengungkap sandi)"
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service menyediakan kapabilitas VPN IPSec Legacy Cisco ke "
+"nm-vpnc-service menyediakan kapabilitas VPN IPsec Legacy Cisco ke "
 "NetworkManager."

@@ -52,7 +52,7 @@
 #include "nm-vpnc.h"
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
-#define VPNC_PLUGIN_DESC    _("Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways.")
+#define VPNC_PLUGIN_DESC    _("Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways.")
 #define VPNC_PLUGIN_SERVICE NM_DBUS_SERVICE_VPNC 
 
 #define ENC_TYPE_SECURE 0

@@ -74,8 +74,8 @@ msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibel VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
-msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
-msgstr "Kompatibel med olika Cisco, Juniper, Netscreen och Sonicwall IPSec-baserade VPN-gateway."
+msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways."
+msgstr "Kompatibel med olika Cisco, Juniper, Netscreen och Sonicwall IPsec-baserade VPN-gateway."
 
 #: ../properties/nm-vpnc.c:331
 msgid "Saved"
@@ -410,8 +410,8 @@ msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Aktivera informativ felsökningsloggning (kan exponera lösenord)"
 
 #: ../src/nm-vpnc-service.c:737
-msgid "nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager."
-msgstr "nm-vpnc-service tillhandahåller integrerade Cisco Legacy IPSec VPN-förmågor till Nätverkshanterare."
+msgid "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to NetworkManager."
+msgstr "nm-vpnc-service tillhandahåller integrerade Cisco Legacy IPsec VPN-förmågor till Nätverkshanterare."
 
 #~ msgid "_Remember passwords for this session"
 #~ msgstr "_Kom ihåg lösenord för denna session"

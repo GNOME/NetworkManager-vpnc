@@ -71,10 +71,10 @@ msgstr "وی‌پی‌ان سازگار سیسکو (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"سازگار با دروازه‌های وی‌پی‌ان  Cisco، Juniper، Netscreen، و Sonicwall IPSec-"
+"سازگار با دروازه‌های وی‌پی‌ان  Cisco، Juniper، Netscreen، و Sonicwall IPsec-"
 "based"
 
 #: ../properties/nm-vpnc.c:354
@@ -264,6 +264,6 @@ msgstr ""
 
 #: ../src/nm-vpnc-service.c:710
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""

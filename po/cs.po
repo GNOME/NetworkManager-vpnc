@@ -75,8 +75,8 @@ msgid "Cisco Compatible VPN (vpnc)"
 msgstr "VPN kompatibilní s Cisco (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
-msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
-msgstr "Kompatibilní s různými bránami VPN založenými na IPSec od Cisco, Juniper, Netscreen a Sonicwall."
+msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways."
+msgstr "Kompatibilní s různými bránami VPN založenými na IPsec od Cisco, Juniper, Netscreen a Sonicwall."
 
 #: ../properties/nm-vpnc.c:331
 msgid "Saved"
@@ -316,7 +316,7 @@ msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
 msgstr ""
-"IP/názv počítače brány IPSec\n"
+"IP/názv počítače brány IPsec\n"
 "config: IPSec gateway <brána>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
@@ -439,5 +439,5 @@ msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Povolit podrobný ladicí výpis (může prozradit hesla)"
 
 #: ../src/nm-vpnc-service.c:737
-msgid "nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager."
-msgstr "nm-vpnc-service poskytuje podporu pro Cisco IPSEC VPN integrovanou v aplikaci NetworkManager."
+msgid "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to NetworkManager."
+msgstr "nm-vpnc-service poskytuje podporu pro Cisco IPsec VPN integrovanou v aplikaci NetworkManager."

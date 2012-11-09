@@ -74,8 +74,8 @@ msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Su Cisco suderinamas VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
-msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based VPN gateways."
-msgstr "Suderinamas su įvairiais Cisco, Juniper, Netscreen ir Sonicwall IPSec pagrįstais VPN šliuzais."
+msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways."
+msgstr "Suderinamas su įvairiais Cisco, Juniper, Netscreen ir Sonicwall IPsec pagrįstais VPN šliuzais."
 
 #: ../properties/nm-vpnc.c:339
 msgid "Saved"
@@ -203,7 +203,7 @@ msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
 msgstr ""
-"Jūsų IPSec kelvedžio tiekėjas\n"
+"Jūsų IPsec kelvedžio tiekėjas\n"
 "konfig: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
@@ -450,6 +450,6 @@ msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Įjungti išsamų derinimo žurnalą (gali rodyti slaptažodžius)"
 
 #: ../src/nm-vpnc-service.c:737
-msgid "nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to NetworkManager."
-msgstr "nm-vpnc-service suteikia NetworkManager integruotą Cisco Legacy IPSec VPN galimybę."
+msgid "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to NetworkManager."
+msgstr "nm-vpnc-service suteikia NetworkManager integruotą Cisco Legacy IPsec VPN galimybę."
 

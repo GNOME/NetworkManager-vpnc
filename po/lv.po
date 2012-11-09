@@ -79,10 +79,10 @@ msgstr "Cisco savietojams VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Savietojams ar dažādiem Cisco, Juniper, Netscreen un Sonicwall IPSec-"
+"Savietojams ar dažādiem Cisco, Juniper, Netscreen un Sonicwall IPsec-"
 "balstītām VPN vārtejām."
 
 #: ../properties/nm-vpnc.c:331
@@ -306,7 +306,7 @@ msgid ""
 "config: IPSec secret <group_password>"
 msgstr ""
 "Grupas parole\n"
-"config: IPSec noslēpums <group_password>"
+"config: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "Gro_up password:"
@@ -326,7 +326,7 @@ msgid ""
 "config: IPSec gateway <gateway>"
 msgstr ""
 "IP/servera nosaukums IPsec vārtejai\n"
-"config: IPSec vārteja <gateway>"
+"config: IPSec gateway <gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
 msgid ""
@@ -455,10 +455,10 @@ msgstr "Aktivēt detalizētu atkļūdošanas reģistrēšanu (var atklāt parole
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service nodrošina NetworkManager integrētu Cisco Legacy IPSec VPN "
+"nm-vpnc-service nodrošina NetworkManager integrētu Cisco Legacy IPsec VPN "
 "iespēju."
 
 #~ msgid "_Remember passwords for this session"

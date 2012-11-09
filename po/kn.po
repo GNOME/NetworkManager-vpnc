@@ -65,10 +65,10 @@ msgstr "Cisco ಸಹವರ್ತನೀಯ VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"ಹಲವಾರು Cisco, Juniper, Netscreen, ಹಾಗು Sonicwall IPSec-ಆಧರಿತವಾದ"
+"ಹಲವಾರು Cisco, Juniper, Netscreen, ಹಾಗು Sonicwall IPsec-ಆಧರಿತವಾದ"
 "VPN ಗೇಟ್‌ವೇಗಳೊಂದಿಗೆ ಸಹವರ್ತನೀಯವಾಗಿದೆ."
 
 #: ../properties/nm-vpnc.c:339

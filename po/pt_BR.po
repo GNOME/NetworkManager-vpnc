@@ -82,11 +82,11 @@ msgstr "Cliente VPN compatível com Cisco (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
 "Compatível com vários VPN gateways Cisco, Juniper, NetScreen e SonicWALL "
-"baseado em IPSec."
+"baseado em IPsec."
 
 #: ../properties/nm-vpnc.c:354
 msgid "Saved"
@@ -279,10 +279,10 @@ msgstr "Habilitar registro de depuração detalhado (pode expôr senhas)"
 
 #: ../src/nm-vpnc-service.c:710
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service provê integração do Cisco Legacy IPSec VPN ao "
+"nm-vpnc-service provê integração do Cisco Legacy IPsec VPN ao "
 "NetworkManager."
 
 #~ msgid "NAT-T"

@@ -77,10 +77,10 @@ msgstr "VPN compatible Cisco (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Compatible avec de nombreuses passerelles VPN basées sur IPSec de Cisco, "
+"Compatible avec de nombreuses passerelles VPN basées sur IPsec de Cisco, "
 "Juniper, Netscreen et Sonicwall."
 
 #: ../properties/nm-vpnc.c:331
@@ -314,7 +314,7 @@ msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
 msgstr ""
-"Adresse IP/nom de machine de la passerelle IPSec\n"
+"Adresse IP/nom de machine de la passerelle IPsec\n"
 "configuration : IPSec gateway <gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
@@ -445,8 +445,8 @@ msgstr ""
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service permet à NetworkManager d'utiliser l'ancien VPN IPSec de "
+"nm-vpnc-service permet à NetworkManager d'utiliser l'ancien VPN IPsec de "
 "Cisco."

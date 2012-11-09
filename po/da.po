@@ -70,10 +70,10 @@ msgstr "Cisco-kompatibel VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Kompatibel med forskellige Cisco, Juniper, Netscreen, og Sonicwall IPSec- "
+"Kompatibel med forskellige Cisco, Juniper, Netscreen, og Sonicwall IPsec- "
 "baserede VPN-adgangspunkter."
 
 #: ../properties/nm-vpnc.c:331
@@ -369,8 +369,8 @@ msgstr "Aktiver uddybende fejlsøgningslog (kan vise adgangskoder)"
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service tilbyder integreret Cisco Legacy IPSec VPN-kapabilitet til "
+"nm-vpnc-service tilbyder integreret Cisco Legacy IPsec VPN-kapabilitet til "
 "NetworkManager."

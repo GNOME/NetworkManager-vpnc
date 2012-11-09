@@ -62,9 +62,9 @@ msgstr "Cisco بىلەن ماسلىشىدىغان VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
-msgstr "ھەر خىل Cisco، Juniper، Netscreen، ۋە  Sonicwall IPSec ئاساسىدىكى VPN تور ئۆتكىلى بىلەن ماسلىشىدۇ."
+msgstr "ھەر خىل Cisco، Juniper، Netscreen، ۋە  Sonicwall IPsec ئاساسىدىكى VPN تور ئۆتكىلى بىلەن ماسلىشىدۇ."
 
 #: ../properties/nm-vpnc.c:342
 msgid "Saved"

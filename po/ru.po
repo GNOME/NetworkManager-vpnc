@@ -78,11 +78,11 @@ msgstr "Cisco-совместимая VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:54
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
 "Совместим с различными VPN-шлюзами Cisco, Juniper, Netscreen и Sonicwall на "
-"основе IPSec."
+"основе IPsec."
 
 #: ../properties/nm-vpnc.c:355
 msgid "Saved"
@@ -271,8 +271,8 @@ msgstr "Включить подробный режим отладки (могу�
 
 #: ../src/nm-vpnc-service.c:710
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service позволяет использовать Cisco Legacy IPSec VPN в "
+"nm-vpnc-service позволяет использовать Cisco Legacy IPsec VPN в "
 "NetworkManager."

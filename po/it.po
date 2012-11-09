@@ -78,10 +78,10 @@ msgstr "VPN compatibile con Cisco (vpnc)"
 # NdT 2: SonicWALL è il nome corretto che appare sul sito.
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Compatibile con vari gateway VPN basati su IPSec di Cisco, Juniper, "
+"Compatibile con vari gateway VPN basati su IPsec di Cisco, Juniper, "
 "Netscreen e SonicWALL."
 
 # femminile perché riferito a password
@@ -458,8 +458,8 @@ msgstr "Abilita output prolisso per il debug (potrebbe visualizzare password)"
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
 "nm-vpnc-service fornisce funzionalità integrate a NetworkManager per Cisco "
-"Legacy IPSec VPN."
+"Legacy IPsec VPN."

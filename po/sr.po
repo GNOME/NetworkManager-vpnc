@@ -76,7 +76,7 @@ msgstr "Циско сагласан ВПН (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
 "Сагласно са разним ВПН мрежним пролазима заснованим на Циско, Џанипер, "
@@ -464,7 +464,7 @@ msgstr ""
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
 "нм-впнц-услуга обезбеђује Управнику мреже обједињену Циско Легаси ИПСец ВПН "

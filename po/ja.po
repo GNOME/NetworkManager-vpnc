@@ -66,10 +66,10 @@ msgstr "Cisco 互換 VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Cisco やJuniper、Netscreen、Sonicwall など様々な IPSec ベースの VPN ゲート"
+"Cisco やJuniper、Netscreen、Sonicwall など様々な IPsec ベースの VPN ゲート"
 "ウェイとの互換性"
 
 #: ../properties/nm-vpnc.c:331
@@ -369,10 +369,10 @@ msgstr "詳細なデバッグ情報の保存を有効にする。(パスワー�
 
 #: ../src/nm-vpnc-service.c:737
 msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPSec VPN capability to "
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service は NetworkManager に対して Cisco のレガシー実装の IPSec VPN "
+"nm-vpnc-service は NetworkManager に対して Cisco のレガシー実装の IPsec VPN "
 "との互換性を提供します。"
 
 #~ msgid "_Remember passwords for this session"

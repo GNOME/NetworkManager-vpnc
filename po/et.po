@@ -57,10 +57,10 @@ msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco VPN kliendiga ühilduv (vpnc)"
 
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPSec-based "
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Ühilduv erinevate Cisco, Juniper, Netscreen, ja Sonicwall IPSec seadmetel "
+"Ühilduv erinevate Cisco, Juniper, Netscreen, ja Sonicwall IPsec seadmetel "
 "baseeruvate VPN võrgulüüsidega."
 
 msgid "Saved"
