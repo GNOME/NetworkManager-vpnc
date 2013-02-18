@@ -771,7 +771,10 @@ int main (int argc, char **argv)
 	if (argc != 3)
 		FAIL ("args", "usage: %s <pcf path> <tmp path>", argv[0]);
 
+#if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
+#endif
+
 	bus = dbus_g_bus_get (DBUS_BUS_SESSION, NULL);
 
 	if (!nm_utils_init (&error))

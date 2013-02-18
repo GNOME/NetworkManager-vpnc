@@ -28,6 +28,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <errno.h>
+#include <locale.h>
 #include <dbus/dbus.h>
 #include <dbus/dbus-glib-lowlevel.h>
 #include <dbus/dbus-glib.h>
@@ -320,7 +321,9 @@ main (int argc, char *argv[])
 	guint32 prefix = 0;
 	gboolean netmask_found = FALSE;
 
+#if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
+#endif
 
 	/* vpnc 0.3.3 gives us a "reason" code.  If we are given one,
 	 * don't proceed unless its "connect".
