@@ -1,4 +1,18 @@
 =======================================================
+network-manager-vpnc-0.9.8
+Overview of changes since network-manager-vpnc-0.9.6
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Updated translations
+* Builds against the GNOME 3.8 versions of GLib and Gtk+
+* Added a "local port" setting, for servers that require connections
+  to come from a specific port
+* nm-vpnc-service now returns translated error messages
+
+
+=======================================================
 network-manager-vpnc-0.9.6
 Overview of changes since network-manager-vpnc-0.9.4
 =======================================================
