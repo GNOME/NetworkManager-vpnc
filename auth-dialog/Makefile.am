@@ -4,7 +4,7 @@ libexec_PROGRAMS = nm-vpnc-auth-dialog
 
 nm_vpnc_auth_dialog_CPPFLAGS = \
 	$(NM_CFLAGS) \
-	$(GTHREAD_CFLAGS) \
+	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \

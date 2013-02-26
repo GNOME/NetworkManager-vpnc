@@ -15,6 +15,7 @@ uidir = $(datadir)/gnome-vpn-properties/vpnc
 ui_DATA = nm-vpnc-dialog.ui
 
 libnm_vpnc_properties_la_CPPFLAGS = \
+	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	$(NM_CFLAGS) \
