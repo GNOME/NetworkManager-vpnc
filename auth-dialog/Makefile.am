@@ -6,6 +6,7 @@ nm_vpnc_auth_dialog_CPPFLAGS = \
 	$(NM_CFLAGS) \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
+	$(NMGTK_CFLAGS) \
 	$(GNOMEKEYRING_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DBINDIR=\""$(bindir)"\" \
@@ -15,13 +16,12 @@ nm_vpnc_auth_dialog_CPPFLAGS = \
 	-DVERSION=\"$(VERSION)\"
 
 nm_vpnc_auth_dialog_SOURCES = \
-	main.c \
-	vpn-password-dialog.c \
-	vpn-password-dialog.h
+	main.c
 
 nm_vpnc_auth_dialog_LDADD = \
 	$(GTK_LIBS) \
 	$(NM_LIBS) \
+	$(NMGTK_LIBS) \
 	$(GNOMEKEYRING_LIBS)
 
 @INTLTOOL_DESKTOP_RULE@
