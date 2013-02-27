@@ -7,7 +7,7 @@ nm_vpnc_auth_dialog_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(NMGTK_CFLAGS) \
-	$(GNOMEKEYRING_CFLAGS) \
+	$(LIBSECRET_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DBINDIR=\""$(bindir)"\" \
 	-DG_DISABLE_DEPRECATED \
@@ -22,7 +22,7 @@ nm_vpnc_auth_dialog_LDADD = \
 	$(GTK_LIBS) \
 	$(NM_LIBS) \
 	$(NMGTK_LIBS) \
-	$(GNOMEKEYRING_LIBS)
+	$(LIBSECRET_LIBS)
 
 @INTLTOOL_DESKTOP_RULE@
 desktopdir = $(datadir)/applications

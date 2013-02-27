@@ -38,7 +38,6 @@
 
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
-#include <gnome-keyring-memory.h>
 
 #define NM_VPN_API_SUBJECT_TO_CHANGE
 
