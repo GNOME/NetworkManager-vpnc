@@ -27,7 +27,9 @@ icon_DATA = $(iconfile)
 endif
 
 nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in
-	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' $< >$@
+	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
+	    -e 's|[@]LIBDIR[@]|$(libdir)|g' \
+	    $< >$@
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--with-tests=yes \
