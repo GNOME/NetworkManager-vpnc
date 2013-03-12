@@ -4,6 +4,6 @@ service=org.freedesktop.NetworkManager.vpnc
 program=@LIBEXECDIR@/nm-vpnc-service
 
 [GNOME]
-auth-dialog=nm-vpnc-auth-dialog
-properties=libnm-vpnc-properties
+auth-dialog=@LIBEXECDIR@/nm-vpnc-auth-dialog
+properties=@LIBDIR@/libnm-vpnc-properties
 supports-external-ui-mode=true
