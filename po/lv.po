@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
 "POT-Creation-Date: 2013-04-11 20:57+0000\n"
-"PO-Revision-Date: 2013-04-21 23:06+0300\n"
+"PO-Revision-Date: 2013-04-21 23:42+0300\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -315,7 +315,7 @@ msgstr "Gr_upas parole:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "_Gateway:"
-msgstr "_Vārtejas:"
+msgstr "_Vārteja:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
 msgid "G_roup name:"
