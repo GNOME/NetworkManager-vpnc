@@ -1,4 +1,13 @@
 =======================================================
+network-manager-vpnc-0.9.8.2
+Overview of changes since network-manager-vpnc-0.9.8
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Use full paths for auth dialog and properties plugin
+
+=======================================================
 network-manager-vpnc-0.9.8
 Overview of changes since network-manager-vpnc-0.9.6
 =======================================================
