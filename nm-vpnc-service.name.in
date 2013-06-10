@@ -5,5 +5,5 @@ program=@LIBEXECDIR@/nm-vpnc-service
 
 [GNOME]
 auth-dialog=@LIBEXECDIR@/nm-vpnc-auth-dialog
-properties=@LIBDIR@/libnm-vpnc-properties
+properties=@PLUGINDIR@/libnm-vpnc-properties
 supports-external-ui-mode=true
