@@ -28,7 +28,7 @@ endif
 
 nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
-	    -e 's|[@]LIBDIR[@]|$(libdir)|g' \
+	    -e 's|[@]PLUGINDIR[@]|$(libdir)/NetworkManager|g' \
 	    $< >$@
 
 DISTCHECK_CONFIGURE_FLAGS = \
