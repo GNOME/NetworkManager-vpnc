@@ -21,8 +21,7 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DUIDIR=\""$(uidir)"\" \
 	-DG_DISABLE_DEPRECATED \
-	-DGNOME_DISABLE_DEPRECATED \
-	-DGNOMELOCALEDIR=\"$(datadir)/locale\" \
+	-DLOCALEDIR=\"$(datadir)/locale\" \
 	-DVERSION=\"$(VERSION)\"
 
 libnm_vpnc_properties_la_LIBADD = \
