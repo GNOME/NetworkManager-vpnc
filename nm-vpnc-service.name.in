@@ -7,3 +7,4 @@ program=@LIBEXECDIR@/nm-vpnc-service
 auth-dialog=@LIBEXECDIR@/nm-vpnc-auth-dialog
 properties=@PLUGINDIR@/libnm-vpnc-properties
 supports-external-ui-mode=true
+supports-hints=true
