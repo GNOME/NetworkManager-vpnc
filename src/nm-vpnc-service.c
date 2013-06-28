@@ -29,13 +29,16 @@
 #include <signal.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <sys/ttydefaults.h>
 #include <errno.h>
 #include <locale.h>
 #include <glib/gi18n.h>
 
 #include <nm-setting-vpn.h>
+#include <nm-utils.h>
+
 #include "nm-vpnc-service.h"
-#include "nm-utils.h"
+#include "utils.h"
 
 #if !defined(DIST_VERSION)
 # define DIST_VERSION VERSION
@@ -44,22 +47,37 @@
 static gboolean debug = FALSE;
 static GMainLoop *loop = NULL;
 
+/* TRUE if we can use vpnc's interactive mode (version 0.5.4 or greater)*/
+static gboolean interactive_available = FALSE;
+
 G_DEFINE_TYPE (NMVPNCPlugin, nm_vpnc_plugin, NM_TYPE_VPN_PLUGIN)
+
+typedef struct {
+	int fd;
+	GIOChannel *channel;
+	guint watch;
+	GString *buf;
+	gsize bufend;
+	gboolean error;
+} Pipe;
 
 typedef struct {
 	GPid pid;
 	char *pid_file;
+
+	guint watch_id;
+	gboolean interactive;
+
+	int infd;
+	Pipe out;
+	Pipe err;
+
+	GString *server_message;
+	gboolean server_message_done;
+	const char *pending_auth;
 } NMVPNCPluginPrivate;
 
 #define NM_VPNC_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_VPNC_PLUGIN, NMVPNCPluginPrivate))
-
-static const char *vpnc_binary_paths[] =
-{
-	"/usr/sbin/vpnc",
-	"/sbin/vpnc",
-	"/usr/local/sbin/vpnc",
-	NULL
-};
 
 #define NM_VPNC_HELPER_PATH		LIBEXECDIR"/nm-vpnc-service-vpnc-helper"
 #define NM_VPNC_PID_PATH		LOCALSTATEDIR"/run/NetworkManager"
@@ -226,12 +244,20 @@ nm_vpnc_properties_validate (NMSettingVPN *s_vpn, GError **error)
 }
 
 static gboolean
-nm_vpnc_secrets_validate (NMSettingVPN *s_vpn, GError **error)
+nm_vpnc_secrets_validate (NMSettingVPN *s_vpn,
+                          gboolean allow_missing,
+                          GError **error)
 {
-	ValidateInfo info = { &valid_secrets[0], error, FALSE };
+	GError *validate_error = NULL;
+	ValidateInfo info = { &valid_secrets[0], &validate_error, FALSE };
 
 	nm_setting_vpn_foreach_secret (s_vpn, validate_one_property, &info);
-	if (!info.have_items) {
+	if (validate_error) {
+		g_propagate_error (error, validate_error);
+		return FALSE;
+	}
+
+	if (allow_missing == FALSE && !info.have_items) {
 		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
@@ -240,7 +266,96 @@ nm_vpnc_secrets_validate (NMSettingVPN *s_vpn, GError **error)
 		return FALSE;
 	}
 
-	return *error ? FALSE : TRUE;
+	return TRUE;
+}
+
+static gboolean
+ensure_killed (gpointer data)
+{
+	int pid = GPOINTER_TO_INT (data);
+
+	if (kill (pid, 0) == 0)
+		kill (pid, SIGKILL);
+	waitpid (pid, NULL, 0);
+
+	return FALSE;
+}
+
+static void
+pipe_cleanup (Pipe *pipe)
+{
+	if (pipe->channel) {
+		g_source_remove (pipe->watch);
+		pipe->watch = 0;
+		g_io_channel_shutdown (pipe->channel, FALSE, NULL);
+		g_io_channel_unref (pipe->channel);
+		pipe->channel = NULL;
+	}
+	if (pipe->fd >= 0) {
+		close (pipe->fd);
+		pipe->fd = -1;
+	}
+	if (pipe->buf) {
+		g_string_free (pipe->buf, TRUE);
+		pipe->buf = NULL;
+	}
+}
+
+static void
+pipe_echo_finish (Pipe *pipe)
+{
+	GIOStatus status;
+	gsize bytes_read;
+	char buf[512];
+
+	do {
+		bytes_read = 0;
+		status = g_io_channel_read_chars (pipe->channel,
+		                                  buf,
+		                                  sizeof (buf),
+		                                  &bytes_read,
+		                                  NULL);
+		if (bytes_read) {
+			fprintf (pipe->error ? stderr : stdout, "%.*s", (int) bytes_read, buf);
+			fflush (pipe->error ? stderr : stdout);
+		}
+	} while (status == G_IO_STATUS_NORMAL);
+}
+
+static void
+vpnc_cleanup (NMVPNCPlugin *self, gboolean killit)
+{
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (self);
+
+	if (priv->infd >= 0) {
+		close (priv->infd);
+		priv->infd = -1;
+	}
+
+	pipe_cleanup (&priv->out);
+	pipe_cleanup (&priv->err);
+	g_string_truncate (priv->server_message, 0);
+	priv->server_message_done = FALSE;
+
+	if (priv->watch_id) {
+		g_source_remove (priv->watch_id);
+		priv->watch_id = 0;
+	}
+
+	if (priv->pid) {
+		if (killit) {
+			/* Try giving it some time to disconnect cleanly */
+			if (kill (priv->pid, SIGTERM) == 0)
+				g_timeout_add (2000, ensure_killed, GINT_TO_POINTER (priv->pid));
+			else
+				kill (priv->pid, SIGKILL);
+			g_message ("Terminated vpnc daemon with PID %d.", priv->pid);
+		} else {
+			/* Already quit, just reap the child */
+			waitpid (priv->pid, NULL, WNOHANG);
+		}
+		priv->pid = 0;
+	}
 }
 
 static void
@@ -266,17 +381,23 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 		error = WEXITSTATUS (status);
 		if (error != 0)
 			g_warning ("vpnc exited with error code %d", error);
-	}
-	else if (WIFSTOPPED (status))
+	} else if (WIFSTOPPED (status))
 		g_warning ("vpnc stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
 		g_warning ("vpnc died with signal %d", WTERMSIG (status));
 	else
 		g_warning ("vpnc died from an unknown cause");
 
-	/* Reap child if needed. */
-	waitpid (priv->pid, NULL, WNOHANG);
-	priv->pid = 0;
+	priv->watch_id = 0;
+
+	/* Grab any remaining output, if any */
+	if (priv->out.channel)
+		pipe_echo_finish (&priv->out);
+	if (priv->err.channel)
+		pipe_echo_finish (&priv->err);
+
+	priv->infd = -1;
+	vpnc_cleanup (plugin, FALSE);
 
 	remove_pidfile (plugin);
 
@@ -297,60 +418,238 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 	nm_vpn_plugin_set_state (NM_VPN_PLUGIN (plugin), NM_VPN_SERVICE_STATE_STOPPED);
 }
 
-static gint
-nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
+#define XAUTH_USERNAME_PROMPT "Enter username for "
+#define XAUTH_PASSWORD_PROMPT "Enter password for "
+#define IPSEC_SECRET_PROMPT   "Enter IPSec secret for "
+#define ASYNC_ANSWER_PROMPT   "Answer for VPN "
+#define ASYNC_PASSCODE_PROMPT "Passcode for VPN "
+#define ASYNC_PASSWORD_PROMPT "Password for VPN "
+
+typedef struct {
+	const char *prompt;
+	const char *hint;
+} PromptHintMap;
+
+static const PromptHintMap phmap[] = {
+	/* Username */
+	{ XAUTH_USERNAME_PROMPT, NM_VPNC_KEY_XAUTH_USER },
+
+	/* User password */
+	{ XAUTH_PASSWORD_PROMPT, NM_VPNC_KEY_XAUTH_PASSWORD },
+	{ ASYNC_PASSWORD_PROMPT, NM_VPNC_KEY_XAUTH_PASSWORD },
+
+	/* Group password */
+	{ IPSEC_SECRET_PROMPT,   NM_VPNC_KEY_SECRET },
+
+	/* FIXME: add new secret item for these? */
+	{ ASYNC_ANSWER_PROMPT,   NM_VPNC_KEY_XAUTH_PASSWORD },
+	{ ASYNC_PASSCODE_PROMPT, NM_VPNC_KEY_XAUTH_PASSWORD },
+};
+
+static void
+vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 {
+	NMVPNCPlugin *plugin = NM_VPNC_PLUGIN (user_data);
 	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
-	GPid	pid;
-	const char **vpnc_binary = NULL;
-	GPtrArray *vpnc_argv;
-	GSource *vpnc_watch;
-	gint	stdin_fd;
+	const char *hints[2] = { NULL, NULL };
+	char *prompt;
+	guint i;
+
+	g_warn_if_fail (priv->pending_auth == NULL);
+	priv->pending_auth = NULL;
+
+	prompt = g_strndup (data, dlen);
+	g_debug ("vpnc requested input: '%s'", prompt);
+	for (i = 0; i < G_N_ELEMENTS (phmap); i++) {
+		if (g_str_has_prefix (prompt, phmap[i].prompt)) {
+			hints[0] = phmap[i].hint;
+			break;
+		}
+	}
+
+	if (!hints[0]) {
+		g_warning ("Unhandled vpnc request '%s'", prompt);
+		g_free (prompt);
+
+		nm_vpn_plugin_failure (NM_VPN_PLUGIN (plugin), NM_VPN_PLUGIN_FAILURE_LOGIN_FAILED);
+		nm_vpn_plugin_set_state (NM_VPN_PLUGIN (plugin), NM_VPN_SERVICE_STATE_STOPPED);
+		return;
+	}
+
+	if (debug) {
+		char *joined = g_strjoinv (",", (char **) hints);
+		g_message ("Requesting new secrets: '%s' (%s)", prompt, joined);
+		g_free (joined);
+	}
+
+	nm_vpn_plugin_secrets_required (NM_VPN_PLUGIN (plugin),
+	                                priv->server_message->len ? priv->server_message->str : prompt,
+	                                (const char **) hints);
+	g_string_truncate (priv->server_message, 0);
+	g_free (prompt);
+
+	priv->pending_auth = hints[0];
+}
+
+static gboolean
+data_available (GIOChannel *source,
+                GIOCondition condition,
+                gpointer data)
+{
+	NMVPNCPlugin *plugin = NM_VPNC_PLUGIN (data);
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
+	GError *error = NULL;
+	Pipe *pipe;
+	gsize bytes_read = 0;
+	GIOStatus status;
+
+	if (condition & G_IO_ERR) {
+		g_warning ("Unexpected vpnc pipe error");
+		return TRUE;
+	}
+
+	/* Figure out which pipe we're using */
+	if (source == priv->out.channel)
+		pipe = &priv->out;
+	else if (source == priv->err.channel)
+		pipe = &priv->err;
+	else
+		g_assert_not_reached ();
+
+	do {
+		gsize consumed = 0;
+		char buf[512];
+
+		status = g_io_channel_read_chars (source,
+		                                  buf,
+		                                  sizeof (buf),
+		                                  &bytes_read,
+		                                  &error);
+		if (status == G_IO_STATUS_ERROR) {
+			if (error)
+				g_warning ("vpnc read error: %s", error->message);
+			g_clear_error (&error);
+		}
+
+		if (bytes_read) {
+			g_string_append_len (pipe->buf, buf, bytes_read);
+
+			do {
+				consumed = utils_handle_output (pipe->buf,
+				                                priv->server_message,
+				                                &priv->server_message_done,
+				                                vpnc_prompt,
+				                                plugin);
+				if (consumed) {
+					/* Log all output to the console */
+					fprintf (pipe->error ? stderr : stdout, "%.*s", (int) consumed, pipe->buf->str);
+					fflush (pipe->error ? stderr : stdout);
+
+					/* If output was handled, clear the buffer */
+					g_string_erase (pipe->buf, 0, consumed);
+				}
+			} while (consumed);
+		}
+	} while (bytes_read);
+
+	return TRUE;
+}
+
+static void
+pipe_setup (Pipe *pipe, gboolean is_stderr, gpointer user_data)
+{
+	GIOFlags flags = 0;
+
+	pipe->error = is_stderr;
+	pipe->buf = g_string_sized_new (512);
+
+	pipe->channel = g_io_channel_unix_new (pipe->fd);
+	g_io_channel_set_encoding (pipe->channel, NULL, NULL);
+	flags = g_io_channel_get_flags (pipe->channel);
+	g_io_channel_set_flags (pipe->channel, flags | G_IO_FLAG_NONBLOCK, NULL);
+	g_io_channel_set_buffered (pipe->channel, FALSE);
+
+	pipe->watch = g_io_add_watch (pipe->channel,
+	                              G_IO_IN | G_IO_ERR | G_IO_PRI,
+	                              data_available,
+	                              user_data);
+}
+
+static const char *
+find_vpnc (void)
+{
+	static const char *vpnc_paths[] = {
+		"/usr/sbin/vpnc",
+		"/sbin/vpnc",
+		"/usr/local/sbin/vpnc",
+		NULL
+	};
+	guint i;
 
 	/* Find vpnc */
-	vpnc_binary = vpnc_binary_paths;
-	while (*vpnc_binary != NULL) {
-		if (g_file_test (*vpnc_binary, G_FILE_TEST_EXISTS))
-			break;
-		vpnc_binary++;
+	for (i = 0; vpnc_paths[i]; i++) {
+		if (g_file_test (vpnc_paths[i], G_FILE_TEST_EXISTS))
+			return vpnc_paths[i];
+	}
+	return NULL;
+}
+
+static gboolean
+nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **error)
+{
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
+	const char *vpnc_path;
+	const char *args[10];
+	guint i = 0;
+	char *pwhelper_args = NULL;
+
+	g_return_val_if_fail (priv->pid == 0, FALSE);
+	g_return_val_if_fail (priv->infd == -1, FALSE);
+	g_return_val_if_fail (priv->out.fd == -1, FALSE);
+	g_return_val_if_fail (priv->err.fd == -1, FALSE);
+
+	vpnc_path = find_vpnc ();
+	if (!vpnc_path) {
+		g_set_error_literal (error,
+		                     NM_VPN_PLUGIN_ERROR,
+		                     NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
+		                     _("Could not find vpnc binary."));
+		return FALSE;
 	}
 
-	if (!*vpnc_binary) {
-		g_set_error (error,
-		             NM_VPN_PLUGIN_ERROR,
-		             NM_VPN_PLUGIN_ERROR_LAUNCH_FAILED,
-		             "%s",
-		             _("Could not find vpnc binary."));
-		return -1;
-	}
-
-	vpnc_argv = g_ptr_array_new ();
-	g_ptr_array_add (vpnc_argv, (gpointer) (*vpnc_binary));
-	g_ptr_array_add (vpnc_argv, (gpointer) "--non-inter");
-	g_ptr_array_add (vpnc_argv, (gpointer) "--no-detach");
-	g_ptr_array_add (vpnc_argv, (gpointer) "--pid-file");
-	g_ptr_array_add (vpnc_argv, (gpointer) priv->pid_file);
-	g_ptr_array_add (vpnc_argv, (gpointer) "-");
-	g_ptr_array_add (vpnc_argv, NULL);
-
-	if (!g_spawn_async_with_pipes (NULL, (char **) vpnc_argv->pdata, NULL,
-							 G_SPAWN_DO_NOT_REAP_CHILD, NULL, NULL, &pid, &stdin_fd,
-							 NULL, NULL, error)) {
-		g_ptr_array_free (vpnc_argv, TRUE);
+	args[i++] = vpnc_path;
+	args[i++] = "--no-detach";
+	args[i++] = "--pid-file";
+	args[i++] = priv->pid_file;
+	if (!interactive)
+		args[i++] = "--non-inter";
+	args[i++] = "-";
+	args[i++] = NULL;
+	if (!g_spawn_async_with_pipes (NULL,
+	                               (char **) args,
+	                               NULL,
+	                               G_SPAWN_DO_NOT_REAP_CHILD,
+	                               NULL,
+	                               NULL,
+	                               &priv->pid,
+	                               &priv->infd,
+	                               interactive ? &priv->out.fd : NULL,
+	                               interactive ? &priv->err.fd : NULL,
+	                               error)) {
 		g_warning ("vpnc failed to start.  error: '%s'", (*error)->message);
-		return -1;
+		return FALSE;
 	}
-	g_ptr_array_free (vpnc_argv, TRUE);
+	g_message ("vpnc started with pid %d", priv->pid);
 
-	g_message ("vpnc started with pid %d", pid);
+	priv->watch_id = g_child_watch_add (priv->pid, vpnc_watch_cb, plugin);
 
-	NM_VPNC_PLUGIN_GET_PRIVATE (plugin)->pid = pid;
-	vpnc_watch = g_child_watch_source_new (pid);
-	g_source_set_callback (vpnc_watch, (GSourceFunc) vpnc_watch_cb, plugin, NULL);
-	g_source_attach (vpnc_watch, NULL);
-	g_source_unref (vpnc_watch);
-
-	return stdin_fd;
+	if (interactive) {
+		/* Watch stdout and stderr */
+		pipe_setup (&priv->out, FALSE, plugin);
+		pipe_setup (&priv->err, TRUE, plugin);
+	}
+	g_free (pwhelper_args);
+	return TRUE;
 }
 
 static inline void
@@ -547,41 +846,131 @@ nm_vpnc_config_write (gint vpnc_fd,
 }
 
 static gboolean
-real_connect (NMVPNPlugin   *plugin,
-              NMConnection  *connection,
-              GError       **error)
+_connect_common (NMVPNPlugin   *plugin,
+                 gboolean       interactive,
+                 NMConnection  *connection,
+                 GHashTable    *details,
+                 GError       **error)
 {
 	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingVPN *s_vpn;
-	gint vpnc_fd = -1;
-	gboolean success = FALSE;
+	char end[] = { 0x04 };
 
-	s_vpn = NM_SETTING_VPN (nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN));
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
 
 	if (!nm_vpnc_properties_validate (s_vpn, error))
 		goto out;
-	if (!nm_vpnc_secrets_validate (s_vpn, error))
+
+	if (!nm_vpnc_secrets_validate (s_vpn, interactive, error))
 		goto out;
 
 	priv->pid_file = g_strdup_printf (NM_VPNC_PID_PATH "/nm-vpnc-%s.pid", nm_connection_get_uuid (connection));
 
-	vpnc_fd = nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), error);
-	if (vpnc_fd < 0)
+	if (!nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), interactive, error))
 		goto out;
 
 	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
 
-	if (!nm_vpnc_config_write (vpnc_fd, s_vpn, error))
+	if (!nm_vpnc_config_write (priv->infd, s_vpn, error))
 		goto out;
 
-	success = TRUE;
+	if (interactive)
+		write (priv->infd, &end, sizeof (end));
+	else {
+		close (priv->infd);
+		priv->infd = -1;
+	}
+
+	return TRUE;
 
 out:
-	if (vpnc_fd >= 0)
-		close (vpnc_fd);
-	return success;
+	vpnc_cleanup (NM_VPNC_PLUGIN (plugin), TRUE);
+	return FALSE;
+}
+
+static gboolean
+real_connect (NMVPNPlugin   *plugin,
+              NMConnection  *connection,
+              GError       **error)
+{
+	return _connect_common (plugin, FALSE, connection, NULL, error);
+}
+
+static gboolean
+real_connect_interactive (NMVPNPlugin   *plugin,
+                          NMConnection  *connection,
+                          GHashTable    *details,
+                          GError       **error)
+{
+	if (!interactive_available) {
+		g_set_error_literal (error,
+		                     NM_VPN_PLUGIN_ERROR,
+		                     NM_VPN_PLUGIN_ERROR_INTERACTIVE_NOT_SUPPORTED,
+		                     _("vpnc does not support interactive requests"));
+		return FALSE;
+	}
+
+	if (!_connect_common (plugin, TRUE, connection, details, error))
+		return FALSE;
+
+	NM_VPNC_PLUGIN_GET_PRIVATE (plugin)->interactive = TRUE;
+	return TRUE;
+}
+
+static gboolean
+real_new_secrets (NMVPNPlugin *plugin,
+                  NMConnection *connection,
+                  GError **error)
+{
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
+	NMSettingVPN *s_vpn;
+	const char *secret;
+
+	if (!interactive_available || !priv->interactive) {
+		g_set_error_literal (error,
+		                     NM_VPN_PLUGIN_ERROR,
+		                     NM_VPN_PLUGIN_ERROR_GENERAL,
+		                     _("Could not use new secrets as interactive mode is disabled."));
+		return FALSE;
+	}
+
+	s_vpn = nm_connection_get_setting_vpn (connection);
+	if (!s_vpn) {
+		g_set_error_literal (error,
+		                     NM_VPN_PLUGIN_ERROR,
+		                     NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
+		                     _("Could not process the request because the VPN connection settings were invalid."));
+		return FALSE;
+	}
+
+	if (!priv->pending_auth) {
+		g_set_error_literal (error,
+		                     NM_VPN_PLUGIN_ERROR,
+		                     NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
+		                     _("Could not process the request because no pending authentication is required."));
+		return FALSE;
+	}
+
+	if (debug)
+		g_message ("VPN received new secrets; sending to '%s' vpnc stdin", priv->pending_auth);
+
+	secret = nm_setting_vpn_get_secret (s_vpn, priv->pending_auth);
+	if (!secret) {
+		g_set_error (error,
+		             NM_VPN_PLUGIN_ERROR,
+		             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
+		             _("Could not process the request because the requested info '%s' was not provided."),
+		             priv->pending_auth);
+		return FALSE;
+	}
+
+	/* Ignoring secret flags here; if vpnc requested the item, we must provide it */
+	write_config_option (priv->infd, "%s\n", secret);
+
+	priv->pending_auth = NULL;
+	return TRUE;
 }
 
 static NMSettingSecretFlags
@@ -651,38 +1040,21 @@ real_need_secrets (NMVPNPlugin *plugin,
 }
 
 static gboolean
-ensure_killed (gpointer data)
+real_disconnect (NMVPNPlugin *plugin, GError **error)
 {
-	int pid = GPOINTER_TO_INT (data);
-
-	if (kill (pid, 0) == 0)
-		kill (pid, SIGKILL);
-
-	return FALSE;
-}
-
-static gboolean
-real_disconnect (NMVPNPlugin   *plugin,
-			  GError       **err)
-{
-	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
-
-	if (priv->pid) {
-		if (kill (priv->pid, SIGTERM) == 0)
-			g_timeout_add (2000, ensure_killed, GINT_TO_POINTER (priv->pid));
-		else
-			kill (priv->pid, SIGKILL);
-
-		g_message ("Terminated vpnc daemon with PID %d.", priv->pid);
-		priv->pid = 0;
-	}
-
+	vpnc_cleanup (NM_VPNC_PLUGIN (plugin), TRUE);
 	return TRUE;
 }
 
 static void
 nm_vpnc_plugin_init (NMVPNCPlugin *plugin)
 {
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
+
+	priv->infd = -1;
+	priv->out.fd = -1;
+	priv->err.fd = -1;
+	priv->server_message = g_string_sized_new (30);
 }
 
 static void
@@ -694,9 +1066,11 @@ nm_vpnc_plugin_class_init (NMVPNCPluginClass *vpnc_class)
 	g_type_class_add_private (object_class, sizeof (NMVPNCPluginPrivate));
 
 	/* virtual methods */
-	parent_class->connect    = real_connect;
+	parent_class->connect = real_connect;
+	parent_class->connect_interactive = real_connect_interactive;
 	parent_class->need_secrets = real_need_secrets;
 	parent_class->disconnect = real_disconnect;
+	parent_class->new_secrets = real_new_secrets;
 }
 
 NMVPNCPlugin *
@@ -734,12 +1108,89 @@ quit_mainloop (NMVPNCPlugin *plugin, gpointer user_data)
 	g_main_loop_quit ((GMainLoop *) user_data);
 }
 
+
+#define VPNC_VERSION_STR "vpnc version "
+
+static char *
+vpnc_check_version (void)
+{
+	const char *vpnc_path;
+	const char *argv[3];
+	GError *error = NULL;
+	char *output = NULL, *p, *j;
+	char **lines = NULL, **iter, **versions = NULL;
+	char *version = NULL;
+
+	vpnc_path = find_vpnc ();
+	if (!vpnc_path) {
+		g_warning ("Failed to find vpnc for version check");
+		return NULL;
+	}
+
+	argv[0] = vpnc_path;
+	argv[1] = "--version";
+	argv[2] = NULL;
+	if (!g_spawn_sync ("/", (char **) argv, NULL, G_SPAWN_STDERR_TO_DEV_NULL, NULL, NULL, &output, NULL, NULL, &error)) {
+		g_warning ("Failed to start vpnc for version check: %s", error->message);
+		g_error_free (error);
+		return NULL;
+	}
+
+	/* look for a version higher than 0.5.3 */
+	lines = g_strsplit (output, "\n", -1);
+	for (iter = lines; iter && *iter; iter++) {
+		if (g_str_has_prefix (*iter, VPNC_VERSION_STR)) {
+			long int num;
+
+			j = p = *iter + strlen (VPNC_VERSION_STR);
+			/* Stop at the first non-number or non-dot */
+			while (*j && (g_ascii_isdigit (*j) || *j == '.'))
+				j++;
+			*j = '\0';
+			version = g_strdup (p);
+
+			versions = g_strsplit (p, ".", -1);
+			if (!versions || g_strv_length (versions) < 3)
+				break;
+
+			/* Fail if major version < 0 */
+			errno = 0;
+			num = strtol (versions[0], NULL, 10);
+			if (errno || num < 0 || num > 1000)
+				break;
+
+			/* Fail if minor version < 5 */
+			errno = 0;
+			num = strtol (versions[1], NULL, 10);
+			if (errno || num < 5 || num > 1000)
+				break;
+
+			/* Fail if micro version < 4 */
+			errno = 0;
+			num = strtol (versions[2], NULL, 10);
+			if (errno || num < 3 || num > 1000)
+				break;
+
+			interactive_available = TRUE;
+			break;
+		}
+	}
+
+	if (versions)
+		g_strfreev (versions);
+	if (lines)
+		g_strfreev (lines);
+	g_free (output);
+	return version;
+}
+
 int
 main (int argc, char *argv[])
 {
 	NMVPNCPlugin *plugin;
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
+	char *version;
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
@@ -771,11 +1222,16 @@ main (int argc, char *argv[])
 	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
 	g_option_context_free (opt_ctx);
 
+	version = vpnc_check_version ();
+
 	if (getenv ("VPNC_DEBUG"))
 		debug = TRUE;
 
-	if (debug)
+	if (debug) {
 		g_message ("nm-vpnc-service (version " DIST_VERSION ") starting...");
+		g_message ("   vpnc version '%s'", version ? version : "(unknown)");
+		g_message ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
+	}
 
 	if (system ("/sbin/modprobe tun") == -1)
 		exit (EXIT_FAILURE);
@@ -799,6 +1255,7 @@ main (int argc, char *argv[])
 
 	g_main_loop_unref (loop);
 	g_object_unref (plugin);
+	g_free (version);
 
 	exit (EXIT_SUCCESS);
 }
