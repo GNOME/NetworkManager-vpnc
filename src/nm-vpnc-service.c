@@ -48,6 +48,7 @@ G_DEFINE_TYPE (NMVPNCPlugin, nm_vpnc_plugin, NM_TYPE_VPN_PLUGIN)
 
 typedef struct {
 	GPid pid;
+	char *pid_file;
 } NMVPNCPluginPrivate;
 
 #define NM_VPNC_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_VPNC_PLUGIN, NMVPNCPluginPrivate))
@@ -61,6 +62,7 @@ static const char *vpnc_binary_paths[] =
 };
 
 #define NM_VPNC_HELPER_PATH		LIBEXECDIR"/nm-vpnc-service-vpnc-helper"
+#define NM_VPNC_PID_PATH		LOCALSTATEDIR"/run/NetworkManager"
 #define NM_VPNC_UDP_ENCAPSULATION_PORT	0 /* random port */
 #define NM_VPNC_LOCAL_PORT_ISAKMP	0 /* random port */
 
@@ -242,6 +244,18 @@ nm_vpnc_secrets_validate (NMSettingVPN *s_vpn, GError **error)
 }
 
 static void
+remove_pidfile (NMVPNCPlugin *plugin)
+{
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
+
+	if (priv->pid_file) {
+		unlink (priv->pid_file);
+		g_free (priv->pid_file);
+		priv->pid_file = NULL;
+	}
+}
+
+static void
 vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 {
 	NMVPNCPlugin *plugin = NM_VPNC_PLUGIN (user_data);
@@ -264,6 +278,8 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 	waitpid (priv->pid, NULL, WNOHANG);
 	priv->pid = 0;
 
+	remove_pidfile (plugin);
+
 	/* Must be after data->state is set since signals use data->state */
 	switch (error) {
 	case 2:
@@ -284,11 +300,13 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 static gint
 nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 {
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
 	GPid	pid;
 	const char **vpnc_binary = NULL;
 	GPtrArray *vpnc_argv;
 	GSource *vpnc_watch;
 	gint	stdin_fd;
+	char *pid_arg;
 
 	/* Find vpnc */
 	vpnc_binary = vpnc_binary_paths;
@@ -307,10 +325,13 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 		return -1;
 	}
 
+	pid_arg = g_strdup_printf ("--pid-file %s", priv->pid_file);
+
 	vpnc_argv = g_ptr_array_new ();
 	g_ptr_array_add (vpnc_argv, (gpointer) (*vpnc_binary));
 	g_ptr_array_add (vpnc_argv, (gpointer) "--non-inter");
 	g_ptr_array_add (vpnc_argv, (gpointer) "--no-detach");
+	g_ptr_array_add (vpnc_argv, (gpointer) pid_arg);
 	g_ptr_array_add (vpnc_argv, (gpointer) "-");
 	g_ptr_array_add (vpnc_argv, NULL);
 
@@ -318,10 +339,12 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 							 G_SPAWN_DO_NOT_REAP_CHILD, NULL, NULL, &pid, &stdin_fd,
 							 NULL, NULL, error)) {
 		g_ptr_array_free (vpnc_argv, TRUE);
+		g_free (pid_arg);
 		g_warning ("vpnc failed to start.  error: '%s'", (*error)->message);
 		return -1;
 	}
 	g_ptr_array_free (vpnc_argv, TRUE);
+	g_free (pid_arg);
 
 	g_message ("vpnc started with pid %d", pid);
 
@@ -532,6 +555,7 @@ real_connect (NMVPNPlugin   *plugin,
               NMConnection  *connection,
               GError       **error)
 {
+	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingVPN *s_vpn;
 	gint vpnc_fd = -1;
 	gboolean success = FALSE;
@@ -547,6 +571,8 @@ real_connect (NMVPNPlugin   *plugin,
 	vpnc_fd = nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), error);
 	if (vpnc_fd < 0)
 		goto out;
+
+	priv->pid_file = g_strdup_printf (NM_VPNC_PID_PATH "/nm-vpnc-%s.pid", nm_connection_get_uuid (connection));
 
 	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
@@ -769,6 +795,8 @@ main (int argc, char *argv[])
 
 	setup_signals ();
 	g_main_loop_run (loop);
+
+	remove_pidfile (plugin);
 
 	g_main_loop_unref (loop);
 	g_object_unref (plugin);
