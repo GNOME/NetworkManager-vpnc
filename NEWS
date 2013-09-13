@@ -1,3 +1,15 @@
+=========================================================
+network-manager-vpnc-0.9.8.4
+Overview of changes since network-manager-vpnc-0.9.8.2
+=========================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Updated translations
+* Fixed paths in VPN service file
+* Fixed localization in non-UTF-8 locales
+* Use /var/run/NetworkManager to store vpnc pid file
+
 =======================================================
 network-manager-vpnc-0.9.8.2
 Overview of changes since network-manager-vpnc-0.9.8
