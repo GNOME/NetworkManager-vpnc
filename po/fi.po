@@ -4,56 +4,42 @@
 # Suomennos: http://gnome.fi/
 #
 # Ilkka Tuohela <hile@iki.fi>, 2006-2008.
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2012-07-17 14:38+0000\n"
-"PO-Revision-Date: 2012-09-13 00:30+0300\n"
-"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2013-08-12 21:22+0000\n"
+"PO-Revision-Date: 2013-09-22 19:41+0300\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
+"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
-#: ../auth-dialog/vpn-password-dialog.c:96
-msgid "_Secondary Password:"
-msgstr "_Toissijainen salasana:"
-
-#: ../auth-dialog/vpn-password-dialog.c:152
-msgid "_Password:"
-msgstr "_Salasana:"
-
-#: ../auth-dialog/vpn-password-dialog.c:238
-#| msgid "Sho_w passwords"
-msgid "Sh_ow passwords"
-msgstr "_Näytä salasanat"
-
-#: ../auth-dialog/main.c:185
+#: ../auth-dialog/main.c:195
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Yhteydenotto VPN-verkkoon \"%s\" vaatii kirjautumista."
 
-#: ../auth-dialog/main.c:194 ../auth-dialog/main.c:214
+#: ../auth-dialog/main.c:204 ../auth-dialog/main.c:224
 msgid "Authenticate VPN"
 msgstr "Todenna VPN-yhteyden avaus"
 
-#: ../auth-dialog/main.c:197
-#| msgid "_Password:"
+#: ../auth-dialog/main.c:207
 msgid "Password:"
 msgstr "Salasana:"
 
-#: ../auth-dialog/main.c:199
-#| msgid "_Group Password:"
+#: ../auth-dialog/main.c:209
 msgid "Group Password:"
 msgstr "Ryhmän salasana:"
 
-#: ../auth-dialog/main.c:216
+#: ../auth-dialog/main.c:226
 msgid "_Group Password:"
 msgstr "_Ryhmän salasana:"
 
@@ -73,11 +59,11 @@ msgstr "VPN-yhteysohjelmisto (vpnc)"
 msgid "Add, Remove, and Edit VPN Connections"
 msgstr "Lisää, poista tai muokkaa VPN-yhteyksiä"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:53
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-yhteensopiva VPN-asiakas (vpnc)"
 
-#: ../properties/nm-vpnc.c:55
+#: ../properties/nm-vpnc.c:54
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -85,96 +71,91 @@ msgstr ""
 "Yhteensopiva useiden esimerkiksi Ciscon, Juniperin, Netscreenin ja "
 "Sonicwallin valmistamien IPsec-pohjaisten VPN-yhdyskäytävien kanssa."
 
-#: ../properties/nm-vpnc.c:331
+#: ../properties/nm-vpnc.c:338
 msgid "Saved"
 msgstr "Tallennettu"
 
-#: ../properties/nm-vpnc.c:338
+#: ../properties/nm-vpnc.c:345
 msgid "Always Ask"
 msgstr "Kysy aina"
 
-#: ../properties/nm-vpnc.c:345
+#: ../properties/nm-vpnc.c:352
 msgid "Not Required"
 msgstr "Ei vaadittu"
 
-#: ../properties/nm-vpnc.c:494
+#: ../properties/nm-vpnc.c:501
 msgid "Secure (default)"
 msgstr "Turvallinen (oletus)"
 
-#: ../properties/nm-vpnc.c:497
+#: ../properties/nm-vpnc.c:504
 msgid "Weak (use with caution)"
 msgstr "Heikko (käytä varoen)"
 
-#: ../properties/nm-vpnc.c:505
+#: ../properties/nm-vpnc.c:512
 msgid "None (completely insecure)"
 msgstr "Ei salausta (täysin turvaton)"
 
-#: ../properties/nm-vpnc.c:571
-#| msgid "Cisco UDP (default)"
+#: ../properties/nm-vpnc.c:578
 msgid "Cisco (default)"
 msgstr "Cisco (oletus)"
 
-#: ../properties/nm-vpnc.c:578
+#: ../properties/nm-vpnc.c:585
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:609
-#| msgid "NAT-T (default)"
+#: ../properties/nm-vpnc.c:616
 msgid "NAT-T when available (default)"
 msgstr "NAT-T kun käytettävissä (oletus)"
 
-#: ../properties/nm-vpnc.c:616
+#: ../properties/nm-vpnc.c:623
 msgid "NAT-T always"
 msgstr "NAT-T aina"
 
-#: ../properties/nm-vpnc.c:623
-#| msgid "Cisco UDP (default)"
+#: ../properties/nm-vpnc.c:630
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:630
+#: ../properties/nm-vpnc.c:637
 msgid "Disabled"
 msgstr "Ei käytössä"
 
-#: ../properties/nm-vpnc.c:650 ../properties/nm-vpnc.c:717
+#: ../properties/nm-vpnc.c:657 ../properties/nm-vpnc.c:743
 msgid "DH Group 1"
 msgstr "DH-ryhmä 1"
 
-#: ../properties/nm-vpnc.c:657
-#| msgid "Cisco UDP (default)"
+#: ../properties/nm-vpnc.c:664
 msgid "DH Group 2 (default)"
 msgstr "DH-ryhmä 2 (oletus)"
 
-#: ../properties/nm-vpnc.c:664 ../properties/nm-vpnc.c:731
+#: ../properties/nm-vpnc.c:671 ../properties/nm-vpnc.c:757
 msgid "DH Group 5"
 msgstr "DH-ryhmä 5"
 
-#: ../properties/nm-vpnc.c:703
-#| msgid "Secure (default)"
+#: ../properties/nm-vpnc.c:729
 msgid "Server (default)"
 msgstr "Palvelin (oletus)"
 
-#: ../properties/nm-vpnc.c:710
+#: ../properties/nm-vpnc.c:736
 msgid "None"
 msgstr "Ei mitään"
 
-#: ../properties/nm-vpnc.c:724
+#: ../properties/nm-vpnc.c:750
 msgid "DH Group 2"
 msgstr "DH-ryhmä 2"
 
-#: ../properties/nm-vpnc.c:771
+#: ../properties/nm-vpnc.c:797
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Valitse CA-varmenne..."
 
-#: ../properties/nm-vpnc.c:775
+#: ../properties/nm-vpnc.c:801
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM-varmenteet (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1499
+#: ../properties/nm-vpnc.c:1521
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnelointi ei ole tuettu"
 
-#: ../properties/nm-vpnc.c:1501
+#: ../properties/nm-vpnc.c:1523
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -209,7 +190,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Vendor:"
-msgstr ""
+msgstr "_Toimittaja:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid ""
@@ -273,164 +254,185 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Local port:"
+msgstr "_Paikallinen portti:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid "Disable Dead _Peer Detection"
 msgstr "Älä havaitse vastapään katoamista"
 
-#: ../properties/nm-vpnc-dialog.ui.h:26
+#: ../properties/nm-vpnc-dialog.ui.h:29
 msgid ""
 "Disable sending DPD packets (sets timeout to 0)\n"
 "config: DPD idle timeout (our side) 0"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:28
-#| msgid "<b>General</b>"
+#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid "General"
 msgstr "Yleiset"
 
-#: ../properties/nm-vpnc-dialog.ui.h:29
+#: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "Sho_w passwords"
 msgstr "N_äytä salasanat"
 
-#: ../properties/nm-vpnc-dialog.ui.h:30
+#: ../properties/nm-vpnc-dialog.ui.h:33
 msgid ""
 "Group password\n"
 "config: IPSec secret <group_password>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:32
+#: ../properties/nm-vpnc-dialog.ui.h:35
 msgid "Gro_up password:"
 msgstr "_Ryhmän salasana:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:33
+#: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "_Gateway:"
 msgstr "_Yhdyskäytävä:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:34
+#: ../properties/nm-vpnc-dialog.ui.h:37
 msgid "G_roup name:"
 msgstr "_Ryhmän nimi:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:35
+#: ../properties/nm-vpnc-dialog.ui.h:38
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:37
+#: ../properties/nm-vpnc-dialog.ui.h:40
 msgid ""
 "Group name\n"
 "config: IPSec ID <group_name>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:39
+#: ../properties/nm-vpnc-dialog.ui.h:42
 msgid "User _password:"
 msgstr "_Käyttäjän salasana:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:40
+#: ../properties/nm-vpnc-dialog.ui.h:43
 msgid ""
 "User password for the connection\n"
 "config: Xauth password <password>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:42
+#: ../properties/nm-vpnc-dialog.ui.h:45
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:44
+#: ../properties/nm-vpnc-dialog.ui.h:47
 msgid "User na_me:"
 msgstr "Käyttäjätunnus:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:45
+#: ../properties/nm-vpnc-dialog.ui.h:48
 msgid "Use _hybrid authentication"
-msgstr ""
+msgstr "Käytä _hybriditunnistautumista"
 
-#: ../properties/nm-vpnc-dialog.ui.h:46
+#: ../properties/nm-vpnc-dialog.ui.h:49
 msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password.\n"
 "config: IKE Authmode hybrid"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:48
+#: ../properties/nm-vpnc-dialog.ui.h:51
 msgid "CA _File:"
 msgstr "_CA-tiedosto:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:49
+#: ../properties/nm-vpnc-dialog.ui.h:52
 msgid ""
 "CA certificate in PEM format\n"
 "config: CA-File"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:51
+#: ../properties/nm-vpnc-dialog.ui.h:54
 msgid "Advance_d..."
 msgstr "_Lisäasetukset..."
 
-#: ../src/nm-vpnc-service.c:152
+#: ../src/nm-vpnc-service.c:155
 #, c-format
 msgid "property '%s' invalid or not supported"
-msgstr ""
+msgstr "ominaisuus \"%s\" on virheellinen tai se ei ole tuettu"
 
-#: ../src/nm-vpnc-service.c:171
+#: ../src/nm-vpnc-service.c:174
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:184
+#: ../src/nm-vpnc-service.c:187
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:194
+#: ../src/nm-vpnc-service.c:197
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:201
+#: ../src/nm-vpnc-service.c:204
 #, c-format
 msgid "unhandled property '%s' type %d"
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:218
+#: ../src/nm-vpnc-service.c:221
 msgid "No VPN configuration options."
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:236
+#: ../src/nm-vpnc-service.c:239
 msgid "No VPN secrets!"
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:305
+#: ../src/nm-vpnc-service.c:324
 msgid "Could not find vpnc binary."
-msgstr ""
+msgstr "vpnc-binääriä ei löytynyt."
 
-#: ../src/nm-vpnc-service.c:397
+#: ../src/nm-vpnc-service.c:421
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:430
+#: ../src/nm-vpnc-service.c:454
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:607
+#: ../src/nm-vpnc-service.c:634
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr ""
+"Pyynnön käsittely ei onnistunut, koska VPN-yhteyden asetukset ovat "
+"virheelliset."
 
-#: ../src/nm-vpnc-service.c:722
+#: ../src/nm-vpnc-service.c:749
 msgid "Don't quit when VPN connection terminates"
 msgstr "Älä lopeta VPN-yhteyden päättyessä"
 
-#: ../src/nm-vpnc-service.c:723
+#: ../src/nm-vpnc-service.c:750
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:737
+#: ../src/nm-vpnc-service.c:773
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "_Toissijainen salasana:"
+
+#~ msgid "_Password:"
+#~ msgstr "_Salasana:"
+
+#~| msgid "Sho_w passwords"
+#~ msgid "Sh_ow passwords"
+#~ msgstr "_Näytä salasanat"
 
 #~ msgid "_Username:"
 #~ msgstr "_Käyttäjätunnus:"
