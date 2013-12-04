@@ -203,10 +203,8 @@ get_secrets (const char *vpn_uuid,
 		g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Description", prompt);
 		g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Title", _("Authenticate VPN"));
 
-		if (need_upw)
-			keyfile_add_entry_info (keyfile, NM_VPNC_KEY_XAUTH_PASSWORD, upw ? upw : "", _("Password:"), TRUE, allow_interaction);
-		if (need_gpw)
-			keyfile_add_entry_info (keyfile, NM_VPNC_KEY_SECRET, gpw ? gpw : "", _("Group Password:"), TRUE, allow_interaction);
+		keyfile_add_entry_info (keyfile, NM_VPNC_KEY_XAUTH_PASSWORD, upw ? upw : "", _("Password:"), TRUE, need_upw && allow_interaction);
+		keyfile_add_entry_info (keyfile, NM_VPNC_KEY_SECRET, gpw ? gpw : "", _("Group Password:"), TRUE, need_gpw && allow_interaction);
 
 		keyfile_print_stdout (keyfile);
 		g_key_file_unref (keyfile);
