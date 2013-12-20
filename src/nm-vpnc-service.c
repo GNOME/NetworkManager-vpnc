@@ -788,6 +788,9 @@ main (int argc, char *argv[])
 	if (!plugin)
 		exit (EXIT_FAILURE);
 
+	if (debug)
+		g_message ("nm-vpnc-service (version " DIST_VERSION ") started.");
+
 	loop = g_main_loop_new (NULL, FALSE);
 
 	if (!persist)
