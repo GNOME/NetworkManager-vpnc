@@ -568,11 +568,11 @@ real_connect (NMVPNPlugin   *plugin,
 	if (!nm_vpnc_secrets_validate (s_vpn, error))
 		goto out;
 
+	priv->pid_file = g_strdup_printf (NM_VPNC_PID_PATH "/nm-vpnc-%s.pid", nm_connection_get_uuid (connection));
+
 	vpnc_fd = nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), error);
 	if (vpnc_fd < 0)
 		goto out;
-
-	priv->pid_file = g_strdup_printf (NM_VPNC_PID_PATH "/nm-vpnc-%s.pid", nm_connection_get_uuid (connection));
 
 	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
