@@ -306,7 +306,6 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 	GPtrArray *vpnc_argv;
 	GSource *vpnc_watch;
 	gint	stdin_fd;
-	char *pid_arg;
 
 	/* Find vpnc */
 	vpnc_binary = vpnc_binary_paths;
@@ -325,13 +324,12 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 		return -1;
 	}
 
-	pid_arg = g_strdup_printf ("--pid-file %s", priv->pid_file);
-
 	vpnc_argv = g_ptr_array_new ();
 	g_ptr_array_add (vpnc_argv, (gpointer) (*vpnc_binary));
 	g_ptr_array_add (vpnc_argv, (gpointer) "--non-inter");
 	g_ptr_array_add (vpnc_argv, (gpointer) "--no-detach");
-	g_ptr_array_add (vpnc_argv, (gpointer) pid_arg);
+	g_ptr_array_add (vpnc_argv, (gpointer) "--pid-file");
+	g_ptr_array_add (vpnc_argv, (gpointer) priv->pid_file);
 	g_ptr_array_add (vpnc_argv, (gpointer) "-");
 	g_ptr_array_add (vpnc_argv, NULL);
 
@@ -339,12 +337,10 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, GError **error)
 							 G_SPAWN_DO_NOT_REAP_CHILD, NULL, NULL, &pid, &stdin_fd,
 							 NULL, NULL, error)) {
 		g_ptr_array_free (vpnc_argv, TRUE);
-		g_free (pid_arg);
 		g_warning ("vpnc failed to start.  error: '%s'", (*error)->message);
 		return -1;
 	}
 	g_ptr_array_free (vpnc_argv, TRUE);
-	g_free (pid_arg);
 
 	g_message ("vpnc started with pid %d", pid);
 
