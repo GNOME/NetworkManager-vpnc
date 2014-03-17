@@ -15,7 +15,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * (C) Copyright 2005 - 2010 Red Hat, Inc.
+ * (C) Copyright 2005 - 2014 Red Hat, Inc.
  * (C) Copyright 2007 - 2008 Novell, Inc.
  */
 
@@ -32,6 +32,7 @@
 #include <errno.h>
 #include <locale.h>
 #include <glib/gi18n.h>
+#include <gio/gio.h>
 
 #include <nm-setting-vpn.h>
 #include "nm-vpnc-service.h"
@@ -702,9 +703,18 @@ nm_vpnc_plugin_class_init (NMVPNCPluginClass *vpnc_class)
 NMVPNCPlugin *
 nm_vpnc_plugin_new (void)
 {
-	return (NMVPNCPlugin *) g_object_new (NM_TYPE_VPNC_PLUGIN,
-								   NM_VPN_PLUGIN_DBUS_SERVICE_NAME, NM_DBUS_SERVICE_VPNC,
-								   NULL);
+	NMVPNCPlugin *plugin;
+	GError *error = NULL;
+
+	plugin = g_initable_new (NM_TYPE_VPNC_PLUGIN, NULL, &error,
+	                         NM_VPN_PLUGIN_DBUS_SERVICE_NAME, NM_DBUS_SERVICE_VPNC,
+	                         NULL);
+	if (!plugin) {
+		g_warning ("%s", error->message);
+		g_error_free (error);
+	}
+
+	return plugin;
 }
 
 static void
