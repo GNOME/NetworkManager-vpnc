@@ -1297,6 +1297,24 @@ decrypt_cisco_key (const char* enc_key)
 	return key;
 }
 
+typedef enum {
+	NM_VPNC_IMPORT_ERROR_UNKNOWN = 0,
+	NM_VPNC_IMPORT_ERROR_NOT_VPNC,
+	NM_VPNC_IMPORT_ERROR_BAD_DATA,
+} NMVpncImportError;
+
+#define NM_VPNC_IMPORT_ERROR nm_vpnc_import_error_quark ()
+
+static GQuark
+nm_vpnc_import_error_quark (void)
+{
+	static GQuark quark = 0;
+
+	if (G_UNLIKELY (quark == 0))
+		quark = g_quark_from_static_string ("nm-vpnc-import-error-quark");
+	return quark;
+}
+
 static NMConnection *
 import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 {
@@ -1312,11 +1330,8 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	gboolean found;
 
 	keyfile = g_key_file_new ();
-	if (!g_key_file_load_from_file (keyfile, path, 0, error)) {
-		g_set_error (error, 0, 0, "does not look like a %s VPN connection (parse failed)",
-		             VPNC_PLUGIN_NAME);
+	if (!g_key_file_load_from_file (keyfile, path, 0, error))
 		goto error;
-	}
 
 	connection = nm_connection_new ();
 	s_con = NM_SETTING_CONNECTION (nm_setting_connection_new ());
@@ -1335,7 +1350,10 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_GATEWAY, buf);
 		g_free (buf);
 	} else {
-		g_set_error (error, 0, 0, "does not look like a %s VPN connection (no Host)",
+		g_set_error (error,
+		             NM_VPNC_IMPORT_ERROR,
+		             NM_VPNC_IMPORT_ERROR_NOT_VPNC,
+		             "does not look like a %s VPN connection (no Host)",
 		             VPNC_PLUGIN_NAME);
 		goto error;
 	}
@@ -1346,7 +1364,10 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_ID, buf);
 		g_free (buf);
 	} else {
-		g_set_error (error, 0, 0, "does not look like a %s VPN connection (no GroupName)",
+		g_set_error (error,
+		             NM_VPNC_IMPORT_ERROR,
+		             NM_VPNC_IMPORT_ERROR_BAD_DATA,
+		             "does not look like a %s VPN connection (no GroupName)",
 		             VPNC_PLUGIN_NAME);
 		goto error;
 	}
