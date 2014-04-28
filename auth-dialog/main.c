@@ -176,9 +176,12 @@ eui_finish (const char *vpn_name,
 	g_key_file_set_string (keyfile, UI_KEYFILE_GROUP, "Title", title);
 	g_free (title);
 
-	/* Only show an entry for a password if (a) we don't have it, and it's
-	 * required, or (b) we're retrying authentication.  Obviously don't show
-	 * anything if interaction is not allowed.
+	/* Tell the external UI to show the password if (a) no password was passed
+	 * from the UI initially and nothing was found in the keyring, but the
+	 * password is required, or (b) we're retrying authentication, which implies
+	 * the passwords we already have are wrong.
+	 *
+	 * And tell the external UI to show nothing if interaction is not allowed.
 	 */
 
 	show = (need_password && !existing_password) || retry;
@@ -231,33 +234,22 @@ std_ask_user (const char *vpn_name,
 	dialog = NMA_VPN_PASSWORD_DIALOG (nma_vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL));
 
 	/* pre-fill dialog with existing passwords */
-	if (need_password && need_group_password) {
-		nma_vpn_password_dialog_set_show_password_secondary (dialog, TRUE);
-		nma_vpn_password_dialog_set_password_secondary_label (dialog, _("_Group Password:"));
-
+	nma_vpn_password_dialog_set_show_password (dialog, need_password);
+	if (need_password)
 		nma_vpn_password_dialog_set_password (dialog, existing_password);
+
+	nma_vpn_password_dialog_set_show_password_secondary (dialog, need_group_password);
+	if (need_group_password) {
+		nma_vpn_password_dialog_set_password_secondary_label (dialog, _("_Group Password:"));
 		nma_vpn_password_dialog_set_password_secondary (dialog, existing_group_password);
-	} else {
-		nma_vpn_password_dialog_set_show_password_secondary (dialog, FALSE);
-		if (need_password)
-			nma_vpn_password_dialog_set_password (dialog, existing_password);
-		else if (need_group_password) {
-			nma_vpn_password_dialog_set_password_label (dialog, _("_Group Password:"));
-			nma_vpn_password_dialog_set_password (dialog, existing_group_password);
-		}
 	}
 
 	gtk_widget_show (GTK_WIDGET (dialog));
 	if (nma_vpn_password_dialog_run_and_block (dialog)) {
 		if (need_password)
 			*out_new_password = g_strdup (nma_vpn_password_dialog_get_password (dialog));
-
-		if (need_group_password) {
-			if (need_password)
-				*out_new_group_password = g_strdup (nma_vpn_password_dialog_get_password_secondary (dialog));
-			else
-				*out_new_group_password = g_strdup (nma_vpn_password_dialog_get_password (dialog));
-		}
+		if (need_group_password)
+			*out_new_group_password = g_strdup (nma_vpn_password_dialog_get_password_secondary (dialog));
 		success = TRUE;
 	}
 
@@ -396,7 +388,7 @@ get_passwords_required (GHashTable *data,
 
 	/* If hints are given, then always ask for what the hints require */
 	if (hints && g_strv_length (hints)) {
-		for (iter = hints; iter && *iter; iter++) {
+		for (iter = hints; *iter; iter++) {
 			if (!prompt && g_str_has_prefix (*iter, VPN_MSG_TAG))
 				prompt = g_strdup (*iter + strlen (VPN_MSG_TAG));
 			else if (strcmp (*iter, NM_VPNC_KEY_XAUTH_PASSWORD) == 0)
