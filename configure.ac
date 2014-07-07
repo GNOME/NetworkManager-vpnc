@@ -1,6 +1,6 @@
 AC_PREREQ(2.52)
 
-AC_INIT(NetworkManager-vpnc, 0.9.9.0, dcbw@redhat.com, NetworkManager-vpnc)
+AC_INIT(NetworkManager-vpnc, 0.9.10.0, dcbw@redhat.com, NetworkManager-vpnc)
 AM_INIT_AUTOMAKE([subdir-objects no-dist-gzip dist-bzip2])
 AM_MAINTAINER_MODE
 
