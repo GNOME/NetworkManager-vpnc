@@ -394,9 +394,7 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (priv->err.channel)
 		pipe_echo_finish (&priv->err);
 
-	priv->infd = -1;
 	vpnc_cleanup (plugin, FALSE);
-
 	remove_pidfile (plugin);
 
 	/* Must be after data->state is set since signals use data->state */
