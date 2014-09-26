@@ -472,11 +472,8 @@ vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 		return;
 	}
 
-	if (debug) {
-		char *joined = g_strjoinv (",", (char **) hints);
-		g_message ("Requesting new secrets: '%s' (%s)", prompt, joined);
-		g_free (joined);
-	}
+	if (debug)
+		g_message ("Requesting new secrets: '%s' (%s)", prompt, hints[0]);
 
 	nm_vpn_plugin_secrets_required (NM_VPN_PLUGIN (plugin),
 	                                priv->server_message->len ? priv->server_message->str : prompt,
