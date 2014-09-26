@@ -58,7 +58,7 @@ typedef struct {
 	guint watch;
 	GString *buf;
 	gsize bufend;
-	gboolean error;
+	FILE *logf;
 } Pipe;
 
 typedef struct {
@@ -316,8 +316,8 @@ pipe_echo_finish (Pipe *pipe)
 		                                  &bytes_read,
 		                                  NULL);
 		if (bytes_read) {
-			fprintf (pipe->error ? stderr : stdout, "%.*s", (int) bytes_read, buf);
-			fflush (pipe->error ? stderr : stdout);
+			fprintf (pipe->logf, "%.*s", (int) bytes_read, buf);
+			fflush (pipe->logf);
 		}
 	} while (status == G_IO_STATUS_NORMAL);
 }
@@ -542,8 +542,8 @@ data_available (GIOChannel *source,
 				                                plugin);
 				if (consumed) {
 					/* Log all output to the console */
-					fprintf (pipe->error ? stderr : stdout, "%.*s", (int) consumed, pipe->buf->str);
-					fflush (pipe->error ? stderr : stdout);
+					fprintf (pipe->logf, "%.*s", (int) consumed, pipe->buf->str);
+					fflush (pipe->logf);
 
 					/* If output was handled, clear the buffer */
 					g_string_erase (pipe->buf, 0, consumed);
@@ -556,11 +556,11 @@ data_available (GIOChannel *source,
 }
 
 static void
-pipe_setup (Pipe *pipe, gboolean is_stderr, gpointer user_data)
+pipe_setup (Pipe *pipe, FILE *logf, gpointer user_data)
 {
 	GIOFlags flags = 0;
 
-	pipe->error = is_stderr;
+	pipe->logf = logf;
 	pipe->buf = g_string_sized_new (512);
 
 	pipe->channel = g_io_channel_unix_new (pipe->fd);
@@ -645,8 +645,8 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 
 	if (interactive) {
 		/* Watch stdout and stderr */
-		pipe_setup (&priv->out, FALSE, plugin);
-		pipe_setup (&priv->err, TRUE, plugin);
+		pipe_setup (&priv->out, stdout, plugin);
+		pipe_setup (&priv->err, stderr, plugin);
 	}
 	g_free (pwhelper_args);
 	return TRUE;
