@@ -594,7 +594,6 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 	const char *vpnc_path;
 	const char *args[10];
 	guint i = 0;
-	char *pwhelper_args = NULL;
 
 	g_return_val_if_fail (priv->pid == 0, FALSE);
 	g_return_val_if_fail (priv->infd == -1, FALSE);
@@ -641,7 +640,6 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 		pipe_setup (&priv->out, stdout, plugin);
 		pipe_setup (&priv->err, stderr, plugin);
 	}
-	g_free (pwhelper_args);
 	return TRUE;
 }
 
