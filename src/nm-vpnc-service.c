@@ -492,14 +492,9 @@ data_available (GIOChannel *source,
 	NMVPNCPlugin *plugin = NM_VPNC_PLUGIN (data);
 	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
 	GError *error = NULL;
-	Pipe *pipe;
+	Pipe *pipe = NULL;
 	gsize bytes_read = 0;
 	GIOStatus status;
-
-	if (condition & G_IO_ERR) {
-		g_warning ("Unexpected vpnc pipe error");
-		return TRUE;
-	}
 
 	/* Figure out which pipe we're using */
 	if (source == priv->out.channel)
@@ -508,6 +503,11 @@ data_available (GIOChannel *source,
 		pipe = &priv->err;
 	else
 		g_assert_not_reached ();
+
+	if (condition & G_IO_ERR) {
+		g_warning ("Unexpected vpnc pipe error");
+		goto fail;
+	}
 
 	do {
 		gsize consumed = 0;
@@ -543,9 +543,16 @@ data_available (GIOChannel *source,
 				}
 			} while (consumed);
 		}
+
+		if (status == G_IO_STATUS_EOF)
+			goto fail;
 	} while (bytes_read);
 
 	return TRUE;
+
+fail:
+	pipe->watch = 0;
+	return FALSE;
 }
 
 static void
