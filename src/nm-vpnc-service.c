@@ -347,8 +347,6 @@ vpnc_cleanup (NMVPNCPlugin *self, gboolean killit)
 			/* Try giving it some time to disconnect cleanly */
 			if (kill (priv->pid, SIGTERM) == 0)
 				g_timeout_add (2000, ensure_killed, GINT_TO_POINTER (priv->pid));
-			else
-				kill (priv->pid, SIGKILL);
 			g_message ("Terminated vpnc daemon with PID %d.", priv->pid);
 		} else {
 			/* Already quit, just reap the child */
