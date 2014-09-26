@@ -1106,80 +1106,34 @@ quit_mainloop (NMVPNCPlugin *plugin, gpointer user_data)
 	g_main_loop_quit ((GMainLoop *) user_data);
 }
 
-
-#define VPNC_VERSION_STR "vpnc version "
-
-static char *
-vpnc_check_version (void)
+static gboolean
+vpnc_check_interactive (void)
 {
 	const char *vpnc_path;
 	const char *argv[3];
 	GError *error = NULL;
-	char *output = NULL, *p, *j;
-	char **lines = NULL, **iter, **versions = NULL;
-	char *version = NULL;
+	char *output = NULL;
+	gboolean has_interactive = FALSE;
 
 	vpnc_path = find_vpnc ();
 	if (!vpnc_path) {
 		g_warning ("Failed to find vpnc for version check");
-		return NULL;
+		return FALSE;
 	}
 
 	argv[0] = vpnc_path;
-	argv[1] = "--version";
+	argv[1] = "--long-help";
 	argv[2] = NULL;
-	if (!g_spawn_sync ("/", (char **) argv, NULL, G_SPAWN_STDERR_TO_DEV_NULL, NULL, NULL, &output, NULL, NULL, &error)) {
+	if (g_spawn_sync ("/", (char **) argv, NULL, G_SPAWN_STDERR_TO_DEV_NULL, NULL, NULL, &output, NULL, NULL, &error)) {
+		if (strstr (output, "--password-helper <executable>"))
+			has_interactive = TRUE;
+		g_free (output);
+	} else {
 		g_warning ("Failed to start vpnc for version check: %s", error->message);
 		g_error_free (error);
-		return NULL;
 	}
 
-	/* look for a version higher than 0.5.3 */
-	lines = g_strsplit (output, "\n", -1);
-	for (iter = lines; iter && *iter; iter++) {
-		if (g_str_has_prefix (*iter, VPNC_VERSION_STR)) {
-			long int num;
-
-			j = p = *iter + strlen (VPNC_VERSION_STR);
-			/* Stop at the first non-number or non-dot */
-			while (*j && (g_ascii_isdigit (*j) || *j == '.'))
-				j++;
-			*j = '\0';
-			version = g_strdup (p);
-
-			versions = g_strsplit (p, ".", -1);
-			if (!versions || g_strv_length (versions) < 3)
-				break;
-
-			/* Fail if major version < 0 */
-			errno = 0;
-			num = strtol (versions[0], NULL, 10);
-			if (errno || num < 0 || num > 1000)
-				break;
-
-			/* Fail if minor version < 5 */
-			errno = 0;
-			num = strtol (versions[1], NULL, 10);
-			if (errno || num < 5 || num > 1000)
-				break;
-
-			/* Fail if micro version < 4 */
-			errno = 0;
-			num = strtol (versions[2], NULL, 10);
-			if (errno || num < 3 || num > 1000)
-				break;
-
-			interactive_available = TRUE;
-			break;
-		}
-	}
-
-	if (versions)
-		g_strfreev (versions);
-	if (lines)
-		g_strfreev (lines);
-	g_free (output);
-	return version;
+	return has_interactive;
 }
 
 int
@@ -1188,7 +1142,6 @@ main (int argc, char *argv[])
 	NMVPNCPlugin *plugin;
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
-	char *version;
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
@@ -1220,14 +1173,13 @@ main (int argc, char *argv[])
 	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
 	g_option_context_free (opt_ctx);
 
-	version = vpnc_check_version ();
+	interactive_available = vpnc_check_interactive ();
 
 	if (getenv ("VPNC_DEBUG"))
 		debug = TRUE;
 
 	if (debug) {
 		g_message ("nm-vpnc-service (version " DIST_VERSION ") starting...");
-		g_message ("   vpnc version '%s'", version ? version : "(unknown)");
 		g_message ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
 	}
 
@@ -1253,7 +1205,6 @@ main (int argc, char *argv[])
 
 	g_main_loop_unref (loop);
 	g_object_unref (plugin);
-	g_free (version);
 
 	exit (EXIT_SUCCESS);
 }
