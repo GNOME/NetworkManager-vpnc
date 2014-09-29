@@ -19,8 +19,9 @@ libexec_PROGRAMS = nm-vpnc-service nm-vpnc-service-vpnc-helper
 
 nm_vpnc_service_SOURCES = \
 	nm-vpnc-service.c \
-	nm-vpnc-service.h
-
+	nm-vpnc-service.h \
+	utils.c \
+	utils.h
 
 nm_vpnc_service_LDADD = \
 	$(DBUS_LIBS) \
@@ -35,5 +36,17 @@ nm_vpnc_service_vpnc_helper_LDADD = \
 	$(DBUS_LIBS) \
 	$(GTHREAD_LIBS) \
 	$(NM_LIBS)
+
+noinst_PROGRAMS = test-vpnc-output
+
+test_vpnc_output_SOURCES = \
+	test-vpnc-output.c \
+	utils.c \
+	utils.h
+
+test_vpnc_output_LDADD = $(GLIB_LIBS)
+
+check-local:
+	$(abs_builddir)/test-vpnc-output
 
 CLEANFILES = *~
