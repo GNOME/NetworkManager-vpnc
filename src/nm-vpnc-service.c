@@ -757,6 +757,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 
 static gboolean
 nm_vpnc_config_write (gint vpnc_fd,
+                      NMSettingConnection *s_con,
                       NMSettingVPN *s_vpn,
                       GError **error)
 {
@@ -766,12 +767,18 @@ nm_vpnc_config_write (gint vpnc_fd,
 	const char *default_username;
 	const char *pw_type;
 	const char *local_port;
+	const char *interface_name;
 	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
+
+	interface_name = nm_setting_connection_get_interface_name(s_con);
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
 	if (debug)
 		write_config_option (vpnc_fd, "Debug 3\n");
+
+	if (interface_name && strlen(interface_name) > 0)
+		write_config_option (vpnc_fd, "Interface name %s\n", interface_name);
 
 	write_config_option (vpnc_fd, "Script " NM_VPNC_HELPER_PATH "\n");
 
@@ -852,7 +859,11 @@ _connect_common (NMVPNPlugin   *plugin,
 {
 	NMVPNCPluginPrivate *priv = NM_VPNC_PLUGIN_GET_PRIVATE (plugin);
 	NMSettingVPN *s_vpn;
+	NMSettingConnection *s_con;
 	char end[] = { 0x04 };
+
+	s_con = nm_connection_get_setting_connection (connection);
+	g_assert (s_con);
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
@@ -871,7 +882,7 @@ _connect_common (NMVPNPlugin   *plugin,
 	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
 
-	if (!nm_vpnc_config_write (priv->infd, s_vpn, error))
+	if (!nm_vpnc_config_write (priv->infd, s_con, s_vpn, error))
 		goto out;
 
 	if (interactive)

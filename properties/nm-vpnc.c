@@ -453,6 +453,7 @@ init_plugin_ui (VpncPluginUiWidget *self,
                 GError **error)
 {
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	NMSettingConnection *s_con = NULL;
 	NMSettingVPN *s_vpn = NULL;
 	GtkWidget *widget;
 	GtkListStore *store;
@@ -466,8 +467,10 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	gboolean enabled = FALSE;
 	GtkFileFilter *filter;
 
-	if (connection)
+	if (connection) {
+		s_con = nm_connection_get_setting_connection (connection);
 		s_vpn = nm_connection_get_setting_vpn (connection);
+	}
 
 	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
 
@@ -602,6 +605,16 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION);
+		if (value && strlen (value))
+			gtk_entry_set_text (GTK_ENTRY (widget), value);
+	}
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
+
+	/* Interface name */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	if (s_con) {
+		value = nm_setting_connection_get_interface_name (s_con);
 		if (value && strlen (value))
 			gtk_entry_set_text (GTK_ENTRY (widget), value);
 	}
@@ -892,6 +905,7 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 {
 	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (iface);
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	NMSettingConnection *s_con;
 	NMSettingVPN *s_vpn;
 	GtkWidget *widget;
 	char *str;
@@ -902,8 +916,16 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	if (!check_validity (self, error))
 		return FALSE;
 
+	s_con = nm_connection_get_setting_connection (connection);
+
 	s_vpn = NM_SETTING_VPN (nm_setting_vpn_new ());
 	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_VPNC, NULL);
+
+	/* Interface name */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
+	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	if (str && strlen (str))
+		g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_INTERFACE_NAME, str, NULL);
 
 	/* Gateway */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
@@ -1343,6 +1365,13 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	s_ip4 = NM_SETTING_IP4_CONFIG (nm_setting_ip4_config_new ());
 	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
 
+	/* Interface Name */
+	buf = key_file_get_string_helper (keyfile, "main", "InterfaceName", NULL);
+	if (buf) {
+		g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_INTERFACE_NAME, buf, NULL);
+		g_free (buf);
+	}
+
 	/* Gateway */
 	buf = key_file_get_string_helper (keyfile, "main", "Host", NULL);
 	if (buf) {
@@ -1582,6 +1611,7 @@ export (NMVpnPluginUiInterface *iface,
 	FILE *f;
 	const char *value;
 	const char *gateway = NULL;
+	GString *interface_name = NULL;
 	gboolean enablenat = TRUE;
 	gboolean singledes = FALSE;
 	const char *groupname = NULL;
@@ -1613,6 +1643,11 @@ export (NMVpnPluginUiInterface *iface,
 		                     "could not open file for writing");
 		return FALSE;
 	}
+
+	interface_name = g_string_new("");
+	value = nm_setting_connection_get_interface_name (s_con);
+	if (value && strlen (value))
+		g_string_printf (interface_name, "InterfaceName=%s\n", value);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_GATEWAY);
 	if (value && strlen (value))
@@ -1729,6 +1764,7 @@ export (NMVpnPluginUiInterface *iface,
 	fprintf (f, 
 		 "[main]\n"
 		 "Description=%s\n"
+		 "%s"
 		 "Host=%s\n"
 		 "AuthType=1\n"
 		 "GroupName=%s\n"
@@ -1770,6 +1806,7 @@ export (NMVpnPluginUiInterface *iface,
 		 "X-NM-SaveGroupPassword=%s\n"
 		 "%s\n",
 		 /* Description */   nm_setting_connection_get_id (s_con),
+		 /* InterfaceName */ (interface_name->len) ? interface_name->str : "",
 		 /* Host */          gateway,
 		 /* GroupName */     groupname,
 		 /* GroupPassword */ group_pw ? group_pw : "",
@@ -1789,6 +1826,8 @@ export (NMVpnPluginUiInterface *iface,
 	success = TRUE;
 
 done:
+	if (interface_name)
+		g_string_free (interface_name, TRUE);
 	if (routes)
 		g_string_free (routes, TRUE);
 	if (uselegacyikeport)

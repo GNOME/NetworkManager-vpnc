@@ -571,20 +571,6 @@ config: Vendor &lt;cisco/netscreen&gt;</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkEntry" id="application_version_entry">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="tooltip_text" translatable="yes">Application version to report. 
-config: Application version &lt;ASCII string&gt;</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">3</property>
-                        <property name="width">1</property>
-                        <property name="height">1</property>
-                      </packing>
-                    </child>
-                    <child>
                       <object class="GtkLabel" id="label28">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -607,10 +593,23 @@ config: Application version &lt;ASCII string&gt;</property>
                         <property name="xalign">0</property>
                         <property name="label" translatable="yes">Ve_rsion:</property>
                         <property name="use_underline">True</property>
-                        <property name="mnemonic_widget">application_version_entry</property>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="application_version_entry">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Application version to report. 
+config: Application version &lt;ASCII string&gt;</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
                         <property name="top_attach">3</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
@@ -672,46 +671,36 @@ config: Application version &lt;ASCII string&gt;</property>
                     <property name="row_spacing">6</property>
                     <property name="column_spacing">6</property>
                     <child>
-                      <object class="GtkLabel" id="label31">
+                      <object class="GtkCheckButton" id="disable_dpd_checkbutton">
+                        <property name="label" translatable="yes">Disable Dead _Peer Detection</property>
+                        <property name="use_action_appearance">False</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
-                        <property name="label" translatable="yes">_Encryption method:</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="tooltip_text" translatable="yes">Disable sending DPD packets (sets timeout to 0)
+config: DPD idle timeout (our side) 0</property>
                         <property name="use_underline">True</property>
+                        <property name="xalign">0</property>
+                        <property name="draw_indicator">True</property>
                       </object>
                       <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">0</property>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">6</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label41">
+                      <object class="GtkLabel" id="local_port_label">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="xalign">0</property>
-                        <property name="label" translatable="yes">_NAT traversal:</property>
+                        <property name="label" translatable="yes">_Local port:</property>
                         <property name="use_underline">True</property>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
-                        <property name="top_attach">1</property>
-                        <property name="width">1</property>
-                        <property name="height">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="label5">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
-                        <property name="label" translatable="yes">_IKE DH Group:</property>
-                        <property name="use_underline">True</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">0</property>
-                        <property name="top_attach">2</property>
+                        <property name="top_attach">5</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>
@@ -727,85 +716,56 @@ config: Application version &lt;ASCII string&gt;</property>
                       </object>
                       <packing>
                         <property name="left_attach">0</property>
-                        <property name="top_attach">3</property>
-                        <property name="width">1</property>
-                        <property name="height">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkLabel" id="local_port_label">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="xalign">0</property>
-                        <property name="label" translatable="yes">_Local port:</property>
-                        <property name="use_underline">True</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">0</property>
                         <property name="top_attach">4</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkComboBox" id="encryption_combo">
+                      <object class="GtkLabel" id="label5">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="tooltip_text" translatable="yes">Encryption method
-config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None</property>
-                        <property name="model">model3</property>
-                        <child>
-                          <object class="GtkCellRendererText" id="renderer3"/>
-                          <attributes>
-                            <attribute name="text">0</attribute>
-                          </attributes>
-                        </child>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">_IKE DH Group:</property>
+                        <property name="use_underline">True</property>
                       </object>
                       <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">0</property>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">3</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkComboBox" id="natt_combo">
+                      <object class="GtkLabel" id="label41">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
-                        <property name="tooltip_text" translatable="yes">NAT traversal method to use
-config: NAT Traversal Mode &lt;natt/none/force-natt/cisco-udp&gt;</property>
-                        <property name="model">model4</property>
-                        <child>
-                          <object class="GtkCellRendererText" id="renderer4"/>
-                          <attributes>
-                            <attribute name="text">0</attribute>
-                          </attributes>
-                        </child>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">_NAT traversal:</property>
+                        <property name="use_underline">True</property>
                       </object>
                       <packing>
-                        <property name="left_attach">1</property>
-                        <property name="top_attach">1</property>
-                        <property name="width">1</property>
-                        <property name="height">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkComboBox" id="dhgroup_combo">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="tooltip_text" translatable="yes">Name of the IKE DH group
-config: IKE DH Group &lt;dh1/dh2/dh5&gt;</property>
-                        <property name="model">model5</property>
-                        <child>
-                          <object class="GtkCellRendererText" id="renderer5"/>
-                          <attributes>
-                            <attribute name="text">0</attribute>
-                          </attributes>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
+                        <property name="left_attach">0</property>
                         <property name="top_attach">2</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkSpinButton" id="local_port_spinbutton">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Local ISAKMP port to use (0 means random port; 500 is vpnc's default)
+config: Local Port &lt;0-65535&gt;</property>
+                        <property name="width_chars">5</property>
+                        <property name="text" translatable="yes">0</property>
+                        <property name="adjustment">adjustment1</property>
+                        <property name="climb_rate">1</property>
+                        <property name="numeric">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">5</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>
@@ -826,46 +786,115 @@ config: Perfect Forward Secrecy &lt;nopfs/dh1/dh2/dh5/server&gt;</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="top_attach">3</property>
-                        <property name="width">1</property>
-                        <property name="height">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkSpinButton" id="local_port_spinbutton">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="tooltip_text" translatable="yes">Local ISAKMP port to use (0 means random port; 500 is vpnc's default)
-config: Local Port &lt;0-65535&gt;</property>
-                        <property name="width_chars">5</property>
-                        <property name="text" translatable="yes">0</property>
-                        <property name="adjustment">adjustment1</property>
-                        <property name="climb_rate">1</property>
-                        <property name="numeric">True</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">1</property>
                         <property name="top_attach">4</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkCheckButton" id="disable_dpd_checkbutton">
-                        <property name="label" translatable="yes">Disable Dead _Peer Detection</property>
-                        <property name="use_action_appearance">False</property>
+                      <object class="GtkComboBox" id="dhgroup_combo">
                         <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">False</property>
-                        <property name="tooltip_text" translatable="yes">Disable sending DPD packets (sets timeout to 0)
-config: DPD idle timeout (our side) 0</property>
-                        <property name="use_underline">True</property>
-                        <property name="xalign">0</property>
-                        <property name="draw_indicator">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Name of the IKE DH group
+config: IKE DH Group &lt;dh1/dh2/dh5&gt;</property>
+                        <property name="model">model5</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="renderer5"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
-                        <property name="top_attach">5</property>
+                        <property name="top_attach">3</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="natt_combo">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">NAT traversal method to use
+config: NAT Traversal Mode &lt;natt/none/force-natt/cisco-udp&gt;</property>
+                        <property name="model">model4</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="renderer4"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">2</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkComboBox" id="encryption_combo">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="tooltip_text" translatable="yes">Encryption method
+config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None</property>
+                        <property name="model">model3</property>
+                        <child>
+                          <object class="GtkCellRendererText" id="renderer3"/>
+                          <attributes>
+                            <attribute name="text">0</attribute>
+                          </attributes>
+                        </child>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">1</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="interface_name_entry">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="tooltip_text" translatable="yes">Tunnel interface name to use
+config: Interface name &lt;name&gt;</property>
+                        <property name="max_length">15</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="top_attach">0</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label31">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">_Encryption method:</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">1</property>
+                        <property name="width">1</property>
+                        <property name="height">1</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="label7">
+                        <property name="visible">True</property>
+                        <property name="can_focus">False</property>
+                        <property name="xalign">0</property>
+                        <property name="label" translatable="yes">Tunnel _interface name:</property>
+                        <property name="use_underline">True</property>
+                      </object>
+                      <packing>
+                        <property name="left_attach">0</property>
+                        <property name="top_attach">0</property>
                         <property name="width">1</property>
                         <property name="height">1</property>
                       </packing>
