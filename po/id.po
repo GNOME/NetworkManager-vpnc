@@ -2,15 +2,15 @@
 # Copyright (C) 2009 THE network-manager-vpnc'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the network-manager-vpnc package.
 #
-# Andika Triwidada <andika@gmail.com>, 2009, 2010, 2011, 2012.
+# Andika Triwidada <andika@gmail.com>, 2009, 2010, 2011, 2012, 2014.
 # Dirgita <dirgitadevina@yahoo.co.id>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-04-28 22:37+0000\n"
-"PO-Revision-Date: 2014-09-05 17:25+0700\n"
+"POT-Creation-Date: 2014-10-04 10:29+0000\n"
+"PO-Revision-Date: 2014-10-04 20:26+0700\n"
 "Last-Translator: Andika Triwidada <andika@gmail.com>\n"
 "Language-Team: GNOME Indonesian Translation Team <gnome@i15n.org>\n"
 "Language: id\n"
@@ -88,79 +88,79 @@ msgstr "Selalu Bertanya"
 msgid "Not Required"
 msgstr "Tak Diperlukan"
 
-#: ../properties/nm-vpnc.c:501
+#: ../properties/nm-vpnc.c:504
 msgid "Secure (default)"
 msgstr "Aman (baku)"
 
-#: ../properties/nm-vpnc.c:504
+#: ../properties/nm-vpnc.c:507
 msgid "Weak (use with caution)"
 msgstr "Lemah (gunakan dengan hati-hati)"
 
-#: ../properties/nm-vpnc.c:512
+#: ../properties/nm-vpnc.c:515
 msgid "None (completely insecure)"
 msgstr "Tak satupun (sepenuhnya tak aman)"
 
-#: ../properties/nm-vpnc.c:578
+#: ../properties/nm-vpnc.c:581
 msgid "Cisco (default)"
 msgstr "Cisco (baku)"
 
-#: ../properties/nm-vpnc.c:585
+#: ../properties/nm-vpnc.c:588
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:616
+#: ../properties/nm-vpnc.c:629
 msgid "NAT-T when available (default)"
 msgstr "NAT-T bila tersedia (bawaan)"
 
-#: ../properties/nm-vpnc.c:623
+#: ../properties/nm-vpnc.c:636
 msgid "NAT-T always"
 msgstr "Selalu NAT-T"
 
-#: ../properties/nm-vpnc.c:630
+#: ../properties/nm-vpnc.c:643
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:637
+#: ../properties/nm-vpnc.c:650
 msgid "Disabled"
 msgstr "Dimatikan"
 
-#: ../properties/nm-vpnc.c:657 ../properties/nm-vpnc.c:743
+#: ../properties/nm-vpnc.c:670 ../properties/nm-vpnc.c:756
 msgid "DH Group 1"
 msgstr "DH Grup 1"
 
-#: ../properties/nm-vpnc.c:664
+#: ../properties/nm-vpnc.c:677
 msgid "DH Group 2 (default)"
 msgstr "DH Grup 2 (baku)"
 
-#: ../properties/nm-vpnc.c:671 ../properties/nm-vpnc.c:757
+#: ../properties/nm-vpnc.c:684 ../properties/nm-vpnc.c:770
 msgid "DH Group 5"
 msgstr "DH Grup 5"
 
-#: ../properties/nm-vpnc.c:729
+#: ../properties/nm-vpnc.c:742
 msgid "Server (default)"
 msgstr "Server (baku)"
 
-#: ../properties/nm-vpnc.c:736
+#: ../properties/nm-vpnc.c:749
 msgid "None"
 msgstr "Tak ada"
 
-#: ../properties/nm-vpnc.c:750
+#: ../properties/nm-vpnc.c:763
 msgid "DH Group 2"
 msgstr "DH Grup 2"
 
-#: ../properties/nm-vpnc.c:797
+#: ../properties/nm-vpnc.c:810
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Pilih sertifikat Certificate Authority (CA)..."
 
-#: ../properties/nm-vpnc.c:801
+#: ../properties/nm-vpnc.c:814
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Sertifikat PEM (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1542
+#: ../properties/nm-vpnc.c:1571
 msgid "TCP tunneling not supported"
 msgstr "TCP tunneling tak didukung"
 
-#: ../properties/nm-vpnc.c:1544
+#: ../properties/nm-vpnc.c:1573
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -176,18 +176,115 @@ msgstr ""
 "mungkin tak bekerja seperti yang diharapkan."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "General"
+msgstr "Umum"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "Sho_w passwords"
+msgstr "Tampilkan sandi"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Sandi grup\n"
+"config: IPSec secret <group_password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "Gro_up password:"
+msgstr "Sandi gr_up:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr "Nama grup:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IP/nama host dari gateway IPSEC\n"
+"config: IPSec gateway <gateway>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Nama grup\n"
+"config: IPSec ID <group_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid "User _password:"
+msgstr "Sandi pengg_una:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Sandi pengguna bagi koneksi\n"
+"config: Xauth password <password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"Nama pengguna bagi koneksi\n"
+"config: Xauth username <user_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "User na_me:"
+msgstr "Nama pengguna:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "Use _hybrid authentication"
+msgstr "Gunakan otentikasi hybrid"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+"Aktifkan otentikasi hibrida, yaitu memakai sertifikat sebagai tambahan "
+"sandi.\n"
+"config: IKE Authmode hybrid"
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "CA _File:"
+msgstr "Berkas CA:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"Sertifikat CA dalam format PEM\n"
+"config: CA-File"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "Advance_d..."
+msgstr "Tingkat lanjut..."
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Advanced Options"
 msgstr "Opsi Tingkat Lanjut"
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
 msgstr "Identifikasi"
 
-#: ../properties/nm-vpnc-dialog.ui.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "_Domain:"
 msgstr "Domain:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
 "(NT-)Domain name for authentication\n"
 "config: Domain <domain>"
@@ -195,11 +292,7 @@ msgstr ""
 "(NT-)Nama domain bagi otentikasi\n"
 "config: Domain <domain>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "_Vendor:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
@@ -207,11 +300,15 @@ msgstr ""
 "Vendor gateway IPsec Anda\n"
 "config: Vendor <cisco/netscreen>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr "_Vendor:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion:"
 msgstr "Ve_rsion:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
 "Application version to report. \n"
 "config: Application version <ASCII string>"
@@ -219,11 +316,76 @@ msgstr ""
 "Versi aplikasi yang dilaporkan.\n"
 "config: Application version <string ASCII>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
 msgstr "Keamanan dan Transpor"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "Disable Dead Peer Detection"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Tak usah mengirim paket DPD (tata timeout ke 0)\n"
+"config: DPD idle timeout (our side) 0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr "Port _lokal:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr "Perfect _Forward Secrecy:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "Grup IKE DH:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "NAT traversal:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Port ISAKMP lokal yang dipakai (0 berarti port acak; 500 adalah nilai baku "
+"vpnc)\n"
+"config: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Grup Diffie-Hellman yang dipakai untuk PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Nama dari grup DH IKE\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"Metoda traversal NAT yang dipakai\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
@@ -233,230 +395,106 @@ msgstr ""
 "config: nothing untuk Aman, 'Enable Single DES' untuk Lemah, 'Enable no "
 "encryption' untuk Tak ada"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+"Nama antar muka tunnel yang akan dipakai\n"
+"config: Interface name <nama>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
 msgstr "Metoda Penyandian:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "NAT traversal:"
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
+msgstr "Nama _antar muka tunnel:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Metoda traversal NAT yang dipakai\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "Grup IKE DH:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:20
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Nama dari grup DH IKE\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Grup Diffie-Hellman yang dipakai untuk PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr "Port _lokal:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Port ISAKMP lokal yang dipakai (0 berarti port acak; 500 adalah nilai baku "
-"vpnc)\n"
-"config: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "Disable Dead _Peer Detection"
-msgstr "Disable Dead Peer Detection"
-
-#: ../properties/nm-vpnc-dialog.ui.h:29
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"Tak usah mengirim paket DPD (tata timeout ke 0)\n"
-"config: DPD idle timeout (our side) 0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:31
-msgid "General"
-msgstr "Umum"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "Sho_w passwords"
-msgstr "Tampilkan sandi"
-
-#: ../properties/nm-vpnc-dialog.ui.h:33
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Sandi grup\n"
-"config: IPSec secret <group_password>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:35
-msgid "Gro_up password:"
-msgstr "Sandi gr_up:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "_Gateway:"
-msgstr "_Gateway:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "G_roup name:"
-msgstr "Nama grup:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-"IP/nama host dari gateway IPSEC\n"
-"config: IPSec gateway <gateway>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Nama grup\n"
-"config: IPSec ID <group_name>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "User _password:"
-msgstr "Sandi pengg_una:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Sandi pengguna bagi koneksi\n"
-"config: Xauth password <password>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:45
-msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
-msgstr ""
-"Nama pengguna bagi koneksi\n"
-"config: Xauth username <user_name>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid "User na_me:"
-msgstr "Nama pengguna:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:48
-msgid "Use _hybrid authentication"
-msgstr "Gunakan otentikasi hybrid"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
-"config: IKE Authmode hybrid"
-msgstr ""
-"Aktifkan otentikasi hibrida, yaitu memakai sertifikat sebagai tambahan "
-"sandi.\n"
-"config: IKE Authmode hybrid"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid "CA _File:"
-msgstr "Berkas CA:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:52
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"Sertifikat CA dalam format PEM\n"
-"config: CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:54
-msgid "Advance_d..."
-msgstr "Tingkat lanjut..."
-
-#: ../src/nm-vpnc-service.c:155
+#: ../src/nm-vpnc-service.c:173
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "properti '%s' tak valid atau tak didukung"
 
-#: ../src/nm-vpnc-service.c:174
+#: ../src/nm-vpnc-service.c:192
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr "properti '%s' path berkas '%s' tak absolut atau tak ada"
 
-#: ../src/nm-vpnc-service.c:187
+#: ../src/nm-vpnc-service.c:205
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr "properti integer '%s' tak valid atau diluar jangkauan [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:197
+#: ../src/nm-vpnc-service.c:215
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "properti bool '%s' tak valid (bukan yes atau no)"
 
-#: ../src/nm-vpnc-service.c:204
+#: ../src/nm-vpnc-service.c:222
 #, c-format
 msgid "unhandled property '%s' type %d"
 msgstr "properti '%s' jenis %d tak ditangani"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:239
 msgid "No VPN configuration options."
 msgstr "Tak ada opsi konfigurasi VPN."
 
-#: ../src/nm-vpnc-service.c:239
+#: ../src/nm-vpnc-service.c:265
 msgid "No VPN secrets!"
 msgstr "Tak ada rahasia VPN!"
 
-#: ../src/nm-vpnc-service.c:323
+#: ../src/nm-vpnc-service.c:615
 msgid "Could not find vpnc binary."
 msgstr "Tak bisa temukan biner vpnc."
 
-#: ../src/nm-vpnc-service.c:417
+#: ../src/nm-vpnc-service.c:714
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "Opsi konfigurasi '%s' tak valid atau tak dikenal."
 
-#: ../src/nm-vpnc-service.c:450
+#: ../src/nm-vpnc-service.c:747
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "Opsi konfigurasi '%s' bukan integer."
 
-#: ../src/nm-vpnc-service.c:630
+#: ../src/nm-vpnc-service.c:920
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc tak mendukung permintaan interaktif"
+
+#: ../src/nm-vpnc-service.c:944
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr "Tak bisa memakai rahasia baru karena mode interaktif dinonaktifkan."
+
+#: ../src/nm-vpnc-service.c:953 ../src/nm-vpnc-service.c:1028
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr "Tak bisa memroses permintaan karena pengaturan koneksi VPN tak valid."
 
-#: ../src/nm-vpnc-service.c:745
+#: ../src/nm-vpnc-service.c:961
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Tak bisa memroses permintaan karena tak ada otentikasi tertundah yang diperlukan."
+
+#: ../src/nm-vpnc-service.c:973
+# c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Tak bisa memroses permintaan karena info '%s' yang diminta tak disediakan."
+
+#: ../src/nm-vpnc-service.c:1158
 msgid "Don't quit when VPN connection terminates"
 msgstr "Jangan keluar ketika koneksi VPN diputus"
 
-#: ../src/nm-vpnc-service.c:746
+#: ../src/nm-vpnc-service.c:1159
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Aktifkan log pengawakutuan verbose (mungkin mengungkap sandi)"
 
-#: ../src/nm-vpnc-service.c:769
+#: ../src/nm-vpnc-service.c:1182
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
