@@ -464,11 +464,9 @@ vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 	}
 
 	if (!hints[0]) {
-		g_warning ("Unhandled vpnc request '%s'", prompt);
+		if (debug)
+			g_message ("Unhandled vpnc message '%s'", prompt);
 		g_free (prompt);
-
-		nm_vpn_plugin_failure (NM_VPN_PLUGIN (plugin), NM_VPN_PLUGIN_FAILURE_LOGIN_FAILED);
-		nm_vpn_plugin_set_state (NM_VPN_PLUGIN (plugin), NM_VPN_SERVICE_STATE_STOPPED);
 		return;
 	}
 
