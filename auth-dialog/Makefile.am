@@ -1,5 +1,3 @@
-INCLUDES = -I${top_srcdir}
-
 libexec_PROGRAMS = nm-vpnc-auth-dialog
 
 nm_vpnc_auth_dialog_CPPFLAGS = \

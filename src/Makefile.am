@@ -1,5 +1,3 @@
-INCLUDES = -I${top_srcdir} 
-
 AM_CPPFLAGS = \
 	$(DBUS_CFLAGS) \
 	$(GLIB_CFLAGS) \

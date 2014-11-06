@@ -1,7 +1,5 @@
 SUBDIRS=. tests
 
-INCLUDES = -I${top_srcdir}
-
 plugindir = $(libdir)/NetworkManager
 plugin_LTLIBRARIES = libnm-vpnc-properties.la
 
@@ -17,7 +15,6 @@ ui_DATA = nm-vpnc-dialog.ui
 libnm_vpnc_properties_la_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
-	$(GNOMEKEYRING_CFLAGS) \
 	$(NM_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DUIDIR=\""$(uidir)"\" \
@@ -27,8 +24,7 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 
 libnm_vpnc_properties_la_LIBADD = \
 	$(GTK_LIBS) \
-	$(NM_LIBS) \
-	$(GNOMEKEYRING_LIBS)
+	$(NM_LIBS)
 
 libnm_vpnc_properties_la_LDFLAGS = \
         -avoid-version
