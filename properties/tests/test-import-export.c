@@ -35,7 +35,7 @@
 
 #include "../../nm-test-helpers.h"
 #include "../../properties/nm-vpnc.h"
-#include "../../src/nm-vpnc-service.h"
+#include "../../src/nm-vpnc-service-defines.h"
 #include "../../properties/nm-vpnc-helper.h"
 
 typedef struct {
