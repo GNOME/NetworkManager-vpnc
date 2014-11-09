@@ -66,15 +66,20 @@ if test x"$with_gnome" != xno; then
 	PKG_CHECK_MODULES(GTK, gtk+-3.0 >= 3.4)
 	GTK_CFLAGS="$GTK_CFLAGS -DGDK_VERSION_MIN_REQUIRED=GDK_VERSION_3_4"
 
-	PKG_CHECK_MODULES(NMGTK, libnm-gtk >= 0.9.9.0)
+	PKG_CHECK_MODULES(LIBNM_GTK, libnm-gtk >= 0.9.9.0)
+	PKG_CHECK_MODULES(LIBNMA, libnma >= 1.1.0)
 	PKG_CHECK_MODULES(LIBSECRET, libsecret-unstable)
 fi
 
-PKG_CHECK_MODULES(NM,
+PKG_CHECK_MODULES(LIBNM_GLIB,
                   NetworkManager >= 0.9.6
                   libnm-util >= 0.9.6
                   libnm-glib >= 0.9.6
                   libnm-glib-vpn >= 0.9.6)
+
+PKG_CHECK_MODULES(LIBNM, libnm >= 1.1.0)
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MIN_REQUIRED=NM_VERSION_1_2"
+LIBNM_CFLAGS="$LIBNM_CFLAGS -DNM_VERSION_MAX_ALLOWED=NM_VERSION_1_2"
 
 NM_COMPILER_WARNINGS
 

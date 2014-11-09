@@ -39,11 +39,37 @@
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 
-#include <nm-vpn-plugin-ui-interface.h>
+#ifdef NM_VPNC_OLD
+#define NM_VPN_LIBNM_COMPAT
+
 #include <nm-setting-vpn.h>
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
 #include <nm-ui-utils.h>
+#include <nm-vpn-plugin-ui-interface.h>
+
+#define nm_simple_connection_new() nm_connection_new ()
+
+#define NMSettingIPConfig NMSettingIP4Config
+#define NM_SETTING_IP_CONFIG(obj) NM_SETTING_IP4_CONFIG (obj)
+#define nm_setting_ip_config_get_num_routes nm_setting_ip4_config_get_num_routes
+#define nm_setting_ip_config_get_route nm_setting_ip4_config_get_route
+#define nm_setting_ip_config_add_route nm_setting_ip4_config_add_route
+#define NM_SETTING_IP_CONFIG_NEVER_DEFAULT NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
+
+#define VPNC_PLUGIN_UI_ERROR                  NM_SETTING_VPN_ERROR
+#define VPNC_PLUGIN_UI_ERROR_FAILED           NM_SETTING_VPN_ERROR_UNKNOWN
+#define VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY NM_SETTING_VPN_ERROR_INVALID_PROPERTY
+
+#else /* !NM_VPNC_OLD */
+
+#include <NetworkManager.h>
+#include <nma-ui-utils.h>
+
+#define VPNC_PLUGIN_UI_ERROR                  NM_CONNECTION_ERROR
+#define VPNC_PLUGIN_UI_ERROR_FAILED           NM_CONNECTION_ERROR_FAILED
+#define VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY NM_CONNECTION_ERROR_INVALID_PROPERTY
+#endif
 
 #include "nm-vpnc-service-defines.h"
 #include "nm-vpnc-helper.h"
@@ -51,7 +77,6 @@
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
 #define VPNC_PLUGIN_DESC    _("Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways.")
-#define VPNC_PLUGIN_SERVICE NM_DBUS_SERVICE_VPNC
 
 #define ENC_TYPE_SECURE 0
 #define ENC_TYPE_WEAK   1
@@ -61,21 +86,28 @@
 
 /************** plugin class **************/
 
-static void vpnc_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class);
+static void vpnc_editor_plugin_interface_init (NMVpnEditorPluginInterface *iface);
 
-G_DEFINE_TYPE_EXTENDED (VpncPluginUi, vpnc_plugin_ui, G_TYPE_OBJECT, 0,
-                        G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_INTERFACE,
-                                               vpnc_plugin_ui_interface_init))
+G_DEFINE_TYPE_EXTENDED (VpncEditorPlugin, vpnc_editor_plugin, G_TYPE_OBJECT, 0,
+                        G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_EDITOR_PLUGIN,
+                                               vpnc_editor_plugin_interface_init))
 
-/************** UI widget class **************/
+enum {
+	PROP_0,
+	PROP_NAME,
+	PROP_DESC,
+	PROP_SERVICE
+};
 
-static void vpnc_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class);
+/************** editor class **************/
 
-G_DEFINE_TYPE_EXTENDED (VpncPluginUiWidget, vpnc_plugin_ui_widget, G_TYPE_OBJECT, 0,
-                        G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_WIDGET_INTERFACE,
-                                               vpnc_plugin_ui_widget_interface_init))
+static void vpnc_editor_interface_init (NMVpnEditorInterface *iface);
 
-#define VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidgetPrivate))
+G_DEFINE_TYPE_EXTENDED (VpncEditor, vpnc_editor, G_TYPE_OBJECT, 0,
+                        G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_EDITOR,
+                                               vpnc_editor_interface_init))
+
+#define VPNC_EDITOR_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), VPNC_TYPE_EDITOR, VpncEditorPrivate))
 
 typedef struct {
 	GtkBuilder *builder;
@@ -83,52 +115,13 @@ typedef struct {
 	GtkSizeGroup *group;
 	gint orig_dpd_timeout;
 	GtkWidget *advanced_dialog;
-} VpncPluginUiWidgetPrivate;
-
-
-#define VPNC_PLUGIN_UI_ERROR vpnc_plugin_ui_error_quark ()
-
-static GQuark
-vpnc_plugin_ui_error_quark (void)
-{
-	static GQuark error_quark = 0;
-
-	if (G_UNLIKELY (error_quark == 0))
-		error_quark = g_quark_from_static_string ("vpnc-plugin-ui-error-quark");
-
-	return error_quark;
-}
-
-/* This should really be standard. */
-#define ENUM_ENTRY(NAME, DESC) { NAME, "" #NAME "", DESC }
-
-GType
-vpnc_plugin_ui_error_get_type (void)
-{
-	static GType etype = 0;
-
-	if (etype == 0) {
-		static const GEnumValue values[] = {
-			/* Unknown error. */
-			ENUM_ENTRY (VPNC_PLUGIN_UI_ERROR_UNKNOWN, "UnknownError"),
-			/* The specified property was invalid. */
-			ENUM_ENTRY (VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY, "InvalidProperty"),
-			/* The specified property was missing and is required. */
-			ENUM_ENTRY (VPNC_PLUGIN_UI_ERROR_MISSING_PROPERTY, "MissingProperty"),
-			/* The connection was missing invalid. */
-			ENUM_ENTRY (VPNC_PLUGIN_UI_ERROR_INVALID_CONNECTION, "InvalidConnection"),
-			{ 0, 0, 0 }
-		};
-		etype = g_enum_register_static ("VpncPluginUiError", values);
-	}
-	return etype;
-}
+} VpncEditorPrivate;
 
 
 static gboolean
-check_validity (VpncPluginUiWidget *self, GError **error)
+check_validity (VpncEditor *self, GError **error)
 {
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
 	GtkWidget *widget;
 	char *str;
 
@@ -158,13 +151,13 @@ check_validity (VpncPluginUiWidget *self, GError **error)
 static void
 stuff_changed_cb (GtkWidget *widget, gpointer user_data)
 {
-	g_signal_emit_by_name (VPNC_PLUGIN_UI_WIDGET (user_data), "changed");
+	g_signal_emit_by_name (VPNC_EDITOR (user_data), "changed");
 }
 
 static void
 hybrid_toggled_cb (GtkWidget *widget, gpointer user_data)
 {
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (user_data);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (user_data);
 	gboolean enabled = FALSE;
 	GtkWidget *cafile_label, *ca_file_chooser;
 
@@ -190,13 +183,13 @@ spinbutton_changed_cb (GtkWidget *widget, gpointer user_data)
 }
 
 static void
-setup_password_widget (VpncPluginUiWidget *self,
+setup_password_widget (VpncEditor *self,
                        const char *entry_name,
-                       NMSettingVPN *s_vpn,
+                       NMSettingVpn *s_vpn,
                        const char *secret_name,
                        gboolean new_connection)
 {
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
 	GtkWidget *widget;
 	const char *value;
 
@@ -213,9 +206,9 @@ setup_password_widget (VpncPluginUiWidget *self,
 }
 
 static void
-show_toggled_cb (GtkCheckButton *button, VpncPluginUiWidget *self)
+show_toggled_cb (GtkCheckButton *button, VpncEditor *self)
 {
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
 	GtkWidget *widget;
 	gboolean visible;
 
@@ -235,13 +228,13 @@ password_storage_changed_cb (GObject *entry,
                              GParamSpec *pspec,
                              gpointer user_data)
 {
-	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (user_data);
+	VpncEditor *self = VPNC_EDITOR (user_data);
 
 	stuff_changed_cb (NULL, self);
 }
 
 static const char *
-secret_flags_to_pw_type (NMSettingVPN *s_vpn, const char *key)
+secret_flags_to_pw_type (NMSettingVpn *s_vpn, const char *key)
 {
 	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
 
@@ -256,13 +249,13 @@ secret_flags_to_pw_type (NMSettingVPN *s_vpn, const char *key)
 }
 
 static void
-init_password_icon (VpncPluginUiWidget *self,
-                    NMSettingVPN *s_vpn,
+init_password_icon (VpncEditor *self,
+                    NMSettingVpn *s_vpn,
                     const char *secret_key,
                     const char *type_key,
                     const char *entry_name)
 {
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
 	GtkWidget *entry;
 	const char *value;
 	const char *flags = NULL;
@@ -291,11 +284,11 @@ init_password_icon (VpncPluginUiWidget *self,
 }
 
 static void
-deinit_password_icon (VpncPluginUiWidget *self, const char *entry_name)
+deinit_password_icon (VpncEditor *self, const char *entry_name)
 {
 	GtkWidget *entry;
 
-	entry = GTK_WIDGET (gtk_builder_get_object (VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self)->builder, entry_name));
+	entry = GTK_WIDGET (gtk_builder_get_object (VPNC_EDITOR_GET_PRIVATE (self)->builder, entry_name));
 	g_assert (entry);
 	g_signal_handlers_disconnect_by_func (entry, password_storage_changed_cb, self);
 }
@@ -303,7 +296,7 @@ deinit_password_icon (VpncPluginUiWidget *self, const char *entry_name)
 static void
 toggle_advanced_dialog_cb (GtkWidget *button, gpointer user_data)
 {
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (user_data);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (user_data);
 	GtkWidget *toplevel;
 
 	if (gtk_widget_get_visible (priv->advanced_dialog))
@@ -382,14 +375,14 @@ out:
 }
 
 static gboolean
-init_plugin_ui (VpncPluginUiWidget *self,
+init_plugin_ui (VpncEditor *self,
                 NMConnection *connection,
                 gboolean new_connection,
                 GError **error)
 {
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
 	NMSettingConnection *s_con = NULL;
-	NMSettingVPN *s_vpn = NULL;
+	NMSettingVpn *s_vpn = NULL;
 	GtkWidget *widget;
 	GtkListStore *store;
 	GtkTreeIter iter;
@@ -781,16 +774,16 @@ init_plugin_ui (VpncPluginUiWidget *self,
 }
 
 static GObject *
-get_widget (NMVpnPluginUiWidgetInterface *iface)
+get_widget (NMVpnEditor *editor)
 {
-	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (iface);
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	VpncEditor *self = VPNC_EDITOR (editor);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
 
 	return G_OBJECT (priv->widget);
 }
 
 static void
-save_one_password (NMSettingVPN *s_vpn,
+save_one_password (NMSettingVpn *s_vpn,
                    GtkBuilder *builder,
                    const char *entry_name,
                    const char *secret_key,
@@ -828,14 +821,14 @@ save_one_password (NMSettingVPN *s_vpn,
 }
 
 static gboolean
-update_connection (NMVpnPluginUiWidgetInterface *iface,
+update_connection (NMVpnEditor *editor,
                    NMConnection *connection,
                    GError **error)
 {
-	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (iface);
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
+	VpncEditor *self = VPNC_EDITOR (editor);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GtkWidget *widget;
 	char *str;
 	guint32 port;
@@ -994,25 +987,26 @@ is_new_func (const char *key, const char *value, gpointer user_data)
 	*is_new = FALSE;
 }
 
-static NMVpnPluginUiWidgetInterface *
-nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
+static NMVpnEditor *
+nm_vpnc_editor_new (NMConnection *connection, GError **error)
 {
-	NMVpnPluginUiWidgetInterface *object;
-	VpncPluginUiWidgetPrivate *priv;
+	NMVpnEditor *object;
+	VpncEditorPrivate *priv;
 	char *ui_file;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	gboolean is_new = TRUE;
 
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
 
-	object = NM_VPN_PLUGIN_UI_WIDGET_INTERFACE (g_object_new (VPNC_TYPE_PLUGIN_UI_WIDGET, NULL));
+	object = g_object_new (VPNC_TYPE_EDITOR, NULL);
 	if (!object) {
-		g_set_error (error, VPNC_PLUGIN_UI_ERROR, 0, "could not create vpnc object");
+		g_set_error (error, VPNC_PLUGIN_UI_ERROR, VPNC_PLUGIN_UI_ERROR_FAILED,
+		             "could not create vpnc object");
 		return NULL;
 	}
 
-	priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (object);
+	priv = VPNC_EDITOR_GET_PRIVATE (object);
 
 	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-vpnc-dialog.ui");
 	priv->builder = gtk_builder_new ();
@@ -1023,7 +1017,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 		g_warning ("Couldn't load builder file: %s",
 		           error && *error ? (*error)->message : "(unknown)");
 		g_clear_error (error);
-		g_set_error (error, VPNC_PLUGIN_UI_ERROR, 0,
+		g_set_error (error, VPNC_PLUGIN_UI_ERROR, VPNC_PLUGIN_UI_ERROR_FAILED,
 		             "could not load required resources at %s", ui_file);
 		g_free (ui_file);
 		g_object_unref (object);
@@ -1033,7 +1027,8 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-vbox"));
 	if (!priv->widget) {
-		g_set_error (error, VPNC_PLUGIN_UI_ERROR, 0, "could not load UI widget");
+		g_set_error (error, VPNC_PLUGIN_UI_ERROR, VPNC_PLUGIN_UI_ERROR_FAILED,
+		             "could not load UI widget");
 		g_object_unref (object);
 		return NULL;
 	}
@@ -1043,7 +1038,7 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 	if (s_vpn)
 		nm_setting_vpn_foreach_data_item (s_vpn, is_new_func, &is_new);
 
-	if (!init_plugin_ui (VPNC_PLUGIN_UI_WIDGET (object), connection, is_new, error)) {
+	if (!init_plugin_ui (VPNC_EDITOR (object), connection, is_new, error)) {
 		g_object_unref (object);
 		return NULL;
 	}
@@ -1054,18 +1049,8 @@ nm_vpn_plugin_ui_widget_interface_new (NMConnection *connection, GError **error)
 static void
 dispose (GObject *object)
 {
-	VpncPluginUiWidget *plugin = VPNC_PLUGIN_UI_WIDGET (object);
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (plugin);
-	GtkWidget *widget;
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
-	g_signal_handlers_disconnect_by_func (G_OBJECT (widget),
-	                                      (GCallback) password_storage_changed_cb,
-	                                      plugin);
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_password_entry"));
-	g_signal_handlers_disconnect_by_func (G_OBJECT (widget),
-	                                      (GCallback) password_storage_changed_cb,
-	                                      plugin);
+	VpncEditor *plugin = VPNC_EDITOR (object);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (plugin);
 
 	if (priv->group)
 		g_object_unref (priv->group);
@@ -1082,43 +1067,48 @@ dispose (GObject *object)
 		g_object_unref (priv->builder);
 	}
 
-	G_OBJECT_CLASS (vpnc_plugin_ui_widget_parent_class)->dispose (object);
+	G_OBJECT_CLASS (vpnc_editor_parent_class)->dispose (object);
 }
 
 static void
-vpnc_plugin_ui_widget_class_init (VpncPluginUiWidgetClass *req_class)
+vpnc_editor_class_init (VpncEditorClass *req_class)
 {
 	GObjectClass *object_class = G_OBJECT_CLASS (req_class);
 
-	g_type_class_add_private (req_class, sizeof (VpncPluginUiWidgetPrivate));
+	g_type_class_add_private (req_class, sizeof (VpncEditorPrivate));
 
 	object_class->dispose = dispose;
 }
 
 static void
-vpnc_plugin_ui_widget_init (VpncPluginUiWidget *plugin)
+vpnc_editor_init (VpncEditor *plugin)
 {
 }
 
 static void
-vpnc_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class)
+vpnc_editor_interface_init (NMVpnEditorInterface *iface)
 {
 	/* interface implementation */
-	iface_class->get_widget = get_widget;
-	iface_class->update_connection = update_connection;
+	iface->get_widget = get_widget;
+	iface->update_connection = update_connection;
 }
 
 static void
-add_routes (NMSettingIP4Config *s_ip4, const char *routelist)
+add_routes (NMSettingIPConfig *s_ip4, const char *routelist)
 {
 	char **substrs;
 	unsigned int i;
 
 	substrs = g_strsplit (routelist, " ", 0);
 	for (i = 0; substrs[i] != NULL; i++) {
-		struct in_addr tmp;
 		char *p, *str_route;
 		long int prefix = 32;
+#ifdef NM_VPNC_OLD
+		struct in_addr tmp;
+#else
+		NMIPRoute *route;
+		GError *error = NULL;
+#endif
 
 		str_route = g_strdup (substrs[i]);
 		p = strchr (str_route, '/');
@@ -1133,18 +1123,28 @@ add_routes (NMSettingIP4Config *s_ip4, const char *routelist)
 			g_warning ("Ignoring invalid route '%s'", str_route);
 			goto next;
 		}
-
-		/* don't pass the prefix to inet_pton() */
 		*p = '\0';
+
+#ifdef NM_VPNC_OLD
 		if (inet_pton (AF_INET, str_route, &tmp) > 0) {
 			NMIP4Route *route = nm_ip4_route_new ();
 
 			nm_ip4_route_set_dest (route, tmp.s_addr);
 			nm_ip4_route_set_prefix (route, (guint32) prefix);
 
-			nm_setting_ip4_config_add_route (s_ip4, route);
+			nm_setting_ip_config_add_route (s_ip4, route);
 		} else
 			g_warning ("Ignoring invalid route '%s'", str_route);
+#else
+		route = nm_ip_route_new (AF_INET, str_route, prefix, NULL, -1, &error);
+		if (route) {
+			nm_setting_ip_config_add_route (s_ip4, route);
+			nm_ip_route_unref (route);
+		} else {
+			g_warning ("Ignoring invalid route '%s': %s", str_route, error->message);
+			g_clear_error (&error);
+		}
+#endif
 
 next:
 		g_free (str_route);
@@ -1277,16 +1277,16 @@ nm_vpnc_import_export_error_quark (void)
 }
 
 static NMConnection *
-import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
+import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 {
 	NMConnection *connection = NULL;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
 	GKeyFile *keyfile;
 	char *buf;
 	gboolean bool_value;
-	NMSettingIP4Config *s_ip4;
+	NMSettingIPConfig *s_ip4;
 	gint val;
 	gboolean found;
 
@@ -1294,7 +1294,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	if (!g_key_file_load_from_file (keyfile, path, 0, error))
 		goto error;
 
-	connection = nm_connection_new ();
+	connection = nm_simple_connection_new ();
 	s_con = NM_SETTING_CONNECTION (nm_setting_connection_new ());
 	nm_connection_add_setting (connection, NM_SETTING (s_con));
 
@@ -1302,7 +1302,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_VPNC, NULL);
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 
-	s_ip4 = NM_SETTING_IP4_CONFIG (nm_setting_ip4_config_new ());
+	s_ip4 = NM_SETTING_IP_CONFIG (nm_setting_ip4_config_new ());
 	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
 
 	/* Interface Name */
@@ -1480,7 +1480,7 @@ import (NMVpnPluginUiInterface *iface, const char *path, GError **error)
 
 	bool_value = key_file_get_boolean_helper (keyfile, "main", "EnableLocalLAN", NULL);
 	if (bool_value)
-		g_object_set (s_ip4, NM_SETTING_IP4_CONFIG_NEVER_DEFAULT, TRUE, NULL);
+		g_object_set (s_ip4, NM_SETTING_IP_CONFIG_NEVER_DEFAULT, TRUE, NULL);
 
 	buf = key_file_get_string_helper (keyfile, "main", "DHGroup", NULL);
 	if (buf) {
@@ -1540,14 +1540,14 @@ error:
 }
 
 static gboolean
-export (NMVpnPluginUiInterface *iface,
+export (NMVpnEditorPlugin *plugin,
         const char *path,
         NMConnection *connection,
         GError **error)
 {
 	NMSettingConnection *s_con;
-	NMSettingIP4Config *s_ip4;
-	NMSettingVPN *s_vpn;
+	NMSettingIPConfig *s_ip4;
+	NMSettingVpn *s_vpn;
 	FILE *f;
 	const char *value;
 	const char *gateway = NULL;
@@ -1672,20 +1672,29 @@ export (NMVpnPluginUiInterface *iface,
 		group_pw = nm_setting_vpn_get_secret (s_vpn, NM_VPNC_KEY_SECRET);
 
 	routes = g_string_new ("X-NM-Routes=");
-	if (s_ip4 && nm_setting_ip4_config_get_num_routes (s_ip4)) {
+	if (s_ip4 && nm_setting_ip_config_get_num_routes (s_ip4)) {
 		int i;
 
-		for (i = 0; i < nm_setting_ip4_config_get_num_routes (s_ip4); i++) {
-			NMIP4Route *route = nm_setting_ip4_config_get_route (s_ip4, i);
+		for (i = 0; i < nm_setting_ip_config_get_num_routes (s_ip4); i++) {
+#ifdef NM_VPNC_OLD
+			NMIP4Route *route = nm_setting_ip_config_get_route (s_ip4, i);
 			char str_addr[INET_ADDRSTRLEN + 1];
 			struct in_addr num_addr;
+#else
+			NMIPRoute *route = nm_setting_ip_config_get_route (s_ip4, i);
+#endif
 
 			if (routes_count)
 				g_string_append_c (routes, ' ');
-
+#ifdef NM_VPNC_OLD
 			num_addr.s_addr = nm_ip4_route_get_dest (route);
 			if (inet_ntop (AF_INET, &num_addr, &str_addr[0], INET_ADDRSTRLEN + 1))
 				g_string_append_printf (routes, "%s/%d", str_addr, nm_ip4_route_get_prefix (route));
+#else
+			g_string_append_printf (routes, "%s/%d",
+			                        nm_ip_route_get_dest (route),
+			                        nm_ip_route_get_prefix (route));
+#endif
 
 			routes_count++;
 		}
@@ -1776,7 +1785,7 @@ done:
 }
 
 static char *
-get_suggested_name (NMVpnPluginUiInterface *iface, NMConnection *connection)
+get_suggested_filename (NMVpnEditorPlugin *plugin, NMConnection *connection)
 {
 	NMSettingConnection *s_con;
 	const char *id;
@@ -1793,15 +1802,15 @@ get_suggested_name (NMVpnPluginUiInterface *iface, NMConnection *connection)
 }
 
 static guint32
-get_capabilities (NMVpnPluginUiInterface *iface)
+get_capabilities (NMVpnEditorPlugin *plugin)
 {
-	return (NM_VPN_PLUGIN_UI_CAPABILITY_IMPORT | NM_VPN_PLUGIN_UI_CAPABILITY_EXPORT);
+	return (NM_VPN_EDITOR_PLUGIN_CAPABILITY_IMPORT | NM_VPN_EDITOR_PLUGIN_CAPABILITY_EXPORT);
 }
 
-static NMVpnPluginUiWidgetInterface *
-ui_factory (NMVpnPluginUiInterface *iface, NMConnection *connection, GError **error)
+static NMVpnEditor *
+get_editor (NMVpnEditorPlugin *plugin, NMConnection *connection, GError **error)
 {
-	return nm_vpn_plugin_ui_widget_interface_new (connection, error);
+	return nm_vpnc_editor_new (connection, error);
 }
 
 static void
@@ -1809,14 +1818,14 @@ get_property (GObject *object, guint prop_id,
               GValue *value, GParamSpec *pspec)
 {
 	switch (prop_id) {
-	case NM_VPN_PLUGIN_UI_INTERFACE_PROP_NAME:
+	case PROP_NAME:
 		g_value_set_string (value, VPNC_PLUGIN_NAME);
 		break;
-	case NM_VPN_PLUGIN_UI_INTERFACE_PROP_DESC:
+	case PROP_DESC:
 		g_value_set_string (value, VPNC_PLUGIN_DESC);
 		break;
-	case NM_VPN_PLUGIN_UI_INTERFACE_PROP_SERVICE:
-		g_value_set_string (value, VPNC_PLUGIN_SERVICE);
+	case PROP_SERVICE:
+		g_value_set_string (value, NM_DBUS_SERVICE_VPNC);
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
@@ -1825,44 +1834,44 @@ get_property (GObject *object, guint prop_id,
 }
 
 static void
-vpnc_plugin_ui_class_init (VpncPluginUiClass *req_class)
+vpnc_editor_plugin_class_init (VpncEditorPluginClass *klass)
 {
-	GObjectClass *object_class = G_OBJECT_CLASS (req_class);
+	GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
 	object_class->get_property = get_property;
 
 	g_object_class_override_property (object_class,
-	                                  NM_VPN_PLUGIN_UI_INTERFACE_PROP_NAME,
-	                                  NM_VPN_PLUGIN_UI_INTERFACE_NAME);
+	                                  PROP_NAME,
+	                                  NM_VPN_EDITOR_PLUGIN_NAME);
 
 	g_object_class_override_property (object_class,
-	                                  NM_VPN_PLUGIN_UI_INTERFACE_PROP_DESC,
-	                                  NM_VPN_PLUGIN_UI_INTERFACE_DESC);
+	                                  PROP_DESC,
+	                                  NM_VPN_EDITOR_PLUGIN_DESCRIPTION);
 
 	g_object_class_override_property (object_class,
-	                                  NM_VPN_PLUGIN_UI_INTERFACE_PROP_SERVICE,
-	                                  NM_VPN_PLUGIN_UI_INTERFACE_SERVICE);
+	                                  PROP_SERVICE,
+	                                  NM_VPN_EDITOR_PLUGIN_SERVICE);
 }
 
 static void
-vpnc_plugin_ui_init (VpncPluginUi *plugin)
+vpnc_editor_plugin_init (VpncEditorPlugin *plugin)
 {
 }
 
 static void
-vpnc_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class)
+vpnc_editor_plugin_interface_init (NMVpnEditorPluginInterface *iface)
 {
 	/* interface implementation */
-	iface_class->ui_factory = ui_factory;
-	iface_class->get_capabilities = get_capabilities;
-	iface_class->import_from_file = import;
-	iface_class->export_to_file = export;
-	iface_class->get_suggested_name = get_suggested_name;
+	iface->get_editor = get_editor;
+	iface->get_capabilities = get_capabilities;
+	iface->import_from_file = import;
+	iface->export_to_file = export;
+	iface->get_suggested_filename = get_suggested_filename;
 }
 
 
-G_MODULE_EXPORT NMVpnPluginUiInterface *
-nm_vpn_plugin_ui_factory (GError **error)
+G_MODULE_EXPORT NMVpnEditorPlugin *
+nm_vpn_editor_plugin_factory (GError **error)
 {
 	if (error)
 		g_return_val_if_fail (*error == NULL, NULL);
@@ -1870,6 +1879,6 @@ nm_vpn_plugin_ui_factory (GError **error)
 	bindtextdomain (GETTEXT_PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 
-	return NM_VPN_PLUGIN_UI_INTERFACE (g_object_new (VPNC_TYPE_PLUGIN_UI, NULL));
+	return g_object_new (VPNC_TYPE_EDITOR_PLUGIN, NULL);
 }
 

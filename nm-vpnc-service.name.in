@@ -3,6 +3,9 @@ name=vpnc
 service=org.freedesktop.NetworkManager.vpnc
 program=@LIBEXECDIR@/nm-vpnc-service
 
+[libnm]
+plugin=@PLUGINDIR@/libnm-vpn-plugin-vpnc.so
+
 [GNOME]
 auth-dialog=@LIBEXECDIR@/nm-vpnc-auth-dialog
 properties=@PLUGINDIR@/libnm-vpnc-properties
