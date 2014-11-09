@@ -76,6 +76,8 @@ PKG_CHECK_MODULES(NM,
                   libnm-glib >= 0.9.6
                   libnm-glib-vpn >= 0.9.6)
 
+PKG_CHECK_MODULES(LIBNM, libnm >= 0.9.11)
+
 NM_COMPILER_WARNINGS
 
 dnl
