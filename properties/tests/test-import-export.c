@@ -152,7 +152,7 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (connection != NULL, "basic-import", "failed to import connection");
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "basic-import", "missing 'connection' setting");
 
@@ -163,7 +163,7 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "basic-import", "unexpected valid UUID");
 
 	/* IP4 setting */
-	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
+	s_ip4 = nm_connection_get_setting_ip4_config (connection);
 	ASSERT (s_ip4 != NULL,
 	        "basic-import", "missing 'ip4-config' setting");
 
@@ -226,7 +226,7 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "basic-import", "unexpected route #2 metric");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "basic-import", "missing 'vpn' setting");
 
@@ -244,7 +244,7 @@ remove_user_password (NMConnection *connection)
 {
 	NMSettingVPN *s_vpn;
 
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	if (!s_vpn)
 		return;
 
@@ -258,7 +258,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *
 {
 	NMConnection *connection;
 	NMConnection *reimported;
-	NMSetting *s_vpn;
+	NMSettingVPN *s_vpn;
 	char *path;
 	gboolean success;
 	GError *error = NULL;
@@ -289,8 +289,8 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *
 	/* Since we don't export the user password, but the original connection
 	 * had one, we need to add secret flags to the re-imported connection.
 	 */
-	s_vpn = nm_connection_get_setting (reimported, NM_TYPE_SETTING_VPN);
-	nm_setting_set_secret_flags (s_vpn,
+	s_vpn = nm_connection_get_setting_vpn (reimported);
+	nm_setting_set_secret_flags (NM_SETTING (s_vpn),
 	                             NM_VPNC_KEY_SECRET,
 	                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 	                             NULL);
@@ -321,7 +321,7 @@ test_nat_export (NMVpnPluginUiInterface *plugin,
 	connection = get_basic_connection ("nat-export", plugin, dir, "basic.pcf");
 	ASSERT (connection != NULL, "nat-export", "failed to import connection");
 
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL, "nat-export", "imported connection had no VPN setting");
 
 	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, nat_mode);
@@ -383,7 +383,7 @@ test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "everything-via-vpn", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "everything-via-vpn", "missing 'connection' setting");
 
@@ -391,7 +391,7 @@ test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "everything-via-vpn", "unexpected connection ID");
 
 	/* IP4 setting */
-	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
+	s_ip4 = nm_connection_get_setting_ip4_config (connection);
 	ASSERT (s_ip4 != NULL,
 	        "everything-via-vpn", "missing 'ip4-config' setting");
 
@@ -426,7 +426,7 @@ test_no_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "no-natt", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "no-natt", "missing 'connection' setting");
 
@@ -434,7 +434,7 @@ test_no_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "no-natt", "unexpected connection ID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "no-natt", "missing 'vpn' setting");
 
@@ -469,7 +469,7 @@ test_nat_cisco (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "nat-cisco", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "nat-cisco", "missing 'connection' setting");
 
@@ -477,7 +477,7 @@ test_nat_cisco (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "nat-cisco", "unexpected connection ID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "nat-cisco", "missing 'vpn' setting");
 
@@ -512,7 +512,7 @@ test_nat_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "natt", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "natt", "missing 'connection' setting");
 
@@ -520,7 +520,7 @@ test_nat_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "natt", "unexpected connection ID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "natt", "missing 'vpn' setting");
 
@@ -555,7 +555,7 @@ test_nat_force_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "force-natt", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "force-natt", "missing 'connection' setting");
 
@@ -563,7 +563,7 @@ test_nat_force_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "force-natt", "unexpected connection ID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "force-natt", "missing 'vpn' setting");
 
@@ -598,7 +598,7 @@ test_always_ask (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "always-ask", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "always-ask", "missing 'connection' setting");
 
@@ -606,7 +606,7 @@ test_always_ask (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "always-ask", "unexpected connection ID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "always-ask", "missing 'vpn' setting");
 
@@ -635,7 +635,7 @@ test_non_utf8_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (connection != NULL, "non-utf8-import", "failed to import connection");
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "non-utf8-import", "missing 'connection' setting");
 
@@ -646,7 +646,7 @@ test_non_utf8_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "non-utf8-import", "unexpected valid UUID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "non-utf8-import", "missing 'vpn' setting");
 
@@ -675,7 +675,7 @@ test_legacy_ike_port_0_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "use-legacy-ike-port-0", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "use-legacy-ike-port-0", "missing 'connection' setting");
 
@@ -683,7 +683,7 @@ test_legacy_ike_port_0_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "use-legacy-ike-port-0", "unexpected connection ID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "use-legacy-ike-port-0", "missing 'vpn' setting");
 
@@ -716,7 +716,7 @@ test_legacy_ike_port_1_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "use-legacy-ike-port-1", "error importing %s: (unknown)", pcf);
 
 	/* Connection setting */
-	s_con = (NMSettingConnection *) nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION);
+	s_con = nm_connection_get_setting_connection (connection);
 	ASSERT (s_con != NULL,
 	        "use-legacy-ike-port-1", "missing 'connection' setting");
 
@@ -724,7 +724,7 @@ test_legacy_ike_port_1_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	        "use-legacy-ike-port-1", "unexpected connection ID");
 
 	/* VPN setting */
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 	ASSERT (s_vpn != NULL,
 	        "use-legacy-ike-port-1", "missing 'vpn' setting");
 

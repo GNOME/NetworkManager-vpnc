@@ -1628,10 +1628,9 @@ export (NMVpnPluginUiInterface *iface,
 	gboolean use_force_natt = FALSE;
 	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
 
-	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
-	s_ip4 = (NMSettingIP4Config *) nm_connection_get_setting (connection, NM_TYPE_SETTING_IP4_CONFIG);
-
-	s_vpn = (NMSettingVPN *) nm_connection_get_setting (connection, NM_TYPE_SETTING_VPN);
+	s_con = nm_connection_get_setting_connection (connection);
+	s_ip4 = nm_connection_get_setting_ip4_config (connection);
+	s_vpn = nm_connection_get_setting_vpn (connection);
 
 	f = fopen (path, "w");
 	if (!f) {
@@ -1842,7 +1841,7 @@ get_suggested_name (NMVpnPluginUiInterface *iface, NMConnection *connection)
 
 	g_return_val_if_fail (connection != NULL, NULL);
 
-	s_con = NM_SETTING_CONNECTION (nm_connection_get_setting (connection, NM_TYPE_SETTING_CONNECTION));
+	s_con = nm_connection_get_setting_connection (connection);
 	g_return_val_if_fail (s_con != NULL, NULL);
 
 	id = nm_setting_connection_get_id (s_con);
