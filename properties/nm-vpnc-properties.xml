@@ -1,0 +1,110 @@
+<nm-vpn-properties gettext-domain="NetworkManager-vpnc">
+  <section _label="General">
+    <widget _label="Gateway" type="host">
+      <property name="IPSec gateway"/>
+    </widget>
+    <widget type="separator"/>
+    <widget _label="User name" type="string">
+      <property name="Xauth username"/>
+    </widget>
+    <widget _label="User password" type="password">
+      <property name="Xauth password"/>
+    </widget>
+    <widget _label="Group name" type="string">
+      <property name="IPSec ID"/>
+    </widget>
+    <widget _label="Group password" type="password">
+      <property name="IPSec secret"/>
+    </widget>
+    <widget type="separator"/>
+    <widget _label="Use hybrid authentication" type="checkbox">
+      <property name="IKE Authmode"
+		true-value="hybrid"
+		false-value="psk"/>
+    </widget>
+    <widget _label="CA file" type="certificate-file">
+      <sensitive if="IKE Authmode" value="hybrid"/>
+      <property name="CA-File"/>
+    </widget>
+  </section>
+  <section _label="Identification" advanced="1">
+    <widget _label="Domain" type="string">
+      <property name="Domain"/>
+    </widget>
+    <widget _label="Vendor" type="menu">
+      <item _label="Cisco" default="1">
+	<property name="Vendor" value="cisco"/>
+      </item>
+      <item _label="Netscreen">
+	<property name="Vendor" value="netscreen"/>
+      </item>
+    </widget>
+    <widget _label="Version" type="string">
+      <property name="Version"/>
+    </widget>
+  </section>
+  <section _label="Transport and Security" advanced="1">
+    <!-- FIXME
+    <widget _label="Tunnel interface name" type="string">
+      <property name="Interface name"/>
+    </widget>
+    -->
+    <widget _label="Encryption method" type="menu">
+      <item _label="Secure" default="1" />
+      <item _label="Weak (use with caution)">
+	<property name="Enable Single DES" value=""/>
+      </item>
+      <item _label="None (completely insecure)">
+	<property name="Enable no encryption" value=""/>
+      </item>
+    </widget>
+    <widget _label="NAT traversal" type="menu">
+      <item _label="NAT-T when available" default="1">
+	<property name="NAT Traversal Mode" value="natt"/>
+      </item>
+      <item _label="NAT-T always">
+	<property name="NAT Traversal Mode" value="force-natt"/>
+      </item>
+      <item _label="Cisco UDP">
+	<property name="NAT Traversal Mode" value="cisco-udp"/>
+      </item>
+      <item _label="Disabled">
+	<property name="NAT Traversal Mode" value="none"/>
+      </item>
+    </widget>
+    <widget _label="IKE DH group" type="menu">
+      <item _label="DH Group 1">
+	<property name="IKE DH Group" value="dh1"/>
+      </item>
+      <item _label="DH Group 2" default="1">
+	<property name="IKE DH Group" value="dh2"/>
+      </item>
+      <item _label="DH Group 5">
+	<property name="IKE DH Group" value="dh5"/>
+      </item>
+    </widget>
+    <widget _label="PFS" type="menu">
+      <item _label="Server" default="1">
+	<property name="Perfect Forward Secrecy" value="server"/>
+      </item>
+      <item _label="None">
+	<property name="Perfect Forward Secrecy" value="nopfs"/>
+      </item>
+      <item _label="DH Group 1">
+	<property name="Perfect Forward Secrecy" value="dh1"/>
+      </item>
+      <item _label="DH Group 2">
+	<property name="Perfect Forward Secrecy" value="dh2"/>
+      </item>
+      <item _label="DH Group 5">
+	<property name="Perfect Forward Secrecy" value="dh5"/>
+      </item>
+    </widget>
+    <widget _label="Local port" type="number" min="0" max="65535"/>
+    <widget type="separator"/>
+    <widget _label="Disable dead peer detection" type="checkbox">
+      <property name="DPD idle timeout (our side)"
+		true-value="0"/>
+    </widget>
+  </section>
+</nm-vpn-properties>

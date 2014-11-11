@@ -33,6 +33,7 @@ auth-dialog/nm-vpnc-auth-dialog.desktop
 auth-dialog/nm-vpnc-auth-dialog.desktop.in
 nm-vpnc-service.name
 nm-vpnc.desktop
+properties/nm-vpnc-properties.h
 properties/tests/test-import-export
 src/nm-vpnc-service
 src/nm-vpnc-service-vpnc-helper

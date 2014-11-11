@@ -45,6 +45,8 @@
 #define VPNC_PLUGIN_UI_ERROR                  NM_CONNECTION_ERROR
 #define VPNC_PLUGIN_UI_ERROR_FAILED           NM_CONNECTION_ERROR_FAILED
 #define VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY NM_CONNECTION_ERROR_INVALID_PROPERTY
+
+#include "nm-vpnc-properties.h"
 #endif
 
 #ifdef NM_VPNC_OLD
@@ -848,6 +850,14 @@ get_widget (NMVpnEditor *editor)
 	return G_OBJECT (priv->widget);
 }
 
+#ifdef NM_VPNC_NEW
+static char *
+get_property_xml (NMVpnEditor *editor)
+{
+	return g_strdup (NM_VPNC_PROPERTIES_XML);
+}
+#endif
+
 static void
 save_one_password (NMSettingVpn *s_vpn,
                    GtkBuilder *builder,
@@ -1159,6 +1169,9 @@ vpnc_editor_interface_init (NMVpnEditorInterface *iface)
 {
 	/* interface implementation */
 	iface->get_widget = get_widget;
+#ifdef NM_VPNC_NEW
+	iface->get_property_xml = get_property_xml;
+#endif
 	iface->update_connection = update_connection;
 }
 

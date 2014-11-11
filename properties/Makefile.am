@@ -7,7 +7,8 @@ libnm_vpnc_properties_new_la_SOURCES = \
 	nm-vpnc.c \
 	nm-vpnc.h \
 	nm-vpnc-helper.c \
-	nm-vpnc-helper.h
+	nm-vpnc-helper.h \
+	nm-vpnc-properties.h
 
 libnm_vpnc_properties_old_la_SOURCES = \
 	nm-vpnc.c \
@@ -36,6 +37,11 @@ libnm_vpnc_properties_new_la_LIBADD = \
 libnm_vpnc_properties_new_la_LDFLAGS = \
         -avoid-version
 
+nm-vpnc-properties.h: nm-vpnc-properties.xml
+	$(AM_V_GEN) (echo "/* Auto-generated. Do not edit. */"; echo ""; echo "#define NM_VPNC_PROPERTIES_XML \\"; sed -e 's/ _label=/ label=/;' -e 's/"/\\"/g' -e 's/\(.*\)/"\1" \\/' $^; echo '""') > $@
+
+BUILT_SOURCES = nm-vpnc-properties.h
+
 libnm_vpnc_properties_old_la_CPPFLAGS = \
 	-DNM_VPNC_OLD \
 	$(GLIB_CFLAGS) \
@@ -56,4 +62,4 @@ libnm_vpnc_properties_old_la_LDFLAGS = \
 
 CLEANFILES = *.bak *~
 
-EXTRA_DIST = $(ui_DATA)
+EXTRA_DIST = $(ui_DATA) nm-vpnc-properties.xml

@@ -4,4 +4,5 @@ auth-dialog/main.c
 auth-dialog/nm-vpnc-auth-dialog.desktop.in.in
 properties/nm-vpnc.c
 [type: gettext/glade]properties/nm-vpnc-dialog.ui
+properties/properties.xml
 src/nm-vpnc-service.c
