@@ -2,21 +2,23 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2014.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2014, 2015.
+# Edurne Labaka <elabaka@uzei.com>, 2015.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: network-manager-vpnc master\n"
+"Project-Id-Version: network-manager-vpnc nm-1-0\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-05-04 10:49+0200\n"
-"PO-Revision-Date: 2014-05-04 11:59+0200\n"
+"POT-Creation-Date: 2015-02-07 18:07+0100\n"
+"PO-Revision-Date: 2014-11-19 16:47+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
 "Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Poedit 1.6.10\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../auth-dialog/main.c:175
@@ -85,79 +87,79 @@ msgstr "Galdetu beti"
 msgid "Not Required"
 msgstr "Ez da beharrezkoa"
 
-#: ../properties/nm-vpnc.c:501
+#: ../properties/nm-vpnc.c:504
 msgid "Secure (default)"
 msgstr "Segurua (lehenetsia)"
 
-#: ../properties/nm-vpnc.c:504
+#: ../properties/nm-vpnc.c:507
 msgid "Weak (use with caution)"
 msgstr "Ahula (erabili kontu handiz)"
 
-#: ../properties/nm-vpnc.c:512
+#: ../properties/nm-vpnc.c:515
 msgid "None (completely insecure)"
 msgstr "Bat ere ez (erabat ez-segurua)"
 
-#: ../properties/nm-vpnc.c:578
+#: ../properties/nm-vpnc.c:581
 msgid "Cisco (default)"
 msgstr "Cisco (lehenetsia)"
 
-#: ../properties/nm-vpnc.c:585
+#: ../properties/nm-vpnc.c:588
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:616
+#: ../properties/nm-vpnc.c:629
 msgid "NAT-T when available (default)"
 msgstr "NAT-T erabilgarri dagoenean (lehenetsia)"
 
-#: ../properties/nm-vpnc.c:623
+#: ../properties/nm-vpnc.c:636
 msgid "NAT-T always"
 msgstr "NAT-T beti"
 
-#: ../properties/nm-vpnc.c:630
+#: ../properties/nm-vpnc.c:643
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:637
+#: ../properties/nm-vpnc.c:650
 msgid "Disabled"
 msgstr "Desgaituta"
 
-#: ../properties/nm-vpnc.c:657 ../properties/nm-vpnc.c:743
+#: ../properties/nm-vpnc.c:670 ../properties/nm-vpnc.c:756
 msgid "DH Group 1"
 msgstr "DH 1. taldea"
 
-#: ../properties/nm-vpnc.c:664
+#: ../properties/nm-vpnc.c:677
 msgid "DH Group 2 (default)"
 msgstr "DH 2. taldea (lehenetsia)"
 
-#: ../properties/nm-vpnc.c:671 ../properties/nm-vpnc.c:757
+#: ../properties/nm-vpnc.c:684 ../properties/nm-vpnc.c:770
 msgid "DH Group 5"
 msgstr "DH 5. taldea"
 
-#: ../properties/nm-vpnc.c:729
+#: ../properties/nm-vpnc.c:742
 msgid "Server (default)"
 msgstr "Zerbitzaria (lehenetsia)"
 
-#: ../properties/nm-vpnc.c:736
+#: ../properties/nm-vpnc.c:749
 msgid "None"
 msgstr "Bat ere ez"
 
-#: ../properties/nm-vpnc.c:750
+#: ../properties/nm-vpnc.c:763
 msgid "DH Group 2"
 msgstr "DH 2. taldea"
 
-#: ../properties/nm-vpnc.c:797
+#: ../properties/nm-vpnc.c:810
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Aukeratu Ziurtagiri-Emailearen ziurtagiria..."
 
-#: ../properties/nm-vpnc.c:801
+#: ../properties/nm-vpnc.c:814
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM ziurtagiriak (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1542
+#: ../properties/nm-vpnc.c:1571
 msgid "TCP tunneling not supported"
 msgstr "TCP tunela ez dago onartuta"
 
-#: ../properties/nm-vpnc.c:1544
+#: ../properties/nm-vpnc.c:1573
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -173,137 +175,14 @@ msgstr ""
 "ez du uste bezala funtzionatuko."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
-msgid "Advanced Options"
-msgstr "Aukera aurreratuak"
-
-#: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Identification"
-msgstr "Identifikazioa"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "_Domain:"
-msgstr "Domeinua:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:4
-msgid ""
-"(NT-)Domain name for authentication\n"
-"config: Domain <domain>"
-msgstr ""
-"(NT-) Domeinuaren izena autentifikatzeko\n"
-"konfigurazioa: Domain <domeinua>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "_Hornitzailea:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:7
-msgid ""
-"Vendor of your IPsec gateway\n"
-"config: Vendor <cisco/netscreen>"
-msgstr ""
-"IPsec atebidearen hornitzailea\n"
-"konfigurazioa: Vendor <cisco/netscreen>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Ve_rsion:"
-msgstr "_Bertsioa:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:10
-msgid ""
-"Application version to report. \n"
-"config: Application version <ASCII string>"
-msgstr ""
-"Aplikazioaren bertsioa berri emateko.\n"
-"konfigurazioa: Application version <ASCII katea>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "Transport and Security"
-msgstr "Garraioa eta segurtasuna"
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid ""
-"Encryption method\n"
-"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
-"encryption' for None"
-msgstr ""
-"Enkriptatze-metodoa\n"
-"konfigurazioa: 'nothing' segurtasunerako, 'Enable Single DES' ahula, "
-"'Enable no encryption' bat ere ez"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "_Encryption method:"
-msgstr "Enkriptatze-metodoa:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "Zeharretako NAT-a:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Zeharretako NAT\n"
-"konfigurazioa: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "_IKE DH taldea:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:20
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"IKE DH taldearen izena\n"
-"konfigurazioa: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
-msgstr "Konfidentzialtasun _iraunkorra (PFS):"
-
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Diffie-Hellman taldea PFS-en erabiltzeko\n"
-"konfigurazioa: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr "Ataka _lokala:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Erabiliko den lokaleko ISAKMP ataka (0 ausazko ataka adierazten du; 500 "
-"vpnc-ren lehenetsia da)\n"
-"konfigurazioa: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "Disable Dead _Peer Detection"
-msgstr "Desgaitu hildako _parekoen detekzioa (DPD)"
-
-#: ../properties/nm-vpnc-dialog.ui.h:29
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"Desgaitu DPD paketeak bidaltzea (iraungitze-denbora 0 gisa ezartzen du)\n"
-"konfigurazioa: DPD idle timeout (our side) 0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid "General"
 msgstr "Orokorra"
 
-#: ../properties/nm-vpnc-dialog.ui.h:32
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "Sho_w passwords"
 msgstr "Erakutsi pasahitzak"
 
-#: ../properties/nm-vpnc-dialog.ui.h:33
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid ""
 "Group password\n"
 "config: IPSec secret <group_password>"
@@ -311,19 +190,19 @@ msgstr ""
 "Taldearen pasahitza\n"
 "konfigurazioa: IPSec secret <taldearen_pasahitza>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:35
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
 msgstr "_Taldearen pasahitza:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:36
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway:"
 msgstr "_Atebidea:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:37
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "_Taldearen izena:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:38
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
@@ -331,7 +210,7 @@ msgstr ""
 "IPsec atebidearen IP/otalari-izena\n"
 "konfigurazioa: IPSec gateway <atebidea>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:40
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
 "Group name\n"
 "config: IPSec ID <group_name>"
@@ -339,11 +218,11 @@ msgstr ""
 "Taldearen izena\n"
 "konfigurazioa: IPSec ID <taldearen_izena>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:42
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
 msgstr "_Erabiltzailearen pasahitza:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:43
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
 "User password for the connection\n"
 "config: Xauth password <password>"
@@ -351,7 +230,7 @@ msgstr ""
 "Konexioko erabiltzailearen pasahitza\n"
 "konfigurazioa: Xauth password <pasahitza>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:45
+#: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
@@ -359,15 +238,15 @@ msgstr ""
 "Konexioko erabiltzailearen izena\n"
 "konfigurazioa: Xauth username <erabiltzaile-izena>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:47
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "User na_me:"
 msgstr "_Erabiltzaile-izena:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:48
+#: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
 msgstr "Erabili autentifikazio _hibridoa"
 
-#: ../properties/nm-vpnc-dialog.ui.h:49
+#: ../properties/nm-vpnc-dialog.ui.h:19
 msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password.\n"
 "config: IKE Authmode hybrid"
@@ -375,11 +254,11 @@ msgstr ""
 "Gaitu autentifikazio hibridoa, adib. erabili ziurtagiria pasahitzaz gain\n"
 "konfigurazioa:  IKE Authmode hybrid"
 
-#: ../properties/nm-vpnc-dialog.ui.h:51
+#: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "CA _File:"
 msgstr "ZE _fitxategia:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:52
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
 "CA certificate in PEM format\n"
 "config: CA-File"
@@ -387,60 +266,206 @@ msgstr ""
 "ZE-ren ziurtagiria PEM formatuan\n"
 "konfigurazioa: CA-File"
 
-#: ../properties/nm-vpnc-dialog.ui.h:54
+#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d..."
 msgstr "_Aurreratua..."
 
-#: ../src/nm-vpnc-service.c:155
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "Advanced Options"
+msgstr "Aukera aurreratuak"
+
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "Identification"
+msgstr "Identifikazioa"
+
+#: ../properties/nm-vpnc-dialog.ui.h:27
+msgid "_Domain:"
+msgstr "Domeinua:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:28
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+"(NT-) Domeinuaren izena autentifikatzeko\n"
+"konfigurazioa: Domain <domeinua>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:30
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
+msgstr ""
+"IPsec atebidearen hornitzailea\n"
+"konfigurazioa: Vendor <cisco/netscreen>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr "_Hornitzailea:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
+msgid "Ve_rsion:"
+msgstr "_Bertsioa:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:34
+msgid ""
+"Application version to report. \n"
+"config: Application version <ASCII string>"
+msgstr ""
+"Aplikazioaren bertsioa berri emateko.\n"
+"konfigurazioa: Application version <ASCII katea>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:36
+msgid "Transport and Security"
+msgstr "Garraioa eta segurtasuna"
+
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "Desgaitu hildako _parekoen detekzioa (DPD)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Desgaitu DPD paketeak bidaltzea (iraungitze-denbora 0 gisa ezartzen du)\n"
+"konfigurazioa: DPD idle timeout (our side) 0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr "Ataka _lokala:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr "Konfidentzialtasun _iraunkorra (PFS):"
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "_IKE DH taldea:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "Zeharretako NAT:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Erabiliko den lokaleko ISAKMP ataka (0 ausazko ataka adierazten du; 500 vpnc-"
+"ren lehenetsia da)\n"
+"konfigurazioa: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Diffie-Hellman taldea PFS-en erabiltzeko\n"
+"konfigurazioa: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"IKE DH taldearen izena\n"
+"konfigurazioa: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"Zeharretako NAT\n"
+"konfigurazioa: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
+"encryption' for None"
+msgstr ""
+"Enkriptatze-metodoa\n"
+"konfigurazioa: 'nothing' segurtasunerako, 'Enable Single DES' ahula, 'Enable "
+"no encryption' bat ere ez"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
+msgid "_Encryption method:"
+msgstr "Enkriptatze-metodoa:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:173
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "'%s' propietatea baliogabea edo ez dago onartuta"
 
-#: ../src/nm-vpnc-service.c:174
+#: ../src/nm-vpnc-service.c:192
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr ""
 "'%s' propietatearen '%s' bide-izena ez da absolutua edo ez da existitzen"
 
-#: ../src/nm-vpnc-service.c:187
+#: ../src/nm-vpnc-service.c:205
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr ""
-"baliogabeko '%s' propietatearen zenbaki osokoa edo [%d -> %d] barrutitik kanpo"
+"baliogabeko '%s' propietatearen zenbaki osokoa edo [%d -> %d] barrutitik "
+"kanpo"
 
-#: ../src/nm-vpnc-service.c:197
+#: ../src/nm-vpnc-service.c:215
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "baliogabeko '%s' propietatearen boolearra (ez da bai edo ez)"
 
-#: ../src/nm-vpnc-service.c:204
+#: ../src/nm-vpnc-service.c:222
 #, c-format
 msgid "unhandled property '%s' type %d"
 msgstr "kudeatu gabeko '%s' propietatearen %d mota"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:239
 msgid "No VPN configuration options."
 msgstr "Ez dago VPNaren konfigurazioaren aukerarik."
 
-#: ../src/nm-vpnc-service.c:239
+#: ../src/nm-vpnc-service.c:265
 msgid "No VPN secrets!"
 msgstr "Ez dago VPNaren ezkutukorik."
 
-#: ../src/nm-vpnc-service.c:323
+#: ../src/nm-vpnc-service.c:613
 msgid "Could not find vpnc binary."
 msgstr "Ezin izan da vpnc liburutegia aurkitu."
 
-#: ../src/nm-vpnc-service.c:417
+#: ../src/nm-vpnc-service.c:712
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "Konfigurazioaren '%s' aukera baliogabea edo ezezaguna."
 
-#: ../src/nm-vpnc-service.c:450
+#: ../src/nm-vpnc-service.c:745
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "Konfigurazioaren '%s' aukera ez da zenbaki osokoa."
 
-#: ../src/nm-vpnc-service.c:630
+#: ../src/nm-vpnc-service.c:918
+msgid "vpnc does not support interactive requests"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:942
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:951 ../src/nm-vpnc-service.c:1026
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -448,15 +473,32 @@ msgstr ""
 "Ezin izan da eskaera prozesatu VPN konexioaren ezarpenak baliogabekoak "
 "direlako."
 
-#: ../src/nm-vpnc-service.c:745
+#: ../src/nm-vpnc-service.c:959
+#, fuzzy
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Ezin izan da eskaera prozesatu VPN konexioaren ezarpenak baliogabekoak "
+"direlako."
+
+#: ../src/nm-vpnc-service.c:971
+#, fuzzy, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Ezin izan da eskaera prozesatu VPN konexioaren ezarpenak baliogabekoak "
+"direlako."
+
+#: ../src/nm-vpnc-service.c:1156
 msgid "Don't quit when VPN connection terminates"
 msgstr "Ez irten VPNaren konexioa amaitzean"
 
-#: ../src/nm-vpnc-service.c:746
+#: ../src/nm-vpnc-service.c:1157
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Gaitu arazketaren erregistro xehea (pasahitzak erakuts ditzake)"
 
-#: ../src/nm-vpnc-service.c:769
+#: ../src/nm-vpnc-service.c:1180
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
