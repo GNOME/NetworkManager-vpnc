@@ -16,6 +16,7 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(NM_CFLAGS) \
+	-I$(top_srcdir)/src \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DUIDIR=\""$(uidir)"\" \
 	-DG_DISABLE_DEPRECATED \

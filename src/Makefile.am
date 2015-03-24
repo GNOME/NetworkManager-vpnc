@@ -18,6 +18,7 @@ libexec_PROGRAMS = nm-vpnc-service nm-vpnc-service-vpnc-helper
 nm_vpnc_service_SOURCES = \
 	nm-vpnc-service.c \
 	nm-vpnc-service.h \
+	nm-vpnc-service-defines.h \
 	utils.c \
 	utils.h
 

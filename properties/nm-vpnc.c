@@ -44,7 +44,7 @@
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
 
-#include "src/nm-vpnc-service.h"
+#include "nm-vpnc-service-defines.h"
 #include "nm-vpnc-helper.h"
 #include "nm-vpnc.h"
 
