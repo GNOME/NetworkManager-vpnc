@@ -2,7 +2,6 @@
 # Please keep this file sorted alphabetically.
 auth-dialog/main.c
 auth-dialog/nm-vpnc-auth-dialog.desktop.in.in
-nm-vpnc.desktop.in
 properties/nm-vpnc.c
 [type: gettext/glade]properties/nm-vpnc-dialog.ui
 src/nm-vpnc-service.c
