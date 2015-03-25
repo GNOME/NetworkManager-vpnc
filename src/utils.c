@@ -33,7 +33,7 @@
  * @prompt_fn: function to call when vpnc (or the server) sends a request for
  *   passwords or more information
  * @prompt_fn_data: pointer to pass to @prompt_fn
- * 
+ *
  * Parses new vpnc output to extract server messages and detect prompts for
  * more information.  Since vpnc can print variable numbers of bytes at a time,
  * not necessarily a complete line or block, this function should be called
@@ -76,7 +76,7 @@ utils_handle_output (GString *output,
 	 *  [2011-06-03 11:11:13]
 	 * Password for VPN person@1.1.1.1:   (waits for input without newline)
 	 *    size = 42, blksz = 16, padding = 6
-   	 *
+	 *
 	 * So we can't just listen for '\n\n' or we won't react immediately to
 	 * input prompts or correctly process service messages.
 	 *

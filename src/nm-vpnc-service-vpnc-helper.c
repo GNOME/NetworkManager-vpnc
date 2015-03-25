@@ -50,14 +50,14 @@ helper_failed (DBusGConnection *connection, const char *reason)
 	g_warning ("nm-nvpnc-service-vpnc-helper did not receive a valid %s from vpnc", reason);
 
 	proxy = dbus_g_proxy_new_for_name (connection,
-								NM_DBUS_SERVICE_VPNC,
-								NM_VPN_DBUS_PLUGIN_PATH,
-								NM_VPN_DBUS_PLUGIN_INTERFACE);
+	                                   NM_DBUS_SERVICE_VPNC,
+	                                   NM_VPN_DBUS_PLUGIN_PATH,
+	                                   NM_VPN_DBUS_PLUGIN_INTERFACE);
 
 	dbus_g_proxy_call (proxy, "SetFailure", &err,
-				    G_TYPE_STRING, reason,
-				    G_TYPE_INVALID,
-				    G_TYPE_INVALID);
+	                   G_TYPE_STRING, reason,
+	                   G_TYPE_INVALID,
+	                   G_TYPE_INVALID);
 
 	if (err) {
 		g_warning ("Could not send failure information: %s", err->message);
@@ -76,15 +76,15 @@ send_ip4_config (DBusGConnection *connection, GHashTable *config)
 	GError *err = NULL;
 
 	proxy = dbus_g_proxy_new_for_name (connection,
-								NM_DBUS_SERVICE_VPNC,
-								NM_VPN_DBUS_PLUGIN_PATH,
-								NM_VPN_DBUS_PLUGIN_INTERFACE);
+	                                   NM_DBUS_SERVICE_VPNC,
+	                                   NM_VPN_DBUS_PLUGIN_PATH,
+	                                   NM_VPN_DBUS_PLUGIN_INTERFACE);
 
 	dbus_g_proxy_call (proxy, "SetIp4Config", &err,
-				    dbus_g_type_get_map ("GHashTable", G_TYPE_STRING, G_TYPE_VALUE),
-				    config,
-				    G_TYPE_INVALID,
-				    G_TYPE_INVALID);
+	                   dbus_g_type_get_map ("GHashTable", G_TYPE_STRING, G_TYPE_VALUE),
+	                   config,
+	                   G_TYPE_INVALID,
+	                   G_TYPE_INVALID);
 
 	if (err) {
 		g_warning ("Could not send IPv4 configuration: %s", err->message);
@@ -148,7 +148,7 @@ bool_to_gvalue (gboolean b)
 static GValue *
 addr_to_gvalue (const char *str)
 {
-	struct in_addr	temp_addr;
+	struct in_addr temp_addr;
 
 	/* Empty */
 	if (!str || strlen (str) < 1)
@@ -308,7 +308,7 @@ get_routes (void)
  * CISCO_BANNER           -- banner from server
  *
  */
-int 
+int
 main (int argc, char *argv[])
 {
 	DBusGConnection *connection;

@@ -79,10 +79,10 @@ typedef struct {
 
 #define NM_VPNC_PLUGIN_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), NM_TYPE_VPNC_PLUGIN, NMVPNCPluginPrivate))
 
-#define NM_VPNC_HELPER_PATH		LIBEXECDIR"/nm-vpnc-service-vpnc-helper"
-#define NM_VPNC_PID_PATH		LOCALSTATEDIR"/run/NetworkManager"
-#define NM_VPNC_UDP_ENCAPSULATION_PORT	0 /* random port */
-#define NM_VPNC_LOCAL_PORT_ISAKMP	0 /* random port */
+#define NM_VPNC_HELPER_PATH            LIBEXECDIR"/nm-vpnc-service-vpnc-helper"
+#define NM_VPNC_PID_PATH               LOCALSTATEDIR"/run/NetworkManager"
+#define NM_VPNC_UDP_ENCAPSULATION_PORT 0 /* random port */
+#define NM_VPNC_LOCAL_PORT_ISAKMP      0 /* random port */
 
 typedef enum {
 	ITEM_TYPE_UNKNOWN = 0,
@@ -651,9 +651,9 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 static inline void
 write_config_option (int fd, const char *format, ...)
 {
-	char * 	string;
-	va_list	args;
-	int		x;
+	char *string;
+	va_list args;
+	int x;
 
 	va_start (args, format);
 	string = g_strdup_vprintf (format, args);
@@ -688,8 +688,8 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		ValidProperty prop = valid_properties[i];
 
 		if (!strcmp (prop.name, (char *) key)) {
-  			/* Property is ok */
-  			type = prop.type;
+			/* Property is ok */
+			type = prop.type;
 			break;
 		}
 	}
@@ -699,8 +699,8 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		ValidProperty prop = valid_secrets[i];
 
 		if (!strcmp (prop.name, (char *) key)) {
-  			/* Property is ok */
-  			type = prop.type;
+			/* Property is ok */
+			type = prop.type;
 			break;
 		}
 	}
@@ -803,7 +803,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 		                     NM_VPNC_KEY_XAUTH_USER " %s\n",
 		                     default_username);
 	}
-	
+
 	/* Use Cisco UDP by default */
 	props_natt_mode = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
 	if (!props_natt_mode || !strlen (props_natt_mode)) {
@@ -1019,7 +1019,7 @@ real_need_secrets (NMVPNPlugin *plugin,
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	if (!s_vpn) {
-        g_set_error (error,
+		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_CONNECTION_INVALID,
 		             "%s",
@@ -1084,8 +1084,9 @@ NMVPNCPlugin *
 nm_vpnc_plugin_new (void)
 {
 	return (NMVPNCPlugin *) g_object_new (NM_TYPE_VPNC_PLUGIN,
-								   NM_VPN_PLUGIN_DBUS_SERVICE_NAME, NM_DBUS_SERVICE_VPNC,
-								   NULL);
+	                                      NM_VPN_PLUGIN_DBUS_SERVICE_NAME,
+	                                      NM_DBUS_SERVICE_VPNC,
+	                                      NULL);
 }
 
 static void
@@ -1177,7 +1178,8 @@ main (int argc, char *argv[])
 	g_option_context_add_main_entries (opt_ctx, options, NULL);
 
 	g_option_context_set_summary (opt_ctx,
-		_("nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to NetworkManager."));
+	                              _("nm-vpnc-service provides integrated "
+	                                "Cisco Legacy IPsec VPN capability to NetworkManager."));
 
 	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
 	g_option_context_free (opt_ctx);

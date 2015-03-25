@@ -50,14 +50,14 @@
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
 #define VPNC_PLUGIN_DESC    _("Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways.")
-#define VPNC_PLUGIN_SERVICE NM_DBUS_SERVICE_VPNC 
+#define VPNC_PLUGIN_SERVICE NM_DBUS_SERVICE_VPNC
 
 #define ENC_TYPE_SECURE 0
 #define ENC_TYPE_WEAK   1
 #define ENC_TYPE_NONE   2
 
 #define PW_TYPE_SAVE   0
-#define PW_TYPE_ASK	   1
+#define PW_TYPE_ASK    1
 #define PW_TYPE_UNUSED 2
 
 #define NM_VPNC_LOCAL_PORT_DEFAULT 500
@@ -67,16 +67,16 @@
 static void vpnc_plugin_ui_interface_init (NMVpnPluginUiInterface *iface_class);
 
 G_DEFINE_TYPE_EXTENDED (VpncPluginUi, vpnc_plugin_ui, G_TYPE_OBJECT, 0,
-						G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_INTERFACE,
-											   vpnc_plugin_ui_interface_init))
+                        G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_INTERFACE,
+                                               vpnc_plugin_ui_interface_init))
 
 /************** UI widget class **************/
 
 static void vpnc_plugin_ui_widget_interface_init (NMVpnPluginUiWidgetInterface *iface_class);
 
 G_DEFINE_TYPE_EXTENDED (VpncPluginUiWidget, vpnc_plugin_ui_widget, G_TYPE_OBJECT, 0,
-						G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_WIDGET_INTERFACE,
-											   vpnc_plugin_ui_widget_interface_init))
+                        G_IMPLEMENT_INTERFACE (NM_TYPE_VPN_PLUGIN_UI_WIDGET_INTERFACE,
+                                               vpnc_plugin_ui_widget_interface_init))
 
 #define VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidgetPrivate))
 
@@ -1864,7 +1864,7 @@ ui_factory (NMVpnPluginUiInterface *iface, NMConnection *connection, GError **er
 
 static void
 get_property (GObject *object, guint prop_id,
-			  GValue *value, GParamSpec *pspec)
+              GValue *value, GParamSpec *pspec)
 {
 	switch (prop_id) {
 	case NM_VPN_PLUGIN_UI_INTERFACE_PROP_NAME:
@@ -1890,16 +1890,16 @@ vpnc_plugin_ui_class_init (VpncPluginUiClass *req_class)
 	object_class->get_property = get_property;
 
 	g_object_class_override_property (object_class,
-									  NM_VPN_PLUGIN_UI_INTERFACE_PROP_NAME,
-									  NM_VPN_PLUGIN_UI_INTERFACE_NAME);
+	                                  NM_VPN_PLUGIN_UI_INTERFACE_PROP_NAME,
+	                                  NM_VPN_PLUGIN_UI_INTERFACE_NAME);
 
 	g_object_class_override_property (object_class,
-									  NM_VPN_PLUGIN_UI_INTERFACE_PROP_DESC,
-									  NM_VPN_PLUGIN_UI_INTERFACE_DESC);
+	                                  NM_VPN_PLUGIN_UI_INTERFACE_PROP_DESC,
+	                                  NM_VPN_PLUGIN_UI_INTERFACE_DESC);
 
 	g_object_class_override_property (object_class,
-									  NM_VPN_PLUGIN_UI_INTERFACE_PROP_SERVICE,
-									  NM_VPN_PLUGIN_UI_INTERFACE_SERVICE);
+	                                  NM_VPN_PLUGIN_UI_INTERFACE_PROP_SERVICE,
+	                                  NM_VPN_PLUGIN_UI_INTERFACE_SERVICE);
 }
 
 static void
