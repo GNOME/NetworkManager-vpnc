@@ -9,8 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-29 10:30+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
+"POT-Creation-Date: 2015-03-25 17:25+0000\n"
 "PO-Revision-Date: 2011-01-22 14:38+0100\n"
 "Last-Translator: David Planella <david.planella@gmail.com>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -20,52 +21,52 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:103
-msgid "_Secondary Password:"
-msgstr "Contrasenya _secundària:"
+#: ../auth-dialog/main.c:175
+#, fuzzy, c-format
+#| msgid "Authenticate VPN"
+msgid "Authenticate VPN %s"
+msgstr "Autentica la VPN"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:159
-msgid "_Password:"
+#: ../auth-dialog/main.c:191
+#, fuzzy
+#| msgid "_Password:"
+msgid "Password:"
 msgstr "_Contrasenya:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:243
-msgid "Sh_ow passwords"
-msgstr "_Mostra les contrasenyes"
+#: ../auth-dialog/main.c:199
+#, fuzzy
+#| msgid "_Group Password:"
+msgid "Group Password:"
+msgstr "Contrasenya de _grup:"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:303
-msgid "_Remember passwords for this session"
-msgstr "_Recorda les contrasenyes per aquesta sessió"
+#: ../auth-dialog/main.c:234
+msgid "Authenticate VPN"
+msgstr "Autentica la VPN"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:304
-msgid "_Save passwords in keyring"
-msgstr "_Desa les contrasenyes a l'anell de claus"
+#: ../auth-dialog/main.c:243
+msgid "_Group Password:"
+msgstr "Contrasenya de _grup:"
 
-#: ../auth-dialog/main.c:170
+#: ../auth-dialog/main.c:501
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Us heu d'autenticar per poder accedir a la xarxa privada virtual «%s»."
 
-#: ../auth-dialog/main.c:171
-msgid "Authenticate VPN"
-msgstr "Autentica la VPN"
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
+msgid "Network"
+msgstr ""
 
-#: ../auth-dialog/main.c:175
-msgid "_Group Password:"
-msgstr "Contrasenya de _grup:"
+#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
+#, fuzzy
+#| msgid "Use _domain for authentication"
+msgid "Request VPN authentication"
+msgstr "Utilitzeu el _domini per l'autenticació"
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Afegiu, suprimiu, i editeu connexions VPN"
-
-#: ../nm-vpnc.desktop.in.h:2
-msgid "VPN Connection Manager (vpnc)"
-msgstr "Gestor de connexions VPN (vpnc)"
-
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:51
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "VPN compatible amb Cisco (vpnc)"
 
-#: ../properties/nm-vpnc.c:55
+#: ../properties/nm-vpnc.c:52
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -73,63 +74,97 @@ msgstr ""
 "Compatible amb diverses passarel·les VPN Cisco, Juniper, Netscreen i "
 "Sonicwall basades en IPsec."
 
-#: ../properties/nm-vpnc.c:342
+#: ../properties/nm-vpnc.c:336
 msgid "Saved"
 msgstr "Desat"
 
-#: ../properties/nm-vpnc.c:349
+#: ../properties/nm-vpnc.c:343
 msgid "Always Ask"
 msgstr "Demana-ho sempre"
 
-#: ../properties/nm-vpnc.c:356
+#: ../properties/nm-vpnc.c:350
 msgid "Not Required"
 msgstr "No necessària"
 
-#: ../properties/nm-vpnc.c:416
+#: ../properties/nm-vpnc.c:502
 msgid "Secure (default)"
 msgstr "Segura (predeterminat)"
 
-#: ../properties/nm-vpnc.c:419
+#: ../properties/nm-vpnc.c:505
 msgid "Weak (use with caution)"
 msgstr "Dèbil (utilitzeu amb compte)"
 
-#: ../properties/nm-vpnc.c:427
+#: ../properties/nm-vpnc.c:513
 msgid "None (completely insecure)"
 msgstr "Cap (completament insegura)"
 
-#: ../properties/nm-vpnc.c:475
+#: ../properties/nm-vpnc.c:579
+#, fuzzy
+#| msgid "Secure (default)"
+msgid "Cisco (default)"
+msgstr "Segura (predeterminat)"
+
+#: ../properties/nm-vpnc.c:586
+msgid "Netscreen"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:627
 msgid "NAT-T when available (default)"
 msgstr "NAT-T quan estigui disponible (predeterminat)"
 
-#: ../properties/nm-vpnc.c:482
+#: ../properties/nm-vpnc.c:634
 msgid "NAT-T always"
 msgstr "NAT-T sempre"
 
-#: ../properties/nm-vpnc.c:489
+#: ../properties/nm-vpnc.c:641
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:496
+#: ../properties/nm-vpnc.c:648
 msgid "Disabled"
 msgstr "Inhabilitat"
 
-#: ../properties/nm-vpnc.c:516
+#: ../properties/nm-vpnc.c:668 ../properties/nm-vpnc.c:754
 msgid "DH Group 1"
 msgstr "Grup DH 1"
 
-#: ../properties/nm-vpnc.c:523
+#: ../properties/nm-vpnc.c:675
 msgid "DH Group 2 (default)"
 msgstr "Grup DH 2 (predeterminat)"
 
-#: ../properties/nm-vpnc.c:530
+#: ../properties/nm-vpnc.c:682 ../properties/nm-vpnc.c:768
 msgid "DH Group 5"
 msgstr "Grup DH 5"
 
-#: ../properties/nm-vpnc.c:1202
+#: ../properties/nm-vpnc.c:740
+#, fuzzy
+#| msgid "Secure (default)"
+msgid "Server (default)"
+msgstr "Segura (predeterminat)"
+
+#: ../properties/nm-vpnc.c:747
+msgid "None"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:761
+#, fuzzy
+#| msgid "DH Group 1"
+msgid "DH Group 2"
+msgstr "Grup DH 1"
+
+#: ../properties/nm-vpnc.c:808
+msgid "Choose a Certificate Authority (CA) certificate..."
+msgstr ""
+
+#: ../properties/nm-vpnc.c:812
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr ""
+
+#: ../properties/nm-vpnc.c:1569
 msgid "TCP tunneling not supported"
 msgstr "No estan implementats els túnels TCP"
 
-#: ../properties/nm-vpnc.c:1204
+#: ../properties/nm-vpnc.c:1571
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -145,62 +180,325 @@ msgstr ""
 "Tot i això es pot crear la connexió, amb el túnel a través de TCP "
 "inhabilitat, tanmateix segurament no funcionarà com s'espera."
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
-msgid " "
-msgstr " "
-
-#: ../properties/nm-vpnc-dialog.glade.h:2
-msgid "<b>General</b>"
+#: ../properties/nm-vpnc-dialog.ui.h:1
+#, fuzzy
+#| msgid "<b>General</b>"
+msgid "General"
 msgstr "<b>General</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
-msgid "<b>Optional</b>"
-msgstr "<b>Opcional</b>"
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "Sho_w passwords"
+msgstr "M_ostra les contrasenyes"
 
-# FIXME això queda molt macabre (dpm)
-#: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "Disable Dead _Peer Detection"
-msgstr "Inhabilita la detecció de l'homòleg mort"
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "_Domain:"
-msgstr "Domini:"
-
-#: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "_Encryption method:"
-msgstr "Mètode d'encriptació:"
-
-#: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup name:"
-msgstr "Nom del g_rup:"
-
-#: ../properties/nm-vpnc-dialog.glade.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
 msgstr "Contrasenya del _grup:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "_IKE DH Group:"
-msgstr "Grup IKE DH:"
-
-#: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "_NAT traversal:"
-msgstr "Travessament del NAT:"
-
-#: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "Sho_w passwords"
-msgstr "Mostra les contrasenyes"
-
-#: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "User na_me:"
-msgstr "Nom d'usuari:"
-
-#: ../properties/nm-vpnc-dialog.glade.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway:"
 msgstr "_Passarel·la:"
 
-#: ../properties/nm-vpnc-dialog.glade.h:14
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr "Nom del g_rup:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
 msgstr "_Contrasenya d'usuari:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "User na_me:"
+msgstr "_Nom d'usuari:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+#, fuzzy
+#| msgid "Use _domain for authentication"
+msgid "Use _hybrid authentication"
+msgstr "Utilitzeu el _domini per l'autenticació"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "CA _File:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "Advance_d..."
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "Advanced Options"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "Identification"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:27
+msgid "_Domain:"
+msgstr "_Domini:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:28
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:30
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
+msgid "Ve_rsion:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:34
+msgid ""
+"Application version to report. \n"
+"config: Application version <ASCII string>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:36
+msgid "Transport and Security"
+msgstr ""
+
+# FIXME això queda molt macabre (dpm)
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "_Inhabilita la detecció de l'homòleg mort"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "_Grup IKE DH:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "_Travessament del NAT:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
+"encryption' for None"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
+msgid "_Encryption method:"
+msgstr "_Mètode d'encriptació:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:173
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:192
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:205
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:215
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:222
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:239
+msgid "No VPN configuration options."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:265
+msgid "No VPN secrets!"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:613
+msgid "Could not find vpnc binary."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:712
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:745
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:918
+msgid "vpnc does not support interactive requests"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:942
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:951 ../src/nm-vpnc-service.c:1026
+#, fuzzy
+#| msgid ""
+#| "The VPN login failed because the VPN configuration options were invalid."
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+"No s'ha pogut connectar a la VPN perquè les opcions de configuració de la "
+"VPN eren errònies."
+
+#: ../src/nm-vpnc-service.c:959
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:971
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:1157
+msgid "Don't quit when VPN connection terminates"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:1158
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:1181
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "Contrasenya _secundària:"
+
+#~ msgid "Sh_ow passwords"
+#~ msgstr "_Mostra les contrasenyes"
+
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "_Recorda les contrasenyes per aquesta sessió"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "_Desa les contrasenyes a l'anell de claus"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Afegiu, suprimiu, i editeu connexions VPN"
+
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "Gestor de connexions VPN (vpnc)"
+
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgid "<b>Optional</b>"
+#~ msgstr "<b>Opcional</b>"
 
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"
@@ -322,9 +620,6 @@ msgstr "_Contrasenya d'usuari:"
 #~ msgid "Use NAT _keepalive packets"
 #~ msgstr "Utilitza els paquets NAT _keepalive"
 
-#~ msgid "Use _domain for authentication"
-#~ msgstr "Utilitzeu el _domini per l'autenticació"
-
 #~ msgid "_Only use VPN connection for these addresses"
 #~ msgstr "_Fes servir només la connexió VPN per aquestes adreces"
 
@@ -351,12 +646,6 @@ msgstr "_Contrasenya d'usuari:"
 #~ msgstr ""
 #~ "No s'ha pogut connectar a la VPN perquè l'aplicació VPN no s'ha pogut "
 #~ "connectar al servidor VPN."
-
-#~ msgid ""
-#~ "The VPN login failed because the VPN configuration options were invalid."
-#~ msgstr ""
-#~ "No s'ha pogut connectar a la VPN perquè les opcions de configuració de la "
-#~ "VPN eren errònies."
 
 #~ msgid ""
 #~ "The VPN login failed because the VPN program received an invalid "
