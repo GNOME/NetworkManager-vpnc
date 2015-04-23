@@ -45,6 +45,7 @@
 #include <nm-setting-vpn.h>
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
+#include <nm-ui-utils.h>
 
 #include "src/nm-vpnc-service.h"
 #include "nm-vpnc-helper.h"
@@ -57,10 +58,6 @@
 #define ENC_TYPE_SECURE 0
 #define ENC_TYPE_WEAK   1
 #define ENC_TYPE_NONE   2
-
-#define PW_TYPE_SAVE   0
-#define PW_TYPE_ASK	   1
-#define PW_TYPE_UNUSED 2
 
 #define NM_VPNC_LOCAL_PORT_DEFAULT 500
 
@@ -202,12 +199,8 @@ setup_password_widget (VpncPluginUiWidget *self,
                        gboolean new_connection)
 {
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
 	GtkWidget *widget;
 	const char *value;
-
-	if (new_connection)
-		secret_flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
 
 	widget = (GtkWidget *) gtk_builder_get_object (priv->builder, entry_name);
 	g_assert (widget);
@@ -216,10 +209,7 @@ setup_password_widget (VpncPluginUiWidget *self,
 	if (s_vpn) {
 		value = nm_setting_vpn_get_secret (s_vpn, secret_name);
 		gtk_entry_set_text (GTK_ENTRY (widget), value ? value : "");
-		nm_setting_get_secret_flags (NM_SETTING (s_vpn), secret_name, &secret_flags, NULL);
 	}
-	secret_flags &= ~(NM_SETTING_SECRET_FLAG_NOT_SAVED | NM_SETTING_SECRET_FLAG_NOT_REQUIRED);
-	g_object_set_data (G_OBJECT (widget), "flags", GUINT_TO_POINTER (secret_flags));
 
 	g_signal_connect (widget, "changed", G_CALLBACK (stuff_changed_cb), self);
 }
@@ -243,48 +233,13 @@ show_toggled_cb (GtkCheckButton *button, VpncPluginUiWidget *self)
 }
 
 static void
-pw_type_changed_helper (VpncPluginUiWidget *self, GtkWidget *combo)
-{
-	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	const char *entry = NULL;
-	GtkWidget *widget;
-
-	/* If the user chose "Not required", desensitize and clear the correct
-	 * password entry.
-	 */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_pass_type_combo"));
-	if (combo == widget)
-		entry = "user_password_entry";
-	else {
-		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_pass_type_combo"));
-		if (combo == widget)
-			entry = "group_password_entry";
-	}
-	if (!entry)
-		return;
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, entry));
-	g_assert (widget);
-
-	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (combo))) {
-	case PW_TYPE_ASK:
-	case PW_TYPE_UNUSED:
-		gtk_entry_set_text (GTK_ENTRY (widget), "");
-		gtk_widget_set_sensitive (widget, FALSE);
-		break;
-	default:
-		gtk_widget_set_sensitive (widget, TRUE);
-		break;
-	}
-}
-
-static void
-pw_type_combo_changed_cb (GtkWidget *combo, gpointer user_data)
+password_storage_changed_cb (GObject *entry,
+                             GParamSpec *pspec,
+                             gpointer user_data)
 {
 	VpncPluginUiWidget *self = VPNC_PLUGIN_UI_WIDGET (user_data);
 
-	pw_type_changed_helper (self, combo);
-	stuff_changed_cb (combo, self);
+	stuff_changed_cb (NULL, self);
 }
 
 static const char *
@@ -303,66 +258,38 @@ secret_flags_to_pw_type (NMSettingVPN *s_vpn, const char *key)
 }
 
 static void
-init_one_pw_combo (VpncPluginUiWidget *self,
-                   NMSettingVPN *s_vpn,
-                   const char *combo_name,
-                   const char *secret_key,
-                   const char *type_key,
-                   const char *entry_name)
+init_password_icon (VpncPluginUiWidget *self,
+                    NMSettingVPN *s_vpn,
+                    const char *secret_key,
+                    const char *type_key,
+                    const char *entry_name)
 {
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self);
-	int active = -1;
-	GtkWidget *widget;
-	GtkListStore *store;
-	GtkTreeIter iter;
-	const char *value = NULL;
-	guint32 default_idx = 1;
+	GtkWidget *entry;
+	const char *value;
+	const char *flags = NULL;
 
-	/* If there's already a password and the password type can't be found in
-	 * the VPN settings, default to saving it.  Otherwise, always ask for it.
+	entry = GTK_WIDGET (gtk_builder_get_object (priv->builder, entry_name));
+	g_assert (entry);
+
+	nma_utils_setup_password_storage (entry, 0, (NMSetting *) s_vpn, secret_key,
+	                                  TRUE, FALSE);
+
+	/* If there's no password and no flags in the setting,
+	 * initialize flags as "always-ask".
 	 */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, entry_name));
-	g_assert (widget);
-	value = gtk_entry_get_text (GTK_ENTRY (widget));
-	if (value && strlen (value))
-		default_idx = 0;
-
-	store = gtk_list_store_new (1, G_TYPE_STRING);
 	if (s_vpn) {
-		value = secret_flags_to_pw_type (s_vpn, secret_key);
-		if (!value)
-			value = nm_setting_vpn_get_data_item (s_vpn, type_key);
+		flags = secret_flags_to_pw_type (s_vpn, secret_key);
+		if (!flags || !strcmp (flags, NM_VPNC_PW_TYPE_SAVE))
+			flags = nm_setting_vpn_get_data_item (s_vpn, type_key);
 	}
+	value = gtk_entry_get_text (GTK_ENTRY (entry));
+	if ((!value || !*value) && !flags)
+		nma_utils_update_password_storage (entry, NM_SETTING_SECRET_FLAG_NOT_SAVED,
+		                                   (NMSetting *) s_vpn, secret_key);
 
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set (store, &iter, 0, _("Saved"), -1);
-	if ((active < 0) && value) {
-		if (!strcmp (value, NM_VPNC_PW_TYPE_SAVE))
-			active = 0;
-	}
-
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set (store, &iter, 0, _("Always Ask"), -1);
-	if ((active < 0) && value) {
-		if (!strcmp (value, NM_VPNC_PW_TYPE_ASK))
-			active = 1;
-	}
-
-	gtk_list_store_append (store, &iter);
-	gtk_list_store_set (store, &iter, 0, _("Not Required"), -1);
-	if ((active < 0) && value) {
-		if (!strcmp (value, NM_VPNC_PW_TYPE_UNUSED))
-			active = 2;
-	}
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, combo_name));
-	g_assert (widget);
-	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
-	g_object_unref (store);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? default_idx : active);
-	pw_type_changed_helper (self, widget);
-
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (pw_type_combo_changed_cb), self);
+	g_signal_connect (entry, "notify::secondary-icon-name",
+	                  G_CALLBACK (password_storage_changed_cb), self);
 }
 
 static void
@@ -538,18 +465,16 @@ init_plugin_ui (VpncPluginUiWidget *self,
 	                       NM_VPNC_KEY_SECRET,
 	                       new_connection);
 
-	init_one_pw_combo (self,
-	                   s_vpn,
-	                   "user_pass_type_combo",
-	                   NM_VPNC_KEY_XAUTH_PASSWORD,
-	                   NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
-	                   "user_password_entry");
-	init_one_pw_combo (self,
-	                   s_vpn,
-	                   "group_pass_type_combo",
-	                   NM_VPNC_KEY_SECRET,
-	                   NM_VPNC_KEY_SECRET_TYPE,
-	                   "group_password_entry");
+	init_password_icon (self,
+	                    s_vpn,
+	                    NM_VPNC_KEY_XAUTH_PASSWORD,
+	                    NM_VPNC_KEY_XAUTH_PASSWORD_TYPE,
+	                    "user_password_entry");
+	init_password_icon (self,
+	                    s_vpn,
+	                    NM_VPNC_KEY_SECRET,
+	                    NM_VPNC_KEY_SECRET_TYPE,
+	                    "group_password_entry");
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
@@ -860,36 +785,32 @@ static void
 save_one_password (NMSettingVPN *s_vpn,
                    GtkBuilder *builder,
                    const char *entry_name,
-                   const char *combo_name,
                    const char *secret_key,
                    const char *type_key)
 {
-	NMSettingSecretFlags flags = NM_SETTING_SECRET_FLAG_NONE;
+	NMSettingSecretFlags flags;
 	const char *data_val = NULL, *password;
 	GtkWidget *entry;
-	GtkWidget *combo;
 
-	/* Grab original password flags */
+	/* Get secret flags */
 	entry = GTK_WIDGET (gtk_builder_get_object (builder, entry_name));
-	flags = GPOINTER_TO_UINT (g_object_get_data (G_OBJECT (entry), "flags"));
+	flags = nma_utils_menu_to_secret_flags (entry);
 
-	/* And set new ones based on the type combo */
-	combo = GTK_WIDGET (gtk_builder_get_object (builder, combo_name));
-	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (combo))) {
-	case PW_TYPE_SAVE:
+	/* Save password and convert flags to legacy data items */
+	switch (flags) {
+	case NM_SETTING_SECRET_FLAG_NONE:
+	case NM_SETTING_SECRET_FLAG_AGENT_OWNED:
 		password = gtk_entry_get_text (GTK_ENTRY (entry));
 		if (password && strlen (password))
 			nm_setting_vpn_add_secret (s_vpn, secret_key, password);
 		data_val = NM_VPNC_PW_TYPE_SAVE;
 		break;
-	case PW_TYPE_UNUSED:
+	case NM_SETTING_SECRET_FLAG_NOT_REQUIRED:
 		data_val = NM_VPNC_PW_TYPE_UNUSED;
-		flags |= NM_SETTING_SECRET_FLAG_NOT_REQUIRED;
 		break;
-	case PW_TYPE_ASK:
+	case NM_SETTING_SECRET_FLAG_NOT_SAVED:
 	default:
 		data_val = NM_VPNC_PW_TYPE_ASK;
-		flags |= NM_SETTING_SECRET_FLAG_NOT_SAVED;
 		break;
 	}
 
@@ -1032,7 +953,6 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	save_one_password (s_vpn,
 	                   priv->builder,
 	                   "user_password_entry",
-	                   "user_pass_type_combo",
 	                   NM_VPNC_KEY_XAUTH_PASSWORD,
 	                   NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
 
@@ -1040,7 +960,6 @@ update_connection (NMVpnPluginUiWidgetInterface *iface,
 	save_one_password (s_vpn,
 	                   priv->builder,
 	                   "group_password_entry",
-	                   "group_pass_type_combo",
 	                   NM_VPNC_KEY_SECRET,
 	                   NM_VPNC_KEY_SECRET_TYPE);
 
@@ -1129,6 +1048,16 @@ dispose (GObject *object)
 {
 	VpncPluginUiWidget *plugin = VPNC_PLUGIN_UI_WIDGET (object);
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (plugin);
+	GtkWidget *widget;
+
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
+	g_signal_handlers_disconnect_by_func (G_OBJECT (widget),
+	                                      (GCallback) password_storage_changed_cb,
+	                                      plugin);
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_password_entry"));
+	g_signal_handlers_disconnect_by_func (G_OBJECT (widget),
+	                                      (GCallback) password_storage_changed_cb,
+	                                      plugin);
 
 	if (priv->group)
 		g_object_unref (priv->group);
