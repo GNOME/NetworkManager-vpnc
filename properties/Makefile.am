@@ -16,6 +16,7 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
 	$(NM_CFLAGS) \
+	$(NMGTK_CFLAGS) \
 	-I$(top_srcdir)/src \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DUIDIR=\""$(uidir)"\" \
@@ -25,7 +26,8 @@ libnm_vpnc_properties_la_CPPFLAGS = \
 
 libnm_vpnc_properties_la_LIBADD = \
 	$(GTK_LIBS) \
-	$(NM_LIBS)
+	$(NM_LIBS) \
+	$(NMGTK_LIBS)
 
 libnm_vpnc_properties_la_LDFLAGS = \
         -avoid-version
