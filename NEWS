@@ -1,4 +1,15 @@
 =======================================================
+network-manager-vpnc-1.0.2
+Overview of changes since network-manager-vpnc-1.0
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Added Bosnian translation
+* Updated Basque translation
+
+
+=======================================================
 network-manager-vpnc-1.0
 Overview of changes since network-manager-vpnc-0.9.10
 =======================================================
