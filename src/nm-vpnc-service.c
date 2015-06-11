@@ -658,6 +658,8 @@ write_config_option (int fd, const char *format, ...)
 	va_start (args, format);
 	string = g_strdup_vprintf (format, args);
 	x = write (fd, string, strlen (string));
+	if (x < 0)
+		g_warning ("Unexpected error in write(): %d", errno);
 
 	if (debug)
 		g_print ("Config: %s", string);
@@ -883,9 +885,10 @@ _connect_common (NMVPNPlugin   *plugin,
 	if (!nm_vpnc_config_write (priv->infd, s_con, s_vpn, error))
 		goto out;
 
-	if (interactive)
-		write (priv->infd, &end, sizeof (end));
-	else {
+	if (interactive) {
+		if (write (priv->infd, &end, sizeof (end)) < 0)
+			g_warning ("Unexpected error in write(): %d", errno);
+	} else {
 		close (priv->infd);
 		priv->infd = -1;
 	}
