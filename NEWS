@@ -1,4 +1,14 @@
 =======================================================
+network-manager-vpnc-1.0.4
+Overview of changes since network-manager-vpnc-1.0.2
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Fix error checking for write() calls
+* Enhanced the GUI to support agent-owned and always-ask passwords
+
+=======================================================
 network-manager-vpnc-1.0.2
 Overview of changes since network-manager-vpnc-1.0
 =======================================================
