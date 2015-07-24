@@ -1,10 +1,10 @@
 libexec_PROGRAMS = nm-vpnc-auth-dialog
 
 nm_vpnc_auth_dialog_CPPFLAGS = \
-	$(LIBNM_GLIB_CFLAGS) \
+	$(LIBNM_CFLAGS) \
 	$(GLIB_CFLAGS) \
 	$(GTK_CFLAGS) \
-	$(LIBNM_GTK_CFLAGS) \
+	$(LIBNMA_CFLAGS) \
 	$(LIBSECRET_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DBINDIR=\""$(bindir)"\" \
@@ -18,8 +18,8 @@ nm_vpnc_auth_dialog_SOURCES = \
 
 nm_vpnc_auth_dialog_LDADD = \
 	$(GTK_LIBS) \
-	$(LIBNM_GLIB_LIBS) \
-	$(LIBNM_GTK_LIBS) \
+	$(LIBNM_LIBS) \
+	$(LIBNMA_LIBS) \
 	$(LIBSECRET_LIBS)
 
 @INTLTOOL_DESKTOP_RULE@
