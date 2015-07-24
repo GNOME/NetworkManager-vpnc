@@ -1,7 +1,10 @@
 SUBDIRS=. tests
 
 plugindir = $(libdir)/NetworkManager
-plugin_LTLIBRARIES = libnm-vpnc-properties.la libnm-vpnc-properties-old.la
+plugin_LTLIBRARIES = libnm-vpnc-properties.la
+if WITH_LIBNM_GLIB
+plugin_LTLIBRARIES += libnm-vpnc-properties-old.la
+endif
 
 libnm_vpnc_properties_la_SOURCES = \
 	nm-vpnc.c \
