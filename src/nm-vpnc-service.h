@@ -24,7 +24,7 @@
 
 #include <glib.h>
 #include <glib-object.h>
-#include <nm-vpn-plugin.h>
+#include <nm-vpn-service-plugin.h>
 
 #include "nm-vpnc-service-defines.h"
 
@@ -36,11 +36,11 @@
 #define NM_VPNC_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), NM_TYPE_VPNC_PLUGIN, NMVPNCPluginClass))
 
 typedef struct {
-	NMVPNPlugin parent;
+	NMVpnServicePlugin parent;
 } NMVPNCPlugin;
 
 typedef struct {
-	NMVPNPluginClass parent;
+	NMVpnServicePluginClass parent;
 } NMVPNCPluginClass;
 
 GType nm_vpnc_plugin_get_type (void);

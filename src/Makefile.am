@@ -1,7 +1,7 @@
 AM_CPPFLAGS = \
 	$(DBUS_CFLAGS) \
 	$(GLIB_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS) \
+	$(LIBNM_CFLAGS) \
 	-DG_DISABLE_DEPRECATED \
 	-DBINDIR=\"$(bindir)\" \
 	-DPREFIX=\""$(prefix)"\" \
@@ -25,7 +25,7 @@ nm_vpnc_service_SOURCES = \
 nm_vpnc_service_LDADD = \
 	$(DBUS_LIBS) \
 	$(GLIB_LIBS) \
-	$(LIBNM_GLIB_LIBS)
+	$(LIBNM_LIBS)
 
 
 nm_vpnc_service_vpnc_helper_SOURCES = \
@@ -34,7 +34,7 @@ nm_vpnc_service_vpnc_helper_SOURCES = \
 nm_vpnc_service_vpnc_helper_LDADD = \
 	$(DBUS_LIBS) \
 	$(GTHREAD_LIBS) \
-	$(LIBNM_GLIB_LIBS)
+	$(LIBNM_LIBS)
 
 noinst_PROGRAMS = test-vpnc-output
 
