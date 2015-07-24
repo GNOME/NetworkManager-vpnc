@@ -26,12 +26,11 @@
 #include <arpa/inet.h>
 #include <locale.h>
 
+#include <NetworkManager.h>
 #include <nm-utils.h>
-#include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
-#include <nm-setting-vpn.h>
 
-#include <nm-vpn-plugin-ui-interface.h>
+#include <nm-vpn-editor-plugin.h>
 
 #include "../../nm-test-helpers.h"
 #include "../../properties/nm-vpnc.h"
@@ -50,7 +49,7 @@ item_count_func (const char *key, const char *value, gpointer user_data)
 }
 
 static void
-test_items (const char *detail, NMSettingVPN *s_vpn, const Item *items, gboolean secrets)
+test_items (const char *detail, NMSettingVpn *s_vpn, const Item *items, gboolean secrets)
 {
 	const Item *iter;
 	guint32 expected_count = 0, actual_count = 0;
@@ -111,7 +110,7 @@ static Item basic_secrets[] = {
 
 static NMConnection *
 get_basic_connection (const char *detail,
-                      NMVpnPluginUiInterface *plugin,
+                      NMVpnEditorPlugin *plugin,
                       const char *dir,
                       const char *filename)
 {
@@ -123,7 +122,7 @@ get_basic_connection (const char *detail,
 	ASSERT (pcf != NULL,
 	        "basic", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("basic", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -134,19 +133,16 @@ get_basic_connection (const char *detail,
 }
 
 static void
-test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
+test_basic_import (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingIP4Config *s_ip4;
-	NMSettingVPN *s_vpn;
-	NMIP4Route *route;
-	struct in_addr tmp;
+	NMSettingIPConfig *s_ip4;
+	NMSettingVpn *s_vpn;
+	NMIPRoute *route;
 	const char *expected_id = "Basic VPN";
 	const char *expected_route1_dest = "10.0.0.0";
-	const char *expected_route1_gw = "0.0.0.0";
 	const char *expected_route2_dest = "172.16.0.0";
-	const char *expected_route2_gw = "0.0.0.0";
 
 	connection = get_basic_connection ("basic-import", plugin, dir, "basic.pcf");
 	ASSERT (connection != NULL, "basic-import", "failed to import connection");
@@ -167,62 +163,50 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (s_ip4 != NULL,
 	        "basic-import", "missing 'ip4-config' setting");
 
-	ASSERT (nm_setting_ip4_config_get_num_addresses (s_ip4) == 0,
+	ASSERT (nm_setting_ip_config_get_num_addresses (s_ip4) == 0,
 	        "basic-import", "unexpected addresses");
 
-	ASSERT (nm_setting_ip4_config_get_never_default (s_ip4) == TRUE,
+	ASSERT (nm_setting_ip_config_get_never_default (s_ip4) == TRUE,
 	        "basic-import", "never-default unexpectedly FALSE");
 
-	ASSERT (nm_setting_ip4_config_get_method (s_ip4) == NULL,
+	ASSERT (nm_setting_ip_config_get_method (s_ip4) == NULL,
 	        "basic-import", "unexpected IPv4 method");
 
-	ASSERT (nm_setting_ip4_config_get_dhcp_client_id (s_ip4) == NULL,
+	ASSERT (nm_setting_ip4_config_get_dhcp_client_id ((NMSettingIP4Config *) s_ip4) == NULL,
 	        "basic-import", "unexpected valid DHCP client ID");
 
-	ASSERT (nm_setting_ip4_config_get_dhcp_hostname (s_ip4) == NULL,
+	ASSERT (nm_setting_ip_config_get_dhcp_hostname (s_ip4) == NULL,
 	        "basic-import", "unexpected valid DHCP hostname");
 
-	ASSERT (nm_setting_ip4_config_get_num_dns_searches (s_ip4) == 0,
+	ASSERT (nm_setting_ip_config_get_num_dns_searches (s_ip4) == 0,
 	        "basic-import", "unexpected DNS searches");
 
-	ASSERT (nm_setting_ip4_config_get_num_dns (s_ip4) == 0,
+	ASSERT (nm_setting_ip_config_get_num_dns (s_ip4) == 0,
 	        "basic-import", "unexpected DNS servers");
 
-	ASSERT (nm_setting_ip4_config_get_num_routes (s_ip4) == 2,
+	ASSERT (nm_setting_ip_config_get_num_routes (s_ip4) == 2,
 	        "basic-import", "unexpected number of routes");
 
 	/* Route #1 */
-	route = nm_setting_ip4_config_get_route (s_ip4, 0);
-	ASSERT (inet_pton (AF_INET, expected_route1_dest, &tmp) > 0,
-	        "basic-import", "couldn't convert expected route destination #1");
-	ASSERT (nm_ip4_route_get_dest (route) == tmp.s_addr,
+	route = nm_setting_ip_config_get_route (s_ip4, 0);
+	ASSERT (strcmp (nm_ip_route_get_dest (route), expected_route1_dest) == 0,
 	        "basic-import", "unexpected route #1 destination");
-
-	ASSERT (inet_pton (AF_INET, expected_route1_gw, &tmp) > 0,
-	        "basic-import", "couldn't convert expected route next hop #1");
-	ASSERT (nm_ip4_route_get_next_hop (route) == tmp.s_addr,
+	ASSERT (nm_ip_route_get_next_hop (route) == NULL,
 	        "basic-import", "unexpected route #1 next hop");
-
-	ASSERT (nm_ip4_route_get_prefix (route) == 8,
+	ASSERT (nm_ip_route_get_prefix (route) == 8,
 	        "basic-import", "unexpected route #1 prefix");
-	ASSERT (nm_ip4_route_get_metric (route) == 0,
+	ASSERT (nm_ip_route_get_metric (route) == -1,
 	        "basic-import", "unexpected route #1 metric");
 
 	/* Route #2 */
-	route = nm_setting_ip4_config_get_route (s_ip4, 1);
-	ASSERT (inet_pton (AF_INET, expected_route2_dest, &tmp) > 0,
-	        "basic-import", "couldn't convert expected route destination #2");
-	ASSERT (nm_ip4_route_get_dest (route) == tmp.s_addr,
+	route = nm_setting_ip_config_get_route (s_ip4, 1);
+	ASSERT (strcmp (nm_ip_route_get_dest (route), expected_route2_dest) == 0,
 	        "basic-import", "unexpected route #2 destination");
-
-	ASSERT (inet_pton (AF_INET, expected_route2_gw, &tmp) > 0,
-	        "basic-import", "couldn't convert expected route next hop #2");
-	ASSERT (nm_ip4_route_get_next_hop (route) == tmp.s_addr,
+	ASSERT (nm_ip_route_get_next_hop (route) == NULL,
 	        "basic-import", "unexpected route #2 next hop");
-
-	ASSERT (nm_ip4_route_get_prefix (route) == 16,
+	ASSERT (nm_ip_route_get_prefix (route) == 16,
 	        "basic-import", "unexpected route #2 prefix");
-	ASSERT (nm_ip4_route_get_metric (route) == 0,
+	ASSERT (nm_ip_route_get_metric (route) == -1,
 	        "basic-import", "unexpected route #2 metric");
 
 	/* VPN setting */
@@ -242,7 +226,7 @@ test_basic_import (NMVpnPluginUiInterface *plugin, const char *dir)
 static void
 remove_user_password (NMConnection *connection)
 {
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	if (!s_vpn)
@@ -254,11 +238,11 @@ remove_user_password (NMConnection *connection)
 
 #define BASIC_EXPORTED_NAME "basic-export-test.pcf"
 static void
-test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *tmpdir)
+test_basic_export (NMVpnEditorPlugin *plugin, const char *dir, const char *tmpdir)
 {
 	NMConnection *connection;
 	NMConnection *reimported;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	char *path;
 	gboolean success;
 	GError *error = NULL;
@@ -268,7 +252,7 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *
 	ASSERT (connection != NULL, "basic-export", "failed to import connection");
 
 	path = g_build_path ("/", tmpdir, BASIC_EXPORTED_NAME, NULL);
-	success = nm_vpn_plugin_ui_interface_export (plugin, path, connection, &error);
+	success = nm_vpn_editor_plugin_export (plugin, path, connection, &error);
 	if (!success) {
 		if (!error)
 			FAIL ("basic-export", "export failed with missing error");
@@ -305,13 +289,13 @@ test_basic_export (NMVpnPluginUiInterface *plugin, const char *dir, const char *
 
 #define NAT_EXPORTED_NAME "nat-export-test.pcf"
 static void
-test_nat_export (NMVpnPluginUiInterface *plugin,
+test_nat_export (NMVpnEditorPlugin *plugin,
                  const char *dir,
                  const char *tmpdir,
                  const char *nat_mode)
 {
 	NMConnection *connection;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	NMConnection *reimported;
 	char *path;
 	gboolean success;
@@ -327,7 +311,7 @@ test_nat_export (NMVpnPluginUiInterface *plugin,
 	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, nat_mode);
 
 	path = g_build_path ("/", tmpdir, NAT_EXPORTED_NAME, NULL);
-	success = nm_vpn_plugin_ui_interface_export (plugin, path, connection, &error);
+	success = nm_vpn_editor_plugin_export (plugin, path, connection, &error);
 	if (!success) {
 		if (!error)
 			FAIL ("nat-export", "export failed with missing error");
@@ -363,11 +347,11 @@ test_nat_export (NMVpnPluginUiInterface *plugin,
 }
 
 static void
-test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
+test_everything_via_vpn (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingIP4Config *s_ip4;
+	NMSettingIPConfig *s_ip4;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "All your traffic are belong to VPN";
@@ -376,7 +360,7 @@ test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "everything-via-vpn", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("everything-via-vpn", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -395,21 +379,21 @@ test_everything_via_vpn (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (s_ip4 != NULL,
 	        "everything-via-vpn", "missing 'ip4-config' setting");
 
-	ASSERT (nm_setting_ip4_config_get_never_default (s_ip4) == FALSE,
+	ASSERT (nm_setting_ip_config_get_never_default (s_ip4) == FALSE,
 	        "everything-via-vpn", "never-default unexpectedly FALSE");
 
-	ASSERT (nm_setting_ip4_config_get_num_routes (s_ip4) == 0,
+	ASSERT (nm_setting_ip_config_get_num_routes (s_ip4) == 0,
 	        "everything-via-vpn", "unexpected number of routes");
 
 	g_free (pcf);
 }
 
 static void
-test_no_natt (NMVpnPluginUiInterface *plugin, const char *dir)
+test_no_natt (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "No NAT Traversal";
@@ -419,7 +403,7 @@ test_no_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "no-natt", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("no-natt", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -448,11 +432,11 @@ test_no_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-test_nat_cisco (NMVpnPluginUiInterface *plugin, const char *dir)
+test_nat_cisco (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "NAT-Cisco";
@@ -462,7 +446,7 @@ test_nat_cisco (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "nat-cisco", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("nat-cisco", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -491,11 +475,11 @@ test_nat_cisco (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-test_nat_natt (NMVpnPluginUiInterface *plugin, const char *dir)
+test_nat_natt (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "NAT-T";
@@ -505,7 +489,7 @@ test_nat_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "natt", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("natt", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -534,11 +518,11 @@ test_nat_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-test_nat_force_natt (NMVpnPluginUiInterface *plugin, const char *dir)
+test_nat_force_natt (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "Force NAT-T";
@@ -548,7 +532,7 @@ test_nat_force_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "force-natt", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("force-natt", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -577,11 +561,11 @@ test_nat_force_natt (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-test_always_ask (NMVpnPluginUiInterface *plugin, const char *dir)
+test_always_ask (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "Always Ask For Password";
@@ -591,7 +575,7 @@ test_always_ask (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "always-ask", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("always-ask", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -618,11 +602,11 @@ test_always_ask (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-test_non_utf8_import (NMVpnPluginUiInterface *plugin, const char *dir)
+test_non_utf8_import (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	const char *expected_id = "Att äta en ko";
 	const char *charset = NULL;
 
@@ -654,11 +638,11 @@ test_non_utf8_import (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-test_legacy_ike_port_0_import (NMVpnPluginUiInterface *plugin, const char *dir)
+test_legacy_ike_port_0_import (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "Use Legacy IKE Port (i.e. dynamic)";
@@ -668,7 +652,7 @@ test_legacy_ike_port_0_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "use-legacy-ike-port-0", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -695,11 +679,11 @@ test_legacy_ike_port_0_import (NMVpnPluginUiInterface *plugin, const char *dir)
 }
 
 static void
-test_legacy_ike_port_1_import (NMVpnPluginUiInterface *plugin, const char *dir)
+test_legacy_ike_port_1_import (NMVpnEditorPlugin *plugin, const char *dir)
 {
 	NMConnection *connection;
 	NMSettingConnection *s_con;
-	NMSettingVPN *s_vpn;
+	NMSettingVpn *s_vpn;
 	GError *error = NULL;
 	char *pcf;
 	const char *expected_id = "Don't use Legacy IKE Port (500)";
@@ -709,7 +693,7 @@ test_legacy_ike_port_1_import (NMVpnPluginUiInterface *plugin, const char *dir)
 	ASSERT (pcf != NULL,
 	        "use-legacy-ike-port-1", "failed to create pcf path");
 
-	connection = nm_vpn_plugin_ui_interface_import (plugin, pcf, &error);
+	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	if (error)
 		FAIL ("", "error importing %s: %s", pcf, error->message);
 	ASSERT (connection != NULL,
@@ -765,7 +749,7 @@ int main (int argc, char **argv)
 	GError *error = NULL;
 	DBusGConnection *bus;
 	char *basename;
-	NMVpnPluginUiInterface *plugin = NULL;
+	NMVpnEditorPlugin *plugin = NULL;
 
 	if (argc != 3)
 		FAIL ("args", "usage: %s <pcf path> <tmp path>", argv[0]);
@@ -776,10 +760,7 @@ int main (int argc, char **argv)
 
 	bus = dbus_g_bus_get (DBUS_BUS_SESSION, NULL);
 
-	if (!nm_utils_init (&error))
-		FAIL ("nm-utils-init", "failed to initialize libnm-util: %s", error->message);
-
-	plugin = nm_vpn_plugin_ui_factory (&error);
+	plugin = nm_vpn_editor_plugin_factory (&error);
 	if (error)
 		FAIL ("plugin-init", "failed to initialize UI plugin: %s", error->message);
 	ASSERT (plugin != NULL,
