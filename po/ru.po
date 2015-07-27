@@ -7,15 +7,15 @@
 # Leonid Kanter <leon@asplinux.ru>, 2007, 2008.
 # Артём Попов <artfwo@gmail.com>, 2009.
 # Yuri Kozlov <yuray@komyakino.ru>, 2010, 2011.
-# Stas Solovey <whats_up@tut.by>, 2014.
+# Stas Solovey <whats_up@tut.by>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-07-11 12:19+0000\n"
-"PO-Revision-Date: 2014-10-07 18:09+0300\n"
+"POT-Creation-Date: 2015-07-09 10:59+0000\n"
+"PO-Revision-Date: 2015-07-27 23:41+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -24,9 +24,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../auth-dialog/main.c:175
+#, c-format
 msgid "Authenticate VPN %s"
 msgstr "Аутентификация VPN %s"
 
@@ -67,11 +68,11 @@ msgstr "Менеджер подключений VPN (vpnc)"
 msgid "Add, Remove, and Edit VPN Connections"
 msgstr "Добавить, удалить или изменить подключения VPN"
 
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:54
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-совместимая VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:55
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -79,91 +80,79 @@ msgstr ""
 "Совместим с различными VPN-шлюзами Cisco, Juniper, Netscreen и Sonicwall на "
 "основе IPsec."
 
-#: ../properties/nm-vpnc.c:338
-msgid "Saved"
-msgstr "Сохранённый"
-
-#: ../properties/nm-vpnc.c:345
-msgid "Always Ask"
-msgstr "Всегда спрашивать"
-
-#: ../properties/nm-vpnc.c:352
-msgid "Not Required"
-msgstr "Не требуется"
-
-#: ../properties/nm-vpnc.c:501
+#: ../properties/nm-vpnc.c:431
 msgid "Secure (default)"
 msgstr "Строгое (по умолчанию)"
 
-#: ../properties/nm-vpnc.c:504
+#: ../properties/nm-vpnc.c:434
 msgid "Weak (use with caution)"
 msgstr "Слабое (использовать с осторожностью)"
 
-#: ../properties/nm-vpnc.c:512
+#: ../properties/nm-vpnc.c:442
 msgid "None (completely insecure)"
 msgstr "Нет (без шифрования)"
 
-#: ../properties/nm-vpnc.c:578
+#: ../properties/nm-vpnc.c:506
 msgid "Cisco (default)"
 msgstr "Cisco (по умолчанию)"
 
-#: ../properties/nm-vpnc.c:585
+#: ../properties/nm-vpnc.c:513
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:616
+#: ../properties/nm-vpnc.c:554
 msgid "NAT-T when available (default)"
 msgstr "NAT-T, если доступен (по умолчанию)"
 
-#: ../properties/nm-vpnc.c:623
+#: ../properties/nm-vpnc.c:561
 msgid "NAT-T always"
 msgstr "NAT-T всегда"
 
-#: ../properties/nm-vpnc.c:630
+#: ../properties/nm-vpnc.c:568
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:637
+#: ../properties/nm-vpnc.c:575
 msgid "Disabled"
 msgstr "Выключено"
 
-#: ../properties/nm-vpnc.c:657 ../properties/nm-vpnc.c:743
+#: ../properties/nm-vpnc.c:595 ../properties/nm-vpnc.c:681
 msgid "DH Group 1"
 msgstr "DH Group 1"
 
-#: ../properties/nm-vpnc.c:664
+#: ../properties/nm-vpnc.c:602
 msgid "DH Group 2 (default)"
 msgstr "DH Group 2 (по умолчанию)"
 
-#: ../properties/nm-vpnc.c:671 ../properties/nm-vpnc.c:757
+#: ../properties/nm-vpnc.c:609 ../properties/nm-vpnc.c:695
 msgid "DH Group 5"
 msgstr "DH Group 5"
 
-#: ../properties/nm-vpnc.c:729
+#: ../properties/nm-vpnc.c:667
 msgid "Server (default)"
 msgstr "Сервер (по умолчанию)"
 
-#: ../properties/nm-vpnc.c:736
+#: ../properties/nm-vpnc.c:674
 msgid "None"
 msgstr "Нет"
 
-#: ../properties/nm-vpnc.c:750"
+#: ../properties/nm-vpnc.c:688
 msgid "DH Group 2"
 msgstr "DH Group 2"
 
-#: ../properties/nm-vpnc.c:797
+#: ../properties/nm-vpnc.c:735
 msgid "Choose a Certificate Authority (CA) certificate..."
-msgstr ""
+msgstr "Выберите сертификат центра сертификации (CA)…"
 
-#: ../properties/nm-vpnc.c:801
+#: ../properties/nm-vpnc.c:739
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr ""
+msgstr "Сертификаты PEM (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1542
+#: ../properties/nm-vpnc.c:1500
 msgid "TCP tunneling not supported"
 msgstr "Туннелирование TCP не поддерживается"
 
-#: ../properties/nm-vpnc.c:1544
+#: ../properties/nm-vpnc.c:1502
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -179,259 +168,313 @@ msgstr ""
 "может работать не так, как ожидается."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "General"
+msgstr "Основные"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "Sho_w passwords"
+msgstr "_Показывать пароли"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Пароль группы\n"
+"config: тайный ключ IPSec <group_password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "Gro_up password:"
+msgstr "Пароль гр_уппы:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "_Gateway:"
+msgstr "_Шлюз:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr "Имя г_руппы:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid "User _password:"
+msgstr "Пароль _пользователя:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "User na_me:"
+msgstr "_Имя пользователя:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "Use _hybrid authentication"
+msgstr "Использовать гибридную аутентификацию"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "CA _File:"
+msgstr "Файл CA:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "Advance_d..."
+msgstr "Дополнительно…"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Advanced Options"
 msgstr "Дополнительные настройки"
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
 msgstr "Идентификация"
 
-#: ../properties/nm-vpnc-dialog.ui.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "_Domain:"
 msgstr "_Домен:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
 "(NT-)Domain name for authentication\n"
 "config: Domain <domain>"
 msgstr ""
+"Имя (NT-)домена для аутентификации\n"
+"config: Домен <domain>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "_Производитель"
-
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr "_Производитель"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion:"
 msgstr "_Версия:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
 "Application version to report. \n"
 "config: Application version <ASCII string>"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "_Отключить Dead Peer Detection"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr "_Локальный порт:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "_Группа IKE DH:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "_Обход NAT:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
 "encryption' for None"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
 msgstr "_Метод шифрования:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "_Обход NAT:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
 msgstr ""
 
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "_Группа IKE DH:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:20
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "Disable Dead _Peer Detection"
-msgstr "_Отключить Dead Peer Detection"
-
-#: ../properties/nm-vpnc-dialog.ui.h:29
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:31
-msgid "General"
-msgstr "Основные"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "Sho_w passwords"
-msgstr "_Показывать пароли"
-
-#: ../properties/nm-vpnc-dialog.ui.h:33
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:35
-msgid "Gro_up password:"
-msgstr "Пароль гр_уппы:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "_Gateway:"
-msgstr "_Шлюз:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "G_roup name:"
-msgstr "Имя г_руппы:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "User _password:"
-msgstr "Пароль _пользователя:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:45
-msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid "User na_me:"
-msgstr "_Имя пользователя:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:48
-#| msgid "Request VPN authentication"
-msgid "Use _hybrid authentication"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
-"config: IKE Authmode hybrid"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid "CA _File:"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:52
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-
-#: ../properties/nm-vpnc-dialog.ui.h:54
-msgid "Advance_d..."
-msgstr "Дополнительно…"
-
-#: ../src/nm-vpnc-service.c:155
+#: ../src/nm-vpnc-service.c:173
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "свойство «%s» некорректно или не поддерживается"
 
-#: ../src/nm-vpnc-service.c:174
+#: ../src/nm-vpnc-service.c:192
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr ""
 
-#: ../src/nm-vpnc-service.c:187
+#: ../src/nm-vpnc-service.c:205
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr "некорректное целочисленное свойство «%s» или вне диапазона [%d —> %d]"
 
-#: ../src/nm-vpnc-service.c:197
+#: ../src/nm-vpnc-service.c:215
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 "некорректное логическое свойство «%s» (отсутствует значение «да»/«нет»)"
 
-#: ../src/nm-vpnc-service.c:204
+#: ../src/nm-vpnc-service.c:222
 #, c-format
-#| msgid "unhandled property '%s' type %s"
 msgid "unhandled property '%s' type %d"
 msgstr "необработанное свойство «%s» типа %d"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:239
 msgid "No VPN configuration options."
 msgstr "Нет параметров настройки VPN."
 
-#: ../src/nm-vpnc-service.c:239
+#: ../src/nm-vpnc-service.c:265
 msgid "No VPN secrets!"
 msgstr "Нет VPN-ключей!"
 
-#: ../src/nm-vpnc-service.c:323
+#: ../src/nm-vpnc-service.c:613
 msgid "Could not find vpnc binary."
 msgstr "Не удалось найти исполняемый файл vpnc."
 
-#: ../src/nm-vpnc-service.c:417
+#: ../src/nm-vpnc-service.c:714
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "Неизвестный или некорректный параметр настройки «%s»."
 
-#: ../src/nm-vpnc-service.c:450
+#: ../src/nm-vpnc-service.c:747
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "Параметр настройки «%s» не целое число."
 
-#: ../src/nm-vpnc-service.c:630
+#: ../src/nm-vpnc-service.c:921
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc не поддерживает интерактивные запросы"
+
+#: ../src/nm-vpnc-service.c:945
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:954 ../src/nm-vpnc-service.c:1029
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr ""
 "Не удалось обработать запрос, так как настройки подключения VPN некорректны."
 
-#: ../src/nm-vpnc-service.c:745
+#: ../src/nm-vpnc-service.c:962
+#, fuzzy
+#| msgid ""
+#| "Could not process the request because the VPN connection settings were "
+#| "invalid."
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Не удалось обработать запрос, так как настройки подключения VPN некорректны."
+
+#: ../src/nm-vpnc-service.c:974
+#, fuzzy, c-format
+#| msgid ""
+#| "Could not process the request because the VPN connection settings were "
+#| "invalid."
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Не удалось обработать запрос, так как настройки подключения VPN некорректны."
+
+#: ../src/nm-vpnc-service.c:1159
 msgid "Don't quit when VPN connection terminates"
 msgstr "Не завершать работу при отключении VPN"
 
-#: ../src/nm-vpnc-service.c:746
+#: ../src/nm-vpnc-service.c:1160
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Включить подробный режим отладки (могут отображаться пароли)"
 
-#: ../src/nm-vpnc-service.c:769
+#: ../src/nm-vpnc-service.c:1183
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
 "nm-vpnc-service позволяет использовать Cisco Legacy IPsec VPN в "
 "NetworkManager."
+
+#~ msgid "Saved"
+#~ msgstr "Сохранённый"
+
+#~ msgid "Always Ask"
+#~ msgstr "Всегда спрашивать"
+
+#~ msgid "Not Required"
+#~ msgstr "Не требуется"
