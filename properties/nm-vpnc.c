@@ -291,6 +291,16 @@ init_password_icon (VpncPluginUiWidget *self,
 }
 
 static void
+deinit_password_icon (VpncPluginUiWidget *self, const char *entry_name)
+{
+	GtkWidget *entry;
+
+	entry = GTK_WIDGET (gtk_builder_get_object (VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (self)->builder, entry_name));
+	g_assert (entry);
+	g_signal_handlers_disconnect_by_func (entry, password_storage_changed_cb, self);
+}
+
+static void
 toggle_advanced_dialog_cb (GtkWidget *button, gpointer user_data)
 {
 	VpncPluginUiWidgetPrivate *priv = VPNC_PLUGIN_UI_WIDGET_GET_PRIVATE (user_data);
@@ -1066,8 +1076,11 @@ dispose (GObject *object)
 	if (priv->advanced_dialog)
 		gtk_widget_destroy (priv->advanced_dialog);
 
-	if (priv->builder)
+	if (priv->builder) {
+		deinit_password_icon (plugin, "user_password_entry");
+		deinit_password_icon (plugin, "group_password_entry");
 		g_object_unref (priv->builder);
+	}
 
 	G_OBJECT_CLASS (vpnc_plugin_ui_widget_parent_class)->dispose (object);
 }
