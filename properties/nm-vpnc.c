@@ -40,15 +40,14 @@
 #include <gtk/gtk.h>
 
 #ifdef NM_VPNC_OLD
+#define NM_VPN_LIBNM_COMPAT
+
 #include <nm-setting-vpn.h>
 #include <nm-setting-connection.h>
 #include <nm-setting-ip4-config.h>
 #include <nm-ui-utils.h>
-
-#define NM_VPN_LIBNM_COMPAT
 #include <nm-vpn-plugin-ui-interface.h>
 
-#define NMSettingVpn NMSettingVPN
 #define nm_simple_connection_new() nm_connection_new ()
 
 #define NMSettingIPConfig NMSettingIP4Config
