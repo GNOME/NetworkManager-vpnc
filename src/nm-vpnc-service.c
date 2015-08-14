@@ -1086,10 +1086,19 @@ nm_vpnc_plugin_class_init (NMVPNCPluginClass *vpnc_class)
 NMVPNCPlugin *
 nm_vpnc_plugin_new (void)
 {
-	return (NMVPNCPlugin *) g_object_new (NM_TYPE_VPNC_PLUGIN,
-	                                      NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME,
-	                                      NM_DBUS_SERVICE_VPNC,
-	                                      NULL);
+	NMVPNCPlugin *plugin;
+	GError *error = NULL;
+
+	plugin = (NMVPNCPlugin *) g_initable_new (NM_TYPE_VPNC_PLUGIN, NULL, &error,
+	                                          NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME,
+	                                          NM_DBUS_SERVICE_VPNC,
+	                                          NULL);
+	if (!plugin) {
+		g_warning ("Failed to initialize a plugin instance: %s", error->message);
+		g_error_free (error);
+	}
+
+	return plugin;
 }
 
 static void
