@@ -18,7 +18,7 @@ test_import_export_LDADD = \
 	$(DBUS_LIBS) \
 	$(LIBNM_LIBS) \
 	$(LIBNMA_LIBS) \
-	$(top_builddir)/properties/libnm-vpnc-properties.la
+	$(top_builddir)/properties/libnm-vpn-plugin-vpnc.la
 
 if WITH_TESTS
 
