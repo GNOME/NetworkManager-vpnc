@@ -20,8 +20,6 @@
  */
 
 #include <string.h>
-#include <dbus/dbus.h>
-#include <dbus/dbus-glib.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <locale.h>
@@ -747,7 +745,6 @@ test_empty_keyfile_string_null (const char *dir)
 int main (int argc, char **argv)
 {
 	GError *error = NULL;
-	DBusGConnection *bus;
 	char *basename;
 	NMVpnEditorPlugin *plugin = NULL;
 
@@ -757,8 +754,6 @@ int main (int argc, char **argv)
 #if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
 #endif
-
-	bus = dbus_g_bus_get (DBUS_BUS_SESSION, NULL);
 
 	plugin = nm_vpn_editor_plugin_factory (&error);
 	if (error)
