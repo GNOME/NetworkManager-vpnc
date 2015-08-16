@@ -1,5 +1,4 @@
 AM_CPPFLAGS = \
-	$(DBUS_CFLAGS) \
 	$(GLIB_CFLAGS) \
 	$(LIBNM_CFLAGS) \
 	-DG_DISABLE_DEPRECATED \
@@ -23,7 +22,6 @@ nm_vpnc_service_SOURCES = \
 	utils.h
 
 nm_vpnc_service_LDADD = \
-	$(DBUS_LIBS) \
 	$(GLIB_LIBS) \
 	$(LIBNM_LIBS)
 
@@ -32,7 +30,6 @@ nm_vpnc_service_vpnc_helper_SOURCES = \
 				nm-vpnc-service-vpnc-helper.c
 
 nm_vpnc_service_vpnc_helper_LDADD = \
-	$(DBUS_LIBS) \
 	$(GTHREAD_LIBS) \
 	$(LIBNM_LIBS)
 
