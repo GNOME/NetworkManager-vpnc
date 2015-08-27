@@ -7,6 +7,8 @@ This is a new stable release of network-manager-vpnc.  Notable changes include:
 
 * Fix error checking for write() calls
 * Enhanced the GUI to support agent-owned and always-ask passwords
+* Updated Russian translation
+
 
 =======================================================
 network-manager-vpnc-1.0.2
