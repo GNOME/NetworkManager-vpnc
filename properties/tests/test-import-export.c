@@ -606,10 +606,10 @@ test_non_utf8_import (NMVpnEditorPlugin *plugin, const char *dir)
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
 	const char *expected_id = "Att äta en ko";
-	const char *charset = NULL;
+	const char *charset;
 
 	/* Change charset to ISO-8859-15 to match iso885915.pcf */
-	g_get_charset (&charset);
+	charset = setlocale (LC_ALL, NULL);
 	setlocale (LC_ALL, "de_DE@euro");
 	connection = get_basic_connection ("non-utf8-import", plugin, dir, "iso885915.pcf");
 	setlocale (LC_ALL, charset);
