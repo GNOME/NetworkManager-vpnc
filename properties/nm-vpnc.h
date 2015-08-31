@@ -25,57 +25,46 @@
 
 #include <glib-object.h>
 
-typedef enum
-{
-	VPNC_PLUGIN_UI_ERROR_UNKNOWN = 0,
-	VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY,
-	VPNC_PLUGIN_UI_ERROR_MISSING_PROPERTY,
-	VPNC_PLUGIN_UI_ERROR_INVALID_CONNECTION
-} VpncPluginUiError;
+#define VPNC_TYPE_EDITOR_PLUGIN            (vpnc_editor_plugin_get_type ())
+#define VPNC_EDITOR_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_EDITOR_PLUGIN, VpncEditorPlugin))
+#define VPNC_EDITOR_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), VPNC_TYPE_EDITOR_PLUGIN, VpncEditorPluginClass))
+#define VPNC_IS_EDITOR_PLUGIN(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VPNC_TYPE_EDITOR_PLUGIN))
+#define VPNC_IS_EDITOR_PLUGIN_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VPNC_TYPE_EDITOR_PLUGIN))
+#define VPNC_EDITOR_PLUGIN_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), VPNC_TYPE_EDITOR_PLUGIN, VpncEditorPluginClass))
 
-#define VPNC_TYPE_PLUGIN_UI_ERROR (vpnc_plugin_ui_error_get_type ()) 
-GType vpnc_plugin_ui_error_get_type (void);
+typedef struct _VpncEditorPlugin VpncEditorPlugin;
+typedef struct _VpncEditorPluginClass VpncEditorPluginClass;
 
-#define VPNC_TYPE_PLUGIN_UI            (vpnc_plugin_ui_get_type ())
-#define VPNC_PLUGIN_UI(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_PLUGIN_UI, VpncPluginUi))
-#define VPNC_PLUGIN_UI_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), VPNC_TYPE_PLUGIN_UI, VpncPluginUiClass))
-#define VPNC_IS_PLUGIN_UI(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VPNC_TYPE_PLUGIN_UI))
-#define VPNC_IS_PLUGIN_UI_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VPNC_TYPE_PLUGIN_UI))
-#define VPNC_PLUGIN_UI_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), VPNC_TYPE_PLUGIN_UI, VpncPluginUiClass))
-
-typedef struct _VpncPluginUi VpncPluginUi;
-typedef struct _VpncPluginUiClass VpncPluginUiClass;
-
-struct _VpncPluginUi {
+struct _VpncEditorPlugin {
 	GObject parent;
 };
 
-struct _VpncPluginUiClass {
+struct _VpncEditorPluginClass {
 	GObjectClass parent;
 };
 
-GType vpnc_plugin_ui_get_type (void);
+GType vpnc_editor_plugin_get_type (void);
 
 
-#define VPNC_TYPE_PLUGIN_UI_WIDGET            (vpnc_plugin_ui_widget_get_type ())
-#define VPNC_PLUGIN_UI_WIDGET(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidget))
-#define VPNC_PLUGIN_UI_WIDGET_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidgetClass))
-#define VPNC_IS_PLUGIN_UI_WIDGET(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VPNC_TYPE_PLUGIN_UI_WIDGET))
-#define VPNC_IS_PLUGIN_UI_WIDGET_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VPNC_TYPE_PLUGIN_UI_WIDGET))
-#define VPNC_PLUGIN_UI_WIDGET_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), VPNC_TYPE_PLUGIN_UI_WIDGET, VpncPluginUiWidgetClass))
+#define VPNC_TYPE_EDITOR            (vpnc_editor_get_type ())
+#define VPNC_EDITOR(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_EDITOR, VpncEditor))
+#define VPNC_EDITOR_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), VPNC_TYPE_EDITOR, VpncEditorClass))
+#define VPNC_IS_EDITOR(obj)         (G_TYPE_CHECK_INSTANCE_TYPE ((obj), VPNC_TYPE_EDITOR))
+#define VPNC_IS_EDITOR_CLASS(klass) (G_TYPE_CHECK_CLASS_TYPE ((klass), VPNC_TYPE_EDITOR))
+#define VPNC_EDITOR_GET_CLASS(obj)  (G_TYPE_INSTANCE_GET_CLASS ((obj), VPNC_TYPE_EDITOR, VpncEditorClass))
 
-typedef struct _VpncPluginUiWidget VpncPluginUiWidget;
-typedef struct _VpncPluginUiWidgetClass VpncPluginUiWidgetClass;
+typedef struct _VpncEditor VpncEditor;
+typedef struct _VpncEditorClass VpncEditorClass;
 
-struct _VpncPluginUiWidget {
+struct _VpncEditor {
 	GObject parent;
 };
 
-struct _VpncPluginUiWidgetClass {
+struct _VpncEditorClass {
 	GObjectClass parent;
 };
 
-GType vpnc_plugin_ui_widget_get_type (void);
+GType vpnc_editor_get_type (void);
 
 #endif	/* _NM_VPNC_H_ */
 
