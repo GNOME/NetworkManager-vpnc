@@ -1306,14 +1306,16 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 	nm_connection_add_setting (connection, NM_SETTING (s_ip4));
 
 	/* Interface Name */
-	buf = key_file_get_string_helper (keyfile, "main", "InterfaceName", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "InterfaceName", error);
 	if (buf) {
 		g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_INTERFACE_NAME, buf, NULL);
 		g_free (buf);
 	}
+	if (*error)
+		goto error;
 
 	/* Gateway */
-	buf = key_file_get_string_helper (keyfile, "main", "Host", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "Host", error);
 	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_GATEWAY, buf);
 		g_free (buf);
@@ -1323,11 +1325,12 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 		             NM_VPNC_IMPORT_EXPORT_ERROR_NOT_VPNC,
 		             "does not look like a %s VPN connection (no Host)",
 		             VPNC_PLUGIN_NAME);
-		goto error;
 	}
+	if (*error)
+		goto error;
 
 	/* Group name */
-	buf = key_file_get_string_helper (keyfile, "main", "GroupName", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "GroupName", error);
 	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_ID, buf);
 		g_free (buf);
@@ -1337,25 +1340,32 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 		             NM_VPNC_IMPORT_EXPORT_ERROR_BAD_DATA,
 		             "does not look like a %s VPN connection (no GroupName)",
 		             VPNC_PLUGIN_NAME);
-		goto error;
 	}
+	if (*error)
+		goto error;
 
 	/* Optional settings */
 
 	/* Connection name */
-	buf = key_file_get_string_helper (keyfile, "main", "Description", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "Description", error);
+	if (*error)
+		goto error;
 	if (buf) {
 		g_object_set (s_con, NM_SETTING_CONNECTION_ID, buf, NULL);
 		g_free (buf);
 	}
 
-	buf = key_file_get_string_helper (keyfile, "main", "Username", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "Username", error);
+	if (*error)
+		goto error;
 	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, buf);
 		g_free (buf);
 	}
 
-	buf = key_file_get_string_helper (keyfile, "main", "UserPassword", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "UserPassword", error);
+	if (*error)
+		goto error;
 	if (buf) {
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD, buf);
 		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
@@ -1365,7 +1375,9 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 		g_free (buf);
 	}
 
-	bool_value = key_file_get_boolean_helper (keyfile, "main", "SaveUserPassword", NULL);
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "SaveUserPassword", error);
+	if (*error)
+		goto error;
 	flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
 	if (bool_value) {
 		nm_setting_vpn_add_data_item (s_vpn,
@@ -1376,7 +1388,9 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 	}
 	nm_setting_set_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_XAUTH_PASSWORD, flags, NULL);
 
-	buf = key_file_get_string_helper (keyfile, "main", "GroupPwd", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "GroupPwd", error);
+	if (*error)
+		goto error;
 	if (buf) {
 		nm_setting_vpn_add_secret (s_vpn, NM_VPNC_KEY_SECRET, buf);
 		nm_setting_set_secret_flags (NM_SETTING (s_vpn),
@@ -1386,7 +1400,9 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 		g_free (buf);
 	} else {
 		/* Handle encrypted passwords */
-		buf = key_file_get_string_helper (keyfile, "main", "enc_GroupPwd", NULL);
+		buf = key_file_get_string_helper (keyfile, "main", "enc_GroupPwd", error);
+		if (*error)
+			goto error;
 		if (buf) {
 			char *decrypted;
 
@@ -1409,7 +1425,7 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 	if (key_file_has_key_helper (keyfile, "main", "X-NM-SaveGroupPassword")) {
 		flags = NM_SETTING_SECRET_FLAG_AGENT_OWNED;
 
-		bool_value = key_file_get_boolean_helper (keyfile, "main", "X-NM-SaveGroupPassword", NULL);
+		bool_value = key_file_get_boolean_helper (keyfile, "main", "X-NM-SaveGroupPassword", error);
 		if (bool_value) {
 			nm_setting_vpn_add_data_item (s_vpn,
 			                              NM_VPNC_KEY_SECRET_TYPE,
@@ -1420,17 +1436,23 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 
 		nm_setting_set_secret_flags (NM_SETTING (s_vpn), NM_VPNC_KEY_SECRET, flags, NULL);
 	} else {
+		if (*error)
+			goto error;
 		/* If the key isn't present, assume "saved" */
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SECRET_TYPE, NM_VPNC_PW_TYPE_SAVE);
 	}
 
-	buf = key_file_get_string_helper (keyfile, "main", "NTDomain", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "NTDomain", error);
+	if (*error)
+		goto error;
 	if (buf) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, buf);
 		g_free (buf);
 	}
 
-	bool_value = key_file_get_boolean_helper (keyfile, "main", "SingleDES", NULL);
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "SingleDES", error);
+	if (*error)
+		goto error;
 	if (bool_value)
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
 
@@ -1445,13 +1467,19 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 	                              NM_VPNC_KEY_NAT_TRAVERSAL_MODE,
 	                              NM_VPNC_NATT_MODE_CISCO);
 
-	bool_value = key_file_get_boolean_helper (keyfile, "main", "EnableNat", NULL);
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "EnableNat", error);
+	if (*error)
+		goto error;
 	if (bool_value) {
 		gboolean natt = FALSE;
 		gboolean force_natt = FALSE;
 
-		natt = key_file_get_boolean_helper (keyfile, "main", "X-NM-Use-NAT-T", NULL);
-		force_natt = key_file_get_boolean_helper (keyfile, "main", "X-NM-Force-NAT-T", NULL);
+		natt = key_file_get_boolean_helper (keyfile, "main", "X-NM-Use-NAT-T", error);
+		if (*error)
+			goto error;
+		force_natt = key_file_get_boolean_helper (keyfile, "main", "X-NM-Force-NAT-T", error);
+		if (*error)
+			goto error;
 
 		/* force-natt takes precence over plain natt */
 		if (force_natt) {
@@ -1478,11 +1506,15 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 		}
 	}
 
-	bool_value = key_file_get_boolean_helper (keyfile, "main", "EnableLocalLAN", NULL);
+	bool_value = key_file_get_boolean_helper (keyfile, "main", "EnableLocalLAN", error);
+	if (*error)
+		goto error;
 	if (bool_value)
 		g_object_set (s_ip4, NM_SETTING_IP_CONFIG_NEVER_DEFAULT, TRUE, NULL);
 
-	buf = key_file_get_string_helper (keyfile, "main", "DHGroup", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "DHGroup", error);
+	if (*error)
+		goto error;
 	if (buf) {
 		if (!strcmp (buf, "1") || !strcmp (buf, "2") || !strcmp (buf, "5")) {
 			char *tmp;
@@ -1493,7 +1525,9 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 		g_free (buf);
 	}
 
-	buf = key_file_get_string_helper (keyfile, "main", "X-NM-Routes", NULL);
+	buf = key_file_get_string_helper (keyfile, "main", "X-NM-Routes", error);
+	if (*error)
+		goto error;
 	if (buf) {
 		add_routes (s_ip4, buf);
 		g_free (buf);
