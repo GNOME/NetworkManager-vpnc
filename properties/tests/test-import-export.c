@@ -611,6 +611,11 @@ test_non_utf8_import (NMVpnEditorPlugin *plugin, const char *dir)
 	/* Change charset to ISO-8859-15 to match iso885915.pcf */
 	charset = setlocale (LC_ALL, NULL);
 	setlocale (LC_ALL, "de_DE@euro");
+	if (!g_locale_from_utf8 (expected_id, -1, NULL, NULL, NULL)) {
+		g_test_skip ("ISO-8859-15 not supported on this system");
+		setlocale (LC_ALL, charset);
+		return;
+	}
 	connection = get_basic_connection ("non-utf8-import", plugin, dir, "iso885915.pcf");
 	setlocale (LC_ALL, charset);
 
