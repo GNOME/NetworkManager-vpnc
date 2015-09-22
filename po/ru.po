@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2015-07-09 10:59+0000\n"
-"PO-Revision-Date: 2015-07-27 23:41+0300\n"
+"POT-Creation-Date: 2015-09-22 11:52+0000\n"
+"PO-Revision-Date: 2015-09-22 23:30+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: Русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -66,18 +66,18 @@ msgstr "Менеджер подключений VPN (vpnc)"
 
 #: ../nm-vpnc.desktop.in.h:2
 msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Добавить, удалить или изменить подключения VPN"
+msgstr "Добавление, удаление и изменение подключений VPN"
 
 #: ../properties/nm-vpnc.c:54
 msgid "Cisco Compatible VPN (vpnc)"
-msgstr "Cisco-совместимая VPN (vpnc)"
+msgstr "Совместимое с Cisco VPN (vpnc)"
 
 #: ../properties/nm-vpnc.c:55
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Совместим с различными VPN-шлюзами Cisco, Juniper, Netscreen и Sonicwall на "
+"Совместим с различными Cisco, Juniper, Netscreen и Sonicwall шлюзами VPN на "
 "основе IPsec."
 
 #: ../properties/nm-vpnc.c:431
@@ -90,7 +90,7 @@ msgstr "Слабое (использовать с осторожностью)"
 
 #: ../properties/nm-vpnc.c:442
 msgid "None (completely insecure)"
-msgstr "Нет (без шифрования)"
+msgstr "Отсутствует (полное отсутствие безопасности)"
 
 #: ../properties/nm-vpnc.c:506
 msgid "Cisco (default)"
@@ -106,7 +106,7 @@ msgstr "NAT-T, если доступен (по умолчанию)"
 
 #: ../properties/nm-vpnc.c:561
 msgid "NAT-T always"
-msgstr "NAT-T всегда"
+msgstr "Всегда NAT-T"
 
 #: ../properties/nm-vpnc.c:568
 msgid "Cisco UDP"
@@ -118,15 +118,15 @@ msgstr "Выключено"
 
 #: ../properties/nm-vpnc.c:595 ../properties/nm-vpnc.c:681
 msgid "DH Group 1"
-msgstr "DH Group 1"
+msgstr "Группа DH 1"
 
 #: ../properties/nm-vpnc.c:602
 msgid "DH Group 2 (default)"
-msgstr "DH Group 2 (по умолчанию)"
+msgstr "Группа DH 2 (по умолчанию)"
 
 #: ../properties/nm-vpnc.c:609 ../properties/nm-vpnc.c:695
 msgid "DH Group 5"
-msgstr "DH Group 5"
+msgstr "Группа DH 5"
 
 #: ../properties/nm-vpnc.c:667
 msgid "Server (default)"
@@ -138,7 +138,7 @@ msgstr "Нет"
 
 #: ../properties/nm-vpnc.c:688
 msgid "DH Group 2"
-msgstr "DH Group 2"
+msgstr "Группа DH 2"
 
 #: ../properties/nm-vpnc.c:735
 msgid "Choose a Certificate Authority (CA) certificate..."
@@ -181,11 +181,11 @@ msgid ""
 "config: IPSec secret <group_password>"
 msgstr ""
 "Пароль группы\n"
-"config: тайный ключ IPSec <group_password>"
+"конфигурация: тайный ключ IPSec <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
-msgstr "Пароль гр_уппы:"
+msgstr "Пароль _группы:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway:"
@@ -209,7 +209,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
-msgstr "Пароль _пользователя:"
+msgstr "_Пароль пользователя:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -239,7 +239,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "CA _File:"
-msgstr "Файл CA:"
+msgstr "_Файл CA:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -249,11 +249,11 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d..."
-msgstr "Дополнительно…"
+msgstr "_Дополнительно…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Advanced Options"
-msgstr "Дополнительные настройки"
+msgstr "Дополнительные параметры"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
