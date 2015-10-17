@@ -1,18 +1,16 @@
 # Swedish messages for NetworkManager-vpnc.
-# Copyright © 2004-2014 Free Software Foundation, Inc.
+# Copyright © 2004-2015 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004, 2005, 2006.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2010, 2011, 2012.
-# Josef Andersson <josef.andersson@fripost.org>, 2014.
-#
-# $Id: sv.po,v 1.2 2006/07/12 12:49:06 menthos Exp $
+# Josef Andersson <josef.andersson@fripost.org>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-09-14 22:05+0000\n"
-"PO-Revision-Date: 2014-09-11 14:00+0100\n"
+"POT-Creation-Date: 2015-10-07 12:06+0000\n"
+"PO-Revision-Date: 2015-10-07 19:34+0200\n"
 "Last-Translator: Josef Andersson <josef.andersson@fripost.org>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -20,33 +18,33 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
-#: ../auth-dialog/main.c:175
+#: ../auth-dialog/main.c:174
 #, c-format
 msgid "Authenticate VPN %s"
 msgstr "Autentisera VPN %s"
 
-#: ../auth-dialog/main.c:191
+#: ../auth-dialog/main.c:190
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../auth-dialog/main.c:199
+#: ../auth-dialog/main.c:198
 msgid "Group Password:"
 msgstr "Grupplösenord:"
 
-#: ../auth-dialog/main.c:234
+#: ../auth-dialog/main.c:233
 msgid "Authenticate VPN"
 msgstr "Autentisera VPN"
 
-#: ../auth-dialog/main.c:243
+#: ../auth-dialog/main.c:242
 msgid "_Group Password:"
 msgstr "_Grupplösenord:"
 
-#: ../auth-dialog/main.c:501
+#: ../auth-dialog/main.c:500
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Du måsta autentisera för att komma åt VPN-nätverket \"%s\"."
+msgstr "Du måste autentisera för att komma åt VPN-nätverket \"%s\"."
 
 #: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
 msgid "Network"
@@ -56,19 +54,11 @@ msgstr "Nätverk"
 msgid "Request VPN authentication"
 msgstr "Begär VPN-autentisering"
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "VPN Connection Manager (vpnc)"
-msgstr "VPN-anslutningshanterare (vpnc)"
-
-#: ../nm-vpnc.desktop.in.h:2
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Lägg till, ta bort och redigera VPN-anslutningar"
-
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:78
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibel VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:79
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -76,91 +66,79 @@ msgstr ""
 "Kompatibel med olika Cisco, Juniper, Netscreen och Sonicwall IPsec-baserade "
 "VPN-gateway."
 
-#: ../properties/nm-vpnc.c:338
-msgid "Saved"
-msgstr "Sparat"
-
-#: ../properties/nm-vpnc.c:345
-msgid "Always Ask"
-msgstr "Fråga alltid"
-
-#: ../properties/nm-vpnc.c:352
-msgid "Not Required"
-msgstr "Krävs inte"
-
-#: ../properties/nm-vpnc.c:501
+#: ../properties/nm-vpnc.c:432
 msgid "Secure (default)"
 msgstr "Säker (standard)"
 
-#: ../properties/nm-vpnc.c:504
+#: ../properties/nm-vpnc.c:435
 msgid "Weak (use with caution)"
 msgstr "Svag (använd med försiktighet)"
 
-#: ../properties/nm-vpnc.c:512
+#: ../properties/nm-vpnc.c:443
 msgid "None (completely insecure)"
 msgstr "Ingen (totalt osäker)"
 
-#: ../properties/nm-vpnc.c:578
+#: ../properties/nm-vpnc.c:507
 msgid "Cisco (default)"
 msgstr "Cisco (standard)"
 
-#: ../properties/nm-vpnc.c:585
+#: ../properties/nm-vpnc.c:514
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:616
+#: ../properties/nm-vpnc.c:555
 msgid "NAT-T when available (default)"
 msgstr "NAT-T om möjligt (standard)"
 
-#: ../properties/nm-vpnc.c:623
+#: ../properties/nm-vpnc.c:562
 msgid "NAT-T always"
 msgstr "NAT-T alltid"
 
-#: ../properties/nm-vpnc.c:630
+#: ../properties/nm-vpnc.c:569
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:637
+#: ../properties/nm-vpnc.c:576
 msgid "Disabled"
 msgstr "Inaktiverad"
 
-#: ../properties/nm-vpnc.c:657 ../properties/nm-vpnc.c:743
+#: ../properties/nm-vpnc.c:596 ../properties/nm-vpnc.c:682
 msgid "DH Group 1"
 msgstr "DH Group 1"
 
-#: ../properties/nm-vpnc.c:664
+#: ../properties/nm-vpnc.c:603
 msgid "DH Group 2 (default)"
 msgstr "DH-grupp 2 (standard)"
 
-#: ../properties/nm-vpnc.c:671 ../properties/nm-vpnc.c:757
+#: ../properties/nm-vpnc.c:610 ../properties/nm-vpnc.c:696
 msgid "DH Group 5"
 msgstr "DH-grupp 5"
 
-#: ../properties/nm-vpnc.c:729
+#: ../properties/nm-vpnc.c:668
 msgid "Server (default)"
 msgstr "Server (standard)"
 
-#: ../properties/nm-vpnc.c:736
+#: ../properties/nm-vpnc.c:675
 msgid "None"
 msgstr "Ingen"
 
-#: ../properties/nm-vpnc.c:750
+#: ../properties/nm-vpnc.c:689
 msgid "DH Group 2"
 msgstr "DH Group 2"
 
-#: ../properties/nm-vpnc.c:797
+#: ../properties/nm-vpnc.c:736
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Välj ett CA-certifikat (Certifikatutfärdare)…"
 
-#: ../properties/nm-vpnc.c:801
+#: ../properties/nm-vpnc.c:740
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM-certifikat (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1542
+#: ../properties/nm-vpnc.c:1545
 msgid "TCP tunneling not supported"
 msgstr "TCP-tunnling stöds inte"
 
-#: ../properties/nm-vpnc.c:1544
+#: ../properties/nm-vpnc.c:1547
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -176,18 +154,115 @@ msgstr ""
 "kanske inte fungerar som väntat."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "General"
+msgstr "Allmänt"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "Sho_w passwords"
+msgstr "_Visa lösenord"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Grupplösenord\n"
+"config: IPSec secret <grupplösenord>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "Gro_up password:"
+msgstr "Gr_upplösenord:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "_Gateway:"
+msgstr "_Gateway:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr "G_ruppnamn:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IP/värdnamn på IPsec-gateway\n"
+"config: IPSec gateway <gateway>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Gruppnamn\n"
+"config: IPSec ID <gruppnamn>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid "User _password:"
+msgstr "Användarlös_enord:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Användarens lösenord för anslutningen\n"
+"config: Xauth password <lösenord>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"Användarnamn för anslutningen\n"
+"config: Xauth username <användarnamn>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "User na_me:"
+msgstr "Användarna_mn:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "Use _hybrid authentication"
+msgstr "Använd hybridautentisering"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+"Aktivera hybridautentisering, d.v.s. använd certifikat tillsammans med "
+"lösenord.\n"
+"config: IKE Authmode hybrid"
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "CA _File:"
+msgstr "CA-fil:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"CA-certifikat i PEM-format\n"
+"config: CA-File"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "Advance_d..."
+msgstr "Avance_rat…"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Advanced Options"
 msgstr "Avancerade alternativ"
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
 msgstr "Identifikation"
 
-#: ../properties/nm-vpnc-dialog.ui.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "_Domain:"
 msgstr "_Domän:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
 "(NT-)Domain name for authentication\n"
 "config: Domain <domain>"
@@ -195,11 +270,7 @@ msgstr ""
 "(NT-)domännamn för autentisering\n"
 "config: Domain <domän>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "Till_verkare:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
@@ -207,11 +278,15 @@ msgstr ""
 "Tillverkare av din IPsec-gateway\n"
 "config: Vendor <cisco/netscreen>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr "Till_verkare:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion:"
 msgstr "Ve_rsion:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
 "Application version to report. \n"
 "config: Application version <ASCII string>"
@@ -219,11 +294,78 @@ msgstr ""
 "Programversion att rapportera. \n"
 "config: Application version <ASCII-sträng>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
 msgstr "Transport och säkerhet"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "Inaktivera Dead Peer Detection"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Inaktivera sändning av DPD-paket (sätter tidsgräns till 0)\n"
+"config: DPD idle timeout (vår sida) 0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr "_Lokal port:"
+
+# Ser det som ett begrepp på en speciell teknik, men har någon förslag på ett bra översättning mottages det
+# tacksamt.
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr "Perfect _Forward Secrecy:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "_IKE DH-grupp:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "_NAT-traversering:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Lokal ISAKMP-port att använda (0 betyder slumpmässig port; 500 är standard "
+"för vpnc)\n"
+"config: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Diffie-Hellman-grupp att använda för PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Namn på IKE DH-gruppen\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"NAT-traverseringsmetod att använda\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
@@ -233,218 +375,79 @@ msgstr ""
 "config: ingenting för Säker, 'Enable Single DES' för svag, 'Enable no "
 "encryption' för ingen"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+"Tunnelgränssnittsnamn att använda\n"
+"config: Interface name <namn>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
 msgstr "Krypteringsm_etod:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "_NAT-traversering:"
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
+msgstr "Tunnel_gränssnittsnamn:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"NAT-traverseringsmetod att använda\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "_IKE DH-grupp:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:20
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Namn på IKE DH-gruppen\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-
-# Ser det som ett begrepp på en speciell teknik, men har någon förslag på ett bra översättning mottages det
-# tacksamt.
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Diffie-Hellman-grupp att använda för PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr "_Lokal port:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Lokal ISAKMP-port att använda (0 betyder slumpmässig port; 500 är standard "
-"för vpnc)\n"
-"config: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "Disable Dead _Peer Detection"
-msgstr "Inaktivera Dead Peer Detection"
-
-#: ../properties/nm-vpnc-dialog.ui.h:29
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"Inaktivera sändning av DPD-paket (sätter tidsgräns till 0)\n"
-"config: DPD idle timeout (vår sida) 0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:31
-msgid "General"
-msgstr "Allmänt"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "Sho_w passwords"
-msgstr "_Visa lösenord"
-
-#: ../properties/nm-vpnc-dialog.ui.h:33
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Grupplösenord\n"
-"config: IPSec secret <grupplösenord>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:35
-msgid "Gro_up password:"
-msgstr "Gr_upplösenord:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "_Gateway:"
-msgstr "_Gateway:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "G_roup name:"
-msgstr "G_ruppnamn:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-"IP/värdnamn på IPsec-gateway\n"
-"config: IPSec gateway <gateway>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Gruppnamn\n"
-"config: IPSec ID <gruppnamn>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "User _password:"
-msgstr "Användarlös_enord:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Användarens lösenord för anslutningen\n"
-"config: Xauth password <lösenord>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:45
-msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
-msgstr ""
-"Användarnamn för anslutningen\n"
-"config: Xauth username <användarnamn>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid "User na_me:"
-msgstr "Användarna_mn:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:48
-msgid "Use _hybrid authentication"
-msgstr "Använd hybridautentisering"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
-"config: IKE Authmode hybrid"
-msgstr ""
-"Aktivera hybridautentisering, d.v.s. använd certifikat tillsammans med "
-"lösenord.\n"
-"config: IKE Authmode hybrid"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid "CA _File:"
-msgstr "CA-fil:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:52
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"CA-certifikat i PEM-format\n"
-"config: CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:54
-msgid "Advance_d..."
-msgstr "Avance_rat…"
-
-#: ../src/nm-vpnc-service.c:155
+#: ../src/nm-vpnc-service.c:173
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "egenskapen ”%s” är ogiltig eller stöds inte"
 
-#: ../src/nm-vpnc-service.c:174
+#: ../src/nm-vpnc-service.c:192
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr "egenskapen ”%s” filsökväg ”%s” är inte absolut eller finns inte"
 
-#: ../src/nm-vpnc-service.c:187
+#: ../src/nm-vpnc-service.c:205
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr "ogiltig heltalsegenskap ”%s” eller utanför intervallet [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:197
+#: ../src/nm-vpnc-service.c:215
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "ogiltig boolesk egenskap ”%s” (inte yes eller no)"
 
-#: ../src/nm-vpnc-service.c:204
+#: ../src/nm-vpnc-service.c:222
 #, c-format
 msgid "unhandled property '%s' type %d"
 msgstr "ohanterad egenskap ”%s” typ %d"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:239
 msgid "No VPN configuration options."
 msgstr "Inga VPN-konfigurationsalternativ."
 
-#: ../src/nm-vpnc-service.c:239
+#: ../src/nm-vpnc-service.c:265
 msgid "No VPN secrets!"
 msgstr "Inga VPN-hemligheter!"
 
-#: ../src/nm-vpnc-service.c:323
+#: ../src/nm-vpnc-service.c:613
 msgid "Could not find vpnc binary."
 msgstr "Kunde inte hitta binärfilen vpnc."
 
-#: ../src/nm-vpnc-service.c:417
+#: ../src/nm-vpnc-service.c:714
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "Konfigurationsalternativet ”%s” är ogiltigt eller okänt."
 
-#: ../src/nm-vpnc-service.c:450
+#: ../src/nm-vpnc-service.c:747
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "Konfigurationsalternativet ”%s” är inte ett heltal."
 
-#: ../src/nm-vpnc-service.c:630
+#: ../src/nm-vpnc-service.c:921
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc stödjer inte interaktiva begäranden"
+
+#: ../src/nm-vpnc-service.c:945
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+"Kunde inte använda nya hemligheter eftersom interaktivt läge är inaktiverat."
+
+#: ../src/nm-vpnc-service.c:954 ../src/nm-vpnc-service.c:1029
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -452,21 +455,51 @@ msgstr ""
 "Kunde inte behandla begäran eftersom VPN-konfigurationsalternativen var "
 "ogiltiga."
 
-#: ../src/nm-vpnc-service.c:745
+#: ../src/nm-vpnc-service.c:962
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Kunde inte behandla begäran eftersom ingen väntande autentisering krävs."
+
+#: ../src/nm-vpnc-service.c:974
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Kunde inte behandla begäran eftersom den begärda informationen ”%s” ej "
+"tillhandahölls."
+
+#: ../src/nm-vpnc-service.c:1169
 msgid "Don't quit when VPN connection terminates"
 msgstr "Avsluta inte när VPN-anslutningen termineras"
 
-#: ../src/nm-vpnc-service.c:746
+#: ../src/nm-vpnc-service.c:1170
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Aktivera informativ felsökningsloggning (kan exponera lösenord)"
 
-#: ../src/nm-vpnc-service.c:769
+#: ../src/nm-vpnc-service.c:1193
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
 "nm-vpnc-service tillhandahåller integrerade Cisco Legacy IPsec VPN-förmågor "
 "till Nätverkshanterare."
+
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "VPN-anslutningshanterare (vpnc)"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Lägg till, ta bort och redigera VPN-anslutningar"
+
+#~ msgid "Saved"
+#~ msgstr "Sparat"
+
+#~ msgid "Always Ask"
+#~ msgstr "Fråga alltid"
+
+#~ msgid "Not Required"
+#~ msgstr "Krävs inte"
 
 #~ msgid "_Secondary Password:"
 #~ msgstr "_Sekundärt lösenord:"
