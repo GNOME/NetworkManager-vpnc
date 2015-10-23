@@ -8,10 +8,7 @@ nm_vpnc_auth_dialog_CPPFLAGS = \
 	$(LIBSECRET_CFLAGS) \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DBINDIR=\""$(bindir)"\" \
-	-DG_DISABLE_DEPRECATED \
-	-DGNOME_DISABLE_DEPRECATED \
-	-DGNOMELOCALEDIR=\"$(datadir)/locale\" \
-	-DVERSION=\"$(VERSION)\"
+	-DGNOMELOCALEDIR=\"$(datadir)/locale\"
 
 nm_vpnc_auth_dialog_SOURCES = \
 	main.c

@@ -29,8 +29,6 @@
 #include <stdlib.h>
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
-
-#define SECRET_API_SUBJECT_TO_CHANGE
 #include <libsecret/secret.h>
 
 #include <NetworkManager.h>
