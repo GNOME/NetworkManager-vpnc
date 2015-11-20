@@ -1,4 +1,14 @@
 =======================================================
+NetworkManager-vpnc-1.0.8
+Overview of changes since NetworkManager-vpnc-1.0.6
+=======================================================
+
+This is a new stable release of NetworkManager-vpnc.  Notable changes include:
+
+* Updated German, Swedish, Portuguese, Lithuanian and Russian translations
+
+
+=======================================================
 network-manager-vpnc-1.0.6
 Overview of changes since network-manager-vpnc-1.0.2
 =======================================================
