@@ -1,6 +1,9 @@
 AC_PREREQ(2.52)
 
-AC_INIT(NetworkManager-vpnc, 1.1.0, dcbw@redhat.com, NetworkManager-vpnc)
+AC_INIT(NetworkManager-vpnc,
+        1.1.0,
+        https://bugzilla.gnome.org/enter_bug.cgi?product=NetworkManager,
+        NetworkManager-vpnc)
 AM_INIT_AUTOMAKE([subdir-objects no-dist-gzip dist-xz])
 AM_MAINTAINER_MODE
 
