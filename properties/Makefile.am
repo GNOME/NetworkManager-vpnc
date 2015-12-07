@@ -42,11 +42,11 @@ libnm_vpnc_properties_la_LIBADD = \
 	$(LIBNM_GLIB_LIBS) \
 	$(LIBNM_GTK_LIBS)
 
-libnm_vpn_plugin_vpnc_new_la_LDFLAGS = \
+libnm_vpn_plugin_vpnc_la_LDFLAGS = \
 	-avoid-version
 
 libnm_vpnc_properties_la_LDFLAGS = \
-	$(libnm_vpn_plugin_vpnc_new_la_LDFLAGS)
+	$(libnm_vpn_plugin_vpnc_la_LDFLAGS)
 
 CLEANFILES = *.bak *~
 
