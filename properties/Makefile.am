@@ -37,6 +37,11 @@ libnm_vpnc_properties_la_CFLAGS = \
 	$(LIBNM_GLIB_CFLAGS) \
 	$(LIBNM_GTK_CFLAGS)
 
+libnm_vpn_plugin_vpnc_la_LIBADD = \
+	$(GTK_LIBS) \
+	$(LIBNM_LIBS) \
+	$(LIBNMA_LIBS)
+
 libnm_vpnc_properties_la_LIBADD = \
 	$(GTK_LIBS) \
 	$(LIBNM_GLIB_LIBS) \
