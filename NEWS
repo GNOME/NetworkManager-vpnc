@@ -1,4 +1,20 @@
 =======================================================
+NetworkManager-vpnc-1.2
+Overview of changes since network-manager-vpnc-1.0
+=======================================================
+
+This is a new stable release of network-manager-vpnc.  Notable changes include:
+
+* Ported to libnm, libnma and GDBus
+* Translation updates
+
+The following features were backported to 1.0.x releases from 1.0.0 to 1.0.8
+are also present in NetworkManager-vpnc-1.2:
+
+* Enhanced the GUI to support agent-owned and always-ask passwords
+
+
+=======================================================
 network-manager-vpnc-1.0
 Overview of changes since network-manager-vpnc-0.9.10
 =======================================================
