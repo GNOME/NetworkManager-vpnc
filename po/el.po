@@ -48,14 +48,6 @@ msgstr ""
 "Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Ιδιωτικό εικονικό "
 "δίκτυο (VPN) '%s'."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Δίκτυο"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Αίτημα πιστοποίησης VPN"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Διαχειριστής σύνδεσης VPN (vpnc)"

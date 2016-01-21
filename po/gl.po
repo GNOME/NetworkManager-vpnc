@@ -53,14 +53,6 @@ msgstr "Contrasinal de grupo:"
 msgid "_Group Password:"
 msgstr "Contrasinal de _grupo:"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Rede"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Solicitar autenticación VPN"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Xestor de conexión VPN (vpnc)"

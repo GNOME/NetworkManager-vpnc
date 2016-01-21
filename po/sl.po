@@ -49,14 +49,6 @@ msgstr "_Skupinsko geslo:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Dostop do navideznega zasebnega omrežja '%s' zahteva overitev."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Omrežje"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Zahtevaj overitev VPN"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Upravljalnik povezav VPN (vpnc)"

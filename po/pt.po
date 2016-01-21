@@ -48,15 +48,6 @@ msgstr "Senha de _Grupo:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Tem de se autenticar para aceder à rede privada virtual (VPN) \"%s\"."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Rede"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-#| msgid "Use _domain for authentication"
-msgid "Request VPN authentication"
-msgstr "Pedir autenticação VPN"
-
 #: ../properties/nm-vpnc.c:52
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "VPN compatível com Cisco (vpnc)"

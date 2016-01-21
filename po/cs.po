@@ -48,14 +48,6 @@ msgstr "Heslo _skupiny:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Pro přístup do VPN „%s“ se musí provést ověření."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Síť"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Požadovat ověření VPN"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Správce spojení VPN (vpnc)"

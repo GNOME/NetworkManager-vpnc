@@ -43,14 +43,6 @@ msgstr "Ryhmän salasana:"
 msgid "_Group Password:"
 msgstr "_Ryhmän salasana:"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Verkko"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Pyydä VPN-tunnistautumista"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN-yhteysohjelmisto (vpnc)"

@@ -51,14 +51,6 @@ msgstr "Пароль _группы:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Для доступа к виртуальной частной сети «%s» требуется аутентификация."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Сеть"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Запрос аутентификации VPN"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Менеджер подключений VPN (vpnc)"

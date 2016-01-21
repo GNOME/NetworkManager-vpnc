@@ -52,14 +52,6 @@ msgstr ""
 "Aby uzyskać dostęp do wirtualnej sieci prywatnej „%s”, należy się "
 "uwierzytelnić."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Sieć"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Żądanie uwierzytelnienia VPN"
-
 #: ../properties/nm-vpnc.c:52
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Zgodny z Cisco VPN (vpnc)"

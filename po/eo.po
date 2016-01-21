@@ -42,14 +42,6 @@ msgstr ""
 msgid "_Group Password:"
 msgstr "_Gruppasvorto:"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Reto"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr ""
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
 msgstr "Aldoni, forigi kaj redakti VPN-konektojn"

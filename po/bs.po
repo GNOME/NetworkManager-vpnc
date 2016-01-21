@@ -46,14 +46,6 @@ msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Trebate provjeriti autentičnost za pristup virtuelnoj privatnoj mreži '%s'."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Mreža"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Zatraži VPN autentifikaciju"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN Upravitelj konekcija(vpnc)"

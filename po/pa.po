@@ -55,15 +55,6 @@ msgstr "ਗਰੁੱਪ ਪਾਸਵਰਡ:"
 msgid "_Group Password:"
 msgstr "ਗਰੁੱਪ ਪਾਸਵਰਡ(_G):"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "ਨੈੱਟਵਰਕ"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-#| msgid "Use _domain for authentication"
-msgid "Request VPN authentication"
-msgstr "VPN ਪਰਮਾਣਕਿਤਾ ਦੀ ਮੰਗ"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN ਕੁਨੈਕਸ਼ਨ ਮੈਨੇਜਰ (vpnc)"

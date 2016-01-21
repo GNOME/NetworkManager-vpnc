@@ -52,16 +52,6 @@ msgstr "Contrasenya de _grup:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Us heu d'autenticar per poder accedir a la xarxa privada virtual «%s»."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr ""
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-#, fuzzy
-#| msgid "Use _domain for authentication"
-msgid "Request VPN authentication"
-msgstr "Utilitzeu el _domini per l'autenticació"
-
 #: ../properties/nm-vpnc.c:51
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "VPN compatible amb Cisco (vpnc)"

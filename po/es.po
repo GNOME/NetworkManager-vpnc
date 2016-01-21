@@ -53,14 +53,6 @@ msgstr "Contraseña del _grupo:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Debe autenticarse para acceder a la red privada virtual «%s»."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Red"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Solicitar autenticación VPN"
-
 #: ../properties/nm-vpnc.c:52
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Compatible con Cisco VPN (vpnc)"

@@ -56,14 +56,6 @@ msgstr "Mot de passe du groupe :"
 msgid "_Group Password:"
 msgstr "Mot de passe du _groupe :"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Réseau"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Demander une authentification VPN"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Gestionnaire de connexions VPN (vpnc)"

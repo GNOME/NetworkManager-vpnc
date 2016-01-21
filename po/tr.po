@@ -46,14 +46,6 @@ msgstr "_Grup Parolası:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "'%s' Sanal Özel Ağına erişmek için kimlik kanıtlaması yapmanız gerekir."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Ağ"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "VPN kimlik doğrulaması iste"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN Bağlantı Yöneticisi (vpnc)"

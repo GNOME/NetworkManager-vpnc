@@ -50,14 +50,6 @@ msgstr ""
 "Norint gauti prieigą prie Virtualiojo Privačiojo Tinklo „%s“, reikia "
 "nustatyti jūsų tapatybę."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Tinklas"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Reikalauti VPN tapatybės patvirtinimo"
-
 #: ../properties/nm-vpnc.c:78
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Su Cisco suderinamas VPN (vpnc)"

@@ -46,14 +46,6 @@ msgstr "_Grupplösenord:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Du måste autentisera för att komma åt VPN-nätverket \"%s\"."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Nätverk"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Begär VPN-autentisering"
-
 #: ../properties/nm-vpnc.c:78
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibel VPN (vpnc)"

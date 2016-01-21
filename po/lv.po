@@ -42,14 +42,6 @@ msgstr "Grupas parole:"
 msgid "_Group Password:"
 msgstr "_Grupas parole:"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Tīkls"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Pieprasīt VPN autentificēšanos"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN savienojumu pārvaldnieks (vpnc)"

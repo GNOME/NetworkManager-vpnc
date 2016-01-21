@@ -48,14 +48,6 @@ msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Anda perlu melakukan otentikasi untuk mengakses Virtual Private Network '%s'."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Jaringan"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Minta otentikasi VPN"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Manajer Sambungan VPN (vpnc)"

@@ -47,14 +47,6 @@ msgstr "VPN-godkendelse"
 msgid "_Group Password:"
 msgstr "_Gruppeadgangskode:"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Netværk"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Anmod om VPN-godkendelse"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "Add, Remove, and Edit VPN Connections"
 msgstr "Tilføj, fjern og redigér VPN-forbindelser"

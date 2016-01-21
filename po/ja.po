@@ -39,14 +39,6 @@ msgstr "グループパスワード:"
 msgid "_Group Password:"
 msgstr "グループパスワード(_G):"
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "ネットワーク"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "VPN 認証を要求する"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN 接続マネージャー (vpnc)"

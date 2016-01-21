@@ -53,14 +53,6 @@ msgstr ""
 "Sie müssen sich legitimieren, um auf das Virtuelle private Netzwerk »%s« "
 "zugreifen zu können."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Netzwerk"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "VPN-Legitimierung anfragen"
-
 #: ../properties/nm-vpnc.c:52
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibler VPN-Client (vpnc)"

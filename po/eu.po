@@ -45,14 +45,6 @@ msgstr "_Taldearen pasahitza:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Autentifikatu egin behar zara '%s' VPN-ra sarbidetzeko."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Sarea"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Eskatu VPNren autentifikazioa"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN konexioen kudeatzailea (vpnc)"

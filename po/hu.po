@@ -47,14 +47,6 @@ msgstr "_Csoportjelszó:"
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Azonosítania kell magát a(z) „%s” virtuális magánhálózat eléréséhez."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Hálózat"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "VPN-azonosítás kérése"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "VPN-kapcsolatkezelő (vpnc)"

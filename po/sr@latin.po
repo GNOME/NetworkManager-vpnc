@@ -49,14 +49,6 @@ msgstr ""
 "Morate da potvrdite identitet da biste mogli da pristupite virtuelnoj "
 "privatnoj mreži „%s“."
 
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:1
-msgid "Network"
-msgstr "Mreža"
-
-#: ../auth-dialog/nm-vpnc-auth-dialog.desktop.in.in.h:2
-msgid "Request VPN authentication"
-msgstr "Zahtevaj VPN potvrđivanje"
-
 #: ../nm-vpnc.desktop.in.h:1
 msgid "VPN Connection Manager (vpnc)"
 msgstr "Upravnik VPN veza (vpnc)"
