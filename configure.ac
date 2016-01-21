@@ -117,13 +117,10 @@ if ! test x"$ac_distver" = x""; then
   AC_DEFINE_UNQUOTED(DIST_VERSION, "$ac_distver", [Define the distribution version string])
 fi
 
-AS_AC_EXPAND(LIBEXECDIR, $libexecdir)
-
 AC_CONFIG_FILES([
 Makefile
 src/Makefile
 auth-dialog/Makefile
-auth-dialog/nm-vpnc-auth-dialog.desktop.in
 properties/Makefile
 properties/tests/Makefile
 properties/tests/pcf/Makefile

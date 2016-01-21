@@ -19,18 +19,5 @@ nm_vpnc_auth_dialog_LDADD = \
 	$(LIBNMA_LIBS) \
 	$(LIBSECRET_LIBS)
 
-@INTLTOOL_DESKTOP_RULE@
-desktopdir = $(datadir)/applications
-desktop_in_in_files = nm-vpnc-auth-dialog.desktop.in.in
-desktop_in_files = nm-vpnc-auth-dialog.desktop.in
-desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
+CLEANFILES = *~
 
-EXTRA_DIST = \
-	$(desktop_in_in_files)
-
-CLEANFILES = \
-	*~ \
-	$(desktop_DATA)
-
-DISTCLEANFILES = \
-	$(desktop_in_files)
