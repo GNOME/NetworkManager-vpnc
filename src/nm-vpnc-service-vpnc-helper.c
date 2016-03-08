@@ -315,7 +315,7 @@ main (int argc, char *argv[])
 
 		errno = 0;
 		pfx = strtoul (tmp, NULL, 10);
-		if (pfx >= 0 && pfx <= 32 && errno == 0)
+		if (pfx <= 32 && errno == 0)
 			prefix = (guint32) pfx;
 		netmask_found = TRUE;
 	}
