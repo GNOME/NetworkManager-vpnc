@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc.HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-06-12 10:05+0000\n"
-"PO-Revision-Date: 2014-06-13 12:29+0200\n"
+"POT-Creation-Date: 2016-03-06 13:58+0000\n"
+"PO-Revision-Date: 2016-03-07 00:29+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -18,49 +18,41 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.8.7\n"
 
-#: ../auth-dialog/main.c:175
+#: ../auth-dialog/main.c:172
 #, c-format
 msgid "Authenticate VPN %s"
 msgstr "Πιστοποίηση VPN %s"
 
-#: ../auth-dialog/main.c:191
+#: ../auth-dialog/main.c:188
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: ../auth-dialog/main.c:199
+#: ../auth-dialog/main.c:196
 msgid "Group Password:"
 msgstr "Κωδικός πρόσβασης ομάδας:"
 
-#: ../auth-dialog/main.c:234
+#: ../auth-dialog/main.c:231
 msgid "Authenticate VPN"
 msgstr "Πιστοποίηση VPN"
 
-#: ../auth-dialog/main.c:243
+#: ../auth-dialog/main.c:240
 msgid "_Group Password:"
 msgstr "Κωδικός πρόσβασης ο_μάδας:"
 
-#: ../auth-dialog/main.c:501
+#: ../auth-dialog/main.c:498
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Χρειάζεστε πιστοποίηση για να αποκτήσετε πρόσβαση στο Ιδιωτικό εικονικό "
 "δίκτυο (VPN) '%s'."
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "VPN Connection Manager (vpnc)"
-msgstr "Διαχειριστής σύνδεσης VPN (vpnc)"
-
-#: ../nm-vpnc.desktop.in.h:2
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Προσθήκη, αφαίρεση και επεξεργασία συνδέσεων VPN"
-
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:78
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Συμβατός με πελάτης Cisco VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:79
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -68,91 +60,79 @@ msgstr ""
 "Συμβατός με διάφορες βασισμένες στο IPsec πύλες VPN των Cisco, Juniper, "
 "Netscreen και Sonicwall."
 
-#: ../properties/nm-vpnc.c:338
-msgid "Saved"
-msgstr "Αποθηκευμένη"
-
-#: ../properties/nm-vpnc.c:345
-msgid "Always Ask"
-msgstr "Να γίνεται πάντα ερώτηση"
-
-#: ../properties/nm-vpnc.c:352
-msgid "Not Required"
-msgstr "Δεν απαιτείται"
-
-#: ../properties/nm-vpnc.c:501
+#: ../properties/nm-vpnc.c:432
 msgid "Secure (default)"
 msgstr "Ασφαλής (προεπιλογή)"
 
-#: ../properties/nm-vpnc.c:504
+#: ../properties/nm-vpnc.c:435
 msgid "Weak (use with caution)"
 msgstr "Ασθενής (να χρησιμοποιείται με προσοχή)"
 
-#: ../properties/nm-vpnc.c:512
+#: ../properties/nm-vpnc.c:443
 msgid "None (completely insecure)"
 msgstr "Καμία (καθόλου ασφάλεια)"
 
-#: ../properties/nm-vpnc.c:578
+#: ../properties/nm-vpnc.c:507
 msgid "Cisco (default)"
 msgstr "Cisco (προεπιλογή)"
 
-#: ../properties/nm-vpnc.c:585
+#: ../properties/nm-vpnc.c:514
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:616
+#: ../properties/nm-vpnc.c:555
 msgid "NAT-T when available (default)"
 msgstr "NAT-T όταν είναι διαθέσιμο (προεπιλογή)"
 
-#: ../properties/nm-vpnc.c:623
+#: ../properties/nm-vpnc.c:562
 msgid "NAT-T always"
 msgstr "NAT-T πάντα"
 
-#: ../properties/nm-vpnc.c:630
+#: ../properties/nm-vpnc.c:569
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:637
+#: ../properties/nm-vpnc.c:576
 msgid "Disabled"
 msgstr "Απενεργοποιημένη"
 
-#: ../properties/nm-vpnc.c:657 ../properties/nm-vpnc.c:743
+#: ../properties/nm-vpnc.c:596 ../properties/nm-vpnc.c:682
 msgid "DH Group 1"
 msgstr "DH Group 1"
 
-#: ../properties/nm-vpnc.c:664
+#: ../properties/nm-vpnc.c:603
 msgid "DH Group 2 (default)"
 msgstr "DH Group 2 (προεπιλογή)"
 
-#: ../properties/nm-vpnc.c:671 ../properties/nm-vpnc.c:757
+#: ../properties/nm-vpnc.c:610 ../properties/nm-vpnc.c:696
 msgid "DH Group 5"
 msgstr "DH Group 5"
 
-#: ../properties/nm-vpnc.c:729
+#: ../properties/nm-vpnc.c:668
 msgid "Server (default)"
 msgstr "Διακομιστής (προεπιλογή)"
 
-#: ../properties/nm-vpnc.c:736
+#: ../properties/nm-vpnc.c:675
 msgid "None"
 msgstr "Τίποτα"
 
-#: ../properties/nm-vpnc.c:750
+#: ../properties/nm-vpnc.c:689
 msgid "DH Group 2"
 msgstr "DH Group 2"
 
-#: ../properties/nm-vpnc.c:797
+#: ../properties/nm-vpnc.c:736
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Επιλέξτε ένα πιστοποιητικό αρχής πιστοποίησης (CA)..."
 
-#: ../properties/nm-vpnc.c:801
+#: ../properties/nm-vpnc.c:740
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Πιστοποιητικά PEM (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1542
+#: ../properties/nm-vpnc.c:1545
 msgid "TCP tunneling not supported"
-msgstr "Δεν υποστηρίζεται διοχέτευση TCP "
+msgstr "Δεν υποστηρίζεται διοχέτευση TCP"
 
-#: ../properties/nm-vpnc.c:1544
+#: ../properties/nm-vpnc.c:1547
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -166,21 +146,118 @@ msgstr ""
 "λογισμικό vpnc.\n"
 "\n"
 "Παρόλα αυτά η σύνδεση μπορεί να δημιουργηθεί, αλλά με τη διοχέτευση TCP "
-"απενεργοποιημένη. Ενδέχεται, όμως, να μη λειτουργήσει σωστά. "
+"απενεργοποιημένη. Ενδέχεται, όμως, να μη λειτουργήσει σωστά."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "General"
+msgstr "Γενικά"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "Sho_w passwords"
+msgstr "Εμ_φάνιση κωδικών πρόσβασης"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Κωδικός πρόσβασης ομάδας\n"
+"config: IPSec secret <group_password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "Gro_up password:"
+msgstr "Κωδικός πρόσβασης ο_μάδας:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid "_Gateway:"
+msgstr "_Πύλη:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:7
+msgid "G_roup name:"
+msgstr "Όνομα ομά_δας:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IP/όνομα κεντρικού υπολογιστή της πύλης Psec\n"
+"config: IPSec gateway <gateway>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:10
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Όνομα ομάδας\n"
+"config: IPSec ID <group_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid "User _password:"
+msgstr "Κωδικός πρό_σβασης χρήστη:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Κωδικός πρόσβασης χρήστη για τη σύνδεση\n"
+"config: Xauth password <password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"Όνομα χρήστη για τη σύνδεση\n"
+"config: Xauth username <user_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "User na_me:"
+msgstr "Ό_νομα χρήστη:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "Use _hybrid authentication"
+msgstr "Χρήση _υβριδικής πιστοποίησης"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+"Ενεργοποίηση της υβριδικής πιστοποίησης, π.χ. χρήση του πιστοποιητικού εκτός "
+"από τον κωδικό πρόσβασης.\n"
+"config: IKE Authmode hybrid"
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "CA _File:"
+msgstr "Α_ρχείο CA:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"Πιστοποιητικό CA τύπου PEM\n"
+"config: CA-File"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "Advance_d..."
+msgstr "Για προχωρημ_ένους..."
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Advanced Options"
 msgstr "Προχωρημένες επιλογές"
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
+#: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
 msgstr "Ταυτοποίηση"
 
-#: ../properties/nm-vpnc-dialog.ui.h:3
+#: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "_Domain:"
 msgstr "_Τομέας:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:4
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
 "(NT-)Domain name for authentication\n"
 "config: Domain <domain>"
@@ -188,11 +265,7 @@ msgstr ""
 "Όνομα (NT-)τομέα προς πιστοποίηση\n"
 "config: Domain <domain>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "Κα_τασκευαστής:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
@@ -200,11 +273,15 @@ msgstr ""
 "Κατασκευαστής της πύλης IPsec\n"
 "config: Vendor <cisco/netscreen>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr "Κα_τασκευαστής:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion:"
 msgstr "Έκ_δοση:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
 "Application version to report. \n"
 "config: Application version <ASCII string>"
@@ -212,11 +289,76 @@ msgstr ""
 "Έκδοση εφαρμογής για αναφορά. \n"
 "config: Έκδοση εφαρμογής <ASCII string>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
+#: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
 msgstr "Μεταφορά και ασφάλεια"
 
-#: ../properties/nm-vpnc-dialog.ui.h:13
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "Απενεργοποίηση του Dead _Peer Detection "
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Απενεργοποιήστε την αποστολή πακέτων DPD (ορισμός χρονικό ορίου το 0)\n"
+"nconfig: DPD idle timeout (our side) 0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr "Τ_οπική θύρα:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr "Perfect _Forward Secrecy:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "_IKE DH Group:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "Διέλευση _NATl:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Τοπική θύρα ISAKMP για να χρησιμοποιηθεί (0 σημαίνει τυχαία θύρα; 500 είναι "
+"η προεπιλεγμένη του vpn)\n"
+"config: Τοπική θύρα <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Χρήση της ομάδας Diffie-Hellman για το PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Όνομα της ομάδας IKE DH\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"Η μέθοδος διέλευσης NAT που θα χρησιμοποιηθεί\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
@@ -226,216 +368,80 @@ msgstr ""
 "config: τίποτα για Ασφαλής, 'Enable Single DES' για Ασθενής, 'Enable no "
 "encryption' για Καμία"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+"Όνομα διεπαφής διοχεύτεσης που θα χρησιμοποιηθεί\n"
+"ρύθμιση: Όνομα διεπαφής <name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
 msgstr "Μέθοδος κ_ρυπτογράφησης:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "Διέλευση _NATl:"
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
+msgstr "Όνομα διεπαφής _διοχεύτεσης:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Η μέθοδος διέλευσης NAT που θα χρησιμοποιηθεί\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "_IKE DH Group:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:20
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Όνομα της ομάδας IKE DH\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Χρήση της ομάδας Diffie-Hellman για το PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr "Τ_οπική θύρα:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Τοπική θύρα ISAKMP για να χρησιμοποιηθεί (0 σημαίνει τυχαία θύρα; 500 είναι "
-"η προεπιλεγμένη του vpn)\n"
-"config: Τοπική θύρα <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "Disable Dead _Peer Detection"
-msgstr "Απενεργοποίηση του Dead _Peer Detection "
-
-#: ../properties/nm-vpnc-dialog.ui.h:29
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"Απενεργοποιήστε την αποστολή πακέτων DPD (ορισμός χρονικό ορίου το 0)\n"
-"nconfig: DPD idle timeout (our side) 0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:31
-msgid "General"
-msgstr "Γενικά"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "Sho_w passwords"
-msgstr "Εμ_φάνιση κωδικών πρόσβασης"
-
-#: ../properties/nm-vpnc-dialog.ui.h:33
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Κωδικός πρόσβασης ομάδας\n"
-"config: IPSec secret <group_password>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:35
-msgid "Gro_up password:"
-msgstr "Κωδικός πρόσβασης ο_μάδας:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "_Gateway:"
-msgstr "_Πύλη:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "G_roup name:"
-msgstr "Όνομα ομά_δας:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-"IP/όνομα κεντρικού υπολογιστή της πύλης Psec\n"
-"config: IPSec gateway <gateway>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Όνομα ομάδας\n"
-"config: IPSec ID <group_name>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "User _password:"
-msgstr "Κωδικός πρό_σβασης χρήστη:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Κωδικός πρόσβασης χρήστη για τη σύνδεση\n"
-"config: Xauth password <password>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:45
-msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
-msgstr ""
-"Όνομα χρήστη για τη σύνδεση\n"
-"config: Xauth username <user_name>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid "User na_me:"
-msgstr "Ό_νομα χρήστη:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:48
-msgid "Use _hybrid authentication"
-msgstr "Χρήση _υβριδικής πιστοποίησης"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
-"config: IKE Authmode hybrid"
-msgstr ""
-"Ενεργοποίηση της υβριδικής πιστοποίησης, π.χ. χρήση του πιστοποιητικού εκτός "
-"από τον κωδικό πρόσβασης.\n"
-"config: IKE Authmode hybrid"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid "CA _File:"
-msgstr "Α_ρχείο CA:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:52
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"Πιστοποιητικό CA τύπου PEM\n"
-"config: CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:54
-msgid "Advance_d..."
-msgstr "Για προχωρημ_ένους..."
-
-#: ../src/nm-vpnc-service.c:155
+#: ../src/nm-vpnc-service.c:173
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "μη έγκυρη ή μη υποστηριζόμενη τιμή '%s'"
 
-#: ../src/nm-vpnc-service.c:174
+#: ../src/nm-vpnc-service.c:192
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr "η τιμή '%s' και η διαδρομή '%s' δεν είναι απόλυτα ή δεν υπάρχουν"
 
-#: ../src/nm-vpnc-service.c:187
+#: ../src/nm-vpnc-service.c:205
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr "μη έγκυρη ακέραια τιμή '%s' ή εκτός ορίου [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:197
+#: ../src/nm-vpnc-service.c:215
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "μη έγκυρη λογική τιμή '%s' (ούτε yes ή no)"
 
-#: ../src/nm-vpnc-service.c:204
+#: ../src/nm-vpnc-service.c:222
 #, c-format
 msgid "unhandled property '%s' type %d"
 msgstr "απρόσμενη τιμή '%s' τύπου %d"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:239
 msgid "No VPN configuration options."
 msgstr "Χωρίς επιλογές διαμόρφωσης VPN."
 
-#: ../src/nm-vpnc-service.c:239
+#: ../src/nm-vpnc-service.c:265
 msgid "No VPN secrets!"
-msgstr "Δεν υπάρχουν VPN μυστικά!"
+msgstr "Δεν υπάρχουν απόρρητα VPN!"
 
-#: ../src/nm-vpnc-service.c:323
+#: ../src/nm-vpnc-service.c:612
 msgid "Could not find vpnc binary."
 msgstr "Αδύνατη η εύρεση του εκτελέσιμου vpnc."
 
-#: ../src/nm-vpnc-service.c:417
+#: ../src/nm-vpnc-service.c:713
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "Η τιμή ρύθμισης '%s' είναι άκυρη ή άγνωστη."
 
-#: ../src/nm-vpnc-service.c:450
+#: ../src/nm-vpnc-service.c:746
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "Η τιμή ρύθμισης '%s' δεν είναι ακέραια."
 
-#: ../src/nm-vpnc-service.c:630
+#: ../src/nm-vpnc-service.c:920
+msgid "vpnc does not support interactive requests"
+msgstr "Το vpnc δεν υποστηρίζει διαδραστικά αιτήματα"
+
+#: ../src/nm-vpnc-service.c:944
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+"Δεν μπόρεσε να χρησιμοποιήσει τα νέα απόρρητα διότι η διαδραστική λειτουργία "
+"είναι απενεργοποιημένη."
+
+#: ../src/nm-vpnc-service.c:953 ../src/nm-vpnc-service.c:1028
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -443,23 +449,54 @@ msgstr ""
 "Δεν μπόρεσε να επεξεργαστεί το αίτημα διότι οι ρυθμίσεις της VPN σύνδεσης "
 "ήταν άκυρες."
 
-#: ../src/nm-vpnc-service.c:745
+#: ../src/nm-vpnc-service.c:961
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Δεν μπόρεσε να επεξεργαστεί το αίτημα διότι δεν απαιτείται εκκρεμής "
+"πιστοποίηση."
+
+#: ../src/nm-vpnc-service.c:973
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Δεν μπόρεσε να επεξεργαστεί το αίτημα διότι δεν δόθηκαν οι αιτούμενες "
+"πληροφορίες '%s'."
+
+#: ../src/nm-vpnc-service.c:1168
 msgid "Don't quit when VPN connection terminates"
 msgstr "Μην βγεις όταν τερματιστούν οι VPN συνδέσεις."
 
-#: ../src/nm-vpnc-service.c:746
+#: ../src/nm-vpnc-service.c:1169
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Ενεργοποίηση καταγραφής εντοπισμού σφαλμάτων (μπορεί να εκθέσει τους "
 "κωδικούς πρόσβασης)"
 
-#: ../src/nm-vpnc-service.c:769
+#: ../src/nm-vpnc-service.c:1192
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
 "Το nm-vpnc-service παρέχει ενσωματωμένες δυνατότητες Cisco Legacy IPsec VPN "
 "στον NetworkManager."
+
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "Διαχειριστής σύνδεσης VPN (vpnc)"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Προσθήκη, αφαίρεση και επεξεργασία συνδέσεων VPN"
+
+#~ msgid "Saved"
+#~ msgstr "Αποθηκευμένη"
+
+#~ msgid "Always Ask"
+#~ msgstr "Να γίνεται πάντα ερώτηση"
+
+#~ msgid "Not Required"
+#~ msgstr "Δεν απαιτείται"
 
 #~ msgid "_Secondary Password:"
 #~ msgstr "_Δευτερεύον συνθηματικό:"
