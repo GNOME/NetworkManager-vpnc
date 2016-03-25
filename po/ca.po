@@ -121,7 +121,7 @@ msgstr "Grup DH 2"
 
 #: ../properties/nm-vpnc.c:736
 msgid "Choose a Certificate Authority (CA) certificate..."
-msgstr "Escolliu un certificiat a Autoritat de Certificats (CA)..."
+msgstr "Escolliu un certificat a Autoritat de Certificats (CA)..."
 
 #: ../properties/nm-vpnc.c:740
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
@@ -224,13 +224,13 @@ msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password.\n"
 "config: IKE Authmode hybrid"
 msgstr ""
-"Habilita l'autenticació híbrida, és a dir usa un certificat a més d'una "
+"Habilita l'autenticació híbrida, és a dir, usa un certificat a més d'una "
 "contrasenya.\n"
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "CA _File:"
-msgstr "_FItxer CA"
+msgstr "_Fitxer CA:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -278,7 +278,7 @@ msgstr "Pro_veïdor:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion:"
-msgstr "Ve_rsió"
+msgstr "Ve_rsió:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -302,7 +302,7 @@ msgid ""
 "Disable sending DPD packets (sets timeout to 0)\n"
 "config: DPD idle timeout (our side) 0"
 msgstr ""
-"Inhabilita l'enviament de paquests DPD (estableix el temps d'espera a 0)\n"
+"Inhabilita l'enviament de paquets DPD (estableix el temps d'espera a 0)\n"
 "config: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
@@ -438,7 +438,7 @@ msgstr "El vpnc no dóna suport a demandes interactives"
 #: ../src/nm-vpnc-service.c:944
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
-"No s'han pogut usar secrets nou perquè que el mode interactiu desactivat."
+"No s'han pogut usar els secrets nous perquè que el mode interactiu desactivat."
 
 #: ../src/nm-vpnc-service.c:953 ../src/nm-vpnc-service.c:1028
 msgid ""
@@ -479,7 +479,7 @@ msgid ""
 "NetworkManager."
 msgstr ""
 "El nm-vpnc-service proveeix funcionalitat de Cisco Legacy IPsec VPN "
-"integrada al NetworkManager"
+"integrada al NetworkManager."
 
 #~ msgid "Saved"
 #~ msgstr "Desat"
