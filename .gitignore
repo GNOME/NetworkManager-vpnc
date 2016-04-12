@@ -36,5 +36,6 @@ nm-vpnc.desktop
 properties/tests/test-import-export
 src/nm-vpnc-service
 src/nm-vpnc-service-vpnc-helper
+src/test-vpnc-output
 
 /NetworkManager-vpnc*.tar*
