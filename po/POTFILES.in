@@ -1,6 +1,7 @@
 # List of source files containing translatable strings.
 # Please keep this file sorted alphabetically.
+appdata/network-manager-vpnc.appdata.xml.in
 auth-dialog/main.c
 properties/nm-vpnc.c
-[type: gettext/glade]properties/nm-vpnc-dialog.ui
 src/nm-vpnc-service.c
+[type: gettext/glade]properties/nm-vpnc-dialog.ui
