@@ -5,14 +5,14 @@
 # gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008-2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2015.
-# Aviary.pl <gnomepl@aviary.pl>, 2008-2015.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2016.
+# Aviary.pl <gnomepl@aviary.pl>, 2008-2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-30 17:48+0200\n"
-"PO-Revision-Date: 2015-08-30 17:49+0200\n"
+"POT-Creation-Date: 2016-04-14 16:37+0200\n"
+"PO-Revision-Date: 2016-04-14 16:38+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -24,39 +24,60 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../auth-dialog/main.c:175
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Przestarzały klient Cisco VPNC"
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Klient dla wirtualnych sieci prywatnych IPsec firmy Cisco"
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "Obsługa konfigurowania wirtualnych sieci prywatnych opartych na VPNC."
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr ""
+"Zgodne z koncentratorami VPN firmy Cisco skonfigurowanymi do używania IPsec."
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "Programiści projektu NetworkManager"
+
+#: ../auth-dialog/main.c:172
 #, c-format
 msgid "Authenticate VPN %s"
 msgstr "Uwierzytelnianie VPN %s"
 
-#: ../auth-dialog/main.c:191
+#: ../auth-dialog/main.c:188
 msgid "Password:"
 msgstr "Hasło:"
 
-#: ../auth-dialog/main.c:199
+#: ../auth-dialog/main.c:196
 msgid "Group Password:"
 msgstr "Hasło grupy:"
 
-#: ../auth-dialog/main.c:234
+#: ../auth-dialog/main.c:231
 msgid "Authenticate VPN"
 msgstr "Uwierzytelnianie VPN"
 
-#: ../auth-dialog/main.c:243
+#: ../auth-dialog/main.c:240
 msgid "_Group Password:"
 msgstr "Ha_sło grupy:"
 
-#: ../auth-dialog/main.c:501
+#: ../auth-dialog/main.c:498
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Aby uzyskać dostęp do wirtualnej sieci prywatnej „%s”, należy się "
 "uwierzytelnić."
 
-#: ../properties/nm-vpnc.c:52
+#: ../properties/nm-vpnc.c:78
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Zgodny z Cisco VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:79
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -64,79 +85,79 @@ msgstr ""
 "Zgodny z wieloma bramami VPN IPsec, jak Cisco, Juniper, Netscreen i "
 "Sonicwall."
 
-#: ../properties/nm-vpnc.c:439
+#: ../properties/nm-vpnc.c:432
 msgid "Secure (default)"
 msgstr "Bezpieczna (domyślnie)"
 
-#: ../properties/nm-vpnc.c:442
+#: ../properties/nm-vpnc.c:435
 msgid "Weak (use with caution)"
 msgstr "Słaba (używać z ostrożnością)"
 
-#: ../properties/nm-vpnc.c:450
+#: ../properties/nm-vpnc.c:443
 msgid "None (completely insecure)"
 msgstr "Brak (całkowity brak zabezpieczeń)"
 
-#: ../properties/nm-vpnc.c:514
+#: ../properties/nm-vpnc.c:507
 msgid "Cisco (default)"
 msgstr "Cisco (domyślnie)"
 
-#: ../properties/nm-vpnc.c:521
+#: ../properties/nm-vpnc.c:514
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:562
+#: ../properties/nm-vpnc.c:555
 msgid "NAT-T when available (default)"
 msgstr "NAT-T, kiedy jest dostępne (domyślne)"
 
-#: ../properties/nm-vpnc.c:569
+#: ../properties/nm-vpnc.c:562
 msgid "NAT-T always"
 msgstr "Zawsze NAT-T"
 
-#: ../properties/nm-vpnc.c:576
+#: ../properties/nm-vpnc.c:569
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:583
+#: ../properties/nm-vpnc.c:576
 msgid "Disabled"
 msgstr "Wyłączone"
 
-#: ../properties/nm-vpnc.c:603 ../properties/nm-vpnc.c:689
+#: ../properties/nm-vpnc.c:596 ../properties/nm-vpnc.c:682
 msgid "DH Group 1"
 msgstr "Grupa DH 1"
 
-#: ../properties/nm-vpnc.c:610
+#: ../properties/nm-vpnc.c:603
 msgid "DH Group 2 (default)"
 msgstr "Grupa DH 2 (domyślna)"
 
-#: ../properties/nm-vpnc.c:617 ../properties/nm-vpnc.c:703
+#: ../properties/nm-vpnc.c:610 ../properties/nm-vpnc.c:696
 msgid "DH Group 5"
 msgstr "Grupa DH 5"
 
-#: ../properties/nm-vpnc.c:675
+#: ../properties/nm-vpnc.c:668
 msgid "Server (default)"
 msgstr "Serwer (domyślnie)"
 
-#: ../properties/nm-vpnc.c:682
+#: ../properties/nm-vpnc.c:675
 msgid "None"
 msgstr "Brak"
 
-#: ../properties/nm-vpnc.c:696
+#: ../properties/nm-vpnc.c:689
 msgid "DH Group 2"
 msgstr "Grupa DH 2"
 
-#: ../properties/nm-vpnc.c:743
+#: ../properties/nm-vpnc.c:736
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Wybierz certyfikat CA…"
 
-#: ../properties/nm-vpnc.c:747
+#: ../properties/nm-vpnc.c:740
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Certyfikaty PEM (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1511
+#: ../properties/nm-vpnc.c:1545
 msgid "TCP tunneling not supported"
 msgstr "Tunelowanie TCP nie jest obsługiwane"
 
-#: ../properties/nm-vpnc.c:1513
+#: ../properties/nm-vpnc.c:1547
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -149,6 +170,105 @@ msgstr ""
 "Opcja nie jest jednak obsługiwana przez oprogramowanie vpnc.\n"
 "\n"
 "Połączenie z wyłączonym tunelowaniem TCP może nie działać poprawnie."
+
+#: ../src/nm-vpnc-service.c:173
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "własność „%s” jest nieprawidłowa lub nieobsługiwana"
+
+#: ../src/nm-vpnc-service.c:192
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr ""
+"własność „%s” ścieżki do pliku „%s” nie jest bezwzględna lub nie istnieje"
+
+#: ../src/nm-vpnc-service.c:205
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr ""
+"nieprawidłowa własność liczby całkowitej „%s” lub jest poza zakresem [%d -> "
+"%d]"
+
+#: ../src/nm-vpnc-service.c:215
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr ""
+"nieprawidłowa własność zmiennej logicznej „%s” (nie wynosi „yes” lub „no”)"
+
+#: ../src/nm-vpnc-service.c:222
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr "nieobsługiwana własność „%s” typu „%d”"
+
+#: ../src/nm-vpnc-service.c:239
+msgid "No VPN configuration options."
+msgstr "Brak opcji konfiguracji VPN."
+
+#: ../src/nm-vpnc-service.c:265
+msgid "No VPN secrets!"
+msgstr "Brak haseł VPN."
+
+#: ../src/nm-vpnc-service.c:612
+msgid "Could not find vpnc binary."
+msgstr "Nie można odnaleźć pliku binarnego vpnc."
+
+#: ../src/nm-vpnc-service.c:713
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Opcja konfiguracji „%s” jest nieprawidłowa lub nieznana."
+
+#: ../src/nm-vpnc-service.c:746
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Opcja konfiguracji „%s” nie jest liczbą całkowitą."
+
+#: ../src/nm-vpnc-service.c:920
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc nie obsługuje interaktywnych żądań"
+
+#: ../src/nm-vpnc-service.c:944
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+"Nie można użyć nowych haseł, ponieważ tryb interaktywny jest wyłączony."
+
+#: ../src/nm-vpnc-service.c:953 ../src/nm-vpnc-service.c:1028
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+"Nie można przetworzyć żądania, ponieważ ustawienia połączenia VPN są "
+"nieprawidłowe."
+
+#: ../src/nm-vpnc-service.c:961
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Nie można przetworzyć żądania, ponieważ żadne oczekujące uwierzytelnienie "
+"nie jest wymagane."
+
+#: ../src/nm-vpnc-service.c:973
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Nie można przetworzyć żądania, ponieważ nie podano żądanych informacji „%s”."
+
+#: ../src/nm-vpnc-service.c:1168
+msgid "Don't quit when VPN connection terminates"
+msgstr "Bez kończenia działania, kiedy połączenie VPN jest kończone"
+
+#: ../src/nm-vpnc-service.c:1169
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Więcej komunikatów debugowania (może wyjawić hasła)"
+
+#: ../src/nm-vpnc-service.c:1192
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-service dostarcza zintegrowaną możliwość nawiązywania połączeń VPN "
+"IPsec Cisco Legacy dla usługi NetworkManager."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
 msgid "General"
@@ -385,102 +505,3 @@ msgstr "Metoda _szyfrowania:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Nazwa _interfejsu tunelu:"
-
-#: ../src/nm-vpnc-service.c:173
-#, c-format
-msgid "property '%s' invalid or not supported"
-msgstr "własność „%s” jest nieprawidłowa lub nieobsługiwana"
-
-#: ../src/nm-vpnc-service.c:192
-#, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
-msgstr ""
-"własność „%s” ścieżki do pliku „%s” nie jest bezwzględna lub nie istnieje"
-
-#: ../src/nm-vpnc-service.c:205
-#, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
-msgstr ""
-"nieprawidłowa własność liczby całkowitej „%s” lub jest poza zakresem [%d -> "
-"%d]"
-
-#: ../src/nm-vpnc-service.c:215
-#, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
-msgstr ""
-"nieprawidłowa własność zmiennej logicznej „%s” (nie wynosi „yes” lub „no”)"
-
-#: ../src/nm-vpnc-service.c:222
-#, c-format
-msgid "unhandled property '%s' type %d"
-msgstr "nieobsługiwana własność „%s” typu „%d”"
-
-#: ../src/nm-vpnc-service.c:239
-msgid "No VPN configuration options."
-msgstr "Brak opcji konfiguracji VPN."
-
-#: ../src/nm-vpnc-service.c:265
-msgid "No VPN secrets!"
-msgstr "Brak haseł VPN."
-
-#: ../src/nm-vpnc-service.c:613
-msgid "Could not find vpnc binary."
-msgstr "Nie można odnaleźć pliku binarnego vpnc."
-
-#: ../src/nm-vpnc-service.c:714
-#, c-format
-msgid "Config option '%s' invalid or unknown."
-msgstr "Opcja konfiguracji „%s” jest nieprawidłowa lub nieznana."
-
-#: ../src/nm-vpnc-service.c:747
-#, c-format
-msgid "Config option '%s' not an integer."
-msgstr "Opcja konfiguracji „%s” nie jest liczbą całkowitą."
-
-#: ../src/nm-vpnc-service.c:921
-msgid "vpnc does not support interactive requests"
-msgstr "vpnc nie obsługuje interaktywnych żądań"
-
-#: ../src/nm-vpnc-service.c:945
-msgid "Could not use new secrets as interactive mode is disabled."
-msgstr ""
-"Nie można użyć nowych haseł, ponieważ tryb interaktywny jest wyłączony."
-
-#: ../src/nm-vpnc-service.c:954 ../src/nm-vpnc-service.c:1029
-msgid ""
-"Could not process the request because the VPN connection settings were "
-"invalid."
-msgstr ""
-"Nie można przetworzyć żądania, ponieważ ustawienia połączenia VPN są "
-"nieprawidłowe."
-
-#: ../src/nm-vpnc-service.c:962
-msgid ""
-"Could not process the request because no pending authentication is required."
-msgstr ""
-"Nie można przetworzyć żądania, ponieważ żadne oczekujące uwierzytelnienie "
-"nie jest wymagane."
-
-#: ../src/nm-vpnc-service.c:974
-#, c-format
-msgid ""
-"Could not process the request because the requested info '%s' was not "
-"provided."
-msgstr ""
-"Nie można przetworzyć żądania, ponieważ nie podano żądanych informacji „%s”."
-
-#: ../src/nm-vpnc-service.c:1160
-msgid "Don't quit when VPN connection terminates"
-msgstr "Bez kończenia działania, kiedy połączenie VPN jest kończone"
-
-#: ../src/nm-vpnc-service.c:1161
-msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Więcej komunikatów debugowania (może wyjawić hasła)"
-
-#: ../src/nm-vpnc-service.c:1184
-msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
-"NetworkManager."
-msgstr ""
-"nm-vpnc-service dostarcza zintegrowaną możliwość nawiązywania połączeń VPN "
-"IPsec Cisco Legacy dla usługi NetworkManager."
