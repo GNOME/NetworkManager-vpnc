@@ -21,7 +21,8 @@
   </keywords>
 
   <description>
-    <_p>Support for configuring Cisco virtual private network connections based on VPNC.</_p>
+    <_p>Support for configuring virtual private networks based on VPNC.</_p>
+    <_p>Compatible with Cisco VPN concentrators configured to use IPsec.</_p>
   </description>
 
   <screenshots>
