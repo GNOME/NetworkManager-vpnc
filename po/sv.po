@@ -9,39 +9,60 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2015-10-07 12:06+0000\n"
-"PO-Revision-Date: 2015-10-07 19:34+0200\n"
-"Last-Translator: Josef Andersson <josef.andersson@fripost.org>\n"
+"POT-Creation-Date: 2016-04-14 10:36+0000\n"
+"PO-Revision-Date: 2016-04-17 14:46+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
-#: ../auth-dialog/main.c:174
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Legacy Cisco VPNC-klient"
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Klient för Cisco IPsec virtuella privata nätverk"
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "Stöd för att konfigurera virtuella privata nätverk baserade på VPNC."
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr ""
+"Kompatibel med Cisco VPN-koncentratorer konfigurerade att använda IPsec."
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "Utvecklarna av Nätverkshanteraren"
+
+#: ../auth-dialog/main.c:172
 #, c-format
 msgid "Authenticate VPN %s"
 msgstr "Autentisera VPN %s"
 
-#: ../auth-dialog/main.c:190
+#: ../auth-dialog/main.c:188
 msgid "Password:"
 msgstr "Lösenord:"
 
-#: ../auth-dialog/main.c:198
+#: ../auth-dialog/main.c:196
 msgid "Group Password:"
 msgstr "Grupplösenord:"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:231
 msgid "Authenticate VPN"
 msgstr "Autentisera VPN"
 
-#: ../auth-dialog/main.c:242
+#: ../auth-dialog/main.c:240
 msgid "_Group Password:"
 msgstr "_Grupplösenord:"
 
-#: ../auth-dialog/main.c:500
+#: ../auth-dialog/main.c:498
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Du måste autentisera för att komma åt VPN-nätverket \"%s\"."
@@ -144,6 +165,101 @@ msgstr ""
 "\n"
 "Anslutningen kan fortfarande skapas, med inaktiverad TCP-tunnling, men det "
 "kanske inte fungerar som väntat."
+
+#: ../src/nm-vpnc-service.c:173
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "egenskapen ”%s” är ogiltig eller stöds inte"
+
+#: ../src/nm-vpnc-service.c:192
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr "egenskapen ”%s” filsökväg ”%s” är inte absolut eller finns inte"
+
+#: ../src/nm-vpnc-service.c:205
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr "ogiltig heltalsegenskap ”%s” eller utanför intervallet [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:215
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "ogiltig boolesk egenskap ”%s” (inte yes eller no)"
+
+#: ../src/nm-vpnc-service.c:222
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr "ohanterad egenskap ”%s” typ %d"
+
+#: ../src/nm-vpnc-service.c:239
+msgid "No VPN configuration options."
+msgstr "Inga VPN-konfigurationsalternativ."
+
+#: ../src/nm-vpnc-service.c:265
+msgid "No VPN secrets!"
+msgstr "Inga VPN-hemligheter!"
+
+#: ../src/nm-vpnc-service.c:612
+msgid "Could not find vpnc binary."
+msgstr "Kunde inte hitta binärfilen vpnc."
+
+#: ../src/nm-vpnc-service.c:713
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Konfigurationsalternativet ”%s” är ogiltigt eller okänt."
+
+#: ../src/nm-vpnc-service.c:746
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Konfigurationsalternativet ”%s” är inte ett heltal."
+
+#: ../src/nm-vpnc-service.c:920
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc stödjer inte interaktiva begäranden"
+
+#: ../src/nm-vpnc-service.c:944
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+"Kunde inte använda nya hemligheter eftersom interaktivt läge är inaktiverat."
+
+#: ../src/nm-vpnc-service.c:953 ../src/nm-vpnc-service.c:1028
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+"Kunde inte behandla begäran eftersom VPN-konfigurationsalternativen var "
+"ogiltiga."
+
+#: ../src/nm-vpnc-service.c:961
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Kunde inte behandla begäran eftersom ingen väntande autentisering krävs."
+
+#: ../src/nm-vpnc-service.c:973
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Kunde inte behandla begäran eftersom den begärda informationen ”%s” ej "
+"tillhandahölls."
+
+#: ../src/nm-vpnc-service.c:1168
+msgid "Don't quit when VPN connection terminates"
+msgstr "Avsluta inte när VPN-anslutningen termineras"
+
+#: ../src/nm-vpnc-service.c:1169
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Aktivera informativ felsökningsloggning (kan exponera lösenord)"
+
+#: ../src/nm-vpnc-service.c:1192
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-service tillhandahåller integrerade Cisco Legacy IPsec VPN-förmågor "
+"till Nätverkshanterare."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
 msgid "General"
@@ -382,101 +498,6 @@ msgstr "Krypteringsm_etod:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Tunnel_gränssnittsnamn:"
-
-#: ../src/nm-vpnc-service.c:173
-#, c-format
-msgid "property '%s' invalid or not supported"
-msgstr "egenskapen ”%s” är ogiltig eller stöds inte"
-
-#: ../src/nm-vpnc-service.c:192
-#, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
-msgstr "egenskapen ”%s” filsökväg ”%s” är inte absolut eller finns inte"
-
-#: ../src/nm-vpnc-service.c:205
-#, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
-msgstr "ogiltig heltalsegenskap ”%s” eller utanför intervallet [%d -> %d]"
-
-#: ../src/nm-vpnc-service.c:215
-#, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "ogiltig boolesk egenskap ”%s” (inte yes eller no)"
-
-#: ../src/nm-vpnc-service.c:222
-#, c-format
-msgid "unhandled property '%s' type %d"
-msgstr "ohanterad egenskap ”%s” typ %d"
-
-#: ../src/nm-vpnc-service.c:239
-msgid "No VPN configuration options."
-msgstr "Inga VPN-konfigurationsalternativ."
-
-#: ../src/nm-vpnc-service.c:265
-msgid "No VPN secrets!"
-msgstr "Inga VPN-hemligheter!"
-
-#: ../src/nm-vpnc-service.c:613
-msgid "Could not find vpnc binary."
-msgstr "Kunde inte hitta binärfilen vpnc."
-
-#: ../src/nm-vpnc-service.c:714
-#, c-format
-msgid "Config option '%s' invalid or unknown."
-msgstr "Konfigurationsalternativet ”%s” är ogiltigt eller okänt."
-
-#: ../src/nm-vpnc-service.c:747
-#, c-format
-msgid "Config option '%s' not an integer."
-msgstr "Konfigurationsalternativet ”%s” är inte ett heltal."
-
-#: ../src/nm-vpnc-service.c:921
-msgid "vpnc does not support interactive requests"
-msgstr "vpnc stödjer inte interaktiva begäranden"
-
-#: ../src/nm-vpnc-service.c:945
-msgid "Could not use new secrets as interactive mode is disabled."
-msgstr ""
-"Kunde inte använda nya hemligheter eftersom interaktivt läge är inaktiverat."
-
-#: ../src/nm-vpnc-service.c:954 ../src/nm-vpnc-service.c:1029
-msgid ""
-"Could not process the request because the VPN connection settings were "
-"invalid."
-msgstr ""
-"Kunde inte behandla begäran eftersom VPN-konfigurationsalternativen var "
-"ogiltiga."
-
-#: ../src/nm-vpnc-service.c:962
-msgid ""
-"Could not process the request because no pending authentication is required."
-msgstr ""
-"Kunde inte behandla begäran eftersom ingen väntande autentisering krävs."
-
-#: ../src/nm-vpnc-service.c:974
-#, c-format
-msgid ""
-"Could not process the request because the requested info '%s' was not "
-"provided."
-msgstr ""
-"Kunde inte behandla begäran eftersom den begärda informationen ”%s” ej "
-"tillhandahölls."
-
-#: ../src/nm-vpnc-service.c:1169
-msgid "Don't quit when VPN connection terminates"
-msgstr "Avsluta inte när VPN-anslutningen termineras"
-
-#: ../src/nm-vpnc-service.c:1170
-msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Aktivera informativ felsökningsloggning (kan exponera lösenord)"
-
-#: ../src/nm-vpnc-service.c:1193
-msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
-"NetworkManager."
-msgstr ""
-"nm-vpnc-service tillhandahåller integrerade Cisco Legacy IPsec VPN-förmågor "
-"till Nätverkshanterare."
 
 #~ msgid "VPN Connection Manager (vpnc)"
 #~ msgstr "VPN-anslutningshanterare (vpnc)"
