@@ -29,7 +29,7 @@ endif
 
 appdatadir = $(datadir)/appdata
 appdata_DATA = $(appdata_in_files:.xml.in=.xml)
-appdata_in_files = appdata/network-manager-vpnc.appdata.xml.in
+appdata_in_files = appdata/network-manager-vpnc.metainfo.xml.in
 @INTLTOOL_XML_RULE@
 
 nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in

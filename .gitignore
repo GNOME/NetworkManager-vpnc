@@ -27,7 +27,7 @@ m4/gtk-doc.m4
 m4/intltool.m4
 m4/libtool.m4
 m4/lt*.m4
-appdata/network-manager-vpnc.appdata.xml
+appdata/network-manager-vpnc.metainfo.xml
 
 auth-dialog/nm-vpnc-auth-dialog
 auth-dialog/nm-vpnc-auth-dialog.desktop
