@@ -19,7 +19,9 @@
  * (C) Copyright 2007 - 2008 Novell, Inc.
  */
 
-#include <config.h>
+#include "nm-default.h"
+
+#include "nm-vpnc-service.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -32,12 +34,7 @@
 #include <sys/ttydefaults.h>
 #include <errno.h>
 #include <locale.h>
-#include <glib/gi18n.h>
 
-#include <NetworkManager.h>
-#include <nm-utils.h>
-
-#include "nm-vpnc-service.h"
 #include "utils.h"
 
 #if !defined(DIST_VERSION)

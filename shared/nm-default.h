@@ -79,6 +79,11 @@
 #define NM_SETTING_IP_CONFIG_METHOD NM_SETTING_IP4_CONFIG_METHOD
 #define NMSettingIPConfig NMSettingIP4Config
 
+#define nm_setting_ip_config_get_num_routes nm_setting_ip4_config_get_num_routes
+#define nm_setting_ip_config_add_route      nm_setting_ip4_config_add_route
+#define nm_setting_ip_config_get_route      nm_setting_ip4_config_get_route
+#define NM_SETTING_IP_CONFIG_NEVER_DEFAULT  NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
+
 #define NMV_EDITOR_PLUGIN_ERROR                     NM_SETTING_VPN_ERROR
 #define NMV_EDITOR_PLUGIN_ERROR_FAILED              NM_SETTING_VPN_ERROR_UNKNOWN
 #define NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY    NM_SETTING_VPN_ERROR_INVALID_PROPERTY

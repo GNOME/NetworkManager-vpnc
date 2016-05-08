@@ -24,9 +24,9 @@
  *
  **************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "nm-default.h"
+
+#include "nm-vpnc.h"
 
 #include <netinet/in.h>
 #include <arpa/inet.h>
@@ -35,45 +35,9 @@
 #include <string.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-
-#include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 
-#ifdef NM_VPN_OLD
-#define NM_VPN_LIBNM_COMPAT
-
-#include <nm-setting-vpn.h>
-#include <nm-setting-connection.h>
-#include <nm-setting-ip4-config.h>
-#include <nm-ui-utils.h>
-#include <nm-vpn-plugin-ui-interface.h>
-
-#define nm_simple_connection_new() nm_connection_new ()
-
-#define NMSettingIPConfig NMSettingIP4Config
-#define NM_SETTING_IP_CONFIG(obj) NM_SETTING_IP4_CONFIG (obj)
-#define nm_setting_ip_config_get_num_routes nm_setting_ip4_config_get_num_routes
-#define nm_setting_ip_config_get_route nm_setting_ip4_config_get_route
-#define nm_setting_ip_config_add_route nm_setting_ip4_config_add_route
-#define NM_SETTING_IP_CONFIG_NEVER_DEFAULT NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
-
-#define NMV_EDITOR_PLUGIN_ERROR                  NM_SETTING_VPN_ERROR
-#define NMV_EDITOR_PLUGIN_ERROR_FAILED           NM_SETTING_VPN_ERROR_UNKNOWN
-#define NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY NM_SETTING_VPN_ERROR_INVALID_PROPERTY
-
-#else /* !NM_VPN_OLD */
-
-#include <NetworkManager.h>
-#include <nma-ui-utils.h>
-
-#define NMV_EDITOR_PLUGIN_ERROR                  NM_CONNECTION_ERROR
-#define NMV_EDITOR_PLUGIN_ERROR_FAILED           NM_CONNECTION_ERROR_FAILED
-#define NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY NM_CONNECTION_ERROR_INVALID_PROPERTY
-#endif
-
-#include "nm-service-defines.h"
 #include "nm-vpnc-helper.h"
-#include "nm-vpnc.h"
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
 #define VPNC_PLUGIN_DESC    _("Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways.")

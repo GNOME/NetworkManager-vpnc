@@ -24,7 +24,8 @@ common_CFLAGS = \
 	-I"$(top_srcdir)/shared/" \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DUIDIR=\""$(uidir)"\" \
-	-DLOCALEDIR=\"$(datadir)/locale\"
+	-DLOCALEDIR=\"$(datadir)/locale\" \
+	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB
 
 libnm_vpn_plugin_vpnc_la_CFLAGS = \
 	$(common_CFLAGS) \

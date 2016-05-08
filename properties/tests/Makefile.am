@@ -11,7 +11,9 @@ test_import_export_CPPFLAGS = \
 	$(LIBNM_CFLAGS) \
 	$(LIBNMA_CFLAGS) \
 	$(DBUS_CFLAGS) \
-	-I"$(top_srcdir)/shared/"
+	-I"$(top_srcdir)/" \
+	-I"$(top_srcdir)/shared/" \
+	-I"$(top_srcdir)/properties/"
 
 test_import_export_LDADD = \
 	$(GTHREAD_LIBS) \

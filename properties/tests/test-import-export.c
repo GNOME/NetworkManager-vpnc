@@ -19,21 +19,18 @@
  *
  */
 
+#include "nm-default.h"
+
 #include <string.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <locale.h>
 
-#include <NetworkManager.h>
-#include <nm-utils.h>
-#include <nm-setting-ip4-config.h>
+#include "nm-vpnc.h"
+#include "nm-vpnc-helper.h"
 
-#include <nm-vpn-editor-plugin.h>
-
-#include "../../nm-test-helpers.h"
-#include "../../properties/nm-vpnc.h"
-#include "nm-service-defines.h"
-#include "../../properties/nm-vpnc-helper.h"
+#include "nm-test-helpers.h"
+#include "nm-utils/nm-test-utils.h"
 
 typedef struct {
 	const char *name;

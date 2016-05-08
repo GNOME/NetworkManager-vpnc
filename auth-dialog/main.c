@@ -20,22 +20,15 @@
  * (C) Copyright 2004 - 2011 Red Hat, Inc.
  */
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "nm-default.h"
 
 #include <errno.h>
 #include <string.h>
 #include <stdlib.h>
-#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include <libsecret/secret.h>
 
-#include <NetworkManager.h>
-#include <nm-vpn-service-plugin.h>
 #include <nma-vpn-password-dialog.h>
-
-#include "nm-service-defines.h"
 
 #define KEYRING_UUID_TAG "connection-uuid"
 #define KEYRING_SN_TAG "setting-name"

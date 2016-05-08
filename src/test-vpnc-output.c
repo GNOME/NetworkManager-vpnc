@@ -18,7 +18,10 @@
  * (C) Copyright 2013 Red Hat, Inc.
  */
 
+#include "nm-default.h"
+
 #include <string.h>
+
 #include "utils.h"
 
 #define TEST_HEADER \

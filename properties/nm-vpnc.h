@@ -23,8 +23,6 @@
 #ifndef _NM_VPNC_H_
 #define _NM_VPNC_H_
 
-#include <glib-object.h>
-
 #define VPNC_TYPE_EDITOR_PLUGIN            (vpnc_editor_plugin_get_type ())
 #define VPNC_EDITOR_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_EDITOR_PLUGIN, VpncEditorPlugin))
 #define VPNC_EDITOR_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), VPNC_TYPE_EDITOR_PLUGIN, VpncEditorPluginClass))
