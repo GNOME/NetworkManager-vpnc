@@ -1,6 +1,7 @@
 AM_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(LIBNM_CFLAGS) \
+	-I"$(top_srcdir)/shared/" \
 	-DBINDIR=\"$(bindir)\" \
 	-DPREFIX=\""$(prefix)"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
@@ -13,9 +14,9 @@ AM_CPPFLAGS = \
 libexec_PROGRAMS = nm-vpnc-service nm-vpnc-service-vpnc-helper
 
 nm_vpnc_service_SOURCES = \
+	$(top_srcdir)/shared/nm-service-defines.h \
 	nm-vpnc-service.c \
 	nm-vpnc-service.h \
-	nm-vpnc-service-defines.h \
 	utils.c \
 	utils.h
 
@@ -25,7 +26,7 @@ nm_vpnc_service_LDADD = \
 
 
 nm_vpnc_service_vpnc_helper_SOURCES = \
-				nm-vpnc-service-vpnc-helper.c
+	nm-vpnc-service-vpnc-helper.c
 
 nm_vpnc_service_vpnc_helper_LDADD = \
 	$(GTHREAD_LIBS) \

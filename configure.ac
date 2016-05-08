@@ -129,5 +129,6 @@ properties/Makefile
 properties/tests/Makefile
 properties/tests/pcf/Makefile
 po/Makefile.in
+shared/Makefile
 ])
 AC_OUTPUT

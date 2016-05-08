@@ -26,7 +26,7 @@
 #include <glib-object.h>
 #include <nm-vpn-service-plugin.h>
 
-#include "nm-vpnc-service-defines.h"
+#include "nm-service-defines.h"
 
 #define NM_TYPE_VPNC_PLUGIN            (nm_vpnc_plugin_get_type ())
 #define NM_VPNC_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NM_TYPE_VPNC_PLUGIN, NMVPNCPlugin))

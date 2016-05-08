@@ -10,7 +10,8 @@ test_import_export_CPPFLAGS = \
 	$(GTK_CFLAGS) \
 	$(LIBNM_CFLAGS) \
 	$(LIBNMA_CFLAGS) \
-	$(DBUS_CFLAGS)
+	$(DBUS_CFLAGS) \
+	-I"$(top_srcdir)/shared/"
 
 test_import_export_LDADD = \
 	$(GTHREAD_LIBS) \

@@ -71,7 +71,7 @@
 #define VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY NM_CONNECTION_ERROR_INVALID_PROPERTY
 #endif
 
-#include "nm-vpnc-service-defines.h"
+#include "nm-service-defines.h"
 #include "nm-vpnc-helper.h"
 #include "nm-vpnc.h"
 
