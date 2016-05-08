@@ -29,6 +29,8 @@ m4/libtool.m4
 m4/lt*.m4
 appdata/network-manager-vpnc.metainfo.xml
 
+/cscope.*
+
 auth-dialog/nm-vpnc-auth-dialog
 auth-dialog/nm-vpnc-auth-dialog.desktop
 auth-dialog/nm-vpnc-auth-dialog.desktop.in
@@ -37,5 +39,6 @@ nm-vpnc.desktop
 properties/tests/test-import-export
 src/nm-vpnc-service
 src/nm-vpnc-service-vpnc-helper
+src/test-vpnc-output
 
 /NetworkManager-vpnc*.tar*
