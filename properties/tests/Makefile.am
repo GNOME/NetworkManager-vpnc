@@ -27,7 +27,7 @@ test_import_export_LDADD = \
 	$(GTK_LIBS) \
 	$(LIBNM_LIBS) \
 	$(LIBNMA_LIBS) \
-	$(top_builddir)/properties/libnm-vpn-plugin-vpnc.la
+	$(top_builddir)/properties/libnm-vpn-plugin-vpnc-test.la
 
 
 test_import_export_glib_SOURCES = \
@@ -45,7 +45,7 @@ test_import_export_glib_LDADD = \
 	$(GTK_LIBS) \
 	$(LIBNM_GLIB_LIBS) \
 	$(LIBNM_GTK_LIBS) \
-	$(top_builddir)/properties/libnm-vpnc-properties.la
+	$(top_builddir)/properties/libnm-vpnc-properties-test.la
 
 
 TESTS = \

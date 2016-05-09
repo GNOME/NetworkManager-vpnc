@@ -6,56 +6,87 @@ if WITH_LIBNM_GLIB
 plugin_LTLIBRARIES += libnm-vpnc-properties.la
 endif
 
-libnm_vpn_plugin_vpnc_la_SOURCES = \
-	nm-vpnc-editor-plugin.c \
-	nm-vpnc-editor-plugin.h \
-	nm-vpnc.c \
-	nm-vpnc.h \
-	nm-vpnc-helper.c \
-	nm-vpnc-helper.h
-
-libnm_vpnc_properties_la_SOURCES = \
-	$(libnm_vpn_plugin_vpnc_la_SOURCES)
-
 uidir = $(datadir)/gnome-vpn-properties/vpnc
 ui_DATA = nm-vpnc-dialog.ui
 
 common_CFLAGS = \
-	$(GLIB_CFLAGS) \
-	$(GTK_CFLAGS) \
-	-I"$(top_srcdir)/shared/" \
-	-DICONDIR=\""$(datadir)/pixmaps"\" \
-	-DUIDIR=\""$(uidir)"\" \
-	-DLOCALEDIR=\"$(datadir)/locale\" \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB
+    $(GLIB_CFLAGS) \
+    $(GTK_CFLAGS) \
+    -I"$(top_srcdir)/shared/" \
+    -DICONDIR=\""$(datadir)/pixmaps"\" \
+    -DUIDIR=\""$(uidir)"\" \
+    -DLOCALEDIR=\"$(datadir)/locale\" \
+    -DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB
+
+###############################################################################
+
+libnm_vpn_plugin_vpnc_la_SOURCES = \
+    nm-vpnc-editor-plugin.c \
+    nm-vpnc-editor-plugin.h \
+    nm-vpnc.c \
+    nm-vpnc.h \
+    nm-vpnc-helper.c \
+    nm-vpnc-helper.h
 
 libnm_vpn_plugin_vpnc_la_CFLAGS = \
-	$(common_CFLAGS) \
-	$(LIBNM_CFLAGS) \
-	$(LIBNMA_CFLAGS)
-
-libnm_vpnc_properties_la_CFLAGS = \
-	-DNM_VPN_OLD \
-	$(common_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS) \
-	$(LIBNM_GTK_CFLAGS)
+    $(common_CFLAGS) \
+    $(LIBNM_CFLAGS) \
+    $(LIBNMA_CFLAGS)
 
 libnm_vpn_plugin_vpnc_la_LIBADD = \
-	$(GTK_LIBS) \
-	$(LIBNM_LIBS) \
-	$(LIBNMA_LIBS)
-
-libnm_vpnc_properties_la_LIBADD = \
-	$(GTK_LIBS) \
-	$(LIBNM_GLIB_LIBS) \
-	$(LIBNM_GTK_LIBS)
+    $(GTK_LIBS) \
+    $(LIBNM_LIBS) \
+    $(LIBNMA_LIBS)
 
 libnm_vpn_plugin_vpnc_la_LDFLAGS = \
-	-avoid-version
+    -avoid-version \
+    -Wl,--version-script=$(srcdir)/libnm-vpn-plugin-vpnc.ver
+
+###############################################################################
+
+libnm_vpnc_properties_la_SOURCES = \
+    $(libnm_vpn_plugin_vpnc_la_SOURCES)
+
+libnm_vpnc_properties_la_CFLAGS = \
+    -DNM_VPN_OLD \
+    $(common_CFLAGS) \
+    $(LIBNM_GLIB_CFLAGS) \
+    $(LIBNM_GTK_CFLAGS)
+
+libnm_vpnc_properties_la_LIBADD = \
+    $(GTK_LIBS) \
+    $(LIBNM_GLIB_LIBS) \
+    $(LIBNM_GTK_LIBS)
 
 libnm_vpnc_properties_la_LDFLAGS = \
-	$(libnm_vpn_plugin_vpnc_la_LDFLAGS)
+    -avoid-version \
+    -Wl,--version-script=$(srcdir)/libnm-vpnc-properties.ver
+
+###############################################################################
+
+libnm_vpn_plugin_vpnc_test_la_SOURCES = $(libnm_vpn_plugin_vpnc_la_SOURCES)
+libnm_vpn_plugin_vpnc_test_la_CFLAGS = $(libnm_vpn_plugin_vpnc_la_CFLAGS)
+libnm_vpn_plugin_vpnc_test_la_LIBADD = $(libnm_vpn_plugin_vpnc_la_LIBADD)
+libnm_vpn_plugin_vpnc_test_la_LDFLAGS = \
+    -avoid-version
+
+libnm_vpnc_properties_test_la_SOURCES = $(libnm_vpnc_properties_la_SOURCES)
+libnm_vpnc_properties_test_la_CFLAGS = $(libnm_vpnc_properties_la_CFLAGS)
+libnm_vpnc_properties_test_la_LIBADD = $(libnm_vpnc_properties_la_LIBADD)
+libnm_vpnc_properties_test_la_LDFLAGS = \
+    -avoid-version
+
+###############################################################################
+
+noinst_LTLIBRARIES = \
+    libnm-vpn-plugin-vpnc-test.la
+if WITH_LIBNM_GLIB
+noinst_LTLIBRARIES += libnm-vpnc-properties-test.la
+endif
 
 CLEANFILES = *.bak *~
 
-EXTRA_DIST = $(ui_DATA)
+EXTRA_DIST = \
+    libnm-vpn-plugin-vpnc.ver \
+    libnm-vpnc-properties.ver \
+    $(ui_DATA)
