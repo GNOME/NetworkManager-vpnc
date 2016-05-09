@@ -22,6 +22,7 @@
 #include "nm-default.h"
 
 #include <string.h>
+#include <sys/stat.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <locale.h>
@@ -31,6 +32,9 @@
 
 #include "nm-test-helpers.h"
 #include "nm-utils/nm-test-utils.h"
+
+#define SRCDIR TEST_SRCDIR"/pcf"
+#define TMPDIR TEST_BUILDDIR"/pcf-tmp"
 
 typedef struct {
 	const char *name;
@@ -747,15 +751,19 @@ test_empty_keyfile_string_null (const char *dir)
 int main (int argc, char **argv)
 {
 	GError *error = NULL;
+	int errsv;
 	char *basename;
 	NMVpnEditorPlugin *plugin = NULL;
-
-	if (argc != 3)
-		FAIL ("args", "usage: %s <pcf path> <tmp path>", argv[0]);
 
 #if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
 #endif
+
+	if (mkdir (TMPDIR, 0755) != 0) {
+		errsv = errno;
+		if (errsv != EEXIST)
+			g_error ("failed creating \"%s\": %s", TMPDIR, g_strerror (errsv));
+	}
 
 	plugin = nm_vpn_editor_plugin_factory (&error);
 	if (error)
@@ -764,23 +772,23 @@ int main (int argc, char **argv)
 	        "plugin-init", "failed to initialize UI plugin");
 
 	/* The tests */
-	test_basic_import (plugin, argv[1]);
-	test_everything_via_vpn (plugin, argv[1]);
-	test_no_natt (plugin, argv[1]);
-	test_nat_cisco (plugin, argv[1]);
-	test_nat_natt (plugin, argv[1]);
-	test_nat_force_natt (plugin, argv[1]);
-	test_always_ask (plugin, argv[1]);
-	test_non_utf8_import (plugin, argv[1]);
-	test_legacy_ike_port_0_import (plugin, argv[1]);
-	test_legacy_ike_port_1_import (plugin, argv[1]);
+	test_basic_import (plugin, SRCDIR);
+	test_everything_via_vpn (plugin, SRCDIR);
+	test_no_natt (plugin, SRCDIR);
+	test_nat_cisco (plugin, SRCDIR);
+	test_nat_natt (plugin, SRCDIR);
+	test_nat_force_natt (plugin, SRCDIR);
+	test_always_ask (plugin, SRCDIR);
+	test_non_utf8_import (plugin, SRCDIR);
+	test_legacy_ike_port_0_import (plugin, SRCDIR);
+	test_legacy_ike_port_1_import (plugin, SRCDIR);
 
-	test_basic_export (plugin, argv[1], argv[2]);
-	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_CISCO);
-	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_NATT);
-	test_nat_export (plugin, argv[1], argv[2], NM_VPNC_NATT_MODE_NATT_ALWAYS);
+	test_basic_export (plugin, SRCDIR, TMPDIR);
+	test_nat_export (plugin, SRCDIR, TMPDIR, NM_VPNC_NATT_MODE_CISCO);
+	test_nat_export (plugin, SRCDIR, TMPDIR, NM_VPNC_NATT_MODE_NATT);
+	test_nat_export (plugin, SRCDIR, TMPDIR, NM_VPNC_NATT_MODE_NATT_ALWAYS);
 
-	test_empty_keyfile_string_null (argv[1]);
+	test_empty_keyfile_string_null (SRCDIR);
 
 	g_object_unref (plugin);
 

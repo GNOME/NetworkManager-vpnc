@@ -37,7 +37,7 @@ FAIL(const char *test_name, const char *fmt, ...)
 	va_start (args, fmt);
 	vfprintf (stderr, buf, args);
 	va_end (args);
-	_exit (1);
+	g_assert_not_reached ();
 }
 
 #define ASSERT(x, test_name, fmt, ...) \
