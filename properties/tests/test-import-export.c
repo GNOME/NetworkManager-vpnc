@@ -28,7 +28,7 @@
 #include <locale.h>
 
 #include "nm-vpnc-editor-plugin.h"
-#include "nm-vpnc.h"
+#include "nm-vpnc-editor.h"
 #include "nm-vpnc-helper.h"
 
 #include "nm-utils/nm-test-utils.h"

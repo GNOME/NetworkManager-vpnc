@@ -1,7 +1,5 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
 /***************************************************************************
- * nm-vpnc.h : GNOME UI dialogs for configuring vpnc VPN connections
- *
  * Copyright (C) 2008 Dan Williams, <dcbw@redhat.com>
  *
  * This program is free software; you can redistribute it and/or modify
@@ -20,8 +18,8 @@
  *
  **************************************************************************/
 
-#ifndef _NM_VPNC_H_
-#define _NM_VPNC_H_
+#ifndef __NM_VPNC_EDITOR_H__
+#define __NM_VPNC_EDITOR_H__
 
 #define VPNC_TYPE_EDITOR            (vpnc_editor_get_type ())
 #define VPNC_EDITOR(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), VPNC_TYPE_EDITOR, VpncEditor))
@@ -45,5 +43,5 @@ GType vpnc_editor_get_type (void);
 
 NMVpnEditor *nm_vpnc_editor_new (NMConnection *connection, GError **error);
 
-#endif /* _NM_VPNC_H_ */
+#endif /* __NM_VPNC_EDITOR_H__ */
 

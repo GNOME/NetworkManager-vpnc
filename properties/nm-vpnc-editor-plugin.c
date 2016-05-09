@@ -33,7 +33,7 @@
 #include <fcntl.h>
 
 #include "nm-vpnc-helper.h"
-#include "nm-vpnc.h"
+#include "nm-vpnc-editor.h"
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
 #define VPNC_PLUGIN_DESC    _("Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways.")

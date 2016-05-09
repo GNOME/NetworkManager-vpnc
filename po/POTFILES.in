@@ -3,7 +3,7 @@
 appdata/network-manager-vpnc.metainfo.xml.in
 auth-dialog/main.c
 properties/nm-vpnc-editor-plugin.c
-properties/nm-vpnc.c
+properties/nm-vpnc-editor.c
 src/nm-vpnc-service.c
 shared/nm-utils/nm-shared-utils.c
 shared/nm-vpn/nm-vpn-plugin-utils.c
