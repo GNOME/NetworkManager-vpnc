@@ -79,10 +79,17 @@
 #define NM_SETTING_IP_CONFIG_METHOD NM_SETTING_IP4_CONFIG_METHOD
 #define NMSettingIPConfig NMSettingIP4Config
 
-#define nm_setting_ip_config_get_num_routes nm_setting_ip4_config_get_num_routes
-#define nm_setting_ip_config_add_route      nm_setting_ip4_config_add_route
-#define nm_setting_ip_config_get_route      nm_setting_ip4_config_get_route
-#define NM_SETTING_IP_CONFIG_NEVER_DEFAULT  NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
+#define nm_setting_ip_config_get_num_routes         nm_setting_ip4_config_get_num_routes
+#define nm_setting_ip_config_add_route              nm_setting_ip4_config_add_route
+#define nm_setting_ip_config_get_route              nm_setting_ip4_config_get_route
+#define nm_setting_ip_config_get_num_addresses      nm_setting_ip4_config_get_num_addresses
+#define nm_setting_ip_config_get_num_dns_searches   nm_setting_ip4_config_get_num_dns_searches
+#define nm_setting_ip_config_get_never_default      nm_setting_ip4_config_get_never_default
+#define nm_setting_ip_config_get_dhcp_hostname      nm_setting_ip4_config_get_dhcp_hostname
+#define nm_setting_ip_config_get_method             nm_setting_ip4_config_get_method
+#define nm_setting_ip_config_get_dhcp_hostname      nm_setting_ip4_config_get_dhcp_hostname
+#define nm_setting_ip_config_get_num_dns            nm_setting_ip4_config_get_num_dns
+#define NM_SETTING_IP_CONFIG_NEVER_DEFAULT          NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
 
 #define NMV_EDITOR_PLUGIN_ERROR                     NM_SETTING_VPN_ERROR
 #define NMV_EDITOR_PLUGIN_ERROR_FAILED              NM_SETTING_VPN_ERROR_UNKNOWN

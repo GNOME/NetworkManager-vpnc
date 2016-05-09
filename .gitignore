@@ -42,6 +42,7 @@ auth-dialog/nm-vpnc-auth-dialog.desktop.in
 nm-vpnc-service.name
 nm-vpnc.desktop
 properties/tests/test-import-export
+properties/tests/test-import-export-glib
 src/nm-vpnc-service
 src/nm-vpnc-service-vpnc-helper
 src/test-vpnc-output
