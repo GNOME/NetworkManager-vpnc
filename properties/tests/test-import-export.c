@@ -610,16 +610,15 @@ test_empty_keyfile_string_null (const char *dir)
 	g_key_file_free (kf);
 }
 
+NMTST_DEFINE ();
+
 int main (int argc, char **argv)
 {
 	GError *error = NULL;
 	int errsv;
-	char *basename;
 	NMVpnEditorPlugin *plugin = NULL;
 
-#if !GLIB_CHECK_VERSION (2, 35, 0)
-	g_type_init ();
-#endif
+	nmtst_init (&argc, &argv, TRUE);
 
 	if (mkdir (TMPDIR, 0755) != 0) {
 		errsv = errno;
@@ -650,10 +649,6 @@ int main (int argc, char **argv)
 	test_empty_keyfile_string_null (SRCDIR);
 
 	g_object_unref (plugin);
-
-	basename = g_path_get_basename (argv[0]);
-	fprintf (stdout, "%s: SUCCESS\n", basename);
-	g_free (basename);
 	return 0;
 }
 
