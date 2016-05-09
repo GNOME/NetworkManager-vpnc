@@ -30,11 +30,12 @@
 #include "nm-vpnc.h"
 #include "nm-vpnc-helper.h"
 
-#include "nm-test-helpers.h"
 #include "nm-utils/nm-test-utils.h"
 
 #define SRCDIR TEST_SRCDIR"/pcf"
 #define TMPDIR TEST_BUILDDIR"/pcf-tmp"
+
+/*****************************************************************************/
 
 typedef struct {
 	const char *name;
@@ -60,12 +61,11 @@ test_items (const char *detail, NMSettingVpn *s_vpn, const Item *items, gboolean
 		else
 			value = nm_setting_vpn_get_data_item (s_vpn, iter->name);
 
-		if (!iter->value) {
-			ASSERT (value == NULL, detail, "unexpected item '%s'", iter->name);
-		} else {
-			ASSERT (value != NULL, detail, "unexpected missing value for item %s", iter->name);
-			ASSERT (strcmp (value, iter->value) == 0, detail, "unexpected value for item %s (%s != %s",
-			        iter->name, value, iter->value);
+		if (!iter->value)
+			g_assert (!value);
+		else {
+			g_assert (value);
+			g_assert_cmpstr (value, ==, iter->value);
 			expected_count++;
 		}
 	}
@@ -75,8 +75,7 @@ test_items (const char *detail, NMSettingVpn *s_vpn, const Item *items, gboolean
 	else
 		nm_setting_vpn_foreach_data_item (s_vpn, item_count_func, &actual_count);
 
-	ASSERT (actual_count == expected_count,
-	        detail, "unexpected number of items (got %d, expected %d)", actual_count, expected_count);
+	g_assert_cmpint (actual_count, ==, expected_count);
 }
 
 
@@ -118,14 +117,9 @@ get_basic_connection (const char *detail,
 	char *pcf;
 
 	pcf = g_build_path ("/", dir, filename, NULL);
-	ASSERT (pcf != NULL,
-	        "basic", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("basic", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "basic", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	g_free (pcf);
 	return connection;
@@ -144,74 +138,47 @@ test_basic_import (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_route2_dest = "172.16.0.0";
 
 	connection = get_basic_connection ("basic-import", plugin, dir, "basic.pcf");
-	ASSERT (connection != NULL, "basic-import", "failed to import connection");
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "basic-import", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "basic-import", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
-	ASSERT (nm_setting_connection_get_uuid (s_con) == NULL,
-	        "basic-import", "unexpected valid UUID");
+	g_assert (!nm_setting_connection_get_uuid (s_con));
 
 	/* IP4 setting */
 	s_ip4 = nm_connection_get_setting_ip4_config (connection);
-	ASSERT (s_ip4 != NULL,
-	        "basic-import", "missing 'ip4-config' setting");
+	g_assert (s_ip4);
 
-	ASSERT (nm_setting_ip_config_get_num_addresses (s_ip4) == 0,
-	        "basic-import", "unexpected addresses");
+	g_assert_cmpint (nm_setting_ip_config_get_num_addresses (s_ip4), ==, 0);
 
-	ASSERT (nm_setting_ip_config_get_never_default (s_ip4) == TRUE,
-	        "basic-import", "never-default unexpectedly FALSE");
+	g_assert (nm_setting_ip_config_get_never_default (s_ip4));
 
-	ASSERT (nm_setting_ip_config_get_method (s_ip4) == NULL,
-	        "basic-import", "unexpected IPv4 method");
-
-	ASSERT (nm_setting_ip4_config_get_dhcp_client_id ((NMSettingIP4Config *) s_ip4) == NULL,
-	        "basic-import", "unexpected valid DHCP client ID");
-
-	ASSERT (nm_setting_ip_config_get_dhcp_hostname (s_ip4) == NULL,
-	        "basic-import", "unexpected valid DHCP hostname");
-
-	ASSERT (nm_setting_ip_config_get_num_dns_searches (s_ip4) == 0,
-	        "basic-import", "unexpected DNS searches");
-
-	ASSERT (nm_setting_ip_config_get_num_dns (s_ip4) == 0,
-	        "basic-import", "unexpected DNS servers");
-
-	ASSERT (nm_setting_ip_config_get_num_routes (s_ip4) == 2,
-	        "basic-import", "unexpected number of routes");
+	g_assert (!nm_setting_ip_config_get_method (s_ip4));
+	g_assert (!nm_setting_ip4_config_get_dhcp_client_id ((NMSettingIP4Config *) s_ip4));
+	g_assert (!nm_setting_ip_config_get_dhcp_hostname (s_ip4));
+	g_assert_cmpint (nm_setting_ip_config_get_num_dns_searches (s_ip4), ==, 0);
+	g_assert_cmpint (nm_setting_ip_config_get_num_dns (s_ip4), ==, 0);
+	g_assert_cmpint (nm_setting_ip_config_get_num_routes (s_ip4), ==, 2);
 
 	/* Route #1 */
 	route = nm_setting_ip_config_get_route (s_ip4, 0);
-	ASSERT (strcmp (nm_ip_route_get_dest (route), expected_route1_dest) == 0,
-	        "basic-import", "unexpected route #1 destination");
-	ASSERT (nm_ip_route_get_next_hop (route) == NULL,
-	        "basic-import", "unexpected route #1 next hop");
-	ASSERT (nm_ip_route_get_prefix (route) == 8,
-	        "basic-import", "unexpected route #1 prefix");
-	ASSERT (nm_ip_route_get_metric (route) == -1,
-	        "basic-import", "unexpected route #1 metric");
+	g_assert_cmpstr (nm_ip_route_get_dest (route), ==, expected_route1_dest);
+	g_assert (!nm_ip_route_get_next_hop (route));
+	g_assert_cmpint (nm_ip_route_get_prefix (route), ==, 8);
+	g_assert_cmpint (nm_ip_route_get_metric (route), ==, -1);
 
 	/* Route #2 */
 	route = nm_setting_ip_config_get_route (s_ip4, 1);
-	ASSERT (strcmp (nm_ip_route_get_dest (route), expected_route2_dest) == 0,
-	        "basic-import", "unexpected route #2 destination");
-	ASSERT (nm_ip_route_get_next_hop (route) == NULL,
-	        "basic-import", "unexpected route #2 next hop");
-	ASSERT (nm_ip_route_get_prefix (route) == 16,
-	        "basic-import", "unexpected route #2 prefix");
-	ASSERT (nm_ip_route_get_metric (route) == -1,
-	        "basic-import", "unexpected route #2 metric");
+	g_assert_cmpstr (nm_ip_route_get_dest (route), ==, expected_route2_dest);
+	g_assert (!nm_ip_route_get_next_hop (route));
+	g_assert_cmpint (nm_ip_route_get_prefix (route), ==, 16);
+	g_assert_cmpint (nm_ip_route_get_metric (route), ==, -1);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "basic-import", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	/* Data items */
 	test_items ("basic-import-data", s_vpn, &basic_items[0], FALSE);
@@ -248,21 +215,14 @@ test_basic_export (NMVpnEditorPlugin *plugin, const char *dir, const char *tmpdi
 	int ret;
 
 	connection = get_basic_connection ("basic-export", plugin, dir, "basic.pcf");
-	ASSERT (connection != NULL, "basic-export", "failed to import connection");
 
 	path = g_build_path ("/", tmpdir, BASIC_EXPORTED_NAME, NULL);
 	success = nm_vpn_editor_plugin_export (plugin, path, connection, &error);
-	if (!success) {
-		if (!error)
-			FAIL ("basic-export", "export failed with missing error");
-		else
-			FAIL ("basic-export", "export failed: %s", error->message);
-	}
+	nmtst_assert_success (success, error);
 
 	/* Now re-import it and compare the connections to ensure they are the same */
 	reimported = get_basic_connection ("basic-export", plugin, tmpdir, BASIC_EXPORTED_NAME);
 	ret = unlink (path);
-	ASSERT (connection != NULL, "basic-export", "failed to re-import connection");
 
 	/* Clear secrets first, since they don't get exported, and thus would
 	 * make the connection comparison below fail.
@@ -278,8 +238,7 @@ test_basic_export (NMVpnEditorPlugin *plugin, const char *dir, const char *tmpdi
 	                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 	                             NULL);
 
-	ASSERT (nm_connection_compare (connection, reimported, NM_SETTING_COMPARE_FLAG_EXACT) == TRUE,
-	        "basic-export", "original and reimported connection differ");
+	g_assert (nm_connection_compare (connection, reimported, NM_SETTING_COMPARE_FLAG_EXACT));
 
 	g_object_unref (reimported);
 	g_object_unref (connection);
@@ -302,26 +261,19 @@ test_nat_export (NMVpnEditorPlugin *plugin,
 	int ret;
 
 	connection = get_basic_connection ("nat-export", plugin, dir, "basic.pcf");
-	ASSERT (connection != NULL, "nat-export", "failed to import connection");
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL, "nat-export", "imported connection had no VPN setting");
+	g_assert (s_vpn);
 
 	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, nat_mode);
 
 	path = g_build_path ("/", tmpdir, NAT_EXPORTED_NAME, NULL);
 	success = nm_vpn_editor_plugin_export (plugin, path, connection, &error);
-	if (!success) {
-		if (!error)
-			FAIL ("nat-export", "export failed with missing error");
-		else
-			FAIL ("nat-export", "export failed: %s", error->message);
-	}
+	nmtst_assert_success (success, error);
 
 	/* Now re-import it and compare the connections to ensure they are the same */
 	reimported = get_basic_connection ("nat-export", plugin, tmpdir, NAT_EXPORTED_NAME);
 	ret = unlink (path);
-	ASSERT (connection != NULL, "nat-export", "failed to re-import connection");
 
 	/* Clear secrets first, since they don't get exported, and thus would
 	 * make the connection comparison below fail.
@@ -337,8 +289,7 @@ test_nat_export (NMVpnEditorPlugin *plugin,
 	                             NM_SETTING_SECRET_FLAG_AGENT_OWNED,
 	                             NULL);
 
-	ASSERT (nm_connection_compare (connection, reimported, NM_SETTING_COMPARE_FLAG_EXACT) == TRUE,
-	        "nat-export", "original and reimported connection differ");
+	g_assert (nm_connection_compare (connection, reimported, NM_SETTING_COMPARE_FLAG_EXACT));
 
 	g_object_unref (reimported);
 	g_object_unref (connection);
@@ -356,33 +307,20 @@ test_everything_via_vpn (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "All your traffic are belong to VPN";
 
 	pcf = g_build_path ("/", dir, "everything-via-vpn.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "everything-via-vpn", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("everything-via-vpn", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "everything-via-vpn", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "everything-via-vpn", "missing 'connection' setting");
-
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "everything-via-vpn", "unexpected connection ID");
+	g_assert (s_con);
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* IP4 setting */
 	s_ip4 = nm_connection_get_setting_ip4_config (connection);
-	ASSERT (s_ip4 != NULL,
-	        "everything-via-vpn", "missing 'ip4-config' setting");
-
-	ASSERT (nm_setting_ip_config_get_never_default (s_ip4) == FALSE,
-	        "everything-via-vpn", "never-default unexpectedly FALSE");
-
-	ASSERT (nm_setting_ip_config_get_num_routes (s_ip4) == 0,
-	        "everything-via-vpn", "unexpected number of routes");
+	g_assert (s_ip4);
+	g_assert (!nm_setting_ip_config_get_never_default (s_ip4));
+	g_assert_cmpint (nm_setting_ip_config_get_num_routes (s_ip4), ==, 0);
 
 	g_free (pcf);
 }
@@ -399,33 +337,23 @@ test_no_natt (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *value;
 
 	pcf = g_build_path ("/", dir, "no-natt.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "no-natt", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("no-natt", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "no-natt", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "no-natt", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "no-natt", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "no-natt", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (value != NULL,
-	        "no-natt", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_NONE) == 0,
-	        "no-natt", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	g_assert (value);
+	g_assert_cmpstr (value, ==, NM_VPNC_NATT_MODE_NONE);
 
 	g_free (pcf);
 }
@@ -442,33 +370,23 @@ test_nat_cisco (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *value;
 
 	pcf = g_build_path ("/", dir, "nat-cisco.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "nat-cisco", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("nat-cisco", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "nat-cisco", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "nat-cisco", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "nat-cisco", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "nat-cisco", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (value != NULL,
-	        "nat-cisco", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_CISCO) == 0,
-	        "nat-cisco", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	g_assert (value);
+	g_assert_cmpstr (value, ==, NM_VPNC_NATT_MODE_CISCO);
 
 	g_free (pcf);
 }
@@ -485,33 +403,23 @@ test_nat_natt (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *value;
 
 	pcf = g_build_path ("/", dir, "natt.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "natt", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("natt", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "natt", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "natt", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "natt", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "natt", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (value != NULL,
-	        "natt", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_NATT) == 0,
-	        "natt", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	g_assert (value);
+	g_assert_cmpstr (value, ==, NM_VPNC_NATT_MODE_NATT);
 
 	g_free (pcf);
 }
@@ -528,33 +436,23 @@ test_nat_force_natt (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *value;
 
 	pcf = g_build_path ("/", dir, "force-natt.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "force-natt", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("force-natt", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "force-natt", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "force-natt", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "force-natt", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "force-natt", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (value != NULL,
-	        "force-natt", "unexpected missing value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
-	ASSERT (strcmp (value, NM_VPNC_NATT_MODE_NATT_ALWAYS) == 0,
-	        "force-natt", "unexpected value for item %s", NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	g_assert (value);
+	g_assert_cmpstr (value, ==, NM_VPNC_NATT_MODE_NATT_ALWAYS);
 
 	g_free (pcf);
 }
@@ -571,31 +469,22 @@ test_always_ask (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *value;
 
 	pcf = g_build_path ("/", dir, "always-ask.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "always-ask", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("always-ask", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "always-ask", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "always-ask", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "always-ask", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "always-ask", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
-	ASSERT (value == NULL,
-	        "always-ask", "unexpected value for item %s", NM_VPNC_KEY_XAUTH_PASSWORD_TYPE);
+	g_assert (!value);
 
 	g_free (pcf);
 }
@@ -620,23 +509,16 @@ test_non_utf8_import (NMVpnEditorPlugin *plugin, const char *dir)
 	connection = get_basic_connection ("non-utf8-import", plugin, dir, "iso885915.pcf");
 	setlocale (LC_ALL, charset);
 
-	ASSERT (connection != NULL, "non-utf8-import", "failed to import connection");
-
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "non-utf8-import", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "non-utf8-import", "unexpected connection ID");
-
-	ASSERT (nm_setting_connection_get_uuid (s_con) == NULL,
-	        "non-utf8-import", "unexpected valid UUID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
+	g_assert (!nm_setting_connection_get_uuid (s_con));
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "non-utf8-import", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	g_object_unref (connection);
 }
@@ -653,31 +535,22 @@ test_legacy_ike_port_0_import (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *value;
 
 	pcf = g_build_path ("/", dir, "use-legacy-ike-port-0.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "use-legacy-ike-port-0", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "use-legacy-ike-port-0", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "use-legacy-ike-port-0", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "use-legacy-ike-port-0", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "use-legacy-ike-port-0", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
-	ASSERT (value == NULL || strcmp (value, "0") == 0,
-	        "use-legacy-ike-port-0", "item %s should not be present or should be 0", NM_VPNC_KEY_LOCAL_PORT);
+	g_assert (!value || nm_streq (value, "0"));
 
 	g_free (pcf);
 }
@@ -694,33 +567,23 @@ test_legacy_ike_port_1_import (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *value;
 
 	pcf = g_build_path ("/", dir, "use-legacy-ike-port-1.pcf", NULL);
-	ASSERT (pcf != NULL,
-	        "use-legacy-ike-port-1", "failed to create pcf path");
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
-	if (error)
-		FAIL ("", "error importing %s: %s", pcf, error->message);
-	ASSERT (connection != NULL,
-	        "use-legacy-ike-port-1", "error importing %s: (unknown)", pcf);
+	nmtst_assert_success (connection, error);
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
-	ASSERT (s_con != NULL,
-	        "use-legacy-ike-port-1", "missing 'connection' setting");
+	g_assert (s_con);
 
-	ASSERT (strcmp (nm_setting_connection_get_id (s_con), expected_id) == 0,
-	        "use-legacy-ike-port-1", "unexpected connection ID");
+	g_assert_cmpstr (nm_setting_connection_get_id (s_con), ==, expected_id);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);
-	ASSERT (s_vpn != NULL,
-	        "use-legacy-ike-port-1", "missing 'vpn' setting");
+	g_assert (s_vpn);
 
 	value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
-	ASSERT (value != NULL,
-	        "use-legacy-ike-port-1", "unexpected missing value for item %s", NM_VPNC_KEY_LOCAL_PORT);
-	ASSERT (strcmp (value, "500") == 0,
-	        "use-legacy-ike-port-1", "unexpected value for item %s", NM_VPNC_KEY_LOCAL_PORT);
+	g_assert (value);
+	g_assert_cmpstr (value, ==, "500");
 
 	g_free (pcf);
 }
@@ -734,7 +597,6 @@ test_empty_keyfile_string_null (const char *dir)
 	gboolean success;
 
 	pcf = g_build_path ("/", dir, "basic.pcf", NULL);
-	g_assert (pcf);
 
 	kf = g_key_file_new ();
 	success = g_key_file_load_from_file (kf, pcf, 0, &error);
@@ -766,10 +628,7 @@ int main (int argc, char **argv)
 	}
 
 	plugin = nm_vpn_editor_plugin_factory (&error);
-	if (error)
-		FAIL ("plugin-init", "failed to initialize UI plugin: %s", error->message);
-	ASSERT (plugin != NULL,
-	        "plugin-init", "failed to initialize UI plugin");
+	nmtst_assert_success (plugin, error);
 
 	/* The tests */
 	test_basic_import (plugin, SRCDIR);
