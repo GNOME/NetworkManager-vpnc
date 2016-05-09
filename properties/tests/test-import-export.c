@@ -37,6 +37,22 @@
 
 /*****************************************************************************/
 
+static NMVpnEditorPlugin *
+_create_plugin (void)
+{
+	NMVpnEditorPlugin *plugin;
+	GError *error = NULL;
+
+	plugin = nm_vpn_editor_plugin_factory (&error);
+	nmtst_assert_success (plugin, error);
+	g_assert (VPNC_IS_EDITOR_PLUGIN (plugin));
+	return plugin;
+}
+#define _CREATE_PLUGIN(plugin) \
+	gs_unref_object NMVpnEditorPlugin *plugin = _create_plugin ()
+
+/*****************************************************************************/
+
 typedef struct {
 	const char *name;
 	const char *value;
@@ -126,8 +142,9 @@ get_basic_connection (const char *detail,
 }
 
 static void
-test_basic_import (NMVpnEditorPlugin *plugin, const char *dir)
+test_basic_import (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingIPConfig *s_ip4;
@@ -137,7 +154,7 @@ test_basic_import (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_route1_dest = "10.0.0.0";
 	const char *expected_route2_dest = "172.16.0.0";
 
-	connection = get_basic_connection ("basic-import", plugin, dir, "basic.pcf");
+	connection = get_basic_connection ("basic-import", plugin, SRCDIR, "basic.pcf");
 
 	/* Connection setting */
 	s_con = nm_connection_get_setting_connection (connection);
@@ -204,8 +221,9 @@ remove_user_password (NMConnection *connection)
 
 #define BASIC_EXPORTED_NAME "basic-export-test.pcf"
 static void
-test_basic_export (NMVpnEditorPlugin *plugin, const char *dir, const char *tmpdir)
+test_basic_export (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMConnection *reimported;
 	NMSettingVpn *s_vpn;
@@ -214,14 +232,14 @@ test_basic_export (NMVpnEditorPlugin *plugin, const char *dir, const char *tmpdi
 	GError *error = NULL;
 	int ret;
 
-	connection = get_basic_connection ("basic-export", plugin, dir, "basic.pcf");
+	connection = get_basic_connection ("basic-export", plugin, SRCDIR, "basic.pcf");
 
-	path = g_build_path ("/", tmpdir, BASIC_EXPORTED_NAME, NULL);
+	path = g_build_path ("/", TMPDIR, BASIC_EXPORTED_NAME, NULL);
 	success = nm_vpn_editor_plugin_export (plugin, path, connection, &error);
 	nmtst_assert_success (success, error);
 
 	/* Now re-import it and compare the connections to ensure they are the same */
-	reimported = get_basic_connection ("basic-export", plugin, tmpdir, BASIC_EXPORTED_NAME);
+	reimported = get_basic_connection ("basic-export", plugin, TMPDIR, BASIC_EXPORTED_NAME);
 	ret = unlink (path);
 
 	/* Clear secrets first, since they don't get exported, and thus would
@@ -247,11 +265,10 @@ test_basic_export (NMVpnEditorPlugin *plugin, const char *dir, const char *tmpdi
 
 #define NAT_EXPORTED_NAME "nat-export-test.pcf"
 static void
-test_nat_export (NMVpnEditorPlugin *plugin,
-                 const char *dir,
-                 const char *tmpdir,
-                 const char *nat_mode)
+test_nat_export (gconstpointer test_data)
 {
+	_CREATE_PLUGIN (plugin);
+	const char *nat_mode;
 	NMConnection *connection;
 	NMSettingVpn *s_vpn;
 	NMConnection *reimported;
@@ -260,19 +277,21 @@ test_nat_export (NMVpnEditorPlugin *plugin,
 	GError *error = NULL;
 	int ret;
 
-	connection = get_basic_connection ("nat-export", plugin, dir, "basic.pcf");
+	nmtst_test_data_unpack (test_data, &nat_mode);
+
+	connection = get_basic_connection ("nat-export", plugin, SRCDIR, "basic.pcf");
 
 	s_vpn = nm_connection_get_setting_vpn (connection);
 	g_assert (s_vpn);
 
 	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, nat_mode);
 
-	path = g_build_path ("/", tmpdir, NAT_EXPORTED_NAME, NULL);
+	path = g_build_path ("/", TMPDIR, NAT_EXPORTED_NAME, NULL);
 	success = nm_vpn_editor_plugin_export (plugin, path, connection, &error);
 	nmtst_assert_success (success, error);
 
 	/* Now re-import it and compare the connections to ensure they are the same */
-	reimported = get_basic_connection ("nat-export", plugin, tmpdir, NAT_EXPORTED_NAME);
+	reimported = get_basic_connection ("nat-export", plugin, TMPDIR, NAT_EXPORTED_NAME);
 	ret = unlink (path);
 
 	/* Clear secrets first, since they don't get exported, and thus would
@@ -297,8 +316,9 @@ test_nat_export (NMVpnEditorPlugin *plugin,
 }
 
 static void
-test_everything_via_vpn (NMVpnEditorPlugin *plugin, const char *dir)
+test_everything_via_vpn (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingIPConfig *s_ip4;
@@ -306,7 +326,7 @@ test_everything_via_vpn (NMVpnEditorPlugin *plugin, const char *dir)
 	char *pcf;
 	const char *expected_id = "All your traffic are belong to VPN";
 
-	pcf = g_build_path ("/", dir, "everything-via-vpn.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "everything-via-vpn.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -326,8 +346,9 @@ test_everything_via_vpn (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_no_natt (NMVpnEditorPlugin *plugin, const char *dir)
+test_no_natt (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -336,7 +357,7 @@ test_no_natt (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "No NAT Traversal";
 	const char *value;
 
-	pcf = g_build_path ("/", dir, "no-natt.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "no-natt.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -359,8 +380,9 @@ test_no_natt (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_nat_cisco (NMVpnEditorPlugin *plugin, const char *dir)
+test_nat_cisco (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -369,7 +391,7 @@ test_nat_cisco (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "NAT-Cisco";
 	const char *value;
 
-	pcf = g_build_path ("/", dir, "nat-cisco.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "nat-cisco.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -392,8 +414,9 @@ test_nat_cisco (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_nat_natt (NMVpnEditorPlugin *plugin, const char *dir)
+test_nat_natt (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -402,7 +425,7 @@ test_nat_natt (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "NAT-T";
 	const char *value;
 
-	pcf = g_build_path ("/", dir, "natt.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "natt.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -425,8 +448,9 @@ test_nat_natt (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_nat_force_natt (NMVpnEditorPlugin *plugin, const char *dir)
+test_nat_force_natt (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -435,7 +459,7 @@ test_nat_force_natt (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "Force NAT-T";
 	const char *value;
 
-	pcf = g_build_path ("/", dir, "force-natt.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "force-natt.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -458,8 +482,9 @@ test_nat_force_natt (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_always_ask (NMVpnEditorPlugin *plugin, const char *dir)
+test_always_ask (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -468,7 +493,7 @@ test_always_ask (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "Always Ask For Password";
 	const char *value;
 
-	pcf = g_build_path ("/", dir, "always-ask.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "always-ask.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -490,8 +515,9 @@ test_always_ask (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_non_utf8_import (NMVpnEditorPlugin *plugin, const char *dir)
+test_non_utf8_import (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -506,7 +532,7 @@ test_non_utf8_import (NMVpnEditorPlugin *plugin, const char *dir)
 		setlocale (LC_ALL, charset);
 		return;
 	}
-	connection = get_basic_connection ("non-utf8-import", plugin, dir, "iso885915.pcf");
+	connection = get_basic_connection ("non-utf8-import", plugin, SRCDIR, "iso885915.pcf");
 	setlocale (LC_ALL, charset);
 
 	/* Connection setting */
@@ -524,8 +550,9 @@ test_non_utf8_import (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_legacy_ike_port_0_import (NMVpnEditorPlugin *plugin, const char *dir)
+test_legacy_ike_port_0_import (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -534,7 +561,7 @@ test_legacy_ike_port_0_import (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "Use Legacy IKE Port (i.e. dynamic)";
 	const char *value;
 
-	pcf = g_build_path ("/", dir, "use-legacy-ike-port-0.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "use-legacy-ike-port-0.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -556,8 +583,9 @@ test_legacy_ike_port_0_import (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_legacy_ike_port_1_import (NMVpnEditorPlugin *plugin, const char *dir)
+test_legacy_ike_port_1_import (void)
 {
+	_CREATE_PLUGIN (plugin);
 	NMConnection *connection;
 	NMSettingConnection *s_con;
 	NMSettingVpn *s_vpn;
@@ -566,7 +594,7 @@ test_legacy_ike_port_1_import (NMVpnEditorPlugin *plugin, const char *dir)
 	const char *expected_id = "Don't use Legacy IKE Port (500)";
 	const char *value;
 
-	pcf = g_build_path ("/", dir, "use-legacy-ike-port-1.pcf", NULL);
+	pcf = g_build_path ("/", SRCDIR, "use-legacy-ike-port-1.pcf", NULL);
 
 	connection = nm_vpn_editor_plugin_import (plugin, pcf, &error);
 	nmtst_assert_success (connection, error);
@@ -589,24 +617,22 @@ test_legacy_ike_port_1_import (NMVpnEditorPlugin *plugin, const char *dir)
 }
 
 static void
-test_empty_keyfile_string_null (const char *dir)
+test_empty_keyfile_string_null (void)
 {
-	char *pcf, *val;
+	char *val;
 	GError *error = NULL;
 	GKeyFile *kf;
 	gboolean success;
-
-	pcf = g_build_path ("/", dir, "basic.pcf", NULL);
+	const char *PCF = SRCDIR"/basic.pcf";
 
 	kf = g_key_file_new ();
-	success = g_key_file_load_from_file (kf, pcf, 0, &error);
+	success = g_key_file_load_from_file (kf, PCF, 0, &error);
 	g_assert_no_error (error);
 	g_assert (success);
 
 	val = key_file_get_string_helper (kf, "main", "ISPCommand", NULL);
 	g_assert (val == NULL);
 
-	g_free (pcf);
 	g_key_file_free (kf);
 }
 
@@ -614,9 +640,7 @@ NMTST_DEFINE ();
 
 int main (int argc, char **argv)
 {
-	GError *error = NULL;
-	int errsv;
-	NMVpnEditorPlugin *plugin = NULL;
+	int errsv, result;
 
 	nmtst_init (&argc, &argv, TRUE);
 
@@ -626,29 +650,34 @@ int main (int argc, char **argv)
 			g_error ("failed creating \"%s\": %s", TMPDIR, g_strerror (errsv));
 	}
 
-	plugin = nm_vpn_editor_plugin_factory (&error);
-	nmtst_assert_success (plugin, error);
+#define _add_test_func_simple(func)       g_test_add_func ("/vpnc/properties/" #func, func)
+#define _add_test_func(detail, func, ...) nmtst_add_test_func ("/vpnc/properties/" detail, func, ##__VA_ARGS__)
 
-	/* The tests */
-	test_basic_import (plugin, SRCDIR);
-	test_everything_via_vpn (plugin, SRCDIR);
-	test_no_natt (plugin, SRCDIR);
-	test_nat_cisco (plugin, SRCDIR);
-	test_nat_natt (plugin, SRCDIR);
-	test_nat_force_natt (plugin, SRCDIR);
-	test_always_ask (plugin, SRCDIR);
-	test_non_utf8_import (plugin, SRCDIR);
-	test_legacy_ike_port_0_import (plugin, SRCDIR);
-	test_legacy_ike_port_1_import (plugin, SRCDIR);
+	_add_test_func_simple (test_basic_import);
+	_add_test_func_simple (test_everything_via_vpn);
+	_add_test_func_simple (test_no_natt);
+	_add_test_func_simple (test_nat_cisco);
+	_add_test_func_simple (test_nat_natt);
+	_add_test_func_simple (test_nat_force_natt);
+	_add_test_func_simple (test_always_ask);
+	_add_test_func_simple (test_non_utf8_import);
+	_add_test_func_simple (test_legacy_ike_port_0_import);
+	_add_test_func_simple (test_legacy_ike_port_1_import);
+	_add_test_func_simple (test_basic_export);
+	_add_test_func ("nat-export-cisco",       test_nat_export, NM_VPNC_NATT_MODE_CISCO);
+	_add_test_func ("nat-export-natt",        test_nat_export, NM_VPNC_NATT_MODE_NATT);
+	_add_test_func ("nat-export-natt-always", test_nat_export, NM_VPNC_NATT_MODE_NATT_ALWAYS);
+	_add_test_func_simple (test_empty_keyfile_string_null);
 
-	test_basic_export (plugin, SRCDIR, TMPDIR);
-	test_nat_export (plugin, SRCDIR, TMPDIR, NM_VPNC_NATT_MODE_CISCO);
-	test_nat_export (plugin, SRCDIR, TMPDIR, NM_VPNC_NATT_MODE_NATT);
-	test_nat_export (plugin, SRCDIR, TMPDIR, NM_VPNC_NATT_MODE_NATT_ALWAYS);
+	result = g_test_run ();
+	if (result != EXIT_SUCCESS)
+		return result;
 
-	test_empty_keyfile_string_null (SRCDIR);
+	if (rmdir (TMPDIR) != 0) {
+		errsv = errno;
+		g_error ("failed deleting %s: %s", TMPDIR, g_strerror (errsv));
+	}
 
-	g_object_unref (plugin);
-	return 0;
+	return EXIT_SUCCESS;
 }
 
