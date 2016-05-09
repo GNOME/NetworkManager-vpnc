@@ -57,18 +57,18 @@
 #define nm_setting_ip_config_add_route nm_setting_ip4_config_add_route
 #define NM_SETTING_IP_CONFIG_NEVER_DEFAULT NM_SETTING_IP4_CONFIG_NEVER_DEFAULT
 
-#define VPNC_PLUGIN_UI_ERROR                  NM_SETTING_VPN_ERROR
-#define VPNC_PLUGIN_UI_ERROR_FAILED           NM_SETTING_VPN_ERROR_UNKNOWN
-#define VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY NM_SETTING_VPN_ERROR_INVALID_PROPERTY
+#define NMV_EDITOR_PLUGIN_ERROR                  NM_SETTING_VPN_ERROR
+#define NMV_EDITOR_PLUGIN_ERROR_FAILED           NM_SETTING_VPN_ERROR_UNKNOWN
+#define NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY NM_SETTING_VPN_ERROR_INVALID_PROPERTY
 
 #else /* !NM_VPN_OLD */
 
 #include <NetworkManager.h>
 #include <nma-ui-utils.h>
 
-#define VPNC_PLUGIN_UI_ERROR                  NM_CONNECTION_ERROR
-#define VPNC_PLUGIN_UI_ERROR_FAILED           NM_CONNECTION_ERROR_FAILED
-#define VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY NM_CONNECTION_ERROR_INVALID_PROPERTY
+#define NMV_EDITOR_PLUGIN_ERROR                  NM_CONNECTION_ERROR
+#define NMV_EDITOR_PLUGIN_ERROR_FAILED           NM_CONNECTION_ERROR_FAILED
+#define NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY NM_CONNECTION_ERROR_INVALID_PROPERTY
 #endif
 
 #include "nm-service-defines.h"
@@ -129,8 +129,8 @@ check_validity (VpncEditor *self, GError **error)
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str) || strstr (str, " ") || strstr (str, "\t")) {
 		g_set_error (error,
-		             VPNC_PLUGIN_UI_ERROR,
-		             VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
 		             NM_VPNC_KEY_GATEWAY);
 		return FALSE;
 	}
@@ -139,8 +139,8 @@ check_validity (VpncEditor *self, GError **error)
 	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
-		             VPNC_PLUGIN_UI_ERROR,
-		             VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY,
+		             NMV_EDITOR_PLUGIN_ERROR,
+		             NMV_EDITOR_PLUGIN_ERROR_INVALID_PROPERTY,
 		             NM_VPNC_KEY_ID);
 		return FALSE;
 	}
@@ -1001,7 +1001,7 @@ nm_vpnc_editor_new (NMConnection *connection, GError **error)
 
 	object = g_object_new (VPNC_TYPE_EDITOR, NULL);
 	if (!object) {
-		g_set_error (error, VPNC_PLUGIN_UI_ERROR, VPNC_PLUGIN_UI_ERROR_FAILED,
+		g_set_error (error, NMV_EDITOR_PLUGIN_ERROR, NMV_EDITOR_PLUGIN_ERROR_FAILED,
 		             "could not create vpnc object");
 		return NULL;
 	}
@@ -1017,7 +1017,7 @@ nm_vpnc_editor_new (NMConnection *connection, GError **error)
 		g_warning ("Couldn't load builder file: %s",
 		           error && *error ? (*error)->message : "(unknown)");
 		g_clear_error (error);
-		g_set_error (error, VPNC_PLUGIN_UI_ERROR, VPNC_PLUGIN_UI_ERROR_FAILED,
+		g_set_error (error, NMV_EDITOR_PLUGIN_ERROR, NMV_EDITOR_PLUGIN_ERROR_FAILED,
 		             "could not load required resources at %s", ui_file);
 		g_free (ui_file);
 		g_object_unref (object);
@@ -1027,7 +1027,7 @@ nm_vpnc_editor_new (NMConnection *connection, GError **error)
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-vbox"));
 	if (!priv->widget) {
-		g_set_error (error, VPNC_PLUGIN_UI_ERROR, VPNC_PLUGIN_UI_ERROR_FAILED,
+		g_set_error (error, NMV_EDITOR_PLUGIN_ERROR, NMV_EDITOR_PLUGIN_ERROR_FAILED,
 		             "could not load UI widget");
 		g_object_unref (object);
 		return NULL;
