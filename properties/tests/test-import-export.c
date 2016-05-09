@@ -27,6 +27,7 @@
 #include <arpa/inet.h>
 #include <locale.h>
 
+#include "nm-vpnc-editor-plugin.h"
 #include "nm-vpnc.h"
 #include "nm-vpnc-helper.h"
 

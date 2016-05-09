@@ -7,6 +7,8 @@ plugin_LTLIBRARIES += libnm-vpnc-properties.la
 endif
 
 libnm_vpn_plugin_vpnc_la_SOURCES = \
+	nm-vpnc-editor-plugin.c \
+	nm-vpnc-editor-plugin.h \
 	nm-vpnc.c \
 	nm-vpnc.h \
 	nm-vpnc-helper.c \
