@@ -39,7 +39,7 @@
 #include <glib/gi18n-lib.h>
 #include <gtk/gtk.h>
 
-#ifdef NM_VPNC_OLD
+#ifdef NM_VPN_OLD
 #define NM_VPN_LIBNM_COMPAT
 
 #include <nm-setting-vpn.h>
@@ -61,7 +61,7 @@
 #define VPNC_PLUGIN_UI_ERROR_FAILED           NM_SETTING_VPN_ERROR_UNKNOWN
 #define VPNC_PLUGIN_UI_ERROR_INVALID_PROPERTY NM_SETTING_VPN_ERROR_INVALID_PROPERTY
 
-#else /* !NM_VPNC_OLD */
+#else /* !NM_VPN_OLD */
 
 #include <NetworkManager.h>
 #include <nma-ui-utils.h>
@@ -1103,7 +1103,7 @@ add_routes (NMSettingIPConfig *s_ip4, const char *routelist)
 	for (i = 0; substrs[i] != NULL; i++) {
 		char *p, *str_route;
 		long int prefix = 32;
-#ifdef NM_VPNC_OLD
+#ifdef NM_VPN_OLD
 		struct in_addr tmp;
 #else
 		NMIPRoute *route;
@@ -1125,7 +1125,7 @@ add_routes (NMSettingIPConfig *s_ip4, const char *routelist)
 		}
 		*p = '\0';
 
-#ifdef NM_VPNC_OLD
+#ifdef NM_VPN_OLD
 		if (inet_pton (AF_INET, str_route, &tmp) > 0) {
 			NMIP4Route *route = nm_ip4_route_new ();
 
@@ -1710,7 +1710,7 @@ export (NMVpnEditorPlugin *plugin,
 		int i;
 
 		for (i = 0; i < nm_setting_ip_config_get_num_routes (s_ip4); i++) {
-#ifdef NM_VPNC_OLD
+#ifdef NM_VPN_OLD
 			NMIP4Route *route = nm_setting_ip_config_get_route (s_ip4, i);
 			char str_addr[INET_ADDRSTRLEN + 1];
 			struct in_addr num_addr;
@@ -1720,7 +1720,7 @@ export (NMVpnEditorPlugin *plugin,
 
 			if (routes_count)
 				g_string_append_c (routes, ' ');
-#ifdef NM_VPNC_OLD
+#ifdef NM_VPN_OLD
 			num_addr.s_addr = nm_ip4_route_get_dest (route);
 			if (inet_ntop (AF_INET, &num_addr, &str_addr[0], INET_ADDRSTRLEN + 1))
 				g_string_append_printf (routes, "%s/%d", str_addr, nm_ip4_route_get_prefix (route));
