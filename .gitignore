@@ -33,6 +33,8 @@ appdata/network-manager-vpnc.metainfo.xml
 /test-driver
 */tests/*.log
 */tests/*.trs
+/src/*.log
+/src/*.trs
 
 /cscope.*
 

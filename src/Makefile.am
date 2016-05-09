@@ -41,7 +41,7 @@ test_vpnc_output_SOURCES = \
 
 test_vpnc_output_LDADD = $(GLIB_LIBS)
 
-check-local:
-	$(abs_builddir)/test-vpnc-output
+TESTS = \
+	test-vpnc-output
 
 CLEANFILES = *~
