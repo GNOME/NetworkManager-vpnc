@@ -4,15 +4,15 @@
 #
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Jiří Eischmann <jiri@eischmann.cz>, 2008.
-# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009, 2010, 2011, 2012, 2013, 2014.
+# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009 - 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-11-03 11:07+0000\n"
-"PO-Revision-Date: 2014-11-03 15:43+0100\n"
+"POT-Creation-Date: 2016-04-14 10:36+0000\n"
+"PO-Revision-Date: 2016-04-21 11:00+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -22,45 +22,57 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../auth-dialog/main.c:175
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Původní klient Cisco VPNC"
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Klient pro virtuální soukromé sítě Cisco IPSec"
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "Podpora nastavení sítí VPN založených na VPNC."
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr "Kompatibilní s koncentrátory Cisco VPN nastavenými pro použití IPsec."
+
+#: ../appdata/network-manager-vpnc.appdata.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "Vývojáři aplikace NetworkManager"
+
+#: ../auth-dialog/main.c:172
 #, c-format
 msgid "Authenticate VPN %s"
 msgstr "Ověřování VPN %s"
 
-#: ../auth-dialog/main.c:191
+#: ../auth-dialog/main.c:188
 msgid "Password:"
 msgstr "Heslo:"
 
-#: ../auth-dialog/main.c:199
+#: ../auth-dialog/main.c:196
 msgid "Group Password:"
 msgstr "Heslo skupiny:"
 
-#: ../auth-dialog/main.c:234
+#: ../auth-dialog/main.c:231
 msgid "Authenticate VPN"
 msgstr "Ověřování VPN"
 
-#: ../auth-dialog/main.c:243
+#: ../auth-dialog/main.c:240
 msgid "_Group Password:"
 msgstr "Heslo _skupiny:"
 
-#: ../auth-dialog/main.c:501
+#: ../auth-dialog/main.c:498
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr "Pro přístup do VPN „%s“ se musí provést ověření."
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "VPN Connection Manager (vpnc)"
-msgstr "Správce spojení VPN (vpnc)"
-
-#: ../nm-vpnc.desktop.in.h:2
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Přidat, odstranit a upravit spojení VPN"
-
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc.c:78
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "VPN kompatibilní s Cisco (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc.c:79
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -68,91 +80,79 @@ msgstr ""
 "Kompatibilní s různými bránami VPN založenými na IPsec od Cisco, Juniper, "
 "Netscreen a Sonicwall."
 
-#: ../properties/nm-vpnc.c:338
-msgid "Saved"
-msgstr "Uloženo"
-
-#: ../properties/nm-vpnc.c:345
-msgid "Always Ask"
-msgstr "Vždy se ptát"
-
-#: ../properties/nm-vpnc.c:352
-msgid "Not Required"
-msgstr "Není vyžadováno"
-
-#: ../properties/nm-vpnc.c:504
+#: ../properties/nm-vpnc.c:432
 msgid "Secure (default)"
 msgstr "Zabezpečené (výchozí)"
 
-#: ../properties/nm-vpnc.c:507
+#: ../properties/nm-vpnc.c:435
 msgid "Weak (use with caution)"
 msgstr "Slabé (používejte obezřetně)"
 
-#: ../properties/nm-vpnc.c:515
+#: ../properties/nm-vpnc.c:443
 msgid "None (completely insecure)"
 msgstr "Žádné (kompletně nezabezpečené)"
 
-#: ../properties/nm-vpnc.c:581
+#: ../properties/nm-vpnc.c:507
 msgid "Cisco (default)"
 msgstr "Cisco (výchozí)"
 
-#: ../properties/nm-vpnc.c:588
+#: ../properties/nm-vpnc.c:514
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc.c:629
+#: ../properties/nm-vpnc.c:555
 msgid "NAT-T when available (default)"
 msgstr "NAT-T, pokud je dostupné (výchozí)"
 
-#: ../properties/nm-vpnc.c:636
+#: ../properties/nm-vpnc.c:562
 msgid "NAT-T always"
 msgstr "Vždy NAT-T"
 
-#: ../properties/nm-vpnc.c:643
+#: ../properties/nm-vpnc.c:569
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc.c:650
+#: ../properties/nm-vpnc.c:576
 msgid "Disabled"
 msgstr "Zakázáno"
 
-#: ../properties/nm-vpnc.c:670 ../properties/nm-vpnc.c:756
+#: ../properties/nm-vpnc.c:596 ../properties/nm-vpnc.c:682
 msgid "DH Group 1"
 msgstr "Skupina DH 1"
 
-#: ../properties/nm-vpnc.c:677
+#: ../properties/nm-vpnc.c:603
 msgid "DH Group 2 (default)"
 msgstr "Skupina DH 2 (výchozí)"
 
-#: ../properties/nm-vpnc.c:684 ../properties/nm-vpnc.c:770
+#: ../properties/nm-vpnc.c:610 ../properties/nm-vpnc.c:696
 msgid "DH Group 5"
 msgstr "Skupina DH 5"
 
-#: ../properties/nm-vpnc.c:742
+#: ../properties/nm-vpnc.c:668
 msgid "Server (default)"
 msgstr "Server (výchozí)"
 
-#: ../properties/nm-vpnc.c:749
+#: ../properties/nm-vpnc.c:675
 msgid "None"
 msgstr "Žádný"
 
-#: ../properties/nm-vpnc.c:763
+#: ../properties/nm-vpnc.c:689
 msgid "DH Group 2"
 msgstr "Skupina DH 2"
 
-#: ../properties/nm-vpnc.c:810
+#: ../properties/nm-vpnc.c:736
 msgid "Choose a Certificate Authority (CA) certificate..."
 msgstr "Vybrat certifikát certifikační autority (CA)…"
 
-#: ../properties/nm-vpnc.c:814
+#: ../properties/nm-vpnc.c:740
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Certifikáty PEM  (*.pem, *.crt, *.cer)"
 
-#: ../properties/nm-vpnc.c:1571
+#: ../properties/nm-vpnc.c:1545
 msgid "TCP tunneling not supported"
 msgstr "Tunelování TCP není podporováno"
 
-#: ../properties/nm-vpnc.c:1573
+#: ../properties/nm-vpnc.c:1547
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -166,6 +166,98 @@ msgstr ""
 "\n"
 "Připojení půjde navázat bez TCP tunelování, ale je možné, že nebude fungovat "
 "korektně."
+
+#: ../src/nm-vpnc-service.c:173
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "volba „%s“ není platná nebo podporovaná"
+
+#: ../src/nm-vpnc-service.c:192
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr "cesta k souboru „%s“ u volby „%s“ není absolutní nebo neexistuje"
+
+#: ../src/nm-vpnc-service.c:205
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr "celočíselná volba „%s“ není platná nebo je mimo rozsah [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:215
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "pravdivostní volba „%s“ není platná (není ano či ne)"
+
+#: ../src/nm-vpnc-service.c:222
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr "neošetřená volba „%s“ typu %d"
+
+#: ../src/nm-vpnc-service.c:239
+msgid "No VPN configuration options."
+msgstr "Žádné volby nastavení VPN."
+
+#: ../src/nm-vpnc-service.c:265
+msgid "No VPN secrets!"
+msgstr "Žádná hesla VPN!"
+
+#: ../src/nm-vpnc-service.c:612
+msgid "Could not find vpnc binary."
+msgstr "Nelze nalézt program vpnc."
+
+#: ../src/nm-vpnc-service.c:713
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Volba nastavení „%s“ je neplatná nebo neznámá."
+
+#: ../src/nm-vpnc-service.c:746
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Volba nastavení „%s“ není číslo."
+
+#: ../src/nm-vpnc-service.c:920
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc nepodporuje interaktivní požadavky"
+
+#: ../src/nm-vpnc-service.c:944
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr "Nelze použít nové tajemství, protože je vypnutý interaktivní režim."
+
+#: ../src/nm-vpnc-service.c:953 ../src/nm-vpnc-service.c:1028
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr "Nelze zpracovat požadavek protože nastavení VPN nejsou platná."
+
+#: ../src/nm-vpnc-service.c:961
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Nelze zpracovat požadavek, protože není požadováno žádné čekající ověření."
+
+#: ../src/nm-vpnc-service.c:973
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Nelze zpracovat požadavek protože požadovaná informace „%s“ nebyla "
+"poskytnuta."
+
+#: ../src/nm-vpnc-service.c:1168
+msgid "Don't quit when VPN connection terminates"
+msgstr "Neukončovat při uzavření spojení VPN"
+
+#: ../src/nm-vpnc-service.c:1169
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Povolit podrobný ladicí výpis (může prozradit hesla)"
+
+#: ../src/nm-vpnc-service.c:1192
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-service umožňuje NetworkManageru poskytovat služby pro připojování k "
+"Cisco IPsec VPN."
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
 msgid "General"
@@ -402,94 +494,17 @@ msgstr "M_etoda šifrování:"
 msgid "Tunnel _interface name:"
 msgstr "Název rozhraní _tunelu:"
 
-#: ../src/nm-vpnc-service.c:173
-#, c-format
-msgid "property '%s' invalid or not supported"
-msgstr "volba „%s“ není platná nebo podporovaná"
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "Správce spojení VPN (vpnc)"
 
-#: ../src/nm-vpnc-service.c:192
-#, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
-msgstr "cesta k souboru „%s“ u volby „%s“ není absolutní nebo neexistuje"
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Přidat, odstranit a upravit spojení VPN"
 
-#: ../src/nm-vpnc-service.c:205
-#, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
-msgstr "celočíselná volba „%s“ není platná nebo je mimo rozsah [%d -> %d]"
+#~ msgid "Saved"
+#~ msgstr "Uloženo"
 
-#: ../src/nm-vpnc-service.c:215
-#, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "pravdivostní volba „%s“ není platná (není ano či ne)"
+#~ msgid "Always Ask"
+#~ msgstr "Vždy se ptát"
 
-#: ../src/nm-vpnc-service.c:222
-#, c-format
-msgid "unhandled property '%s' type %d"
-msgstr "neošetřená volba „%s“ typu %d"
-
-#: ../src/nm-vpnc-service.c:239
-msgid "No VPN configuration options."
-msgstr "Žádné volby nastavení VPN."
-
-#: ../src/nm-vpnc-service.c:265
-msgid "No VPN secrets!"
-msgstr "Žádná hesla VPN!"
-
-#: ../src/nm-vpnc-service.c:613
-msgid "Could not find vpnc binary."
-msgstr "Nelze nalézt program vpnc."
-
-#: ../src/nm-vpnc-service.c:712
-#, c-format
-msgid "Config option '%s' invalid or unknown."
-msgstr "Volba nastavení „%s“ je neplatná nebo neznámá."
-
-#: ../src/nm-vpnc-service.c:745
-#, c-format
-msgid "Config option '%s' not an integer."
-msgstr "Volba nastavení „%s“ není číslo."
-
-#: ../src/nm-vpnc-service.c:918
-msgid "vpnc does not support interactive requests"
-msgstr "vpnc nepodporuje interaktivní požadavky"
-
-#: ../src/nm-vpnc-service.c:942
-msgid "Could not use new secrets as interactive mode is disabled."
-msgstr "Nelze použít nové tajemství, protože je vypnutý interaktivní režim."
-
-#: ../src/nm-vpnc-service.c:951 ../src/nm-vpnc-service.c:1026
-msgid ""
-"Could not process the request because the VPN connection settings were "
-"invalid."
-msgstr "Nelze zpracovat požadavek protože nastavení VPN nejsou platná."
-
-#: ../src/nm-vpnc-service.c:959
-msgid ""
-"Could not process the request because no pending authentication is required."
-msgstr ""
-"Nelze zpracovat požadavek, protože není požadováno žádné čekající ověření."
-
-#: ../src/nm-vpnc-service.c:971
-#, c-format
-msgid ""
-"Could not process the request because the requested info '%s' was not "
-"provided."
-msgstr ""
-"Nelze zpracovat požadavek protože požadovaná informace „%s“ nebyla "
-"poskytnuta."
-
-#: ../src/nm-vpnc-service.c:1156
-msgid "Don't quit when VPN connection terminates"
-msgstr "Neukončovat při uzavření spojení VPN"
-
-#: ../src/nm-vpnc-service.c:1157
-msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Povolit podrobný ladicí výpis (může prozradit hesla)"
-
-#: ../src/nm-vpnc-service.c:1180
-msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
-"NetworkManager."
-msgstr ""
-"nm-vpnc-service umožňuje NetworkManageru poskytovat služby pro připojování k "
-"Cisco IPsec VPN."
+#~ msgid "Not Required"
+#~ msgstr "Není vyžadováno"
