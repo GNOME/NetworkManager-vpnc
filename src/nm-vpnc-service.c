@@ -1171,6 +1171,7 @@ main (int argc, char *argv[])
 	GOptionContext *opt_ctx = NULL;
 	gs_free char *bus_name_free = NULL;
 	const char *bus_name;
+	GError *error = NULL;
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
@@ -1201,7 +1202,13 @@ main (int argc, char *argv[])
 	                              _("nm-vpnc-service provides integrated "
 	                                "Cisco Legacy IPsec VPN capability to NetworkManager."));
 
-	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
+	if (!g_option_context_parse (opt_ctx, &argc, &argv, &error)) {
+		g_warning ("Error parsing the command line options: %s", error->message);
+		g_option_context_free (opt_ctx);
+		g_clear_error (&error);
+		exit (EXIT_FAILURE);
+	}
+
 	g_option_context_free (opt_ctx);
 
 	bus_name = bus_name_free ?: NM_DBUS_SERVICE_VPNC;
