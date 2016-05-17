@@ -18,8 +18,13 @@
  * (C) Copyright 2013 Red Hat, Inc.
  */
 
+#include "nm-default.h"
+
 #include <string.h>
+
 #include "utils.h"
+
+#include "nm-utils/nm-test-utils.h"
 
 #define TEST_HEADER \
 	GString *output;\
@@ -264,10 +269,12 @@ Password for VPN person@1.1.1.1: ";
 	TEST_CLEANUP
 }
 
+NMTST_DEFINE ();
+
 int
 main (int argc, char **argv)
 {
-	g_test_init (&argc, &argv, NULL);
+	nmtst_init (&argc, &argv, TRUE);
 
 	g_test_add_func ("/output/simple", test_output_simple);
 	g_test_add_func ("/output/message", test_output_message);

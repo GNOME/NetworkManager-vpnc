@@ -16,6 +16,7 @@ missing
 mkinstalldirs
 POTFILES
 *.pot
+.dirstamp
 stamp-*
 .deps
 .libs
@@ -29,13 +30,23 @@ m4/libtool.m4
 m4/lt*.m4
 appdata/network-manager-vpnc.metainfo.xml
 
+/test-driver
+*/tests/*.log
+*/tests/*.trs
+/src/*.log
+/src/*.trs
+
+/cscope.*
+
 auth-dialog/nm-vpnc-auth-dialog
 auth-dialog/nm-vpnc-auth-dialog.desktop
 auth-dialog/nm-vpnc-auth-dialog.desktop.in
 nm-vpnc-service.name
 nm-vpnc.desktop
 properties/tests/test-import-export
+properties/tests/test-import-export-glib
 src/nm-vpnc-service
 src/nm-vpnc-service-vpnc-helper
+src/test-vpnc-output
 
 /NetworkManager-vpnc*.tar*

@@ -20,7 +20,8 @@
  * (C) Copyright 2005 Red Hat, Inc.
  */
 
-#include <glib.h>
+#include "nm-default.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -29,10 +30,6 @@
 #include <arpa/inet.h>
 #include <errno.h>
 #include <locale.h>
-#include <NetworkManager.h>
-
-#include "nm-vpnc-service.h"
-#include "nm-utils.h"
 
 static void
 helper_failed (GDBusProxy *proxy, const char *reason)
