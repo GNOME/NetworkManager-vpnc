@@ -249,6 +249,8 @@ main (int argc, char *argv[])
 	long int mtu = 1412;
 	guint32 prefix = 0;
 	gboolean netmask_found = FALSE;
+	const char *bus_name = NM_DBUS_SERVICE_VPNC;
+	int i;
 
 #if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
@@ -261,14 +263,24 @@ main (int argc, char *argv[])
 	if (tmp && strcmp (tmp, "connect") != 0)
 		exit (0);
 
+	/* very basic command line parsing */
+	for (i = 1; i < argc; i++) {
+		if (nm_streq (argv[i], "--bus-name")) {
+			if (++i == argc) {
+				g_warning ("Missing bus name argument");
+				exit (1);
+			}
+			bus_name = argv[i];
+		}
+	}
 
-        proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
-                                               G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES,
-                                               NULL,
-                                               NM_DBUS_SERVICE_VPNC,
-                                               NM_VPN_DBUS_PLUGIN_PATH,
-                                               NM_VPN_DBUS_PLUGIN_INTERFACE,
-                                               NULL, &err);
+	proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
+	                                       G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES,
+	                                       NULL,
+	                                       bus_name,
+	                                       NM_VPN_DBUS_PLUGIN_PATH,
+	                                       NM_VPN_DBUS_PLUGIN_INTERFACE,
+	                                       NULL, &err);
 	if (!proxy) {
 		g_warning ("Could not create a D-Bus proxy: %s", err->message);
 		g_error_free (err);

@@ -39,6 +39,6 @@ typedef struct {
 
 GType nm_vpnc_plugin_get_type (void);
 
-NMVPNCPlugin *nm_vpnc_plugin_new (void);
+NMVPNCPlugin *nm_vpnc_plugin_new (const char *bus_name);
 
 #endif /* NM_VPNC_PLUGIN_H */

@@ -753,6 +753,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 
 static gboolean
 nm_vpnc_config_write (gint vpnc_fd,
+                      const char *bus_name,
                       NMSettingConnection *s_con,
                       NMSettingVpn *s_vpn,
                       GError **error)
@@ -766,6 +767,12 @@ nm_vpnc_config_write (gint vpnc_fd,
 	const char *interface_name;
 	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
 
+	if (bus_name) {
+		g_assert (g_dbus_is_name (bus_name));
+		if (nm_streq (bus_name, NM_DBUS_SERVICE_VPNC))
+			bus_name = NULL;
+	}
+
 	interface_name = nm_setting_connection_get_interface_name(s_con);
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
@@ -776,7 +783,8 @@ nm_vpnc_config_write (gint vpnc_fd,
 	if (interface_name && strlen(interface_name) > 0)
 		write_config_option (vpnc_fd, "Interface name %s\n", interface_name);
 
-	write_config_option (vpnc_fd, "Script " NM_VPNC_HELPER_PATH "\n");
+	write_config_option (vpnc_fd, "Script %s%s%s\n", NM_VPNC_HELPER_PATH,
+	                     bus_name ? " --bus-name " : "", bus_name ?: "");
 
 	write_config_option (vpnc_fd,
 	                     NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT " %d\n",
@@ -857,6 +865,7 @@ _connect_common (NMVpnServicePlugin   *plugin,
 	NMSettingVpn *s_vpn;
 	NMSettingConnection *s_con;
 	char end[] = { 0x04 };
+	gs_free char *bus_name = NULL;
 
 	s_con = nm_connection_get_setting_connection (connection);
 	g_assert (s_con);
@@ -878,7 +887,8 @@ _connect_common (NMVpnServicePlugin   *plugin,
 	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
 		nm_connection_dump (connection);
 
-	if (!nm_vpnc_config_write (priv->infd, s_con, s_vpn, error))
+	g_object_get (plugin, NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, &bus_name, NULL);
+	if (!nm_vpnc_config_write (priv->infd, bus_name, s_con, s_vpn, error))
 		goto out;
 
 	if (interactive) {
@@ -1080,14 +1090,14 @@ nm_vpnc_plugin_class_init (NMVPNCPluginClass *vpnc_class)
 }
 
 NMVPNCPlugin *
-nm_vpnc_plugin_new (void)
+nm_vpnc_plugin_new (const char *bus_name)
 {
 	NMVPNCPlugin *plugin;
 	GError *error = NULL;
 
 	plugin = (NMVPNCPlugin *) g_initable_new (NM_TYPE_VPNC_PLUGIN, NULL, &error,
-	                                          NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME,
-	                                          NM_DBUS_SERVICE_VPNC,
+	                                          NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, bus_name,
+	                                          NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !debug,
 	                                          NULL);
 	if (!plugin) {
 		g_warning ("Failed to initialize a plugin instance: %s", error->message);
@@ -1160,10 +1170,14 @@ main (int argc, char *argv[])
 	NMVPNCPlugin *plugin;
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
+	gs_free char *bus_name_free = NULL;
+	const char *bus_name;
+	GError *error = NULL;
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
 		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
+		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name_free, N_("DBus name to use for this instance"), NULL },
 		{NULL}
 	};
 
@@ -1189,8 +1203,20 @@ main (int argc, char *argv[])
 	                              _("nm-vpnc-service provides integrated "
 	                                "Cisco Legacy IPsec VPN capability to NetworkManager."));
 
-	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
+	if (!g_option_context_parse (opt_ctx, &argc, &argv, &error)) {
+		g_warning ("Error parsing the command line options: %s", error->message);
+		g_option_context_free (opt_ctx);
+		g_clear_error (&error);
+		exit (EXIT_FAILURE);
+	}
+
 	g_option_context_free (opt_ctx);
+
+	bus_name = bus_name_free ?: NM_DBUS_SERVICE_VPNC;
+	if (!g_dbus_is_name (bus_name)) {
+		g_message ("invalid --bus-name");
+		exit (EXIT_FAILURE);
+	}
 
 	interactive_available = vpnc_check_interactive ();
 
@@ -1200,12 +1226,13 @@ main (int argc, char *argv[])
 	if (debug) {
 		g_message ("nm-vpnc-service (version " DIST_VERSION ") starting...");
 		g_message ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
+		g_message ("   uses%s --bus-name \"%s\"", bus_name_free ? "" : " default", bus_name);
 	}
 
 	if (system ("/sbin/modprobe tun") == -1)
 		exit (EXIT_FAILURE);
 
-	plugin = nm_vpnc_plugin_new ();
+	plugin = nm_vpnc_plugin_new (bus_name);
 	if (!plugin)
 		exit (EXIT_FAILURE);
 
