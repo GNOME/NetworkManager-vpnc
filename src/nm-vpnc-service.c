@@ -36,6 +36,7 @@
 #include <locale.h>
 
 #include "utils.h"
+#include "nm-utils/nm-shared-utils.h"
 #include "nm-vpn/nm-vpn-plugin-macros.h"
 
 #if !defined(DIST_VERSION)
@@ -1271,7 +1272,9 @@ main (int argc, char *argv[])
 	if (getenv ("VPNC_DEBUG"))
 		gl.debug = TRUE;
 
-	gl.log_level = gl.debug ? LOG_INFO : LOG_NOTICE;
+	gl.log_level = _nm_utils_ascii_str_to_int64 (getenv ("NM_VPN_LOG_LEVEL"),
+	                                             10, 0, LOG_DEBUG,
+	                                             gl.debug ? LOG_INFO : LOG_NOTICE);
 
 	_LOGD ("nm-vpnc-service (version " DIST_VERSION ") starting...");
 	_LOGD ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
