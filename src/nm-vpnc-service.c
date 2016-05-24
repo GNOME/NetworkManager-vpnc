@@ -41,8 +41,10 @@
 # define DIST_VERSION VERSION
 #endif
 
-static gboolean debug = FALSE;
-static GMainLoop *loop = NULL;
+static struct {
+	gboolean debug;
+	GMainLoop *loop;
+} gl/*obal*/;
 
 /* TRUE if we can use vpnc's interactive mode (version 0.5.4 or greater)*/
 static gboolean interactive_available = FALSE;
@@ -460,13 +462,13 @@ vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 	}
 
 	if (!hints[0]) {
-		if (debug)
+		if (gl.debug)
 			g_message ("Unhandled vpnc message '%s'", prompt);
 		g_free (prompt);
 		return;
 	}
 
-	if (debug)
+	if (gl.debug)
 		g_message ("Requesting new secrets: '%s' (%s)", prompt, hints[0]);
 
 	nm_vpn_service_plugin_secrets_required (NM_VPN_SERVICE_PLUGIN (plugin),
@@ -657,7 +659,7 @@ write_config_option (int fd, const char *format, ...)
 	if (x < 0)
 		g_warning ("Unexpected error in write(): %d", errno);
 
-	if (debug)
+	if (gl.debug)
 		g_print ("Config: %s", string);
 
 	g_free (string);
@@ -777,7 +779,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
-	if (debug)
+	if (gl.debug)
 		write_config_option (vpnc_fd, "Debug 3\n");
 
 	if (interface_name && strlen(interface_name) > 0)
@@ -884,7 +886,7 @@ _connect_common (NMVpnServicePlugin   *plugin,
 	if (!nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), interactive, error))
 		goto out;
 
-	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
+	if (getenv ("NM_VPNC_DUMP_CONNECTION") || gl.debug)
 		nm_connection_dump (connection);
 
 	g_object_get (plugin, NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, &bus_name, NULL);
@@ -969,7 +971,7 @@ real_new_secrets (NMVpnServicePlugin *plugin,
 		return FALSE;
 	}
 
-	if (debug)
+	if (gl.debug)
 		g_message ("VPN received new secrets; sending to '%s' vpnc stdin", priv->pending_auth);
 
 	secret = nm_setting_vpn_get_secret (s_vpn, priv->pending_auth);
@@ -1097,7 +1099,7 @@ nm_vpnc_plugin_new (const char *bus_name)
 
 	plugin = (NMVPNCPlugin *) g_initable_new (NM_TYPE_VPNC_PLUGIN, NULL, &error,
 	                                          NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, bus_name,
-	                                          NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !debug,
+	                                          NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !gl.debug,
 	                                          NULL);
 	if (!plugin) {
 		g_warning ("Failed to initialize a plugin instance: %s", error->message);
@@ -1111,7 +1113,7 @@ static void
 signal_handler (int signo)
 {
 	if (signo == SIGINT || signo == SIGTERM)
-		g_main_loop_quit (loop);
+		g_main_loop_quit (gl.loop);
 }
 
 static void
@@ -1176,7 +1178,7 @@ main (int argc, char *argv[])
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
-		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
+		{ "debug", 0, 0, G_OPTION_ARG_NONE, &gl.debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
 		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name_free, N_("D-Bus name to use for this instance"), NULL },
 		{NULL}
 	};
@@ -1221,9 +1223,9 @@ main (int argc, char *argv[])
 	interactive_available = vpnc_check_interactive ();
 
 	if (getenv ("VPNC_DEBUG"))
-		debug = TRUE;
+		gl.debug = TRUE;
 
-	if (debug) {
+	if (gl.debug) {
 		g_message ("nm-vpnc-service (version " DIST_VERSION ") starting...");
 		g_message ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
 		g_message ("   uses%s --bus-name \"%s\"", bus_name_free ? "" : " default", bus_name);
@@ -1236,20 +1238,21 @@ main (int argc, char *argv[])
 	if (!plugin)
 		exit (EXIT_FAILURE);
 
-	if (debug)
+	if (gl.debug)
 		g_message ("nm-vpnc-service (version " DIST_VERSION ") started.");
 
-	loop = g_main_loop_new (NULL, FALSE);
+	gl.loop = g_main_loop_new (NULL, FALSE);
 
 	if (!persist)
-		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), loop);
+		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), gl.loop);
 
 	setup_signals ();
-	g_main_loop_run (loop);
+	g_main_loop_run (gl.loop);
 
 	remove_pidfile (plugin);
 
-	g_main_loop_unref (loop);
+	g_main_loop_unref (gl.loop);
+	gl.loop = NULL;
 	g_object_unref (plugin);
 
 	exit (EXIT_SUCCESS);
