@@ -831,7 +831,10 @@ nm_vpnc_config_write (gint vpnc_fd,
 	if (interface_name && strlen(interface_name) > 0)
 		write_config_option (vpnc_fd, "Interface name %s", interface_name);
 
-	write_config_option (vpnc_fd, "Script %s%s%s", NM_VPNC_HELPER_PATH,
+	write_config_option (vpnc_fd, "Script %s %d %ld %s%s",
+	                     NM_VPNC_HELPER_PATH,
+	                     gl.log_level,
+	                     (long) getpid(),
 	                     bus_name ? " --bus-name " : "", bus_name ?: "");
 
 	write_config_option (vpnc_fd,

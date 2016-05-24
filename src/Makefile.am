@@ -34,7 +34,8 @@ nm_vpnc_service_vpnc_helper_SOURCES = \
 
 nm_vpnc_service_vpnc_helper_LDADD = \
 	$(GTHREAD_LIBS) \
-	$(LIBNM_LIBS)
+	$(LIBNM_LIBS) \
+	$(top_builddir)/shared/libnm-vpn-plugin-vpnc-shared.la
 
 ###############################################################################
 
