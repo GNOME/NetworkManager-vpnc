@@ -36,6 +36,7 @@
 #include <locale.h>
 
 #include "utils.h"
+#include "nm-vpn/nm-vpn-plugin-macros.h"
 
 #if !defined(DIST_VERSION)
 # define DIST_VERSION VERSION
@@ -43,6 +44,7 @@
 
 static struct {
 	gboolean debug;
+	int log_level;
 	GMainLoop *loop;
 } gl/*obal*/;
 
@@ -134,6 +136,30 @@ static ValidProperty valid_secrets[] = {
 	{ NM_VPNC_KEY_XAUTH_PASSWORD,        ITEM_TYPE_STRING, 0, 0 },
 	{ NULL,                              ITEM_TYPE_UNKNOWN, 0, 0 }
 };
+
+/*****************************************************************************/
+
+#define _NMLOG(level, ...) \
+	G_STMT_START { \
+		if (gl.log_level >= (level)) { \
+			g_print ("nm-vpnc[%ld] %-7s " _NM_UTILS_MACRO_FIRST (__VA_ARGS__) "\n", \
+			         (long) getpid (), \
+			         nm_utils_syslog_to_str (level) \
+			         _NM_UTILS_MACRO_REST (__VA_ARGS__)); \
+		} \
+	} G_STMT_END
+
+static gboolean
+_LOGD_enabled (void)
+{
+	return gl.log_level >= LOG_INFO;
+}
+
+#define _LOGD(...) _NMLOG(LOG_INFO,    __VA_ARGS__)
+#define _LOGI(...) _NMLOG(LOG_NOTICE,  __VA_ARGS__)
+#define _LOGW(...) _NMLOG(LOG_WARNING, __VA_ARGS__)
+
+/*****************************************************************************/
 
 typedef struct ValidateInfo {
 	ValidProperty *table;
@@ -346,7 +372,7 @@ vpnc_cleanup (NMVPNCPlugin *self, gboolean killit)
 			/* Try giving it some time to disconnect cleanly */
 			if (kill (priv->pid, SIGTERM) == 0)
 				g_timeout_add (2000, ensure_killed, GINT_TO_POINTER (priv->pid));
-			g_message ("Terminated vpnc daemon with PID %d.", priv->pid);
+			_LOGI ("Terminated vpnc daemon with PID %d.", priv->pid);
 		} else {
 			/* Already quit, just reap the child */
 			waitpid (priv->pid, NULL, WNOHANG);
@@ -377,13 +403,13 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			g_warning ("vpnc exited with error code %d", error);
+			_LOGW ("vpnc exited with error code %d", error);
 	} else if (WIFSTOPPED (status))
-		g_warning ("vpnc stopped unexpectedly with signal %d", WSTOPSIG (status));
+		_LOGW ("vpnc stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		g_warning ("vpnc died with signal %d", WTERMSIG (status));
+		_LOGW ("vpnc died with signal %d", WTERMSIG (status));
 	else
-		g_warning ("vpnc died from an unknown cause");
+		_LOGW ("vpnc died from an unknown cause");
 
 	priv->watch_id = 0;
 
@@ -453,7 +479,7 @@ vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 	priv->pending_auth = NULL;
 
 	prompt = g_strndup (data, dlen);
-	g_debug ("vpnc requested input: '%s'", prompt);
+	_LOGD ("vpnc requested input: '%s'", prompt);
 	for (i = 0; i < G_N_ELEMENTS (phmap); i++) {
 		if (g_str_has_prefix (prompt, phmap[i].prompt)) {
 			hints[0] = phmap[i].hint;
@@ -462,14 +488,12 @@ vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 	}
 
 	if (!hints[0]) {
-		if (gl.debug)
-			g_message ("Unhandled vpnc message '%s'", prompt);
+		_LOGD ("Unhandled vpnc message '%s'", prompt);
 		g_free (prompt);
 		return;
 	}
 
-	if (gl.debug)
-		g_message ("Requesting new secrets: '%s' (%s)", prompt, hints[0]);
+	_LOGD ("Requesting new secrets: '%s' (%s)", prompt, hints[0]);
 
 	nm_vpn_service_plugin_secrets_required (NM_VPN_SERVICE_PLUGIN (plugin),
 	                                priv->server_message->len ? priv->server_message->str : prompt,
@@ -501,7 +525,7 @@ data_available (GIOChannel *source,
 		g_assert_not_reached ();
 
 	if (condition & G_IO_ERR) {
-		g_warning ("Unexpected vpnc pipe error");
+		_LOGW ("Unexpected vpnc pipe error");
 		goto fail;
 	}
 
@@ -516,7 +540,7 @@ data_available (GIOChannel *source,
 		                                  &error);
 		if (status == G_IO_STATUS_ERROR) {
 			if (error)
-				g_warning ("vpnc read error: %s", error->message);
+				_LOGW ("vpnc read error: %s", error->message);
 			g_clear_error (&error);
 		}
 
@@ -631,10 +655,10 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 	                               interactive ? &priv->out.fd : NULL,
 	                               interactive ? &priv->err.fd : NULL,
 	                               error)) {
-		g_warning ("vpnc failed to start.  error: '%s'", (*error)->message);
+		_LOGW ("vpnc failed to start.  error: '%s'", (*error)->message);
 		return FALSE;
 	}
-	g_message ("vpnc started with pid %d", priv->pid);
+	_LOGI ("vpnc started with pid %d", priv->pid);
 
 	priv->watch_id = g_child_watch_add (priv->pid, vpnc_watch_cb, plugin);
 
@@ -657,7 +681,7 @@ write_config_option (int fd, const char *format, ...)
 	string = g_strdup_vprintf (format, args);
 	x = write (fd, string, strlen (string));
 	if (x < 0)
-		g_warning ("Unexpected error in write(): %d", errno);
+		_LOGW ("Unexpected error in write(): %d", errno);
 
 	if (gl.debug)
 		g_print ("Config: %s", string);
@@ -749,7 +773,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		/* ignored */
 	} else {
 		/* Just ignore unknown properties */
-		g_warning ("Don't know how to write property '%s' with type %d", key, type);
+		_LOGW ("Don't know how to write property '%s' with type %d", key, type);
 	}
 }
 
@@ -886,8 +910,10 @@ _connect_common (NMVpnServicePlugin   *plugin,
 	if (!nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), interactive, error))
 		goto out;
 
-	if (getenv ("NM_VPNC_DUMP_CONNECTION") || gl.debug)
+	if (_LOGD_enabled () || getenv ("NM_VPNC_DUMP_CONNECTION")) {
+		_LOGD ("connection:");
 		nm_connection_dump (connection);
+	}
 
 	g_object_get (plugin, NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, &bus_name, NULL);
 	if (!nm_vpnc_config_write (priv->infd, bus_name, s_con, s_vpn, error))
@@ -895,7 +921,7 @@ _connect_common (NMVpnServicePlugin   *plugin,
 
 	if (interactive) {
 		if (write (priv->infd, &end, sizeof (end)) < 0)
-			g_warning ("Unexpected error in write(): %d", errno);
+			_LOGW ("Unexpected error in write(): %d", errno);
 	} else {
 		close (priv->infd);
 		priv->infd = -1;
@@ -971,8 +997,7 @@ real_new_secrets (NMVpnServicePlugin *plugin,
 		return FALSE;
 	}
 
-	if (gl.debug)
-		g_message ("VPN received new secrets; sending to '%s' vpnc stdin", priv->pending_auth);
+	_LOGD ("VPN received new secrets; sending to '%s' vpnc stdin", priv->pending_auth);
 
 	secret = nm_setting_vpn_get_secret (s_vpn, priv->pending_auth);
 	if (!secret) {
@@ -1102,7 +1127,7 @@ nm_vpnc_plugin_new (const char *bus_name)
 	                                          NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !gl.debug,
 	                                          NULL);
 	if (!plugin) {
-		g_warning ("Failed to initialize a plugin instance: %s", error->message);
+		_LOGW ("Failed to initialize a plugin instance: %s", error->message);
 		g_error_free (error);
 	}
 
@@ -1147,7 +1172,7 @@ vpnc_check_interactive (void)
 
 	vpnc_path = find_vpnc ();
 	if (!vpnc_path) {
-		g_warning ("Failed to find vpnc for version check");
+		_LOGW ("Failed to find vpnc for version check");
 		return FALSE;
 	}
 
@@ -1159,7 +1184,7 @@ vpnc_check_interactive (void)
 			has_interactive = TRUE;
 		g_free (output);
 	} else {
-		g_warning ("Failed to start vpnc for version check: %s", error->message);
+		_LOGW ("Failed to start vpnc for version check: %s", error->message);
 		g_error_free (error);
 	}
 
@@ -1206,7 +1231,7 @@ main (int argc, char *argv[])
 	                                "Cisco Legacy IPsec VPN capability to NetworkManager."));
 
 	if (!g_option_context_parse (opt_ctx, &argc, &argv, &error)) {
-		g_warning ("Error parsing the command line options: %s", error->message);
+		g_printerr ("Error parsing the command line options: %s\n", error->message);
 		g_option_context_free (opt_ctx);
 		g_clear_error (&error);
 		exit (EXIT_FAILURE);
@@ -1216,7 +1241,7 @@ main (int argc, char *argv[])
 
 	bus_name = bus_name_free ?: NM_DBUS_SERVICE_VPNC;
 	if (!g_dbus_is_name (bus_name)) {
-		g_message ("invalid --bus-name");
+		g_printerr ("invalid --bus-name\n");
 		exit (EXIT_FAILURE);
 	}
 
@@ -1225,11 +1250,11 @@ main (int argc, char *argv[])
 	if (getenv ("VPNC_DEBUG"))
 		gl.debug = TRUE;
 
-	if (gl.debug) {
-		g_message ("nm-vpnc-service (version " DIST_VERSION ") starting...");
-		g_message ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
-		g_message ("   uses%s --bus-name \"%s\"", bus_name_free ? "" : " default", bus_name);
-	}
+	gl.log_level = gl.debug ? LOG_INFO : LOG_NOTICE;
+
+	_LOGD ("nm-vpnc-service (version " DIST_VERSION ") starting...");
+	_LOGD ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
+	_LOGD ("   uses%s --bus-name \"%s\"", bus_name_free ? "" : " default", bus_name);
 
 	if (system ("/sbin/modprobe tun") == -1)
 		exit (EXIT_FAILURE);
@@ -1238,8 +1263,7 @@ main (int argc, char *argv[])
 	if (!plugin)
 		exit (EXIT_FAILURE);
 
-	if (gl.debug)
-		g_message ("nm-vpnc-service (version " DIST_VERSION ") started.");
+	_LOGD ("nm-vpnc-service (version " DIST_VERSION ") started.");
 
 	gl.loop = g_main_loop_new (NULL, FALSE);
 
