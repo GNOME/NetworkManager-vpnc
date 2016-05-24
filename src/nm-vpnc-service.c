@@ -46,6 +46,7 @@
 static struct {
 	gboolean debug;
 	int log_level;
+	int log_level_native;
 	GMainLoop *loop;
 } gl/*obal*/;
 
@@ -825,8 +826,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
-	if (gl.debug)
-		write_config_option (vpnc_fd, "Debug 3");
+	write_config_option (vpnc_fd, "Debug %d", gl.log_level_native);
 
 	if (interface_name && strlen(interface_name) > 0)
 		write_config_option (vpnc_fd, "Interface name %s", interface_name);
@@ -1273,8 +1273,26 @@ main (int argc, char *argv[])
 		gl.debug = TRUE;
 
 	gl.log_level = _nm_utils_ascii_str_to_int64 (getenv ("NM_VPN_LOG_LEVEL"),
-	                                             10, 0, LOG_DEBUG,
-	                                             gl.debug ? LOG_INFO : LOG_NOTICE);
+	                                             10, 0, LOG_DEBUG, -1);
+
+	if (gl.log_level < 0)
+		gl.log_level_native = gl.debug ? 3 : 0;
+	else if (gl.log_level <= 0)
+		gl.log_level_native = 0;
+	else if (gl.log_level <= LOG_WARNING)
+		gl.log_level_native = 1;
+	else if (gl.log_level <= LOG_NOTICE)
+		gl.log_level_native = 2;
+	else if (gl.log_level <= LOG_INFO)
+		gl.log_level_native = 3;
+	else {
+		/* level 99 prints passwords. We don't want that even for the highest
+		 * level. So, choose one below. */
+		gl.log_level_native = 98;
+	}
+
+	if (gl.log_level < 0)
+		gl.log_level = gl.debug ? LOG_DEBUG : LOG_NOTICE;
 
 	_LOGD ("nm-vpnc-service (version " DIST_VERSION ") starting...");
 	_LOGD ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
