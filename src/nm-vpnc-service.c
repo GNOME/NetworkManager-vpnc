@@ -670,24 +670,26 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 	return TRUE;
 }
 
-static inline void
+__attribute__((__format__ (__printf__, 2, 3)))
+static void
 write_config_option (int fd, const char *format, ...)
 {
-	char *string;
+	gs_free char *string = NULL;
 	va_list args;
 	int x;
 
 	va_start (args, format);
 	string = g_strdup_vprintf (format, args);
+	va_end (args);
+
 	x = write (fd, string, strlen (string));
 	if (x < 0)
 		_LOGW ("Unexpected error in write(): %d", errno);
+	x = write (fd, "\n", 1);
+	if (x < 0)
+		_LOGW ("Unexpected error in write(): %d", errno);
 
-	if (gl.debug)
-		g_print ("Config: %s", string);
-
-	g_free (string);
-	va_end (args);
+	_LOGD ("Config: %s", string);
 }
 
 typedef struct {
@@ -745,10 +747,10 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		return;
 
 	if (type == ITEM_TYPE_STRING || type == ITEM_TYPE_PATH)
-		write_config_option (info->fd, "%s %s\n", (char *) key, (char *) value);
+		write_config_option (info->fd, "%s %s", (char *) key, (char *) value);
 	else if (type == ITEM_TYPE_BOOLEAN) {
 		if (!strcmp (value, "yes"))
-			write_config_option (info->fd, "%s\n", (char *) key);
+			write_config_option (info->fd, "%s", (char *) key);
 	} else if (type == ITEM_TYPE_INT) {
 		long int tmp_int;
 		char *tmp_str;
@@ -760,7 +762,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		tmp_int = strtol (value, NULL, 10);
 		if (errno == 0) {
 			tmp_str = g_strdup_printf ("%ld", tmp_int);
-			write_config_option (info->fd, "%s %s\n", (char *) key, tmp_str);
+			write_config_option (info->fd, "%s %s", (char *) key, tmp_str);
 			g_free (tmp_str);
 		} else {
 			g_set_error (&info->error,
@@ -804,16 +806,16 @@ nm_vpnc_config_write (gint vpnc_fd,
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
 	if (gl.debug)
-		write_config_option (vpnc_fd, "Debug 3\n");
+		write_config_option (vpnc_fd, "Debug 3");
 
 	if (interface_name && strlen(interface_name) > 0)
-		write_config_option (vpnc_fd, "Interface name %s\n", interface_name);
+		write_config_option (vpnc_fd, "Interface name %s", interface_name);
 
-	write_config_option (vpnc_fd, "Script %s%s%s\n", NM_VPNC_HELPER_PATH,
+	write_config_option (vpnc_fd, "Script %s%s%s", NM_VPNC_HELPER_PATH,
 	                     bus_name ? " --bus-name " : "", bus_name ?: "");
 
 	write_config_option (vpnc_fd,
-	                     NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT " %d\n",
+	                     NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT " %d",
 	                     NM_VPNC_UDP_ENCAPSULATION_PORT);
 
 	local_port = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
@@ -822,7 +824,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 		 * Otherwise vpnc would try to use 500 and could clash with other IKE processes.
 		 */
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_LOCAL_PORT " %d\n",
+		                     NM_VPNC_KEY_LOCAL_PORT " %d",
 		                     NM_VPNC_LOCAL_PORT_ISAKMP);
 	}
 
@@ -832,7 +834,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 	    && strlen (default_username)
 	    && (!props_username || !strlen (props_username))) {
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_XAUTH_USER " %s\n",
+		                     NM_VPNC_KEY_XAUTH_USER " %s",
 		                     default_username);
 	}
 
@@ -840,11 +842,11 @@ nm_vpnc_config_write (gint vpnc_fd,
 	props_natt_mode = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
 	if (!props_natt_mode || !strlen (props_natt_mode)) {
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s\n",
+		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s",
 		                     NM_VPNC_NATT_MODE_CISCO);
 	} else if (props_natt_mode && (!strcmp (props_natt_mode, NM_VPNC_NATT_MODE_NATT_ALWAYS))) {
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s\n",
+		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s",
 		                     NM_VPNC_NATT_MODE_NATT_ALWAYS);
 	}
 
@@ -1010,7 +1012,7 @@ real_new_secrets (NMVpnServicePlugin *plugin,
 	}
 
 	/* Ignoring secret flags here; if vpnc requested the item, we must provide it */
-	write_config_option (priv->infd, "%s\n", secret);
+	write_config_option (priv->infd, "%s", secret);
 
 	priv->pending_auth = NULL;
 	return TRUE;
