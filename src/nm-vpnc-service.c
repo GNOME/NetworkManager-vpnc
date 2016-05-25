@@ -89,6 +89,7 @@ typedef enum {
 	ITEM_TYPE_UNKNOWN = 0,
 	ITEM_TYPE_IGNORED,
 	ITEM_TYPE_STRING,
+	ITEM_TYPE_SECRET,
 	ITEM_TYPE_BOOLEAN,
 	ITEM_TYPE_INT,
 	ITEM_TYPE_PATH
@@ -132,8 +133,8 @@ static ValidProperty valid_properties[] = {
 };
 
 static ValidProperty valid_secrets[] = {
-	{ NM_VPNC_KEY_SECRET,                ITEM_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_XAUTH_PASSWORD,        ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_SECRET,                ITEM_TYPE_SECRET, 0, 0 },
+	{ NM_VPNC_KEY_XAUTH_PASSWORD,        ITEM_TYPE_SECRET, 0, 0 },
 	{ NULL,                              ITEM_TYPE_UNKNOWN, 0, 0 }
 };
 
@@ -205,6 +206,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 	case ITEM_TYPE_IGNORED:
 		break; /* technically valid, but unused */
 	case ITEM_TYPE_STRING:
+	case ITEM_TYPE_SECRET:
 		break; /* valid */
 	case ITEM_TYPE_PATH:
 		if (   !value
@@ -692,6 +694,21 @@ write_config_option (int fd, const char *format, ...)
 	_LOGD ("Config: %s", string);
 }
 
+static void
+write_config_option_secret (int fd, const char *key, const char *value)
+{
+	gs_free char *string = NULL;
+	int x;
+
+	string = g_strdup_printf ("%s %s\n", key, value);
+
+	x = write (fd, string, strlen (string));
+	if (x < 0)
+		_LOGW ("Unexpected error in write(): %d", errno);
+
+	_LOGD ("Config: %s <hidden>", key);
+}
+
 typedef struct {
 	int fd;
 	GError *error;
@@ -748,6 +765,8 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 
 	if (type == ITEM_TYPE_STRING || type == ITEM_TYPE_PATH)
 		write_config_option (info->fd, "%s %s", (char *) key, (char *) value);
+	else if (type == ITEM_TYPE_SECRET)
+		write_config_option_secret (info->fd, key, value);
 	else if (type == ITEM_TYPE_BOOLEAN) {
 		if (!strcmp (value, "yes"))
 			write_config_option (info->fd, "%s", (char *) key);
