@@ -31,19 +31,49 @@
 #include <errno.h>
 #include <locale.h>
 
+#include "utils.h"
+#include "nm-utils/nm-shared-utils.h"
+#include "nm-vpn/nm-vpn-plugin-macros.h"
+
+extern char **environ;
+
+static struct {
+	int log_level;
+	const char *log_prefix_token;
+} gl/*obal*/;
+
+/*****************************************************************************/
+
+#define _NMLOG(level, ...) \
+	G_STMT_START { \
+		if (gl.log_level >= (level)) { \
+			g_print ("nm-vpnc[%s]: %-7s [helper-%ld] " _NM_UTILS_MACRO_FIRST (__VA_ARGS__) "\n", \
+			         gl.log_prefix_token ?: "???", \
+			         nm_utils_syslog_to_str (level), \
+			         (long) getpid () \
+			         _NM_UTILS_MACRO_REST (__VA_ARGS__)); \
+		} \
+	} G_STMT_END
+
+#define _LOGD(...) _NMLOG(LOG_INFO,    __VA_ARGS__)
+#define _LOGI(...) _NMLOG(LOG_NOTICE,  __VA_ARGS__)
+#define _LOGW(...) _NMLOG(LOG_WARNING, __VA_ARGS__)
+
+/*****************************************************************************/
+
 static void
 helper_failed (GDBusProxy *proxy, const char *reason)
 {
 	GError *err = NULL;
 
-	g_warning ("nm-nvpnc-service-vpnc-helper did not receive a valid %s from vpnc", reason);
+	_LOGW ("nm-nvpnc-service-vpnc-helper did not receive a valid %s from vpnc", reason);
 
 	if (!g_dbus_proxy_call_sync (proxy, "SetFailure",
 	                             g_variant_new ("(s)", reason),
 	                             G_DBUS_CALL_FLAGS_NONE, -1,
 	                             NULL,
 	                             &err)) {
-		g_warning ("Could not send failure information: %s", err->message);
+		_LOGW ("Could not send failure information: %s", err->message);
 		g_error_free (err);
 	}
 
@@ -60,7 +90,7 @@ send_ip4_config (GDBusProxy *proxy, GVariant *config)
 	                             G_DBUS_CALL_FLAGS_NONE, -1,
 	                             NULL,
 	                             &err)) {
-		g_warning ("Could not send IPv4 configuration: %s", err->message);
+		_LOGW ("Could not send IPv4 configuration: %s", err->message);
 		g_error_free (err);
 	}
 }
@@ -179,7 +209,7 @@ get_ip4_routes (void)
 		snprintf (buf, BUFLEN, "CISCO_SPLIT_INC_%d_ADDR", i);
 		tmp = getenv (buf);
 		if (!tmp || inet_pton (AF_INET, tmp, &network) <= 0) {
-			g_warning ("Ignoring invalid static route address '%s'", tmp ? tmp : "NULL");
+			_LOGW ("Ignoring invalid static route address '%s'", tmp ? tmp : "NULL");
 			continue;
 		}
 
@@ -191,7 +221,7 @@ get_ip4_routes (void)
 			errno = 0;
 			tmp_prefix = strtol (tmp, NULL, 10);
 			if (errno || tmp_prefix <= 0 || tmp_prefix > 32) {
-				g_warning ("Ignoring invalid static route prefix '%s'", tmp ? tmp : "NULL");
+				_LOGW ("Ignoring invalid static route prefix '%s'", tmp ? tmp : "NULL");
 				continue;
 			}
 			prefix = (guint32) tmp_prefix;
@@ -201,7 +231,7 @@ get_ip4_routes (void)
 			snprintf (buf, BUFLEN, "CISCO_SPLIT_INC_%d_MASK", i);
 			tmp = getenv (buf);
 			if (!tmp || inet_pton (AF_INET, tmp, &netmask) <= 0) {
-				g_warning ("Ignoring invalid static route netmask '%s'", tmp ? tmp : "NULL");
+				_LOGW ("Ignoring invalid static route netmask '%s'", tmp ? tmp : "NULL");
 				continue;
 			}
 			prefix = nm_utils_ip4_netmask_to_prefix (netmask.s_addr);
@@ -242,6 +272,7 @@ main (int argc, char *argv[])
 {
 	GDBusProxy *proxy;
 	char *tmp;
+	char **iter;
 	GVariantBuilder config;
 	GVariant *val;
 	GError *err = NULL;
@@ -251,6 +282,7 @@ main (int argc, char *argv[])
 	gboolean netmask_found = FALSE;
 	const char *bus_name = NM_DBUS_SERVICE_VPNC;
 	int i;
+	char *str = NULL;
 
 #if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
@@ -264,15 +296,33 @@ main (int argc, char *argv[])
 		exit (0);
 
 	/* very basic command line parsing */
-	for (i = 1; i < argc; i++) {
+	if (argc <= 2) {
+		g_printerr ("Missing arguments (requires <LEVEL> <PREFIX_TOKEN>)\n");
+		exit (1);
+	}
+	i = 1;
+	gl.log_level = _nm_utils_ascii_str_to_int64 (argv[i++], 10, 0, LOG_DEBUG, 0);
+	gl.log_prefix_token = argv[i++];
+
+	for (; i < argc; i++) {
 		if (nm_streq (argv[i], "--bus-name")) {
 			if (++i == argc) {
-				g_warning ("Missing bus name argument");
+				g_printerr ("Missing bus name argument\n");
 				exit (1);
 			}
 			bus_name = argv[i];
+			if (!g_dbus_is_name (bus_name)) {
+				g_printerr ("Invalid bus name argument\n");
+				exit (1);
+			}
 		}
 	}
+
+	_LOGD ("command line: %s", (str = g_strjoinv (" ", argv)));
+	g_clear_pointer (&str, g_free);
+
+	for (iter = environ; iter && *iter; iter++)
+		_LOGD ("environment: %s", *iter);
 
 	proxy = g_dbus_proxy_new_for_bus_sync (G_BUS_TYPE_SYSTEM,
 	                                       G_DBUS_PROXY_FLAGS_DO_NOT_LOAD_PROPERTIES,
@@ -282,7 +332,7 @@ main (int argc, char *argv[])
 	                                       NM_VPN_DBUS_PLUGIN_INTERFACE,
 	                                       NULL, &err);
 	if (!proxy) {
-		g_warning ("Could not create a D-Bus proxy: %s", err->message);
+		_LOGW ("Could not create a D-Bus proxy: %s", err->message);
 		g_error_free (err);
 		exit (1);
 	}
@@ -385,7 +435,7 @@ main (int argc, char *argv[])
 		errno = 0;
 		mtu = strtol (tmp, NULL, 10);
 		if (errno || mtu < 0 || mtu > 20000) {
-			g_warning ("Ignoring invalid tunnel MTU '%s'", tmp);
+			_LOGW ("Ignoring invalid tunnel MTU '%s'", tmp);
 			mtu = 1412;
 		}
 	}
