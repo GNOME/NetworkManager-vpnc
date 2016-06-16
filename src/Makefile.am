@@ -13,10 +13,17 @@ AM_CPPFLAGS = \
 
 libexec_PROGRAMS = nm-vpnc-service nm-vpnc-service-vpnc-helper
 
+shared_sources = \
+	$(top_srcdir)/shared/nm-utils/nm-shared-utils.c \
+	$(top_srcdir)/shared/nm-utils/nm-shared-utils.h \
+	$(top_srcdir)/shared/nm-utils/nm-vpn-plugin-macros.h \
+	$(top_srcdir)/shared/nm-service-defines.h \
+	$(NULL)
+
 ###############################################################################
 
 nm_vpnc_service_SOURCES = \
-	$(top_srcdir)/shared/nm-service-defines.h \
+	$(shared_sources) \
 	nm-vpnc-service.c \
 	nm-vpnc-service.h \
 	utils.c \
@@ -24,18 +31,17 @@ nm_vpnc_service_SOURCES = \
 
 nm_vpnc_service_LDADD = \
 	$(GLIB_LIBS) \
-	$(LIBNM_LIBS) \
-	$(top_builddir)/shared/libnm-vpn-plugin-vpnc-shared.la
+	$(LIBNM_LIBS)
 
 ###############################################################################
 
 nm_vpnc_service_vpnc_helper_SOURCES = \
+	$(shared_sources) \
 	nm-vpnc-service-vpnc-helper.c
 
 nm_vpnc_service_vpnc_helper_LDADD = \
 	$(GTHREAD_LIBS) \
-	$(LIBNM_LIBS) \
-	$(top_builddir)/shared/libnm-vpn-plugin-vpnc-shared.la
+	$(LIBNM_LIBS)
 
 ###############################################################################
 

@@ -9,6 +9,10 @@ plugin_LTLIBRARIES += libnm-vpnc-properties.la
 endif
 endif
 
+shared_sources = \
+    $(top_srcdir)/shared/nm-service-defines.h \
+    $(NULL)
+
 plugin_sources = \
     nm-vpnc-helper.c \
     nm-vpnc-helper.h \
@@ -34,6 +38,9 @@ common_CFLAGS = \
 ###############################################################################
 
 libnm_vpn_plugin_vpnc_la_SOURCES = \
+    $(shared_sources) \
+    $(top_srcdir)/shared/nm-utils/nm-vpn-plugin-utils.c \
+    $(top_srcdir)/shared/nm-utils/nm-vpn-plugin-utils.h \
     $(plugin_sources)
 
 libnm_vpn_plugin_vpnc_la_CFLAGS = \
@@ -43,8 +50,7 @@ libnm_vpn_plugin_vpnc_la_CFLAGS = \
     $(LIBNM_CFLAGS)
 
 libnm_vpn_plugin_vpnc_la_LIBADD = \
-    $(LIBNM_LIBS) \
-    $(top_builddir)/shared/libnm-vpn-editor-utils-shared.la
+    $(LIBNM_LIBS)
 
 libnm_vpn_plugin_vpnc_la_LDFLAGS = \
     -avoid-version \
@@ -53,6 +59,7 @@ libnm_vpn_plugin_vpnc_la_LDFLAGS = \
 ###############################################################################
 
 libnm_vpn_plugin_vpnc_editor_la_SOURCES = \
+    $(shared_sources) \
     $(editor_sources)
 
 libnm_vpn_plugin_vpnc_editor_la_CFLAGS = \
@@ -74,6 +81,7 @@ libnm_vpn_plugin_vpnc_editor_la_LDFLAGS = \
 ###############################################################################
 
 libnm_vpnc_properties_la_SOURCES = \
+    $(shared_sources) \
     $(plugin_sources) \
     $(editor_sources)
 
