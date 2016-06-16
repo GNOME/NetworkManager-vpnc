@@ -38,7 +38,7 @@
 #ifdef NM_VPN_OLD
 #include "nm-vpnc-editor.h"
 #else
-#include "nm-vpn/nm-vpn-plugin-utils.h"
+#include "nm-utils/nm-vpn-plugin-utils.h"
 #endif
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
