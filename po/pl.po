@@ -1,28 +1,24 @@
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Aviary.pl
-# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
-# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
-# gnomepl@aviary.pl
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Polish translation for network-manager-vpnc.
+# Copyright © 2008-2016 the network-manager-vpnc authors.
+# This file is distributed under the same license as the network-manager-vpnc package.
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008-2009.
 # Piotr Drąg <piotrdrag@gmail.com>, 2010-2016.
-# Aviary.pl <gnomepl@aviary.pl>, 2008-2016.
+# Aviary.pl <community-poland@mozilla.org>, 2008-2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-19 15:33+0200\n"
-"PO-Revision-Date: 2016-05-19 15:34+0200\n"
+"POT-Creation-Date: 2016-08-17 19:51+0200\n"
+"PO-Revision-Date: 2016-08-17 19:52+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: Poland\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -39,7 +35,7 @@ msgstr "Obsługa konfigurowania wirtualnych sieci prywatnych opartych na VPNC."
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
 msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
 msgstr ""
-"Zgodne z koncentratorami VPN firmy Cisco skonfigurowanymi do używania IPsec."
+"Zgodne z koncentratorami VPN firmy Cisco skonfigurowanymi do używania IPsec."
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
 msgid "The NetworkManager Developers"
@@ -75,15 +71,15 @@ msgstr ""
 
 #: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
-msgstr "Zgodny z Cisco VPN (vpnc)"
+msgstr "Zgodny z Cisco VPN (vpnc)"
 
 #: ../properties/nm-vpnc-editor-plugin.c:45
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Zgodny z wieloma bramami VPN IPsec, jak Cisco, Juniper, Netscreen i "
-"Sonicwall."
+"Zgodny z wieloma bramami VPN IPsec, jak Cisco, Juniper, Netscreen "
+"i Sonicwall."
 
 #: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
@@ -97,7 +93,7 @@ msgstr ""
 "Plik ustawień VPN „%s” określa, że ruch VPN ma być tunelowany poprzez TCP. "
 "Opcja nie jest jednak obsługiwana przez oprogramowanie vpnc.\n"
 "\n"
-"Połączenie z wyłączonym tunelowaniem TCP może nie działać poprawnie."
+"Połączenie z wyłączonym tunelowaniem TCP może nie działać poprawnie."
 
 #: ../properties/nm-vpnc-editor.c:374
 msgid "Secure (default)"
@@ -105,7 +101,7 @@ msgstr "Bezpieczna (domyślnie)"
 
 #: ../properties/nm-vpnc-editor.c:377
 msgid "Weak (use with caution)"
-msgstr "Słaba (używać z ostrożnością)"
+msgstr "Słaba (używać z ostrożnością)"
 
 #: ../properties/nm-vpnc-editor.c:385
 msgid "None (completely insecure)"
@@ -167,67 +163,67 @@ msgstr "Wybierz certyfikat CA…"
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Certyfikaty PEM (*.pem, *.crt, *.cer)"
 
-#: ../src/nm-vpnc-service.c:170
+#: ../src/nm-vpnc-service.c:201
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "właściwość „%s” jest nieprawidłowa lub nieobsługiwana"
 
-#: ../src/nm-vpnc-service.c:189
+#: ../src/nm-vpnc-service.c:221
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr ""
 "właściwość „%s” ścieżki do pliku „%s” nie jest bezwzględna lub nie istnieje"
 
-#: ../src/nm-vpnc-service.c:202
+#: ../src/nm-vpnc-service.c:234
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr ""
 "nieprawidłowa właściwość liczby całkowitej „%s” lub jest poza zakresem [%d -"
 "> %d]"
 
-#: ../src/nm-vpnc-service.c:212
+#: ../src/nm-vpnc-service.c:244
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr ""
 "nieprawidłowa właściwość zmiennej logicznej „%s” (nie wynosi „yes” lub „no”)"
 
-#: ../src/nm-vpnc-service.c:219
+#: ../src/nm-vpnc-service.c:251
 #, c-format
 msgid "unhandled property '%s' type %d"
 msgstr "nieobsługiwana właściwość „%s” typu „%d”"
 
-#: ../src/nm-vpnc-service.c:236
+#: ../src/nm-vpnc-service.c:268
 msgid "No VPN configuration options."
 msgstr "Brak opcji konfiguracji VPN."
 
-#: ../src/nm-vpnc-service.c:262
+#: ../src/nm-vpnc-service.c:294
 msgid "No VPN secrets!"
 msgstr "Brak haseł VPN."
 
-#: ../src/nm-vpnc-service.c:609
+#: ../src/nm-vpnc-service.c:639
 msgid "Could not find vpnc binary."
 msgstr "Nie można odnaleźć pliku binarnego vpnc."
 
-#: ../src/nm-vpnc-service.c:710
+#: ../src/nm-vpnc-service.c:757
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "Opcja konfiguracji „%s” jest nieprawidłowa lub nieznana."
 
-#: ../src/nm-vpnc-service.c:743
+#: ../src/nm-vpnc-service.c:792
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "Opcja konfiguracji „%s” nie jest liczbą całkowitą."
 
-#: ../src/nm-vpnc-service.c:927
+#: ../src/nm-vpnc-service.c:980
 msgid "vpnc does not support interactive requests"
 msgstr "vpnc nie obsługuje interaktywnych żądań"
 
-#: ../src/nm-vpnc-service.c:951
+#: ../src/nm-vpnc-service.c:1004
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "Nie można użyć nowych haseł, ponieważ tryb interaktywny jest wyłączony."
 
-#: ../src/nm-vpnc-service.c:960 ../src/nm-vpnc-service.c:1035
+#: ../src/nm-vpnc-service.c:1013 ../src/nm-vpnc-service.c:1087
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -235,14 +231,14 @@ msgstr ""
 "Nie można przetworzyć żądania, ponieważ ustawienia połączenia VPN są "
 "nieprawidłowe."
 
-#: ../src/nm-vpnc-service.c:968
+#: ../src/nm-vpnc-service.c:1021
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
 "Nie można przetworzyć żądania, ponieważ żadne oczekujące uwierzytelnienie "
 "nie jest wymagane."
 
-#: ../src/nm-vpnc-service.c:980
+#: ../src/nm-vpnc-service.c:1032
 #, c-format
 msgid ""
 "Could not process the request because the requested info '%s' was not "
@@ -250,19 +246,19 @@ msgid ""
 msgstr ""
 "Nie można przetworzyć żądania, ponieważ nie podano żądanych informacji „%s”."
 
-#: ../src/nm-vpnc-service.c:1178
+#: ../src/nm-vpnc-service.c:1230
 msgid "Don't quit when VPN connection terminates"
 msgstr "Bez kończenia działania, kiedy połączenie VPN jest kończone"
 
-#: ../src/nm-vpnc-service.c:1179
+#: ../src/nm-vpnc-service.c:1231
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Więcej komunikatów debugowania (może wyjawić hasła)"
 
-#: ../src/nm-vpnc-service.c:1180
+#: ../src/nm-vpnc-service.c:1232
 msgid "D-Bus name to use for this instance"
 msgstr "Nazwa D-Bus dla tego wystąpienia"
 
-#: ../src/nm-vpnc-service.c:1203
+#: ../src/nm-vpnc-service.c:1255
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -273,7 +269,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:185
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "klasa obiektów „%s” nie posiada właściwości o nazwie „%s”"
+msgstr "klasa obiektów „%s” nie posiada właściwości o nazwie „%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:192
 #, c-format
@@ -298,7 +294,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:216
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
-msgstr "nie można ustawić właściwości „%s” typu „%s” z wartości typu „%s”"
+msgstr "nie można ustawić właściwości „%s” typu „%s” z wartości typu „%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:227
 #, c-format
@@ -309,22 +305,22 @@ msgstr ""
 "wartość „%s” typu „%s” jest nieprawidłowa lub spoza zakresu dla właściwości "
 "„%s” typu „%s”"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:80
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr "brak pliku wtyczki „%s”"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:86
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr "nie można wczytać wtyczki edytora: %s"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:95
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "nie można wczytać generatora %s z wtyczki: %s"
+msgstr "nie można wczytać generatora %s z wtyczki: %s"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:121
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
 msgid "unknown error creating editor instance"
 msgstr "nieznany błąd podczas tworzenia wystąpienia edytora"
 
@@ -418,7 +414,7 @@ msgid ""
 "CA certificate in PEM format\n"
 "config: CA-File"
 msgstr ""
-"Certyfikat CA w formacie PEM\n"
+"Certyfikat CA w formacie PEM\n"
 "konfiguracja: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
@@ -471,7 +467,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
-msgstr "Przesyłanie i zabezpieczenia"
+msgstr "Przesyłanie i zabezpieczenia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
 msgid "Disable Dead _Peer Detection"
