@@ -1,18 +1,18 @@
 # Serbian translation of network-manager-vpnc.
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2011—2014.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2011—2016.
 # Copyright (C) 2011 THE F'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the F package.
-# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2011—2014.
+# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2011—2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=Network"
 "Manager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-10-28 11:06+0000\n"
-"PO-Revision-Date: 2014-10-28 22:10+0200\n"
+"POT-Creation-Date: 2016-05-19 13:35+0000\n"
+"PO-Revision-Date: 2016-08-25 21:05+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
-"Language-Team: Serbian <gnom@prevod.org>\n"
-"Language: sr@latin\n"
+"Language-Team: srpski <gnome-sr@googlegroups.org>\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,48 +20,59 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#: ../auth-dialog/main.c:175
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Stari Ciskov VPNC klijent"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Klijent za Ciskovu IPsec virtuelnu privatnu mrežu"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "Podrška za podešavanje virtuelnih privatnih mreža zasnovanih na VPNC-u."
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr "Saglasno sa Ciskovim VPN koncentratorima podešenim za korišćenje IPsec-a"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "Programeri Upravnika mreže"
+
+#: ../auth-dialog/main.c:165
 #, c-format
-#| msgid "Authenticate VPN"
 msgid "Authenticate VPN %s"
 msgstr "Potvrdi VPN %s"
 
-#: ../auth-dialog/main.c:191
+#: ../auth-dialog/main.c:181
 msgid "Password:"
 msgstr "Lozinka:"
 
-#: ../auth-dialog/main.c:199
+#: ../auth-dialog/main.c:189
 msgid "Group Password:"
 msgstr "Lozinka grupe:"
 
-#: ../auth-dialog/main.c:234
+#: ../auth-dialog/main.c:224
 msgid "Authenticate VPN"
 msgstr "Potvrdi VPN"
 
-#: ../auth-dialog/main.c:243
+#: ../auth-dialog/main.c:233
 msgid "_Group Password:"
 msgstr "Lozinka _grupe:"
 
-#: ../auth-dialog/main.c:501
+#: ../auth-dialog/main.c:491
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Morate da potvrdite identitet da biste mogli da pristupite virtuelnoj "
 "privatnoj mreži „%s“."
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "VPN Connection Manager (vpnc)"
-msgstr "Upravnik VPN veza (vpnc)"
-
-#: ../nm-vpnc.desktop.in.h:2
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Dodajte, uklanjajte i uređujte VPN veze"
-
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisko saglasan VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -69,91 +80,7 @@ msgstr ""
 "Saglasno sa raznim VPN mrežnim prolazima zasnovanim na Cisko, Džaniper, "
 "Netskrin i Sonikvol IPSec-u."
 
-#: ../properties/nm-vpnc.c:338
-msgid "Saved"
-msgstr "Sačuvano"
-
-#: ../properties/nm-vpnc.c:345
-msgid "Always Ask"
-msgstr "Pitaj uvek"
-
-#: ../properties/nm-vpnc.c:352
-msgid "Not Required"
-msgstr "Nije zatraženo"
-
-#: ../properties/nm-vpnc.c:504
-msgid "Secure (default)"
-msgstr "Bezbednost (osnovno)"
-
-#: ../properties/nm-vpnc.c:507
-msgid "Weak (use with caution)"
-msgstr "Slabo (koristite sa oprezom)"
-
-#: ../properties/nm-vpnc.c:515
-msgid "None (completely insecure)"
-msgstr "Ništa (potpuno nesigurna)"
-
-#: ../properties/nm-vpnc.c:581
-msgid "Cisco (default)"
-msgstr "Cisko (osnovno)"
-
-#: ../properties/nm-vpnc.c:588
-msgid "Netscreen"
-msgstr "Netskrin"
-
-#: ../properties/nm-vpnc.c:629
-msgid "NAT-T when available (default)"
-msgstr "NAT-T kada je dostupno (osnovno)"
-
-#: ../properties/nm-vpnc.c:636
-msgid "NAT-T always"
-msgstr "NAT-T uvek"
-
-#: ../properties/nm-vpnc.c:643
-msgid "Cisco UDP"
-msgstr "Cisko UDP"
-
-#: ../properties/nm-vpnc.c:650
-msgid "Disabled"
-msgstr "Isključeno"
-
-#: ../properties/nm-vpnc.c:670 ../properties/nm-vpnc.c:756
-msgid "DH Group 1"
-msgstr "DH grupa 1"
-
-#: ../properties/nm-vpnc.c:677
-msgid "DH Group 2 (default)"
-msgstr "DH grupa 2 (osnovno)"
-
-#: ../properties/nm-vpnc.c:684 ../properties/nm-vpnc.c:770
-msgid "DH Group 5"
-msgstr "DH grupa 5"
-
-#: ../properties/nm-vpnc.c:742
-msgid "Server (default)"
-msgstr "Server (osnovno)"
-
-#: ../properties/nm-vpnc.c:749
-msgid "None"
-msgstr "Ništa"
-
-#: ../properties/nm-vpnc.c:763
-msgid "DH Group 2"
-msgstr "DH grupa 2"
-
-#: ../properties/nm-vpnc.c:810
-msgid "Choose a Certificate Authority (CA) certificate..."
-msgstr "Izaberite uverenje izdavača ovlašćenja..."
-
-#: ../properties/nm-vpnc.c:814
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "PEM uverenja (*.pem, *.crt, *.cer)"
-
-#: ../properties/nm-vpnc.c:1571
-msgid "TCP tunneling not supported"
-msgstr "TCP tunelisanje nije podržano"
-
-#: ../properties/nm-vpnc.c:1573
+#: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -167,6 +94,225 @@ msgstr ""
 "\n"
 "Veza može još uvek biti napravljena, sa isključenim TCP tunelisanjem, međutim "
 "možda neće raditi kako što se očekuje."
+
+#: ../properties/nm-vpnc-editor.c:374
+msgid "Secure (default)"
+msgstr "Bezbednost (osnovno)"
+
+#: ../properties/nm-vpnc-editor.c:377
+msgid "Weak (use with caution)"
+msgstr "Slabo (koristite sa oprezom)"
+
+#: ../properties/nm-vpnc-editor.c:385
+msgid "None (completely insecure)"
+msgstr "Ništa (potpuno nesigurna)"
+
+#: ../properties/nm-vpnc-editor.c:449
+msgid "Cisco (default)"
+msgstr "Cisko (osnovno)"
+
+#: ../properties/nm-vpnc-editor.c:456
+msgid "Netscreen"
+msgstr "Netskrin"
+
+#: ../properties/nm-vpnc-editor.c:497
+msgid "NAT-T when available (default)"
+msgstr "NAT-T kada je dostupno (osnovno)"
+
+#: ../properties/nm-vpnc-editor.c:504
+msgid "NAT-T always"
+msgstr "NAT-T uvek"
+
+#: ../properties/nm-vpnc-editor.c:511
+msgid "Cisco UDP"
+msgstr "Cisko UDP"
+
+#: ../properties/nm-vpnc-editor.c:518
+msgid "Disabled"
+msgstr "Isključeno"
+
+#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+msgid "DH Group 1"
+msgstr "DH grupa 1"
+
+#: ../properties/nm-vpnc-editor.c:545
+msgid "DH Group 2 (default)"
+msgstr "DH grupa 2 (osnovno)"
+
+#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+msgid "DH Group 5"
+msgstr "DH grupa 5"
+
+#: ../properties/nm-vpnc-editor.c:610
+msgid "Server (default)"
+msgstr "Server (osnovno)"
+
+#: ../properties/nm-vpnc-editor.c:617
+msgid "None"
+msgstr "Ništa"
+
+#: ../properties/nm-vpnc-editor.c:631
+msgid "DH Group 2"
+msgstr "DH grupa 2"
+
+#: ../properties/nm-vpnc-editor.c:678
+msgid "Choose a Certificate Authority (CA) certificate..."
+msgstr "Izaberite uverenje izdavača ovlašćenja..."
+
+#: ../properties/nm-vpnc-editor.c:682
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "PEM uverenja (*.pem, *.crt, *.cer)"
+
+#: ../src/nm-vpnc-service.c:170
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "svojstvo „%s“ je neispravno ili nije podržano"
+
+#: ../src/nm-vpnc-service.c:189
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr "svojstva „%s“ putanja datoteke „%s“ nije apsolutna ili ne postoji"
+
+#: ../src/nm-vpnc-service.c:202
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr "neispravno svojstvo celog broja „%s“ ili je van opsega [%d —> %d]"
+
+#: ../src/nm-vpnc-service.c:212
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "neispravno logičko svojstvo „%s“ (nije „da“ ili „ne“)"
+
+#: ../src/nm-vpnc-service.c:219
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr "nerukovano svojstvo „%s“ vrste %d"
+
+#: ../src/nm-vpnc-service.c:236
+msgid "No VPN configuration options."
+msgstr "Nema opcija za VPN podešavanje."
+
+#: ../src/nm-vpnc-service.c:262
+msgid "No VPN secrets!"
+msgstr "Nema VPN tajni!"
+
+#: ../src/nm-vpnc-service.c:609
+msgid "Could not find vpnc binary."
+msgstr "Ne mogu da pronađem vpnc izvršni."
+
+#: ../src/nm-vpnc-service.c:710
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Opcija podešavanja „%s“ je neispravna ili nepoznata."
+
+#: ../src/nm-vpnc-service.c:743
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Opcija podešavanja „%s“ nije ceo broj."
+
+#: ../src/nm-vpnc-service.c:927
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc ne podržava međudejstvene zahteve"
+
+#: ../src/nm-vpnc-service.c:951
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr "Ne mogu da koristim nove tajne jer je isključen međudejstveni režim."
+
+#: ../src/nm-vpnc-service.c:960 ../src/nm-vpnc-service.c:1035
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr "Ne mogu da obradim zahtev zbog neispravnih podešavanja VPN veze."
+
+#: ../src/nm-vpnc-service.c:968
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Ne mogu da obradim zahtev jer nije zatražena potvrda indentiteta na čekanju."
+
+#: ../src/nm-vpnc-service.c:980
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Ne mogu da obradim zahtev zato što zahtevani podatak „%s“ nije dostavljen."
+
+#: ../src/nm-vpnc-service.c:1178
+msgid "Don't quit when VPN connection terminates"
+msgstr "Ne prekida kada se završava VPN veza"
+
+#: ../src/nm-vpnc-service.c:1179
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+"Uključuje opširno zapisivanje zarad ispravljanja grešaka (može da izloži lozinke)"
+
+#: ../src/nm-vpnc-service.c:1180
+msgid "D-Bus name to use for this instance"
+msgstr "Naziv D-sabirnice koji se koristi za ovaj primerak"
+
+#: ../src/nm-vpnc-service.c:1203
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-usluga obezbeđuje Upravniku mreže objedinjenu Cisko Legasi IPSec VPN "
+"mogućnost."
+
+#: ../shared/nm-utils/nm-shared-utils.c:185
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr "klasa objekta „%s“ nema svojstvo pod nazivom „%s“"
+
+#: ../shared/nm-utils/nm-shared-utils.c:192
+#, c-format
+#| msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgid "property '%s' of object class '%s' is not writable"
+msgstr "svojstvo „%s“ klase objekta „%s“ nije upisivo"
+
+#: ../shared/nm-utils/nm-shared-utils.c:199
+#, c-format
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
+msgstr "svojstvo tvorbe „%s“ za objekat „%s“ se ne može postaviti nakon tvorbe"
+
+#: ../shared/nm-utils/nm-shared-utils.c:207
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr "„%s::%s“ nije ispravan naziv svojstva; „%s“ nije podvrsta Gobjekta"
+
+#: ../shared/nm-utils/nm-shared-utils.c:216
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr "ne mogu da postavim svojstvo „%s“ vrste „%s“ iz vrednosti vrste „%s“"
+
+#: ../shared/nm-utils/nm-shared-utils.c:227
+#, c-format
+msgid ""
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
+msgstr ""
+"vrednost „%s“ vrste „%s“ nije ispravna ili je van opsega za svojstvo „%s“ "
+"vrste „%s“"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:80
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr "nedostaje datoteka priključka „%s“"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:86
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr "ne mogu da učitam priključak uređivača: %s"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:95
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr "ne mogu da učitam pogon „%s“ iz priključka: %s"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:121
+msgid "unknown error creating editor instance"
+msgstr "nepoznata greška prilikom stvaranja primerka uređivača"
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
 msgid "General"
@@ -403,103 +549,23 @@ msgstr "Način _šifrovanja:"
 msgid "Tunnel _interface name:"
 msgstr "Naziv tunelnog _uređaja:"
 
-#: ../src/nm-vpnc-service.c:173
-#, c-format
-msgid "property '%s' invalid or not supported"
-msgstr "svojstvo „%s“ je neispravno ili nije podržano"
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "Upravnik VPN veza (vpnc)"
 
-#: ../src/nm-vpnc-service.c:192
-#, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
-msgstr "svojstva „%s“ putanja datoteke „%s“ nije apsolutna ili ne postoji"
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Dodajte, uklanjajte i uređujte VPN veze"
 
-#: ../src/nm-vpnc-service.c:205
-#, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
-msgstr "neispravno svojstvo celog broja „%s“ ili je van opsega [%d —> %d]"
+#~ msgid "Saved"
+#~ msgstr "Sačuvano"
 
-#: ../src/nm-vpnc-service.c:215
-#, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "neispravno logičko svojstvo „%s“ (nije „da“ ili „ne“)"
+#~ msgid "Always Ask"
+#~ msgstr "Pitaj uvek"
 
-#: ../src/nm-vpnc-service.c:222
-#, c-format
-msgid "unhandled property '%s' type %d"
-msgstr "nerukovano svojstvo „%s“ vrste %d"
+#~ msgid "Not Required"
+#~ msgstr "Nije zatraženo"
 
-#: ../src/nm-vpnc-service.c:239
-msgid "No VPN configuration options."
-msgstr "Nema opcija za VPN podešavanje."
-
-#: ../src/nm-vpnc-service.c:265
-msgid "No VPN secrets!"
-msgstr "Nema VPN tajni!"
-
-#: ../src/nm-vpnc-service.c:613
-msgid "Could not find vpnc binary."
-msgstr "Ne mogu da pronađem vpnc izvršni."
-
-#: ../src/nm-vpnc-service.c:712
-#, c-format
-msgid "Config option '%s' invalid or unknown."
-msgstr "Opcija podešavanja „%s“ je neispravna ili nepoznata."
-
-#: ../src/nm-vpnc-service.c:745
-#, c-format
-msgid "Config option '%s' not an integer."
-msgstr "Opcija podešavanja „%s“ nije ceo broj."
-
-#: ../src/nm-vpnc-service.c:918
-msgid "vpnc does not support interactive requests"
-msgstr "vpnc ne podržava međudejstvene zahteve"
-
-#: ../src/nm-vpnc-service.c:942
-msgid "Could not use new secrets as interactive mode is disabled."
-msgstr "Ne mogu da koristim nove tajne jer je isključen međudejstveni režim."
-
-#: ../src/nm-vpnc-service.c:951 ../src/nm-vpnc-service.c:1026
-msgid ""
-"Could not process the request because the VPN connection settings were "
-"invalid."
-msgstr "Ne mogu da obradim zahtev zbog neispravnih podešavanja VPN veze."
-
-#: ../src/nm-vpnc-service.c:959
-#| msgid ""
-#| "Could not process the request because the VPN connection settings were "
-#| "invalid."
-msgid ""
-"Could not process the request because no pending authentication is required."
-msgstr ""
-"Ne mogu da obradim zahtev jer nije zatražena potvrda indentiteta na čekanju."
-
-#: ../src/nm-vpnc-service.c:971
-#, c-format
-#| msgid ""
-#| "Could not process the request because the VPN connection settings were "
-#| "invalid."
-msgid ""
-"Could not process the request because the requested info '%s' was not "
-"provided."
-msgstr ""
-"Ne mogu da obradim zahtev zato što zahtevani podatak „%s“ nije dostavljen."
-
-#: ../src/nm-vpnc-service.c:1156
-msgid "Don't quit when VPN connection terminates"
-msgstr "Ne prekida kada se završava VPN veza"
-
-#: ../src/nm-vpnc-service.c:1157
-msgid "Enable verbose debug logging (may expose passwords)"
-msgstr ""
-"Uključuje opširno zapisivanje zarad ispravljanja grešaka (može da izloži lozinke)"
-
-#: ../src/nm-vpnc-service.c:1180
-msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
-"NetworkManager."
-msgstr ""
-"nm-vpnc-usluga obezbeđuje Upravniku mreže objedinjenu Cisko Legasi IPSec VPN "
-"mogućnost."
+#~ msgid "TCP tunneling not supported"
+#~ msgstr "TCP tunelisanje nije podržano"
 
 #~ msgid "_Secondary Password:"
 #~ msgstr "_Sekundarna lozinka:"
