@@ -51,7 +51,7 @@ libnm_vpn_plugin_vpnc_la_CFLAGS = \
 
 libnm_vpn_plugin_vpnc_la_LIBADD = \
     $(LIBNM_LIBS) \
-    $(LD_LIBS) \
+    $(DL_LIBS) \
     $(NULL)
 
 libnm_vpn_plugin_vpnc_la_LDFLAGS = \
