@@ -2,6 +2,7 @@
 name=vpnc
 service=org.freedesktop.NetworkManager.vpnc
 program=@LIBEXECDIR@/nm-vpnc-service
+supports-multiple-connections=true
 
 [libnm]
 plugin=@PLUGINDIR@/libnm-vpn-plugin-vpnc.so

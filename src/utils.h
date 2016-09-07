@@ -21,8 +21,6 @@
 #ifndef _UTILS_H_
 #define _UTILS_H_
 
-#include <glib.h>
-
 typedef void (*PromptFn) (const char *data, gsize len, gpointer user_data);
 
 gsize utils_handle_output (GString *output,

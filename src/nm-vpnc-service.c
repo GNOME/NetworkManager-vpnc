@@ -19,7 +19,9 @@
  * (C) Copyright 2007 - 2008 Novell, Inc.
  */
 
-#include <config.h>
+#include "nm-default.h"
+
+#include "nm-vpnc-service.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -32,20 +34,21 @@
 #include <sys/ttydefaults.h>
 #include <errno.h>
 #include <locale.h>
-#include <glib/gi18n.h>
 
-#include <NetworkManager.h>
-#include <nm-utils.h>
-
-#include "nm-vpnc-service.h"
 #include "utils.h"
+#include "nm-utils/nm-shared-utils.h"
+#include "nm-utils/nm-vpn-plugin-macros.h"
 
 #if !defined(DIST_VERSION)
 # define DIST_VERSION VERSION
 #endif
 
-static gboolean debug = FALSE;
-static GMainLoop *loop = NULL;
+static struct {
+	gboolean debug;
+	int log_level;
+	int log_level_native;
+	GMainLoop *loop;
+} gl/*obal*/;
 
 /* TRUE if we can use vpnc's interactive mode (version 0.5.4 or greater)*/
 static gboolean interactive_available = FALSE;
@@ -88,6 +91,7 @@ typedef enum {
 	ITEM_TYPE_UNKNOWN = 0,
 	ITEM_TYPE_IGNORED,
 	ITEM_TYPE_STRING,
+	ITEM_TYPE_SECRET,
 	ITEM_TYPE_BOOLEAN,
 	ITEM_TYPE_INT,
 	ITEM_TYPE_PATH
@@ -131,10 +135,34 @@ static ValidProperty valid_properties[] = {
 };
 
 static ValidProperty valid_secrets[] = {
-	{ NM_VPNC_KEY_SECRET,                ITEM_TYPE_STRING, 0, 0 },
-	{ NM_VPNC_KEY_XAUTH_PASSWORD,        ITEM_TYPE_STRING, 0, 0 },
+	{ NM_VPNC_KEY_SECRET,                ITEM_TYPE_SECRET, 0, 0 },
+	{ NM_VPNC_KEY_XAUTH_PASSWORD,        ITEM_TYPE_SECRET, 0, 0 },
 	{ NULL,                              ITEM_TYPE_UNKNOWN, 0, 0 }
 };
+
+/*****************************************************************************/
+
+#define _NMLOG(level, ...) \
+	G_STMT_START { \
+		if (gl.log_level >= (level)) { \
+			g_print ("nm-vpnc[%ld] %-7s " _NM_UTILS_MACRO_FIRST (__VA_ARGS__) "\n", \
+			         (long) getpid (), \
+			         nm_utils_syslog_to_str (level) \
+			         _NM_UTILS_MACRO_REST (__VA_ARGS__)); \
+		} \
+	} G_STMT_END
+
+static gboolean
+_LOGD_enabled (void)
+{
+	return gl.log_level >= LOG_INFO;
+}
+
+#define _LOGD(...) _NMLOG(LOG_INFO,    __VA_ARGS__)
+#define _LOGI(...) _NMLOG(LOG_NOTICE,  __VA_ARGS__)
+#define _LOGW(...) _NMLOG(LOG_WARNING, __VA_ARGS__)
+
+/*****************************************************************************/
 
 typedef struct ValidateInfo {
 	ValidProperty *table;
@@ -180,6 +208,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 	case ITEM_TYPE_IGNORED:
 		break; /* technically valid, but unused */
 	case ITEM_TYPE_STRING:
+	case ITEM_TYPE_SECRET:
 		break; /* valid */
 	case ITEM_TYPE_PATH:
 		if (   !value
@@ -347,7 +376,7 @@ vpnc_cleanup (NMVPNCPlugin *self, gboolean killit)
 			/* Try giving it some time to disconnect cleanly */
 			if (kill (priv->pid, SIGTERM) == 0)
 				g_timeout_add (2000, ensure_killed, GINT_TO_POINTER (priv->pid));
-			g_message ("Terminated vpnc daemon with PID %d.", priv->pid);
+			_LOGI ("Terminated vpnc daemon with PID %d.", priv->pid);
 		} else {
 			/* Already quit, just reap the child */
 			waitpid (priv->pid, NULL, WNOHANG);
@@ -378,13 +407,13 @@ vpnc_watch_cb (GPid pid, gint status, gpointer user_data)
 	if (WIFEXITED (status)) {
 		error = WEXITSTATUS (status);
 		if (error != 0)
-			g_warning ("vpnc exited with error code %d", error);
+			_LOGW ("vpnc exited with error code %d", error);
 	} else if (WIFSTOPPED (status))
-		g_warning ("vpnc stopped unexpectedly with signal %d", WSTOPSIG (status));
+		_LOGW ("vpnc stopped unexpectedly with signal %d", WSTOPSIG (status));
 	else if (WIFSIGNALED (status))
-		g_warning ("vpnc died with signal %d", WTERMSIG (status));
+		_LOGW ("vpnc died with signal %d", WTERMSIG (status));
 	else
-		g_warning ("vpnc died from an unknown cause");
+		_LOGW ("vpnc died from an unknown cause");
 
 	priv->watch_id = 0;
 
@@ -454,7 +483,7 @@ vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 	priv->pending_auth = NULL;
 
 	prompt = g_strndup (data, dlen);
-	g_debug ("vpnc requested input: '%s'", prompt);
+	_LOGD ("vpnc requested input: '%s'", prompt);
 	for (i = 0; i < G_N_ELEMENTS (phmap); i++) {
 		if (g_str_has_prefix (prompt, phmap[i].prompt)) {
 			hints[0] = phmap[i].hint;
@@ -463,14 +492,12 @@ vpnc_prompt (const char *data, gsize dlen, gpointer user_data)
 	}
 
 	if (!hints[0]) {
-		if (debug)
-			g_message ("Unhandled vpnc message '%s'", prompt);
+		_LOGD ("Unhandled vpnc message '%s'", prompt);
 		g_free (prompt);
 		return;
 	}
 
-	if (debug)
-		g_message ("Requesting new secrets: '%s' (%s)", prompt, hints[0]);
+	_LOGD ("Requesting new secrets: '%s' (%s)", prompt, hints[0]);
 
 	nm_vpn_service_plugin_secrets_required (NM_VPN_SERVICE_PLUGIN (plugin),
 	                                priv->server_message->len ? priv->server_message->str : prompt,
@@ -502,7 +529,7 @@ data_available (GIOChannel *source,
 		g_assert_not_reached ();
 
 	if (condition & G_IO_ERR) {
-		g_warning ("Unexpected vpnc pipe error");
+		_LOGW ("Unexpected vpnc pipe error");
 		goto fail;
 	}
 
@@ -517,7 +544,7 @@ data_available (GIOChannel *source,
 		                                  &error);
 		if (status == G_IO_STATUS_ERROR) {
 			if (error)
-				g_warning ("vpnc read error: %s", error->message);
+				_LOGW ("vpnc read error: %s", error->message);
 			g_clear_error (&error);
 		}
 
@@ -632,10 +659,10 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 	                               interactive ? &priv->out.fd : NULL,
 	                               interactive ? &priv->err.fd : NULL,
 	                               error)) {
-		g_warning ("vpnc failed to start.  error: '%s'", (*error)->message);
+		_LOGW ("vpnc failed to start.  error: '%s'", (*error)->message);
 		return FALSE;
 	}
-	g_message ("vpnc started with pid %d", priv->pid);
+	_LOGI ("vpnc started with pid %d", priv->pid);
 
 	priv->watch_id = g_child_watch_add (priv->pid, vpnc_watch_cb, plugin);
 
@@ -647,24 +674,41 @@ nm_vpnc_start_vpnc_binary (NMVPNCPlugin *plugin, gboolean interactive, GError **
 	return TRUE;
 }
 
-static inline void
+__attribute__((__format__ (__printf__, 2, 3)))
+static void
 write_config_option (int fd, const char *format, ...)
 {
-	char *string;
+	gs_free char *string = NULL;
 	va_list args;
 	int x;
 
 	va_start (args, format);
 	string = g_strdup_vprintf (format, args);
+	va_end (args);
+
 	x = write (fd, string, strlen (string));
 	if (x < 0)
-		g_warning ("Unexpected error in write(): %d", errno);
+		_LOGW ("Unexpected error in write(): %d", errno);
+	x = write (fd, "\n", 1);
+	if (x < 0)
+		_LOGW ("Unexpected error in write(): %d", errno);
 
-	if (debug)
-		g_print ("Config: %s", string);
+	_LOGD ("Config: %s", string);
+}
 
-	g_free (string);
-	va_end (args);
+static void
+write_config_option_secret (int fd, const char *key, const char *value)
+{
+	gs_free char *string = NULL;
+	int x;
+
+	string = g_strdup_printf ("%s %s\n", key, value);
+
+	x = write (fd, string, strlen (string));
+	if (x < 0)
+		_LOGW ("Unexpected error in write(): %d", errno);
+
+	_LOGD ("Config: %s <hidden>", key);
 }
 
 typedef struct {
@@ -722,10 +766,12 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		return;
 
 	if (type == ITEM_TYPE_STRING || type == ITEM_TYPE_PATH)
-		write_config_option (info->fd, "%s %s\n", (char *) key, (char *) value);
+		write_config_option (info->fd, "%s %s", (char *) key, (char *) value);
+	else if (type == ITEM_TYPE_SECRET)
+		write_config_option_secret (info->fd, key, value);
 	else if (type == ITEM_TYPE_BOOLEAN) {
 		if (!strcmp (value, "yes"))
-			write_config_option (info->fd, "%s\n", (char *) key);
+			write_config_option (info->fd, "%s", (char *) key);
 	} else if (type == ITEM_TYPE_INT) {
 		long int tmp_int;
 		char *tmp_str;
@@ -737,7 +783,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		tmp_int = strtol (value, NULL, 10);
 		if (errno == 0) {
 			tmp_str = g_strdup_printf ("%ld", tmp_int);
-			write_config_option (info->fd, "%s %s\n", (char *) key, tmp_str);
+			write_config_option (info->fd, "%s %s", (char *) key, tmp_str);
 			g_free (tmp_str);
 		} else {
 			g_set_error (&info->error,
@@ -750,12 +796,13 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		/* ignored */
 	} else {
 		/* Just ignore unknown properties */
-		g_warning ("Don't know how to write property '%s' with type %d", key, type);
+		_LOGW ("Don't know how to write property '%s' with type %d", key, type);
 	}
 }
 
 static gboolean
 nm_vpnc_config_write (gint vpnc_fd,
+                      const char *bus_name,
                       NMSettingConnection *s_con,
                       NMSettingVpn *s_vpn,
                       GError **error)
@@ -769,20 +816,29 @@ nm_vpnc_config_write (gint vpnc_fd,
 	const char *interface_name;
 	NMSettingSecretFlags secret_flags = NM_SETTING_SECRET_FLAG_NONE;
 
+	if (bus_name) {
+		g_assert (g_dbus_is_name (bus_name));
+		if (nm_streq (bus_name, NM_DBUS_SERVICE_VPNC))
+			bus_name = NULL;
+	}
+
 	interface_name = nm_setting_connection_get_interface_name(s_con);
 
 	default_username = nm_setting_vpn_get_user_name (s_vpn);
 
-	if (debug)
-		write_config_option (vpnc_fd, "Debug 3\n");
+	write_config_option (vpnc_fd, "Debug %d", gl.log_level_native);
 
 	if (interface_name && strlen(interface_name) > 0)
-		write_config_option (vpnc_fd, "Interface name %s\n", interface_name);
+		write_config_option (vpnc_fd, "Interface name %s", interface_name);
 
-	write_config_option (vpnc_fd, "Script " NM_VPNC_HELPER_PATH "\n");
+	write_config_option (vpnc_fd, "Script %s %d %ld %s%s",
+	                     NM_VPNC_HELPER_PATH,
+	                     gl.log_level,
+	                     (long) getpid(),
+	                     bus_name ? " --bus-name " : "", bus_name ?: "");
 
 	write_config_option (vpnc_fd,
-	                     NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT " %d\n",
+	                     NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT " %d",
 	                     NM_VPNC_UDP_ENCAPSULATION_PORT);
 
 	local_port = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
@@ -791,7 +847,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 		 * Otherwise vpnc would try to use 500 and could clash with other IKE processes.
 		 */
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_LOCAL_PORT " %d\n",
+		                     NM_VPNC_KEY_LOCAL_PORT " %d",
 		                     NM_VPNC_LOCAL_PORT_ISAKMP);
 	}
 
@@ -801,7 +857,7 @@ nm_vpnc_config_write (gint vpnc_fd,
 	    && strlen (default_username)
 	    && (!props_username || !strlen (props_username))) {
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_XAUTH_USER " %s\n",
+		                     NM_VPNC_KEY_XAUTH_USER " %s",
 		                     default_username);
 	}
 
@@ -809,11 +865,11 @@ nm_vpnc_config_write (gint vpnc_fd,
 	props_natt_mode = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
 	if (!props_natt_mode || !strlen (props_natt_mode)) {
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s\n",
+		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s",
 		                     NM_VPNC_NATT_MODE_CISCO);
 	} else if (props_natt_mode && (!strcmp (props_natt_mode, NM_VPNC_NATT_MODE_NATT_ALWAYS))) {
 		write_config_option (vpnc_fd,
-		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s\n",
+		                     NM_VPNC_KEY_NAT_TRAVERSAL_MODE " %s",
 		                     NM_VPNC_NATT_MODE_NATT_ALWAYS);
 	}
 
@@ -860,6 +916,7 @@ _connect_common (NMVpnServicePlugin   *plugin,
 	NMSettingVpn *s_vpn;
 	NMSettingConnection *s_con;
 	char end[] = { 0x04 };
+	gs_free char *bus_name = NULL;
 
 	s_con = nm_connection_get_setting_connection (connection);
 	g_assert (s_con);
@@ -878,15 +935,18 @@ _connect_common (NMVpnServicePlugin   *plugin,
 	if (!nm_vpnc_start_vpnc_binary (NM_VPNC_PLUGIN (plugin), interactive, error))
 		goto out;
 
-	if (getenv ("NM_VPNC_DUMP_CONNECTION") || debug)
+	if (_LOGD_enabled () || getenv ("NM_VPNC_DUMP_CONNECTION")) {
+		_LOGD ("connection:");
 		nm_connection_dump (connection);
+	}
 
-	if (!nm_vpnc_config_write (priv->infd, s_con, s_vpn, error))
+	g_object_get (plugin, NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, &bus_name, NULL);
+	if (!nm_vpnc_config_write (priv->infd, bus_name, s_con, s_vpn, error))
 		goto out;
 
 	if (interactive) {
 		if (write (priv->infd, &end, sizeof (end)) < 0)
-			g_warning ("Unexpected error in write(): %d", errno);
+			_LOGW ("Unexpected error in write(): %d", errno);
 	} else {
 		close (priv->infd);
 		priv->infd = -1;
@@ -962,8 +1022,7 @@ real_new_secrets (NMVpnServicePlugin *plugin,
 		return FALSE;
 	}
 
-	if (debug)
-		g_message ("VPN received new secrets; sending to '%s' vpnc stdin", priv->pending_auth);
+	_LOGD ("VPN received new secrets; sending to '%s' vpnc stdin", priv->pending_auth);
 
 	secret = nm_setting_vpn_get_secret (s_vpn, priv->pending_auth);
 	if (!secret) {
@@ -976,7 +1035,7 @@ real_new_secrets (NMVpnServicePlugin *plugin,
 	}
 
 	/* Ignoring secret flags here; if vpnc requested the item, we must provide it */
-	write_config_option (priv->infd, "%s\n", secret);
+	write_config_option (priv->infd, "%s", secret);
 
 	priv->pending_auth = NULL;
 	return TRUE;
@@ -1083,17 +1142,17 @@ nm_vpnc_plugin_class_init (NMVPNCPluginClass *vpnc_class)
 }
 
 NMVPNCPlugin *
-nm_vpnc_plugin_new (void)
+nm_vpnc_plugin_new (const char *bus_name)
 {
 	NMVPNCPlugin *plugin;
 	GError *error = NULL;
 
 	plugin = (NMVPNCPlugin *) g_initable_new (NM_TYPE_VPNC_PLUGIN, NULL, &error,
-	                                          NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME,
-	                                          NM_DBUS_SERVICE_VPNC,
+	                                          NM_VPN_SERVICE_PLUGIN_DBUS_SERVICE_NAME, bus_name,
+	                                          NM_VPN_SERVICE_PLUGIN_DBUS_WATCH_PEER, !gl.debug,
 	                                          NULL);
 	if (!plugin) {
-		g_warning ("Failed to initialize a plugin instance: %s", error->message);
+		_LOGW ("Failed to initialize a plugin instance: %s", error->message);
 		g_error_free (error);
 	}
 
@@ -1104,7 +1163,7 @@ static void
 signal_handler (int signo)
 {
 	if (signo == SIGINT || signo == SIGTERM)
-		g_main_loop_quit (loop);
+		g_main_loop_quit (gl.loop);
 }
 
 static void
@@ -1138,7 +1197,7 @@ vpnc_check_interactive (void)
 
 	vpnc_path = find_vpnc ();
 	if (!vpnc_path) {
-		g_warning ("Failed to find vpnc for version check");
+		_LOGW ("Failed to find vpnc for version check");
 		return FALSE;
 	}
 
@@ -1150,7 +1209,7 @@ vpnc_check_interactive (void)
 			has_interactive = TRUE;
 		g_free (output);
 	} else {
-		g_warning ("Failed to start vpnc for version check: %s", error->message);
+		_LOGW ("Failed to start vpnc for version check: %s", error->message);
 		g_error_free (error);
 	}
 
@@ -1163,10 +1222,14 @@ main (int argc, char *argv[])
 	NMVPNCPlugin *plugin;
 	gboolean persist = FALSE;
 	GOptionContext *opt_ctx = NULL;
+	gs_free char *bus_name_free = NULL;
+	const char *bus_name;
+	GError *error = NULL;
 
 	GOptionEntry options[] = {
 		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
-		{ "debug", 0, 0, G_OPTION_ARG_NONE, &debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
+		{ "debug", 0, 0, G_OPTION_ARG_NONE, &gl.debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
+		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name_free, N_("D-Bus name to use for this instance"), NULL },
 		{NULL}
 	};
 
@@ -1192,40 +1255,73 @@ main (int argc, char *argv[])
 	                              _("nm-vpnc-service provides integrated "
 	                                "Cisco Legacy IPsec VPN capability to NetworkManager."));
 
-	g_option_context_parse (opt_ctx, &argc, &argv, NULL);
+	if (!g_option_context_parse (opt_ctx, &argc, &argv, &error)) {
+		g_printerr ("Error parsing the command line options: %s\n", error->message);
+		g_option_context_free (opt_ctx);
+		g_clear_error (&error);
+		exit (EXIT_FAILURE);
+	}
+
 	g_option_context_free (opt_ctx);
+
+	bus_name = bus_name_free ?: NM_DBUS_SERVICE_VPNC;
+	if (!g_dbus_is_name (bus_name)) {
+		g_printerr ("invalid --bus-name\n");
+		exit (EXIT_FAILURE);
+	}
 
 	interactive_available = vpnc_check_interactive ();
 
 	if (getenv ("VPNC_DEBUG"))
-		debug = TRUE;
+		gl.debug = TRUE;
 
-	if (debug) {
-		g_message ("nm-vpnc-service (version " DIST_VERSION ") starting...");
-		g_message ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
+	gl.log_level = _nm_utils_ascii_str_to_int64 (getenv ("NM_VPN_LOG_LEVEL"),
+	                                             10, 0, LOG_DEBUG, -1);
+
+	if (gl.log_level < 0)
+		gl.log_level_native = gl.debug ? 3 : 0;
+	else if (gl.log_level <= 0)
+		gl.log_level_native = 0;
+	else if (gl.log_level <= LOG_WARNING)
+		gl.log_level_native = 1;
+	else if (gl.log_level <= LOG_NOTICE)
+		gl.log_level_native = 2;
+	else if (gl.log_level <= LOG_INFO)
+		gl.log_level_native = 3;
+	else {
+		/* level 99 prints passwords. We don't want that even for the highest
+		 * level. So, choose one below. */
+		gl.log_level_native = 98;
 	}
+
+	if (gl.log_level < 0)
+		gl.log_level = gl.debug ? LOG_DEBUG : LOG_NOTICE;
+
+	_LOGD ("nm-vpnc-service (version " DIST_VERSION ") starting...");
+	_LOGD ("   vpnc interactive mode is %s", interactive_available ? "enabled" : "disabled");
+	_LOGD ("   uses%s --bus-name \"%s\"", bus_name_free ? "" : " default", bus_name);
 
 	if (system ("/sbin/modprobe tun") == -1)
 		exit (EXIT_FAILURE);
 
-	plugin = nm_vpnc_plugin_new ();
+	plugin = nm_vpnc_plugin_new (bus_name);
 	if (!plugin)
 		exit (EXIT_FAILURE);
 
-	if (debug)
-		g_message ("nm-vpnc-service (version " DIST_VERSION ") started.");
+	_LOGD ("nm-vpnc-service (version " DIST_VERSION ") started.");
 
-	loop = g_main_loop_new (NULL, FALSE);
+	gl.loop = g_main_loop_new (NULL, FALSE);
 
 	if (!persist)
-		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), loop);
+		g_signal_connect (plugin, "quit", G_CALLBACK (quit_mainloop), gl.loop);
 
 	setup_signals ();
-	g_main_loop_run (loop);
+	g_main_loop_run (gl.loop);
 
 	remove_pidfile (plugin);
 
-	g_main_loop_unref (loop);
+	g_main_loop_unref (gl.loop);
+	gl.loop = NULL;
 	g_object_unref (plugin);
 
 	exit (EXIT_SUCCESS);

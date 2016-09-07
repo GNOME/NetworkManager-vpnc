@@ -6,6 +6,7 @@ nm_vpnc_auth_dialog_CPPFLAGS = \
 	$(GTK_CFLAGS) \
 	$(LIBNMA_CFLAGS) \
 	$(LIBSECRET_CFLAGS) \
+	-I"$(top_srcdir)/shared/" \
 	-DICONDIR=\""$(datadir)/pixmaps"\" \
 	-DBINDIR=\""$(bindir)"\" \
 	-DGNOMELOCALEDIR=\"$(datadir)/locale\"

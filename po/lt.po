@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the NetworkManager package.
 # Žygimantas Beručka <zygis@gnome.org>, 2008.
 # Gintautas Miliauskas <gintautas@miliauskas.lt>, 2009.
-# Aurimas Černius <aurisc4@gmail.com>, 2015.
+# Aurimas Černius <aurisc4@gmail.com>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2016-01-08 13:57+0000\n"
-"PO-Revision-Date: 2016-01-08 19:56+0200\n"
+"POT-Creation-Date: 2016-05-19 13:35+0000\n"
+"PO-Revision-Date: 2016-08-15 14:34+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
@@ -20,41 +20,62 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
-#: ../auth-dialog/main.c:172
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Pasenęs Cisco VPNC klientas"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Cisco IPsec virtualių privačių tinklų klientas"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "VPNC pagrindo virtualių privačių tinklų konfigūracijos palaikymas."
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr ""
+"Suderinamas su Cisco VPN koncentratoriais, sukonfigūruotas IPsec naudojimui."
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "NetworkManager kūrėjai"
+
+#: ../auth-dialog/main.c:165
 #, c-format
 msgid "Authenticate VPN %s"
 msgstr "Patvirtinti tapatybę VPN %s"
 
-#: ../auth-dialog/main.c:188
+#: ../auth-dialog/main.c:181
 msgid "Password:"
 msgstr "Slaptažodis:"
 
-#: ../auth-dialog/main.c:196
+#: ../auth-dialog/main.c:189
 msgid "Group Password:"
 msgstr "Grupės slaptažodis:"
 
-#: ../auth-dialog/main.c:231
+#: ../auth-dialog/main.c:224
 msgid "Authenticate VPN"
 msgstr "Nustatyti tapatybę VPN"
 
-#: ../auth-dialog/main.c:240
+#: ../auth-dialog/main.c:233
 msgid "_Group Password:"
 msgstr "_Grupės slaptažodis:"
 
-#: ../auth-dialog/main.c:498
+#: ../auth-dialog/main.c:491
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgstr ""
 "Norint gauti prieigą prie Virtualiojo Privačiojo Tinklo „%s“, reikia "
 "nustatyti jūsų tapatybę."
 
-#: ../properties/nm-vpnc.c:78
+#: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Su Cisco suderinamas VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:79
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -62,79 +83,7 @@ msgstr ""
 "Suderinamas su įvairiais Cisco, Juniper, Netscreen ir Sonicwall IPsec "
 "pagrįstais VPN šliuzais."
 
-#: ../properties/nm-vpnc.c:432
-msgid "Secure (default)"
-msgstr "Saugus (numatytasis)"
-
-#: ../properties/nm-vpnc.c:435
-msgid "Weak (use with caution)"
-msgstr "Silpnas (naudokite atsargiai)"
-
-#: ../properties/nm-vpnc.c:443
-msgid "None (completely insecure)"
-msgstr "Nėra (visiškai nesaugu)"
-
-#: ../properties/nm-vpnc.c:507
-msgid "Cisco (default)"
-msgstr "Cisco (numatytasis)"
-
-#: ../properties/nm-vpnc.c:514
-msgid "Netscreen"
-msgstr "Netscreen"
-
-#: ../properties/nm-vpnc.c:555
-msgid "NAT-T when available (default)"
-msgstr "NAT-T kai įmanoma (numatytasis)"
-
-#: ../properties/nm-vpnc.c:562
-msgid "NAT-T always"
-msgstr "NAT-T visada"
-
-#: ../properties/nm-vpnc.c:569
-msgid "Cisco UDP"
-msgstr "Cisco UDP"
-
-#: ../properties/nm-vpnc.c:576
-msgid "Disabled"
-msgstr "Išjungta"
-
-#: ../properties/nm-vpnc.c:596 ../properties/nm-vpnc.c:682
-msgid "DH Group 1"
-msgstr "DH grupė 1"
-
-#: ../properties/nm-vpnc.c:603
-msgid "DH Group 2 (default)"
-msgstr "DH grupė 2 (numatyta)"
-
-#: ../properties/nm-vpnc.c:610 ../properties/nm-vpnc.c:696
-msgid "DH Group 5"
-msgstr "DH grupė 5"
-
-#: ../properties/nm-vpnc.c:668
-msgid "Server (default)"
-msgstr "Serveris (numatytasis)"
-
-#: ../properties/nm-vpnc.c:675
-msgid "None"
-msgstr "Joks"
-
-#: ../properties/nm-vpnc.c:689
-msgid "DH Group 2"
-msgstr "DH grupė 2"
-
-#: ../properties/nm-vpnc.c:736
-msgid "Choose a Certificate Authority (CA) certificate..."
-msgstr "Pasirinkite kitą liudijimų tarnybos (LT) liudijimą..."
-
-#: ../properties/nm-vpnc.c:740
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "PEM liudijimai (*.pem, *.crt, *.cer)"
-
-#: ../properties/nm-vpnc.c:1545
-msgid "TCP tunneling not supported"
-msgstr "TCP tuneliavimas nepalaikomas"
-
-#: ../properties/nm-vpnc.c:1547
+#: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
 msgid ""
 "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
@@ -148,6 +97,225 @@ msgstr ""
 "\n"
 "Ryšį vis dar galima sukurti, išjungus TCP tuneliavimą, tačiau tikėtina, kad "
 "jis neveiks kaip turėtų."
+
+#: ../properties/nm-vpnc-editor.c:374
+msgid "Secure (default)"
+msgstr "Saugus (numatytasis)"
+
+#: ../properties/nm-vpnc-editor.c:377
+msgid "Weak (use with caution)"
+msgstr "Silpnas (naudokite atsargiai)"
+
+#: ../properties/nm-vpnc-editor.c:385
+msgid "None (completely insecure)"
+msgstr "Nėra (visiškai nesaugu)"
+
+#: ../properties/nm-vpnc-editor.c:449
+msgid "Cisco (default)"
+msgstr "Cisco (numatytasis)"
+
+#: ../properties/nm-vpnc-editor.c:456
+msgid "Netscreen"
+msgstr "Netscreen"
+
+#: ../properties/nm-vpnc-editor.c:497
+msgid "NAT-T when available (default)"
+msgstr "NAT-T kai įmanoma (numatytasis)"
+
+#: ../properties/nm-vpnc-editor.c:504
+msgid "NAT-T always"
+msgstr "NAT-T visada"
+
+#: ../properties/nm-vpnc-editor.c:511
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc-editor.c:518
+msgid "Disabled"
+msgstr "Išjungta"
+
+#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+msgid "DH Group 1"
+msgstr "DH grupė 1"
+
+#: ../properties/nm-vpnc-editor.c:545
+msgid "DH Group 2 (default)"
+msgstr "DH grupė 2 (numatyta)"
+
+#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+msgid "DH Group 5"
+msgstr "DH grupė 5"
+
+#: ../properties/nm-vpnc-editor.c:610
+msgid "Server (default)"
+msgstr "Serveris (numatytasis)"
+
+#: ../properties/nm-vpnc-editor.c:617
+msgid "None"
+msgstr "Joks"
+
+#: ../properties/nm-vpnc-editor.c:631
+msgid "DH Group 2"
+msgstr "DH grupė 2"
+
+#: ../properties/nm-vpnc-editor.c:678
+msgid "Choose a Certificate Authority (CA) certificate..."
+msgstr "Pasirinkite kitą liudijimų tarnybos (LT) liudijimą..."
+
+#: ../properties/nm-vpnc-editor.c:682
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "PEM liudijimai (*.pem, *.crt, *.cer)"
+
+#: ../src/nm-vpnc-service.c:170
+#, c-format
+msgid "property '%s' invalid or not supported"
+msgstr "savybė „%s“ netinkama arba nepalaikoma"
+
+#: ../src/nm-vpnc-service.c:189
+#, c-format
+msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgstr "savybės „%s“ failo kelias „%s“ nėra absoliutus arba neegzistuoja"
+
+#: ../src/nm-vpnc-service.c:202
+#, c-format
+msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgstr "netinkama skaitinė savybė „%s“ arba už ribų [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:212
+#, c-format
+msgid "invalid boolean property '%s' (not yes or no)"
+msgstr "netinkama loginė savybė „%s“ (ne taip arba ne)"
+
+#: ../src/nm-vpnc-service.c:219
+#, c-format
+msgid "unhandled property '%s' type %d"
+msgstr "neapdorotas savybės „%s“ tipas %d"
+
+#: ../src/nm-vpnc-service.c:236
+msgid "No VPN configuration options."
+msgstr "Nėra VPN konfigūracijos parametrų."
+
+#: ../src/nm-vpnc-service.c:262
+msgid "No VPN secrets!"
+msgstr "Nėra VPN paslapčių!"
+
+#: ../src/nm-vpnc-service.c:609
+msgid "Could not find vpnc binary."
+msgstr "Nepavyko rasti vpnc programos."
+
+#: ../src/nm-vpnc-service.c:710
+#, c-format
+msgid "Config option '%s' invalid or unknown."
+msgstr "Konfigūracijos parametras „%s“ netinkamas arba nežinomas."
+
+#: ../src/nm-vpnc-service.c:743
+#, c-format
+msgid "Config option '%s' not an integer."
+msgstr "Konfigūracijos parametras „%s“ nėra sveikas skaičius."
+
+#: ../src/nm-vpnc-service.c:927
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc nepalaiko interaktyvių užklausų"
+
+#: ../src/nm-vpnc-service.c:951
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+"Negalima naudoti naujų paslapčių, kadangi interaktyvi veiksena išjungta."
+
+#: ../src/nm-vpnc-service.c:960 ../src/nm-vpnc-service.c:1035
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr "Nepavyko apdoroti užklausos, nes VPN ryšio nustatymai buvo netinkami."
+
+#: ../src/nm-vpnc-service.c:968
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Nepavyko apdoroti užklausos, nes nereikalingas tapatybės patvirtinimas."
+
+#: ../src/nm-vpnc-service.c:980
+#, c-format
+msgid ""
+"Could not process the request because the requested info '%s' was not "
+"provided."
+msgstr ""
+"Nepavyko apdoroti užklausos, nes užklausos informacija „%s“ nepateikta."
+
+#: ../src/nm-vpnc-service.c:1178
+msgid "Don't quit when VPN connection terminates"
+msgstr "Neužverti kai VPN ryšys baigiasi"
+
+#: ../src/nm-vpnc-service.c:1179
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Įjungti išsamų derinimo žurnalą (gali rodyti slaptažodžius)"
+
+#: ../src/nm-vpnc-service.c:1180
+msgid "D-Bus name to use for this instance"
+msgstr "D-Bus vardas šiam vienetui"
+
+#: ../src/nm-vpnc-service.c:1203
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-service suteikia NetworkManager integruotą Cisco Legacy IPsec VPN "
+"galimybę."
+
+#: ../shared/nm-utils/nm-shared-utils.c:185
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr "objekto klasė „%s“ neturi savybės „%s“"
+
+#: ../shared/nm-utils/nm-shared-utils.c:192
+#, c-format
+#| msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgid "property '%s' of object class '%s' is not writable"
+msgstr "savybė „%s“ objekto klasėje „%s“ nėra rašoma"
+
+#: ../shared/nm-utils/nm-shared-utils.c:199
+#, c-format
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
+msgstr "konstravimo savybė „%s“ objekte „%s“ negali būti nustatyta po sukūrimo"
+
+#: ../shared/nm-utils/nm-shared-utils.c:207
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr "„%s::%s“ nėra tinkamas savybės pavadinimas; „%s“ nėra GObjekt potipis"
+
+#: ../shared/nm-utils/nm-shared-utils.c:216
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr "negalima nustatyti savybės „%s“ tipui „%s“ į tipo „%s“ vertę"
+
+#: ../shared/nm-utils/nm-shared-utils.c:227
+#, c-format
+msgid ""
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
+msgstr ""
+"vertė „%s“, kurios tipas „%s“, yra netinkamas arba už rėžių savybei „%s“ "
+"tipe „%s“"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:80
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr "trūksta įskiepio failo „%s“"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:86
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr "nepavyksta įkelti redaktoriaus įskiepio: %s"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:95
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr "nepavyksta įkelti %s gamyklos iš įskiepio: %s"
+
+#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:121
+msgid "unknown error creating editor instance"
+msgstr "nežinoma klaida kuriant redaktoriaus vienetą"
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
 msgid "General"
@@ -385,97 +553,8 @@ msgstr "Šifravimo metodas:"
 msgid "Tunnel _interface name:"
 msgstr "Tunelio _sąsajos pavadinimas:"
 
-#: ../src/nm-vpnc-service.c:173
-#, c-format
-msgid "property '%s' invalid or not supported"
-msgstr "savybė „%s“ netinkama arba nepalaikoma"
-
-#: ../src/nm-vpnc-service.c:192
-#, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
-msgstr "savybės „%s“ failo kelias „%s“ nėra absoliutus arba neegzistuoja"
-
-#: ../src/nm-vpnc-service.c:205
-#, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
-msgstr "netinkama skaitinė savybė „%s“ arba už ribų [%d -> %d]"
-
-#: ../src/nm-vpnc-service.c:215
-#, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "netinkama loginė savybė „%s“ (ne taip arba ne)"
-
-#: ../src/nm-vpnc-service.c:222
-#, c-format
-msgid "unhandled property '%s' type %d"
-msgstr "neapdorotas savybės „%s“ tipas %d"
-
-#: ../src/nm-vpnc-service.c:239
-msgid "No VPN configuration options."
-msgstr "Nėra VPN konfigūracijos parametrų."
-
-#: ../src/nm-vpnc-service.c:265
-msgid "No VPN secrets!"
-msgstr "Nėra VPN paslapčių!"
-
-#: ../src/nm-vpnc-service.c:612
-msgid "Could not find vpnc binary."
-msgstr "Nepavyko rasti vpnc programos."
-
-#: ../src/nm-vpnc-service.c:713
-#, c-format
-msgid "Config option '%s' invalid or unknown."
-msgstr "Konfigūracijos parametras „%s“ netinkamas arba nežinomas."
-
-#: ../src/nm-vpnc-service.c:746
-#, c-format
-msgid "Config option '%s' not an integer."
-msgstr "Konfigūracijos parametras „%s“ nėra sveikas skaičius."
-
-#: ../src/nm-vpnc-service.c:920
-msgid "vpnc does not support interactive requests"
-msgstr "vpnc nepalaiko interaktyvių užklausų"
-
-#: ../src/nm-vpnc-service.c:944
-msgid "Could not use new secrets as interactive mode is disabled."
-msgstr ""
-"Negalima naudoti naujų paslapčių, kadangi interaktyvi veiksena išjungta."
-
-#: ../src/nm-vpnc-service.c:953 ../src/nm-vpnc-service.c:1028
-msgid ""
-"Could not process the request because the VPN connection settings were "
-"invalid."
-msgstr "Nepavyko apdoroti užklausos, nes VPN ryšio nustatymai buvo netinkami."
-
-#: ../src/nm-vpnc-service.c:961
-msgid ""
-"Could not process the request because no pending authentication is required."
-msgstr ""
-"Nepavyko apdoroti užklausos, nes nereikalingas tapatybės patvirtinimas."
-
-#: ../src/nm-vpnc-service.c:973
-#, c-format
-msgid ""
-"Could not process the request because the requested info '%s' was not "
-"provided."
-msgstr ""
-"Nepavyko apdoroti užklausos, nes užklausos informacija „%s“ nepateikta."
-
-#: ../src/nm-vpnc-service.c:1168
-msgid "Don't quit when VPN connection terminates"
-msgstr "Neužverti kai VPN ryšys baigiasi"
-
-#: ../src/nm-vpnc-service.c:1169
-msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Įjungti išsamų derinimo žurnalą (gali rodyti slaptažodžius)"
-
-#: ../src/nm-vpnc-service.c:1192
-msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
-"NetworkManager."
-msgstr ""
-"nm-vpnc-service suteikia NetworkManager integruotą Cisco Legacy IPsec VPN "
-"galimybę."
+#~ msgid "TCP tunneling not supported"
+#~ msgstr "TCP tuneliavimas nepalaikomas"
 
 #~ msgid "_Secondary Password:"
 #~ msgstr "_Antrinis slaptažodis:"

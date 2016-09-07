@@ -1,6 +1,5 @@
 /* -*- Mode: C; tab-width: 4; indent-tabs-mode: t; c-basic-offset: 4 -*- */
-/* NetworkManager -- Network link manager
- *
+/*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
@@ -19,8 +18,8 @@
  * Copyright 2007 - 2008 Novell, Inc.
  */
 
-#ifndef NM_VPNC_SERVICE_DEFINES_H
-#define NM_VPNC_SERVICE_DEFINES_H
+#ifndef __NM_SERVICE_DEFINES_H__
+#define __NM_SERVICE_DEFINES_H__
 
 #define NM_DBUS_SERVICE_VPNC    "org.freedesktop.NetworkManager.vpnc"
 #define NM_DBUS_INTERFACE_VPNC  "org.freedesktop.NetworkManager.vpnc"
@@ -69,4 +68,4 @@
 #define NM_VPNC_VENDOR_CISCO     "cisco"
 #define NM_VPNC_VENDOR_NETSCREEN "netscreen"
 
-#endif /* NM_VPNC_SERVICE_DEFINES_H */
+#endif /* __NM_SERVICE_DEFINES_H__ */

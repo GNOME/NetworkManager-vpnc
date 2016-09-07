@@ -1,6 +1,7 @@
 AM_CPPFLAGS = \
 	$(GLIB_CFLAGS) \
 	$(LIBNM_CFLAGS) \
+	-I"$(top_srcdir)/shared/" \
 	-DBINDIR=\"$(bindir)\" \
 	-DPREFIX=\""$(prefix)"\" \
 	-DSYSCONFDIR=\""$(sysconfdir)"\" \
@@ -12,10 +13,19 @@ AM_CPPFLAGS = \
 
 libexec_PROGRAMS = nm-vpnc-service nm-vpnc-service-vpnc-helper
 
+shared_sources = \
+	$(top_srcdir)/shared/nm-utils/nm-shared-utils.c \
+	$(top_srcdir)/shared/nm-utils/nm-shared-utils.h \
+	$(top_srcdir)/shared/nm-utils/nm-vpn-plugin-macros.h \
+	$(top_srcdir)/shared/nm-service-defines.h \
+	$(NULL)
+
+###############################################################################
+
 nm_vpnc_service_SOURCES = \
+	$(shared_sources) \
 	nm-vpnc-service.c \
 	nm-vpnc-service.h \
-	nm-vpnc-service-defines.h \
 	utils.c \
 	utils.h
 
@@ -23,13 +33,17 @@ nm_vpnc_service_LDADD = \
 	$(GLIB_LIBS) \
 	$(LIBNM_LIBS)
 
+###############################################################################
 
 nm_vpnc_service_vpnc_helper_SOURCES = \
-				nm-vpnc-service-vpnc-helper.c
+	$(shared_sources) \
+	nm-vpnc-service-vpnc-helper.c
 
 nm_vpnc_service_vpnc_helper_LDADD = \
 	$(GTHREAD_LIBS) \
 	$(LIBNM_LIBS)
+
+###############################################################################
 
 noinst_PROGRAMS = test-vpnc-output
 
@@ -40,7 +54,7 @@ test_vpnc_output_SOURCES = \
 
 test_vpnc_output_LDADD = $(GLIB_LIBS)
 
-check-local:
-	$(abs_builddir)/test-vpnc-output
+TESTS = \
+	test-vpnc-output
 
 CLEANFILES = *~

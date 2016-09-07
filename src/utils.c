@@ -18,8 +18,11 @@
  * (C) Copyright 2013 Red Hat, Inc.
  */
 
-#include <string.h>
+#include "nm-default.h"
+
 #include "utils.h"
+
+#include <string.h>
 
 #define IS_EOL(a)  (a == '\r' || a == '\n')
 #define VPNC_VERSION_STR "vpnc version "

@@ -22,12 +22,6 @@
 #ifndef NM_VPNC_PLUGIN_H
 #define NM_VPNC_PLUGIN_H
 
-#include <glib.h>
-#include <glib-object.h>
-#include <nm-vpn-service-plugin.h>
-
-#include "nm-vpnc-service-defines.h"
-
 #define NM_TYPE_VPNC_PLUGIN            (nm_vpnc_plugin_get_type ())
 #define NM_VPNC_PLUGIN(obj)            (G_TYPE_CHECK_INSTANCE_CAST ((obj), NM_TYPE_VPNC_PLUGIN, NMVPNCPlugin))
 #define NM_VPNC_PLUGIN_CLASS(klass)    (G_TYPE_CHECK_CLASS_CAST ((klass), NM_TYPE_VPNC_PLUGIN, NMVPNCPluginClass))
@@ -45,6 +39,6 @@ typedef struct {
 
 GType nm_vpnc_plugin_get_type (void);
 
-NMVPNCPlugin *nm_vpnc_plugin_new (void);
+NMVPNCPlugin *nm_vpnc_plugin_new (const char *bus_name);
 
 #endif /* NM_VPNC_PLUGIN_H */

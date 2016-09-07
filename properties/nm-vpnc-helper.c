@@ -20,15 +20,13 @@
  *
  **************************************************************************/
 
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
+#include "nm-default.h"
+
+#include "nm-vpnc-helper.h"
 
 #include <errno.h>
-#include <glib.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "nm-vpnc-helper.h"
 
 gboolean
 key_file_get_boolean_helper (GKeyFile *keyfile,
