@@ -50,7 +50,9 @@ libnm_vpn_plugin_vpnc_la_CFLAGS = \
     $(LIBNM_CFLAGS)
 
 libnm_vpn_plugin_vpnc_la_LIBADD = \
-    $(LIBNM_LIBS)
+    $(LIBNM_LIBS) \
+    $(LD_LIBS) \
+    $(NULL)
 
 libnm_vpn_plugin_vpnc_la_LDFLAGS = \
     -avoid-version \
