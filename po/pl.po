@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 19:51+0200\n"
-"PO-Revision-Date: 2016-08-17 19:52+0200\n"
+"POT-Creation-Date: 2016-09-10 18:25+0200\n"
+"PO-Revision-Date: 2016-09-10 18:27+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -78,7 +78,7 @@ msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Zgodny z wieloma bramami VPN IPsec, jak Cisco, Juniper, Netscreen "
+"Zgodny z wieloma bramami VPN IPsec, takimi jak Cisco, Juniper, Netscreen "
 "i Sonicwall."
 
 #: ../properties/nm-vpnc-editor-plugin.c:508
@@ -269,7 +269,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-shared-utils.c:185
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "klasa obiektów „%s” nie posiada właściwości o nazwie „%s”"
+msgstr "klasa obiektów „%s” nie ma właściwości o nazwie „%s”"
 
 #: ../shared/nm-utils/nm-shared-utils.c:192
 #, c-format
