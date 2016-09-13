@@ -10,14 +10,14 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@uv.es>, 2000.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2010, 2011.
 # 
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2014, 2015., 2016.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2016-05-19 13:35+0000\n"
+"POT-Creation-Date: 2016-08-25 19:07+0000\n"
 "PO-Revision-Date: 2016-05-26 13:19+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
@@ -171,65 +171,65 @@ msgstr "Elegir un certificado de autoridad de certificación (CA)…"
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "Certificados PEM (*.pem, *.crt, *.cer)"
 
-#: ../src/nm-vpnc-service.c:170
+#: ../src/nm-vpnc-service.c:201
 #, c-format
 msgid "property '%s' invalid or not supported"
 msgstr "propiedad «%s» no válida o no soportada"
 
-#: ../src/nm-vpnc-service.c:189
+#: ../src/nm-vpnc-service.c:221
 #, c-format
 msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgstr ""
 "la propiedad «%s» de la ruta del archivo «%s» no es absoluta o no existe"
 
-#: ../src/nm-vpnc-service.c:202
+#: ../src/nm-vpnc-service.c:234
 #, c-format
 msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgstr "propiedad entera «%s» no válida o fuera de rango [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:212
+#: ../src/nm-vpnc-service.c:244
 #, c-format
 msgid "invalid boolean property '%s' (not yes or no)"
 msgstr "propiedad booleana «%s» no válida (no es «sí» o «no»)"
 
-#: ../src/nm-vpnc-service.c:219
+#: ../src/nm-vpnc-service.c:251
 #, c-format
 msgid "unhandled property '%s' type %d"
 msgstr "no se puede manejar la propiedad «%s» de tipo %d"
 
-#: ../src/nm-vpnc-service.c:236
+#: ../src/nm-vpnc-service.c:268
 msgid "No VPN configuration options."
 msgstr "No existen opciones de configuración VPN."
 
-#: ../src/nm-vpnc-service.c:262
+#: ../src/nm-vpnc-service.c:294
 msgid "No VPN secrets!"
 msgstr "No existen secretos VPN"
 
-#: ../src/nm-vpnc-service.c:609
+#: ../src/nm-vpnc-service.c:639
 msgid "Could not find vpnc binary."
 msgstr "No se pudo encontrar el binario del cliente vpnc."
 
-#: ../src/nm-vpnc-service.c:710
+#: ../src/nm-vpnc-service.c:757
 #, c-format
 msgid "Config option '%s' invalid or unknown."
 msgstr "La opción de configuración «%s» no es válida o se desconoce."
 
-#: ../src/nm-vpnc-service.c:743
+#: ../src/nm-vpnc-service.c:792
 #, c-format
 msgid "Config option '%s' not an integer."
 msgstr "La opción de configuración «%s» no es un entero."
 
-#: ../src/nm-vpnc-service.c:927
+#: ../src/nm-vpnc-service.c:980
 msgid "vpnc does not support interactive requests"
 msgstr "vpnc no soporta solicitudes interactivas"
 
-#: ../src/nm-vpnc-service.c:951
+#: ../src/nm-vpnc-service.c:1004
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "No se pudieron usar los secretos nuevos ya que el modo interactivo está "
 "desactivado"
 
-#: ../src/nm-vpnc-service.c:960 ../src/nm-vpnc-service.c:1035
+#: ../src/nm-vpnc-service.c:1013 ../src/nm-vpnc-service.c:1087
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -237,14 +237,14 @@ msgstr ""
 "No se pudo procesar la solicitud porque la configuración de la conexión VPN "
 "no es válida."
 
-#: ../src/nm-vpnc-service.c:968
+#: ../src/nm-vpnc-service.c:1021
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
 "No se pudo procesar la solicitud porque no se necesita ninguna autenticación "
 "pendiente."
 
-#: ../src/nm-vpnc-service.c:980
+#: ../src/nm-vpnc-service.c:1032
 #, c-format
 msgid ""
 "Could not process the request because the requested info '%s' was not "
@@ -253,19 +253,19 @@ msgstr ""
 "No se pudo procesar la solicitud porque la la información «%s» solicita no "
 "se ha proporcionado."
 
-#: ../src/nm-vpnc-service.c:1178
+#: ../src/nm-vpnc-service.c:1230
 msgid "Don't quit when VPN connection terminates"
 msgstr "No salir cuando la conexión VPN finaliza"
 
-#: ../src/nm-vpnc-service.c:1179
+#: ../src/nm-vpnc-service.c:1231
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Activar registro de depuración detallado (puede exponer contraseñas)"
 
-#: ../src/nm-vpnc-service.c:1180
+#: ../src/nm-vpnc-service.c:1232
 msgid "D-Bus name to use for this instance"
 msgstr "Nombre D-Bus que usar para esta instancia"
 
-#: ../src/nm-vpnc-service.c:1203
+#: ../src/nm-vpnc-service.c:1255
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -280,7 +280,6 @@ msgstr "la clase del objeto «%s» no tiene ninguna propiedad llamada «%s»"
 
 #: ../shared/nm-utils/nm-shared-utils.c:192
 #, c-format
-#| msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgid "property '%s' of object class '%s' is not writable"
 msgstr "la propiedad «%s» del objeto de la clase «%s» no se puede escribir"
 
@@ -315,22 +314,22 @@ msgstr ""
 "el valor «%s» de tipo «%s» no es válido o está fuera de rango para la "
 "propiedad «%s» de tipo «%s»"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:80
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr "falta el archivo del complemento «%s»"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:86
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr "no se puede cargar el complemento del editor: %s"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:95
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr "no se puede cargar la fábrica %s desde el complemento: %s"
 
-#: ../shared/nm-vpn/nm-vpn-plugin-utils.c:121
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
 msgid "unknown error creating editor instance"
 msgstr "error desconocido al crear la instancia del editor"
 
