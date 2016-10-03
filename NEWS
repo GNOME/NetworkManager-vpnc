@@ -11,8 +11,8 @@ This is a new stable release of NetworkManager-vpnc.  Notable changes include:
 * Support NM_VPN_LOG_LEVEL environment variable to control debug
   logging from NetworkManager
 * Support multiple concurrent VPNC connections
-* Updated Brazilian Portuguese, Catalan, Czech, Hungarian, Indonesian, Lithuanian,
-  Polish, Serbian, Serbian Latin, Spanish translations
+* Updated Brazilian Portuguese, Catalan, Czech, Hungarian, German, Indonesian,
+  Lithuanian, Polish, Serbian, Serbian Latin, Spanish translations
 * Various cleanups
 
 
