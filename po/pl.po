@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-10 18:25+0200\n"
-"PO-Revision-Date: 2016-09-10 18:27+0200\n"
+"POT-Creation-Date: 2016-10-03 23:19+0200\n"
+"PO-Revision-Date: 2016-10-03 23:20+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -64,7 +64,7 @@ msgstr "Ha_sło grupy:"
 
 #: ../auth-dialog/main.c:491
 #, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
 "Aby uzyskać dostęp do wirtualnej sieci prywatnej „%s”, należy się "
 "uwierzytelnić."
@@ -84,7 +84,7 @@ msgstr ""
 #: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
 msgid ""
-"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
 "\n"
 "The connection can still be created, with TCP tunneling disabled, however it "
@@ -156,7 +156,7 @@ msgid "DH Group 2"
 msgstr "Grupa DH 2"
 
 #: ../properties/nm-vpnc-editor.c:678
-msgid "Choose a Certificate Authority (CA) certificate..."
+msgid "Choose a Certificate Authority (CA) certificate…"
 msgstr "Wybierz certyfikat CA…"
 
 #: ../properties/nm-vpnc-editor.c:682
@@ -165,31 +165,31 @@ msgstr "Certyfikaty PEM (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
-msgid "property '%s' invalid or not supported"
+msgid "property “%s” invalid or not supported"
 msgstr "właściwość „%s” jest nieprawidłowa lub nieobsługiwana"
 
 #: ../src/nm-vpnc-service.c:221
 #, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr ""
 "właściwość „%s” ścieżki do pliku „%s” nie jest bezwzględna lub nie istnieje"
 
 #: ../src/nm-vpnc-service.c:234
 #, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr ""
 "nieprawidłowa właściwość liczby całkowitej „%s” lub jest poza zakresem [%d -"
 "> %d]"
 
 #: ../src/nm-vpnc-service.c:244
 #, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
+msgid "invalid boolean property “%s” (not yes or no)"
 msgstr ""
 "nieprawidłowa właściwość zmiennej logicznej „%s” (nie wynosi „yes” lub „no”)"
 
 #: ../src/nm-vpnc-service.c:251
 #, c-format
-msgid "unhandled property '%s' type %d"
+msgid "unhandled property “%s” type %d"
 msgstr "nieobsługiwana właściwość „%s” typu „%d”"
 
 #: ../src/nm-vpnc-service.c:268
@@ -206,12 +206,12 @@ msgstr "Nie można odnaleźć pliku binarnego vpnc."
 
 #: ../src/nm-vpnc-service.c:757
 #, c-format
-msgid "Config option '%s' invalid or unknown."
+msgid "Config option “%s” invalid or unknown."
 msgstr "Opcja konfiguracji „%s” jest nieprawidłowa lub nieznana."
 
 #: ../src/nm-vpnc-service.c:792
 #, c-format
-msgid "Config option '%s' not an integer."
+msgid "Config option “%s” not an integer."
 msgstr "Opcja konfiguracji „%s” nie jest liczbą całkowitą."
 
 #: ../src/nm-vpnc-service.c:980
@@ -241,13 +241,13 @@ msgstr ""
 #: ../src/nm-vpnc-service.c:1032
 #, c-format
 msgid ""
-"Could not process the request because the requested info '%s' was not "
+"Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr ""
 "Nie można przetworzyć żądania, ponieważ nie podano żądanych informacji „%s”."
 
 #: ../src/nm-vpnc-service.c:1230
-msgid "Don't quit when VPN connection terminates"
+msgid "Don’t quit when VPN connection terminates"
 msgstr "Bez kończenia działania, kiedy połączenie VPN jest kończone"
 
 #: ../src/nm-vpnc-service.c:1231
@@ -288,7 +288,7 @@ msgstr ""
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"„%s::%s” nie jest prawidłową nazwą właściwości; „%s” nie jest podtypem "
+"„%s::%s” nie jest prawidłową nazwą właściwości, „%s” nie jest podtypem "
 "GObject"
 
 #: ../shared/nm-utils/nm-shared-utils.c:216
@@ -418,7 +418,7 @@ msgstr ""
 "konfiguracja: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "Advance_d..."
+msgid "Advance_d…"
 msgstr "_Zaawansowane…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
@@ -499,10 +499,10 @@ msgstr "_Omijanie NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
 "config: Local Port <0-65535>"
 msgstr ""
-"Używany lokalny port ISAKMP (0 oznacza losowy port; 500 jest domyślnym "
+"Używany lokalny port ISAKMP (0 oznacza losowy port, 500 jest domyślnym "
 "portem oprogramowania vpnc)\n"
 "konfiguracja: Local Port <0-65535>"
 
@@ -537,8 +537,8 @@ msgstr ""
 #: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
-"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
-"encryption' for None"
+"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+"encryption” for None"
 msgstr ""
 "Metoda szyfrowania\n"
 "konfiguracja: nic dla bezpiecznego, „Enable Single DES” dla słabego, „Enable "
