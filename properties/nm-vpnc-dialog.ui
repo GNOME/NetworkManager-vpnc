@@ -278,7 +278,7 @@ config: CA-File</property>
         <property name="xscale">0</property>
         <child>
           <object class="GtkButton" id="advanced_button">
-            <property name="label" translatable="yes">Advance_d...</property>
+            <property name="label" translatable="yes">Advance_d…</property>
             <property name="use_action_appearance">False</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
@@ -664,7 +664,7 @@ config: DPD idle timeout (our side) 0</property>
                       <object class="GtkSpinButton" id="local_port_spinbutton">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="tooltip_text" translatable="yes">Local ISAKMP port to use (0 means random port; 500 is vpnc's default)
+                        <property name="tooltip_text" translatable="yes">Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)
 config: Local Port &lt;0-65535&gt;</property>
                         <property name="width_chars">5</property>
                         <property name="text" translatable="yes">0</property>
@@ -739,7 +739,7 @@ config: NAT Traversal Mode &lt;natt/none/force-natt/cisco-udp&gt;</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="tooltip_text" translatable="yes">Encryption method
-config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no encryption' for None</property>
+config: nothing for Secure, “Enable Single DES” for Weak, “Enable no encryption” for None</property>
                         <property name="model">model3</property>
                         <child>
                           <object class="GtkCellRendererText" id="renderer3"/>

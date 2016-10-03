@@ -198,7 +198,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 		g_set_error (info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             _("property '%s' invalid or not supported"),
+		             _("property “%s” invalid or not supported"),
 		             key);
 		return;
 	}
@@ -218,7 +218,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 			g_set_error (info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             _("property '%s' file path '%s' is not absolute or does not exist"),
+			             _("property “%s” file path “%s” is not absolute or does not exist"),
 			             key, value);
 		}
 		break;
@@ -231,7 +231,7 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 		g_set_error (info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             _("invalid integer property '%s' or out of range [%d -> %d]"),
+		             _("invalid integer property “%s” or out of range [%d -> %d]"),
 		             key, prop->int_min, prop->int_max);
 		break;
 	case ITEM_TYPE_BOOLEAN:
@@ -241,14 +241,14 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 		g_set_error (info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             _("invalid boolean property '%s' (not yes or no)"),
+		             _("invalid boolean property “%s” (not yes or no)"),
 		             key);
 		break;
 	default:
 		g_set_error (info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             _("unhandled property '%s' type %d"),
+		             _("unhandled property “%s” type %d"),
 		             key, prop->type);
 		break;
 	}
@@ -754,7 +754,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 		g_set_error (&info->error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-		             _("Config option '%s' invalid or unknown."),
+		             _("Config option “%s” invalid or unknown."),
 		             (const char *) key);
 		return;
 	}
@@ -789,7 +789,7 @@ write_one_property (const char *key, const char *value, gpointer user_data)
 			g_set_error (&info->error,
 			             NM_VPN_PLUGIN_ERROR,
 			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
-			             _("Config option '%s' not an integer."),
+			             _("Config option “%s” not an integer."),
 			             (const char *) key);
 		}
 	} else if (type == ITEM_TYPE_IGNORED) {
@@ -1029,7 +1029,7 @@ real_new_secrets (NMVpnServicePlugin *plugin,
 		g_set_error (error,
 		             NM_VPN_PLUGIN_ERROR,
 		             NM_VPN_PLUGIN_ERROR_INVALID_CONNECTION,
-		             _("Could not process the request because the requested info '%s' was not provided."),
+		             _("Could not process the request because the requested info “%s” was not provided."),
 		             priv->pending_auth);
 		return FALSE;
 	}
@@ -1227,7 +1227,7 @@ main (int argc, char *argv[])
 	GError *error = NULL;
 
 	GOptionEntry options[] = {
-		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don't quit when VPN connection terminates"), NULL },
+		{ "persist", 0, 0, G_OPTION_ARG_NONE, &persist, N_("Don’t quit when VPN connection terminates"), NULL },
 		{ "debug", 0, 0, G_OPTION_ARG_NONE, &gl.debug, N_("Enable verbose debug logging (may expose passwords)"), NULL },
 		{ "bus-name", 0, 0, G_OPTION_ARG_STRING, &bus_name_free, N_("D-Bus name to use for this instance"), NULL },
 		{NULL}

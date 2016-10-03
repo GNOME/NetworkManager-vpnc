@@ -505,7 +505,7 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 			char *basename;
 
 			basename = g_path_get_basename (path);
-			g_warning (_("The VPN settings file '%s' specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n\nThe connection can still be created, with TCP tunneling disabled, however it may not work as expected."), basename);
+			g_warning (_("The VPN settings file “%s” specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n\nThe connection can still be created, with TCP tunneling disabled, however it may not work as expected."), basename);
 			g_free (basename);
 		}
 	}

@@ -675,7 +675,7 @@ init_plugin_ui (VpncEditor *self,
 	gtk_widget_set_sensitive (widget, enabled);
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
 	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
-	                                   _("Choose a Certificate Authority (CA) certificate..."));
+	                                   _("Choose a Certificate Authority (CA) certificate…"));
 
 	filter = gtk_file_filter_new ();
 	gtk_file_filter_add_custom (filter, GTK_FILE_FILTER_FILENAME, cert_filter, NULL, NULL);
