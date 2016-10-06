@@ -34,7 +34,12 @@
 #include "nm-utils/nm-test-utils.h"
 
 #define SRCDIR TEST_SRCDIR"/pcf"
-#define TMPDIR TEST_BUILDDIR"/pcf-tmp"
+
+#ifdef NM_VPN_OLD
+#define TMPDIR TEST_BUILDDIR"/pcf-tmp-old"
+#else
+#define TMPDIR TEST_BUILDDIR"/pcf-tmp-new"
+#endif
 
 /*****************************************************************************/
 
