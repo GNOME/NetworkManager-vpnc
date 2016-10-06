@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2016-06-16 10:36+0000\n"
+"POT-Creation-Date: 2016-10-03 21:21+0000\n"
 "PO-Revision-Date: 2016-06-30 14:48+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -65,7 +65,7 @@ msgstr "Heslo _skupiny:"
 
 #: ../auth-dialog/main.c:491
 #, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "Pro přístup do VPN „%s“ se musí provést ověření."
 
 #: ../properties/nm-vpnc-editor-plugin.c:44
@@ -83,7 +83,7 @@ msgstr ""
 #: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
 msgid ""
-"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
 "\n"
 "The connection can still be created, with TCP tunneling disabled, however it "
@@ -156,7 +156,7 @@ msgid "DH Group 2"
 msgstr "Skupina DH 2"
 
 #: ../properties/nm-vpnc-editor.c:678
-msgid "Choose a Certificate Authority (CA) certificate..."
+msgid "Choose a Certificate Authority (CA) certificate…"
 msgstr "Vybrat certifikát certifikační autority (CA)…"
 
 #: ../properties/nm-vpnc-editor.c:682
@@ -165,27 +165,27 @@ msgstr "Certifikáty PEM  (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
-msgid "property '%s' invalid or not supported"
+msgid "property “%s” invalid or not supported"
 msgstr "volba „%s“ není platná nebo podporovaná"
 
 #: ../src/nm-vpnc-service.c:221
 #, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "cesta k souboru „%s“ u volby „%s“ není absolutní nebo neexistuje"
 
 #: ../src/nm-vpnc-service.c:234
 #, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
+msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr "celočíselná volba „%s“ není platná nebo je mimo rozsah [%d -> %d]"
 
 #: ../src/nm-vpnc-service.c:244
 #, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
+msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "pravdivostní volba „%s“ není platná (není ano či ne)"
 
 #: ../src/nm-vpnc-service.c:251
 #, c-format
-msgid "unhandled property '%s' type %d"
+msgid "unhandled property “%s” type %d"
 msgstr "neošetřená volba „%s“ typu %d"
 
 #: ../src/nm-vpnc-service.c:268
@@ -202,12 +202,12 @@ msgstr "Nelze nalézt program vpnc."
 
 #: ../src/nm-vpnc-service.c:757
 #, c-format
-msgid "Config option '%s' invalid or unknown."
+msgid "Config option “%s” invalid or unknown."
 msgstr "Volba nastavení „%s“ je neplatná nebo neznámá."
 
 #: ../src/nm-vpnc-service.c:792
 #, c-format
-msgid "Config option '%s' not an integer."
+msgid "Config option “%s” not an integer."
 msgstr "Volba nastavení „%s“ není číslo."
 
 #: ../src/nm-vpnc-service.c:980
@@ -233,14 +233,14 @@ msgstr ""
 #: ../src/nm-vpnc-service.c:1032
 #, c-format
 msgid ""
-"Could not process the request because the requested info '%s' was not "
+"Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr ""
 "Nelze zpracovat požadavek protože požadovaná informace „%s“ nebyla "
 "poskytnuta."
 
 #: ../src/nm-vpnc-service.c:1230
-msgid "Don't quit when VPN connection terminates"
+msgid "Don’t quit when VPN connection terminates"
 msgstr "Neukončovat při uzavření spojení VPN"
 
 #: ../src/nm-vpnc-service.c:1231
@@ -266,7 +266,6 @@ msgstr "objektová třída „%s“ nemá vlastnost nazvanou „%s“"
 
 #: ../shared/nm-utils/nm-shared-utils.c:192
 #, c-format
-#| msgid "property '%s' file path '%s' is not absolute or does not exist"
 msgid "property '%s' of object class '%s' is not writable"
 msgstr "vlastnost „%s“ objektové třídy „%s“ není zapisovatelná"
 
@@ -406,7 +405,7 @@ msgstr ""
 "config: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "Advance_d..."
+msgid "Advance_d…"
 msgstr "_Rozšířené…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
@@ -487,7 +486,7 @@ msgstr "Překonávání _NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
 "config: Local Port <0-65535>"
 msgstr ""
 "Místní port ISAKMP, který bude použit (0 znamená náhodně vybraný port; 500 "
@@ -525,12 +524,12 @@ msgstr ""
 #: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
-"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
-"encryption' for None"
+"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+"encryption” for None"
 msgstr ""
 "Metoda šifrování\n"
-"config: nic pro Secure, „Enable Single DES“ pro Weak, „Enable no encryption“ "
-"pro None"
+"config: nic pro bezpečné, „Enable Single DES“ pro slabé, „Enable no "
+"encryption“ pro žádné"
 
 #: ../properties/nm-vpnc-dialog.ui.h:55
 msgid ""
