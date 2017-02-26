@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
 "POT-Creation-Date: 2016-10-03 21:21+0000\n"
-"PO-Revision-Date: 2017-02-06 16:20+0100\n"
+"PO-Revision-Date: 2017-02-25 19:33+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -203,7 +203,7 @@ msgstr "Ingen VPN-hemmeligheder!"
 
 #: ../src/nm-vpnc-service.c:639
 msgid "Could not find vpnc binary."
-msgstr "Kunne ikke finde binær fil for vpnc."
+msgstr "Kunne ikke finde binærfil for vpnc."
 
 #: ../src/nm-vpnc-service.c:757
 #, c-format
@@ -284,7 +284,7 @@ msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
 "construct-egenskaben \"%s\" for objektet \"%s\" kan ikke angives efter "
-"construction"
+"konstruktion"
 
 # streng også i modulet applet
 #: ../shared/nm-utils/nm-shared-utils.c:207
@@ -349,7 +349,7 @@ msgid ""
 "config: IPSec secret <group_password>"
 msgstr ""
 "Gruppeadgangskode\n"
-"config: IPSec secret <gruppeadgangskode>"
+"Konfiguration: IPSec secret <gruppeadgangskode>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
@@ -369,7 +369,7 @@ msgid ""
 "config: IPSec gateway <gateway>"
 msgstr ""
 "IPsec-gateways IP/værtsnavn\n"
-"config: IPSec gateway <gateway>"
+"Konfiguration: IPSec gateway <gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
@@ -377,7 +377,7 @@ msgid ""
 "config: IPSec ID <group_name>"
 msgstr ""
 "Gruppenavn\n"
-"config: IPSec ID <gruppenavn>"
+"Konfiguration: IPSec ID <gruppenavn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
@@ -389,7 +389,7 @@ msgid ""
 "config: Xauth password <password>"
 msgstr ""
 "Brugeradgangskode til forbindelsen\n"
-"config: Xauth password <adgangskode>"
+"Konfiguration: Xauth password <adgangskode>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
@@ -397,7 +397,7 @@ msgid ""
 "config: Xauth username <user_name>"
 msgstr ""
 "Brugernavn til forbindelsen\n"
-"config: Xauth username <brugernavn>"
+"Konfiguration: Xauth username <brugernavn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "User na_me:"
@@ -413,7 +413,7 @@ msgid ""
 "config: IKE Authmode hybrid"
 msgstr ""
 "Aktivér hybridgodkendelse, dvs. brug certifikat sammen med adgangskode.\n"
-"config: IKE Authmode hybrid"
+"Konfiguration: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "CA _File:"
@@ -425,7 +425,7 @@ msgid ""
 "config: CA-File"
 msgstr ""
 "CA-certifikat i PEM-format\n"
-"config: CA-File"
+"Konfiguration: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
@@ -449,7 +449,7 @@ msgid ""
 "config: Domain <domain>"
 msgstr ""
 "(NT-)Domænenavn til godkendelse\n"
-"config: Domain <domæne>"
+"Konfiguration: Domain <domæne>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
@@ -457,7 +457,7 @@ msgid ""
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Din IPsec-gateways leverandør\n"
-"config: Vendor <cisco/netscreen>"
+"Konfiguration: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "_Vendor:"
@@ -473,7 +473,7 @@ msgid ""
 "config: Application version <ASCII string>"
 msgstr ""
 "Programversion der skal rapporteres. \n"
-"config: Application version <ASCII-streng>"
+"Konfiguration: Application version <ASCII-streng>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
@@ -489,7 +489,7 @@ msgid ""
 "config: DPD idle timeout (our side) 0"
 msgstr ""
 "Deaktivér sending af DPD-pakker (indstiller timeout til 0)\n"
-"config: DPD idle timeout (vores side) 0"
+"Konfiguration: DPD idle timeout (vores side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
 msgid "_Local port:"
@@ -514,7 +514,7 @@ msgid ""
 msgstr ""
 "Lokal ISAKMP-port der skal bruges (0 betyder tilfældig port; 500 er vpnc’s "
 "standard)\n"
-"config: Local Port <0-65535>"
+"Konfiguration: Local Port <0-65535>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:46
 msgid "0"
@@ -526,7 +526,7 @@ msgid ""
 "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 msgstr ""
 "Diffie–Hellman-gruppe der skal bruges til PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+"Konfiguration: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:49
 msgid ""
@@ -534,7 +534,7 @@ msgid ""
 "config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 "IKE-DH-gruppens navn\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
+"Konfiguration: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:51
 msgid ""
@@ -542,7 +542,7 @@ msgid ""
 "config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
 "NAT-krydsningsmetode der skal bruges\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+"Konfiguration: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
@@ -551,8 +551,8 @@ msgid ""
 "encryption” for None"
 msgstr ""
 "Krypteringsmetode\n"
-"config: ingenting for sikker, \"Enable Single DES\" for svag, \"Enable no "
-"encryption\" for ingen"
+"Konfiguration: ingenting for sikker, \"Enable Single DES\" for svag, "
+"\"Enable no encryption\" for ingen"
 
 #: ../properties/nm-vpnc-dialog.ui.h:55
 msgid ""
@@ -560,7 +560,7 @@ msgid ""
 "config: Interface name <name>"
 msgstr ""
 "Navn på tunnelgrænseflade der skal bruges\n"
-"config: Interface name <navn>"
+"Konfiguration: Interface name <navn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
