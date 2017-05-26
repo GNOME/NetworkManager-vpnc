@@ -908,13 +908,14 @@ update_connection (NMVpnEditor *editor,
 
 	/* hybrid auth */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "hybrid_checkbutton"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget)))
+	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_AUTHMODE, "hybrid");
 
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
-	str = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
-	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_CA_FILE, str);
+		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
+		str = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
+		if (str && str[0])
+			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_CA_FILE, str);
+	}
 
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 	return TRUE;
