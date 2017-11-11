@@ -11,9 +11,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
 "product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2016-10-03 21:21+0000\n"
+"POT-Creation-Date: 2017-02-26 22:59+0000\n"
 "PO-Revision-Date: 2017-02-25 19:33+0100\n"
 "Last-Translator: Alan Mortensen <alanmortensen.am@gmail.com>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
@@ -71,7 +71,7 @@ msgstr "_Gruppeadgangskode:"
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
-"Du skal opnå godkendelse for at tilgå det virtuelle private netværk \"%s\"."
+"Du skal opnå godkendelse for at tilgå det virtuelle private netværk “%s”."
 
 #: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
@@ -94,8 +94,8 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"VPN-opsætningsfilen \"%s\" angiver, at VPN-trafikken skal sendes gennem en "
-"TCP-tunnel, hvilket i øjeblikket ikke er understøttet i vpnc-programmet.\n"
+"VPN-opsætningsfilen “%s” angiver, at VPN-trafikken skal sendes gennem en TCP-"
+"tunnel, hvilket i øjeblikket ikke er understøttet i vpnc-programmet.\n"
 "\n"
 "Forbindelsen kan stadig oprettes uden TCP-tunnel, men vil muligvis ikke "
 "fungere som forventet."
@@ -171,27 +171,27 @@ msgstr "PEM-certifikater (*.pem, *.crt, *.cer)"
 #: ../src/nm-vpnc-service.c:201
 #, c-format
 msgid "property “%s” invalid or not supported"
-msgstr "egenskaben \"%s\" er ugyldig eller ikke understøttet"
+msgstr "egenskaben “%s” er ugyldig eller ikke understøttet"
 
 #: ../src/nm-vpnc-service.c:221
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
-msgstr "egenskaben \"%s\" filsti \"%s\" er ikke absolut eller findes ikke"
+msgstr "egenskaben “%s” filsti “%s” er ikke absolut eller findes ikke"
 
 #: ../src/nm-vpnc-service.c:234
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
-msgstr "ugyldig heltalsegenskab \"%s\" eller uden for interval [%d -> %d]"
+msgstr "ugyldig heltalsegenskab “%s” eller uden for interval [%d -> %d]"
 
 #: ../src/nm-vpnc-service.c:244
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
-msgstr "ugyldig boolesk egenskab \"%s\" (ikke ja eller nej)"
+msgstr "ugyldig boolesk egenskab “%s” (ikke ja eller nej)"
 
 #: ../src/nm-vpnc-service.c:251
 #, c-format
 msgid "unhandled property “%s” type %d"
-msgstr "uhåndteret egenskab \"%s\" type %d"
+msgstr "uhåndteret egenskab “%s” type %d"
 
 #: ../src/nm-vpnc-service.c:268
 msgid "No VPN configuration options."
@@ -208,12 +208,12 @@ msgstr "Kunne ikke finde binærfil for vpnc."
 #: ../src/nm-vpnc-service.c:757
 #, c-format
 msgid "Config option “%s” invalid or unknown."
-msgstr "Konfigurationsindstilling \"%s\" er ugyldig eller ukendt."
+msgstr "Konfigurationsindstilling “%s” er ugyldig eller ukendt."
 
 #: ../src/nm-vpnc-service.c:792
 #, c-format
 msgid "Config option “%s” not an integer."
-msgstr "Konfigurationsindstilling \"%s\" er ikke et heltal."
+msgstr "Konfigurationsindstilling “%s” er ikke et heltal."
 
 #: ../src/nm-vpnc-service.c:980
 msgid "vpnc does not support interactive requests"
@@ -244,8 +244,8 @@ msgid ""
 "Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr ""
-"Kunne ikke behandle forespørgslen, da den forespurgte information \"%s\" "
-"ikke blev leveret."
+"Kunne ikke behandle forespørgslen, da den forespurgte information “%s” ikke "
+"blev leveret."
 
 #: ../src/nm-vpnc-service.c:1230
 msgid "Don’t quit when VPN connection terminates"
@@ -267,56 +267,55 @@ msgstr ""
 "nm-vpnc-service tilbyder integreret Cisco Legacy IPsec VPN-kapabilitet til "
 "Netværkshåndtering."
 
-#: ../shared/nm-utils/nm-shared-utils.c:185
+#: ../shared/nm-utils/nm-shared-utils.c:264
 #, c-format
 msgid "object class '%s' has no property named '%s'"
-msgstr "objektklassen \"%s\" har ingen egenskab ved navn \"%s\""
+msgstr "objektklassen “%s” har ingen egenskab ved navn “%s”"
 
-#: ../shared/nm-utils/nm-shared-utils.c:192
+#: ../shared/nm-utils/nm-shared-utils.c:271
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
-msgstr "egenskaben \"%s\" af objektklassen \"%s\" er skrivebeskyttet"
+msgstr "egenskaben “%s” af objektklassen “%s” er skrivebeskyttet"
 
 # streng også i modulet applet
-#: ../shared/nm-utils/nm-shared-utils.c:199
+#: ../shared/nm-utils/nm-shared-utils.c:278
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
-"construct-egenskaben \"%s\" for objektet \"%s\" kan ikke angives efter "
+"construct-egenskaben “%s” for objektet “%s” kan ikke angives efter "
 "konstruktion"
 
 # streng også i modulet applet
-#: ../shared/nm-utils/nm-shared-utils.c:207
+#: ../shared/nm-utils/nm-shared-utils.c:286
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
-"\"%s::%s\" er ikke et gyldigt egenskabsnavn; \"%s\" er ikke en undertype af "
+"“%s::%s” er ikke et gyldigt egenskabsnavn; “%s” er ikke en undertype af "
 "GObject"
 
 # streng også i modulet applet
-#: ../shared/nm-utils/nm-shared-utils.c:216
+#: ../shared/nm-utils/nm-shared-utils.c:295
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
-"kan ikke angive egenskaben \"%s\" af type \"%s\" ud fra værdien af typen \"%s"
-"\""
+"kan ikke angive egenskaben “%s” af type “%s” ud fra værdien af typen “%s”"
 
 # streng også i modulet applet
-#: ../shared/nm-utils/nm-shared-utils.c:227
+#: ../shared/nm-utils/nm-shared-utils.c:306
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
 "type '%s'"
 msgstr ""
-"værdien \"%s\" af typen \"%s\" er ugyldig eller uden for intervallet for "
-"egenskaben \"%s\" af typen \"%s\""
+"værdien “%s” af typen “%s” er ugyldig eller uden for intervallet for "
+"egenskaben “%s” af typen “%s”"
 
 # streng også i modulet pptp
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr "manglende udvidelsesmodulfil \"%s\""
+msgstr "manglende udvidelsesmodulfil “%s”"
 
 # streng også i modulet pptp
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
@@ -551,8 +550,8 @@ msgid ""
 "encryption” for None"
 msgstr ""
 "Krypteringsmetode\n"
-"Konfiguration: ingenting for sikker, \"Enable Single DES\" for svag, "
-"\"Enable no encryption\" for ingen"
+"Konfiguration: ingenting for sikker, “Enable Single DES” for svag, “Enable "
+"no encryption” for ingen"
 
 #: ../properties/nm-vpnc-dialog.ui.h:55
 msgid ""
