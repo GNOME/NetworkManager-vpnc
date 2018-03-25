@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=Network"
 "Manager&keywords=I18N+L10N&component=VPN: vpnc\n"
 "POT-Creation-Date: 2017-02-26 08:39+0000\n"
-"PO-Revision-Date: 2018-03-24 08:36+0200\n"
+"PO-Revision-Date: 2018-03-25 21:06+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -356,7 +356,7 @@ msgid ""
 "config: IPSec secret <group_password>"
 msgstr ""
 "Grupas parole\n"
-"config: IPSec secret <group_password>"
+"config: IPSec secret <grupas_parole>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
@@ -376,7 +376,7 @@ msgid ""
 "config: IPSec gateway <gateway>"
 msgstr ""
 "IP/servera nosaukums IPsec vārtejai\n"
-"config: IPSec gateway <gateway>"
+"config: IPSec gateway <vārteja>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
@@ -384,7 +384,7 @@ msgid ""
 "config: IPSec ID <group_name>"
 msgstr ""
 "Grupas nosaukums\n"
-"config: IPSec ID <group_name>"
+"config: IPSec ID <grupas_nosaukums>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
@@ -396,15 +396,15 @@ msgid ""
 "config: Xauth password <password>"
 msgstr ""
 "Savienojumam lietot paroli\n"
-"config: Xauth password <password>"
+"config: Xauth password <parole>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
 msgstr ""
-"Lietotāja vārds savienojumam \n"
-"config: Xauth username <user_name>"
+"Lietotājvārds savienojumam \n"
+"config: Xauth username <lietotājvārds>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "User na_me:"
@@ -457,7 +457,7 @@ msgid ""
 "config: Domain <domain>"
 msgstr ""
 "(NT-)Domēna nosaukuma autentifikācija\n"
-"config: Domain <domēna>"
+"config: Domain <domēns>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
@@ -481,7 +481,7 @@ msgid ""
 "config: Application version <ASCII string>"
 msgstr ""
 "Lietotnes versija, ko ziņot.\n"
-"config: lietotnes versija <ASCII string>"
+"config: lietotnes versija <ASCII virkne>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
@@ -566,8 +566,8 @@ msgid ""
 "encryption” for None"
 msgstr ""
 "Šifrēšanas metode\n"
-"konfigurācija: nekas drošai, “Enable Single DES”  vājai, “Enable no "
-"encryption”nekādai"
+"config: nekas drošai, “Enable Single DES”  vājai, “Enable no "
+"encryption” nekādai"
 
 #: ../properties/nm-vpnc-dialog.ui.h:55
 msgid ""
@@ -575,7 +575,7 @@ msgid ""
 "config: Interface name <name>"
 msgstr ""
 "Izmantojamais tuneļa saskarnes nosaukums\n"
-"konfigurācija: saskarnes nosaukums <name>"
+"config: Interface name <nosaukums>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
@@ -584,3 +584,4 @@ msgstr "Šifrēšanas metode:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Tuneļa _saskarnes nosaukums:"
+
