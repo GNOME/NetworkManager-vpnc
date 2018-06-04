@@ -7,12 +7,14 @@
 
   <name xml:lang="en">network-manager-vpnc</name>
   <shortdesc xml:lang="en">VPNC support for NetworkManager</shortdesc>
+  <description>VPNC support for NetworkManager</description>
 
   <homepage rdf:resource="https://wiki.gnome.org/Projects/NetworkManager" />
   <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/networkmanager-list" />
   <download-page rdf:resource="http://download.gnome.org/sources/NetworkManager-vpnc/" />
   <bug-database rdf:resource="https://bugzilla.gnome.org/browse.cgi?product=NetworkManager&amp;component=VPN:%20vpnc" />
-  <category rdf:resource="http://api.gnome.org/doap-extensions#development" />
+  <category rdf:resource="http://api.gnome.org/doap-extensions#apps" />
+  <programming-language>C</programming-language>
 
   <maintainer>
     <foaf:Person>
