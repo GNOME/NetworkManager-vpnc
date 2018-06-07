@@ -1,5 +1,3 @@
-AUTOMAKE_OPTIONS = foreign
-
 SUBDIRS = shared src properties po
 
 if WITH_GNOME
