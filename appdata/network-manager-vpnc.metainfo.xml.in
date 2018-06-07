@@ -27,11 +27,11 @@
 
   <screenshots>
     <screenshot type="default">
-      <image width="800" height="572">https://git.gnome.org/browse/network-manager-vpnc/plain/appdata/vpnc.png</image>
+      <image width="800" height="572">https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/raw/master/appdata/vpnc.png</image>
     </screenshot>
     <screenshot>
       <caption>The advanced options dialog</caption>
-      <image width="800" height="547">https://git.gnome.org/browse/network-manager-vpnc/plain/appdata/vpnc-advanced.png</image>
+      <image width="800" height="547">https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/raw/master/appdata/vpnc-advanced.png</image>
     </screenshot>
   </screenshots>
 
