@@ -1,0 +1,4 @@
+Client for Cisco IPsec virtual private networks
+
+Support for configuring virtual private networks based on VPNC.
+Compatible with Cisco VPN concentrators configured to use IPsec.
