@@ -209,7 +209,14 @@ validate_one_property (const char *key, const char *value, gpointer user_data)
 		break; /* technically valid, but unused */
 	case ITEM_TYPE_STRING:
 	case ITEM_TYPE_SECRET:
-		break; /* valid */
+		if (strchr (value, '\n') || strchr (value, '\r')) {
+			g_set_error (info->error,
+			             NM_VPN_PLUGIN_ERROR,
+			             NM_VPN_PLUGIN_ERROR_BAD_ARGUMENTS,
+			             _("property “%s” contains a newline character"),
+			             key);
+		}
+		break;
 	case ITEM_TYPE_PATH:
 		if (   !value
 		    || !strlen (value)
