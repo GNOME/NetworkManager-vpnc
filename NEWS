@@ -1,4 +1,19 @@
 =======================================================
+NetworkManager-vpnc-1.2.6
+Overview of changes since NetworkManager-vpnc-1.2.4
+=======================================================
+
+This is a new stable release of NetworkManager-vpnc.  Notable changes include:
+
+* Fix for a local authenticated privileged escalation bug (CVE-2018-10900)
+  All users are advised to upgrade.
+* The CA file is now hidden from the configuration dialog if hybrid auth is
+  disabled.
+* Updated Brazilian Portuguese, Czech, Danish, Dutch, Finnish, Friulian,
+  German, Hungarian, Indonesian, Italian, Latvian, Lithuanian, Polish,
+  Russian, Serbian, Spanish and Swedish translations.
+
+=======================================================
 NetworkManager-vpnc-1.2.4
 Overview of changes since NetworkManager-vpnc-1.2.2
 =======================================================
