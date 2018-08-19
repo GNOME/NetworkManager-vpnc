@@ -2,7 +2,7 @@
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-vpnc package.
 # Thomas Gier <info@thomasgier.de>, 2007.
-# Mario Blättermann <mario.blaettermann@gmail.com>, 2008, 2010-2011, 2016.
+# Mario Blättermann <mario.blaettermann@gmail.com>, 2008, 2010-2011, 2016, 2018.
 # Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010, 2012.
 # Markus <marqus@gmx.net>, 2011.
 # Wolfgang Stöggl <c72578@yahoo.de>, 2011, 2015-2016.
@@ -12,18 +12,18 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2016-10-03 21:21+0000\n"
-"PO-Revision-Date: 2016-11-14 23:07+0100\n"
-"Last-Translator: Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
+"issues\n"
+"POT-Creation-Date: 2018-07-20 09:14+0000\n"
+"PO-Revision-Date: 2018-08-19 18:24+0200\n"
+"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Project-Style: gnome\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
@@ -179,60 +179,65 @@ msgstr "PEM-Zertifikate (*.pem, *.crt, *.cer)"
 msgid "property “%s” invalid or not supported"
 msgstr "Eigenschaft »%s« ist ungültig oder wird nicht unterstützt"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:216
+#, c-format
+msgid "property “%s” contains a newline character"
+msgstr "Eigenschaft »%s« ist enthält ein Zeielnvorschub-Zeichen"
+
+#: ../src/nm-vpnc-service.c:228
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "Eigenschaft »%s« Dateipfad »%s« ist nicht absolut oder existiert nicht"
 
-#: ../src/nm-vpnc-service.c:234
+#: ../src/nm-vpnc-service.c:241
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr ""
 "Ungültige Ganzzahl-Eigenschaft »%s« oder außerhalb des Bereichs [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:244
+#: ../src/nm-vpnc-service.c:251
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "Ungültige boolesche Eigenschaft »%s« (nicht »yes« oder »no«)"
 
-#: ../src/nm-vpnc-service.c:251
+#: ../src/nm-vpnc-service.c:258
 #, c-format
 msgid "unhandled property “%s” type %d"
 msgstr "Unbehandelte Eigenschaft »%s« des Typs %d"
 
-#: ../src/nm-vpnc-service.c:268
+#: ../src/nm-vpnc-service.c:275
 msgid "No VPN configuration options."
 msgstr "Keine VPN-Konfigurationsoptionen."
 
-#: ../src/nm-vpnc-service.c:294
+#: ../src/nm-vpnc-service.c:301
 msgid "No VPN secrets!"
 msgstr "Keine VPN-Sicherheitsschlüssel!"
 
-#: ../src/nm-vpnc-service.c:639
+#: ../src/nm-vpnc-service.c:646
 msgid "Could not find vpnc binary."
 msgstr "vpnc-Binärdatei konnte nicht gefunden werden."
 
-#: ../src/nm-vpnc-service.c:757
+#: ../src/nm-vpnc-service.c:764
 #, c-format
 msgid "Config option “%s” invalid or unknown."
 msgstr "Konfigurationsoption »%s« ist ungültig oder unbekannt."
 
-#: ../src/nm-vpnc-service.c:792
+#: ../src/nm-vpnc-service.c:799
 #, c-format
 msgid "Config option “%s” not an integer."
 msgstr "Konfigurationsoption »%s« ist keine Ganzzahl."
 
-#: ../src/nm-vpnc-service.c:980
+#: ../src/nm-vpnc-service.c:987
 msgid "vpnc does not support interactive requests"
 msgstr "vpnc unterstützt keine interaktiven Anfragen"
 
-#: ../src/nm-vpnc-service.c:1004
+#: ../src/nm-vpnc-service.c:1011
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "Die neuen Sicherheitsschlüssel konnten nicht verwendet werden, da der "
 "interaktive Modus deaktiviert ist."
 
-#: ../src/nm-vpnc-service.c:1013 ../src/nm-vpnc-service.c:1087
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -240,14 +245,14 @@ msgstr ""
 "Aufgrund ungültiger VPN-Verbindungseinstellungen konnte die Anfrage nicht "
 "verarbeitet werden."
 
-#: ../src/nm-vpnc-service.c:1021
+#: ../src/nm-vpnc-service.c:1028
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
 "Die Anfrage konnte nicht verarbeitet werden, da keine ausstehende "
 "Legitimierung erforderlich ist."
 
-#: ../src/nm-vpnc-service.c:1032
+#: ../src/nm-vpnc-service.c:1039
 #, c-format
 msgid ""
 "Could not process the request because the requested info “%s” was not "
@@ -256,21 +261,21 @@ msgstr ""
 "Die Anfrage konnte nicht verarbeitet werden, da die angefragte Information "
 "»%s« nicht bereitgestellt wurde."
 
-#: ../src/nm-vpnc-service.c:1230
+#: ../src/nm-vpnc-service.c:1237
 msgid "Don’t quit when VPN connection terminates"
 msgstr "Nicht beenden, wenn die VPN-Verbindung beendet wird"
 
-#: ../src/nm-vpnc-service.c:1231
+#: ../src/nm-vpnc-service.c:1238
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Ausführliche Protokollierung zur Fehlerdiagnose erlauben (könnte Passwörter "
 "sichtbar machen)"
 
-#: ../src/nm-vpnc-service.c:1232
+#: ../src/nm-vpnc-service.c:1239
 msgid "D-Bus name to use for this instance"
 msgstr "Für diese Instanz zu verwendender D-Bus-Name"
 
-#: ../src/nm-vpnc-service.c:1255
+#: ../src/nm-vpnc-service.c:1262
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -278,17 +283,17 @@ msgstr ""
 "nm-vpnc-service integriert Cisco Legacy IPsec-VPN-Funktionalität in "
 "NetworkManager."
 
-#: ../shared/nm-utils/nm-shared-utils.c:185
+#: ../shared/nm-utils/nm-shared-utils.c:264
 #, c-format
 msgid "object class '%s' has no property named '%s'"
 msgstr "Objektklasse »%s« hat keine Eigenschaft namens »%s«"
 
-#: ../shared/nm-utils/nm-shared-utils.c:192
+#: ../shared/nm-utils/nm-shared-utils.c:271
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr "Eigenschaft »%s« der Objektklasse »%s« ist schreibgeschützt"
 
-#: ../shared/nm-utils/nm-shared-utils.c:199
+#: ../shared/nm-utils/nm-shared-utils.c:278
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
@@ -296,20 +301,20 @@ msgstr ""
 "Konstruktor-Eigenschaft »%s« für Objekt »%s« kann nicht nach der "
 "Konstruktion gesetzt werden"
 
-#: ../shared/nm-utils/nm-shared-utils.c:207
+#: ../shared/nm-utils/nm-shared-utils.c:286
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr ""
 "»%s::%s« ist kein gültiger Eigenschaftsname; »%s« ist kein GObject-Subtyp"
 
-#: ../shared/nm-utils/nm-shared-utils.c:216
+#: ../shared/nm-utils/nm-shared-utils.c:295
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr ""
 "Eigenschaft »%s« des Typs »%s« kann nicht aus dem Wert des Typs »%s« gesetzt "
 "werden"
 
-#: ../shared/nm-utils/nm-shared-utils.c:227
+#: ../shared/nm-utils/nm-shared-utils.c:306
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
@@ -573,42 +578,3 @@ msgstr "_Verschlüsselungsmethode:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Tunnel-Schn_ittstellenname:"
-
-#~ msgid "TCP tunneling not supported"
-#~ msgstr "TCP-Tunneling wird nicht unterstützt"
-
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Zweitpasswort:"
-
-#~ msgid "_Password:"
-#~ msgstr "_Passwort:"
-
-#~ msgid "Sh_ow passwords"
-#~ msgstr "Passwörter an_zeigen"
-
-#~ msgid "VPN Connection Manager (vpnc)"
-#~ msgstr "VPN-Verbindungsmanager (vpnc)"
-
-#~ msgid "Add, Remove, and Edit VPN Connections"
-#~ msgstr "VPN-Verbindungen hinzufügen, entfernen und bearbeiten"
-
-#~ msgid "Saved"
-#~ msgstr "Gespeichert"
-
-#~ msgid "Always Ask"
-#~ msgstr "Immer fragen"
-
-#~ msgid "Not Required"
-#~ msgstr "Nicht notwendig"
-
-#~ msgid " "
-#~ msgstr " "
-
-#~ msgid "_Remember passwords for this session"
-#~ msgstr "Passwo_rt für diese Sitzung behalten"
-
-#~ msgid "_Save passwords in keyring"
-#~ msgstr "Passwort im _Schlüsselbund speichern"
-
-#~ msgid "<b>Optional</b>"
-#~ msgstr "<b>Optional</b>"
