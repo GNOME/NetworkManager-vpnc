@@ -1,17 +1,17 @@
 # Italian translation of network-manager-vpnc
-# Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2016, 2017 the network-manager-vpnc's copyright holders
+# Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2016, 2017, 2018 the network-manager-vpnc's copyright holders
 # This file is distributed under the same license as the network-manager-vpnc package.
 # Francesco Marletta <francesco.marletta@tiscali.it>, 2006, 2007, 2008, 2009, 2010.
 # Luca Ferretti <elle.uca@libero.it>, 2010.
-# Milo Casagrande <milo@milo.name>, 2012, 2013, 2016, 2017.
+# Milo Casagrande <milo@milo.name>, 2012, 2013, 2016, 2017, 2018.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2017-02-26 08:39+0000\n"
-"PO-Revision-Date: 2017-03-14 13:44+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
+"issues\n"
+"POT-Creation-Date: 2018-07-20 09:14+0000\n"
+"PO-Revision-Date: 2018-08-27 15:07+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.0beta3\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -174,59 +174,64 @@ msgstr "Certificati PEM (*.pem, *.crt, *.cer)"
 msgid "property “%s” invalid or not supported"
 msgstr "proprietà «%s» non valida o non supportata"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:216
+#, c-format
+msgid "property “%s” contains a newline character"
+msgstr "proprietà «%s» contiene un carattere di a capo"
+
+#: ../src/nm-vpnc-service.c:228
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "il percorso «%2$s» della proprietà «%1$s» non è assoluto o non esiste"
 
-#: ../src/nm-vpnc-service.c:234
+#: ../src/nm-vpnc-service.c:241
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr "proprietà intera «%s» non valida o fuori intervallo [%d → %d]"
 
-#: ../src/nm-vpnc-service.c:244
+#: ../src/nm-vpnc-service.c:251
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "proprietà booleana «%s» non valida (non yes o no)"
 
-#: ../src/nm-vpnc-service.c:251
+#: ../src/nm-vpnc-service.c:258
 #, c-format
 msgid "unhandled property “%s” type %d"
 msgstr "proprietà «%s» di tipo %d non gestita"
 
-#: ../src/nm-vpnc-service.c:268
+#: ../src/nm-vpnc-service.c:275
 msgid "No VPN configuration options."
 msgstr "Nessuna opzione di configurazione VPN."
 
-#: ../src/nm-vpnc-service.c:294
+#: ../src/nm-vpnc-service.c:301
 msgid "No VPN secrets!"
 msgstr "Nessun segreto VPN."
 
-#: ../src/nm-vpnc-service.c:639
+#: ../src/nm-vpnc-service.c:646
 msgid "Could not find vpnc binary."
 msgstr "Impossibile trovare il file binario di vnpc."
 
-#: ../src/nm-vpnc-service.c:757
+#: ../src/nm-vpnc-service.c:764
 #, c-format
 msgid "Config option “%s” invalid or unknown."
 msgstr "Opzione di configurazione «%s» non valida o sconosciuta."
 
-#: ../src/nm-vpnc-service.c:792
+#: ../src/nm-vpnc-service.c:799
 #, c-format
 msgid "Config option “%s” not an integer."
 msgstr "L'opzione di configurazione «%s» non è un intero."
 
-#: ../src/nm-vpnc-service.c:980
+#: ../src/nm-vpnc-service.c:987
 msgid "vpnc does not support interactive requests"
 msgstr "vpnc non supporta richieste interattive"
 
-#: ../src/nm-vpnc-service.c:1004
+#: ../src/nm-vpnc-service.c:1011
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "Impossibile utilizzare i nuovi segreti poiché la modalità interattiva è "
 "disabilitata."
 
-#: ../src/nm-vpnc-service.c:1013 ../src/nm-vpnc-service.c:1087
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -234,14 +239,14 @@ msgstr ""
 "Impossibile elaborare la richiesta poiché le impostazioni della connessione "
 "VPN non sono corrette."
 
-#: ../src/nm-vpnc-service.c:1021
+#: ../src/nm-vpnc-service.c:1028
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
 "Impossibile elaborare la richiesta poiché non è richiesta alcuna "
 "autenticazione pendente."
 
-#: ../src/nm-vpnc-service.c:1032
+#: ../src/nm-vpnc-service.c:1039
 #, c-format
 msgid ""
 "Could not process the request because the requested info “%s” was not "
@@ -250,19 +255,19 @@ msgstr ""
 "Impossibile elaborare la richiesta poiché l'informazione «%s» richiesta non "
 "è stata fornita."
 
-#: ../src/nm-vpnc-service.c:1230
+#: ../src/nm-vpnc-service.c:1237
 msgid "Don’t quit when VPN connection terminates"
 msgstr "Non esce quando la connessione VPN termina"
 
-#: ../src/nm-vpnc-service.c:1231
+#: ../src/nm-vpnc-service.c:1238
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Abilita output prolisso per il debug (potrebbe visualizzare password)"
 
-#: ../src/nm-vpnc-service.c:1232
+#: ../src/nm-vpnc-service.c:1239
 msgid "D-Bus name to use for this instance"
 msgstr "Nome D-Bus da usare per questa istanza"
 
-#: ../src/nm-vpnc-service.c:1255
+#: ../src/nm-vpnc-service.c:1262
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
