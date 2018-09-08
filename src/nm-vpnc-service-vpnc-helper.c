@@ -366,6 +366,25 @@ main (int argc, char *argv[])
 	else
 		helper_failed (proxy, "Tunnel Device");
 
+	/* Banner */
+	val = str_to_gvariant (getenv ("CISCO_BANNER"), TRUE);
+	if (val)
+		g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_BANNER, val);
+
+	/* MTU */
+	tmp = getenv ("INTERNAL_IP4_MTU");
+	if (tmp && strlen (tmp)) {
+		errno = 0;
+		mtu = strtol (tmp, NULL, 10);
+		if (errno || mtu < 0 || mtu > 20000) {
+			_LOGW ("Ignoring invalid tunnel MTU '%s'", tmp);
+			mtu = 1412;
+		}
+	}
+	val = g_variant_new_uint32 ((guint32) mtu);
+	g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_MTU, val);
+
+	/* IPv4 configuration */
 	/* IP address */
 	val = addr4_to_gvariant (getenv ("INTERNAL_IP4_ADDRESS"));
 	if (val)
@@ -437,23 +456,6 @@ main (int argc, char *argv[])
 		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
 		                     g_variant_new_boolean (TRUE));
 	}
-	/* Banner */
-	val = str_to_gvariant (getenv ("CISCO_BANNER"), TRUE);
-	if (val)
-		g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_BANNER, val);
-
-	/* MTU */
-	tmp = getenv ("INTERNAL_IP4_MTU");
-	if (tmp && strlen (tmp)) {
-		errno = 0;
-		mtu = strtol (tmp, NULL, 10);
-		if (errno || mtu < 0 || mtu > 20000) {
-			_LOGW ("Ignoring invalid tunnel MTU '%s'", tmp);
-			mtu = 1412;
-		}
-	}
-	val = g_variant_new_uint32 ((guint32) mtu);
-	g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_MTU, val);
 
 	ip4config = g_variant_builder_end (&ip4builder);
 
