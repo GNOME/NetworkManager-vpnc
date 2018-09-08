@@ -81,17 +81,28 @@ helper_failed (GDBusProxy *proxy, const char *reason)
 }
 
 static void
-send_ip4_config (GDBusProxy *proxy, GVariant *config)
+send_config (GDBusProxy *proxy, GVariant *config, GVariant *ip4config)
 {
 	GError *err = NULL;
 
-	if (!g_dbus_proxy_call_sync (proxy, "SetIp4Config",
+	if (!g_dbus_proxy_call_sync (proxy, "SetConfig",
 	                             g_variant_new ("(*)", config),
 	                             G_DBUS_CALL_FLAGS_NONE, -1,
 	                             NULL,
 	                             &err)) {
-		_LOGW ("Could not send IPv4 configuration: %s", err->message);
+		_LOGW ("Could not send configuration: %s", err->message);
 		g_error_free (err);
+	}
+
+	if (ip4config) {
+		if (!g_dbus_proxy_call_sync (proxy, "SetIp4Config",
+					     g_variant_new ("(*)", ip4config),
+					     G_DBUS_CALL_FLAGS_NONE, -1,
+					     NULL,
+					     &err)) {
+			_LOGW ("Could not send IPv4 configuration: %s", err->message);
+			g_error_free (err);
+		}
 	}
 }
 
@@ -273,7 +284,8 @@ main (int argc, char *argv[])
 	GDBusProxy *proxy;
 	char *tmp;
 	char **iter;
-	GVariantBuilder config;
+	GVariantBuilder builder, ip4builder;
+	GVariant *ip4config;
 	GVariant *val;
 	GError *err = NULL;
 	struct in_addr temp_addr;
@@ -337,33 +349,34 @@ main (int argc, char *argv[])
 		exit (1);
 	}
 
-	g_variant_builder_init (&config, G_VARIANT_TYPE_VARDICT);
+	g_variant_builder_init (&builder, G_VARIANT_TYPE_VARDICT);
+	g_variant_builder_init (&ip4builder, G_VARIANT_TYPE_VARDICT);
 
 	/* Gateway */
 	val = addr4_to_gvariant (getenv ("VPNGATEWAY"));
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_GATEWAY, val);
+		g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_EXT_GATEWAY, val);
 	else
 		helper_failed (proxy, "VPN Gateway");
 
 	/* Tunnel device */
 	val = str_to_gvariant (getenv ("TUNDEV"), FALSE);
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_TUNDEV, val);
+		g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_TUNDEV, val);
 	else
 		helper_failed (proxy, "Tunnel Device");
 
 	/* IP address */
 	val = addr4_to_gvariant (getenv ("INTERNAL_IP4_ADDRESS"));
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_ADDRESS, val);
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_ADDRESS, val);
 	else
 		helper_failed (proxy, "IP4 Address");
 
 	/* PTP address; for vpnc PTP address == internal IP4 address */
 	val = addr4_to_gvariant (getenv ("INTERNAL_IP4_ADDRESS"));
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_PTP, val);
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_PTP, val);
 	else
 		helper_failed (proxy, "IP4 PTP Address");
 
@@ -393,41 +406,41 @@ main (int argc, char *argv[])
 	if (prefix) {
 		val = g_variant_new_uint32 (prefix);
 		if (val)
-			g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_PREFIX, val);
+			g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_PREFIX, val);
 	}
 
 	/* DNS */
 	val = addr4_list_to_gvariant (getenv ("INTERNAL_IP4_DNS"));
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_DNS, val);
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_DNS, val);
 
 	/* WINS servers */
 	val = addr4_list_to_gvariant (getenv ("INTERNAL_IP4_NBNS"));
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_NBNS, val);
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_NBNS, val);
 
 	/* Default domain */
 	val = str_to_gvariant (getenv ("CISCO_DEF_DOMAIN"), TRUE);
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_DOMAIN, val);
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_DOMAIN, val);
 
 	/* Split DNS domains */
 	val = split_dns_list_to_gvariant (getenv ("CISCO_SPLIT_DNS"));
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_DOMAINS, val);
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_DOMAINS, val);
 
 	/* Routes */
 	val = get_ip4_routes ();
 	if (val) {
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_ROUTES, val);
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_ROUTES, val);
 		/* If routes-to-include were provided, that means no default route */
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
+		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
 		                     g_variant_new_boolean (TRUE));
 	}
 	/* Banner */
 	val = str_to_gvariant (getenv ("CISCO_BANNER"), TRUE);
 	if (val)
-		g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_BANNER, val);
+		g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_BANNER, val);
 
 	/* MTU */
 	tmp = getenv ("INTERNAL_IP4_MTU");
@@ -440,10 +453,23 @@ main (int argc, char *argv[])
 		}
 	}
 	val = g_variant_new_uint32 ((guint32) mtu);
-	g_variant_builder_add (&config, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_MTU, val);
+	g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_MTU, val);
+
+	ip4config = g_variant_builder_end (&ip4builder);
+
+	if (g_variant_n_children (ip4config)) {
+		val = g_variant_new_boolean (TRUE);
+		g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_HAS_IP4, val);
+	} else {
+		g_variant_unref (ip4config);
+		ip4config = NULL;
+        }
+
+	if (!ip4config)
+		helper_failed (proxy, "IPv4 configuration");
 
 	/* Send the config info to nm-vpnc-service */
-	send_ip4_config (proxy, g_variant_builder_end (&config));
+	send_config (proxy, g_variant_builder_end (&builder), ip4config);
 
 	g_object_unref (proxy);
 
