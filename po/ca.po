@@ -504,7 +504,7 @@ msgstr "_Grup IKE DH:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
 msgid "_NAT traversal:"
-msgstr "_Travessament del NAT:"
+msgstr "_Transversal del NAT:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
