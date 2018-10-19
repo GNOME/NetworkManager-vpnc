@@ -1,4 +1,13 @@
 =======================================================
+NetworkManager-vpnc-1.2.8 (not released yet)
+Overview of changes since NetworkManager-vpnc-1.2.6
+=======================================================
+
+* The auth helper in external UI mode can now be run without a display
+  server. Future nmcli version will utilize this for handling the
+  secrets without a graphical desktop.
+
+=======================================================
 NetworkManager-vpnc-1.2.6
 Overview of changes since NetworkManager-vpnc-1.2.4
 =======================================================
