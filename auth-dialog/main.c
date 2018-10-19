@@ -17,7 +17,7 @@
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *
- * (C) Copyright 2004 - 2011 Red Hat, Inc.
+ * (C) Copyright 2004 - 2018 Red Hat, Inc.
  */
 
 #include "nm-default.h"
@@ -220,6 +220,8 @@ std_ask_user (const char *vpn_name,
 	g_return_val_if_fail (prompt != NULL, FALSE);
 	g_return_val_if_fail (out_new_password != NULL, FALSE);
 	g_return_val_if_fail (out_new_group_password != NULL, FALSE);
+
+	gtk_init (NULL, NULL);
 
 	dialog = NMA_VPN_PASSWORD_DIALOG (nma_vpn_password_dialog_new (_("Authenticate VPN"), prompt, NULL));
 
@@ -447,10 +449,9 @@ main (int argc, char *argv[])
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	gtk_init (&argc, &argv);
-
 	context = g_option_context_new ("- vpnc auth dialog");
 	g_option_context_add_main_entries (context, entries, GETTEXT_PACKAGE);
+	g_option_context_add_group (context, gtk_get_option_group (FALSE));
 	if (!g_option_context_parse (context, &argc, &argv, &error)) {
 		fprintf (stderr, "Error parsing options: %s\n", error->message);
 		g_error_free (error);
