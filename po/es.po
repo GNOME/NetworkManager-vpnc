@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
 "POT-Creation-Date: 2018-10-24 13:32+0000\n"
-"PO-Revision-Date: 2019-01-29 16:45+0100\n"
+"PO-Revision-Date: 2019-01-29 16:47+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -320,10 +320,10 @@ msgstr ""
 "propiedad «%s» de tipo «%s»"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
-#, fuzzy, c-format
+#, c-format
 #| msgid "cannot load editor plugin: %s"
 msgid "unable to get editor plugin name: %s"
-msgstr "no se puede cargar el complemento del editor: %s"
+msgstr "no se puede obtener el nombre del complemento del editor: %s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
