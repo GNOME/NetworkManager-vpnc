@@ -1,17 +1,18 @@
 # Italian translation of network-manager-vpnc
 # Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2016, 2017, 2018 the network-manager-vpnc's copyright holders
+# Copyright (C) 2019 the network-manager-vpnc's copyright holders
 # This file is distributed under the same license as the network-manager-vpnc package.
 # Francesco Marletta <francesco.marletta@tiscali.it>, 2006, 2007, 2008, 2009, 2010.
 # Luca Ferretti <elle.uca@libero.it>, 2010.
-# Milo Casagrande <milo@milo.name>, 2012, 2013, 2016, 2017, 2018.
+# Milo Casagrande <milo@milo.name>, 2012, 2013, 2016, 2017, 2018, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2018-07-20 09:14+0000\n"
-"PO-Revision-Date: 2018-08-27 15:07+0200\n"
+"POT-Creation-Date: 2018-10-24 13:32+0000\n"
+"PO-Revision-Date: 2019-02-15 14:01+0100\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 2.2.1\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -314,22 +315,27 @@ msgstr ""
 "il valore «%s» di tipo «%s» non è valido o fuori dall'intervallo per la "
 "proprietà «%s» di tipo «%s»"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "impossibile ottenere il nome del plugin dell'editor: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr "file di plugin «%s» mancante"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
-msgstr "Impossibile caricare l'editor del plugin: %s"
+msgstr "impossibile caricare l'editor del plugin: %s"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr "impossibile caricare %s dal plugin: %s"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
 msgstr "errore sconosciuto nel create l'istanza dell'editor"
 
@@ -427,7 +433,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
-msgstr "A_vanzate..."
+msgstr "A_vanzate…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Advanced Options"
@@ -567,24 +573,3 @@ msgstr "Metodo di cifratura:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Nome interfaccia _tunnel:"
-
-#~ msgid "TCP tunneling not supported"
-#~ msgstr "Tunnel TCP non supportato"
-
-#~ msgid "VPN Connection Manager (vpnc)"
-#~ msgstr "Gestore connessioni VPN (vpnc)"
-
-#~ msgid "Add, Remove, and Edit VPN Connections"
-#~ msgstr "Aggiunge, rimuove e modifica connessioni VPN"
-
-# femminile perché riferito a password
-#~ msgid "Saved"
-#~ msgstr "Salvata"
-
-# sempre riferito a password
-#~ msgid "Always Ask"
-#~ msgstr "Chiedere ogni volta"
-
-# ancora riferito a password
-#~ msgid "Not Required"
-#~ msgstr "Non richiesta"
