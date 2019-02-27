@@ -6,15 +6,15 @@
 # Tino Meinen <a.t.meinen@chello.nl>, 2006, 2007.
 # Wouter Bolsterlee <wbolster@gnome.org>, 2008.
 # Rachid BM <rachidbm@ubuntu.com>, 2011.
-# Nathan Follens <nthn@unseen.is>, 2018.
+# Nathan Follens <nthn@unseen.is>, 2018-2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
-"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2017-02-26 08:39+0000\n"
-"PO-Revision-Date: 2018-03-13 21:06+0100\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
+"issues\n"
+"POT-Creation-Date: 2018-10-24 13:32+0000\n"
+"PO-Revision-Date: 2019-01-18 09:10+0100\n"
 "Last-Translator: Nathan Follens <nthn@unseen.is>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "Language: nl\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 2.2\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -179,90 +179,94 @@ msgstr "PEM-certificaten (*.pem, *.crt, *.cer)"
 msgid "property “%s” invalid or not supported"
 msgstr "eigenschap ‘%s’ is ongeldig of wordt niet ondersteund"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:216
+#, c-format
+msgid "property “%s” contains a newline character"
+msgstr "eigenschap ‘%s’ bevat een nieuweregelteken"
+
+#: ../src/nm-vpnc-service.c:228
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "eigenschap ‘%s’ van bestandspad ‘%s’ is niet absoluut, of bestaat niet"
 
-#: ../src/nm-vpnc-service.c:234
+#: ../src/nm-vpnc-service.c:241
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr "eigenschap ‘%s’ is geen geheel getal of buiten bereik [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:244
+#: ../src/nm-vpnc-service.c:251
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "ongeldige booleaanse waarde voor eigenschap ‘%s’ (geen ja of nee)"
 
-#: ../src/nm-vpnc-service.c:251
+#: ../src/nm-vpnc-service.c:258
 #, c-format
 msgid "unhandled property “%s” type %d"
 msgstr "onbehandelde eigenschap ‘%s’ type %d"
 
-#: ../src/nm-vpnc-service.c:268
+#: ../src/nm-vpnc-service.c:275
 msgid "No VPN configuration options."
 msgstr "Geen VPN-configuratieopties."
 
-#: ../src/nm-vpnc-service.c:294
+#: ../src/nm-vpnc-service.c:301
 msgid "No VPN secrets!"
 msgstr "Geen VPN-geheimen!"
 
-#: ../src/nm-vpnc-service.c:639
+#: ../src/nm-vpnc-service.c:646
 msgid "Could not find vpnc binary."
 msgstr "Kon het vpnc-binaire bestand niet vinden."
 
-#: ../src/nm-vpnc-service.c:757
+#: ../src/nm-vpnc-service.c:764
 #, c-format
 msgid "Config option “%s” invalid or unknown."
 msgstr "Configuratieoptie ‘%s’ ongeldig of onbekend."
 
-#: ../src/nm-vpnc-service.c:792
+#: ../src/nm-vpnc-service.c:799
 #, c-format
 msgid "Config option “%s” not an integer."
 msgstr "Configuratieoptie ‘%s’ is geen geheel getal."
 
-#: ../src/nm-vpnc-service.c:980
+#: ../src/nm-vpnc-service.c:987
 msgid "vpnc does not support interactive requests"
 msgstr "vpnc biedt geen ondersteuning voor interactieve verzoeken"
 
-#: ../src/nm-vpnc-service.c:1004
+#: ../src/nm-vpnc-service.c:1011
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "Nieuwe geheimen gebruiken mislukt, interactieve modus is uitgeschakeld."
 
-#: ../src/nm-vpnc-service.c:1013 ../src/nm-vpnc-service.c:1087
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr ""
 "Aanmelding is mislukt wegens ongeldige verbindingsinstellingen van VPN."
 
-#: ../src/nm-vpnc-service.c:1021
+#: ../src/nm-vpnc-service.c:1028
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr "Aanmelding is mislukt omdat er geen lopende authenticatie vereist is."
 
-#: ../src/nm-vpnc-service.c:1032
+#: ../src/nm-vpnc-service.c:1039
 #, c-format
 msgid ""
 "Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr "Aanmelding is mislukt omdat de vereist info ‘%s’ niet opgegeven is."
 
-#: ../src/nm-vpnc-service.c:1230
-#| msgid "Don't quit when VPN connection terminates"
+#: ../src/nm-vpnc-service.c:1237
 msgid "Don’t quit when VPN connection terminates"
 msgstr "Don’t quit when VPN connection terminates"
 
-#: ../src/nm-vpnc-service.c:1231
+#: ../src/nm-vpnc-service.c:1238
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Uitgebreide debug-logging inschakelen (kan wachtwoorden blootstellen)"
 
-#: ../src/nm-vpnc-service.c:1232
+#: ../src/nm-vpnc-service.c:1239
 msgid "D-Bus name to use for this instance"
 msgstr "D-Bus-naam voor deze instantie"
 
-#: ../src/nm-vpnc-service.c:1255
+#: ../src/nm-vpnc-service.c:1262
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -308,22 +312,27 @@ msgstr ""
 "waarde ‘%s’ van type ‘%s’ is ongeldig of buiten bereik voor eigenschap ‘%s’ "
 "van type ‘%s’"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "verkrijgen van naam van verwerkersplug-in mislukt: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr "plug-inbestand ‘%s’ ontbreekt"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr "laden van verwerkersplug-in mislukt: %s"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr "laden van factory %s uit plug-in %s mislukt"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
 msgstr "onbekende fout bij aanmaken van verwerkersinstantie"
 
