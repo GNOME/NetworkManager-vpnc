@@ -6,19 +6,20 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=Network"
-"Manager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2016-10-03 21:21+0000\n"
-"PO-Revision-Date: 2017-02-25 20:20+0200\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
+"issues\n"
+"POT-Creation-Date: 2018-10-24 13:32+0000\n"
+"PO-Revision-Date: 2019-09-16 08:50+0200\n"
+"Last-Translator: Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Language-Team: Serbian <(nothing)>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
-"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
+"X-Generator: Poedit 2.2.3\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -64,7 +65,6 @@ msgstr "Лозинка _групе:"
 
 #: ../auth-dialog/main.c:491
 #, c-format
-#| msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
 "Морате да потврдите идентитет да бисте могли да приступите виртуелној "
@@ -84,12 +84,6 @@ msgstr ""
 
 #: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
-#| msgid ""
-#| "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
-#| "through TCP which is currently not supported in the vpnc software.\n"
-#| "\n"
-#| "The connection can still be created, with TCP tunneling disabled, however "
-#| "it may not work as expected."
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
@@ -164,7 +158,6 @@ msgid "DH Group 2"
 msgstr "ДХ група 2"
 
 #: ../properties/nm-vpnc-editor.c:678
-#| msgid "Choose a Certificate Authority (CA) certificate..."
 msgid "Choose a Certificate Authority (CA) certificate…"
 msgstr "Изаберите уверење издавача овлашћења…"
 
@@ -174,104 +167,98 @@ msgstr "ПЕМ уверења (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
-#| msgid "property '%s' invalid or not supported"
 msgid "property “%s” invalid or not supported"
 msgstr "својство „%s“ је неисправно или није подржано"
 
-#: ../src/nm-vpnc-service.c:221
+#: ../src/nm-vpnc-service.c:216
 #, c-format
-#| msgid "property '%s' file path '%s' is not absolute or does not exist"
+msgid "property “%s” contains a newline character"
+msgstr "својство „%s“ је садржи знак нове линије"
+
+#: ../src/nm-vpnc-service.c:228
+#, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "својства „%s“ путања датотеке „%s“ није апсолутна или не постоји"
 
-#: ../src/nm-vpnc-service.c:234
+#: ../src/nm-vpnc-service.c:241
 #, c-format
-#| msgid "invalid integer property '%s' or out of range [%d -> %d]"
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr "неисправно својство целог броја „%s“ или је ван опсега [%d —> %d]"
 
-#: ../src/nm-vpnc-service.c:244
+#: ../src/nm-vpnc-service.c:251
 #, c-format
-#| msgid "invalid boolean property '%s' (not yes or no)"
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "неисправно логичко својство „%s“ (није „да“ или „не“)"
 
-#: ../src/nm-vpnc-service.c:251
+#: ../src/nm-vpnc-service.c:258
 #, c-format
-#| msgid "unhandled property '%s' type %d"
 msgid "unhandled property “%s” type %d"
 msgstr "неруковано својство „%s“ врсте %d"
 
-#: ../src/nm-vpnc-service.c:268
+#: ../src/nm-vpnc-service.c:275
 msgid "No VPN configuration options."
 msgstr "Нема опција за ВПН подешавање."
 
-#: ../src/nm-vpnc-service.c:294
+#: ../src/nm-vpnc-service.c:301
 msgid "No VPN secrets!"
 msgstr "Нема ВПН тајни!"
 
-#: ../src/nm-vpnc-service.c:639
+#: ../src/nm-vpnc-service.c:646
 msgid "Could not find vpnc binary."
 msgstr "Не могу да пронађем впнц извршни."
 
-#: ../src/nm-vpnc-service.c:757
+#: ../src/nm-vpnc-service.c:764
 #, c-format
-#| msgid "Config option '%s' invalid or unknown."
 msgid "Config option “%s” invalid or unknown."
 msgstr "Опција подешавања „%s“ је неисправна или непозната."
 
-#: ../src/nm-vpnc-service.c:792
+#: ../src/nm-vpnc-service.c:799
 #, c-format
-#| msgid "Config option '%s' not an integer."
 msgid "Config option “%s” not an integer."
 msgstr "Опција подешавања „%s“ није цео број."
 
-#: ../src/nm-vpnc-service.c:980
+#: ../src/nm-vpnc-service.c:987
 msgid "vpnc does not support interactive requests"
 msgstr "впнц не подржава међудејствене захтеве"
 
-#: ../src/nm-vpnc-service.c:1004
+#: ../src/nm-vpnc-service.c:1011
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr "Не могу да користим нове тајне јер је искључен међудејствени режим."
 
-#: ../src/nm-vpnc-service.c:1013 ../src/nm-vpnc-service.c:1087
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr "Не могу да обрадим захтев због неисправних подешавања ВПН везе."
 
-#: ../src/nm-vpnc-service.c:1021
+#: ../src/nm-vpnc-service.c:1028
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
 "Не могу да обрадим захтев јер није затражена потврда индентитета на чекању."
 
-#: ../src/nm-vpnc-service.c:1032
+#: ../src/nm-vpnc-service.c:1039
 #, c-format
-#| msgid ""
-#| "Could not process the request because the requested info '%s' was not "
-#| "provided."
 msgid ""
 "Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr ""
 "Не могу да обрадим захтев зато што захтевани податак „%s“ није достављен."
 
-#: ../src/nm-vpnc-service.c:1230
-#| msgid "Don't quit when VPN connection terminates"
+#: ../src/nm-vpnc-service.c:1237
 msgid "Don’t quit when VPN connection terminates"
 msgstr "Не прекида када се завршава ВПН веза"
 
-#: ../src/nm-vpnc-service.c:1231
+#: ../src/nm-vpnc-service.c:1238
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Укључује опширно записивање зарад исправљања грешака (може да изложи лозинке)"
 
-#: ../src/nm-vpnc-service.c:1232
+#: ../src/nm-vpnc-service.c:1239
 msgid "D-Bus name to use for this instance"
 msgstr "Назив Д-сабирнице који се користи за овај примерак"
 
-#: ../src/nm-vpnc-service.c:1255
+#: ../src/nm-vpnc-service.c:1262
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -279,33 +266,33 @@ msgstr ""
 "нм-впнц-услуга обезбеђује Управнику мреже обједињену Циско Легаси ИПСец ВПН "
 "могућност."
 
-#: ../shared/nm-utils/nm-shared-utils.c:185
+#: ../shared/nm-utils/nm-shared-utils.c:264
 #, c-format
 msgid "object class '%s' has no property named '%s'"
 msgstr "класа објекта „%s“ нема својство под називом „%s“"
 
-#: ../shared/nm-utils/nm-shared-utils.c:192
+#: ../shared/nm-utils/nm-shared-utils.c:271
 #, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr "својство „%s“ класе објекта „%s“ није уписиво"
 
-#: ../shared/nm-utils/nm-shared-utils.c:199
+#: ../shared/nm-utils/nm-shared-utils.c:278
 #, c-format
 msgid ""
 "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr "својство творбе „%s“ за објекат „%s“ се не може поставити након творбе"
 
-#: ../shared/nm-utils/nm-shared-utils.c:207
+#: ../shared/nm-utils/nm-shared-utils.c:286
 #, c-format
 msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
 msgstr "„%s::%s“ није исправан назив својства; „%s“ није подврста Гобјекта"
 
-#: ../shared/nm-utils/nm-shared-utils.c:216
+#: ../shared/nm-utils/nm-shared-utils.c:295
 #, c-format
 msgid "unable to set property '%s' of type '%s' from value of type '%s'"
 msgstr "не могу да поставим својство „%s“ врсте „%s“ из вредности врсте „%s“"
 
-#: ../shared/nm-utils/nm-shared-utils.c:227
+#: ../shared/nm-utils/nm-shared-utils.c:306
 #, c-format
 msgid ""
 "value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
@@ -314,22 +301,27 @@ msgstr ""
 "вредност „%s“ врсте „%s“ није исправна или је ван опсега за својство „%s“ "
 "врсте „%s“"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "не могу да добавим назив прикључка уређивача: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr "недостаје датотека прикључка „%s“"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr "не могу да учитам прикључак уређивача: %s"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr "не могу да учитам погон „%s“ из прикључка: %s"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
 msgstr "непозната грешка приликом стварања примерка уређивача"
 
@@ -427,7 +419,6 @@ msgstr ""
 "подешавање: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
-#| msgid "Advance_d..."
 msgid "Advance_d…"
 msgstr "_Напредно…"
 
@@ -508,9 +499,6 @@ msgid "_NAT traversal:"
 msgstr "_НАТ пролаз:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
-#| msgid ""
-#| "Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-#| "config: Local Port <0-65535>"
 msgid ""
 "Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
 "config: Local Port <0-65535>"
@@ -547,10 +535,6 @@ msgstr ""
 "подешавање: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:53
-#| msgid ""
-#| "Encryption method\n"
-#| "config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
-#| "encryption' for None"
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
