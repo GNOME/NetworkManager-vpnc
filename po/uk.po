@@ -1,71 +1,84 @@
 # Ukrainian translation of NetworkManager vpnc
 # Copyright (C) Free Software Foundation, 2005
 # This file is distributed under the same license as the NetworkManager package.
-# Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2010
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2010.
 # Korostil Daniel <ted.korostiled@gmail.com>, 2011.
+# Yuri Chornoivan <yurchor@ukr.net>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager vpnc\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-02-18 08:25+0200\n"
-"PO-Revision-Date: 2011-02-18 08:42+0300\n"
-"Last-Translator: Korostil Daniel <ted.korostiled@gmail.com>\n"
-"Language-Team: translation@linux.org.ua\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issue"
+"s\n"
+"POT-Creation-Date: 2019-11-12 16:31+0000\n"
+"PO-Revision-Date: 2020-01-26 15:15+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Virtaal 0.6.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
+"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 20.03.70\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:103
-msgid "_Secondary Password:"
-msgstr "_Вторинний пароль:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Клієнт для застарілих VPNC Cisco"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:159
-msgid "_Password:"
-msgstr "_Пароль:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Клієнт для віртуальних приватних мереж IPsec Cisco"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:245
-msgid "Sh_ow passwords"
-msgstr "П_оказати паролі"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "Підтримка налаштовування віртуальних приватних мереж на основі VPNC."
 
-#: ../auth-dialog/gnome-two-password-dialog.c:305
-msgid "_Remember passwords for this session"
-msgstr "Па_м'ятати пароль для цього сеансу"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:306
-msgid "_Save passwords in keyring"
-msgstr "З_берегти пароль у сховищі паролів"
-
-#: ../auth-dialog/main.c:112
-#, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
 msgstr ""
-"Для доступу до віртуальної приватної мережі «%s» потрібна автентифікація."
+"Сумісний із концентраторами VPN Cisco, які налаштовано на використання IPsec."
 
-#: ../auth-dialog/main.c:113
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "Розробники NetworkManager"
+
+#: ../auth-dialog/main.c:165
+#, c-format
+#| msgid "Authenticate VPN"
+msgid "Authenticate VPN %s"
+msgstr "Розпізнавання у %s VPN"
+
+#: ../auth-dialog/main.c:181
+#| msgid "_Password:"
+msgid "Password:"
+msgstr "Пароль:"
+
+#: ../auth-dialog/main.c:189
+#| msgid "_Group Password:"
+msgid "Group Password:"
+msgstr "Пароль групи:"
+
+#: ../auth-dialog/main.c:224
 msgid "Authenticate VPN"
-msgstr "Автентифікація VPN"
+msgstr "Розпізнавання у VPN"
 
-#: ../auth-dialog/main.c:117
+#: ../auth-dialog/main.c:233
 msgid "_Group Password:"
 msgstr "Пароль _групи:"
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Додавання, вилучення та редагування з'єднань VPN"
+#: ../auth-dialog/main.c:491
+#, c-format
+#| msgid "You need to authenticate to access the Virtual Private Network '%s'."
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr ""
+"Вам слід пройти розпізнавання для отримання доступу до віртуальної приватної"
+" мережі «%s»."
 
-#: ../nm-vpnc.desktop.in.h:2
-msgid "VPN Connection Manager (vpnc)"
-msgstr "Менеджер з'єднань VPN (vpnc)"
-
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
-msgstr "Сумісна з Cisco VPN (vpnc)"
+msgstr "Сумісний із Cisco VPN (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -73,66 +86,16 @@ msgstr ""
 "Сумісний з різними шлюзами VPN Cisco, Juniper, Netscreen та Sonicwall на "
 "основі IPsec."
 
-#: ../properties/nm-vpnc.c:351
-msgid "Saved"
-msgstr "Збережено"
-
-#: ../properties/nm-vpnc.c:358
-msgid "Always Ask"
-msgstr "Завжди запитувати"
-
-#: ../properties/nm-vpnc.c:365
-msgid "Not Required"
-msgstr "Не потрібно"
-
-#: ../properties/nm-vpnc.c:425
-msgid "Secure (default)"
-msgstr "Безпечне (типово)"
-
-#: ../properties/nm-vpnc.c:428
-msgid "Weak (use with caution)"
-msgstr "Слабке (використовувати обережно)"
-
-#: ../properties/nm-vpnc.c:436
-msgid "None (completely insecure)"
-msgstr "Нема (без шифрування)"
-
-#: ../properties/nm-vpnc.c:484
-msgid "NAT-T when available (default)"
-msgstr "NAT-T, якщо доступний (типово)"
-
-#: ../properties/nm-vpnc.c:491
-msgid "NAT-T always"
-msgstr "Завжди NAT-T"
-
-#: ../properties/nm-vpnc.c:498
-msgid "Cisco UDP"
-msgstr "Cisco UDP"
-
-#: ../properties/nm-vpnc.c:505
-msgid "Disabled"
-msgstr "Вимкнено"
-
-#: ../properties/nm-vpnc.c:525
-msgid "DH Group 1"
-msgstr "Група DH 1"
-
-#: ../properties/nm-vpnc.c:532
-msgid "DH Group 2 (default)"
-msgstr "Група DH 2 (типово)"
-
-#: ../properties/nm-vpnc.c:539
-msgid "DH Group 5"
-msgstr "Група DH 5"
-
-#: ../properties/nm-vpnc.c:1230
-msgid "TCP tunneling not supported"
-msgstr "Тунелювання TCP не підтримується"
-
-#: ../properties/nm-vpnc.c:1232
+#: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
+#| msgid ""
+#| "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+#| "through TCP which is currently not supported in the vpnc software.\n"
+#| "\n"
+#| "The connection can still be created, with TCP tunneling disabled, however "
+#| "it may not work as expected."
 msgid ""
-"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
 "\n"
 "The connection can still be created, with TCP tunneling disabled, however it "
@@ -144,58 +107,516 @@ msgstr ""
 "З'єднання буде створено з вимкненим тунелюванням TCP, але воно може не "
 "працювати належним чином."
 
+#: ../properties/nm-vpnc-editor.c:374
+msgid "Secure (default)"
+msgstr "Безпечне (типово)"
+
+#: ../properties/nm-vpnc-editor.c:377
+msgid "Weak (use with caution)"
+msgstr "Слабке (використовувати обережно)"
+
+#: ../properties/nm-vpnc-editor.c:385
+msgid "None (completely insecure)"
+msgstr "Немає (без шифрування)"
+
+#: ../properties/nm-vpnc-editor.c:449
+#| msgid "Secure (default)"
+msgid "Cisco (default)"
+msgstr "Cisco (типове)"
+
+#: ../properties/nm-vpnc-editor.c:456
+msgid "Netscreen"
+msgstr "Netscreen"
+
+#: ../properties/nm-vpnc-editor.c:497
+msgid "NAT-T when available (default)"
+msgstr "NAT-T, якщо доступний (типово)"
+
+#: ../properties/nm-vpnc-editor.c:504
+msgid "NAT-T always"
+msgstr "Завжди NAT-T"
+
+#: ../properties/nm-vpnc-editor.c:511
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc-editor.c:518
+msgid "Disabled"
+msgstr "Вимкнено"
+
+#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+msgid "DH Group 1"
+msgstr "Група DH 1"
+
+#: ../properties/nm-vpnc-editor.c:545
+msgid "DH Group 2 (default)"
+msgstr "Група DH 2 (типово)"
+
+#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+msgid "DH Group 5"
+msgstr "Група DH 5"
+
+#: ../properties/nm-vpnc-editor.c:610
+#| msgid "Secure (default)"
+msgid "Server (default)"
+msgstr "Сервер (типова)"
+
+#: ../properties/nm-vpnc-editor.c:617
+msgid "None"
+msgstr "Немає"
+
+#: ../properties/nm-vpnc-editor.c:631
+#| msgid "DH Group 1"
+msgid "DH Group 2"
+msgstr "Група ДГ 2"
+
+#: ../properties/nm-vpnc-editor.c:678
+msgid "Choose a Certificate Authority (CA) certificate…"
+msgstr "Виберіть сертифікат служби сертифікації (CA)…"
+
+#: ../properties/nm-vpnc-editor.c:682
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "сертифікати PEM (*.pem, *.crt, *.cer)"
+
+#: ../src/nm-vpnc-service.c:201
+#, c-format
+msgid "property “%s” invalid or not supported"
+msgstr "властивість «%s» є некоректною або її підтримки не передбачено"
+
+#: ../src/nm-vpnc-service.c:216
+#, c-format
+msgid "property “%s” contains a newline character"
+msgstr "у властивості «%s» міститься символ нового рядка"
+
+#: ../src/nm-vpnc-service.c:228
+#, c-format
+msgid "property “%s” file path “%s” is not absolute or does not exist"
+msgstr ""
+"властивість шляху до файла «%s», «%s», містить шлях, який не є абсолютним,"
+" або не містить даних взагалі"
+
+#: ../src/nm-vpnc-service.c:241
+#, c-format
+msgid "invalid integer property “%s” or out of range [%d -> %d]"
+msgstr ""
+"некоректна цілочисельна властивість «%s» або має значення поза припустимим"
+" діапазоном [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:251
+#, c-format
+msgid "invalid boolean property “%s” (not yes or no)"
+msgstr ""
+"некоректна булева властивість «%s» (має значення, яке відрізняється від «yes»"
+" або «no»)"
+
+#: ../src/nm-vpnc-service.c:258
+#, c-format
+msgid "unhandled property “%s” type %d"
+msgstr "непридатна до обробки властивість «%s» типу %d"
+
+#: ../src/nm-vpnc-service.c:275
+msgid "No VPN configuration options."
+msgstr "Немає параметрів налаштування VPN."
+
+#: ../src/nm-vpnc-service.c:301
+msgid "No VPN secrets!"
+msgstr "Немає реєстраційних даних VPN!"
+
+#: ../src/nm-vpnc-service.c:646
+msgid "Could not find vpnc binary."
+msgstr "Не вдалося знайти виконуваний файл vpnc."
+
+#: ../src/nm-vpnc-service.c:764
+#, c-format
+msgid "Config option “%s” invalid or unknown."
+msgstr "Параметр налаштувань «%s» є некоректним або невідомим."
+
+#: ../src/nm-vpnc-service.c:799
+#, c-format
+msgid "Config option “%s” not an integer."
+msgstr "Значення параметра «%s» не є цілим числом."
+
+#: ../src/nm-vpnc-service.c:987
+msgid "vpnc does not support interactive requests"
+msgstr "У vpnc не передбачено підтримки інтерактивних запитів"
+
+#: ../src/nm-vpnc-service.c:1011
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr ""
+"Не вдалося скористатися новими реєстраційними даними, оскільки інтерактивний"
+" режим вимкнено."
+
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
+"Не вдалося обробити запит, оскільки параметри з'єднання VPN є некоректними."
+
+#: ../src/nm-vpnc-service.c:1028
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"Не вдалося обробити запит, оскільки у черзі немає запитів щодо розпізнавання."
+
+#: ../src/nm-vpnc-service.c:1039
+#, c-format
+msgid ""
+"Could not process the request because the requested info “%s” was not "
+"provided."
+msgstr "Не вдалося обробити запит, оскільки не надано потрібних даних «%s»."
+
+#: ../src/nm-vpnc-service.c:1237
+msgid "Don’t quit when VPN connection terminates"
+msgstr "Не виходити, якщо розірвано з'єднання VPN"
+
+#: ../src/nm-vpnc-service.c:1238
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Увімкнути докладний журнал діагностики (можливе виведення паролів)"
+
+#: ../src/nm-vpnc-service.c:1239
+msgid "D-Bus name to use for this instance"
+msgstr "Назва D-Bus для використання для цього екземпляра"
+
+#: ../src/nm-vpnc-service.c:1262
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-service надає NetworkManager доступ до інтегрованих можливостей"
+" застарілого VPN IPsec Cisco."
+
+#: ../shared/nm-utils/nm-shared-utils.c:264
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr "у класі об’єктів «%s» немає властивості із назвою «%s»"
+
+#: ../shared/nm-utils/nm-shared-utils.c:271
+#, c-format
+msgid "property '%s' of object class '%s' is not writable"
+msgstr "властивість «%s» класу об’єктів «%s» є непридатною до запису"
+
+#: ../shared/nm-utils/nm-shared-utils.c:278
+#, c-format
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
+msgstr ""
+"властивість construct «%s» об’єкта «%s» не можна встановлювати після побудови"
+
+#: ../shared/nm-utils/nm-shared-utils.c:286
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr "«%s::%s» не є коректною назвою властивості; «%s» не є підтипом GObject"
+
+#: ../shared/nm-utils/nm-shared-utils.c:295
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr ""
+"не вдалося встановити значення властивості «%s» типу «%s» на основі значення "
+"типу «%s»"
+
+#: ../shared/nm-utils/nm-shared-utils.c:306
+#, c-format
+msgid ""
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
+msgstr ""
+"значення «%s» типу «%s» є некоректним для властивості «%s» типу «%s» або не "
+"належить до припустимого діапазону значень"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "не вдалося отримати назву додатка до редактора: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr "не вистачає файла додатка «%s»"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr "не вдалося завантажити додаток до редактора: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr "не вдалося завантажити обробник %s з додатка: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
+msgid "unknown error creating editor instance"
+msgstr "невідома помилка під час створення екземпляра редактора"
+
 #: ../properties/nm-vpnc-dialog.ui.h:1
-msgid " "
-msgstr " "
+#| msgid "<b>General</b>"
+msgid "General"
+msgstr "Загальне"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "<b>General</b>"
-msgstr "<b>Загальне</b>"
+msgid "Sho_w passwords"
+msgstr "Показати паролі"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "<b>Optional</b>"
-msgstr "<b>Необов'язкове</b>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:4
-msgid "Disable Dead _Peer Detection"
-msgstr "Вимкнути Dead Peer Detection"
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Пароль групи\n"
+"Файл налаштувань: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "_Domain:"
-msgstr "Домен:"
+msgid "Gro_up password:"
+msgstr "Пароль гр_упи:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Encryption method:"
-msgstr "Спосіб шифрування:"
+msgid "_Gateway:"
+msgstr "_Шлюз:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "Назва г_рупи:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Gro_up password:"
-msgstr "Пароль гр_упи:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "_IKE DH Group:"
-msgstr "Група IKE DH:"
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IP-адреса або назва вузла шлюзу IPsec\n"
+"Файл налаштувань: IPSec gateway <gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "_NAT traversal:"
-msgstr "Обхід NAT:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "Sho_w passwords"
-msgstr "Показати паролі"
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Назва групи\n"
+"Файл налаштувань: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User na_me:"
-msgstr "Користувач:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "_Gateway:"
-msgstr "_Шлюз:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:14
 msgid "User _password:"
 msgstr "_Пароль користувача:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:13
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Пароль для з'єднання\n"
+"Файл налаштувань: Xauth password <password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"Ім'я користувача для з'єднання\n"
+"Файл налаштувань: Xauth username <user_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "User na_me:"
+msgstr "_Користувач:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "Use _hybrid authentication"
+msgstr "_Гібридне розпізнавання"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+"Увімкнути гібридне розпізнавання, тобто використання сертифіката разом із"
+" паролем.\n"
+"Файл налаштувань: IKE Authmode hybrid"
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "CA _File:"
+msgstr "_Файл CA:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid ""
+"CA certificate in PEM format\n"
+"config: CA-File"
+msgstr ""
+"Сертифікат CA у форматі PEM\n"
+"Файл налаштувань: CA-File"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "Advance_d…"
+msgstr "Д_одатково…"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "Advanced Options"
+msgstr "Додаткові параметри"
+
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "Identification"
+msgstr "Ідентифікація"
+
+#: ../properties/nm-vpnc-dialog.ui.h:27
+msgid "_Domain:"
+msgstr "_Домен:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:28
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+"Назва (NT-)домену для розпізнавання.\n"
+"Файл налаштувань: Domain <domain>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:30
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
+msgstr ""
+"Виробник вашого шлюзу IPsec\n"
+"Файл налаштувань: Vendor <cisco/netscreen>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr "_Постачальник:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
+msgid "Ve_rsion:"
+msgstr "В_ерсія:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:34
+msgid ""
+"Application version to report. \n"
+"config: Application version <ASCII string>"
+msgstr ""
+"Версія програми, про яку слід повідомляти.\n"
+"Файл налаштувань: Application version <ASCII string>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:36
+msgid "Transport and Security"
+msgstr "Передавання даних і захист"
+
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "Вимкнути виявлення непра_цездатних вузлів (DPD)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Вимкнути надсилання пакетів DPD (встановлює для них час очікування 0)\n"
+"Файл налаштувань: DPD idle timeout (наш бік) 0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr "_Локальний порт:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr "Відмінна упереджувальна секретність (PFS):"
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "_Група IKE DH:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "Об_хід NAT:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Локальний порт ISAKMP, яким слід скористатися (0 — випадковий порт; 500 —"
+" типовий порт vpnc)\n"
+"Файл налаштувань: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Група Діффі-Геллмана, якою слід скористатися для PFS\n"
+"Файл налаштувань: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Назва групи Діффі-Геллмана IKE\n"
+"Файл налаштувань: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"Метод обходу NAT, яким слід скористатися\n"
+"Файл налаштувань: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+"encryption” for None"
+msgstr ""
+"Метод шифрування\n"
+"Файл налаштувань: нічого — безпечний, «Enable Single DES» — слабкий, «Enable"
+" no encryption» — немає"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+"Назва інтерфейсу тунелювання, яким слід скористатися\n"
+"Файл налаштувань: Interface name <name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
+msgid "_Encryption method:"
+msgstr "Метод _шифрування:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
+msgstr "Назва _інтерфейсу тунелювання:"
+
+#~ msgid "_Secondary Password:"
+#~ msgstr "_Вторинний пароль:"
+
+#~ msgid "Sh_ow passwords"
+#~ msgstr "П_оказати паролі"
+
+#~ msgid "_Remember passwords for this session"
+#~ msgstr "Па_м'ятати пароль для цього сеансу"
+
+#~ msgid "_Save passwords in keyring"
+#~ msgstr "З_берегти пароль у сховищі паролів"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Додавання, вилучення та редагування з'єднань VPN"
+
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "Менеджер з'єднань VPN (vpnc)"
+
+#~ msgid "Saved"
+#~ msgstr "Збережено"
+
+#~ msgid "Always Ask"
+#~ msgstr "Завжди запитувати"
+
+#~ msgid "Not Required"
+#~ msgstr "Не потрібно"
+
+#~ msgid "TCP tunneling not supported"
+#~ msgstr "Тунелювання TCP не підтримується"
+
+#~ msgid " "
+#~ msgstr " "
+
+#~ msgid "<b>Optional</b>"
+#~ msgstr "<b>Необов'язкове</b>"
