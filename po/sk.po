@@ -2,22 +2,23 @@
 # Copyright (C) 2009, 2010 Free Software Foundation, Inc.
 # This file is distributed under the same license as the network-manager-vpnc package.
 # Pavol Šimo <palo.simo@gmail.com>, 2009, 2010.
+# Dušan Kazik <prescott66@gmail.com>, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2020-04-09 17:34+0000\n"
-"PO-Revision-Date: 2020-04-24 07:50+0200\n"
+"POT-Creation-Date: 2020-04-24 05:52+0000\n"
+"PO-Revision-Date: 2020-05-04 11:06+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 2.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -80,7 +81,7 @@ msgstr ""
 "Juniper, Netscreen a Sonicwall)."
 
 #: ../properties/nm-vpnc-editor-plugin.c:508
-#, fuzzy, c-format
+#, c-format
 #| msgid ""
 #| "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
 #| "through TCP which is currently not supported in the vpnc software.\n"
@@ -94,8 +95,8 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"Súbor '%s' s nastaveniami VPN určuje, že by VPN komunikácia mala byť "
-"tunelovaná cez TCP, čo momentálne nie je podporované softvérom vpnc.\n"
+"Súbor „%s“ s nastaveniami VPN určuje, že by prenos VPN mal byť tunelovaný "
+"cez TCP, čo momentálne nie je podporované softvérom vpnc.\n"
 "\n"
 "Pripojenie môže byť aj tak vytvorené, no s TCP tunelovaním zakázaným, takže "
 "nemusí fungovať podľa očakávania."
@@ -312,7 +313,7 @@ msgstr ""
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
-msgstr ""
+msgstr "chýba súbor „%s“ zásuvného modulu"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
@@ -369,6 +370,8 @@ msgid ""
 "Group name\n"
 "config: IPSec ID <group_name>"
 msgstr ""
+"Názov skupiny\n"
+"konfigurácia: IPSec ID <názov_skupiny>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
@@ -459,6 +462,8 @@ msgid ""
 "Application version to report. \n"
 "config: Application version <ASCII string>"
 msgstr ""
+"Verzia aplikácie, ktorá sa má nahlásiť. \n"
+"konfigurácia: Application version <reťazec ASCII>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
@@ -532,6 +537,8 @@ msgid ""
 "Tunnel interface name to use\n"
 "config: Interface name <name>"
 msgstr ""
+"Názov tunelového rozhrania, ktoré sa má použiť\n"
+"konfigurácia: Interface name <názov>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
