@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: NetworkManager vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issue"
 "s\n"
-"POT-Creation-Date: 2019-11-12 16:31+0000\n"
-"PO-Revision-Date: 2020-01-26 15:15+0200\n"
+"POT-Creation-Date: 2020-05-04 15:51+0000\n"
+"PO-Revision-Date: 2020-05-04 20:39+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
 "=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 20.03.70\n"
+"X-Generator: Lokalize 20.07.70\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -42,37 +42,30 @@ msgstr ""
 msgid "The NetworkManager Developers"
 msgstr "Розробники NetworkManager"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-#| msgid "Authenticate VPN"
-msgid "Authenticate VPN %s"
-msgstr "Розпізнавання у %s VPN"
-
-#: ../auth-dialog/main.c:181
-#| msgid "_Password:"
-msgid "Password:"
-msgstr "Пароль:"
-
-#: ../auth-dialog/main.c:189
-#| msgid "_Group Password:"
-msgid "Group Password:"
-msgstr "Пароль групи:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:221
 msgid "Authenticate VPN"
 msgstr "Розпізнавання у VPN"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:178
+#| msgid "Password:"
+msgid "Password"
+msgstr "Пароль"
+
+#: ../auth-dialog/main.c:186
+#| msgid "Group Password:"
+msgid "Group Password"
+msgstr "Пароль групи"
+
+#: ../auth-dialog/main.c:230
 msgid "_Group Password:"
 msgstr "Пароль _групи:"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:488
 #, c-format
-#| msgid "You need to authenticate to access the Virtual Private Network '%s'."
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
-"Вам слід пройти розпізнавання для отримання доступу до віртуальної приватної"
-" мережі «%s»."
+"Вам слід пройти розпізнавання для отримання доступу до віртуальної приватної "
+"мережі «%s»."
 
 #: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
@@ -88,12 +81,6 @@ msgstr ""
 
 #: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
-#| msgid ""
-#| "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
-#| "through TCP which is currently not supported in the vpnc software.\n"
-#| "\n"
-#| "The connection can still be created, with TCP tunneling disabled, however "
-#| "it may not work as expected."
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
@@ -120,7 +107,6 @@ msgid "None (completely insecure)"
 msgstr "Немає (без шифрування)"
 
 #: ../properties/nm-vpnc-editor.c:449
-#| msgid "Secure (default)"
 msgid "Cisco (default)"
 msgstr "Cisco (типове)"
 
@@ -157,7 +143,6 @@ msgid "DH Group 5"
 msgstr "Група DH 5"
 
 #: ../properties/nm-vpnc-editor.c:610
-#| msgid "Secure (default)"
 msgid "Server (default)"
 msgstr "Сервер (типова)"
 
@@ -166,7 +151,6 @@ msgid "None"
 msgstr "Немає"
 
 #: ../properties/nm-vpnc-editor.c:631
-#| msgid "DH Group 1"
 msgid "DH Group 2"
 msgstr "Група ДГ 2"
 
@@ -192,22 +176,22 @@ msgstr "у властивості «%s» міститься символ нов�
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr ""
-"властивість шляху до файла «%s», «%s», містить шлях, який не є абсолютним,"
-" або не містить даних взагалі"
+"властивість шляху до файла «%s», «%s», містить шлях, який не є абсолютним, "
+"або не містить даних взагалі"
 
 #: ../src/nm-vpnc-service.c:241
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr ""
-"некоректна цілочисельна властивість «%s» або має значення поза припустимим"
-" діапазоном [%d -> %d]"
+"некоректна цілочисельна властивість «%s» або має значення поза припустимим "
+"діапазоном [%d -> %d]"
 
 #: ../src/nm-vpnc-service.c:251
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr ""
-"некоректна булева властивість «%s» (має значення, яке відрізняється від «yes»"
-" або «no»)"
+"некоректна булева властивість «%s» (має значення, яке відрізняється від "
+"«yes» або «no»)"
 
 #: ../src/nm-vpnc-service.c:258
 #, c-format
@@ -243,8 +227,8 @@ msgstr "У vpnc не передбачено підтримки інтеракт�
 #: ../src/nm-vpnc-service.c:1011
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
-"Не вдалося скористатися новими реєстраційними даними, оскільки інтерактивний"
-" режим вимкнено."
+"Не вдалося скористатися новими реєстраційними даними, оскільки інтерактивний "
+"режим вимкнено."
 
 #: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
 msgid ""
@@ -283,8 +267,8 @@ msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
-"nm-vpnc-service надає NetworkManager доступ до інтегрованих можливостей"
-" застарілого VPN IPsec Cisco."
+"nm-vpnc-service надає NetworkManager доступ до інтегрованих можливостей "
+"застарілого VPN IPsec Cisco."
 
 #: ../shared/nm-utils/nm-shared-utils.c:264
 #, c-format
@@ -349,7 +333,6 @@ msgid "unknown error creating editor instance"
 msgstr "невідома помилка під час створення екземпляра редактора"
 
 #: ../properties/nm-vpnc-dialog.ui.h:1
-#| msgid "<b>General</b>"
 msgid "General"
 msgstr "Загальне"
 
@@ -426,8 +409,8 @@ msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password.\n"
 "config: IKE Authmode hybrid"
 msgstr ""
-"Увімкнути гібридне розпізнавання, тобто використання сертифіката разом із"
-" паролем.\n"
+"Увімкнути гібридне розпізнавання, тобто використання сертифіката разом із "
+"паролем.\n"
 "Файл налаштувань: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
@@ -527,8 +510,8 @@ msgid ""
 "Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
 "config: Local Port <0-65535>"
 msgstr ""
-"Локальний порт ISAKMP, яким слід скористатися (0 — випадковий порт; 500 —"
-" типовий порт vpnc)\n"
+"Локальний порт ISAKMP, яким слід скористатися (0 — випадковий порт; 500 — "
+"типовий порт vpnc)\n"
 "Файл налаштувань: Local Port <0-65535>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:46
@@ -566,8 +549,8 @@ msgid ""
 "encryption” for None"
 msgstr ""
 "Метод шифрування\n"
-"Файл налаштувань: нічого — безпечний, «Enable Single DES» — слабкий, «Enable"
-" no encryption» — немає"
+"Файл налаштувань: нічого — безпечний, «Enable Single DES» — слабкий, «Enable "
+"no encryption» — немає"
 
 #: ../properties/nm-vpnc-dialog.ui.h:55
 msgid ""
@@ -584,6 +567,10 @@ msgstr "Метод _шифрування:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Назва _інтерфейсу тунелювання:"
+
+#~| msgid "Authenticate VPN"
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "Розпізнавання у %s VPN"
 
 #~ msgid "_Secondary Password:"
 #~ msgstr "_Вторинний пароль:"
