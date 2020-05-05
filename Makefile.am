@@ -25,7 +25,7 @@ uninstall-hook:
 	 rm -f $(DESTDIR)$(sysconfdir)/NetworkManager/VPN/nm-vpnc-service.name
 endif
 
-appdatadir = $(datadir)/appdata
+appdatadir = $(datadir)/metainfo
 appdata_files = $(appdata_in_files:.xml.in=.xml)
 if WITH_GNOME
 appdata_DATA = $(appdata_files)
