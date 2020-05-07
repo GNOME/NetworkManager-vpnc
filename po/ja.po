@@ -1,9 +1,10 @@
 # Japanese message catalog for NetworkManager-vpnc
-# Copyright (C) 2006,2011 THE NetworkManager-vpnc's COPYRIGHT HOLDER
+# Copyright (C) 2006, 2011, 2013, 2020 THE NetworkManager-vpnc's COPYRIGHT HOLDER
 # This file is distributed under the same license as the NetworkManager-vpnc package.
 # Satoru SATOH <ss@gnome.gr.jp>, 2006.
 # Takayoshi OKANO <kano@na.rim.or.jp>, 2011.
 # Hajime Taira <htaira@redhat.com>, 2011, 2013.
+# sicklylife <translation@sicklylife.jp>, 2020.
 #
 msgid ""
 msgstr ""
@@ -11,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
 "POT-Creation-Date: 2020-05-04 15:51+0000\n"
-"PO-Revision-Date: 2013-10-03 14:52+0900\n"
-"Last-Translator: Hajime Taira <htaira@redhat.com>\n"
+"PO-Revision-Date: 2020-05-07 23:59+0900\n"
+"Last-Translator: sicklylife <translation@sicklylife.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -44,26 +45,21 @@ msgid "Authenticate VPN"
 msgstr "VPN 認証"
 
 #: ../auth-dialog/main.c:178
-#, fuzzy
-#| msgid "Password:"
 msgid "Password"
-msgstr "パスワード:"
+msgstr "パスワード"
 
 #: ../auth-dialog/main.c:186
-#, fuzzy
-#| msgid "Group Password:"
 msgid "Group Password"
-msgstr "グループパスワード:"
+msgstr "グループパスワード"
 
 #: ../auth-dialog/main.c:230
 msgid "_Group Password:"
 msgstr "グループパスワード(_G):"
 
 #: ../auth-dialog/main.c:488
-#, fuzzy, c-format
-#| msgid "You need to authenticate to access the Virtual Private Network '%s'."
+#, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "仮想プライベートネットワーク %s にアクセスするには認証が必要です。"
+msgstr "仮想プライベートネットワーク“%s”にアクセスするには認証が必要です。"
 
 #: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
@@ -74,17 +70,11 @@ msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
 msgstr ""
-"Cisco やJuniper、Netscreen、Sonicwall など様々な IPsec ベースの VPN ゲート"
+"Cisco や Juniper、Netscreen、Sonicwall など様々な IPsec ベースの VPN ゲート"
 "ウェイとの互換性"
 
 #: ../properties/nm-vpnc-editor-plugin.c:508
-#, fuzzy, c-format
-#| msgid ""
-#| "The VPN settings file '%s' specifies that VPN traffic should be tunneled "
-#| "through TCP which is currently not supported in the vpnc software.\n"
-#| "\n"
-#| "The connection can still be created, with TCP tunneling disabled, however "
-#| "it may not work as expected."
+#, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
@@ -92,7 +82,7 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"VPN 設定ファイル %s は VPN 通信が TCP を介してトンネルされるように指定してい"
+"VPN 設定ファイル“%s”は VPN 通信が TCP を介してトンネルされるように指定してい"
 "ますが、今のところ vpnc はこの機能をサポートしていません。\n"
 "\n"
 "TCP トンネリングを無効にした上で接続を作成することはできますが期待どおりに動"
@@ -159,20 +149,17 @@ msgid "DH Group 2"
 msgstr "DH グループ 2"
 
 #: ../properties/nm-vpnc-editor.c:678
-#, fuzzy
-#| msgid "Choose a Certificate Authority (CA) certificate..."
 msgid "Choose a Certificate Authority (CA) certificate…"
-msgstr "認証局(CA)の証明書を選択します..."
+msgstr "認証局 (CA) の証明書を選択…"
 
 #: ../properties/nm-vpnc-editor.c:682
 msgid "PEM certificates (*.pem, *.crt, *.cer)"
 msgstr "PEM 証明書 (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
-#, fuzzy, c-format
-#| msgid "property '%s' invalid or not supported"
+#, c-format
 msgid "property “%s” invalid or not supported"
-msgstr "プロパティ %s は無効かサポートされていません。"
+msgstr "プロパティ“%s”は無効かサポートされていません"
 
 #: ../src/nm-vpnc-service.c:216
 #, c-format
@@ -180,32 +167,28 @@ msgid "property “%s” contains a newline character"
 msgstr ""
 
 #: ../src/nm-vpnc-service.c:228
-#, fuzzy, c-format
-#| msgid "property '%s' file path '%s' is not absolute or does not exist"
+#, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr ""
-"プロパティ '%s' のファイルパス '%s' は絶対パスではないか、またはファイルが存"
-"在しません。"
+"プロパティ“%s”のファイルパス“%s”は絶対パスではないか、またはファイルが存"
+"在しません"
 
 #: ../src/nm-vpnc-service.c:241
-#, fuzzy, c-format
-#| msgid "invalid integer property '%s' or out of range [%d -> %d]"
+#, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr ""
-"数値型プロパティ '%s' が無効な数値か、もしくは設定値が範囲外です。[%d -> %d]"
+"数値型プロパティ“%s”が無効な数値か、または設定値が範囲外です [%d -> %d]"
 
 #: ../src/nm-vpnc-service.c:251
-#, fuzzy, c-format
-#| msgid "invalid boolean property '%s' (not yes or no)"
+#, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr ""
-"ブーリアン型プロパティ '%s' が無効な値です。(値はyes、noではありません)"
+"ブーリアン型プロパティ“%s”が無効な値です (yes、no ではありません)"
 
 #: ../src/nm-vpnc-service.c:258
-#, fuzzy, c-format
-#| msgid "unhandled property '%s' type %d"
+#, c-format
 msgid "unhandled property “%s” type %d"
-msgstr "プロパティ '%s' の型 (%d) を処理できません。"
+msgstr "プロパティ“%s”の型 (%d) を処理できません"
 
 #: ../src/nm-vpnc-service.c:275
 msgid "No VPN configuration options."
@@ -217,19 +200,17 @@ msgstr "VPN シークレットがありません!"
 
 #: ../src/nm-vpnc-service.c:646
 msgid "Could not find vpnc binary."
-msgstr "vpnc のバイナリーが見つかりません。"
+msgstr "vpnc のバイナリが見つかりません。"
 
 #: ../src/nm-vpnc-service.c:764
-#, fuzzy, c-format
-#| msgid "Config option '%s' invalid or unknown."
+#, c-format
 msgid "Config option “%s” invalid or unknown."
-msgstr "設定オプションの %s は無効もしくは不明なオプションです。"
+msgstr "設定オプションの“%s”が無効か、または不明なオプションです。"
 
 #: ../src/nm-vpnc-service.c:799
-#, fuzzy, c-format
-#| msgid "Config option '%s' not an integer."
+#, c-format
 msgid "Config option “%s” not an integer."
-msgstr "設定オプションの %s は数値でありません。"
+msgstr "設定オプションの“%s”は数値でありません。"
 
 #: ../src/nm-vpnc-service.c:987
 msgid "vpnc does not support interactive requests"
@@ -243,40 +224,31 @@ msgstr ""
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
-msgstr "VPN接続の設定が無効であるため、要求を処理できません。"
+msgstr "VPN 接続の設定が無効であるため、要求を処理できません。"
 
 #: ../src/nm-vpnc-service.c:1028
-#, fuzzy
-#| msgid ""
-#| "Could not process the request because the VPN connection settings were "
-#| "invalid."
 msgid ""
 "Could not process the request because no pending authentication is required."
-msgstr "VPN接続の設定が無効であるため、要求を処理できません。"
+msgstr ""
 
 #: ../src/nm-vpnc-service.c:1039
-#, fuzzy, c-format
-#| msgid ""
-#| "Could not process the request because the VPN connection settings were "
-#| "invalid."
+#, c-format
 msgid ""
 "Could not process the request because the requested info “%s” was not "
 "provided."
-msgstr "VPN接続の設定が無効であるため、要求を処理できません。"
+msgstr ""
 
 #: ../src/nm-vpnc-service.c:1237
-#, fuzzy
-#| msgid "Don't quit when VPN connection terminates"
 msgid "Don’t quit when VPN connection terminates"
-msgstr "VPN接続が切断された時に終了しないでください。"
+msgstr "VPN 接続が切断されても終了しない"
 
 #: ../src/nm-vpnc-service.c:1238
 msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "詳細なデバッグ情報の保存を有効にする。(パスワードも含まれます。)"
+msgstr "詳細なデバッグ情報の保存を有効にする (パスワードも含まれます)"
 
 #: ../src/nm-vpnc-service.c:1239
 msgid "D-Bus name to use for this instance"
-msgstr ""
+msgstr "このインスタンスの D-Bus 名"
 
 #: ../src/nm-vpnc-service.c:1262
 msgid ""
@@ -292,12 +264,9 @@ msgid "object class '%s' has no property named '%s'"
 msgstr ""
 
 #: ../shared/nm-utils/nm-shared-utils.c:271
-#, fuzzy, c-format
-#| msgid "property '%s' file path '%s' is not absolute or does not exist"
+#, c-format
 msgid "property '%s' of object class '%s' is not writable"
 msgstr ""
-"プロパティ '%s' のファイルパス '%s' は絶対パスではないか、またはファイルが存"
-"在しません。"
 
 #: ../shared/nm-utils/nm-shared-utils.c:278
 #, c-format
@@ -440,10 +409,8 @@ msgstr ""
 "config: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
-#, fuzzy
-#| msgid "Advance_d..."
 msgid "Advance_d…"
-msgstr "高度な設定(_D)..."
+msgstr "高度な設定(_D)…"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "Advanced Options"
@@ -486,7 +453,7 @@ msgid ""
 "Application version to report. \n"
 "config: Application version <ASCII string>"
 msgstr ""
-"報告するアプリケーションバージョン \n"
+"報告するアプリケーションバージョン\n"
 "config: Application version <ASCII string>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
@@ -511,7 +478,7 @@ msgstr "ローカルポート(_L):"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
 msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
+msgstr "Perfect Forward Secrecy(_F):"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
 msgid "_IKE DH Group:"
@@ -522,10 +489,6 @@ msgid "_NAT traversal:"
 msgstr "NAT traversal(_N):"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
-#, fuzzy
-#| msgid ""
-#| "Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-#| "config: Local Port <0-65535>"
 msgid ""
 "Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
 "config: Local Port <0-65535>"
@@ -536,14 +499,14 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:46
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:47
 msgid ""
 "Diffie-Hellman group to use for PFS\n"
 "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 msgstr ""
-"PFSにDiffie-Hellman グループを使用する\n"
+"PFS に Diffie-Hellman グループを使用する\n"
 "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:49
@@ -563,19 +526,14 @@ msgstr ""
 "config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:53
-#, fuzzy
-#| msgid ""
-#| "Encryption method\n"
-#| "config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
-#| "encryption' for None"
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
 "encryption” for None"
 msgstr ""
 "暗号化の方式\n"
-"config: nothing は安全です。'Enable Single DES' は弱いです。 'Enable no "
-"encryption' は暗号なしです。"
+"config: nothing は安全です。“Enable Single DES”は弱いです。“Enable no "
+"encryption”は暗号なしです。"
 
 #: ../properties/nm-vpnc-dialog.ui.h:55
 msgid ""
@@ -589,7 +547,7 @@ msgstr "暗号化方式(_E):"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
-msgstr ""
+msgstr "トンネルインターフェース名(_I):"
 
 #~ msgid "VPN Connection Manager (vpnc)"
 #~ msgstr "VPN 接続マネージャー (vpnc)"
@@ -679,7 +637,7 @@ msgstr ""
 #~ msgstr "別名で保存..."
 
 #~ msgid "A file named \"%s\" already exists."
-#~ msgstr "ファイル \"%s\" は既にあります。"
+#~ msgstr "ファイル \"%s\" はすでに存在します。"
 
 #~ msgid "Do you want to replace it with the one you are saving?"
 #~ msgstr "保存しようとしているファイルで上書きしますか?"
@@ -735,25 +693,8 @@ msgstr ""
 #~ msgid "_Only use VPN connection for these addresses"
 #~ msgstr "これらのアドレスについてのみ VPN 接続を利用(_O)"
 
-#~ msgid ""
-#~ "The VPN login failed because the user name and password were not accepted."
-#~ msgstr "VPN ログインに失敗。ユーザ名、パスワードが間違っています。"
-
 #~ msgid "The VPN login failed because the VPN program could not be started."
 #~ msgstr "VPN ログインに失敗。VPN プログラムを起動できませんでした。"
-
-#~ msgid ""
-#~ "The VPN login failed because the VPN program could not connect to the VPN "
-#~ "server."
-#~ msgstr ""
-#~ "VPN ログインに失敗。VPN プログラムは VPN サーバに接続できませんでした。"
-
-#~ msgid ""
-#~ "The VPN login failed because the VPN program received an invalid "
-#~ "configuration from the VPN server."
-#~ msgstr ""
-#~ "VPN ログインに失敗。VPN プログラムが VPN サーバから受け取った設定は適切な"
-#~ "ものではありません。"
 
 #~ msgid "<b>Required Information</b>"
 #~ msgstr "<b>必須情報</b>"
