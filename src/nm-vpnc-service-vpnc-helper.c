@@ -64,17 +64,17 @@ static struct {
 static void
 helper_failed (GDBusProxy *proxy, const char *reason)
 {
-	GError *err = NULL;
+	gs_free_error GError *err = NULL;
 
 	_LOGW ("nm-nvpnc-service-vpnc-helper did not receive a valid %s from vpnc", reason);
 
-	if (!g_dbus_proxy_call_sync (proxy, "SetFailure",
+	if (!g_dbus_proxy_call_sync (proxy,
+	                             "SetFailure",
 	                             g_variant_new ("(s)", reason),
 	                             G_DBUS_CALL_FLAGS_NONE, -1,
 	                             NULL,
 	                             &err)) {
 		_LOGW ("Could not send failure information: %s", err->message);
-		g_error_free (err);
 	}
 
 	exit (1);
@@ -280,57 +280,58 @@ get_ip4_routes (void)
  * INTERNAL_IP4_NBNS      -- list of wins servers
  * CISCO_DEF_DOMAIN       -- default domain name
  * CISCO_BANNER           -- banner from server
- *
  */
 int
 main (int argc, char *argv[])
 {
-	GDBusProxy *proxy;
-	char *tmp;
-	char **iter;
-	GVariantBuilder builder;
-	GVariantBuilder ip4builder;
-	GVariant *ip4config;
-	GVariant *val;
-	GError *err = NULL;
+	const char *bus_name = NM_DBUS_SERVICE_VPNC;
+	gs_unref_object GDBusProxy *proxy = NULL;
+	gs_unref_variant GVariant *ip4config = NULL;
+	gs_unref_variant GVariant *config = NULL;
+	gs_free_error GError *err = NULL;
+	gboolean netmask_found = FALSE;
 	struct in_addr temp_addr;
+	gs_free char *str = NULL;
+	GVariantBuilder ip4builder;
+	GVariantBuilder builder;
 	long int mtu = 1412;
 	guint32 prefix = 0;
-	gboolean netmask_found = FALSE;
-	const char *bus_name = NM_DBUS_SERVICE_VPNC;
-	int i;
-	char *str = NULL;
+	GVariant *val;
+	char **iter;
+	char *tmp;
+	int arg_i;
 
 #if !GLIB_CHECK_VERSION (2, 35, 0)
 	g_type_init ();
 #endif
 
-	/* vpnc 0.3.3 gives us a "reason" code.  If we are given one,
-	 * don't proceed unless its "connect".
-	 */
 	tmp = getenv ("reason");
-	if (tmp && strcmp (tmp, "connect") != 0)
-		exit (0);
+	if (tmp && strcmp (tmp, "connect") != 0) {
+		/* vpnc 0.3.3 gives us a "reason" code.  If we are given one,
+		 * don't proceed unless its "connect".
+		 */
+		return 0;
+	}
 
 	/* very basic command line parsing */
 	if (argc <= 2) {
 		g_printerr ("Missing arguments (requires <LEVEL> <PREFIX_TOKEN>)\n");
-		exit (1);
+		return 1;
 	}
-	i = 1;
-	gl.log_level = _nm_utils_ascii_str_to_int64 (argv[i++], 10, 0, LOG_DEBUG, 0);
-	gl.log_prefix_token = argv[i++];
+	arg_i = 1;
+	gl.log_level = _nm_utils_ascii_str_to_int64 (argv[arg_i++], 10, 0, LOG_DEBUG, 0);
+	gl.log_prefix_token = argv[arg_i++];
 
-	for (; i < argc; i++) {
-		if (nm_streq (argv[i], "--bus-name")) {
-			if (++i == argc) {
+	for (; arg_i < argc; arg_i++) {
+		if (nm_streq (argv[arg_i], "--bus-name")) {
+			if (++arg_i == argc) {
 				g_printerr ("Missing bus name argument\n");
-				exit (1);
+				return 1;
 			}
-			bus_name = argv[i];
+			bus_name = argv[arg_i];
 			if (!g_dbus_is_name (bus_name)) {
 				g_printerr ("Invalid bus name argument\n");
-				exit (1);
+				return 1;
 			}
 		}
 	}
@@ -350,8 +351,7 @@ main (int argc, char *argv[])
 	                                       NULL, &err);
 	if (!proxy) {
 		_LOGW ("Could not create a D-Bus proxy: %s", err->message);
-		g_error_free (err);
-		exit (1);
+		return 1;
 	}
 
 	g_variant_builder_init (&builder, G_VARIANT_TYPE_VARDICT);
@@ -386,8 +386,10 @@ main (int argc, char *argv[])
 			mtu = 1412;
 		}
 	}
-	val = g_variant_new_uint32 ((guint32) mtu);
-	g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_MTU, val);
+	g_variant_builder_add (&builder,
+	                       "{sv}",
+	                       NM_VPN_PLUGIN_CONFIG_MTU,
+	                       g_variant_new_uint32 ((guint32) mtu));
 
 	/* IPv4 configuration */
 	/* IP address */
@@ -415,22 +417,21 @@ main (int argc, char *argv[])
 			prefix = (guint32) pfx;
 		netmask_found = TRUE;
 	}
-
 	if (!prefix) {
 		tmp = getenv ("INTERNAL_IP4_NETMASK");
 		if (tmp && inet_pton (AF_INET, tmp, &temp_addr) > 0)
 			prefix = nm_utils_ip4_netmask_to_prefix (temp_addr.s_addr);
 		netmask_found = TRUE;
 	}
-
-	/* If no netmask was given, that means point-to-point, ie /32 */
-	if (netmask_found == FALSE)
+	if (netmask_found == FALSE) {
+		/* If no netmask was given, that means point-to-point, ie /32 */
 		prefix = 32;
-
+	}
 	if (prefix) {
-		val = g_variant_new_uint32 (prefix);
-		if (val)
-			g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_PREFIX, val);
+		g_variant_builder_add (&ip4builder,
+		                       "{sv}",
+		                       NM_VPN_PLUGIN_IP4_CONFIG_PREFIX,
+		                       g_variant_new_uint32 (prefix));
 	}
 
 	/* DNS */
@@ -458,27 +459,23 @@ main (int argc, char *argv[])
 	if (val) {
 		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_ROUTES, val);
 		/* If routes-to-include were provided, that means no default route */
-		g_variant_builder_add (&ip4builder, "{sv}", NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
-		                     g_variant_new_boolean (TRUE));
+		g_variant_builder_add (&ip4builder,
+		                       "{sv}",
+		                       NM_VPN_PLUGIN_IP4_CONFIG_NEVER_DEFAULT,
+		                       g_variant_new_boolean (TRUE));
 	}
 
-	ip4config = g_variant_builder_end (&ip4builder);
+	ip4config = g_variant_ref_sink (g_variant_builder_end (&ip4builder));
 
 	if (g_variant_n_children (ip4config)) {
 		val = g_variant_new_boolean (TRUE);
 		g_variant_builder_add (&builder, "{sv}", NM_VPN_PLUGIN_CONFIG_HAS_IP4, val);
-	} else {
-		g_variant_unref (ip4config);
-		ip4config = NULL;
-	}
-
-	if (!ip4config)
+	} else
 		helper_failed (proxy, "IPv4 configuration");
 
-	/* Send the config info to nm-vpnc-service */
-	send_config (proxy, g_variant_builder_end (&builder), ip4config);
+	config = g_variant_ref_sink (g_variant_builder_end (&builder));
 
-	g_object_unref (proxy);
+	send_config (proxy, config, ip4config);
 
-	exit (0);
+	return 0;
 }
