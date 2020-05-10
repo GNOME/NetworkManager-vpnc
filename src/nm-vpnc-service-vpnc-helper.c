@@ -85,9 +85,11 @@ send_config (GDBusProxy *proxy, GVariant *config, GVariant *ip4config)
 {
 	GError *err = NULL;
 
-	if (!g_dbus_proxy_call_sync (proxy, "SetConfig",
+	if (!g_dbus_proxy_call_sync (proxy,
+	                             "SetConfig",
 	                             g_variant_new ("(*)", config),
-	                             G_DBUS_CALL_FLAGS_NONE, -1,
+	                             G_DBUS_CALL_FLAGS_NONE,
+	                             -1,
 	                             NULL,
 	                             &err)) {
 		_LOGW ("Could not send configuration: %s", err->message);
@@ -95,11 +97,13 @@ send_config (GDBusProxy *proxy, GVariant *config, GVariant *ip4config)
 	}
 
 	if (ip4config) {
-		if (!g_dbus_proxy_call_sync (proxy, "SetIp4Config",
-					     g_variant_new ("(*)", ip4config),
-					     G_DBUS_CALL_FLAGS_NONE, -1,
-					     NULL,
-					     &err)) {
+		if (!g_dbus_proxy_call_sync (proxy,
+		                             "SetIp4Config",
+		                             g_variant_new ("(*)", ip4config),
+		                             G_DBUS_CALL_FLAGS_NONE,
+		                             -1,
+		                             NULL,
+		                             &err)) {
 			_LOGW ("Could not send IPv4 configuration: %s", err->message);
 			g_error_free (err);
 		}
@@ -284,7 +288,8 @@ main (int argc, char *argv[])
 	GDBusProxy *proxy;
 	char *tmp;
 	char **iter;
-	GVariantBuilder builder, ip4builder;
+	GVariantBuilder builder;
+	GVariantBuilder ip4builder;
 	GVariant *ip4config;
 	GVariant *val;
 	GError *err = NULL;
@@ -465,7 +470,7 @@ main (int argc, char *argv[])
 	} else {
 		g_variant_unref (ip4config);
 		ip4config = NULL;
-        }
+	}
 
 	if (!ip4config)
 		helper_failed (proxy, "IPv4 configuration");
