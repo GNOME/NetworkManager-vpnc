@@ -9,15 +9,15 @@
 # Jordi Jaen Pallares <jordi@suse.de>, 1999, 2000, 2001.
 # Pablo Iranzo Gómez <Pablo.Iranzo@uv.es>, 2000.
 # Jorge González <jorgegonz@svn.gnome.org>, 2007, 2008, 2010, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2019.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc.master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2018-10-24 13:32+0000\n"
-"PO-Revision-Date: 2019-01-29 16:47+0100\n"
+"POT-Creation-Date: 2020-05-04 15:51+0000\n"
+"PO-Revision-Date: 2020-05-14 17:20+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: es <gnome-es-list@gnome.org>\n"
 "Language: es\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 3.31.0\n"
+"X-Generator: Gtranslator 3.36.0\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -48,28 +48,25 @@ msgstr ""
 msgid "The NetworkManager Developers"
 msgstr "Los desarrolladores de NetworkManager"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "Autenticar VPN %s"
-
-#: ../auth-dialog/main.c:181
-msgid "Password:"
-msgstr "Contraseña:"
-
-#: ../auth-dialog/main.c:189
-msgid "Group Password:"
-msgstr "Contraseña del grupo:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:221
 msgid "Authenticate VPN"
 msgstr "Autenticación VPN"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:178
+#| msgid "Password:"
+msgid "Password"
+msgstr "Contraseña"
+
+#: ../auth-dialog/main.c:186
+#| msgid "Group Password:"
+msgid "Group Password"
+msgstr "Contraseña del grupo"
+
+#: ../auth-dialog/main.c:230
 msgid "_Group Password:"
 msgstr "Contraseña del _grupo:"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:488
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "Debe autenticarse para acceder a la red privada virtual «%s»."
@@ -177,7 +174,6 @@ msgstr "propiedad «%s» no válida o no soportada"
 
 #: ../src/nm-vpnc-service.c:216
 #, c-format
-#| msgid "property “%s” invalid or not supported"
 msgid "property “%s” contains a newline character"
 msgstr "propiedad «%s» contiene un carácter de nueva línea"
 
@@ -321,7 +317,6 @@ msgstr ""
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
 #, c-format
-#| msgid "cannot load editor plugin: %s"
 msgid "unable to get editor plugin name: %s"
 msgstr "no se puede obtener el nombre del complemento del editor: %s"
 
@@ -582,6 +577,9 @@ msgstr "Método de cifrado:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Nombre de la _interfaz de túnel:"
+
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "Autenticar VPN %s"
 
 #~ msgid "TCP tunneling not supported"
 #~ msgstr "No se soporta el túnel por TCP"
