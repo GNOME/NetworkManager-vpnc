@@ -1,16 +1,16 @@
 # Polish translation for NetworkManager-vpnc.
-# Copyright © 2008-2018 the NetworkManager-vpnc authors.
+# Copyright © 2008-2020 the NetworkManager-vpnc authors.
 # This file is distributed under the same license as the NetworkManager-vpnc package.
 # Tomasz Dominikowski <dominikowski@gmail.com>, 2008-2009.
-# Piotr Drąg <piotrdrag@gmail.com>, 2010-2018.
-# Aviary.pl <community-poland@mozilla.org>, 2008-2018.
+# Piotr Drąg <piotrdrag@gmail.com>, 2010-2020.
+# Aviary.pl <community-poland@mozilla.org>, 2008-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-28 17:57+0100\n"
-"PO-Revision-Date: 2018-10-28 17:58+0100\n"
+"POT-Creation-Date: 2020-05-17 11:58+0200\n"
+"PO-Revision-Date: 2020-05-17 11:59+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -41,28 +41,23 @@ msgstr ""
 msgid "The NetworkManager Developers"
 msgstr "Programiści projektu NetworkManager"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "Uwierzytelnianie VPN %s"
-
-#: ../auth-dialog/main.c:181
-msgid "Password:"
-msgstr "Hasło:"
-
-#: ../auth-dialog/main.c:189
-msgid "Group Password:"
-msgstr "Hasło grupy:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
 msgstr "Uwierzytelnianie VPN"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Hasło"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Hasło grupy"
+
+#: ../auth-dialog/main.c:232
 msgid "_Group Password:"
 msgstr "Ha_sło grupy:"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
