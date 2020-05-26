@@ -1,17 +1,17 @@
 # Swedish messages for NetworkManager-vpnc.
-# Copyright © 2004-2019 Free Software Foundation, Inc.
+# Copyright © 2004-2020 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004, 2005, 2006.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2010, 2011, 2012.
 # Josef Andersson <josef.andersson@fripost.org>, 2014, 2015, 2017.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2018, 2019.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2018, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2019-11-10 03:02+0000\n"
-"PO-Revision-Date: 2019-12-27 16:38+0100\n"
+"POT-Creation-Date: 2020-05-17 09:59+0000\n"
+"PO-Revision-Date: 2020-05-27 01:29+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3.1\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -42,28 +42,23 @@ msgstr ""
 msgid "The NetworkManager Developers"
 msgstr "Utvecklarna av Nätverkshanteraren"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "Autentisera VPN %s"
-
-#: ../auth-dialog/main.c:181
-msgid "Password:"
-msgstr "Lösenord:"
-
-#: ../auth-dialog/main.c:189
-msgid "Group Password:"
-msgstr "Grupplösenord:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
 msgstr "Autentisera VPN"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Lösenord"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Grupplösenord"
+
+#: ../auth-dialog/main.c:232
 msgid "_Group Password:"
 msgstr "_Grupplösenord:"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
@@ -569,6 +564,9 @@ msgstr "Krypteringsm_etod:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Tunnel_gränssnittsnamn:"
+
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "Autentisera VPN %s"
 
 #~ msgid "TCP tunneling not supported"
 #~ msgstr "TCP-tunnling stöds inte"
