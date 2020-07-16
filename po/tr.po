@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2019-03-26 13:41+0000\n"
-"PO-Revision-Date: 2020-04-09 20:33+0300\n"
+"POT-Creation-Date: 2020-05-26 23:30+0000\n"
+"PO-Revision-Date: 2020-07-16 14:25+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-POOTLE-MTIME: 1419728809.000000\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
@@ -45,28 +45,23 @@ msgstr ""
 msgid "The NetworkManager Developers"
 msgstr "NetworkManager Geliştiricileri"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "%s VPN Kimlik Doğrulaması"
-
-#: ../auth-dialog/main.c:181
-msgid "Password:"
-msgstr "Parola:"
-
-#: ../auth-dialog/main.c:189
-msgid "Group Password:"
-msgstr "Grup Parolası:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
 msgstr "VPN Kimlik Doğrulaması"
 
-#: ../auth-dialog/main.c:233
-msgid "_Group Password:"
-msgstr "_Grup Parolası:"
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Parola"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Küme Parolası"
+
+#: ../auth-dialog/main.c:232
+msgid "_Group Password:"
+msgstr "_Küme Parolası:"
+
+#: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
@@ -101,7 +96,7 @@ msgstr ""
 
 #: ../properties/nm-vpnc-editor.c:374
 msgid "Secure (default)"
-msgstr "Güvenli (varsayılan)"
+msgstr "Güvenli (öntanımlı)"
 
 #: ../properties/nm-vpnc-editor.c:377
 msgid "Weak (use with caution)"
@@ -113,7 +108,7 @@ msgstr "Hiçbiri (tamamen güvensiz)"
 
 #: ../properties/nm-vpnc-editor.c:449
 msgid "Cisco (default)"
-msgstr "Cisco (varsayılan)"
+msgstr "Cisco (öntanımlı)"
 
 #: ../properties/nm-vpnc-editor.c:456
 msgid "Netscreen"
@@ -121,7 +116,7 @@ msgstr "Netscreen"
 
 #: ../properties/nm-vpnc-editor.c:497
 msgid "NAT-T when available (default)"
-msgstr "Mümkün olduğunda NAT-T (varsayılan)"
+msgstr "Mümkün olduğunda NAT-T (öntanımlı)"
 
 #: ../properties/nm-vpnc-editor.c:504
 msgid "NAT-T always"
@@ -137,19 +132,19 @@ msgstr "Kapalı"
 
 #: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
 msgid "DH Group 1"
-msgstr "DH Grubu 1"
+msgstr "DH Kümesi 1"
 
 #: ../properties/nm-vpnc-editor.c:545
 msgid "DH Group 2 (default)"
-msgstr "DH Grubu 2 (varsayılan)"
+msgstr "DH Kümesi 2 (öntanımlı)"
 
 #: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
 msgid "DH Group 5"
-msgstr "DH Grubu 5"
+msgstr "DH Kümesi 5"
 
 #: ../properties/nm-vpnc-editor.c:610
 msgid "Server (default)"
-msgstr "Sunucu (varsayılan)"
+msgstr "Sunucu (öntanımlı)"
 
 #: ../properties/nm-vpnc-editor.c:617
 msgid "None"
@@ -157,7 +152,7 @@ msgstr "Hiçbiri"
 
 #: ../properties/nm-vpnc-editor.c:631
 msgid "DH Group 2"
-msgstr "DH Grubu 2"
+msgstr "DH Kümesi 2"
 
 #: ../properties/nm-vpnc-editor.c:678
 msgid "Choose a Certificate Authority (CA) certificate…"
@@ -344,12 +339,12 @@ msgid ""
 "Group password\n"
 "config: IPSec secret <group_password>"
 msgstr ""
-"Grup parolası\n"
-"yapılandırma: IPSec secret <grup_parolası>"
+"Küme parolası\n"
+"yapılandırma: IPSec secret <küme_parolası>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
-msgstr "Gr_up parolası:"
+msgstr "K_üme parolası:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway:"
@@ -357,7 +352,7 @@ msgstr "_Ağ geçidi:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
-msgstr "G_rup adı:"
+msgstr "_Küme adı:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -372,7 +367,7 @@ msgid ""
 "Group name\n"
 "config: IPSec ID <group_name>"
 msgstr ""
-"Grup adı\n"
+"Küme adı\n"
 "yapılandırma: IPSec ID <grup_adı>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
@@ -498,7 +493,7 @@ msgstr "Aktarım _Güvenliliğini Mükemmelleştir:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
 msgid "_IKE DH Group:"
-msgstr "_IKE DH Grubu:"
+msgstr "_IKE DH Kümesi:"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
 msgid "_NAT traversal:"
@@ -509,8 +504,8 @@ msgid ""
 "Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
 "config: Local Port <0-65535>"
 msgstr ""
-"Kullanılacak yerel ISAKMP bağlantı noktası (0 rasgele bağlantı noktası; vpnc "
-"için varsayılan 500)\n"
+"Kullanılacak yerel ISAKMP bağlantı noktası (0 rastgele bağlantı noktası; "
+"vpnc için öntanımlı 500)\n"
 "yapılandırma: Local Port <0-65535>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:46
@@ -522,15 +517,15 @@ msgid ""
 "Diffie-Hellman group to use for PFS\n"
 "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 msgstr ""
-"PFS için Diffie-Hellman grubu\n"
-"yapılandırma: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+"PFS için Diffie-Hellman kümesi\n"
+"yapılandırma: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/sunucu>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:49
 msgid ""
 "Name of the IKE DH group\n"
 "config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
-"IKE DH grubunun adı\n"
+"IKE DH kümesinin adı\n"
 "yapılandırma: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:51
@@ -567,6 +562,9 @@ msgstr "_Şifreleme yöntemi:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Tünel arab_irimi adı:"
+
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "%s VPN Kimlik Doğrulaması"
 
 #~ msgid "VPN Connection Manager (vpnc)"
 #~ msgstr "VPN Bağlantı Yöneticisi (vpnc)"
