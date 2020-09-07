@@ -1,18 +1,18 @@
 # Italian translation of network-manager-vpnc
 # Copyright (C) 2006, 2007, 2008, 2009, 2010, 2012, 2013, 2016, 2017, 2018 the network-manager-vpnc's copyright holders
-# Copyright (C) 2019 the network-manager-vpnc's copyright holders
+# Copyright (C) 2019, 2020 the network-manager-vpnc's copyright holders
 # This file is distributed under the same license as the network-manager-vpnc package.
 # Francesco Marletta <francesco.marletta@tiscali.it>, 2006, 2007, 2008, 2009, 2010.
 # Luca Ferretti <elle.uca@libero.it>, 2010.
-# Milo Casagrande <milo@milo.name>, 2012, 2013, 2016, 2017, 2018, 2019.
+# Milo Casagrande <milo@milo.name>, 2012, 2013, 2016, 2017, 2018, 2019, 2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2018-10-24 13:32+0000\n"
-"PO-Revision-Date: 2019-02-15 14:01+0100\n"
+"POT-Creation-Date: 2020-05-26 23:30+0000\n"
+"PO-Revision-Date: 2020-09-07 10:03+0200\n"
 "Last-Translator: Milo Casagrande <milo@milo.name>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
-"X-Generator: Poedit 2.2.1\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -44,28 +44,23 @@ msgstr ""
 msgid "The NetworkManager Developers"
 msgstr "Gli sviluppatori di NetworkManager"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "Autenticazione VPN %s"
-
-#: ../auth-dialog/main.c:181
-msgid "Password:"
-msgstr "Password:"
-
-#: ../auth-dialog/main.c:189
-msgid "Group Password:"
-msgstr "Password di gruppo:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
 msgstr "Autenticazione VPN"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Password"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Password di gruppo"
+
+#: ../auth-dialog/main.c:232
 msgid "_Group Password:"
 msgstr "Password di _gruppo:"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
