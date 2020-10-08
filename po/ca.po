@@ -533,7 +533,7 @@ msgid ""
 "config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 "Nom del grup IKE DH\n"
-"config: IKE DH Group <dh1/dh2/dh>"
+"config: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:51
 msgid ""
