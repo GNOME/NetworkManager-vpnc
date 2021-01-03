@@ -33,11 +33,11 @@ msgstr "Client per a xarxes privades virtuals Cisco IPsec"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
 msgid "Support for configuring virtual private networks based on VPNC."
-msgstr "Suport per configurar xarxes privades virtuals basades en VPNC."
+msgstr "Suport per a configurar xarxes privades virtuals basades en VPNC."
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
 msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
-msgstr "Compatible amb concentradors Cisco VPN configurats per usar IPsec."
+msgstr "Compatible amb concentradors Cisco VPN configurats per a usar IPsec."
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
 msgid "The NetworkManager Developers"
@@ -62,7 +62,8 @@ msgstr "Contrasenya de _grup:"
 #: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr "Us heu d'autenticar per poder accedir a la xarxa privada virtual «%s»."
+msgstr ""
+"Us heu d'autenticar per a poder accedir a la xarxa privada virtual «%s»."
 
 #: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
@@ -214,7 +215,7 @@ msgstr "L'opció «%s» no és un enter."
 
 #: ../src/nm-vpnc-service.c:987
 msgid "vpnc does not support interactive requests"
-msgstr "El vpnc no dóna suport a demandes interactives"
+msgstr "El vpnc no dona suport a demandes interactives"
 
 #: ../src/nm-vpnc-service.c:1011
 msgid "Could not use new secrets as interactive mode is disabled."
