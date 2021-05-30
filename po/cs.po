@@ -4,15 +4,15 @@
 #
 # Jakub Friedl <jfriedl@suse.cz>, 2006.
 # Jiří Eischmann <jiri@eischmann.cz>, 2008.
-# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009 - 2016.
+# Zdeněk Hataš <zdenek.hatas@gmail.com>, 2009 - 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2018-10-24 13:32+0000\n"
-"PO-Revision-Date: 2016-06-30 14:48+0100\n"
+"POT-Creation-Date: 2020-05-26 23:30+0000\n"
+"PO-Revision-Date: 2021-03-25 16:15+0100\n"
 "Last-Translator: Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.3\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -28,7 +28,7 @@ msgstr "Původní klient Cisco VPNC"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
 msgid "Client for Cisco IPsec virtual private networks"
-msgstr "Klient pro virtuální soukromé sítě Cisco IPSec"
+msgstr "Klient pro virtuální privátní sítě Cisco IPSec"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
 msgid "Support for configuring virtual private networks based on VPNC."
@@ -42,28 +42,23 @@ msgstr "Kompatibilní s koncentrátory Cisco VPN nastavenými pro použití IPse
 msgid "The NetworkManager Developers"
 msgstr "Vývojáři aplikace NetworkManager"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "Ověřování VPN %s"
-
-#: ../auth-dialog/main.c:181
-msgid "Password:"
-msgstr "Heslo:"
-
-#: ../auth-dialog/main.c:189
-msgid "Group Password:"
-msgstr "Heslo skupiny:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
 msgstr "Ověřování VPN"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Heslo"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Heslo skupiny"
+
+#: ../auth-dialog/main.c:232
 msgid "_Group Password:"
 msgstr "Heslo _skupiny:"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "Pro přístup do VPN „%s“ se musí provést ověření."
@@ -556,3 +551,6 @@ msgstr "M_etoda šifrování:"
 #: ../properties/nm-vpnc-dialog.ui.h:58
 msgid "Tunnel _interface name:"
 msgstr "Název rozhraní _tunelu:"
+
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "Ověřování VPN %s"
