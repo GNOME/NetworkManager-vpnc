@@ -1,17 +1,17 @@
 # Swedish messages for NetworkManager-vpnc.
-# Copyright © 2004-2020 Free Software Foundation, Inc.
+# Copyright © 2004-2021 Free Software Foundation, Inc.
 # Christian Rose <menthos@menthos.com>, 2004, 2005, 2006.
 # Daniel Nylander <po@danielnylander.se>, 2006, 2007, 2008, 2010, 2011, 2012.
 # Josef Andersson <josef.andersson@fripost.org>, 2014, 2015, 2017.
-# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2018, 2019, 2020.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2018, 2019, 2020, 2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2020-05-17 09:59+0000\n"
-"PO-Revision-Date: 2020-05-27 01:29+0200\n"
+"POT-Creation-Date: 2020-05-26 23:30+0000\n"
+"PO-Revision-Date: 2021-07-25 21:45+0200\n"
 "Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -341,7 +341,7 @@ msgid ""
 "config: IPSec secret <group_password>"
 msgstr ""
 "Grupplösenord\n"
-"config: IPSec secret <grupplösenord>"
+"konfig: IPSec secret <grupplösenord>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
@@ -361,7 +361,7 @@ msgid ""
 "config: IPSec gateway <gateway>"
 msgstr ""
 "IP/värdnamn på IPsec-gateway\n"
-"config: IPSec gateway <gateway>"
+"konfig: IPSec gateway <gateway>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
@@ -369,7 +369,7 @@ msgid ""
 "config: IPSec ID <group_name>"
 msgstr ""
 "Gruppnamn\n"
-"config: IPSec ID <gruppnamn>"
+"konfig: IPSec ID <gruppnamn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
@@ -381,7 +381,7 @@ msgid ""
 "config: Xauth password <password>"
 msgstr ""
 "Användarens lösenord för anslutningen\n"
-"config: Xauth password <lösenord>"
+"konfig: Xauth password <lösenord>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
@@ -389,7 +389,7 @@ msgid ""
 "config: Xauth username <user_name>"
 msgstr ""
 "Användarnamn för anslutningen\n"
-"config: Xauth username <användarnamn>"
+"konfig: Xauth username <användarnamn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "User na_me:"
@@ -406,7 +406,7 @@ msgid ""
 msgstr ""
 "Aktivera hybridautentisering, d.v.s. använd certifikat tillsammans med "
 "lösenord.\n"
-"config: IKE Authmode hybrid"
+"konfig: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "CA _File:"
@@ -418,7 +418,7 @@ msgid ""
 "config: CA-File"
 msgstr ""
 "CA-certifikat i PEM-format\n"
-"config: CA-File"
+"konfig: CA-File"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
@@ -442,7 +442,7 @@ msgid ""
 "config: Domain <domain>"
 msgstr ""
 "(NT-)domännamn för autentisering\n"
-"config: Domain <domän>"
+"konfig: Domain <domän>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
 msgid ""
@@ -450,7 +450,7 @@ msgid ""
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Tillverkare av din IPsec-gateway\n"
-"config: Vendor <cisco/netscreen>"
+"konfig: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
 msgid "_Vendor:"
@@ -466,7 +466,7 @@ msgid ""
 "config: Application version <ASCII string>"
 msgstr ""
 "Programversion att rapportera. \n"
-"config: Application version <ASCII-sträng>"
+"konfig: Application version <ASCII-sträng>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
 msgid "Transport and Security"
@@ -482,7 +482,7 @@ msgid ""
 "config: DPD idle timeout (our side) 0"
 msgstr ""
 "Inaktivera sändning av DPD-paket (sätter tidsgräns till 0)\n"
-"config: DPD idle timeout (vår sida) 0"
+"konfig: DPD idle timeout (vår sida) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
 msgid "_Local port:"
@@ -509,7 +509,7 @@ msgid ""
 msgstr ""
 "Lokal ISAKMP-port att använda (0 betyder slumpmässig port; 500 är standard "
 "för vpnc)\n"
-"config: Local Port <0-65535>"
+"konfig: Local Port <0-65535>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:46
 msgid "0"
@@ -521,7 +521,7 @@ msgid ""
 "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 msgstr ""
 "Diffie-Hellman-grupp att använda för PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+"konfig: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:49
 msgid ""
@@ -529,7 +529,7 @@ msgid ""
 "config: IKE DH Group <dh1/dh2/dh5>"
 msgstr ""
 "Namn på IKE DH-gruppen\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
+"konfig: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:51
 msgid ""
@@ -537,7 +537,7 @@ msgid ""
 "config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
 "NAT-traverseringsmetod att använda\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+"konfig: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
@@ -546,7 +546,7 @@ msgid ""
 "encryption” for None"
 msgstr ""
 "Krypteringsmetod\n"
-"config: ingenting för Säker, ”Enable Single DES” för svag, ”Enable no "
+"konfig: ingenting för Säker, ”Enable Single DES” för svag, ”Enable no "
 "encryption” för ingen"
 
 #: ../properties/nm-vpnc-dialog.ui.h:55
@@ -555,7 +555,7 @@ msgid ""
 "config: Interface name <name>"
 msgstr ""
 "Tunnelgränssnittsnamn att använda\n"
-"config: Interface name <namn>"
+"konfig: Interface name <namn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
 msgid "_Encryption method:"
