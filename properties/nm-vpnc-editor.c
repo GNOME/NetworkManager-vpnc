@@ -44,6 +44,23 @@
 #define ENC_TYPE_WEAK   1
 #define ENC_TYPE_NONE   2
 
+#if !GTK_CHECK_VERSION(4,0,0)
+#define gtk_editable_set_text(editable,text)		gtk_entry_set_text(GTK_ENTRY(editable), (text))
+#define gtk_editable_get_text(editable)			gtk_entry_get_text(GTK_ENTRY(editable))
+#define gtk_widget_get_root(widget)			gtk_widget_get_toplevel(widget)
+#define gtk_check_button_get_active(button)		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))
+#define gtk_check_button_set_active(button, active)	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), active)
+#define gtk_window_destroy(window)			gtk_widget_destroy(GTK_WIDGET (window))
+#define gtk_window_set_hide_on_close(window, hide)						\
+	G_STMT_START {										\
+		G_STATIC_ASSERT(hide);								\
+		g_signal_connect_swapped (G_OBJECT (window), "delete-event",			\
+		                          G_CALLBACK (gtk_widget_hide_on_delete), window);	\
+	} G_STMT_END
+
+typedef void GtkRoot;
+#endif
+
 static void vpnc_editor_interface_init (NMVpnEditorInterface *iface);
 
 G_DEFINE_TYPE_EXTENDED (VpncEditor, vpnc_editor, G_TYPE_OBJECT, 0,
@@ -71,7 +88,7 @@ check_validity (VpncEditor *self, GError **error)
 	char *str;
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (!str || !strlen (str) || strstr (str, " ") || strstr (str, "\t")) {
 		g_set_error (error,
 		             NMV_EDITOR_PLUGIN_ERROR,
@@ -81,7 +98,7 @@ check_validity (VpncEditor *self, GError **error)
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
 		             NMV_EDITOR_PLUGIN_ERROR,
@@ -109,7 +126,7 @@ hybrid_toggled_cb (GtkWidget *widget, gpointer user_data)
 	ca_chooser = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_chooser"));
 	g_return_if_fail (ca_chooser);
 
-	enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+	enabled = gtk_check_button_get_active (GTK_CHECK_BUTTON (widget));
 
 	gtk_widget_set_sensitive (ca_chooser, enabled);
 
@@ -132,7 +149,7 @@ setup_password_widget (VpncEditor *self,
 
 	if (s_vpn) {
 		value = nm_setting_vpn_get_secret (s_vpn, secret_name);
-		gtk_entry_set_text (GTK_ENTRY (widget), value ? value : "");
+		gtk_editable_set_text (GTK_EDITABLE (widget), value ? value : "");
 	}
 
 	g_signal_connect (widget, "changed", G_CALLBACK (stuff_changed_cb), self);
@@ -145,7 +162,7 @@ show_toggled_cb (GtkCheckButton *button, VpncEditor *self)
 	GtkWidget *widget;
 	gboolean visible;
 
-	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
 	g_assert (widget);
@@ -207,7 +224,7 @@ init_password_icon (VpncEditor *self,
 		if (!flags || !strcmp (flags, NM_VPNC_PW_TYPE_SAVE))
 			flags = nm_setting_vpn_get_data_item (s_vpn, type_key);
 	}
-	value = gtk_entry_get_text (GTK_ENTRY (entry));
+	value = gtk_editable_get_text (GTK_EDITABLE (entry));
 	if ((!value || !*value) && !flags)
 		nma_utils_update_password_storage (entry, NM_SETTING_SECRET_FLAG_NOT_SAVED,
 		                                   (NMSetting *) s_vpn, secret_key);
@@ -240,7 +257,7 @@ populate_adv_dialog (VpncEditor *self)
 	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_DOMAIN);
 	if (!value)
 		value = "";
-	gtk_entry_set_text (GTK_ENTRY (widget), value);
+	gtk_editable_set_text (GTK_EDITABLE (widget), value);
 
 	/* Vendor combo */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
@@ -264,15 +281,15 @@ populate_adv_dialog (VpncEditor *self)
 	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_APP_VERSION);
 	if (!value)
 		value = "";
-	gtk_entry_set_text (GTK_ENTRY (widget), value);
+	gtk_editable_set_text (GTK_EDITABLE (widget), value);
 
 	/* Interface name */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
 	g_return_if_fail (widget != NULL);
 	if (priv->interface_name)
-		gtk_entry_set_text (GTK_ENTRY (widget), priv->interface_name);
+		gtk_editable_set_text (GTK_EDITABLE (widget), priv->interface_name);
 	else
-		gtk_entry_set_text (GTK_ENTRY (widget), "");
+		gtk_editable_set_text (GTK_EDITABLE (widget), "");
 
 	/* Encryption combo */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
@@ -381,7 +398,7 @@ populate_adv_dialog (VpncEditor *self)
 	g_return_if_fail (widget != NULL);
 	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT);
 	if (value && priv->orig_dpd_timeout == 0)
-		gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+		gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), TRUE);
 }
 
 static void
@@ -396,7 +413,7 @@ update_adv_settings (VpncEditor *self, NMSettingVpn *s_vpn)
 
 	/* Domain */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
-	value = gtk_entry_get_text (GTK_ENTRY (widget));
+	value = gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (value && strlen (value))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, value);
 	else
@@ -416,7 +433,7 @@ update_adv_settings (VpncEditor *self, NMSettingVpn *s_vpn)
 
 	/* Application version */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
-	value = gtk_entry_get_text (GTK_ENTRY (widget));
+	value = gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (value && strlen (value))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION, value);
 	else
@@ -424,7 +441,7 @@ update_adv_settings (VpncEditor *self, NMSettingVpn *s_vpn)
 
 	/* Interface name */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
-	value = gtk_entry_get_text (GTK_ENTRY (widget));
+	value = gtk_editable_get_text (GTK_EDITABLE (widget));
 	g_clear_pointer (&priv->interface_name, g_free);
 	priv->interface_name = g_strdup (value);
 
@@ -487,7 +504,7 @@ update_adv_settings (VpncEditor *self, NMSettingVpn *s_vpn)
 
 	/* Disable DPD */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
+	if (gtk_check_button_get_active (GTK_CHECK_BUTTON (widget))) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, "0");
 	} else {
 		/* If DPD was disabled and now the user wishes to enable it, just
@@ -523,11 +540,11 @@ static void
 advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 {
 	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (user_data);
-	GtkWidget *toplevel;
+	GtkRoot *root;
 
-	toplevel = gtk_widget_get_toplevel (priv->widget);
-	if (gtk_widget_is_toplevel (toplevel))
-		gtk_window_set_transient_for (GTK_WINDOW (priv->advanced_dialog), GTK_WINDOW (toplevel));
+	root = gtk_widget_get_root (priv->widget);
+	if (GTK_IS_WINDOW(root))
+		gtk_window_set_transient_for (GTK_WINDOW (priv->advanced_dialog), GTK_WINDOW (root));
 	gtk_widget_show (priv->advanced_dialog);
 }
 
@@ -562,7 +579,7 @@ init_plugin_ui (VpncEditor *self,
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_GATEWAY);
 		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
+			gtk_editable_set_text (GTK_EDITABLE (widget), value);
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
@@ -572,7 +589,7 @@ init_plugin_ui (VpncEditor *self,
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_ID);
 		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
+			gtk_editable_set_text (GTK_EDITABLE (widget), value);
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
@@ -625,7 +642,7 @@ init_plugin_ui (VpncEditor *self,
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER);
 		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
+			gtk_editable_set_text (GTK_EDITABLE (widget), value);
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
@@ -717,7 +734,7 @@ init_plugin_ui (VpncEditor *self,
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_AUTHMODE);
 		if (value && !strcmp("hybrid", value)) {
-			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+			gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), TRUE);
 			enabled = TRUE;
 		}
 	}
@@ -756,8 +773,7 @@ init_plugin_ui (VpncEditor *self,
 	priv->advanced_dialog = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-advanced-dialog"));
 	g_return_val_if_fail (priv->advanced_dialog != NULL, FALSE);
 
-	g_signal_connect (G_OBJECT (priv->advanced_dialog), "delete-event",
-	                  G_CALLBACK (gtk_widget_hide_on_delete), self);
+	gtk_window_set_hide_on_close (GTK_WINDOW (priv->advanced_dialog), TRUE);
 
         g_signal_connect (G_OBJECT (priv->advanced_dialog), "response",
                           G_CALLBACK (advanced_dialog_response_cb), self);
@@ -799,7 +815,7 @@ save_one_password (NMSettingVpn *s_vpn,
 	switch (flags) {
 	case NM_SETTING_SECRET_FLAG_NONE:
 	case NM_SETTING_SECRET_FLAG_AGENT_OWNED:
-		password = gtk_entry_get_text (GTK_ENTRY (entry));
+		password = gtk_editable_get_text (GTK_EDITABLE (entry));
 		if (password && strlen (password))
 			nm_setting_vpn_add_secret (s_vpn, secret_key, password);
 		data_val = NM_VPNC_PW_TYPE_SAVE;
@@ -840,18 +856,18 @@ update_connection (NMVpnEditor *editor,
 
 	/* Gateway */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_GATEWAY, str);
 
 	/* Group name */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_ID, str);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, str);
 
@@ -871,7 +887,7 @@ update_connection (NMVpnEditor *editor,
 
 	/* hybrid auth */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "hybrid_checkbutton"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
+	if (gtk_check_button_get_active (GTK_CHECK_BUTTON (widget))) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_AUTHMODE, "hybrid");
 
 		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_chooser"));
@@ -971,7 +987,7 @@ dispose (GObject *object)
 		g_object_unref (priv->widget);
 
 	if (priv->advanced_dialog)
-		gtk_widget_destroy (priv->advanced_dialog);
+		gtk_window_destroy (GTK_WINDOW (priv->advanced_dialog));
 
 	if (priv->builder) {
 		deinit_password_icon (plugin, "user_password_entry");

@@ -51,5 +51,6 @@ properties/resources.h
 src/nm-vpnc-service
 src/nm-vpnc-service-vpnc-helper
 src/test-vpnc-output
+gtk4
 
 /NetworkManager-vpnc*.tar*

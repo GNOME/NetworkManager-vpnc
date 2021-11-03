@@ -7,11 +7,6 @@
     <property name="step_increment">1</property>
     <property name="page_increment">10</property>
   </object>
-  <object class="GtkImage" id="image1">
-    <property name="visible">True</property>
-    <property name="can_focus">False</property>
-    <property name="stock">gtk-preferences</property>
-  </object>
   <object class="GtkGrid" id="vpnc-vbox">
     <property name="visible">True</property>
     <property name="row_spacing">6</property>
@@ -168,12 +163,10 @@ config: IPSec secret &lt;group_password&gt;</property>
     <child>
       <object class="GtkCheckButton" id="show_passwords_checkbutton">
         <property name="label" translatable="yes">Sho_w passwords</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
         <property name="use_underline">True</property>
-        <property name="xalign">0</property>
         <property name="draw_indicator">True</property>
       </object>
       <packing>
@@ -184,14 +177,12 @@ config: IPSec secret &lt;group_password&gt;</property>
     <child>
       <object class="GtkCheckButton" id="hybrid_checkbutton">
         <property name="label" translatable="yes">Use _hybrid authentication</property>
-        <property name="use_action_appearance">False</property>
         <property name="visible">True</property>
         <property name="can_focus">True</property>
         <property name="receives_default">False</property>
         <property name="tooltip_text" translatable="yes">Enable hybrid authentication, i.e. use certificate in addition to password.
 config: IKE Authmode hybrid</property>
         <property name="use_underline">True</property>
-        <property name="xalign">0</property>
         <property name="draw_indicator">True</property>
       </object>
       <packing>
@@ -364,14 +355,10 @@ config: IKE Authmode hybrid</property>
   </object>
   <object class="GtkDialog" id="vpnc-advanced-dialog">
     <property name="can_focus">False</property>
-    <property name="border_width">5</property>
     <property name="title" translatable="yes">Advanced Options</property>
     <property name="modal">True</property>
-    <property name="window_position">center</property>
     <property name="destroy_with_parent">True</property>
     <property name="icon_name">stock-preferences</property>
-    <property name="type_hint">dialog</property>
-    <property name="skip_taskbar_hint">True</property>
     <action-widgets>
       <action-widget response="-6">cancel_button</action-widget>
       <action-widget response="-10" default="true">apply_button</action-widget>
@@ -426,10 +413,9 @@ config: IKE Authmode hybrid</property>
         <property name="orientation">vertical</property>
         <property name="spacing">16</property>
         <child internal-child="action_area">
-          <object class="GtkButtonBox" id="dialog-action_area1">
+          <object class="GtkBox" id="dialog-action_area1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="layout_style">end</property>
             <child>
               <placeholder/>
             </child>
@@ -760,14 +746,12 @@ config: Local Port &lt;0-65535&gt;</property>
             <child>
               <object class="GtkCheckButton" id="disable_dpd_checkbutton">
                 <property name="label" translatable="yes">Disable Dead _Peer Detection</property>
-                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="tooltip_text" translatable="yes">Disable sending DPD packets (sets timeout to 0)
 config: DPD idle timeout (our side) 0</property>
                 <property name="use_underline">True</property>
-                <property name="xalign">0</property>
                 <property name="draw_indicator">True</property>
               </object>
               <packing>

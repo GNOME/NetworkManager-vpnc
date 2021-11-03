@@ -89,12 +89,23 @@ if WITH_LIBNM_GLIB
 plugin_LTLIBRARIES += properties/libnm-vpnc-properties.la
 endif
 endif
+if WITH_GTK4
+plugin_LTLIBRARIES += properties/libnm-gtk4-vpn-plugin-vpnc-editor.la
+endif
 
 properties/resources.h: properties/gresource.xml
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/properties --generate-header --internal
 
 properties/resources.c: properties/gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/properties --generate-dependencies $(srcdir)/properties/gresource.xml)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/properties --generate-source --internal
+
+gtk4/resources.c: properties/gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies $(srcdir)/properties/gresource.xml |sed "s,^,$(builddir)/gtk4/,")
+	@mkdir -p $(builddir)/gtk4
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/gtk4 --sourcedir=$(builddir)/gtk4 --generate-source --internal
+
+gtk4/%.ui: properties/%.ui
+	@mkdir -p $(builddir)/gtk4
+	gtk4-builder-tool simplify --3to4 $< |grep -v can-default >$@
 
 plugin_sources = \
 	properties/nm-vpnc-helper.c \
@@ -129,6 +140,32 @@ properties_libnm_vpn_plugin_vpnc_la_LIBADD = \
 properties_libnm_vpn_plugin_vpnc_la_LDFLAGS = \
 	-avoid-version \
 	-Wl,--version-script=$(srcdir)/properties/libnm-vpn-plugin-vpnc.ver
+
+###############################################################################
+
+properties_libnm_gtk4_vpn_plugin_vpnc_editor_la_SOURCES = \
+	$(shared_sources) \
+	$(editor_sources)
+
+nodist_properties_libnm_gtk4_vpn_plugin_vpnc_editor_la_SOURCES = \
+	properties/resources.h \
+	gtk4/resources.c
+
+properties_libnm_gtk4_vpn_plugin_vpnc_editor_la_CFLAGS = \
+	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_EDITOR \
+	$(common_cppflags) \
+	$(GTK4_CFLAGS) \
+	$(LIBNM_CFLAGS) \
+	$(LIBNMA_GTK4_CFLAGS)
+
+properties_libnm_gtk4_vpn_plugin_vpnc_editor_la_LIBADD = \
+	$(GTK4_LIBS) \
+	$(LIBNM_LIBS) \
+	$(LIBNMA_GTK4_LIBS)
+
+properties_libnm_gtk4_vpn_plugin_vpnc_editor_la_LDFLAGS = \
+	-avoid-version \
+	-Wl,--version-script=$(srcdir)/properties/libnm-vpn-plugin-vpnc-editor.ver
 
 ###############################################################################
 
@@ -310,7 +347,8 @@ nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in
 
 DISTCHECK_CONFIGURE_FLAGS = \
 	--with-tests=yes \
-	--enable-more-warnings=yes
+	--enable-more-warnings=yes \
+	--with-gtk4
 
 EXTRA_DIST = \
 	properties/libnm-vpn-plugin-vpnc.ver \
@@ -350,7 +388,9 @@ CLEANFILES = *.bak *~ \
 	$(nmvpnservice_DATA) \
 	$(appdata_files) \
 	properties/resources.c \
-	properties/resources.h
+	properties/resources.h \
+	gtk4/resources.c \
+	gtk4/nm-vpnc-dialog.ui
 
 DISTCLEANFILES = intltool-extract intltool-merge intltool-update
 
