@@ -296,6 +296,30 @@ config: CA-File</property>
       </packing>
     </child>
   </object>
+  <object class="GtkSizeGroup" id="labels">
+    <widgets>
+      <widget name="label23"/>
+      <widget name="label26"/>
+      <widget name="label3"/>
+      <widget name="label24"/>
+      <widget name="label4"/>
+      <widget name="cafile_label"/>
+    </widgets>
+  </object>
+  <object class="GtkSizeGroup" id="advanced_labels">
+    <widgets>
+      <widget name="label27"/>
+      <widget name="label28"/>
+      <widget name="label29"/>
+      <widget name="label2"/>
+      <widget name="label7"/>
+      <widget name="label31"/>
+      <widget name="label41"/>
+      <widget name="label5"/>
+      <widget name="label6"/>
+      <widget name="local_port_label"/>
+    </widgets>
+  </object>
   <object class="GtkListStore" id="model1">
     <columns>
       <!-- column-name gchararray -->

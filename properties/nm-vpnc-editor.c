@@ -54,7 +54,6 @@ G_DEFINE_TYPE_EXTENDED (VpncEditor, vpnc_editor, G_TYPE_OBJECT, 0,
 typedef struct {
 	GtkBuilder *builder;
 	GtkWidget *widget;
-	GtkSizeGroup *group;
 	gint orig_dpd_timeout;
 	GtkWidget *advanced_dialog;
 } VpncEditorPrivate;
@@ -137,7 +136,6 @@ setup_password_widget (VpncEditor *self,
 
 	widget = (GtkWidget *) gtk_builder_get_object (priv->builder, entry_name);
 	g_assert (widget);
-	gtk_size_group_add_widget (priv->group, widget);
 
 	if (s_vpn) {
 		value = nm_setting_vpn_get_secret (s_vpn, secret_name);
@@ -342,11 +340,8 @@ init_plugin_ui (VpncEditor *self,
 		s_vpn = nm_connection_get_setting_vpn (connection);
 	}
 
-	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
-
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_GATEWAY);
 		if (value && strlen (value))
@@ -356,7 +351,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_ID);
 		if (value && strlen (value))
@@ -366,7 +360,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 
 	store = gtk_list_store_new (1, G_TYPE_STRING);
 
@@ -421,7 +414,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER);
 		if (value && strlen (value))
@@ -431,7 +423,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DOMAIN);
 		if (value && strlen (value))
@@ -461,7 +452,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
@@ -470,7 +460,6 @@ init_plugin_ui (VpncEditor *self,
 	/* Application version */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION);
 		if (value && strlen (value))
@@ -523,7 +512,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "natt_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
@@ -557,7 +545,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 1 : active);
@@ -566,7 +553,6 @@ init_plugin_ui (VpncEditor *self,
 	/* Local Port */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
 		if (value) {
@@ -643,7 +629,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
@@ -671,7 +656,6 @@ init_plugin_ui (VpncEditor *self,
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, widget);
 	gtk_widget_set_sensitive (widget, enabled);
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
 	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
@@ -992,9 +976,6 @@ dispose (GObject *object)
 {
 	VpncEditor *plugin = VPNC_EDITOR (object);
 	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (plugin);
-
-	if (priv->group)
-		g_object_unref (priv->group);
 
 	if (priv->widget)
 		g_object_unref (priv->widget);
