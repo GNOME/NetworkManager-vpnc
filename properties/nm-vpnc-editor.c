@@ -940,7 +940,6 @@ nm_vpnc_editor_new (NMConnection *connection, GError **error)
 {
 	NMVpnEditor *object;
 	VpncEditorPrivate *priv;
-	char *ui_file;
 	NMSettingVpn *s_vpn;
 	gboolean is_new = TRUE;
 
@@ -956,22 +955,16 @@ nm_vpnc_editor_new (NMConnection *connection, GError **error)
 
 	priv = VPNC_EDITOR_GET_PRIVATE (object);
 
-	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-vpnc-dialog.ui");
 	priv->builder = gtk_builder_new ();
 
 	gtk_builder_set_translation_domain (priv->builder, GETTEXT_PACKAGE);
 
-	if (!gtk_builder_add_from_file (priv->builder, ui_file, error)) {
+	if (!gtk_builder_add_from_resource (priv->builder, "/org/freedesktop/network-manager-vpnc/nm-vpnc-dialog.ui", error)) {
 		g_warning ("Couldn't load builder file: %s",
 		           error && *error ? (*error)->message : "(unknown)");
-		g_clear_error (error);
-		g_set_error (error, NMV_EDITOR_PLUGIN_ERROR, NMV_EDITOR_PLUGIN_ERROR_FAILED,
-		             "could not load required resources at %s", ui_file);
-		g_free (ui_file);
 		g_object_unref (object);
 		return NULL;
 	}
-	g_free (ui_file);
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-vbox"));
 	if (!priv->widget) {

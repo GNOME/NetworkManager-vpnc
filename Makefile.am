@@ -90,6 +90,12 @@ plugin_LTLIBRARIES += properties/libnm-vpnc-properties.la
 endif
 endif
 
+properties/resources.h: properties/gresource.xml
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/properties --generate-header --internal
+
+properties/resources.c: properties/gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir)/properties --generate-dependencies $(srcdir)/properties/gresource.xml)
+	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) $< --target=$@ --sourcedir=$(srcdir)/properties --generate-source --internal
+
 plugin_sources = \
 	properties/nm-vpnc-helper.c \
 	properties/nm-vpnc-helper.h \
@@ -99,11 +105,6 @@ plugin_sources = \
 editor_sources = \
 	properties/nm-vpnc-editor.c \
 	properties/nm-vpnc-editor.h
-
-uidir = $(datadir)/gnome-vpn-properties/vpnc
-if WITH_GNOME
-ui_DATA = properties/nm-vpnc-dialog.ui
-endif
 
 ###############################################################################
 
@@ -136,10 +137,13 @@ properties_libnm_vpn_plugin_vpnc_editor_la_SOURCES = \
 	$(shared_sources) \
 	$(editor_sources)
 
+nodist_properties_libnm_vpn_plugin_vpnc_editor_la_SOURCES = \
+	properties/resources.h \
+	properties/resources.c
+
 properties_libnm_vpn_plugin_vpnc_editor_la_CFLAGS = \
 	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_EDITOR \
 	$(common_cppflags) \
-	-DUIDIR=\""$(uidir)"\" \
 	$(GTK_CFLAGS) \
 	$(LIBNM_CFLAGS) \
 	$(LIBNMA_CFLAGS)
@@ -160,11 +164,14 @@ properties_libnm_vpnc_properties_la_SOURCES = \
 	$(plugin_sources) \
 	$(editor_sources)
 
+nodist_properties_libnm_vpnc_properties_la_SOURCES = \
+	properties/resources.h \
+	properties/resources.c
+
 properties_libnm_vpnc_properties_la_CFLAGS = \
 	-DNM_VPN_OLD \
 	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
 	-DLOCALEDIR=\"$(datadir)/locale\"
-	-DUIDIR=\""$(uidir)"\" \
 	$(common_cppflags) \
 	$(GTK_CFLAGS) \
 	$(LIBNM_GLIB_CFLAGS) \
@@ -311,6 +318,7 @@ EXTRA_DIST = \
 	properties/libnm-vpn-plugin-vpnc-editor.ver \
 	properties/libnm-vpnc-properties.ver \
 	properties/nm-vpnc-dialog.ui \
+	properties/gresource.xml \
 	\
 	properties/tests/pcf/basic.pcf \
 	properties/tests/pcf/everything-via-vpn.pcf \
@@ -341,7 +349,9 @@ EXTRA_DIST = \
 
 CLEANFILES = *.bak *~ \
 	$(nmvpnservice_DATA) \
-	$(appdata_files)
+	$(appdata_files) \
+	properties/resources.c \
+	properties/resources.h
 
 DISTCLEANFILES = intltool-extract intltool-merge intltool-update
 
