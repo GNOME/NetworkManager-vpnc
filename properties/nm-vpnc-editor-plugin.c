@@ -825,7 +825,7 @@ get_editor (NMVpnEditorPlugin *iface, NMConnection *connection, GError **error)
 #ifdef NM_VPN_OLD
 		return nm_vpnc_editor_new (connection, error);
 #else
-		return nm_vpn_plugin_utils_load_editor (NM_PLUGIN_DIR"/libnm-vpn-plugin-vpnc-editor.so",
+		return nm_vpn_plugin_utils_load_editor ("libnm-vpn-plugin-vpnc-editor.so",
 		                                        "nm_vpn_editor_factory_vpnc",
 		                                        _call_editor_factory,
 		                                        iface,

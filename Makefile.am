@@ -116,7 +116,6 @@ properties_libnm_vpn_plugin_vpnc_la_SOURCES = \
 
 properties_libnm_vpn_plugin_vpnc_la_CFLAGS = \
 	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB_BASE \
-	-DNM_PLUGIN_DIR=\"$(NM_PLUGIN_DIR)\" \
 	-DLOCALEDIR=\"$(datadir)/locale\" \
 	$(common_cppflags) \
 	$(LIBNM_CFLAGS)
