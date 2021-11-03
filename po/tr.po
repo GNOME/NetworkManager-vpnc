@@ -343,16 +343,16 @@ msgstr ""
 "yapılandırma: IPSec secret <küme_parolası>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "K_üme parolası:"
+msgid "Gro_up password"
+msgstr "K_üme parolası"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Ağ geçidi:"
+msgid "_Gateway"
+msgstr "_Ağ geçidi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "_Küme adı:"
+msgid "G_roup name"
+msgstr "_Küme adı"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -371,8 +371,8 @@ msgstr ""
 "yapılandırma: IPSec ID <grup_adı>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Kullanıcı _parolası:"
+msgid "User _password"
+msgstr "Kullanıcı _parolası"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -391,8 +391,8 @@ msgstr ""
 "yapılandırma: Xauth username <kullanıcı_adı>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Kullanıcı a_dı:"
+msgid "User na_me"
+msgstr "Kullanıcı a_dı"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -408,8 +408,8 @@ msgstr ""
 "yapılandırma: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA _Dosyası:"
+msgid "CA _File"
+msgstr "CA _Dosyası"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -432,8 +432,8 @@ msgid "Identification"
 msgstr "Kimlik Saptama"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Etki alanı:"
+msgid "_Domain"
+msgstr "_Etki alanı"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -452,12 +452,12 @@ msgstr ""
 "yapılandırma: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Üretici:"
+msgid "_Vendor"
+msgstr "_Üretici"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Sü_rüm:"
+msgid "Ve_rsion"
+msgstr "Sü_rüm"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -484,20 +484,20 @@ msgstr ""
 "yapılandırma: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Yerel bağlantı noktası:"
+msgid "_Local port"
+msgstr "_Yerel bağlantı noktası"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Aktarım _Güvenliliğini Mükemmelleştir:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Aktarım _Güvenliliğini Mükemmelleştir"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_IKE DH Kümesi:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH Kümesi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT geçişi:"
+msgid "_NAT traversal"
+msgstr "_NAT geçişi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -556,12 +556,12 @@ msgstr ""
 "yapılandırma: Interface name <ad>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "_Şifreleme yöntemi:"
+msgid "_Encryption method"
+msgstr "_Şifreleme yöntemi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Tünel arab_irimi adı:"
+msgid "Tunnel _interface name"
+msgstr "Tünel arab_irimi adı"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "%s VPN Kimlik Doğrulaması"

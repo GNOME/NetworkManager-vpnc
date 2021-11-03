@@ -356,19 +356,19 @@ msgstr ""
 "opción: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Contraseña del gr_upo:"
+msgid "Gro_up password"
+msgstr "Contraseña del gr_upo"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Pasarela:"
+msgid "_Gateway"
+msgstr "_Pasarela"
 
 # clients/lan_dns.ycp:280
 # clients/lan_dns.ycp:269
 # include/users/ui.ycp:1021
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Nombre del g_rupo:"
+msgid "G_roup name"
+msgstr "Nombre del g_rupo"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -387,8 +387,8 @@ msgstr ""
 "opción: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Contraseña del _usuario:"
+msgid "User _password"
+msgstr "Contraseña del _usuario"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -407,8 +407,8 @@ msgstr ""
 "opción: Xauth username <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Nombre de usuario:"
+msgid "User na_me"
+msgstr "Nombre de usuario"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -424,8 +424,8 @@ msgstr ""
 "opción: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "Archivo CA:"
+msgid "CA _File"
+msgstr "Archivo CA"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -448,8 +448,8 @@ msgid "Identification"
 msgstr "Identificación"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Dominio:"
+msgid "_Domain"
+msgstr "_Dominio"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -468,12 +468,12 @@ msgstr ""
 "opción: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "Fabricante:"
+msgid "_Vendor"
+msgstr "Fabricante"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rsión:"
+msgid "Ve_rsion"
+msgstr "Ve_rsión"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -500,20 +500,20 @@ msgstr ""
 "opción: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Puerto local:"
+msgid "_Local port"
+msgstr "_Puerto local"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Confidencialidad directa perfecta:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Confidencialidad directa perfecta"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
+msgid "_IKE DH Group"
 msgstr "Grupo IKE DH"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "NAT transversal:"
+msgid "_NAT traversal"
+msgstr "NAT transversal"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -571,12 +571,12 @@ msgstr ""
 "opción: Interface name <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Método de cifrado:"
+msgid "_Encryption method"
+msgstr "Método de cifrado"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Nombre de la _interfaz de túnel:"
+msgid "Tunnel _interface name"
+msgstr "Nombre de la _interfaz de túnel"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "Autenticar VPN %s"
@@ -600,11 +600,11 @@ msgstr "Nombre de la _interfaz de túnel:"
 #~ msgid "Not Required"
 #~ msgstr "No requerido"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "Contraseña _secundaria:"
+#~ msgid "_Secondary Password"
+#~ msgstr "Contraseña _secundaria"
 
-#~ msgid "_Password:"
-#~ msgstr "_Contraseña:"
+#~ msgid "_Password"
+#~ msgstr "_Contraseña"
 
 #~ msgid "Sh_ow passwords"
 #~ msgstr "M_ostrar contraseñas"
@@ -627,8 +627,8 @@ msgstr "Nombre de la _interfaz de túnel:"
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"
 
-#~ msgid "_Username:"
-#~ msgstr "Nombre de _usuario:"
+#~ msgid "_Username"
+#~ msgstr "Nombre de _usuario"
 
 # include/printconf/dialogs.ycp:150
 #~ msgid "Connect _anonymously"
@@ -637,5 +637,5 @@ msgstr "Nombre de la _interfaz de túnel:"
 # include/scanner/scanner_overview.ycp:85
 # include/scanner/scanner_overview.ycp:85
 # include/scanner/scanner_overview.ycp:85
-#~ msgid "Connect as _user:"
-#~ msgstr "Conectar como _usuario:"
+#~ msgid "Connect as _user"
+#~ msgstr "Conectar como _usuario"

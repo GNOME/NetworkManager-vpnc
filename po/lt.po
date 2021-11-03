@@ -340,16 +340,16 @@ msgstr ""
 "konfig.: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Gr_upės slaptažodis:"
+msgid "Gro_up password"
+msgstr "Gr_upės slaptažodis"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Tinklų sietuvas:"
+msgid "_Gateway"
+msgstr "_Tinklų sietuvas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "G_rupės vardas:"
+msgid "G_roup name"
+msgstr "G_rupės vardas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -368,8 +368,8 @@ msgstr ""
 "konfig.: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "_Naudotojo slaptažodis:"
+msgid "User _password"
+msgstr "_Naudotojo slaptažodis"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -388,8 +388,8 @@ msgstr ""
 "konfig.: Xauth username <naudotojo_vardas>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Naudotojo _vardas:"
+msgid "User na_me"
+msgstr "Naudotojo _vardas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -405,8 +405,8 @@ msgstr ""
 "konfig.: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "Liudijimo _failas:"
+msgid "CA _File"
+msgstr "Liudijimo _failas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -429,8 +429,8 @@ msgid "Identification"
 msgstr "Identifikavimas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Sritis:"
+msgid "_Domain"
+msgstr "_Sritis"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -449,12 +449,12 @@ msgstr ""
 "konfig.: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Tiekėjas:"
+msgid "_Vendor"
+msgstr "_Tiekėjas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rsija:"
+msgid "Ve_rsion"
+msgstr "Ve_rsija"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -481,20 +481,20 @@ msgstr ""
 "konfig.: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Vietinis prievadas:"
+msgid "_Local port"
+msgstr "_Vietinis prievadas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Tobulas slaptumas _pirmyn:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Tobulas slaptumas _pirmyn"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "IKE DH grupė:"
+msgid "_IKE DH Group"
+msgstr "IKE DH grupė"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT perėjimas:"
+msgid "_NAT traversal"
+msgstr "_NAT perėjimas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -552,12 +552,12 @@ msgstr ""
 "konfig.: Interface name <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Šifravimo metodas:"
+msgid "_Encryption method"
+msgstr "Šifravimo metodas"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Tunelio _sąsajos pavadinimas:"
+msgid "Tunnel _interface name"
+msgstr "Tunelio _sąsajos pavadinimas"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "Patvirtinti tapatybę VPN %s"
@@ -565,14 +565,14 @@ msgstr "Tunelio _sąsajos pavadinimas:"
 #~ msgid "TCP tunneling not supported"
 #~ msgstr "TCP tuneliavimas nepalaikomas"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Antrinis slaptažodis:"
+#~ msgid "_Secondary Password"
+#~ msgstr "_Antrinis slaptažodis"
 
-#~ msgid "_Password:"
-#~ msgstr "_Slaptažodis:"
+#~ msgid "_Password"
+#~ msgstr "_Slaptažodis"
 
 #~ msgid "Sh_ow passwords"
-#~ msgstr "_Rodyti slaptažodžius:"
+#~ msgstr "_Rodyti slaptažodžius"
 
 #~ msgid "VPN Connection Manager (vpnc)"
 #~ msgstr "VPN ryšių valdyklė (vpnc)"

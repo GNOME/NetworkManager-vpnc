@@ -148,34 +148,34 @@ msgstr ""
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
 #, fuzzy
-msgid "Domain:"
-msgstr "ال_نطاق:"
+msgid "Domain"
+msgstr "ال_نطاق"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption Method:"
+msgid "Encryption Method"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
 #, fuzzy
-msgid "G_roup Name:"
-msgstr "اسم الم_جموعة:"
+msgid "G_roup Name"
+msgstr "اسم الم_جموعة"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
 #, fuzzy
-msgid "NAT Traversal:"
+msgid "NAT Traversal"
 msgstr "عطل الإرسال عبر NAT"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
 #, fuzzy
-msgid "User na_me:"
-msgstr "ا_سم المستخدم:"
+msgid "User na_me"
+msgstr "ا_سم المستخدم"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "_Gateway:"
-msgstr "ال_بوّابة:"
+msgid "_Gateway"
+msgstr "ال_بوّابة"
 
-#~ msgid "The following vpnc VPN connection will be created:"
-#~ msgstr "سيُنشأ اتصال VPN التالي:"
+#~ msgid "The following vpnc VPN connection will be created"
+#~ msgstr "سيُنشأ اتصال VPN التالي"
 
 #~ msgid "Name:  %s"
 #~ msgstr "الإسم: %s"
@@ -241,8 +241,8 @@ msgstr "ال_بوّابة:"
 #~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
 #~ msgstr "<i>مثال: 172.16.0.0/16 10.11.12.0/24</i>"
 
-#~ msgid "Connection na_me:"
-#~ msgstr "إس_م الإتصال:"
+#~ msgid "Connection na_me"
+#~ msgstr "إس_م الإتصال"
 
 #~ msgid "Disable NAT _traversal"
 #~ msgstr "عطل الإر_سال عبر NAT"
@@ -253,8 +253,8 @@ msgstr "ال_بوّابة:"
 #~ msgid "Import _Saved Configuration..."
 #~ msgstr "ا_ستورد اعدادات محفوظة..."
 
-#~ msgid "Interval:"
-#~ msgstr "فترة:"
+#~ msgid "Interval"
+#~ msgstr "فترة"
 
 #~ msgid ""
 #~ "Name used to identify the connection to the private network, e.g. "

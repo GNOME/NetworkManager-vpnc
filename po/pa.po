@@ -187,8 +187,8 @@ msgid "Identification"
 msgstr "ਪਛਾਣ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "_Domain:"
-msgstr "ਡੋਮੇਨ:"
+msgid "_Domain"
+msgstr "ਡੋਮੇਨ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid ""
@@ -197,8 +197,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "ਵੇਂਡਰ(_V):"
+msgid "_Vendor"
+msgstr "ਵੇਂਡਰ(_V)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid ""
@@ -207,8 +207,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Ve_rsion:"
-msgstr "ਵਰਜਨ(_r):"
+msgid "Ve_rsion"
+msgstr "ਵਰਜਨ(_r)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
@@ -228,12 +228,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "_Encryption method:"
-msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ ਢੰਗ:"
+msgid "_Encryption method"
+msgstr "ਇੰਕ੍ਰਿਪਸ਼ਨ ਢੰਗ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "NAT ਟਰਾਂਸਵਰਸਲ:"
+msgid "_NAT traversal"
+msgstr "NAT ਟਰਾਂਸਵਰਸਲ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid ""
@@ -242,8 +242,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "_IKE DH ਗਰੁੱਪ:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH ਗਰੁੱਪ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
 msgid ""
@@ -252,7 +252,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:23
@@ -287,16 +287,16 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "Gro_up password:"
-msgstr "ਗਰੁੱਪ ਪਾਸਵਰਡ(_u):"
+msgid "Gro_up password"
+msgstr "ਗਰੁੱਪ ਪਾਸਵਰਡ(_u)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "_Gateway:"
-msgstr "ਗੇਟਵੇ(_G):"
+msgid "_Gateway"
+msgstr "ਗੇਟਵੇ(_G)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
-msgid "G_roup name:"
-msgstr "ਗਰੁੱਪ ਨਾਂ(_r):"
+msgid "G_roup name"
+msgstr "ਗਰੁੱਪ ਨਾਂ(_r)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:35
 msgid ""
@@ -313,8 +313,8 @@ msgstr ""
 "ਸੰਰਚਨਾ: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:39
-msgid "User _password:"
-msgstr "ਯੂਜ਼ਰ ਪਾਸਵਰਡ(_U):"
+msgid "User _password"
+msgstr "ਯੂਜ਼ਰ ਪਾਸਵਰਡ(_U)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
 msgid ""
@@ -329,8 +329,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
-msgid "User na_me:"
-msgstr "ਯੂਜ਼ਰ ਨਾਂ:"
+msgid "User na_me"
+msgstr "ਯੂਜ਼ਰ ਨਾਂ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:45
 #| msgid "Use _domain for authentication"
@@ -344,8 +344,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:48
-msgid "CA _File:"
-msgstr "CA ਫਾਇਲ(_F):"
+msgid "CA _File"
+msgstr "CA ਫਾਇਲ(_F)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:49
 msgid ""

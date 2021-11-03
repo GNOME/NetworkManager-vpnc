@@ -338,16 +338,16 @@ msgstr ""
 "Konfigurácia: IPSec secret <heslo_skupiny>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "H_eslo skupiny:"
+msgid "Gro_up password"
+msgstr "H_eslo skupiny"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Brána:"
+msgid "_Gateway"
+msgstr "_Brána"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Názov _skupiny:"
+msgid "G_roup name"
+msgstr "Názov _skupiny"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -366,8 +366,8 @@ msgstr ""
 "konfigurácia: IPSec ID <názov_skupiny>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "_Používateľské heslo:"
+msgid "User _password"
+msgstr "_Používateľské heslo"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -386,8 +386,8 @@ msgstr ""
 "Konfigurácia: Xauth username <používateľské_meno>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Používateľské meno:"
+msgid "User na_me"
+msgstr "Používateľské meno"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -400,8 +400,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "_Súbor CA:"
+msgid "CA _File"
+msgstr "_Súbor CA"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -424,8 +424,8 @@ msgid "Identification"
 msgstr "Identifikácia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "Doména:"
+msgid "_Domain"
+msgstr "Doména"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -442,12 +442,12 @@ msgstr ""
 "Konfigurácia: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Výrobca:"
+msgid "_Vendor"
+msgstr "_Výrobca"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rzia:"
+msgid "Ve_rsion"
+msgstr "Ve_rzia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -472,20 +472,20 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Miestny port:"
+msgid "_Local port"
+msgstr "_Miestny port"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "Skupina _IKE DH:"
+msgid "_IKE DH Group"
+msgstr "Skupina _IKE DH"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "Prechádzanie cez _NAT:"
+msgid "_NAT traversal"
+msgstr "Prechádzanie cez _NAT"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -536,18 +536,18 @@ msgstr ""
 "konfigurácia: Interface name <názov>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Metóda šifrovania:"
+msgid "_Encryption method"
+msgstr "Metóda šifrovania"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Názov tunelového _rozhrania:"
+msgid "Tunnel _interface name"
+msgstr "Názov tunelového _rozhrania"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "Overenie totožnosti siete VPN %s"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Sekundárne heslo:"
+#~ msgid "_Secondary Password"
+#~ msgstr "_Sekundárne heslo"
 
 #~ msgid "Sh_ow passwords"
 #~ msgstr "Z_obraziť heslá"

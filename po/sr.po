@@ -339,16 +339,16 @@ msgstr ""
 "подешавања: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Лозинка гр_упе:"
+msgid "Gro_up password"
+msgstr "Лозинка гр_упе"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Мрежни пролаз:"
+msgid "_Gateway"
+msgstr "_Мрежни пролаз"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Назив г_рупе:"
+msgid "G_roup name"
+msgstr "Назив г_рупе"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -367,8 +367,8 @@ msgstr ""
 "подешавање: IPSec ID <назив_групе>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Корисничка _лозинка:"
+msgid "User _password"
+msgstr "Корисничка _лозинка"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -387,8 +387,8 @@ msgstr ""
 "подешавање: Xauth username <корисничко_име>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Корисничко _име:"
+msgid "User na_me"
+msgstr "Корисничко _име"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -404,8 +404,8 @@ msgstr ""
 "подешавање: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "ЦА _датотека:"
+msgid "CA _File"
+msgstr "ЦА _датотека"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -428,8 +428,8 @@ msgid "Identification"
 msgstr "Идентификација"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Домен:"
+msgid "_Domain"
+msgstr "_Домен"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -448,12 +448,12 @@ msgstr ""
 "подешавање: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Продавац:"
+msgid "_Vendor"
+msgstr "_Продавац"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "_Издање:"
+msgid "Ve_rsion"
+msgstr "_Издање"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -480,20 +480,20 @@ msgstr ""
 "подешавање: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Месни порт:"
+msgid "_Local port"
+msgstr "_Месни порт"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Савршена тајност _прослеђивања:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Савршена тајност _прослеђивања"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_ИКЕ ДХ група:"
+msgid "_IKE DH Group"
+msgstr "_ИКЕ ДХ група"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_НАТ пролаз:"
+msgid "_NAT traversal"
+msgstr "_НАТ пролаз"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -550,12 +550,12 @@ msgstr ""
 "подешавање: Interface name <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Начин _шифровања:"
+msgid "_Encryption method"
+msgstr "Начин _шифровања"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Назив тунелног _уређаја:"
+msgid "Tunnel _interface name"
+msgstr "Назив тунелног _уређаја"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "Потврди ВПН %s"
@@ -578,11 +578,11 @@ msgstr "Назив тунелног _уређаја:"
 #~ msgid "TCP tunneling not supported"
 #~ msgstr "ТЦП тунелисање није подржано"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Секундарна лозинка:"
+#~ msgid "_Secondary Password"
+#~ msgstr "_Секундарна лозинка"
 
-#~ msgid "_Password:"
-#~ msgstr "_Лозинка:"
+#~ msgid "_Password"
+#~ msgstr "_Лозинка"
 
 #~ msgid "Sh_ow passwords"
 #~ msgstr "При_кажи лозинку"

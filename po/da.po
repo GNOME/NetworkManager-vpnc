@@ -347,16 +347,16 @@ msgstr ""
 "Konfiguration: IPSec secret <gruppeadgangskode>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Gr_uppeadgangskode:"
+msgid "Gro_up password"
+msgstr "Gr_uppeadgangskode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Gateway:"
+msgid "_Gateway"
+msgstr "_Gateway"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "G_ruppenavn:"
+msgid "G_roup name"
+msgstr "G_ruppenavn"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -375,8 +375,8 @@ msgstr ""
 "Konfiguration: IPSec ID <gruppenavn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Br_ugeradgangskode:"
+msgid "User _password"
+msgstr "Br_ugeradgangskode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -395,8 +395,8 @@ msgstr ""
 "Konfiguration: Xauth username <brugernavn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Brugerna_vn:"
+msgid "User na_me"
+msgstr "Brugerna_vn"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -411,8 +411,8 @@ msgstr ""
 "Konfiguration: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA-_fil:"
+msgid "CA _File"
+msgstr "CA-_fil"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -435,8 +435,8 @@ msgid "Identification"
 msgstr "Identifikation"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Domæne:"
+msgid "_Domain"
+msgstr "_Domæne"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -455,12 +455,12 @@ msgstr ""
 "Konfiguration: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Leverandør:"
+msgid "_Vendor"
+msgstr "_Leverandør"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rsion:"
+msgid "Ve_rsion"
+msgstr "Ve_rsion"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -487,20 +487,20 @@ msgstr ""
 "Konfiguration: DPD idle timeout (vores side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Lokal port:"
+msgid "_Local port"
+msgstr "_Lokal port"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect _Forward Secrecy"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_IKE DH-gruppe:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH-gruppe"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT-krydsning:"
+msgid "_NAT traversal"
+msgstr "_NAT-krydsning"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -558,9 +558,9 @@ msgstr ""
 "Konfiguration: Interface name <navn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Kr_ypteringsmetode:"
+msgid "_Encryption method"
+msgstr "Kr_ypteringsmetode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Navn på tunnelgr_ænseflade:"
+msgid "Tunnel _interface name"
+msgstr "Navn på tunnelgr_ænseflade"

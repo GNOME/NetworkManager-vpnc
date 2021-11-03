@@ -359,16 +359,16 @@ msgstr ""
 "config: IPSec secret <grupas_parole>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Gr_upas parole:"
+msgid "Gro_up password"
+msgstr "Gr_upas parole"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Vārteja:"
+msgid "_Gateway"
+msgstr "_Vārteja"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "G_rupas nosaukums:"
+msgid "G_roup name"
+msgstr "G_rupas nosaukums"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -387,8 +387,8 @@ msgstr ""
 "config: IPSec ID <grupas_nosaukums>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "_Lietotāja parole:"
+msgid "User _password"
+msgstr "_Lietotāja parole"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -407,8 +407,8 @@ msgstr ""
 "config: Xauth username <lietotājvārds>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Lietotājvārds:"
+msgid "User na_me"
+msgstr "Lietotājvārds"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -423,8 +423,8 @@ msgstr ""
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA _datne:"
+msgid "CA _File"
+msgstr "CA _datne"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -448,8 +448,8 @@ msgid "Identification"
 msgstr "Identifikācija"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "Domēns:"
+msgid "_Domain"
+msgstr "Domēns"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -468,12 +468,12 @@ msgstr ""
 "config: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "Ražotājs:"
+msgid "_Vendor"
+msgstr "Ražotājs"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rsija:"
+msgid "Ve_rsion"
+msgstr "Ve_rsija"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -500,20 +500,20 @@ msgstr ""
 "config: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Lokālais ports:"
+msgid "_Local port"
+msgstr "_Lokālais ports"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect Forward Secrecy"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "IKE DH grupa:"
+msgid "_IKE DH Group"
+msgstr "IKE DH grupa"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "NAT apvads:"
+msgid "_NAT traversal"
+msgstr "NAT apvads"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 #| msgid ""
@@ -578,10 +578,10 @@ msgstr ""
 "config: Interface name <nosaukums>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Šifrēšanas metode:"
+msgid "_Encryption method"
+msgstr "Šifrēšanas metode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Tuneļa _saskarnes nosaukums:"
+msgid "Tunnel _interface name"
+msgstr "Tuneļa _saskarnes nosaukums"
 

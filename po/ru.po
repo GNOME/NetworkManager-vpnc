@@ -345,16 +345,16 @@ msgstr ""
 "параметр: IPSec ключ <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "<group_password>:"
+msgid "Gro_up password"
+msgstr "<group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Шлюз:"
+msgid "_Gateway"
+msgstr "_Шлюз"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Имя г_руппы:"
+msgid "G_roup name"
+msgstr "Имя г_руппы"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -373,8 +373,8 @@ msgstr ""
 "параметр: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Пароль _пользователя:"
+msgid "User _password"
+msgstr "Пароль _пользователя"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -389,8 +389,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "_Имя пользователя:"
+msgid "User na_me"
+msgstr "_Имя пользователя"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -403,8 +403,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "_Файл СА:"
+msgid "CA _File"
+msgstr "_Файл СА"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -425,8 +425,8 @@ msgid "Identification"
 msgstr "Идентификация"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Домен:"
+msgid "_Domain"
+msgstr "_Домен"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -441,12 +441,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Производитель:"
+msgid "_Vendor"
+msgstr "_Производитель"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "_Версия:"
+msgid "Ve_rsion"
+msgstr "_Версия"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -469,20 +469,20 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Локальный порт:"
+msgid "_Local port"
+msgstr "_Локальный порт"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_Группа IKE DH:"
+msgid "_IKE DH Group"
+msgstr "_Группа IKE DH"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_Обход NAT:"
+msgid "_NAT traversal"
+msgstr "_Обход NAT"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -528,12 +528,12 @@ msgstr ""
 "параметр: имя интерфейса <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "_Метод шифрования:"
+msgid "_Encryption method"
+msgstr "_Метод шифрования"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Имя _интерфейса туннеля:"
+msgid "Tunnel _interface name"
+msgstr "Имя _интерфейса туннеля"
 
 #~ msgid "VPN Connection Manager (vpnc)"
 #~ msgstr "Менеджер подключений VPN (vpnc)"

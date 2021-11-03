@@ -330,15 +330,15 @@ msgstr ""
 "配置：IPSec secret <组密码>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
+msgid "Gro_up password"
 msgstr "组密码(_U)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
+msgid "_Gateway"
 msgstr "网关(_G)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
+msgid "G_roup name"
 msgstr "组名称(_R)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
@@ -358,7 +358,7 @@ msgstr ""
 "配置：IPSec ID <组名称>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
+msgid "User _password"
 msgstr "用户密码(_P)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
@@ -378,7 +378,7 @@ msgstr ""
 "配置：Xauth username <用户名>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
+msgid "User na_me"
 msgstr "用户名(_M)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
@@ -394,7 +394,7 @@ msgstr ""
 "配置：IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
+msgid "CA _File"
 msgstr "CA 文件(_F)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
@@ -418,7 +418,7 @@ msgid "Identification"
 msgstr "鉴定"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
+msgid "_Domain"
 msgstr "域(_D)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
@@ -438,11 +438,11 @@ msgstr ""
 "配置：Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
+msgid "_Vendor"
 msgstr "供应商(_V)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
+msgid "Ve_rsion"
 msgstr "版本(_R)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
@@ -470,20 +470,20 @@ msgstr ""
 "配置：DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
+msgid "_Local port"
 msgstr "本地端口(_L)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
 msgstr "完美前向保密(_F)："
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
+msgid "_IKE DH Group"
 msgstr "_IKE DH 组："
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT 遍历:"
+msgid "_NAT traversal"
+msgstr "_NAT 遍历"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -540,11 +540,11 @@ msgstr ""
 "配置：Interface name <名称>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "加密方法(_E):"
+msgid "_Encryption method"
+msgstr "加密方法(_E)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
+msgid "Tunnel _interface name"
 msgstr "隧道接口名称(_I)："
 
 #~ msgid "Authenticate VPN %s"
@@ -574,7 +574,7 @@ msgstr "隧道接口名称(_I)："
 #~ msgid "Not Required"
 #~ msgstr "不需要"
 
-#~ msgid "_Secondary Password:"
+#~ msgid "_Secondary Password"
 #~ msgstr "次要密码(_S)："
 
 #~ msgid "Sh_ow passwords"
@@ -598,7 +598,7 @@ msgstr "隧道接口名称(_I)："
 #~ msgid "Connect _anonymously"
 #~ msgstr "匿名连接(_A)"
 
-#~ msgid "Connect as _user:"
+#~ msgid "Connect as _user"
 #~ msgstr "以用户连接(_U)："
 
 #~ msgid "Name:  %s"

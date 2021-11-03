@@ -145,38 +145,38 @@ msgid "Disable Dead _Peer Detection"
 msgstr "டெட் பீர் கண்டறிதல் செயலிழக்கப்பட்டது"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "_Domain:"
-msgstr "செயற்களம்:"
+msgid "_Domain"
+msgstr "செயற்களம்"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "_Encryption method:"
-msgstr "மறைகுறியாக்க முறை:"
+msgid "_Encryption method"
+msgstr "மறைகுறியாக்க முறை"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup name:"
-msgstr "குழுப் பெயர் (_r):"
+msgid "G_roup name"
+msgstr "குழுப் பெயர் (_r)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "Gro_up password:"
-msgstr "குழு கடவுச்சொல் (_u):"
+msgid "Gro_up password"
+msgstr "குழு கடவுச்சொல் (_u)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "_NAT traversal:"
-msgstr "NAT ட்ராவர்சல்:"
+msgid "_NAT traversal"
+msgstr "NAT ட்ராவர்சல்"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
 msgid "Sho_w passwords"
 msgstr "கடவுச்சொற்களைக் காட்டு"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User na_me:"
-msgstr "பயனர் பெயர்:"
+msgid "User na_me"
+msgstr "பயனர் பெயர்"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "_Gateway:"
-msgstr "கேட்வே (_G):"
+msgid "_Gateway"
+msgstr "கேட்வே (_G)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "User _password:"
-msgstr "பயனர் கடவுச்சொல் (_U):"
+msgid "User _password"
+msgstr "பயனர் கடவுச்சொல் (_U)"
 

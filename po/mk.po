@@ -142,26 +142,26 @@ msgid "Disable Dead _Peer Detection"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "_Domain:"
-msgstr "_Домен:"
+msgid "_Domain"
+msgstr "_Домен"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "Encryption Method:"
-msgstr "Метод за енкриптирање:"
+msgid "Encryption Method"
+msgstr "Метод за енкриптирање"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup Name:"
-msgstr "И_ме на група:"
+msgid "G_roup Name"
+msgstr "И_ме на група"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "NAT Traversal:"
-msgstr "NAT Traversal:"
+msgid "NAT Traversal"
+msgstr "NAT Traversal"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "User na_me:"
-msgstr "Корисничко име:"
+msgid "User na_me"
+msgstr "Корисничко име"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "_Gateway:"
-msgstr "_Премин:"
+msgid "_Gateway"
+msgstr "_Премин"
 

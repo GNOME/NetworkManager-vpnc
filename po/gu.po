@@ -162,42 +162,42 @@ msgid "Disable Dead _Peer Detection"
 msgstr "મૃત પીઅર શોધ ને નિષ્ક્રિય કરો"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "_Domain:"
-msgstr "ડોમેઇન:"
+msgid "_Domain"
+msgstr "ડોમેઇન"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Encryption method:"
-msgstr "એનક્રિપ્શન પદ્દતિ:"
+msgid "_Encryption method"
+msgstr "એનક્રિપ્શન પદ્દતિ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "જૂથ નામ (_r):"
+msgid "G_roup name"
+msgstr "જૂથ નામ (_r)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Gro_up password:"
-msgstr "જૂથ પાસવર્ડ (_u):"
+msgid "Gro_up password"
+msgstr "જૂથ પાસવર્ડ (_u)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "_IKE DH Group:"
-msgstr "IKE DH જૂથ:"
+msgid "_IKE DH Group"
+msgstr "IKE DH જૂથ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "_NAT traversal:"
-msgstr "NAT પ્રતિક્રમણ:"
+msgid "_NAT traversal"
+msgstr "NAT પ્રતિક્રમણ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Sho_w passwords"
 msgstr "પાસવર્ડોને બતાવો"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User na_me:"
-msgstr "વપરાશકર્તા નામ:"
+msgid "User na_me"
+msgstr "વપરાશકર્તા નામ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "_Gateway:"
-msgstr "ગેટવે (_G):"
+msgid "_Gateway"
+msgstr "ગેટવે (_G)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "User _password:"
-msgstr "વપરાશકર્તા પાસવર્ડ (_U):"
+msgid "User _password"
+msgstr "વપરાશકર્તા પાસવર્ડ (_U)"
 

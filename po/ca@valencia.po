@@ -152,40 +152,40 @@ msgid "Disable Dead _Peer Detection"
 msgstr "Inhabilita la detecció de l'homòleg mort"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "_Domain:"
-msgstr "Domini:"
+msgid "_Domain"
+msgstr "Domini"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "_Encryption method:"
-msgstr "Mètode d'encriptació:"
+msgid "_Encryption method"
+msgstr "Mètode d'encriptació"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup name:"
-msgstr "Nom del g_rup:"
+msgid "G_roup name"
+msgstr "Nom del g_rup"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "Gro_up password:"
-msgstr "Contrasenya del _grup:"
+msgid "Gro_up password"
+msgstr "Contrasenya del _grup"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "_NAT traversal:"
-msgstr "Travessament del NAT:"
+msgid "_NAT traversal"
+msgstr "Travessament del NAT"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
 msgid "Sho_w passwords"
 msgstr "Mostra les contrasenyes"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User na_me:"
-msgstr "Nom d'usuari:"
+msgid "User na_me"
+msgstr "Nom d'usuari"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "_Gateway:"
-msgstr "_Passarel·la:"
+msgid "_Gateway"
+msgstr "_Passarel·la"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "User _password:"
-msgstr "_Contrasenya d'usuari:"
+msgid "User _password"
+msgstr "_Contrasenya d'usuari"
 
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"
@@ -193,11 +193,11 @@ msgstr "_Contrasenya d'usuari:"
 #~ msgid "Connect _anonymously"
 #~ msgstr "Connecta _anònimament"
 
-#~ msgid "Connect as _user:"
-#~ msgstr "Connecta com a _usuari:"
+#~ msgid "Connect as _user"
+#~ msgstr "Connecta com a _usuari"
 
-#~ msgid "The following vpnc VPN connection will be created:"
-#~ msgstr "Es crearà la següent connexió VPN de vpnc:"
+#~ msgid "The following vpnc VPN connection will be created"
+#~ msgstr "Es crearà la següent connexió VPN de vpnc"
 
 #~ msgid "Name:  %s"
 #~ msgstr "Nom:  %s"
@@ -268,8 +268,8 @@ msgstr "_Contrasenya d'usuari:"
 #~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
 #~ msgstr "<i>exemple: 172.16.0.0/16 10.11.12.0/24</i>"
 
-#~ msgid "Connection na_me:"
-#~ msgstr "No_m de la connexió:"
+#~ msgid "Connection na_me"
+#~ msgstr "No_m de la connexió"
 
 #~ msgid "Enable _weak single DES encryption"
 #~ msgstr "Habilita el xifratge DES únic _fluix"
@@ -277,8 +277,8 @@ msgstr "_Contrasenya d'usuari:"
 #~ msgid "Import _Saved Configuration..."
 #~ msgstr "Importa la configuració _desada..."
 
-#~ msgid "Interval:"
-#~ msgstr "Interval:"
+#~ msgid "Interval"
+#~ msgstr "Interval"
 
 #~ msgid ""
 #~ "Name used to identify the connection to the private network, e.g. "

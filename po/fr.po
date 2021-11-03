@@ -359,16 +359,16 @@ msgstr ""
 "configuration : IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Mot de passe du _groupe :"
+msgid "Gro_up password"
+msgstr "Mot de passe du _groupe "
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Passerelle :"
+msgid "_Gateway"
+msgstr "_Passerelle "
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Nom du g_roupe :"
+msgid "G_roup name"
+msgstr "Nom du g_roupe "
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -387,8 +387,8 @@ msgstr ""
 "configuration : IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Mot de passe _utilisateur :"
+msgid "User _password"
+msgstr "Mot de passe _utilisateur "
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -407,8 +407,8 @@ msgstr ""
 "configuration : Xauth username <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "No_m d’utilisateur :"
+msgid "User na_me"
+msgstr "No_m d’utilisateur "
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -424,8 +424,8 @@ msgstr ""
 "configuration : IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "_Fichier CA :"
+msgid "CA _File"
+msgstr "_Fichier CA "
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -448,8 +448,8 @@ msgid "Identification"
 msgstr "Identification"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Domaine :"
+msgid "_Domain"
+msgstr "_Domaine "
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -468,12 +468,12 @@ msgstr ""
 "configuration : Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Distributeur :"
+msgid "_Vendor"
+msgstr "_Distributeur "
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rsion :"
+msgid "Ve_rsion"
+msgstr "Ve_rsion "
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -500,20 +500,20 @@ msgstr ""
 "configuration : DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "Port _local :"
+msgid "_Local port"
+msgstr "Port _local "
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy :"
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect _Forward Secrecy "
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "Groupe DH IKE :"
+msgid "_IKE DH Group"
+msgstr "Groupe DH IKE "
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "Traversée du NAT :"
+msgid "_NAT traversal"
+msgstr "Traversée du NAT "
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -571,9 +571,9 @@ msgstr ""
 "config : nom de l’interface <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Méthode de chiffrement :"
+msgid "_Encryption method"
+msgstr "Méthode de chiffrement "
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
+msgid "Tunnel _interface name"
 msgstr "Nom de l’_interface tunnel"

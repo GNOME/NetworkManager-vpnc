@@ -163,44 +163,44 @@ msgid "Disable Dead _Peer Detection"
 msgstr "ଅକାମୀ ସାଥି ଚିହ୍ନଟକୁ ନିଷ୍କ୍ରିୟ କରନ୍ତୁ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "_Domain:"
-msgstr "ଡମେନ:"
+msgid "_Domain"
+msgstr "ଡମେନ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Encryption method:"
-msgstr "ସଂଗୁପ୍ତ ପଦ୍ଧତି:"
+msgid "_Encryption method"
+msgstr "ସଂଗୁପ୍ତ ପଦ୍ଧତି"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "ଶ୍ରେଣୀ ନାମ (_r):"
+msgid "G_roup name"
+msgstr "ଶ୍ରେଣୀ ନାମ (_r)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Gro_up password:"
-msgstr "ଶ୍ରେଣୀ ପ୍ରବେଶ ସଂକେତ (_u):"
+msgid "Gro_up password"
+msgstr "ଶ୍ରେଣୀ ପ୍ରବେଶ ସଂକେତ (_u)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "_IKE DH Group:"
-msgstr "IKE DH ଶ୍ରେଣୀ:"
+msgid "_IKE DH Group"
+msgstr "IKE DH ଶ୍ରେଣୀ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "_NAT traversal:"
-msgstr "NAT ପରିକ୍ରମା:"
+msgid "_NAT traversal"
+msgstr "NAT ପରିକ୍ରମା"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Sho_w passwords"
 msgstr "ପ୍ରବେଶ ସଂକେତ ଦର୍ଶାନ୍ତୁ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User na_me:"
-msgstr "ଚାଳକ ନାମ:"
+msgid "User na_me"
+msgstr "ଚାଳକ ନାମ"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "_Gateway:"
-msgstr "ପ୍ରବେଶଦ୍ୱାରା (_G):"
+msgid "_Gateway"
+msgstr "ପ୍ରବେଶଦ୍ୱାରା (_G)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "User _password:"
-msgstr "ଚାଳକ ପ୍ରବେଶ ସଂକେତ (_U):"
+msgid "User _password"
+msgstr "ଚାଳକ ପ୍ରବେଶ ସଂକେତ (_U)"
 
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"

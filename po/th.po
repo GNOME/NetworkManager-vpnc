@@ -186,8 +186,8 @@ msgid "Connection Name"
 msgstr "ชื่อการเชื่อมต่อ"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "G_roup Name:"
-msgstr "ชื่อกลุ่_ม:"
+msgid "G_roup Name"
+msgstr "ชื่อกลุ่_ม"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
 msgid ""
@@ -226,8 +226,8 @@ msgid "Use _domain for authentication"
 msgstr "ใช้โ_ดเมนในการยืนยันตัวบุคคล"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_Gateway:"
-msgstr "เ_กตเวย์:"
+msgid "_Gateway"
+msgstr "เ_กตเวย์"
 
 #: ../properties/nm-vpnc-dialog.glade.h:14
 msgid "_Import Saved Configuration..."

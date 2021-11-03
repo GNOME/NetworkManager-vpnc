@@ -153,27 +153,27 @@ msgid "Disable Dead _Peer Detection"
 msgstr "停用斷線端偵測(DPD)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "_Domain:"
-msgstr "網域(_D):"
+msgid "_Domain"
+msgstr "網域(_D)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "_Encryption method:"
-msgstr "加密方法:"
+msgid "_Encryption method"
+msgstr "加密方法"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup name:"
-msgstr "羣組名稱(_R):"
+msgid "G_roup name"
+msgstr "羣組名稱(_R)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "Gro_up password:"
-msgstr "羣組密碼(_U):"
+msgid "Gro_up password"
+msgstr "羣組密碼(_U)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "_IKE DH Group:"
+msgid "_IKE DH Group"
 msgstr "IKE DH 羣組"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
-msgid "_NAT traversal:"
+msgid "_NAT traversal"
 msgstr "NAT 穿隧"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
@@ -181,28 +181,28 @@ msgid "Sho_w passwords"
 msgstr "顯示密碼"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "User na_me:"
-msgstr "使用者名稱:"
+msgid "User na_me"
+msgstr "使用者名稱"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_Gateway:"
-msgstr "通訊閘(_G):"
+msgid "_Gateway"
+msgstr "通訊閘(_G)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:14
-msgid "User _password:"
-msgstr "使用者密碼(_U):"
+msgid "User _password"
+msgstr "使用者密碼(_U)"
 
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"
 
-#~ msgid "_Username:"
-#~ msgstr "使用者名稱(_U):"
+#~ msgid "_Username"
+#~ msgstr "使用者名稱(_U)"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "匿名連線(_A)"
 
-#~ msgid "Connect as _user:"
-#~ msgstr "以使用者連線(_U):"
+#~ msgid "Connect as _user"
+#~ msgstr "以使用者連線(_U)"
 
 #~ msgid "Name:  %s"
 #~ msgstr "名稱:  %s"

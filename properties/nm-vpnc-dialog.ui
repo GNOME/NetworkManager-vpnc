@@ -22,6 +22,7 @@
         <property name="can_focus">False</property>
         <property name="xalign">0</property>
         <property name="label" translatable="yes">General</property>
+        <property name="margin_bottom">6</property>
         <attributes>
           <attribute name="weight" value="bold"/>
         </attributes>
@@ -36,8 +37,8 @@
       <object class="GtkLabel" id="label23">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="xalign">0</property>
-        <property name="label" translatable="yes">_Gateway:</property>
+        <property name="xalign">1</property>
+        <property name="label" translatable="yes">_Gateway</property>
         <property name="use_underline">True</property>
         <property name="mnemonic_widget">gateway_entry</property>
       </object>
@@ -62,8 +63,8 @@ config: IPSec gateway &lt;gateway&gt;</property>
       <object class="GtkLabel" id="label26">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="xalign">0</property>
-        <property name="label" translatable="yes">User na_me:</property>
+        <property name="xalign">1</property>
+        <property name="label" translatable="yes">User na_me</property>
         <property name="use_underline">True</property>
         <property name="mnemonic_widget">user_entry</property>
       </object>
@@ -88,8 +89,8 @@ config: Xauth username &lt;user_name&gt;</property>
       <object class="GtkLabel" id="label3">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="xalign">0</property>
-        <property name="label" translatable="yes">User _password:</property>
+        <property name="xalign">1</property>
+        <property name="label" translatable="yes">User _password</property>
         <property name="use_underline">True</property>
         <property name="mnemonic_widget">user_password_entry</property>
       </object>
@@ -115,8 +116,8 @@ config: Xauth password &lt;password&gt;</property>
       <object class="GtkLabel" id="label24">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="xalign">0</property>
-        <property name="label" translatable="yes">G_roup name:</property>
+        <property name="xalign">1</property>
+        <property name="label" translatable="yes">G_roup name</property>
         <property name="use_underline">True</property>
         <property name="mnemonic_widget">group_entry</property>
       </object>
@@ -141,8 +142,8 @@ config: IPSec ID &lt;group_name&gt;</property>
       <object class="GtkLabel" id="label4">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="xalign">0</property>
-        <property name="label" translatable="yes">Gro_up password:</property>
+        <property name="xalign">1</property>
+        <property name="label" translatable="yes">Gro_up password</property>
         <property name="use_underline">True</property>
         <property name="mnemonic_widget">group_password_entry</property>
       </object>
@@ -202,9 +203,8 @@ config: IKE Authmode hybrid</property>
       <object class="GtkLabel" id="cafile_label">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="xalign">0</property>
-        <property name="xpad">24</property>
-        <property name="label" translatable="yes">CA _File:</property>
+        <property name="xalign">1</property>
+        <property name="label" translatable="yes">CA _File</property>
         <property name="use_underline">True</property>
         <property name="mnemonic_widget">ca_file_chooser</property>
       </object>
@@ -473,6 +473,7 @@ config: CA-File</property>
                 <property name="can_focus">False</property>
                 <property name="xalign">0</property>
                 <property name="label" translatable="yes">Identification</property>
+                <property name="margin_bottom">6</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
                 </attributes>
@@ -487,8 +488,8 @@ config: CA-File</property>
               <object class="GtkLabel" id="label27">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">_Domain:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">_Domain</property>
                 <property name="use_underline">True</property>
                 <property name="mnemonic_widget">domain_entry</property>
               </object>
@@ -513,8 +514,8 @@ config: Domain &lt;domain&gt;</property>
               <object class="GtkLabel" id="label28">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">_Vendor:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">_Vendor</property>
                 <property name="use_underline">True</property>
                 <property name="mnemonic_widget">vendor_combo</property>
               </object>
@@ -546,8 +547,8 @@ config: Vendor &lt;cisco/netscreen&gt;</property>
               <object class="GtkLabel" id="label29">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">Ve_rsion:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">Ve_rsion</property>
                 <property name="use_underline">True</property>
               </object>
               <packing>
@@ -572,6 +573,8 @@ config: Application version &lt;ASCII string&gt;</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="xalign">0</property>
+                <property name="margin_top">12</property>
+                <property name="margin_bottom">6</property>
                 <property name="label" translatable="yes">Transport and Security</property>
                 <attributes>
                   <attribute name="weight" value="bold"/>
@@ -587,8 +590,8 @@ config: Application version &lt;ASCII string&gt;</property>
               <object class="GtkLabel" id="label7">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">Tunnel _interface name:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">Tunnel _interface name</property>
                 <property name="use_underline">True</property>
               </object>
               <packing>
@@ -613,8 +616,8 @@ config: Interface name &lt;name&gt;</property>
               <object class="GtkLabel" id="label31">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">_Encryption method:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">_Encryption method</property>
                 <property name="use_underline">True</property>
               </object>
               <packing>
@@ -645,8 +648,8 @@ config: nothing for Secure, “Enable Single DES” for Weak, “Enable no encry
               <object class="GtkLabel" id="label41">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">_NAT traversal:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">_NAT traversal</property>
                 <property name="use_underline">True</property>
               </object>
               <packing>
@@ -677,8 +680,8 @@ config: NAT Traversal Mode &lt;natt/none/force-natt/cisco-udp&gt;</property>
               <object class="GtkLabel" id="label5">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">_IKE DH Group:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">_IKE DH Group</property>
                 <property name="use_underline">True</property>
               </object>
               <packing>
@@ -709,8 +712,8 @@ config: IKE DH Group &lt;dh1/dh2/dh5&gt;</property>
               <object class="GtkLabel" id="label6">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">Perfect _Forward Secrecy:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">Perfect _Forward Secrecy</property>
                 <property name="use_underline">True</property>
                 <property name="mnemonic_widget">pfsecrecy_combo</property>
               </object>
@@ -742,8 +745,8 @@ config: Perfect Forward Secrecy &lt;nopfs/dh1/dh2/dh5/server&gt;</property>
               <object class="GtkLabel" id="local_port_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0</property>
-                <property name="label" translatable="yes">_Local port:</property>
+                <property name="xalign">1</property>
+                <property name="label" translatable="yes">_Local port</property>
                 <property name="use_underline">True</property>
               </object>
               <packing>

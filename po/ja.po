@@ -332,16 +332,16 @@ msgstr ""
 "config: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "グループパスワード(_U):"
+msgid "Gro_up password"
+msgstr "グループパスワード(_U)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "ゲートウェイ(_G):"
+msgid "_Gateway"
+msgstr "ゲートウェイ(_G)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "グループ名(_R):"
+msgid "G_roup name"
+msgstr "グループ名(_R)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -360,8 +360,8 @@ msgstr ""
 "config: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "ユーザーパスワード(_P):"
+msgid "User _password"
+msgstr "ユーザーパスワード(_P)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -380,8 +380,8 @@ msgstr ""
 "config: Xauth username <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "ユーザー名(_M):"
+msgid "User na_me"
+msgstr "ユーザー名(_M)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -397,8 +397,8 @@ msgstr ""
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA ファイル(_F):"
+msgid "CA _File"
+msgstr "CA ファイル(_F)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -421,8 +421,8 @@ msgid "Identification"
 msgstr "識別"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "ドメイン名(_D):"
+msgid "_Domain"
+msgstr "ドメイン名(_D)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -441,12 +441,12 @@ msgstr ""
 "config: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "ベンダー(_V):"
+msgid "_Vendor"
+msgstr "ベンダー(_V)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "バージョン(_R):"
+msgid "Ve_rsion"
+msgstr "バージョン(_R)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -473,20 +473,20 @@ msgstr ""
 "config: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "ローカルポート(_L):"
+msgid "_Local port"
+msgstr "ローカルポート(_L)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect Forward Secrecy(_F):"
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect Forward Secrecy(_F)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "IKE DH グループ(_I):"
+msgid "_IKE DH Group"
+msgstr "IKE DH グループ(_I)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "NAT traversal(_N):"
+msgid "_NAT traversal"
+msgstr "NAT traversal(_N)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -542,12 +542,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "暗号化方式(_E):"
+msgid "_Encryption method"
+msgstr "暗号化方式(_E)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "トンネルインターフェース名(_I):"
+msgid "Tunnel _interface name"
+msgstr "トンネルインターフェース名(_I)"
 
 #~ msgid "VPN Connection Manager (vpnc)"
 #~ msgstr "VPN 接続マネージャー (vpnc)"
@@ -567,8 +567,8 @@ msgstr "トンネルインターフェース名(_I):"
 #~ msgid "TCP tunneling not supported"
 #~ msgstr "TCP トンネリングはサポートされていません"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "第二パスワード(_S):"
+#~ msgid "_Secondary Password"
+#~ msgstr "第二パスワード(_S)"
 
 #~ msgid "Sh_ow passwords"
 #~ msgstr "パスワードを表示する(_O)"
@@ -588,11 +588,11 @@ msgstr "トンネルインターフェース名(_I):"
 #~ msgid "Connect _anonymously"
 #~ msgstr "匿名で接続(_A)"
 
-#~ msgid "Connect as _user:"
-#~ msgstr "ユーザで接続(_U):"
+#~ msgid "Connect as _user"
+#~ msgstr "ユーザで接続(_U)"
 
-#~ msgid "The following vpnc VPN connection will be created:"
-#~ msgstr "次の vpnc VPN 接続を作成します:"
+#~ msgid "The following vpnc VPN connection will be created"
+#~ msgstr "次の vpnc VPN 接続を作成します"
 
 #~ msgid "Name:  %s"
 #~ msgstr "名前:  %s"
@@ -651,8 +651,8 @@ msgstr "トンネルインターフェース名(_I):"
 #~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
 #~ msgstr "<i>例: 172.16.0.0/16 10.11.12.0/24</i>"
 
-#~ msgid "Connection na_me:"
-#~ msgstr "接続名(_M):"
+#~ msgid "Connection na_me"
+#~ msgstr "接続名(_M)"
 
 #~ msgid "Enable _weak single DES encryption"
 #~ msgstr "弱いシングル DES 暗号を有効にする(_W)"
@@ -660,8 +660,8 @@ msgstr "トンネルインターフェース名(_I):"
 #~ msgid "Import _Saved Configuration..."
 #~ msgstr "保存設定をインポート(_S)..."
 
-#~ msgid "Interval:"
-#~ msgstr "間隔:"
+#~ msgid "Interval"
+#~ msgstr "間隔"
 
 #~ msgid ""
 #~ "Name used to identify the connection to the private network, e.g. "

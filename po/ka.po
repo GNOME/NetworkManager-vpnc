@@ -216,8 +216,8 @@ msgid "Connection Name"
 msgstr "შეერთების სახელი"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "G_roup Name:"
-msgstr "_ჯგუფის სახელი:"
+msgid "G_roup Name"
+msgstr "_ჯგუფის სახელი"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
 msgid ""
@@ -266,8 +266,8 @@ msgid "Use _domain for authentication"
 msgstr "_დომენი აუთენტიკაციისათვის"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_Gateway:"
-msgstr "_კარიბჭე:"
+msgid "_Gateway"
+msgstr "_კარიბჭე"
 
 #: ../properties/nm-vpnc-dialog.glade.h:14
 msgid "_Import Saved Configuration..."
