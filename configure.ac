@@ -78,10 +78,10 @@ if test "$with_gnome" != no; then
 	with_gnome=yes
 fi
 if test "$with_libnm_glib_specified" == no; then
-	with_libnm_glib="$with_gnome"
+	with_libnm_glib=no
 fi
 if test "$with_libnm_glib" != no; then
-	with_libnm_glib=yes
+	with_libnm_glib=no
 fi
 AM_CONDITIONAL(WITH_GNOME, test "$with_gnome" != no)
 AM_CONDITIONAL(WITH_LIBNM_GLIB, test "$with_libnm_glib" != no)
