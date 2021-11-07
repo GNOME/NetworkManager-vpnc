@@ -5,23 +5,23 @@
 # Wei Mingzhi <whistler@openoffice.org>, 2009.
 # Aron Xu <aronxu@gnome.org>, 2010.
 # Lele Long <schemacs@gmail.com>, 2011.
-# Dingzhong Chen <wsxy162@gmail.com>, 2016, 2018.
+# Dingzhong Chen <wsxy162@gmail.com>, 2016-2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2020-05-26 23:30+0000\n"
-"PO-Revision-Date: 2020-08-31 10:18-0400\n"
+"POT-Creation-Date: 2020-08-31 14:19+0000\n"
+"PO-Revision-Date: 2021-11-07 14:54+0800\n"
 "Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
-"Language-Team: Chinese (China) <i18n-zh@googlegroups.com>\n"
+"Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.4.1\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 40.0\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -307,7 +307,7 @@ msgstr "无法加载编辑器插件：%s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
-msgstr "无法加载来自插件的工厂（factory）%s：%s"
+msgstr "无法加载工厂（factory）%s，来自插件：%s"
 
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
