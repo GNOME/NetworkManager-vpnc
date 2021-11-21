@@ -3,65 +3,72 @@
 # This file is distributed under the same license as the NetworkManager-vpnc package.
 #
 # Matic Žgur <mr.zgur@gmail.com>, 2007.
-# Matej Urbančič <mateju@svn.gnome.org>, 2009 - 2014.
+# Matej Urbančič <mateju@src.gnome.org>, 2009–2021.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?"
-"product=NetworkManager&keywords=I18N+L10N&component=VPN: vpnc\n"
-"POT-Creation-Date: 2014-08-06 10:08+0000\n"
-"PO-Revision-Date: 2014-08-06 14:35+0100\n"
-"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
+"issues\n"
+"POT-Creation-Date: 2021-11-07 13:15+0000\n"
+"PO-Revision-Date: 2021-11-21 21:16+0100\n"
+"Last-Translator: Matej Urbančič <mateju@src.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
-"Language: sl\n"
+"Language: sl_SI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 3.0\n"
 
-#: ../auth-dialog/main.c:175
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "Overi VPN %s"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Odjemalec Cisco VPNC"
 
-#: ../auth-dialog/main.c:191
-msgid "Password:"
-msgstr "Geslo:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Odjemalec za virtualna zasebna omrežja Cisco IPsec"
 
-#: ../auth-dialog/main.c:199
-msgid "Group Password:"
-msgstr "Skupinsko geslo:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "Podpora za nastavljanje navideznih zasebnih omrežij z VPNC."
 
-#: ../auth-dialog/main.c:234
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr "Skladni združevalniki, nastavljeni za uporabo IPsec z Cisco VPN."
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "Razvijalci programa NetworkManager"
+
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
 msgstr "Overi VPN"
 
-#: ../auth-dialog/main.c:243
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Geslo"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Skupinsko geslo"
+
+#: ../auth-dialog/main.c:232
 msgid "_Group Password:"
 msgstr "_Skupinsko geslo:"
 
-#: ../auth-dialog/main.c:501
+#: ../auth-dialog/main.c:489
 #, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr "Dostop do navideznega zasebnega omrežja '%s' zahteva overitev."
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr "Dostop do navideznega zasebnega omrežja »%s« zahteva overitev."
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "VPN Connection Manager (vpnc)"
-msgstr "Upravljalnik povezav VPN (vpnc)"
-
-#: ../nm-vpnc.desktop.in.h:2
-msgid "Add, Remove, and Edit VPN Connections"
-msgstr "Dodajanje, odstranjevanje in urejanje povezav VPN"
-
-#: ../properties/nm-vpnc.c:53
+#: ../properties/nm-vpnc-editor-plugin.c:44
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco VPN združljivi odjemalec (vpnc)"
 
-#: ../properties/nm-vpnc.c:54
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -69,236 +76,258 @@ msgstr ""
 "Združljivo z različnimi prehodi; Cisco, Juniper, Netscreen in Sonicwall "
 "IPSec VPN."
 
-#: ../properties/nm-vpnc.c:338
-msgid "Saved"
-msgstr "Shranjeno"
-
-#: ../properties/nm-vpnc.c:345
-msgid "Always Ask"
-msgstr "Vedno vprašaj"
-
-#: ../properties/nm-vpnc.c:352
-msgid "Not Required"
-msgstr "Ni zahtevano"
-
-#: ../properties/nm-vpnc.c:501
-msgid "Secure (default)"
-msgstr "Varno (privzeto)"
-
-#: ../properties/nm-vpnc.c:504
-msgid "Weak (use with caution)"
-msgstr "Šibko (ni priporočeno)"
-
-#: ../properties/nm-vpnc.c:512
-msgid "None (completely insecure)"
-msgstr "Brez (nezavarovan način)"
-
-#: ../properties/nm-vpnc.c:578
-msgid "Cisco (default)"
-msgstr "Cisco (privzeto)"
-
-#: ../properties/nm-vpnc.c:585
-msgid "Netscreen"
-msgstr "Netscreen"
-
-#: ../properties/nm-vpnc.c:616
-msgid "NAT-T when available (default)"
-msgstr "Uporabi NAT-T, kadar je na voljo (privzeto)"
-
-#: ../properties/nm-vpnc.c:623
-msgid "NAT-T always"
-msgstr "Vedno uporabi NAT-T"
-
-#: ../properties/nm-vpnc.c:630
-msgid "Cisco UDP"
-msgstr "Cisco UDP"
-
-#: ../properties/nm-vpnc.c:637
-msgid "Disabled"
-msgstr "Onemogočeno"
-
-#: ../properties/nm-vpnc.c:657 ../properties/nm-vpnc.c:743
-msgid "DH Group 1"
-msgstr "DH skupina 1"
-
-#: ../properties/nm-vpnc.c:664
-msgid "DH Group 2 (default)"
-msgstr "DH skupina 2 (privzeto)"
-
-#: ../properties/nm-vpnc.c:671 ../properties/nm-vpnc.c:757
-msgid "DH Group 5"
-msgstr "DH skupina 5"
-
-#: ../properties/nm-vpnc.c:729
-msgid "Server (default)"
-msgstr "Strežnik (privzeto)"
-
-#: ../properties/nm-vpnc.c:736
-msgid "None"
-msgstr "Brez"
-
-#: ../properties/nm-vpnc.c:750
-msgid "DH Group 2"
-msgstr "DH skupina 2"
-
-#: ../properties/nm-vpnc.c:797
-msgid "Choose a Certificate Authority (CA) certificate..."
-msgstr "Izbor overitelja (CA) potrdila ..."
-
-#: ../properties/nm-vpnc.c:801
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "Potrdila PEM (*.pem, *.crt, *.cer)"
-
-#: ../properties/nm-vpnc.c:1542
-msgid "TCP tunneling not supported"
-msgstr "TCP tuneliranje ni podprto"
-
-#: ../properties/nm-vpnc.c:1544
+#: ../properties/nm-vpnc-editor-plugin.c:508
 #, c-format
 msgid ""
-"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
 "\n"
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"Datoteka z nastavitvami za VPN '%s' določa, da mora biti promet VPN "
-"tuneliran preko TCP, kar pa trenutno ni podprto v programski opremi vpnc.\n"
+"Datoteka z nastavitvami za VPN »%s« določa, da mora biti promet VPN "
+"tuneliran s TCP, kar pa trenutno v vpnc ni podprto.\n"
 "\n"
-"Povezava je lahko še vedno ustvarjena, z onemogočenim TCP tuneliranjem, "
+"Povezavo je še vedno mogoče ustvariti z onemogočenim TCP tuneliranjem, "
 "vendar lahko ne deluje po pričakovanjih."
 
+#: ../properties/nm-vpnc-editor.c:374
+msgid "Secure (default)"
+msgstr "Varno (privzeto)"
+
+#: ../properties/nm-vpnc-editor.c:377
+msgid "Weak (use with caution)"
+msgstr "Šibko (ni priporočeno)"
+
+#: ../properties/nm-vpnc-editor.c:385
+msgid "None (completely insecure)"
+msgstr "Brez (nezavarovan način)"
+
+#: ../properties/nm-vpnc-editor.c:449
+msgid "Cisco (default)"
+msgstr "Cisco (privzeto)"
+
+#: ../properties/nm-vpnc-editor.c:456
+msgid "Netscreen"
+msgstr "Netscreen"
+
+#: ../properties/nm-vpnc-editor.c:497
+msgid "NAT-T when available (default)"
+msgstr "Uporabi NAT-T, kadar je na voljo (privzeto)"
+
+#: ../properties/nm-vpnc-editor.c:504
+msgid "NAT-T always"
+msgstr "Vedno uporabi NAT-T"
+
+#: ../properties/nm-vpnc-editor.c:511
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc-editor.c:518
+msgid "Disabled"
+msgstr "Onemogočeno"
+
+#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+msgid "DH Group 1"
+msgstr "DH skupina 1"
+
+#: ../properties/nm-vpnc-editor.c:545
+msgid "DH Group 2 (default)"
+msgstr "DH skupina 2 (privzeto)"
+
+#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+msgid "DH Group 5"
+msgstr "DH skupina 5"
+
+#: ../properties/nm-vpnc-editor.c:610
+msgid "Server (default)"
+msgstr "Strežnik (privzeto)"
+
+#: ../properties/nm-vpnc-editor.c:617
+msgid "None"
+msgstr "Brez"
+
+#: ../properties/nm-vpnc-editor.c:631
+msgid "DH Group 2"
+msgstr "DH skupina 2"
+
+#: ../properties/nm-vpnc-editor.c:678
+msgid "Choose a Certificate Authority (CA) certificate…"
+msgstr "Izbor overitelja (CA) potrdila …"
+
+#: ../properties/nm-vpnc-editor.c:682
+msgid "PEM certificates (*.pem, *.crt, *.cer)"
+msgstr "Potrdila PEM (*.pem, *.crt, *.cer)"
+
+#: ../src/nm-vpnc-service.c:201
+#, c-format
+msgid "property “%s” invalid or not supported"
+msgstr "lastnost »%s« ni veljavna, ali pa ni podprta"
+
+#: ../src/nm-vpnc-service.c:216
+#, c-format
+msgid "property “%s” contains a newline character"
+msgstr "lastnost »%s« vsebuje znak za novo vrstico"
+
+#: ../src/nm-vpnc-service.c:228
+#, c-format
+msgid "property “%s” file path “%s” is not absolute or does not exist"
+msgstr "lastnost »%s« poti datoteke »%s« ni absolutna, ali pa mesto ne obstaja"
+
+#: ../src/nm-vpnc-service.c:241
+#, c-format
+msgid "invalid integer property “%s” or out of range [%d -> %d]"
+msgstr ""
+"neveljavna lastnost celega števila »%s«, ali pa je vrednost izven območja "
+"[%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:251
+#, c-format
+msgid "invalid boolean property “%s” (not yes or no)"
+msgstr "neveljavna logična lastnost »%s« (ni vrednost da oziroma ne)"
+
+#: ../src/nm-vpnc-service.c:258
+#, c-format
+msgid "unhandled property “%s” type %d"
+msgstr "neupravljana lastnost »%s« vrste %d"
+
+#: ../src/nm-vpnc-service.c:275
+msgid "No VPN configuration options."
+msgstr "Ni možnosti nastavitev VPN."
+
+#: ../src/nm-vpnc-service.c:301
+msgid "No VPN secrets!"
+msgstr "Ni skrivnih podatkov VPN!"
+
+#: ../src/nm-vpnc-service.c:646
+msgid "Could not find vpnc binary."
+msgstr "Programa vpnc ni mogoče najti."
+
+#: ../src/nm-vpnc-service.c:764
+#, c-format
+msgid "Config option “%s” invalid or unknown."
+msgstr "Možnost nastavitve »%s« ni veljavna, ali pa ni znana."
+
+#: ../src/nm-vpnc-service.c:799
+#, c-format
+msgid "Config option “%s” not an integer."
+msgstr "Možnost nastavitve »%s« ni celoštevilska vrednost."
+
+#: ../src/nm-vpnc-service.c:987
+msgid "vpnc does not support interactive requests"
+msgstr "program vpnc ne podpira interaktivnih zahtev"
+
+#: ../src/nm-vpnc-service.c:1011
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr "Ni mogoče uporabiti gesel, ker je interaktivni način onemogočen."
+
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr "Zahteve ni mogoče izvesti, ker so nastavitve povezave VPN neveljavne."
+
+#: ../src/nm-vpnc-service.c:1028
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr "Zahteve ni mogoče izvesti, ker ni zahtevana overitev."
+
+#: ../src/nm-vpnc-service.c:1039
+#, c-format
+msgid ""
+"Could not process the request because the requested info “%s” was not "
+"provided."
+msgstr ""
+"Zahteve ni mogoče izvesti, ker zahtevane podrobnosti »%s« niso ponujene."
+
+#: ../src/nm-vpnc-service.c:1237
+msgid "Don’t quit when VPN connection terminates"
+msgstr "Naj se opravilo ne konča, ko se povezava VPN zaustavi"
+
+#: ../src/nm-vpnc-service.c:1238
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Omogoči podrobno beleženje razhroščevanja (lahko razkrije gesla)"
+
+#: ../src/nm-vpnc-service.c:1239
+msgid "D-Bus name to use for this instance"
+msgstr "Ime D-Bus za uporabo v programu"
+
+#: ../src/nm-vpnc-service.c:1262
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"Storitev nm-vpnc-service omogoča podporo Cisco Legacy IPSec VPN za program "
+"NetworkManager."
+
+#: ../shared/nm-utils/nm-shared-utils.c:264
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr "razred predmeta »%s« nima določenega imena lastnosti »%s«"
+
+#: ../shared/nm-utils/nm-shared-utils.c:271
+#, c-format
+msgid "property '%s' of object class '%s' is not writable"
+msgstr "lastnost »%s« poti datoteke »%s« ni zapisljiva"
+
+#: ../shared/nm-utils/nm-shared-utils.c:278
+#, c-format
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
+msgstr "lastnosti »%s« za predmet »%s« ni mogoče nastaviti po sestavljanju"
+
+#: ../shared/nm-utils/nm-shared-utils.c:286
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr "»%s::%s« ni veljavno ime lastnosti; »%s« ni podvrsta predmeta GObject"
+
+#: ../shared/nm-utils/nm-shared-utils.c:295
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr "ni mogoče nastaviti lastnosti »%s« vrste »%s« za vrednost vrste »%s«"
+
+#: ../shared/nm-utils/nm-shared-utils.c:306
+#, c-format
+msgid ""
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
+msgstr ""
+"vrednost »%s« vrste »%s« ni veljavna ali pa je lastnost »%s« izven obsega za "
+"vrsto »%s«"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "ni mogoče pridobiti imena vstavka urejevalnika: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr "manjka datoteka vstavka »%s«"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr "ni mogoče naložiti vstavka urejevalnika: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr "ni mogoče naložiti vstavka »%s« vmesnika: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
+msgid "unknown error creating editor instance"
+msgstr "neznana napaka pri ustvarjanju okna urejevalnika"
+
 #: ../properties/nm-vpnc-dialog.ui.h:1
-msgid "Advanced Options"
-msgstr "Napredne možnosti"
-
-#: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Identification"
-msgstr "Določitev istovetnosti"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "_Domain:"
-msgstr "_Domena:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:4
-msgid ""
-"(NT-)Domain name for authentication\n"
-"config: Domain <domain>"
-msgstr ""
-"(NT-) ime domene za overitev\n"
-"nastavitev: Domain <DOMENA>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "_Ponudnik:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:7
-msgid ""
-"Vendor of your IPsec gateway\n"
-"config: Vendor <cisco/netscreen>"
-msgstr ""
-"Ponudnik prehoda IPsec\n"
-"nastavitev: Vendor <cisco/netscreen>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Ve_rsion:"
-msgstr "_Različica:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:10
-msgid ""
-"Application version to report. \n"
-"config: Application version <ASCII string>"
-msgstr ""
-"Različica programa za poročila.\n"
-"nastavitev: Application version <niz ASCII>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "Transport and Security"
-msgstr "Prenos in varnost"
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid ""
-"Encryption method\n"
-"config: nothing for Secure, 'Enable Single DES' for Weak, 'Enable no "
-"encryption' for None"
-msgstr ""
-"Način šifriranja\n"
-"nastavitev: brez za varno, 'Omogoči DES' za šibko, 'Brez šifriranja' za brez"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "_Encryption method:"
-msgstr "_Način šifriranja:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "Prečkanje _NAT:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Način NAT za uporabo\n"
-"nastavitev: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "Skupina _IKE DH:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:20
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Ime skupine IKE DH group\n"
-"nastavitev: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
-msgstr "Popolna _tajnost dostave (PFS):"
-
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Skupina Diffie-Hellman za uporabo za PFS\n"
-"nastavitev: Perfect Forward Secrecy (PFS) <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr "_Krajevna vrata:"
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc's default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Krajevna vrata ISAKMP za uporabo (vrednost 0 pomeni naključna vrata; "
-"privzeto so določena vrata vpnc 500)\n"
-"nastavitev: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid "Disable Dead _Peer Detection"
-msgstr "Onemogoči zaznavo _nedejavnih odjemalcev"
-
-#: ../properties/nm-vpnc-dialog.ui.h:29
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"Onemogoči pošiljanje paketov DPD (določi časovni pretek na 0)\n"
-"nastavitev: DPD idle timeout (our side) 0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid "General"
 msgstr "Splošno"
 
-#: ../properties/nm-vpnc-dialog.ui.h:32
+#: ../properties/nm-vpnc-dialog.ui.h:2
 msgid "Sho_w passwords"
 msgstr "Pokaži _gesla"
 
-#: ../properties/nm-vpnc-dialog.ui.h:33
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid ""
 "Group password\n"
 "config: IPSec secret <group_password>"
@@ -306,27 +335,27 @@ msgstr ""
 "Geslo skupine\n"
 "nastavitev: IPSec secret <geslo_skupine>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:35
+#: ../properties/nm-vpnc-dialog.ui.h:5
 msgid "Gro_up password:"
 msgstr "_Skupinsko geslo:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:36
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway:"
 msgstr "_Prehod:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:37
+#: ../properties/nm-vpnc-dialog.ui.h:7
 msgid "G_roup name:"
 msgstr "I_me skupine:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:38
+#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
 msgstr ""
-"Naslov IP/ime gostitelja prehoda IPsec\n"
+"Naslov IP/Ime gostitelja prehoda IPsec\n"
 "nastavitev: IPSec gateway <prehod>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:40
+#: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
 "Group name\n"
 "config: IPSec ID <group_name>"
@@ -334,11 +363,11 @@ msgstr ""
 "Ime skupine\n"
 "nastavitev: IPSec ID <ime_skupine>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:42
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid "User _password:"
 msgstr "Uporabniško _geslo:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:43
+#: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
 "User password for the connection\n"
 "config: Xauth password <password>"
@@ -346,7 +375,7 @@ msgstr ""
 "Uporabi geslo za povezavo\n"
 "nastavitev: Xauth password <geslo>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:45
+#: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
@@ -354,27 +383,27 @@ msgstr ""
 "Uporabniško ime povezave\n"
 "nastavitev: Xauth username <uporabniško_ime>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:47
+#: ../properties/nm-vpnc-dialog.ui.h:17
 msgid "User na_me:"
 msgstr "Uporabniško i_me:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:48
+#: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
 msgstr "Uporabi _hibridno overitev"
 
-#: ../properties/nm-vpnc-dialog.ui.h:49
+#: ../properties/nm-vpnc-dialog.ui.h:19
 msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password.\n"
 "config: IKE Authmode hybrid"
 msgstr ""
-"Omogoči  hibridno overitev, t.j. uporaba potrdila skupaj z geslom.\n"
+"Omogoči hibridno overitev, t.j. uporaba potrdila skupaj z geslom.\n"
 "nastavitev: IKE Authmode hybrid"
 
-#: ../properties/nm-vpnc-dialog.ui.h:51
+#: ../properties/nm-vpnc-dialog.ui.h:21
 msgid "CA _File:"
 msgstr "Datoteka _overitelja potrdil:"
 
-#: ../properties/nm-vpnc-dialog.ui.h:52
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
 "CA certificate in PEM format\n"
 "config: CA-File"
@@ -382,79 +411,176 @@ msgstr ""
 "Potrdilo CA v zapisu PEM\n"
 "nastavitev: CA-File"
 
-#: ../properties/nm-vpnc-dialog.ui.h:54
-msgid "Advance_d..."
-msgstr "_Napredno ..."
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "Advance_d…"
+msgstr "_Napredno …"
 
-#: ../src/nm-vpnc-service.c:155
-#, c-format
-msgid "property '%s' invalid or not supported"
-msgstr "lastnost  '%s' ni veljavna ali pa ni podprta"
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "Advanced Options"
+msgstr "Napredne možnosti"
 
-#: ../src/nm-vpnc-service.c:174
-#, c-format
-msgid "property '%s' file path '%s' is not absolute or does not exist"
-msgstr "lastnost '%s' poti datoteke '%s' ni absolutna ali pa mesto ne obstaja"
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "Identification"
+msgstr "Določitev istovetnosti"
 
-#: ../src/nm-vpnc-service.c:187
-#, c-format
-msgid "invalid integer property '%s' or out of range [%d -> %d]"
-msgstr ""
-"neveljavna lastnost celega števila '%s', ki je izven območja [%d -> %d]"
+#: ../properties/nm-vpnc-dialog.ui.h:27
+msgid "_Domain:"
+msgstr "_Domena:"
 
-#: ../src/nm-vpnc-service.c:197
-#, c-format
-msgid "invalid boolean property '%s' (not yes or no)"
-msgstr "neveljavna logična lastnost '%s' (ni vrednost da oziroma ne)"
-
-#: ../src/nm-vpnc-service.c:204
-#, c-format
-msgid "unhandled property '%s' type %d"
-msgstr "neupravljana lastnost  '%s' vrste %d"
-
-#: ../src/nm-vpnc-service.c:221
-msgid "No VPN configuration options."
-msgstr "Ni možnosti nastavitev VPN."
-
-#: ../src/nm-vpnc-service.c:239
-msgid "No VPN secrets!"
-msgstr "Ni skrivnih podatkov VPN!"
-
-#: ../src/nm-vpnc-service.c:323
-msgid "Could not find vpnc binary."
-msgstr "Programa vpnc ni mogoče najti."
-
-#: ../src/nm-vpnc-service.c:417
-#, c-format
-msgid "Config option '%s' invalid or unknown."
-msgstr "Možnost nastavitve '%s' ni veljavna ali pa ni znana."
-
-#: ../src/nm-vpnc-service.c:450
-#, c-format
-msgid "Config option '%s' not an integer."
-msgstr "Možnost nastavitve '%s' ni celoštevilska vrednost"
-
-#: ../src/nm-vpnc-service.c:630
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
-"Could not process the request because the VPN connection settings were "
-"invalid."
-msgstr "Zahteve ni mogoče izvesti, ker so nastavitve povezave VPN neveljavne."
-
-#: ../src/nm-vpnc-service.c:745
-msgid "Don't quit when VPN connection terminates"
-msgstr "Ne končaj, ko se povezava VPN zaustavi"
-
-#: ../src/nm-vpnc-service.c:746
-msgid "Enable verbose debug logging (may expose passwords)"
-msgstr "Omogoči podrobno beleženje razhroščevanja (lahko razkrije gesla)"
-
-#: ../src/nm-vpnc-service.c:769
-msgid ""
-"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
-"NetworkManager."
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
 msgstr ""
-"Storitev nm-vpnc-service omogoča podporo Cisco Legacy IPSec VPN za program "
-"NetworkManager."
+"(NT-) ime domene za overitev\n"
+"nastavitev: Domain <DOMENA>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:30
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
+msgstr ""
+"Ponudnik prehoda IPsec\n"
+"nastavitev: Vendor <cisco/netscreen>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:32
+msgid "_Vendor:"
+msgstr "_Ponudnik:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
+msgid "Ve_rsion:"
+msgstr "_Različica:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:34
+msgid ""
+"Application version to report. \n"
+"config: Application version <ASCII string>"
+msgstr ""
+"Različica programa za poročila.\n"
+"nastavitev: Application version <niz ASCII>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:36
+msgid "Transport and Security"
+msgstr "Prenos in varnost"
+
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Disable Dead _Peer Detection"
+msgstr "Onemogoči zaznavo _nedejavnih odjemalcev"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Onemogoči pošiljanje paketov DPD (določi časovni pretek na 0)\n"
+"nastavitev: DPD idle timeout (our side) 0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Local port:"
+msgstr "_Krajevna vrata:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid "Perfect _Forward Secrecy:"
+msgstr "Popolna _tajnost dostave (PFS):"
+
+#: ../properties/nm-vpnc-dialog.ui.h:42
+msgid "_IKE DH Group:"
+msgstr "Skupina _IKE DH:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal:"
+msgstr "Prečkanje _NAT:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Krajevna vrata ISAKMP za uporabo (vrednost 0 pomeni naključna vrata; "
+"privzeto so določena vrata 500)\n"
+"nastavitev: Krajevna vrata <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Skupina Diffie-Hellman za uporabo za PFS\n"
+"nastavitev: Perfect Forward Secrecy (PFS) <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Ime skupine IKE DH group\n"
+"nastavitev: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:51
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"Način NAT za uporabo\n"
+"nastavitev: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+"encryption” for None"
+msgstr ""
+"Način šifriranja\n"
+"nastavitev: prazno polje za varno, »Omogoči DES« za šibko, 'Brez šifriranja' "
+"možnost onemogoči"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+"Ime vmesnika tunela za uporabo\n"
+"nastavitev: ime vmesnika <name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
+msgid "_Encryption method:"
+msgstr "_Način šifriranja:"
+
+#: ../properties/nm-vpnc-dialog.ui.h:58
+msgid "Tunnel _interface name:"
+msgstr "Ime vmesnika _tunela:"
+
+#, c-format
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "Overi VPN %s"
+
+#~ msgid "Network"
+#~ msgstr "Omrežje"
+
+#~ msgid "Request VPN authentication"
+#~ msgstr "Zahtevaj overitev VPN"
+
+#~ msgid "VPN Connection Manager (vpnc)"
+#~ msgstr "Upravljalnik povezav VPN (vpnc)"
+
+#~ msgid "Add, Remove, and Edit VPN Connections"
+#~ msgstr "Dodajanje, odstranjevanje in urejanje povezav VPN"
+
+#~ msgid "Saved"
+#~ msgstr "Shranjeno"
+
+#~ msgid "Always Ask"
+#~ msgstr "Vedno vprašaj"
+
+#~ msgid "Not Required"
+#~ msgstr "Ni zahtevano"
+
+#~ msgid "TCP tunneling not supported"
+#~ msgstr "TCP tuneliranje ni podprto"
 
 #~ msgid "_Secondary Password:"
 #~ msgstr "_Drugotno geslo:"
