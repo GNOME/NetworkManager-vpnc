@@ -349,16 +349,16 @@ msgstr ""
 "Файл налаштувань: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Пароль гр_упи:"
+msgid "Gro_up password"
+msgstr "Пароль гр_упи"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Шлюз:"
+msgid "_Gateway"
+msgstr "_Шлюз"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Назва г_рупи:"
+msgid "G_roup name"
+msgstr "Назва г_рупи"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -377,8 +377,8 @@ msgstr ""
 "Файл налаштувань: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "_Пароль користувача:"
+msgid "User _password"
+msgstr "_Пароль користувача"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -397,8 +397,8 @@ msgstr ""
 "Файл налаштувань: Xauth username <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "_Користувач:"
+msgid "User na_me"
+msgstr "_Користувач"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -414,8 +414,8 @@ msgstr ""
 "Файл налаштувань: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "_Файл CA:"
+msgid "CA _File"
+msgstr "_Файл CA"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -438,8 +438,8 @@ msgid "Identification"
 msgstr "Ідентифікація"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Домен:"
+msgid "_Domain"
+msgstr "_Домен"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -458,12 +458,12 @@ msgstr ""
 "Файл налаштувань: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Постачальник:"
+msgid "_Vendor"
+msgstr "_Постачальник"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "В_ерсія:"
+msgid "Ve_rsion"
+msgstr "В_ерсія"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -490,20 +490,20 @@ msgstr ""
 "Файл налаштувань: DPD idle timeout (наш бік) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Локальний порт:"
+msgid "_Local port"
+msgstr "_Локальний порт"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Відмінна упереджувальна секретність (PFS):"
+msgid "Perfect _Forward Secrecy"
+msgstr "Відмінна упереджувальна секретність (PFS)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_Група IKE DH:"
+msgid "_IKE DH Group"
+msgstr "_Група IKE DH"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "Об_хід NAT:"
+msgid "_NAT traversal"
+msgstr "Об_хід NAT"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -561,19 +561,19 @@ msgstr ""
 "Файл налаштувань: Interface name <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Метод _шифрування:"
+msgid "_Encryption method"
+msgstr "Метод _шифрування"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Назва _інтерфейсу тунелювання:"
+msgid "Tunnel _interface name"
+msgstr "Назва _інтерфейсу тунелювання"
 
 #~| msgid "Authenticate VPN"
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "Розпізнавання у %s VPN"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Вторинний пароль:"
+#~ msgid "_Secondary Password"
+#~ msgstr "_Вторинний пароль"
 
 #~ msgid "Sh_ow passwords"
 #~ msgstr "П_оказати паролі"

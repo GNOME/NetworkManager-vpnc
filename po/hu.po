@@ -347,16 +347,16 @@ msgstr ""
 "config: IPSec secret <csoportjelszó>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "_Csoportjelszó:"
+msgid "Gro_up password"
+msgstr "_Csoportjelszó"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "Á_tjáró:"
+msgid "_Gateway"
+msgstr "Á_tjáró"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Cso_portnév:"
+msgid "G_roup name"
+msgstr "Cso_portnév"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -375,8 +375,8 @@ msgstr ""
 "config: IPSec ID <csoportnév>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "_Felhasználó jelszava:"
+msgid "User _password"
+msgstr "_Felhasználó jelszava"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -395,8 +395,8 @@ msgstr ""
 "config: Xauth username <felhasználónév>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "_Felhasználónév:"
+msgid "User na_me"
+msgstr "_Felhasználónév"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -412,8 +412,8 @@ msgstr ""
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA _fájl:"
+msgid "CA _File"
+msgstr "CA _fájl"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -436,8 +436,8 @@ msgid "Identification"
 msgstr "Azonosítás"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Tartomány:"
+msgid "_Domain"
+msgstr "_Tartomány"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -456,12 +456,12 @@ msgstr ""
 "config: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "S_zállító:"
+msgid "_Vendor"
+msgstr "S_zállító"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "_Verzió:"
+msgid "Ve_rsion"
+msgstr "_Verzió"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -488,21 +488,21 @@ msgstr ""
 "config: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Helyi port:"
+msgid "_Local port"
+msgstr "_Helyi port"
 
 # MS szótár szerint...
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "_Sérülés utáni titkosságvédelem (PFS):"
+msgid "Perfect _Forward Secrecy"
+msgstr "_Sérülés utáni titkosságvédelem (PFS)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_IKE DH csoport:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH csoport"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT bejárás:"
+msgid "_NAT traversal"
+msgstr "_NAT bejárás"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -559,9 +559,9 @@ msgstr ""
 "config: Interface name <név>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "_Titkosítási mód:"
+msgid "_Encryption method"
+msgstr "_Titkosítási mód"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "_Alagútcsatoló neve:"
+msgid "Tunnel _interface name"
+msgstr "_Alagútcsatoló neve"

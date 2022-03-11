@@ -178,8 +178,8 @@ msgid "Identification"
 msgstr "Identifisering"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "_Domain:"
-msgstr "Domene:"
+msgid "_Domain"
+msgstr "Domene"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid ""
@@ -188,8 +188,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "Le_verandør:"
+msgid "_Vendor"
+msgstr "Le_verandør"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid ""
@@ -198,8 +198,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Ve_rsion:"
-msgstr "Ve_rsjon:"
+msgid "Ve_rsion"
+msgstr "Ve_rsjon"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
@@ -219,12 +219,12 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "_Encryption method:"
-msgstr "Krypteringsmetode:"
+msgid "_Encryption method"
+msgstr "Krypteringsmetode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "NAT-traversering:"
+msgid "_NAT traversal"
+msgstr "NAT-traversering"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid ""
@@ -233,8 +233,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "IKE DH-gruppe:"
+msgid "_IKE DH Group"
+msgstr "IKE DH-gruppe"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
 msgid ""
@@ -243,7 +243,7 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:23
@@ -253,8 +253,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr "_Lokal port:"
+msgid "_Local port"
+msgstr "_Lokal port"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid ""
@@ -287,16 +287,16 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:35
-msgid "Gro_up password:"
-msgstr "Gr_uppepassord:"
+msgid "Gro_up password"
+msgstr "Gr_uppepassord"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "_Gateway:"
-msgstr "_Gateway:"
+msgid "_Gateway"
+msgstr "_Gateway"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "G_roup name:"
-msgstr "G_ruppenavn:"
+msgid "G_roup name"
+msgstr "G_ruppenavn"
 
 #: ../properties/nm-vpnc-dialog.ui.h:38
 msgid ""
@@ -311,8 +311,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "User _password:"
-msgstr "Passord for br_uker:"
+msgid "User _password"
+msgstr "Passord for br_uker"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
 msgid ""
@@ -327,8 +327,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:47
-msgid "User na_me:"
-msgstr "Brukernavn:"
+msgid "User na_me"
+msgstr "Brukernavn"
 
 #: ../properties/nm-vpnc-dialog.ui.h:48
 msgid "Use _hybrid authentication"
@@ -341,8 +341,8 @@ msgid ""
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:51
-msgid "CA _File:"
-msgstr "CA-fil:"
+msgid "CA _File"
+msgstr "CA-fil"
 
 #: ../properties/nm-vpnc-dialog.ui.h:52
 msgid ""

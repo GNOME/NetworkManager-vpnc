@@ -156,41 +156,41 @@ msgid "Disable Dead _Peer Detection"
 msgstr "사라진 상대방 검사 사용하지 않기"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "_Domain:"
-msgstr "도메인:"
+msgid "_Domain"
+msgstr "도메인"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Encryption method:"
-msgstr "암호화 방식:"
+msgid "_Encryption method"
+msgstr "암호화 방식"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "그룹 이름(_R):"
+msgid "G_roup name"
+msgstr "그룹 이름(_R)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Gro_up password:"
-msgstr "그룹 암호(_U):"
+msgid "Gro_up password"
+msgstr "그룹 암호(_U)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "_IKE DH Group:"
-msgstr "IKE DH 그룹:"
+msgid "_IKE DH Group"
+msgstr "IKE DH 그룹"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "_NAT traversal:"
-msgstr "NAT 탐색:"
+msgid "_NAT traversal"
+msgstr "NAT 탐색"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Sho_w passwords"
 msgstr "암호 표시"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User na_me:"
-msgstr "사용자 이름:"
+msgid "User na_me"
+msgstr "사용자 이름"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "_Gateway:"
-msgstr "게이트웨이(_G):"
+msgid "_Gateway"
+msgstr "게이트웨이(_G)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "User _password:"
-msgstr "사용자 암호(_U):"
+msgid "User _password"
+msgstr "사용자 암호(_U)"

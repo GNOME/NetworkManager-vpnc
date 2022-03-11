@@ -144,23 +144,23 @@ msgid "Advance_d..."
 msgstr "Altnivele..."
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "CA _File:"
-msgstr "CA-dosiero:"
+msgid "CA _File"
+msgstr "CA-dosiero"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid "Disable Dead _Peer Detection"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "_Domain:"
-msgstr "Domajno:"
+msgid "_Domain"
+msgstr "Domajno"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Encryption method:"
+msgid "_Encryption method"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
+msgid "G_roup name"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
@@ -168,11 +168,11 @@ msgid "General"
 msgstr "Ĝenerale"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Gro_up password:"
-msgstr "Gr_uppasvorto:"
+msgid "Gro_up password"
+msgstr "Gr_uppasvorto"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "_IKE DH Group:"
+msgid "_IKE DH Group"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
@@ -180,7 +180,7 @@ msgid "Identification"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "_NAT traversal:"
+msgid "_NAT traversal"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
@@ -196,16 +196,16 @@ msgid "Use _hybrid authentication"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "User na_me:"
-msgstr "Uzantonomo:"
+msgid "User na_me"
+msgstr "Uzantonomo"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "_Gateway:"
+msgid "_Gateway"
 msgstr ""
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "User _password:"
-msgstr "_Uzantopasvorto:"
+msgid "User _password"
+msgstr "_Uzantopasvorto"
 
 #: ../src/nm-vpnc-service.c:152
 #, c-format

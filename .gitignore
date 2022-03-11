@@ -46,8 +46,11 @@ nm-vpnc-service.name
 nm-vpnc.desktop
 properties/tests/test-import-export
 properties/tests/test-import-export-glib
+properties/resources.c
+properties/resources.h
 src/nm-vpnc-service
 src/nm-vpnc-service-vpnc-helper
 src/test-vpnc-output
+gtk4
 
 /NetworkManager-vpnc*.tar*

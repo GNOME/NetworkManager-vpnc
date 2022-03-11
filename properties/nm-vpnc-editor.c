@@ -28,6 +28,7 @@
 
 #include "nm-vpnc-editor.h"
 
+#include <nma-cert-chooser.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <errno.h>
@@ -43,6 +44,23 @@
 #define ENC_TYPE_WEAK   1
 #define ENC_TYPE_NONE   2
 
+#if !GTK_CHECK_VERSION(4,0,0)
+#define gtk_editable_set_text(editable,text)		gtk_entry_set_text(GTK_ENTRY(editable), (text))
+#define gtk_editable_get_text(editable)			gtk_entry_get_text(GTK_ENTRY(editable))
+#define gtk_widget_get_root(widget)			gtk_widget_get_toplevel(widget)
+#define gtk_check_button_get_active(button)		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(button))
+#define gtk_check_button_set_active(button, active)	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(button), active)
+#define gtk_window_destroy(window)			gtk_widget_destroy(GTK_WIDGET (window))
+#define gtk_window_set_hide_on_close(window, hide)						\
+	G_STMT_START {										\
+		G_STATIC_ASSERT(hide);								\
+		g_signal_connect_swapped (G_OBJECT (window), "delete-event",			\
+		                          G_CALLBACK (gtk_widget_hide_on_delete), window);	\
+	} G_STMT_END
+
+typedef void GtkRoot;
+#endif
+
 static void vpnc_editor_interface_init (NMVpnEditorInterface *iface);
 
 G_DEFINE_TYPE_EXTENDED (VpncEditor, vpnc_editor, G_TYPE_OBJECT, 0,
@@ -54,9 +72,11 @@ G_DEFINE_TYPE_EXTENDED (VpncEditor, vpnc_editor, G_TYPE_OBJECT, 0,
 typedef struct {
 	GtkBuilder *builder;
 	GtkWidget *widget;
-	GtkSizeGroup *group;
 	gint orig_dpd_timeout;
 	GtkWidget *advanced_dialog;
+
+	NMSettingVpn *s_vpn;
+	char *interface_name;
 } VpncEditorPrivate;
 
 
@@ -68,7 +88,7 @@ check_validity (VpncEditor *self, GError **error)
 	char *str;
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (!str || !strlen (str) || strstr (str, " ") || strstr (str, "\t")) {
 		g_set_error (error,
 		             NMV_EDITOR_PLUGIN_ERROR,
@@ -78,7 +98,7 @@ check_validity (VpncEditor *self, GError **error)
 	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (!str || !strlen (str)) {
 		g_set_error (error,
 		             NMV_EDITOR_PLUGIN_ERROR,
@@ -101,25 +121,14 @@ hybrid_toggled_cb (GtkWidget *widget, gpointer user_data)
 {
 	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (user_data);
 	gboolean enabled = FALSE;
-	GtkWidget *cafile_label, *ca_file_chooser;
+	GtkWidget *ca_chooser;
 
-	cafile_label = GTK_WIDGET (gtk_builder_get_object (priv->builder, "cafile_label"));
-	g_return_if_fail (cafile_label);
-	ca_file_chooser = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
-	g_return_if_fail (ca_file_chooser);
+	ca_chooser = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_chooser"));
+	g_return_if_fail (ca_chooser);
 
-	enabled = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget));
+	enabled = gtk_check_button_get_active (GTK_CHECK_BUTTON (widget));
 
-	gtk_widget_set_sensitive (cafile_label, enabled);
-	gtk_widget_set_sensitive (ca_file_chooser, enabled);
-
-	stuff_changed_cb (widget, user_data);
-}
-
-static void
-spinbutton_changed_cb (GtkWidget *widget, gpointer user_data)
-{
-	gtk_spin_button_update (GTK_SPIN_BUTTON (widget));
+	gtk_widget_set_sensitive (ca_chooser, enabled);
 
 	stuff_changed_cb (widget, user_data);
 }
@@ -137,11 +146,10 @@ setup_password_widget (VpncEditor *self,
 
 	widget = (GtkWidget *) gtk_builder_get_object (priv->builder, entry_name);
 	g_assert (widget);
-	gtk_size_group_add_widget (priv->group, widget);
 
 	if (s_vpn) {
 		value = nm_setting_vpn_get_secret (s_vpn, secret_name);
-		gtk_entry_set_text (GTK_ENTRY (widget), value ? value : "");
+		gtk_editable_set_text (GTK_EDITABLE (widget), value ? value : "");
 	}
 
 	g_signal_connect (widget, "changed", G_CALLBACK (stuff_changed_cb), self);
@@ -154,7 +162,7 @@ show_toggled_cb (GtkCheckButton *button, VpncEditor *self)
 	GtkWidget *widget;
 	gboolean visible;
 
-	visible = gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (button));
+	visible = gtk_check_button_get_active (GTK_CHECK_BUTTON (button));
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_password_entry"));
 	g_assert (widget);
@@ -216,7 +224,7 @@ init_password_icon (VpncEditor *self,
 		if (!flags || !strcmp (flags, NM_VPNC_PW_TYPE_SAVE))
 			flags = nm_setting_vpn_get_data_item (s_vpn, type_key);
 	}
-	value = gtk_entry_get_text (GTK_ENTRY (entry));
+	value = gtk_editable_get_text (GTK_EDITABLE (entry));
 	if ((!value || !*value) && !flags)
 		nma_utils_update_password_storage (entry, NM_SETTING_SECRET_FLAG_NOT_SAVED,
 		                                   (NMSetting *) s_vpn, secret_key);
@@ -236,84 +244,308 @@ deinit_password_icon (VpncEditor *self, const char *entry_name)
 }
 
 static void
-toggle_advanced_dialog_cb (GtkWidget *button, gpointer user_data)
+populate_adv_dialog (VpncEditor *self)
+{
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
+	const char *value = NULL;
+	GtkWidget *widget;
+	int active;
+
+	/* Domain */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_DOMAIN);
+	if (!value)
+		value = "";
+	gtk_editable_set_text (GTK_EDITABLE (widget), value);
+
+	/* Vendor combo */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_VENDOR);
+	if (!value)
+		value = "";
+	active = -1;
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_VENDOR_CISCO))
+			active = 0;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_VENDOR_NETSCREEN))
+			active = 1;
+	}
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 0 : active);
+
+	/* Application version */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_APP_VERSION);
+	if (!value)
+		value = "";
+	gtk_editable_set_text (GTK_EDITABLE (widget), value);
+
+	/* Interface name */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
+	g_return_if_fail (widget != NULL);
+	if (priv->interface_name)
+		gtk_editable_set_text (GTK_EDITABLE (widget), priv->interface_name);
+	else
+		gtk_editable_set_text (GTK_EDITABLE (widget), "");
+
+	/* Encryption combo */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
+	g_return_if_fail (widget != NULL);
+	active = -1;
+	if (active == -1) {
+		value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_SINGLE_DES);
+		if (value && !strcmp (value, "yes"))
+			active = 1;
+	}
+	if (active == -1) {
+		value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_NO_ENCRYPTION);
+		if (value && !strcmp (value, "yes"))
+			active = 2;
+	}
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 0 : active);
+
+	/* NAT Traversal */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "natt_combo"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
+	active = -1;
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_NATT_MODE_NATT))
+			active = 0;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_NATT_MODE_NATT_ALWAYS))
+			active = 1;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_NATT_MODE_CISCO))
+			active = 2;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_NATT_MODE_NONE))
+			active = 3;
+	}
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 0 : active);
+
+	/* DH group */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_DHGROUP);
+	active = -1;
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH1))
+			active = 0;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH2))
+			active = 1;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH5))
+			active = 2;
+	}
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 1 : active);
+
+	/* Perfect Forward Secrecy combo */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
+	g_return_if_fail (widget != NULL);
+	active = -1;
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_PERFECT_FORWARD);
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_SERVER))
+			active = 0;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_NOPFS))
+			active = 1;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH1))
+			active = 2;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH2))
+			active = 3;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH5))
+			active = 4;
+	}
+	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 0 : active);
+
+	/* Local Port */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_LOCAL_PORT);
+	if (value) {
+		long int tmp;
+
+		errno = 0;
+		tmp = strtol (value, NULL, 10);
+		if (errno != 0 || tmp < 0 || tmp > 65535)
+			tmp = 0;
+		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
+		gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp);
+	} else {
+		gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), 0);
+	}
+
+	/* Disable DPD */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT);
+	if (value && priv->orig_dpd_timeout == 0)
+		gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), TRUE);
+}
+
+static void
+update_adv_settings (VpncEditor *self, NMSettingVpn *s_vpn)
+{
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
+	const char *value = NULL;
+	GtkTreeModel *model;
+	GtkWidget *widget;
+	GtkTreeIter iter;
+	guint32 port;
+
+	/* Domain */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
+	value = gtk_editable_get_text (GTK_EDITABLE (widget));
+	if (value && strlen (value))
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, value);
+	else
+		nm_setting_vpn_remove_data_item (s_vpn, NM_VPNC_KEY_DOMAIN);
+
+	/* Vendor combo */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
+	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
+		const char *vendor = NULL;
+
+		gtk_tree_model_get (model, &iter, 1, &vendor, -1);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, vendor);
+	} else {
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, NM_VPNC_VENDOR_CISCO);
+	}
+
+	/* Application version */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
+	value = gtk_editable_get_text (GTK_EDITABLE (widget));
+	if (value && strlen (value))
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION, value);
+	else
+		nm_setting_vpn_remove_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION);
+
+	/* Interface name */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
+	value = gtk_editable_get_text (GTK_EDITABLE (widget));
+	g_clear_pointer (&priv->interface_name, g_free);
+	priv->interface_name = g_strdup (value);
+
+	/* Encryption combo */
+	nm_setting_vpn_remove_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES);
+	nm_setting_vpn_remove_data_item (s_vpn, NM_VPNC_KEY_NO_ENCRYPTION);
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
+	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (widget))) {
+	case ENC_TYPE_WEAK:
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
+		break;
+	case ENC_TYPE_NONE:
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NO_ENCRYPTION, "yes");
+		break;
+	case ENC_TYPE_SECURE:
+	default:
+		break;
+	}
+
+	/* NAT Traversal */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "natt_combo"));
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
+	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
+		const char *mode = NULL;
+
+		gtk_tree_model_get (model, &iter, 1, &mode, -1);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, mode);
+	} else {
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, NM_VPNC_NATT_MODE_NATT);
+	}
+
+	/* DH group */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
+	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
+		const char *dhgroup = NULL;
+
+		gtk_tree_model_get (model, &iter, 1, &dhgroup, -1);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, dhgroup);
+	} else {
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, NM_VPNC_DHGROUP_DH2);
+	}
+
+	/* Perfect Forward Secrecy combo */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
+	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
+	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
+		const char *pfs = NULL;
+
+		gtk_tree_model_get (model, &iter, 1, &pfs, -1);
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD, pfs);
+	} else {
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD, NM_VPNC_PFS_SERVER);
+	}
+
+	/* Local port */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
+	port = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
+	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT, g_strdup_printf ("%d", port));
+
+	/* Disable DPD */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
+	if (gtk_check_button_get_active (GTK_CHECK_BUTTON (widget))) {
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, "0");
+	} else {
+		/* If DPD was disabled and now the user wishes to enable it, just
+		 * don't pass the DPD_IDLE_TIMEOUT option to vpnc and thus use the
+		 * default DPD idle time.  Otherwise keep the original DPD idle timeout.
+		 */
+		if (priv->orig_dpd_timeout >= 10) {
+			char *tmp = g_strdup_printf ("%d", priv->orig_dpd_timeout);
+			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, tmp);
+			g_free (tmp);
+		}
+	}
+}
+
+static void
+advanced_dialog_response_cb (GtkWidget *dialog, gint response, gpointer user_data)
+{
+	VpncEditor *self = VPNC_EDITOR (user_data);
+	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (self);
+
+	gtk_widget_hide (priv->advanced_dialog);
+	gtk_window_set_transient_for (GTK_WINDOW (priv->advanced_dialog), NULL);
+
+	if (response == GTK_RESPONSE_APPLY) {
+		update_adv_settings (self, priv->s_vpn);
+		stuff_changed_cb (dialog, self);
+	} else {
+		populate_adv_dialog (self);
+	}
+}
+
+static void
+advanced_button_clicked_cb (GtkWidget *button, gpointer user_data)
 {
 	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (user_data);
-	GtkWidget *toplevel;
+	GtkRoot *root;
 
-	if (gtk_widget_get_visible (priv->advanced_dialog))
-		gtk_widget_hide (priv->advanced_dialog);
-	else {
-		toplevel = gtk_widget_get_toplevel (priv->widget);
-		if (gtk_widget_is_toplevel (toplevel))
-			gtk_window_set_transient_for (GTK_WINDOW (priv->advanced_dialog), GTK_WINDOW (toplevel));
-		gtk_widget_show_all (priv->advanced_dialog);
-	}
-}
-
-static const char *
-find_tag (const char *tag, const char *buf, gsize len)
-{
-	gsize i, taglen;
-
-	taglen = strlen (tag);
-	if (len < taglen)
-		return NULL;
-
-	for (i = 0; i < len - taglen + 1; i++) {
-		if (memcmp (buf + i, tag, taglen) == 0)
-			return buf + i;
-	}
-	return NULL;
-}
-
-static const char *pem_cert_begin = "-----BEGIN CERTIFICATE-----";
-
-static gboolean
-cert_filter (const GtkFileFilterInfo *filter_info, gpointer data)
-{
-	char *contents = NULL, *p, *ext;
-	gsize bytes_read = 0;
-	gboolean show = FALSE;
-	struct stat statbuf;
-
-	if (!filter_info->filename)
-		return FALSE;
-
-	p = strrchr (filter_info->filename, '.');
-	if (!p)
-		return FALSE;
-
-	ext = g_ascii_strdown (p, -1);
-	if (!ext)
-		return FALSE;
-
-	if (strcmp (ext, ".pem") && strcmp (ext, ".crt") && strcmp (ext, ".cer")) {
-		g_free (ext);
-		return FALSE;
-	}
-	g_free (ext);
-
-	/* Ignore files that are really large */
-	if (!stat (filter_info->filename, &statbuf)) {
-		if (statbuf.st_size > 500000)
-			return FALSE;
-	}
-
-	if (!g_file_get_contents (filter_info->filename, &contents, &bytes_read, NULL))
-		return FALSE;
-
-	if (bytes_read < 400)  /* needs to be lower? */
-		goto out;
-
-	if (find_tag (pem_cert_begin, (const char *) contents, bytes_read)) {
-		show = TRUE;
-		goto out;
-	}
-
-out:
-	g_free (contents);
-	return show;
+	root = gtk_widget_get_root (priv->widget);
+	if (GTK_IS_WINDOW(root))
+		gtk_window_set_transient_for (GTK_WINDOW (priv->advanced_dialog), GTK_WINDOW (root));
+	gtk_widget_show (priv->advanced_dialog);
 }
 
 static gboolean
@@ -329,44 +561,41 @@ init_plugin_ui (VpncEditor *self,
 	GtkListStore *store;
 	GtkTreeIter iter;
 	const char *value = NULL;
-	int active = -1;
-	const char *natt_mode = NULL;
-	const char *ike_dh_group = NULL;
-	const char *vendor = NULL;
-	const char *pfs_group = NULL;
 	gboolean enabled = FALSE;
-	GtkFileFilter *filter;
 
 	if (connection) {
 		s_con = nm_connection_get_setting_connection (connection);
 		s_vpn = nm_connection_get_setting_vpn (connection);
 	}
 
-	priv->group = gtk_size_group_new (GTK_SIZE_GROUP_HORIZONTAL);
+	if (s_vpn)
+		priv->s_vpn = NM_SETTING_VPN (nm_setting_duplicate (NM_SETTING (s_vpn)));
+	else
+		priv->s_vpn = NM_SETTING_VPN (nm_setting_vpn_new ());
 
+	/* Gateway */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_GATEWAY);
 		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
+			gtk_editable_set_text (GTK_EDITABLE (widget), value);
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
+	/* Group */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_ID);
 		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
+			gtk_editable_set_text (GTK_EDITABLE (widget), value);
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
+	/* Encryption combo */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 
 	store = gtk_list_store_new (1, G_TYPE_STRING);
 
@@ -375,24 +604,12 @@ init_plugin_ui (VpncEditor *self,
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Weak (use with caution)"), -1);
-	if (s_vpn && (active < 0)) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES);
-		if (value && !strcmp (value, "yes"))
-			active = 1;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("None (completely insecure)"), -1);
-	if (s_vpn && (active < 0)) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NO_ENCRYPTION);
-		if (value && !strcmp (value, "yes"))
-			active = 2;
-	}
 
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
 	/* Fill the VPN passwords *before* initializing the PW type combos, since
 	 * knowing if there are passwords when initializing the combos is helpful.
@@ -419,236 +636,91 @@ init_plugin_ui (VpncEditor *self,
 	                    NM_VPNC_KEY_SECRET_TYPE,
 	                    "group_password_entry");
 
+	/* User name */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER);
 		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
-	}
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
-	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DOMAIN);
-		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
+			gtk_editable_set_text (GTK_EDITABLE (widget), value);
 	}
 	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
 	/* Vendor combo */
-	active = -1;
 	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
-	if (s_vpn)
-		vendor = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_VENDOR);
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Cisco (default)"), 1, NM_VPNC_VENDOR_CISCO, -1);
-	if ((active < 0) && vendor) {
-		if (!strcmp (vendor, NM_VPNC_VENDOR_CISCO))
-			active = 0;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Netscreen"), 1, NM_VPNC_VENDOR_NETSCREEN, -1);
-	if ((active < 0) && vendor) {
-		if (!strcmp (vendor, NM_VPNC_VENDOR_NETSCREEN))
-			active = 1;
-	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	/* Application version */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
-	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION);
-		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
-	}
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
-
-	/* Interface name */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	if (s_con) {
-		value = nm_setting_connection_get_interface_name (s_con);
-		if (value && strlen (value))
-			gtk_entry_set_text (GTK_ENTRY (widget), value);
-	}
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
-
-	active = -1;
+	/* NAT Traversal */
 	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
-	if (s_vpn)
-		natt_mode = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE);
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("NAT-T when available (default)"), 1, NM_VPNC_NATT_MODE_NATT, -1);
-	if ((active < 0) && natt_mode) {
-		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_NATT))
-			active = 0;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("NAT-T always"), 1, NM_VPNC_NATT_MODE_NATT_ALWAYS, -1);
-	if ((active < 0) && natt_mode) {
-		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_NATT_ALWAYS))
-			active = 1;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Cisco UDP"), 1, NM_VPNC_NATT_MODE_CISCO, -1);
-	if ((active < 0) && natt_mode) {
-		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_CISCO))
-			active = 2;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Disabled"), 1, NM_VPNC_NATT_MODE_NONE, -1);
-	if ((active < 0) && natt_mode) {
-		if (!strcmp (natt_mode, NM_VPNC_NATT_MODE_NONE))
-			active = 3;
-	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "natt_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
-	active = -1;
+	/* DH group */
 	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
-	if (s_vpn)
-		ike_dh_group = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DHGROUP);
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 1"), 1, NM_VPNC_DHGROUP_DH1, -1);
-	if ((active < 0) && ike_dh_group) {
-		if (!strcmp (ike_dh_group, NM_VPNC_DHGROUP_DH1))
-			active = 0;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 2 (default)"), 1, NM_VPNC_DHGROUP_DH2, -1);
-	if ((active < 0) && ike_dh_group) {
-		if (!strcmp (ike_dh_group, NM_VPNC_DHGROUP_DH2))
-			active = 1;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 5"), 1, NM_VPNC_DHGROUP_DH5, -1);
-	if ((active < 0) && ike_dh_group) {
-		if (!strcmp (ike_dh_group, NM_VPNC_DHGROUP_DH5))
-			active = 2;
-	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 1 : active);
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
-
-	/* Local Port */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
-	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT);
-		if (value) {
-			long int tmp;
-
-			errno = 0;
-			tmp = strtol (value, NULL, 10);
-			if (errno != 0 || tmp < 0 || tmp > 65535)
-				tmp = 0;
-			widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
-			gtk_spin_button_set_value (GTK_SPIN_BUTTON (widget), (gdouble) tmp);
-		}
-	}
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (spinbutton_changed_cb), self);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT);
-		if (value) {
-			long int tmp;
-
-			errno = 0;
-			tmp = strtol (value, NULL, 10);
-			if (tmp >= 0 && tmp <= G_MAXUINT32 && errno == 0)
-				priv->orig_dpd_timeout = (guint32) tmp;
-
-			if (priv->orig_dpd_timeout == 0)
-				gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
-		}
-	}
-	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (stuff_changed_cb), self);
 
 	/* Perfect Forward Secrecy combo */
-	active = -1;
 	store = gtk_list_store_new (2, G_TYPE_STRING, G_TYPE_STRING);
-	if (s_vpn)
-		pfs_group = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD);
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Server (default)"), 1, NM_VPNC_PFS_SERVER, -1);
-	if ((active < 0) && pfs_group) {
-		if (!strcmp (pfs_group, NM_VPNC_PFS_SERVER))
-			active = 0;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("None"), 1, NM_VPNC_PFS_NOPFS, -1);
-	if ((active < 0) && pfs_group) {
-		if (!strcmp (pfs_group, NM_VPNC_PFS_NOPFS))
-			active = 1;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 1"), 1, NM_VPNC_PFS_DH1, -1);
-	if ((active < 0) && pfs_group) {
-		if (!strcmp (pfs_group, NM_VPNC_PFS_DH1))
-			active = 2;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 2"), 1, NM_VPNC_PFS_DH2, -1);
-	if ((active < 0) && pfs_group) {
-		if (!strcmp (pfs_group, NM_VPNC_PFS_DH2))
-			active = 3;
-	}
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 5"), 1, NM_VPNC_PFS_DH5, -1);
-	if ((active < 0) && pfs_group) {
-		if (!strcmp (pfs_group, NM_VPNC_PFS_DH5))
-			active = 4;
-	}
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, GTK_WIDGET (widget));
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
 	g_object_unref (store);
-	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active < 0 ? 0 : active);
-	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 
+	/* Show passwords */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "show_passwords_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	g_signal_connect (G_OBJECT (widget), "toggled",
@@ -656,62 +728,62 @@ init_plugin_ui (VpncEditor *self,
 	                  self);
 
 	/* hybrid auth */
-
 	enabled = FALSE;
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "hybrid_checkbutton"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	if (s_vpn) {
 		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_AUTHMODE);
 		if (value && !strcmp("hybrid", value)) {
-			gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (widget), TRUE);
+			gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), TRUE);
 			enabled = TRUE;
 		}
 	}
 	g_signal_connect (G_OBJECT (widget), "toggled", G_CALLBACK (hybrid_toggled_cb), self);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_size_group_add_widget (priv->group, widget);
+	/* CA Certificate */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_chooser"));
+	g_return_val_if_fail (widget, FALSE);
+	nma_cert_chooser_add_to_size_group (NMA_CERT_CHOOSER (widget),
+		GTK_SIZE_GROUP (gtk_builder_get_object (priv->builder, "labels")));
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (stuff_changed_cb), self);
 	gtk_widget_set_sensitive (widget, enabled);
-	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER (widget), TRUE);
-	gtk_file_chooser_button_set_title (GTK_FILE_CHOOSER_BUTTON (widget),
-	                                   _("Choose a Certificate Authority (CA) certificate…"));
 
-	filter = gtk_file_filter_new ();
-	gtk_file_filter_add_custom (filter, GTK_FILE_FILTER_FILENAME, cert_filter, NULL, NULL);
-	gtk_file_filter_set_name (filter, _("PEM certificates (*.pem, *.crt, *.cer)"));
-	gtk_file_chooser_add_filter (GTK_FILE_CHOOSER (widget), filter);
+	/* Local port */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
+	g_signal_connect (G_OBJECT (widget), "changed", G_CALLBACK (gtk_spin_button_update), self);
 
-	if (s_vpn) {
-		value = nm_setting_vpn_get_data_item (s_vpn, NM_VPNC_KEY_CA_FILE);
-		if (value && strlen (value))
-			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (widget), value);
+	/* Advanced dialog */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
+	g_return_val_if_fail (widget != NULL, FALSE);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT);
+	if (value) {
+		long int tmp;
+
+		errno = 0;
+		tmp = strtol (value, NULL, 10);
+		if (tmp >= 0 && tmp <= G_MAXUINT32 && errno == 0)
+			priv->orig_dpd_timeout = (guint32) tmp;
 	}
-	g_signal_connect (G_OBJECT (widget), "file-set", G_CALLBACK (stuff_changed_cb), self);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "cafile_label"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	gtk_widget_set_sensitive (widget, enabled);
-
-	/* advanced dialog */
+	if (s_con) {
+		value = nm_setting_connection_get_interface_name (s_con);
+		priv->interface_name = g_strdup (value);
+	}
+	populate_adv_dialog (self);
 
 	priv->advanced_dialog = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-advanced-dialog"));
 	g_return_val_if_fail (priv->advanced_dialog != NULL, FALSE);
 
-	g_signal_connect (G_OBJECT (priv->advanced_dialog), "delete-event",
-	                  G_CALLBACK (gtk_widget_hide_on_delete), self);
+	gtk_window_set_hide_on_close (GTK_WINDOW (priv->advanced_dialog), TRUE);
+
+        g_signal_connect (G_OBJECT (priv->advanced_dialog), "response",
+                          G_CALLBACK (advanced_dialog_response_cb), self);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "advanced_button"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	g_signal_connect (G_OBJECT (widget), "clicked",
-	                  (GCallback) toggle_advanced_dialog_cb,
+	                  (GCallback) advanced_button_clicked_cb,
 	                  self);
 
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "apply_button"));
-	g_return_val_if_fail (widget != NULL, FALSE);
-	g_signal_connect (G_OBJECT (widget), "clicked",
-	                  (GCallback) toggle_advanced_dialog_cb,
-	                  self);
 	return TRUE;
 }
 
@@ -743,7 +815,7 @@ save_one_password (NMSettingVpn *s_vpn,
 	switch (flags) {
 	case NM_SETTING_SECRET_FLAG_NONE:
 	case NM_SETTING_SECRET_FLAG_AGENT_OWNED:
-		password = gtk_entry_get_text (GTK_ENTRY (entry));
+		password = gtk_editable_get_text (GTK_EDITABLE (entry));
 		if (password && strlen (password))
 			nm_setting_vpn_add_secret (s_vpn, secret_key, password);
 		data_val = NM_VPNC_PW_TYPE_SAVE;
@@ -773,9 +845,6 @@ update_connection (NMVpnEditor *editor,
 	NMSettingVpn *s_vpn;
 	GtkWidget *widget;
 	char *str;
-	guint32 port;
-	GtkTreeModel *model;
-	GtkTreeIter iter;
 
 	if (!check_validity (self, error))
 		return FALSE;
@@ -785,112 +854,22 @@ update_connection (NMVpnEditor *editor,
 	s_vpn = NM_SETTING_VPN (nm_setting_vpn_new ());
 	g_object_set (s_vpn, NM_SETTING_VPN_SERVICE_TYPE, NM_DBUS_SERVICE_VPNC, NULL);
 
-	/* Interface name */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "interface_name_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
-	if (str && strlen (str))
-		g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_INTERFACE_NAME, str, NULL);
-
 	/* Gateway */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "gateway_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_GATEWAY, str);
 
 	/* Group name */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "group_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_ID, str);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "user_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
+	str = (char *) gtk_editable_get_text (GTK_EDITABLE (widget));
 	if (str && strlen (str))
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_XAUTH_USER, str);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "domain_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
-	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DOMAIN, str);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
-		const char *vendor = NULL;
-
-		gtk_tree_model_get (model, &iter, 1, &vendor, -1);
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, vendor);
-	} else
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_VENDOR, NM_VPNC_VENDOR_CISCO);
-
-	/* Application version */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "application_version_entry"));
-	str = (char *) gtk_entry_get_text (GTK_ENTRY (widget));
-	if (str && strlen (str))
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_APP_VERSION, str);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
-	switch (gtk_combo_box_get_active (GTK_COMBO_BOX (widget))) {
-	case ENC_TYPE_WEAK:
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_SINGLE_DES, "yes");
-		break;
-	case ENC_TYPE_NONE:
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NO_ENCRYPTION, "yes");
-		break;
-	case ENC_TYPE_SECURE:
-	default:
-		break;
-	}
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "natt_combo"));
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
-		const char *mode = NULL;
-
-		gtk_tree_model_get (model, &iter, 1, &mode, -1);
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, mode);
-	} else
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_NAT_TRAVERSAL_MODE, NM_VPNC_NATT_MODE_NATT);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
-		const char *dhgroup = NULL;
-
-		gtk_tree_model_get (model, &iter, 1, &dhgroup, -1);
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, dhgroup);
-	} else
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, NM_VPNC_DHGROUP_DH2);
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
-	model = gtk_combo_box_get_model (GTK_COMBO_BOX (widget));
-	if (gtk_combo_box_get_active_iter (GTK_COMBO_BOX (widget), &iter)) {
-		const char *pfs = NULL;
-
-		gtk_tree_model_get (model, &iter, 1, &pfs, -1);
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD, pfs);
-	} else
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_PERFECT_FORWARD, NM_VPNC_PFS_SERVER);
-
-	/* Local port */
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "local_port_spinbutton"));
-	port = gtk_spin_button_get_value_as_int (GTK_SPIN_BUTTON (widget));
-	nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_LOCAL_PORT, g_strdup_printf ("%d", port));
-
-	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "disable_dpd_checkbutton"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
-		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, "0");
-	} else {
-		/* If DPD was disabled and now the user wishes to enable it, just
-		 * don't pass the DPD_IDLE_TIMEOUT option to vpnc and thus use the
-		 * default DPD idle time.  Otherwise keep the original DPD idle timeout.
-		 */
-		if (priv->orig_dpd_timeout >= 10) {
-			char *tmp = g_strdup_printf ("%d", priv->orig_dpd_timeout);
-			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DPD_IDLE_TIMEOUT, tmp);
-			g_free (tmp);
-		}
-	}
 
 	/* User password */
 	save_one_password (s_vpn,
@@ -908,14 +887,22 @@ update_connection (NMVpnEditor *editor,
 
 	/* hybrid auth */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "hybrid_checkbutton"));
-	if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (widget))) {
+	if (gtk_check_button_get_active (GTK_CHECK_BUTTON (widget))) {
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_AUTHMODE, "hybrid");
 
-		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_file_chooser"));
-		str = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (widget));
+		widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "ca_chooser"));
+		str = nma_cert_chooser_get_cert (NMA_CERT_CHOOSER (widget), NULL);
 		if (str && str[0])
 			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_CA_FILE, str);
 	}
+
+	/* Advanced dialog */
+	update_adv_settings (self, s_vpn);
+
+	str = priv->interface_name;
+	if (!str)
+		str = "";
+	g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_INTERFACE_NAME, str, NULL);
 
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 	return TRUE;
@@ -940,7 +927,6 @@ nm_vpnc_editor_new (NMConnection *connection, GError **error)
 {
 	NMVpnEditor *object;
 	VpncEditorPrivate *priv;
-	char *ui_file;
 	NMSettingVpn *s_vpn;
 	gboolean is_new = TRUE;
 
@@ -956,22 +942,16 @@ nm_vpnc_editor_new (NMConnection *connection, GError **error)
 
 	priv = VPNC_EDITOR_GET_PRIVATE (object);
 
-	ui_file = g_strdup_printf ("%s/%s", UIDIR, "nm-vpnc-dialog.ui");
 	priv->builder = gtk_builder_new ();
 
 	gtk_builder_set_translation_domain (priv->builder, GETTEXT_PACKAGE);
 
-	if (!gtk_builder_add_from_file (priv->builder, ui_file, error)) {
+	if (!gtk_builder_add_from_resource (priv->builder, "/org/freedesktop/network-manager-vpnc/nm-vpnc-dialog.ui", error)) {
 		g_warning ("Couldn't load builder file: %s",
 		           error && *error ? (*error)->message : "(unknown)");
-		g_clear_error (error);
-		g_set_error (error, NMV_EDITOR_PLUGIN_ERROR, NMV_EDITOR_PLUGIN_ERROR_FAILED,
-		             "could not load required resources at %s", ui_file);
-		g_free (ui_file);
 		g_object_unref (object);
 		return NULL;
 	}
-	g_free (ui_file);
 
 	priv->widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vpnc-vbox"));
 	if (!priv->widget) {
@@ -1000,14 +980,14 @@ dispose (GObject *object)
 	VpncEditor *plugin = VPNC_EDITOR (object);
 	VpncEditorPrivate *priv = VPNC_EDITOR_GET_PRIVATE (plugin);
 
-	if (priv->group)
-		g_object_unref (priv->group);
+	g_clear_pointer (&priv->interface_name, g_free);
+	g_clear_object (&priv->s_vpn);
 
 	if (priv->widget)
 		g_object_unref (priv->widget);
 
 	if (priv->advanced_dialog)
-		gtk_widget_destroy (priv->advanced_dialog);
+		gtk_window_destroy (GTK_WINDOW (priv->advanced_dialog));
 
 	if (priv->builder) {
 		deinit_password_icon (plugin, "user_password_entry");

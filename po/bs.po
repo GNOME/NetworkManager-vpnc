@@ -182,16 +182,16 @@ msgstr ""
 "konfig: IPSec tajna <lozinka_grupe>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Lozinka gru_pe:"
+msgid "Gro_up password"
+msgstr "Lozinka gru_pe"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Izlaz na mrežu:"
+msgid "_Gateway"
+msgstr "_Izlaz na mrežu"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Ime g_rupe:"
+msgid "G_roup name"
+msgstr "Ime g_rupe"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -210,8 +210,8 @@ msgstr ""
 "konfig: IPSec ID <ime_grupe>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Korisnička _šifra:"
+msgid "User _password"
+msgstr "Korisnička _šifra"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -230,8 +230,8 @@ msgstr ""
 "konfig: Xauth korisničkoIme <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Korisničko _ime:"
+msgid "User na_me"
+msgstr "Korisničko _ime"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -247,8 +247,8 @@ msgstr ""
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA_fajl:"
+msgid "CA _File"
+msgstr "CA_fajl"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -271,8 +271,8 @@ msgid "Identification"
 msgstr "Identifikovanje"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Domena:"
+msgid "_Domain"
+msgstr "_Domena"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -291,12 +291,12 @@ msgstr ""
 "konfig: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "_Proizvođač:"
+msgid "_Vendor"
+msgstr "_Proizvođač"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rzija:"
+msgid "Ve_rsion"
+msgstr "Ve_rzija"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -323,20 +323,20 @@ msgstr ""
 "konfig: Vremensko ograničenje DPD-a u stanju mirovanja( naša strana ) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Lokalni port:"
+msgid "_Local port"
+msgstr "_Lokalni port"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Savršena_prednja tajnost:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Savršena_prednja tajnost"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_IKE DH Grupa:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH Grupa"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT tranverzalni:"
+msgid "_NAT traversal"
+msgstr "_NAT tranverzalni"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -394,12 +394,12 @@ msgstr ""
 "podešavanje: Interface nami <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "_Enkripcijske metode:"
+msgid "_Encryption method"
+msgstr "_Enkripcijske metode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Naziv tunelnog _uređaja:"
+msgid "Tunnel _interface name"
+msgstr "Naziv tunelnog _uređaja"
 
 #: ../src/nm-vpnc-service.c:173
 #, c-format

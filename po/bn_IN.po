@@ -140,38 +140,38 @@ msgid "Disable Dead _Peer Detection"
 msgstr "ডেড পিয়ার সনাক্তকরণ ব্যবস্থা নিষ্ক্রিয় করা হবে"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "_Domain:"
-msgstr "ডোমেইন:"
+msgid "_Domain"
+msgstr "ডোমেইন"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "_Encryption method:"
-msgstr "এনক্রিপশন পদ্ধতি:"
+msgid "_Encryption method"
+msgstr "এনক্রিপশন পদ্ধতি"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup name:"
+msgid "G_roup name"
 msgstr "দলের নাম: (_r)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "Gro_up password:"
+msgid "Gro_up password"
 msgstr "দলের পাসওয়ার্ড: (_u)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "_NAT traversal:"
-msgstr "NAT পারাপার:"
+msgid "_NAT traversal"
+msgstr "NAT পারাপার"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
 msgid "Sho_w passwords"
 msgstr "পাসওয়ার্ড প্রদর্শন"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User na_me:"
-msgstr "ব্যবহারকারীর নাম:"
+msgid "User na_me"
+msgstr "ব্যবহারকারীর নাম"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "_Gateway:"
+msgid "_Gateway"
 msgstr "গেটওয়ে: (_G)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "User _password:"
+msgid "User _password"
 msgstr "ব্যবহারকারীর পাসওয়ার্ড: (_U)"
 

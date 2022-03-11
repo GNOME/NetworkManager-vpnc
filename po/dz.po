@@ -187,7 +187,7 @@ msgid "Connection Name"
 msgstr "མཐུད་ལམ་མིང་"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "G_roup Name:"
+msgid "G_roup Name"
 msgstr "སྡེ་ཚན་མིང་: (_r)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
@@ -215,7 +215,7 @@ msgid "Use _domain for authentication"
 msgstr "བདེན་བཤད་ཀྱི་དོན་ལུ་ཌོ་མེན་ལག་ལེན་འཐབ། (_d)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_Gateway:"
+msgid "_Gateway"
 msgstr "འཛུལ་སྒོ: (_G)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:14

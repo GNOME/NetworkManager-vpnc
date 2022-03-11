@@ -145,38 +145,38 @@ msgid "Disable Dead _Peer Detection"
 msgstr "Dead Peer Detection নিষ্ক্ৰিয় কৰক"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "_Domain:"
-msgstr "ডোমেইন:"
+msgid "_Domain"
+msgstr "ডোমেইন"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "_Encryption method:"
-msgstr "এনক্ৰিপছনৰ পদ্ধতি:"
+msgid "_Encryption method"
+msgstr "এনক্ৰিপছনৰ পদ্ধতি"
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "G_roup name:"
-msgstr "দলৰ নাম (_r):"
+msgid "G_roup name"
+msgstr "দলৰ নাম (_r)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "Gro_up password:"
-msgstr "সমষ্টিৰ গুপ্তশব্দ (_u):"
+msgid "Gro_up password"
+msgstr "সমষ্টিৰ গুপ্তশব্দ (_u)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "_NAT traversal:"
-msgstr "NAT ট্ৰেভাৰ্ছেল:"
+msgid "_NAT traversal"
+msgstr "NAT ট্ৰেভাৰ্ছেল"
 
 #: ../properties/nm-vpnc-dialog.glade.h:10
 msgid "Sho_w passwords"
 msgstr "গুপ্তশব্দ দেখুৱাওক"
 
 #: ../properties/nm-vpnc-dialog.glade.h:11
-msgid "User na_me:"
-msgstr "ব্যৱহাৰকৰ্তাৰ নাম:"
+msgid "User na_me"
+msgstr "ব্যৱহাৰকৰ্তাৰ নাম"
 
 #: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "_Gateway:"
-msgstr "গেটৱে (_G):"
+msgid "_Gateway"
+msgstr "গেটৱে (_G)"
 
 #: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "User _password:"
-msgstr "ব্যৱহাৰকৰ্তাৰ গুপ্তশব্দ (_U):"
+msgid "User _password"
+msgstr "ব্যৱহাৰকৰ্তাৰ গুপ্তশব্দ (_U)"
 

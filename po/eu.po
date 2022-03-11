@@ -173,8 +173,8 @@ msgid "Identification"
 msgstr "Identifikazioa"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid "_Domain:"
-msgstr "Domeinua:"
+msgid "_Domain"
+msgstr "Domeinua"
 
 #: ../properties/nm-vpnc-dialog.ui.h:4
 msgid ""
@@ -185,8 +185,8 @@ msgstr ""
 "konfigurazioa: Domain <domeinua>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Vendor:"
-msgstr "_Hornitzailea:"
+msgid "_Vendor"
+msgstr "_Hornitzailea"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
 msgid ""
@@ -197,8 +197,8 @@ msgstr ""
 "konfigurazioa: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "Ve_rsion:"
-msgstr "_Bertsioa:"
+msgid "Ve_rsion"
+msgstr "_Bertsioa"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
 msgid ""
@@ -223,12 +223,12 @@ msgstr ""
 "'Enable no encryption' bat ere ez"
 
 #: ../properties/nm-vpnc-dialog.ui.h:15
-msgid "_Encryption method:"
-msgstr "Enkriptatze-metodoa:"
+msgid "_Encryption method"
+msgstr "Enkriptatze-metodoa"
 
 #: ../properties/nm-vpnc-dialog.ui.h:16
-msgid "_NAT traversal:"
-msgstr "Zeharretako NAT-a:"
+msgid "_NAT traversal"
+msgstr "Zeharretako NAT-a"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
 msgid ""
@@ -239,8 +239,8 @@ msgstr ""
 "konfigurazioa: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:19
-msgid "_IKE DH Group:"
-msgstr "_IKE DH taldea:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH taldea"
 
 #: ../properties/nm-vpnc-dialog.ui.h:20
 msgid ""
@@ -251,8 +251,8 @@ msgstr ""
 "konfigurazioa: IKE DH Group <dh1/dh2/dh5>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Perfect _Forward Secrecy:"
-msgstr "Konfidentzialtasun _iraunkorra (PFS):"
+msgid "Perfect _Forward Secrecy"
+msgstr "Konfidentzialtasun _iraunkorra (PFS)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:23
 msgid ""
@@ -263,8 +263,8 @@ msgstr ""
 "konfigurazioa: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Local port:"
-msgstr "Ataka _lokala:"
+msgid "_Local port"
+msgstr "Ataka _lokala"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid ""
@@ -304,16 +304,16 @@ msgstr ""
 "konfigurazioa: IPSec secret <taldearen_pasahitza>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:35
-msgid "Gro_up password:"
-msgstr "_Taldearen pasahitza:"
+msgid "Gro_up password"
+msgstr "_Taldearen pasahitza"
 
 #: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "_Gateway:"
-msgstr "_Atebidea:"
+msgid "_Gateway"
+msgstr "_Atebidea"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "G_roup name:"
-msgstr "_Taldearen izena:"
+msgid "G_roup name"
+msgstr "_Taldearen izena"
 
 #: ../properties/nm-vpnc-dialog.ui.h:38
 msgid ""
@@ -332,8 +332,8 @@ msgstr ""
 "konfigurazioa: IPSec ID <taldearen_izena>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "User _password:"
-msgstr "_Erabiltzailearen pasahitza:"
+msgid "User _password"
+msgstr "_Erabiltzailearen pasahitza"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
 msgid ""
@@ -352,8 +352,8 @@ msgstr ""
 "konfigurazioa: Xauth username <erabiltzaile-izena>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:47
-msgid "User na_me:"
-msgstr "_Erabiltzaile-izena:"
+msgid "User na_me"
+msgstr "_Erabiltzaile-izena"
 
 #: ../properties/nm-vpnc-dialog.ui.h:48
 msgid "Use _hybrid authentication"
@@ -368,8 +368,8 @@ msgstr ""
 "konfigurazioa:  IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:51
-msgid "CA _File:"
-msgstr "ZE _fitxategia:"
+msgid "CA _File"
+msgstr "ZE _fitxategia"
 
 #: ../properties/nm-vpnc-dialog.ui.h:52
 msgid ""

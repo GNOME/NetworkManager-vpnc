@@ -195,8 +195,8 @@ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
 msgstr "<i>v.d.: 172.16.0.0/16 10.11.12.0/24</i>"
 
 #: ../properties/nm-vpnc-dialog.glade.h:2
-msgid "Connection na_me:"
-msgstr "Tên _kết nối:"
+msgid "Connection na_me"
+msgstr "Tên _kết nối"
 
 #: ../properties/nm-vpnc-dialog.glade.h:3
 msgid "Disable NAT _traversal"
@@ -207,16 +207,16 @@ msgid "Enable _weak single DES encryption"
 msgstr "Bật mật mã DES đơn _yếu"
 
 #: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "G_roup name:"
-msgstr "Tên nhó_m:"
+msgid "G_roup name"
+msgstr "Tên nhó_m"
 
 #: ../properties/nm-vpnc-dialog.glade.h:6
 msgid "Import _Saved Configuration..."
 msgstr "Nhập cấu hình đã _lưu..."
 
 #: ../properties/nm-vpnc-dialog.glade.h:7
-msgid "Interval:"
-msgstr "Khoảng:"
+msgid "Interval"
+msgstr "Khoảng"
 
 #: ../properties/nm-vpnc-dialog.glade.h:8
 msgid ""
@@ -262,8 +262,8 @@ msgid "Use _domain for authentication"
 msgstr "Dùng miền để xác thực"
 
 #: ../properties/nm-vpnc-dialog.glade.h:16
-msgid "_Gateway:"
-msgstr "Cổn_g ra:"
+msgid "_Gateway"
+msgstr "Cổn_g ra"
 
 #: ../properties/nm-vpnc-dialog.glade.h:17
 msgid "_Only use VPN connection for these addresses"

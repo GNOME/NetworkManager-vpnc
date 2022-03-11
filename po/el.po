@@ -165,16 +165,16 @@ msgstr ""
 "config: IPSec secret <group_password>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Κωδικός πρόσβασης ο_μάδας:"
+msgid "Gro_up password"
+msgstr "Κωδικός πρόσβασης ο_μάδας"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Πύλη:"
+msgid "_Gateway"
+msgstr "_Πύλη"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Όνομα ομά_δας:"
+msgid "G_roup name"
+msgstr "Όνομα ομά_δας"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -193,8 +193,8 @@ msgstr ""
 "config: IPSec ID <group_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Κωδικός πρό_σβασης χρήστη:"
+msgid "User _password"
+msgstr "Κωδικός πρό_σβασης χρήστη"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -213,8 +213,8 @@ msgstr ""
 "config: Xauth username <user_name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Ό_νομα χρήστη:"
+msgid "User na_me"
+msgstr "Ό_νομα χρήστη"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -230,8 +230,8 @@ msgstr ""
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "Α_ρχείο CA:"
+msgid "CA _File"
+msgstr "Α_ρχείο CA"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -254,8 +254,8 @@ msgid "Identification"
 msgstr "Ταυτοποίηση"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Τομέας:"
+msgid "_Domain"
+msgstr "_Τομέας"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -274,12 +274,12 @@ msgstr ""
 "config: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "Κα_τασκευαστής:"
+msgid "_Vendor"
+msgstr "Κα_τασκευαστής"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Έκ_δοση:"
+msgid "Ve_rsion"
+msgstr "Έκ_δοση"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -306,20 +306,20 @@ msgstr ""
 "nconfig: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "Τ_οπική θύρα:"
+msgid "_Local port"
+msgstr "Τ_οπική θύρα"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect _Forward Secrecy"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_IKE DH Group:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH Group"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "Διέλευση _NATl:"
+msgid "_NAT traversal"
+msgstr "Διέλευση _NATl"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -377,12 +377,12 @@ msgstr ""
 "ρύθμιση: Όνομα διεπαφής <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Μέθοδος κ_ρυπτογράφησης:"
+msgid "_Encryption method"
+msgstr "Μέθοδος κ_ρυπτογράφησης"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Όνομα διεπαφής _διοχεύτεσης:"
+msgid "Tunnel _interface name"
+msgstr "Όνομα διεπαφής _διοχεύτεσης"
 
 #: ../src/nm-vpnc-service.c:173
 #, c-format

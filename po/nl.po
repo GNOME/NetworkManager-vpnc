@@ -348,16 +348,16 @@ msgstr ""
 "configuratie: IPSec secret <groepswachtwoord>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "_Groepswachtwoord:"
+msgid "Gro_up password"
+msgstr "_Groepswachtwoord"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Gateway:"
+msgid "_Gateway"
+msgstr "_Gateway"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "G_roepsnaam:"
+msgid "G_roup name"
+msgstr "G_roepsnaam"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -376,8 +376,8 @@ msgstr ""
 "configuratie: IPSec ID <groepsnaam>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Gebruikers_wachtwoord:"
+msgid "User _password"
+msgstr "Gebruikers_wachtwoord"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -396,8 +396,8 @@ msgstr ""
 "configuratie: Xauth username <gebruikersnaam>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Gebruikersnaa_m:"
+msgid "User na_me"
+msgstr "Gebruikersnaa_m"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -413,8 +413,8 @@ msgstr ""
 "configuratie: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA-_bestand:"
+msgid "CA _File"
+msgstr "CA-_bestand"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -437,8 +437,8 @@ msgid "Identification"
 msgstr "Identificatie"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Domein:"
+msgid "_Domain"
+msgstr "_Domein"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -457,12 +457,12 @@ msgstr ""
 "configuratie: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "Le_verancier:"
+msgid "_Vendor"
+msgstr "Le_verancier"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rsie:"
+msgid "Ve_rsion"
+msgstr "Ve_rsie"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -489,20 +489,20 @@ msgstr ""
 "configuratie: DPD idle timeout (our side) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Lokale poort:"
+msgid "_Local port"
+msgstr "_Lokale poort"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect _Forward Secrecy"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_IKE DH-groep:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH-groep"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT-traversal:"
+msgid "_NAT traversal"
+msgstr "_NAT-traversal"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -560,18 +560,18 @@ msgstr ""
 "configuratie: Interface name <naam>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "V_ersleutelingsmethode:"
+msgid "_Encryption method"
+msgstr "V_ersleutelingsmethode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Naam van tunnel_interface:"
+msgid "Tunnel _interface name"
+msgstr "Naam van tunnel_interface"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "Aanmeldingscontrole voor VPN %s"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Secondair wachtwoord:"
+#~ msgid "_Secondary Password"
+#~ msgstr "_Secondair wachtwoord"
 
 #~| msgid "Show passwords"
 #~ msgid "Sh_ow passwords"
@@ -605,17 +605,17 @@ msgstr "Naam van tunnel_interface:"
 #~ msgid " "
 #~ msgstr " "
 
-#~ msgid "Domain:"
-#~ msgstr "Domein:"
+#~ msgid "Domain"
+#~ msgstr "Domein"
 
-#~ msgid "_Username:"
-#~ msgstr "_Gebruikersnaam:"
+#~ msgid "_Username"
+#~ msgstr "_Gebruikersnaam"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "_Anoniem verbinden"
 
-#~ msgid "Connect as _user:"
-#~ msgstr "Verbinden met _gebruikersnaam:"
+#~ msgid "Connect as _user"
+#~ msgstr "Verbinden met _gebruikersnaam"
 
 #~ msgid "_Remember passwords for this session"
 #~ msgstr "W_achtwoorden voor deze sessie onthouden"
@@ -626,8 +626,8 @@ msgstr "Naam van tunnel_interface:"
 #~ msgid "<b>Optional</b>"
 #~ msgstr "<b>Optioneel</b>"
 
-#~ msgid "The following vpnc VPN connection will be created:"
-#~ msgstr "De volgende vpnc VPN-verbinding zal worden aangemaakt:"
+#~ msgid "The following vpnc VPN connection will be created"
+#~ msgstr "De volgende vpnc VPN-verbinding zal worden aangemaakt"
 
 #~ msgid "Name:  %s"
 #~ msgstr "Naam:  %s"

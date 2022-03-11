@@ -160,41 +160,41 @@ msgid "Disable Dead _Peer Detection"
 msgstr "Изключване на откриването на забилите съседи"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "_Domain:"
-msgstr "Домейн:"
+msgid "_Domain"
+msgstr "Домейн"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Encryption method:"
-msgstr "Метод на шифриране:"
+msgid "_Encryption method"
+msgstr "Метод на шифриране"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "Име на _групата:"
+msgid "G_roup name"
+msgstr "Име на _групата"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "Gro_up password:"
-msgstr "_Парола на групата:"
+msgid "Gro_up password"
+msgstr "_Парола на групата"
 
 #: ../properties/nm-vpnc-dialog.ui.h:9
-msgid "_IKE DH Group:"
-msgstr "Размяна на ключове по Дифи-Хелман:"
+msgid "_IKE DH Group"
+msgstr "Размяна на ключове по Дифи-Хелман"
 
 #: ../properties/nm-vpnc-dialog.ui.h:10
-msgid "_NAT traversal:"
-msgstr "Преминаване на NAT:"
+msgid "_NAT traversal"
+msgstr "Преминаване на NAT"
 
 #: ../properties/nm-vpnc-dialog.ui.h:11
 msgid "Sho_w passwords"
 msgstr "Показване на паролите"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User na_me:"
-msgstr "Потребителско име:"
+msgid "User na_me"
+msgstr "Потребителско име"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
-msgid "_Gateway:"
-msgstr "_Шлюз:"
+msgid "_Gateway"
+msgstr "_Шлюз"
 
 #: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "User _password:"
-msgstr "_Парола:"
+msgid "User _password"
+msgstr "_Парола"

@@ -344,16 +344,16 @@ msgstr ""
 "konfig: IPSec secret <grupplösenord>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password:"
-msgstr "Gr_upplösenord:"
+msgid "Gro_up password"
+msgstr "Gr_upplösenord"
 
 #: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway:"
-msgstr "_Gateway:"
+msgid "_Gateway"
+msgstr "_Gateway"
 
 #: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name:"
-msgstr "G_ruppnamn:"
+msgid "G_roup name"
+msgstr "G_ruppnamn"
 
 #: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
@@ -372,8 +372,8 @@ msgstr ""
 "konfig: IPSec ID <gruppnamn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password:"
-msgstr "Användarlös_enord:"
+msgid "User _password"
+msgstr "Användarlös_enord"
 
 #: ../properties/nm-vpnc-dialog.ui.h:13
 msgid ""
@@ -392,8 +392,8 @@ msgstr ""
 "konfig: Xauth username <användarnamn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me:"
-msgstr "Användarna_mn:"
+msgid "User na_me"
+msgstr "Användarna_mn"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -409,8 +409,8 @@ msgstr ""
 "konfig: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File:"
-msgstr "CA-_fil:"
+msgid "CA _File"
+msgstr "CA-_fil"
 
 #: ../properties/nm-vpnc-dialog.ui.h:22
 msgid ""
@@ -433,8 +433,8 @@ msgid "Identification"
 msgstr "Identifikation"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain:"
-msgstr "_Domän:"
+msgid "_Domain"
+msgstr "_Domän"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -453,12 +453,12 @@ msgstr ""
 "konfig: Vendor <cisco/netscreen>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor:"
-msgstr "Till_verkare:"
+msgid "_Vendor"
+msgstr "Till_verkare"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion:"
-msgstr "Ve_rsion:"
+msgid "Ve_rsion"
+msgstr "Ve_rsion"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -485,22 +485,22 @@ msgstr ""
 "konfig: DPD idle timeout (vår sida) 0"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port:"
-msgstr "_Lokal port:"
+msgid "_Local port"
+msgstr "_Lokal port"
 
 # Ser det som ett begrepp på en speciell teknik, men har någon förslag på ett bra översättning mottages det
 # tacksamt.
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy:"
-msgstr "Perfect _Forward Secrecy:"
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect _Forward Secrecy"
 
 #: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group:"
-msgstr "_IKE DH-grupp:"
+msgid "_IKE DH Group"
+msgstr "_IKE DH-grupp"
 
 #: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal:"
-msgstr "_NAT-traversering:"
+msgid "_NAT traversal"
+msgstr "_NAT-traversering"
 
 #: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
@@ -558,12 +558,12 @@ msgstr ""
 "konfig: Interface name <namn>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method:"
-msgstr "Krypteringsm_etod:"
+msgid "_Encryption method"
+msgstr "Krypteringsm_etod"
 
 #: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name:"
-msgstr "Tunnel_gränssnittsnamn:"
+msgid "Tunnel _interface name"
+msgstr "Tunnel_gränssnittsnamn"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "Autentisera VPN %s"
@@ -586,11 +586,11 @@ msgstr "Tunnel_gränssnittsnamn:"
 #~ msgid "Not Required"
 #~ msgstr "Krävs inte"
 
-#~ msgid "_Secondary Password:"
-#~ msgstr "_Sekundärt lösenord:"
+#~ msgid "_Secondary Password"
+#~ msgstr "_Sekundärt lösenord"
 
-#~ msgid "_Password:"
-#~ msgstr "_Lösenord:"
+#~ msgid "_Password"
+#~ msgstr "_Lösenord"
 
 #~ msgid "Sh_ow passwords"
 #~ msgstr "Vi_sa lösenord"
@@ -610,20 +610,20 @@ msgstr "Tunnel_gränssnittsnamn:"
 #~ msgid "NAT-T"
 #~ msgstr "NAT-T"
 
-#~ msgid "_Username:"
-#~ msgstr "_Användarnamn:"
+#~ msgid "_Username"
+#~ msgstr "_Användarnamn"
 
 #~ msgid "Connect _anonymously"
 #~ msgstr "Anslut anon_ymt"
 
-#~ msgid "Connect as _user:"
-#~ msgstr "Anslut som _användare:"
+#~ msgid "Connect as _user"
+#~ msgstr "Anslut som _användare"
 
-#~ msgid "G_roup Name:"
-#~ msgstr "G_ruppnamn:"
+#~ msgid "G_roup Name"
+#~ msgstr "G_ruppnamn"
 
-#~ msgid "The following vpnc VPN connection will be created:"
-#~ msgstr "Följande VPN-anslutning av typen vpnc kommer att skapas:"
+#~ msgid "The following vpnc VPN connection will be created"
+#~ msgstr "Följande VPN-anslutning av typen vpnc kommer att skapas"
 
 #~ msgid "Name:  %s"
 #~ msgstr "Namn:  %s"
@@ -686,8 +686,8 @@ msgstr "Tunnel_gränssnittsnamn:"
 #~ msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
 #~ msgstr "<i>exempel: 172.16.0.0/16 10.11.12.0/24</i>"
 
-#~ msgid "Connection na_me:"
-#~ msgstr "Anslutningsna_mn:"
+#~ msgid "Connection na_me"
+#~ msgstr "Anslutningsna_mn"
 
 #~ msgid "Disable NAT _traversal"
 #~ msgstr "Inaktivera NAT-_traversering"
@@ -698,8 +698,8 @@ msgstr "Tunnel_gränssnittsnamn:"
 #~ msgid "Import _Saved Configuration..."
 #~ msgstr "Importera _sparad konfiguration..."
 
-#~ msgid "Interval:"
-#~ msgstr "Intervall:"
+#~ msgid "Interval"
+#~ msgstr "Intervall"
 
 #~ msgid ""
 #~ "Name used to identify the connection to the private network, e.g. "
@@ -781,14 +781,14 @@ msgstr "Tunnel_gränssnittsnamn:"
 #~ msgid "Name: %s"
 #~ msgstr "Namn: %s"
 
-#~ msgid "Name:"
-#~ msgstr "Namn:"
+#~ msgid "Name"
+#~ msgstr "Namn"
 
 #~ msgid "Gateway: %s"
 #~ msgstr "Gateway: %s"
 
-#~ msgid "Gateway:"
-#~ msgstr "Gateway:"
+#~ msgid "Gateway"
+#~ msgstr "Gateway"
 
 #~ msgid "Group Name: %s"
 #~ msgstr "Gruppnamn: %s"
@@ -799,8 +799,8 @@ msgstr "Tunnel_gränssnittsnamn:"
 #~ msgid "Routes: %s"
 #~ msgstr "Vägar: %s"
 
-#~ msgid "Routes:"
-#~ msgstr "Vägar:"
+#~ msgid "Routes"
+#~ msgstr "Vägar"
 
 #~ msgid "Optional Information"
 #~ msgstr "Valfri information"
