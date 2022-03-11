@@ -384,6 +384,11 @@ EXTRA_DIST = \
 	intltool-merge.in    \
 	intltool-update.in
 
+# Include a prebuilt file in tarball, to avoid hitting
+# https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4415
+EXTRA_DIST += \
+	gtk4/nm-vpnc-dialog.ui
+
 CLEANFILES = *.bak *~ \
 	$(nmvpnservice_DATA) \
 	$(appdata_files) \
