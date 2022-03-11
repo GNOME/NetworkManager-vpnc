@@ -1,11 +1,22 @@
 =======================================================
-NetworkManager-vpnc-1.2.8 (not released yet)
+NetworkManager-vpnc-1.2.8
 Overview of changes since NetworkManager-vpnc-1.2.6
 =======================================================
 
+This is a new stable release of NetworkManager-vpnc.  Notable changes include:
+
+* libnm-glib compatibility (NetworkManager < 1.0) is disabled by default.
+  It can be enabled by passing --with-libnm-glib to configure script.
+  Nobody should need it by now. Users that still use this are encourage
+  to let us know before the libnm-glib support is removed for good.
 * The auth helper in external UI mode can now be run without a display
-  server. Future nmcli version will utilize this for handling the
-  secrets without a graphical desktop.
+  server. This is useful when activating connections with "nmcli --ask". 
+* Gtk4 version of the editor plugin is now available (for use with Control
+  Center of GNOME 42 or later).
+* Updated Brazilian Portuguese, Catalan, Chinese, Croatian, Czech, Danish,
+  Dutch, French, German, Hungarian, Indonesian, Italian, Japanese,
+  Lithuanian, Polish, Romanian, Serbian, Slovak, Slovenian, Spanish,
+  Swedish, Turkish and Ukrainian translations.
 
 =======================================================
 NetworkManager-vpnc-1.2.6
