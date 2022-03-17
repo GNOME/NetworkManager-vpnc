@@ -10,9 +10,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
-"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
-"issues\n"
-"POT-Creation-Date: 2020-05-26 23:30+0000\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issues\n"
+"POT-Creation-Date: 2022-03-13 12:32+0000\n"
 "PO-Revision-Date: 2018-07-22 16:28+0200\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -65,101 +64,88 @@ msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
 "Us heu d'autenticar per a poder accedir a la xarxa privada virtual «%s»."
 
-#: ../properties/nm-vpnc-editor-plugin.c:44
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "VPN compatible amb Cisco (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:46
 msgid ""
-"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
-"VPN gateways."
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based"
+" VPN gateways."
 msgstr ""
 "Compatible amb diverses passarel·les VPN Cisco, Juniper, Netscreen i "
 "Sonicwall basades en IPsec."
 
-#: ../properties/nm-vpnc-editor-plugin.c:508
+#: ../properties/nm-vpnc-editor-plugin.c:509
 #, c-format
 msgid ""
-"The VPN settings file “%s” specifies that VPN traffic should be tunneled "
-"through TCP which is currently not supported in the vpnc software.\n"
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled through TCP which is currently not supported in the vpnc software.\n"
 "\n"
-"The connection can still be created, with TCP tunneling disabled, however it "
-"may not work as expected."
+"The connection can still be created, with TCP tunneling disabled, however it may not work as expected."
 msgstr ""
-"El fitxer de paràmetres de la VPN «%s» especifica que el tràfic VPN s'hauria "
-"de posar en un túnel TCP, que de moment encara no està implementat a "
-"l'aplicació vpnc.\n"
+"El fitxer de paràmetres de la VPN «%s» especifica que el tràfic VPN s'hauria de posar en un túnel TCP, que de moment encara no està implementat a l'aplicació vpnc.\n"
 "\n"
-"Tot i això es pot crear la connexió, amb el túnel a través de TCP "
-"inhabilitat, tanmateix segurament no funcionarà com s'espera."
+"Tot i això es pot crear la connexió, amb el túnel a través de TCP inhabilitat, tanmateix segurament no funcionarà com s'espera."
 
-#: ../properties/nm-vpnc-editor.c:374
+#: ../properties/nm-vpnc-editor.c:603
 msgid "Secure (default)"
 msgstr "Segura (predeterminat)"
 
-#: ../properties/nm-vpnc-editor.c:377
+#: ../properties/nm-vpnc-editor.c:606
 msgid "Weak (use with caution)"
 msgstr "Dèbil (utilitzeu amb compte)"
 
-#: ../properties/nm-vpnc-editor.c:385
+#: ../properties/nm-vpnc-editor.c:609
 msgid "None (completely insecure)"
 msgstr "Cap (completament insegura)"
 
-#: ../properties/nm-vpnc-editor.c:449
+#: ../properties/nm-vpnc-editor.c:653
 msgid "Cisco (default)"
 msgstr "Cisco (predeterminat)"
 
-#: ../properties/nm-vpnc-editor.c:456
+#: ../properties/nm-vpnc-editor.c:656
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:497
+#: ../properties/nm-vpnc-editor.c:667
 msgid "NAT-T when available (default)"
 msgstr "NAT-T quan estigui disponible (predeterminat)"
 
-#: ../properties/nm-vpnc-editor.c:504
+#: ../properties/nm-vpnc-editor.c:670
 msgid "NAT-T always"
 msgstr "NAT-T sempre"
 
-#: ../properties/nm-vpnc-editor.c:511
+#: ../properties/nm-vpnc-editor.c:673
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:518
+#: ../properties/nm-vpnc-editor.c:676
 msgid "Disabled"
 msgstr "Inhabilitat"
 
-#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+#: ../properties/nm-vpnc-editor.c:687 ../properties/nm-vpnc-editor.c:710
 msgid "DH Group 1"
 msgstr "Grup DH 1"
 
-#: ../properties/nm-vpnc-editor.c:545
+#: ../properties/nm-vpnc-editor.c:690
 msgid "DH Group 2 (default)"
 msgstr "Grup DH 2 (predeterminat)"
 
-#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+#: ../properties/nm-vpnc-editor.c:693 ../properties/nm-vpnc-editor.c:716
 msgid "DH Group 5"
 msgstr "Grup DH 5"
 
-#: ../properties/nm-vpnc-editor.c:610
+#: ../properties/nm-vpnc-editor.c:704
 msgid "Server (default)"
 msgstr "Servidor (predeterminat)"
 
-#: ../properties/nm-vpnc-editor.c:617
+#: ../properties/nm-vpnc-editor.c:707
 msgid "None"
 msgstr "Cap"
 
-#: ../properties/nm-vpnc-editor.c:631
+#: ../properties/nm-vpnc-editor.c:713
 msgid "DH Group 2"
 msgstr "Grup DH 2"
-
-#: ../properties/nm-vpnc-editor.c:678
-msgid "Choose a Certificate Authority (CA) certificate…"
-msgstr "Escolliu un certificat a Autoritat de Certificats (CA)…"
-
-#: ../properties/nm-vpnc-editor.c:682
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "Certificats PEM (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
@@ -280,8 +266,7 @@ msgstr "la propietat «%s» de la classe d'objectes «%s» no es pot escriure"
 
 #: ../shared/nm-utils/nm-shared-utils.c:278
 #, c-format
-msgid ""
-"construct property \"%s\" for object '%s' can't be set after construction"
+msgid "construct property \"%s\" for object '%s' can't be set after construction"
 msgstr ""
 "la propietat «%s» de construcció per a l'objecte «%s» no es pot establir "
 "després de la construcció"
@@ -338,30 +323,10 @@ msgid "General"
 msgstr "General"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Sho_w passwords"
-msgstr "M_ostra les contrasenyes"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Contrasenya de grup\n"
-"config: IPSec secret <contrasenya_de_grup>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password"
-msgstr "Contrasenya del _grup"
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway"
 msgstr "_Passarel·la"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name"
-msgstr "Nom del g_rup"
-
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
@@ -369,27 +334,11 @@ msgstr ""
 "IP/nom d'amfitrió de la passarel·la IPsec\n"
 "config: IPSec gateway <passarel·la>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Nom de grup\n"
-"config: IPSec ID <nom_de_grup>"
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "User na_me"
+msgstr "_Nom d'usuari"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password"
-msgstr "_Contrasenya d'usuari"
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Contrasenya d'usuari per a la connexió\n"
-"config: Xauth password <contrasenya>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
@@ -397,9 +346,45 @@ msgstr ""
 "Nom d'usuari per a la connexió\n"
 "config: Xauth username <nom_usuari>"
 
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "User _password"
+msgstr "_Contrasenya d'usuari"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Contrasenya d'usuari per a la connexió\n"
+"config: Xauth password <contrasenya>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "G_roup name"
+msgstr "Nom del g_rup"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Nom de grup\n"
+"config: IPSec ID <nom_de_grup>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Gro_up password"
+msgstr "Contrasenya del _grup"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Contrasenya de grup\n"
+"config: IPSec secret <contrasenya_de_grup>"
+
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me"
-msgstr "_Nom d'usuari"
+msgid "Sho_w passwords"
+msgstr "M_ostra les contrasenyes"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -410,29 +395,28 @@ msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password.\n"
 "config: IKE Authmode hybrid"
 msgstr ""
-"Habilita l'autenticació híbrida, és a dir, usa un certificat a més d'una "
-"contrasenya.\n"
+"Habilita l'autenticació híbrida, és a dir, usa un certificat a més d'una contrasenya.\n"
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File"
-msgstr "_Fitxer CA"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"Certificat CA en format PEM\n"
-"config: CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
 msgstr "Avança_t…"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid "Advanced Options"
 msgstr "Opcions avançades"
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
+msgid "Advanced Properties"
+msgstr "Propietats avançades"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "_Cancel"
+msgstr "_Cancel·la"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Apply"
+msgstr "_Aplica"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
@@ -451,16 +435,16 @@ msgstr ""
 "config: Domain <domini>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Vendor"
+msgstr "Pro_veïdor"
+
+#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Proveïdor de la vostra passarel·la IPsec\n"
 "config: Vendor <cisco/netscreen"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor"
-msgstr "Pro_veïdor"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion"
@@ -478,83 +462,11 @@ msgstr ""
 msgid "Transport and Security"
 msgstr "Transport i seguretat"
 
-# FIXME això queda molt macabre (dpm)
 #: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Disable Dead _Peer Detection"
-msgstr "_Inhabilita la detecció de l'homòleg mort"
+msgid "Tunnel _interface name"
+msgstr "Nom d'_interfície de túnel"
 
 #: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"Inhabilita l'enviament de paquets DPD (estableix el temps d'espera a 0)\n"
-"config: DPD idle timeout (our side) 0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port"
-msgstr "Port _local"
-
-#: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy"
-msgstr "Confidencialitat _endavant perfecta"
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group"
-msgstr "_Grup IKE DH"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_Transversal del NAT"
-
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Port ISAKMP local a usar (0 vol dir port aleatori; 500 és el valor "
-"predeterminat del vpnc)\n"
-"config: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "0"
-msgstr "0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Grup Diffie-Hellman a usar per al PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Nom del grup IKE DH\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Mètode transversal NAT a usar\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:53
-msgid ""
-"Encryption method\n"
-"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
-"encryption” for None"
-msgstr ""
-"Mètode de xifratge\n"
-"config: res per a segur, «Enable Single DES» per a feble, «Enable no "
-"encription» per a cap"
-
-#: ../properties/nm-vpnc-dialog.ui.h:55
 msgid ""
 "Tunnel interface name to use\n"
 "config: Interface name <name>"
@@ -562,10 +474,80 @@ msgstr ""
 "Nom d'interfície de túnel a usar\n"
 "config: Interface name <nom>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:57
+#: ../properties/nm-vpnc-dialog.ui.h:40
 msgid "_Encryption method"
 msgstr "_Mètode de xifratge"
 
-#: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name"
-msgstr "Nom d'_interfície de túnel"
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no encryption” for None"
+msgstr ""
+"Mètode de xifratge\n"
+"config: res per a segur, «Enable Single DES» per a feble, «Enable no encription» per a cap"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal"
+msgstr "_Transversal del NAT"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"Mètode transversal NAT a usar\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "_IKE DH Group"
+msgstr "_Grup IKE DH"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Nom del grup IKE DH\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid "Perfect _Forward Secrecy"
+msgstr "Confidencialitat _endavant perfecta"
+
+#: ../properties/nm-vpnc-dialog.ui.h:50
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Grup Diffie-Hellman a usar per al PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:52
+msgid "_Local port"
+msgstr "Port _local"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Port ISAKMP local a usar (0 vol dir port aleatori; 500 és el valor predeterminat del vpnc)\n"
+"config: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid "0"
+msgstr "0"
+
+# FIXME això queda molt macabre (dpm)
+#: ../properties/nm-vpnc-dialog.ui.h:56
+msgid "Disable Dead _Peer Detection"
+msgstr "_Inhabilita la detecció de l'homòleg mort"
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Inhabilita l'enviament de paquets DPD (estableix el temps d'espera a 0)\n"
+"config: DPD idle timeout (our side) 0"
+
