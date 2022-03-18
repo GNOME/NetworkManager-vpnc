@@ -1,17 +1,17 @@
 # Hungarian translation of network-manager-vpnc
-# Copyright (C) 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2016, 2019, 2021 Free Software Foundation, Inc.
+# Copyright (C) 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2016, 2019, 2021, 2022 Free Software Foundation, Inc.
 # This file is distributed under the same license as the network-manager-vpnc package.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2016.
 # Mate Ory <orymate at ubuntu dot com>, 2011.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2019, 2021.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2019, 2021, 2022.
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issue"
 "s\n"
-"POT-Creation-Date: 2020-05-26 23:30+0000\n"
-"PO-Revision-Date: 2021-02-15 01:46+0100\n"
+"POT-Creation-Date: 2022-03-13 12:32+0000\n"
+"PO-Revision-Date: 2022-03-18 01:48+0100\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -47,12 +47,10 @@ msgid "Authenticate VPN"
 msgstr "VPN-azonosítás"
 
 #: ../auth-dialog/main.c:178
-#| msgid "Password:"
 msgid "Password"
 msgstr "Jelszó"
 
 #: ../auth-dialog/main.c:186
-#| msgid "Group Password:"
 msgid "Group Password"
 msgstr "Csoportjelszó"
 
@@ -65,11 +63,11 @@ msgstr "_Csoportjelszó:"
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "Hitelesítenie kell magát a(z) „%s” virtuális magánhálózat eléréséhez."
 
-#: ../properties/nm-vpnc-editor-plugin.c:44
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibilis VPN-kliens (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:46
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -77,7 +75,7 @@ msgstr ""
 "Kompatibilis számos Cisco, Juniper, Netscreen és Sonicwall IPsec-alapú VPN-"
 "átjáróval."
 
-#: ../properties/nm-vpnc-editor-plugin.c:508
+#: ../properties/nm-vpnc-editor-plugin.c:509
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -92,73 +90,65 @@ msgstr ""
 "A kapcsolat így is létrehozható letiltott TCP alagutazással, azonban "
 "lehetséges, hogy nem a várt módon fog működni."
 
-#: ../properties/nm-vpnc-editor.c:374
+#: ../properties/nm-vpnc-editor.c:603
 msgid "Secure (default)"
 msgstr "Biztonságos (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:377
+#: ../properties/nm-vpnc-editor.c:606
 msgid "Weak (use with caution)"
 msgstr "Gyenge (óvatosan használja)"
 
-#: ../properties/nm-vpnc-editor.c:385
+#: ../properties/nm-vpnc-editor.c:609
 msgid "None (completely insecure)"
 msgstr "Nincs (nem biztonságos)"
 
-#: ../properties/nm-vpnc-editor.c:449
+#: ../properties/nm-vpnc-editor.c:653
 msgid "Cisco (default)"
 msgstr "Cisco (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:456
+#: ../properties/nm-vpnc-editor.c:656
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:497
+#: ../properties/nm-vpnc-editor.c:667
 msgid "NAT-T when available (default)"
 msgstr "NAT-T ha elérhető (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:504
+#: ../properties/nm-vpnc-editor.c:670
 msgid "NAT-T always"
 msgstr "NAT-T mindig"
 
-#: ../properties/nm-vpnc-editor.c:511
+#: ../properties/nm-vpnc-editor.c:673
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:518
+#: ../properties/nm-vpnc-editor.c:676
 msgid "Disabled"
 msgstr "Tiltva"
 
-#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+#: ../properties/nm-vpnc-editor.c:687 ../properties/nm-vpnc-editor.c:710
 msgid "DH Group 1"
 msgstr "1. DH csoport"
 
-#: ../properties/nm-vpnc-editor.c:545
+#: ../properties/nm-vpnc-editor.c:690
 msgid "DH Group 2 (default)"
 msgstr "2. DH csoport (alapbeállítás)"
 
-#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+#: ../properties/nm-vpnc-editor.c:693 ../properties/nm-vpnc-editor.c:716
 msgid "DH Group 5"
 msgstr "5. DH csoport"
 
-#: ../properties/nm-vpnc-editor.c:610
+#: ../properties/nm-vpnc-editor.c:704
 msgid "Server (default)"
 msgstr "Kiszolgáló (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:617
+#: ../properties/nm-vpnc-editor.c:707
 msgid "None"
 msgstr "Nincs"
 
-#: ../properties/nm-vpnc-editor.c:631
+#: ../properties/nm-vpnc-editor.c:713
 msgid "DH Group 2"
 msgstr "2. DH csoport"
-
-#: ../properties/nm-vpnc-editor.c:678
-msgid "Choose a Certificate Authority (CA) certificate…"
-msgstr "Válasszon egy hitelesítésszolgáltatói (CA) tanúsítványt…"
-
-#: ../properties/nm-vpnc-editor.c:682
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "PEM tanúsítványok (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
@@ -335,30 +325,10 @@ msgid "General"
 msgstr "Általános"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Sho_w passwords"
-msgstr "_Jelszavak megjelenítése"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Csoportjelszó.\n"
-"config: IPSec secret <csoportjelszó>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password"
-msgstr "_Csoportjelszó"
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway"
 msgstr "Á_tjáró"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name"
-msgstr "Cso_portnév"
-
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
@@ -366,27 +336,11 @@ msgstr ""
 "Az IPsec átjáró IP-címe/gépneve.\n"
 "config: IPSec gateway <átjáró>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Csoportnév.\n"
-"config: IPSec ID <csoportnév>"
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "User na_me"
+msgstr "_Felhasználónév"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password"
-msgstr "_Felhasználó jelszava"
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Felhasználói jelszó a kapcsolathoz.\n"
-"config: Xauth password <jelszó>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
@@ -394,9 +348,45 @@ msgstr ""
 "Felhasználónév a kapcsolathoz.\n"
 "config: Xauth username <felhasználónév>"
 
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "User _password"
+msgstr "_Felhasználó jelszava"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Felhasználói jelszó a kapcsolathoz.\n"
+"config: Xauth password <jelszó>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "G_roup name"
+msgstr "Cso_portnév"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Csoportnév.\n"
+"config: IPSec ID <csoportnév>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Gro_up password"
+msgstr "_Csoportjelszó"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Csoportjelszó.\n"
+"config: IPSec secret <csoportjelszó>"
+
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me"
-msgstr "_Felhasználónév"
+msgid "Sho_w passwords"
+msgstr "_Jelszavak megjelenítése"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -412,24 +402,25 @@ msgstr ""
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File"
-msgstr "CA _fájl"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"CA tanúsítvány PEM formátumban.\n"
-"config: CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
 msgstr "Spe_ciális…"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid "Advanced Options"
 msgstr "Speciális beállítások"
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
+#| msgid "Advanced Options"
+msgid "Advanced Properties"
+msgstr "Speciális tulajdonságok"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "_Cancel"
+msgstr "_Mégse"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Apply"
+msgstr "_Alkalmaz"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
@@ -448,16 +439,16 @@ msgstr ""
 "config: Domain <tartomány>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Vendor"
+msgstr "S_zállító"
+
+#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Az IPsec átjáró szállítója.\n"
 "config: Vendor <cisco/netscreen>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor"
-msgstr "S_zállító"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion"
@@ -476,71 +467,22 @@ msgid "Transport and Security"
 msgstr "Átvitel és biztonság"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Disable Dead _Peer Detection"
-msgstr "_Halott partnerek felismerésének kikapcsolása"
+msgid "Tunnel _interface name"
+msgstr "_Alagútcsatoló neve"
 
 #: ../properties/nm-vpnc-dialog.ui.h:38
 msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
 msgstr ""
-"DPD csomagok küldésének letiltása (az időkorlátot 0-ra állítja).\n"
-"config: DPD idle timeout (our side) 0"
+"Használandó alagútcsatoló neve\n"
+"config: Interface name <név>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port"
-msgstr "_Helyi port"
+msgid "_Encryption method"
+msgstr "_Titkosítási mód"
 
-# MS szótár szerint...
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy"
-msgstr "_Sérülés utáni titkosságvédelem (PFS)"
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group"
-msgstr "_IKE DH csoport"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_NAT bejárás"
-
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Használandó helyi ISAKMP port (0=véletlenszerű, 500=a vpnc alapértelmezése)\n"
-"config: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "0"
-msgstr "0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"A PFS-hez használandó Diffie-Hellman csoport\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Az IKE DH csoport neve\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"A használandó NAT bejárási mód.\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
@@ -550,18 +492,67 @@ msgstr ""
 "config: semmi = biztonságos, „Enable Single DES” (Egyszeres DES "
 "engedélyezése) = gyenge, „Enable no encryption” (Titkosítás tiltása) = nincs"
 
-#: ../properties/nm-vpnc-dialog.ui.h:55
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal"
+msgstr "_NAT bejárás"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
-"Tunnel interface name to use\n"
-"config: Interface name <name>"
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
-"Használandó alagútcsatoló neve\n"
-"config: Interface name <név>"
+"A használandó NAT bejárási mód.\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "_IKE DH Group"
+msgstr "_IKE DH csoport"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Az IKE DH csoport neve\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+
+# MS szótár szerint...
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid "Perfect _Forward Secrecy"
+msgstr "_Sérülés utáni titkosságvédelem (PFS)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:50
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"A PFS-hez használandó Diffie-Hellman csoport\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:52
+msgid "_Local port"
+msgstr "_Helyi port"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Használandó helyi ISAKMP port (0=véletlenszerű, 500=a vpnc alapértelmezése)\n"
+"config: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:56
+msgid "Disable Dead _Peer Detection"
+msgstr "_Halott partnerek felismerésének kikapcsolása"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method"
-msgstr "_Titkosítási mód"
-
-#: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name"
-msgstr "_Alagútcsatoló neve"
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"DPD csomagok küldésének letiltása (az időkorlátot 0-ra állítja).\n"
+"config: DPD idle timeout (our side) 0"
