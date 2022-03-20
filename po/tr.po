@@ -4,15 +4,15 @@
 #
 # Necdet Yücel <necdetyucel@gmail.com>, 2014.
 # Sabri Ünal <libreajans@gmail.com>, 2019.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2020.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2020, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2020-05-26 23:30+0000\n"
-"PO-Revision-Date: 2020-07-16 14:25+0300\n"
+"POT-Creation-Date: 2022-03-13 12:32+0000\n"
+"PO-Revision-Date: 2022-03-20 22:50+0300\n"
 "Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.3.1\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-POOTLE-MTIME: 1419728809.000000\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
@@ -64,14 +64,13 @@ msgstr "_Küme Parolası:"
 #: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
-msgstr ""
-"“%s” Sanal Özel Ağına erişmek için kimlik doğrulaması yapmanız gerekir."
+msgstr "“%s” Sanal Özel Ağına erişmek için kimlik doğrulamanız gerekir."
 
-#: ../properties/nm-vpnc-editor-plugin.c:44
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco Uyumlu VPN (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:46
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -79,7 +78,7 @@ msgstr ""
 "Çeşitli Cisco, Juniper, Netscreen ve Sonicwall IPsec tabanlı VPN ağ "
 "geçitleriyle uyumlu."
 
-#: ../properties/nm-vpnc-editor-plugin.c:508
+#: ../properties/nm-vpnc-editor-plugin.c:509
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -94,73 +93,65 @@ msgstr ""
 "Bağlantı yine oluşturulabilir ancak TCP tünelleme devre dışı olacağından "
 "istenildiği gibi çalışmayabilir."
 
-#: ../properties/nm-vpnc-editor.c:374
+#: ../properties/nm-vpnc-editor.c:603
 msgid "Secure (default)"
 msgstr "Güvenli (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:377
+#: ../properties/nm-vpnc-editor.c:606
 msgid "Weak (use with caution)"
 msgstr "Zayıf (dikkatli kullanın)"
 
-#: ../properties/nm-vpnc-editor.c:385
+#: ../properties/nm-vpnc-editor.c:609
 msgid "None (completely insecure)"
 msgstr "Hiçbiri (tamamen güvensiz)"
 
-#: ../properties/nm-vpnc-editor.c:449
+#: ../properties/nm-vpnc-editor.c:653
 msgid "Cisco (default)"
 msgstr "Cisco (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:456
+#: ../properties/nm-vpnc-editor.c:656
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:497
+#: ../properties/nm-vpnc-editor.c:667
 msgid "NAT-T when available (default)"
 msgstr "Mümkün olduğunda NAT-T (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:504
+#: ../properties/nm-vpnc-editor.c:670
 msgid "NAT-T always"
 msgstr "Her zaman NAT-T"
 
-#: ../properties/nm-vpnc-editor.c:511
+#: ../properties/nm-vpnc-editor.c:673
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:518
+#: ../properties/nm-vpnc-editor.c:676
 msgid "Disabled"
 msgstr "Kapalı"
 
-#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+#: ../properties/nm-vpnc-editor.c:687 ../properties/nm-vpnc-editor.c:710
 msgid "DH Group 1"
 msgstr "DH Kümesi 1"
 
-#: ../properties/nm-vpnc-editor.c:545
+#: ../properties/nm-vpnc-editor.c:690
 msgid "DH Group 2 (default)"
 msgstr "DH Kümesi 2 (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+#: ../properties/nm-vpnc-editor.c:693 ../properties/nm-vpnc-editor.c:716
 msgid "DH Group 5"
 msgstr "DH Kümesi 5"
 
-#: ../properties/nm-vpnc-editor.c:610
+#: ../properties/nm-vpnc-editor.c:704
 msgid "Server (default)"
 msgstr "Sunucu (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:617
+#: ../properties/nm-vpnc-editor.c:707
 msgid "None"
 msgstr "Hiçbiri"
 
-#: ../properties/nm-vpnc-editor.c:631
+#: ../properties/nm-vpnc-editor.c:713
 msgid "DH Group 2"
 msgstr "DH Kümesi 2"
-
-#: ../properties/nm-vpnc-editor.c:678
-msgid "Choose a Certificate Authority (CA) certificate…"
-msgstr "Sertifika Yetkilisi (CA) sertifikası seç…"
-
-#: ../properties/nm-vpnc-editor.c:682
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "PEM sertifikaları (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
@@ -331,58 +322,22 @@ msgid "General"
 msgstr "Genel"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Sho_w passwords"
-msgstr "Parolaları _göster"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Küme parolası\n"
-"yapılandırma: IPSec secret <küme_parolası>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password"
-msgstr "K_üme parolası"
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway"
 msgstr "_Ağ geçidi"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name"
-msgstr "_Küme adı"
-
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
 msgstr ""
 "IPsec geçidinin IP adresi/makine adı\n"
-"yapılandırma: IPSec gateway <ağ geçidi>"
+"yapılandırma: IPSec gateway <ağ_geçidi>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Küme adı\n"
-"yapılandırma: IPSec ID <grup_adı>"
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "User na_me"
+msgstr "Kullanıcı a_dı"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password"
-msgstr "Kullanıcı _parolası"
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Bağlantı için kullanıcı parolası\n"
-"yapılandırma: Xauth password <parola>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
@@ -390,9 +345,45 @@ msgstr ""
 "Bağlantı için kullanıcı adı\n"
 "yapılandırma: Xauth username <kullanıcı_adı>"
 
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "User _password"
+msgstr "Kullanıcı _parolası"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Bağlantı için kullanıcı parolası\n"
+"yapılandırma: Xauth password <parola>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "G_roup name"
+msgstr "_Küme adı"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Küme adı\n"
+"yapılandırma: IPSec ID <küme_adı>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Gro_up password"
+msgstr "K_üme parolası"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Küme parolası\n"
+"yapılandırma: IPSec secret <küme_parolası>"
+
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me"
-msgstr "Kullanıcı a_dı"
+msgid "Sho_w passwords"
+msgstr "Parolaları _göster"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -408,24 +399,24 @@ msgstr ""
 "yapılandırma: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File"
-msgstr "CA _Dosyası"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"PEM biçiminde CA sertifikası\n"
-"yapılandırma: CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
 msgstr "Geliş_miş…"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid "Advanced Options"
 msgstr "Gelişmiş Seçenekler"
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
+msgid "Advanced Properties"
+msgstr "Gelişmiş Özellikler"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "_Cancel"
+msgstr "İptal _Et"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Apply"
+msgstr "_Uygula"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
@@ -444,16 +435,16 @@ msgstr ""
 "yapılandırma: Domain <alanadı>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Vendor"
+msgstr "_Üretici"
+
+#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "IPsec geçidinizin üreticisi\n"
 "yapılandırma: Vendor <cisco/netscreen>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor"
-msgstr "_Üretici"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion"
@@ -472,71 +463,22 @@ msgid "Transport and Security"
 msgstr "Aktarım ve Güvenlik"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Disable Dead _Peer Detection"
-msgstr "_Pasif Uç Algılamayı Kapat"
+msgid "Tunnel _interface name"
+msgstr "Tünel arab_irimi adı"
 
 #: ../properties/nm-vpnc-dialog.ui.h:38
 msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
 msgstr ""
-"DPD paketi gönderimini kapat (zaman aşımını 0 yapar)\n"
-"yapılandırma: DPD idle timeout (our side) 0"
+"Kullanılacak tünel arayüzünün adı\n"
+"yapılandırma: Interface name <ad>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port"
-msgstr "_Yerel bağlantı noktası"
+msgid "_Encryption method"
+msgstr "_Şifreleme yöntemi"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy"
-msgstr "Aktarım _Güvenliliğini Mükemmelleştir"
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group"
-msgstr "_IKE DH Kümesi"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_NAT geçişi"
-
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Kullanılacak yerel ISAKMP bağlantı noktası (0 rastgele bağlantı noktası; "
-"vpnc için öntanımlı 500)\n"
-"yapılandırma: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "0"
-msgstr "0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"PFS için Diffie-Hellman kümesi\n"
-"yapılandırma: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/sunucu>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"IKE DH kümesinin adı\n"
-"yapılandırma: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Kullanılacak NAT geçişi\n"
-"yapılandırma: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
@@ -547,21 +489,86 @@ msgstr ""
 "DES” (Tekli DES’i Etkinleştir), Hiçbiri için “Enable no "
 "encryption” (Şifreleme yok)"
 
-#: ../properties/nm-vpnc-dialog.ui.h:55
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal"
+msgstr "_NAT geçişi"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
-"Tunnel interface name to use\n"
-"config: Interface name <name>"
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
-"Kullanılacak tünel arayüzünün adı\n"
-"yapılandırma: Interface name <ad>"
+"Kullanılacak NAT geçişi\n"
+"yapılandırma: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "_IKE DH Group"
+msgstr "_IKE DH Kümesi"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"IKE DH kümesinin adı\n"
+"yapılandırma: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid "Perfect _Forward Secrecy"
+msgstr "Aktarım _Güvenliliğini Mükemmelleştir"
+
+#: ../properties/nm-vpnc-dialog.ui.h:50
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"PFS için Diffie-Hellman kümesi\n"
+"yapılandırma: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/sunucu>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:52
+msgid "_Local port"
+msgstr "_Yerel bağlantı noktası"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Kullanılacak yerel ISAKMP bağlantı noktası (0 rastgele bağlantı noktası; "
+"vpnc için öntanımlı 500)\n"
+"yapılandırma: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:56
+msgid "Disable Dead _Peer Detection"
+msgstr "_Pasif Uç Algılamayı Kapat"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method"
-msgstr "_Şifreleme yöntemi"
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"DPD paketi gönderimini kapat (zaman aşımını 0 yapar)\n"
+"yapılandırma: DPD idle timeout (bizim tarafımız) 0"
 
-#: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name"
-msgstr "Tünel arab_irimi adı"
+#~ msgid "Choose a Certificate Authority (CA) certificate…"
+#~ msgstr "Sertifika Yetkilisi (CA) sertifikası seç…"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.cer)"
+#~ msgstr "PEM sertifikaları (*.pem, *.crt, *.cer)"
+
+#~ msgid "CA _File"
+#~ msgstr "CA _Dosyası"
+
+#~ msgid ""
+#~ "CA certificate in PEM format\n"
+#~ "config: CA-File"
+#~ msgstr ""
+#~ "PEM biçiminde CA sertifikası\n"
+#~ "yapılandırma: CA-File"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "%s VPN Kimlik Doğrulaması"
