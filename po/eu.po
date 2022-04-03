@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2008, 2009, 2010, 2014.
-# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2021.
+# Asier Sarasua Garmendia <asiersarasua@ni.eus>, 2021, 2022.
 #
 msgid ""
 msgstr "Project-Id-Version: network-manager-vpnc master\n"
@@ -170,7 +170,7 @@ msgstr "“%s” propietate boolear baliogabea (ez da bai edo ez)"
 #: ../src/nm-vpnc-service.c:258
 #, c-format
 msgid "unhandled property “%s” type %d"
-msgstr "maneiatu gabeko “%s” propietatea %d mota"
+msgstr "maneiatu gabeko “%s” propietate mota %d"
 
 #: ../src/nm-vpnc-service.c:275
 msgid "No VPN configuration options."
@@ -443,7 +443,7 @@ msgstr "Erabiliko den tunel-.interfazearen izena\n"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
 msgid "_Encryption method"
-msgstr "Enkriptatze-metodoa"
+msgstr "Zifratze-metodoa"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
 msgid ""
