@@ -288,8 +288,6 @@ populate_adv_dialog (VpncEditor *self)
 	g_return_if_fail (widget != NULL);
 	if (priv->interface_name)
 		gtk_editable_set_text (GTK_EDITABLE (widget), priv->interface_name);
-	else
-		gtk_editable_set_text (GTK_EDITABLE (widget), "");
 
 	/* Encryption combo */
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "encryption_combo"));
@@ -900,9 +898,8 @@ update_connection (NMVpnEditor *editor,
 	update_adv_settings (self, s_vpn);
 
 	str = priv->interface_name;
-	if (!str)
-		str = "";
-	g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_INTERFACE_NAME, str, NULL);
+	if (str && strlen (str))
+		g_object_set (G_OBJECT (s_con), NM_SETTING_CONNECTION_INTERFACE_NAME, str, NULL);
 
 	nm_connection_add_setting (connection, NM_SETTING (s_vpn));
 	return TRUE;
