@@ -1,321 +1,515 @@
-# translation of NetworkManager-vpnc.HEAD.po to Georgian
-# Malkhaz Barkalaya მალზახ ბარკალაია <malxaz@gmail.com>, 2007.
-# Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>, 2007.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: NetworkManager-vpnc.HEAD\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-02 03:30+0000\n"
-"PO-Revision-Date: 2007-03-07 01:14+0100\n"
-"Last-Translator: Vladimer Sichinava ვლადიმერ სიჭინავა <vsichi@gnome.org>\n"
-"Language-Team: Georgian <http://mail.gnome.org/mailman/listinfo/gnome-ge-list>\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
+"issues\n"
+"POT-Creation-Date: 2022-04-15 17:21+0000\n"
+"PO-Revision-Date: 2022-04-17 06:30+0200\n"
+"Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
+"Language-Team: \n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:144
-msgid "_Secondary Password:"
-msgstr "_მეორადი პაროლი:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "Cisco VPNC მოძველებული კლიენტი"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:258
-msgid "_Username:"
-msgstr "_სახელი:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Cisco IPsec VPN-ის კლიენტი"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:260
-msgid "_Domain:"
-msgstr "_დომენი:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "VPNC-ზე დაფუძნებული ვირტუალური ქსელების მორგების ხარდაჭერა."
 
-#: ../auth-dialog/gnome-two-password-dialog.c:262
-msgid "_Password:"
-msgstr "_პაროლი:"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr "თავსებადია Cisco VPN კონცენტრატორებთან, რომლებზეც IPsec ჩართულია."
 
-#: ../auth-dialog/gnome-two-password-dialog.c:351
-msgid "Connect _anonymously"
-msgstr "_ანონიმური შეერთება"
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "NetworkManager-ის პროგრამისტები"
 
-#: ../auth-dialog/gnome-two-password-dialog.c:356
-msgid "Connect as _user:"
-msgstr ""
-"_შეერთება მომხმარებლის "
-"სახელით:"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:465
-msgid "_Remember passwords for this session"
-msgstr ""
-"_სესიის პაროლის "
-"დამახსოვრება"
-
-#: ../auth-dialog/gnome-two-password-dialog.c:467
-msgid "_Save passwords in keyring"
-msgstr "_პაროლის აწმში შენახვა"
-
-#: ../auth-dialog/main.c:161
-#, c-format
-msgid "You need to authenticate to access the Virtual Private Network '%s'."
-msgstr ""
-"საჭიროა აუთენტიკაცია VPN "
-"‘%s’-ში შესვლისათვის"
-
-#: ../auth-dialog/main.c:162
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
-msgstr "VPN-აუთენტიკაცია"
+msgstr "VPN-ის ავთენტიკაცია"
 
-#: ../auth-dialog/main.c:169
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "პაროლი"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "ჯგუფის პაროლი"
+
+#: ../auth-dialog/main.c:232
 msgid "_Group Password:"
 msgstr "_ჯგუფის პაროლი:"
 
-#: ../nm-vpnc.desktop.in.h:1
-msgid "Add, Remove, and Edit VPN Connections"
+#: ../auth-dialog/main.c:489
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr "VPN \"%s\"-თან წვდომისთვის საჭიროა ავთენტიკაცია."
+
+#: ../properties/nm-vpnc-editor-plugin.c:45
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "Cisco-სთან თავსებადი VPN (vpnc)"
+
+#: ../properties/nm-vpnc-editor-plugin.c:46
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
+"VPN gateways."
 msgstr ""
-"VPN-შეერთებების დამატება, "
-"წაშლა და რედაქტირება"
+"თავსებადია Cisco, Juniper, Netscreen da Sonicwall-ის IPsec-ზე დაფუძნებულ VPN "
+"კონცენტრატორებთან."
 
-#: ../nm-vpnc.desktop.in.h:2
-msgid "VPN Connection Manager (vpnc)"
-msgstr "VPN-შეერთებების მენეჯერი (vpnc)"
-
-#: ../properties/nm-vpnc.c:84
-msgid "Compatible Cisco VPN client (vpnc)"
-msgstr "თავსებადი Cisco VPN-კლიენტი (vpnc)"
-
-#: ../properties/nm-vpnc.c:448
-msgid "The following vpnc VPN connection will be created:"
-msgstr "გახსნილია VPN-შეერთებები:"
-
-#: ../properties/nm-vpnc.c:450
-#, c-format
-msgid "Name:  %s"
-msgstr "სახელი: %s"
-
-#: ../properties/nm-vpnc.c:453
-#, c-format
-msgid "Gateway:  %s"
-msgstr "კარიბჭე: %s"
-
-#: ../properties/nm-vpnc.c:455
-#, c-format
-msgid "Group Name:  %s"
-msgstr "ჯგუფის სახელი: %s"
-
-#: ../properties/nm-vpnc.c:459
-#, c-format
-msgid "Username:  %s"
-msgstr "მომხმარებლის სახელი: %s"
-
-#: ../properties/nm-vpnc.c:464
-#, c-format
-msgid "Domain:  %s"
-msgstr "დომენი: %s"
-
-#: ../properties/nm-vpnc.c:469
-#, c-format
-msgid "Routes:  %s"
-msgstr "მაშრუტები: %s"
-
-#: ../properties/nm-vpnc.c:473
-msgid "The connection details can be changed using the \"Edit\" button."
-msgstr ""
-"\"Edit\" ღილაკით შეიძლება "
-"შეერთების დეტალების "
-"რედაქტირება"
-
-#: ../properties/nm-vpnc.c:542
-msgid "TCP tunneling not supported"
-msgstr ""
-"TCP-გვირაბები არ არის "
-"მხარდაჭერილი"
-
-#: ../properties/nm-vpnc.c:544
+#: ../properties/nm-vpnc-editor-plugin.c:509
 #, c-format
 msgid ""
-"The VPN settings file '%s' specifies that VPN traffic should be tunneled "
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled "
 "through TCP which is currently not supported in the vpnc software.\n"
 "\n"
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
-"VPN-პარამეტრების ფაილი '%s' "
-"მიუთითებს, რომ VPN-ტრაფიკი "
-"უნდა განხორციელდეს "
-"TCP-გვირაბით, რომლის "
-"მხარდაჭერა vpnc პროგრამას არა "
-"აქვს.\n"
-" \n"
-"შეერთება შენარჩუნებულია "
-"გამორთული TCP-გვირაბით, რის "
-"გამოც შეიძლება არ იმუშაოს "
-"სწორად."
 
-#: ../properties/nm-vpnc.c:565
-msgid "Cannot import settings"
-msgstr ""
-"ვერ ხერხდება პარამეტრების "
-"იმპორტი"
+#: ../properties/nm-vpnc-editor.c:603
+msgid "Secure (default)"
+msgstr "დაცული (ნაგულისხმები)"
 
-#: ../properties/nm-vpnc.c:567
+#: ../properties/nm-vpnc-editor.c:606
+msgid "Weak (use with caution)"
+msgstr "სუსტი (ფრთხილად)"
+
+#: ../properties/nm-vpnc-editor.c:609
+msgid "None (completely insecure)"
+msgstr "არცერთი (საერთოდ დაუცველი)"
+
+#: ../properties/nm-vpnc-editor.c:653
+msgid "Cisco (default)"
+msgstr "Cisco (ნაგულისხმები)"
+
+#: ../properties/nm-vpnc-editor.c:656
+msgid "Netscreen"
+msgstr "Netscreen"
+
+#: ../properties/nm-vpnc-editor.c:667
+msgid "NAT-T when available (default)"
+msgstr "NAT-T როცა ხელმისაწვდომია (ნაგულისხმები)"
+
+#: ../properties/nm-vpnc-editor.c:670
+msgid "NAT-T always"
+msgstr "NAT-T ყოველთვის"
+
+#: ../properties/nm-vpnc-editor.c:673
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc-editor.c:676
+msgid "Disabled"
+msgstr "გამორთულია"
+
+#: ../properties/nm-vpnc-editor.c:687 ../properties/nm-vpnc-editor.c:710
+msgid "DH Group 1"
+msgstr "DH ჯგუფი 1"
+
+#: ../properties/nm-vpnc-editor.c:690
+msgid "DH Group 2 (default)"
+msgstr "DH ჯგუფი 2 (ნაგულისხმები)"
+
+#: ../properties/nm-vpnc-editor.c:693 ../properties/nm-vpnc-editor.c:716
+msgid "DH Group 5"
+msgstr "DH ჯგუფი 5"
+
+#: ../properties/nm-vpnc-editor.c:704
+msgid "Server (default)"
+msgstr "სერვერი (ნაგულისხმები)"
+
+#: ../properties/nm-vpnc-editor.c:707
+msgid "None"
+msgstr "არცერთი"
+
+#: ../properties/nm-vpnc-editor.c:713
+msgid "DH Group 2"
+msgstr "DH ჯგუფი 2"
+
+#: ../src/nm-vpnc-service.c:201
 #, c-format
-msgid "The VPN settings file '%s' does not contain valid data."
-msgstr ""
-"VPN-პარამეტრების ფაილი '%s' "
-"არასწორ მონაცემებს შეიცავს."
+msgid "property “%s” invalid or not supported"
+msgstr "თვისება %s არასწორი ან მხარდაუჭერელია"
 
-#: ../properties/nm-vpnc.c:584
-msgid "Select file to import"
-msgstr ""
-"მიუთითეთ ფაილი "
-"იმპორტისათვის"
-
-#. printf ("in impl_export\n");
-#: ../properties/nm-vpnc.c:744
-msgid "Save as..."
-msgstr "შევინახოთ როგორც..."
-
-#: ../properties/nm-vpnc.c:774
+#: ../src/nm-vpnc-service.c:216
 #, c-format
-msgid "A file named \"%s\" already exists."
-msgstr "ფაილი \"%s\" უკვე არსებობს."
+msgid "property “%s” contains a newline character"
+msgstr "თვისება \"%s\" ახალი ხაზის სიმბოლოს შეიცავს"
 
-#: ../properties/nm-vpnc.c:777
-msgid "Do you want to replace it with the one you are saving?"
-msgstr "შევცვალოთ იგი თქვენი ფაილით?"
-
-#: ../properties/nm-vpnc.c:791
-msgid "Failed to export configuration"
-msgstr ""
-"შეცდომა კონფიგურაციის "
-"ექსპორტისას"
-
-#: ../properties/nm-vpnc.c:793
+#: ../src/nm-vpnc-service.c:228
 #, c-format
-msgid "Failed to save file %s"
-msgstr "ვერ შეინახა ფაილი %s"
+msgid "property “%s” file path “%s” is not absolute or does not exist"
+msgstr "თვისება %s\"-ის ფაილის ბილიკი \"%s\" აბსოლუტური არაა ან არ არსებობს"
 
-#: ../properties/nm-vpnc-dialog.glade.h:1
-msgid "<b>Connection Information</b>"
+#: ../src/nm-vpnc-service.c:241
+#, c-format
+msgid "invalid integer property “%s” or out of range [%d -> %d]"
+msgstr "მთელი რიცხვის არასწორი თვისება %s დიაპაზონს გარეთაა [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:251
+#, c-format
+msgid "invalid boolean property “%s” (not yes or no)"
+msgstr "\"%s\"-ის არასწორი ბულევური თვისება (არც \"დიახ\", არც \"არა\""
+
+#: ../src/nm-vpnc-service.c:258
+#, c-format
+msgid "unhandled property “%s” type %d"
+msgstr "\"%s\"-ის დაუმუშავებელი თვისება (%d)"
+
+#: ../src/nm-vpnc-service.c:275
+msgid "No VPN configuration options."
+msgstr "VPN-ის მორგების გარეშე."
+
+#: ../src/nm-vpnc-service.c:301
+msgid "No VPN secrets!"
+msgstr "VPN-ის პაროლების გარეშე!"
+
+#: ../src/nm-vpnc-service.c:646
+msgid "Could not find vpnc binary."
+msgstr "Vpnc-ის გამშვები ფაილის პოვნა შეუძლებელია."
+
+#: ../src/nm-vpnc-service.c:764
+#, c-format
+msgid "Config option “%s” invalid or unknown."
+msgstr "კონფიგურაციის გასაღები \"%s\" არასწორი ან უცნობია."
+
+#: ../src/nm-vpnc-service.c:799
+#, c-format
+msgid "Config option “%s” not an integer."
+msgstr "კონფიგურაციის გასაღები \"%s\" მთელი რიცხვი არა."
+
+#: ../src/nm-vpnc-service.c:987
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc-ს ინტერაქტიური მოთხოვნების მხარდაჭერა არ გააჩნია"
+
+#: ../src/nm-vpnc-service.c:1011
+msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
-"<b>ინფორმაცია შეერთების "
-"შესახებ</b>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:2
-msgid "<b>Connection Name</b>"
-msgstr "<b>შეერთების სახელი</b>"
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr ""
 
-#: ../properties/nm-vpnc-dialog.glade.h:3
-msgid "<b>Required</b>"
-msgstr "<b>საჭიროა</b>"
+#: ../src/nm-vpnc-service.c:1028
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
 
-#: ../properties/nm-vpnc-dialog.glade.h:4
-msgid "<i>example: 172.16.0.0/16 10.11.12.0/24</i>"
-msgstr "<i>მაგალითი:172.16.0.0/16 10.11.12.0/24</i>"
+#: ../src/nm-vpnc-service.c:1039
+#, c-format
+msgid ""
+"Could not process the request because the requested info “%s” was not "
+"provided."
+msgstr ""
 
-#: ../properties/nm-vpnc-dialog.glade.h:5
-msgid "Connection Name"
-msgstr "შეერთების სახელი"
+#: ../src/nm-vpnc-service.c:1237
+msgid "Don’t quit when VPN connection terminates"
+msgstr ""
 
-#: ../properties/nm-vpnc-dialog.glade.h:6
-msgid "G_roup Name"
+#: ../src/nm-vpnc-service.c:1238
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:1239
+msgid "D-Bus name to use for this instance"
+msgstr ""
+
+#: ../src/nm-vpnc-service.c:1262
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:264
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:271
+#, c-format
+msgid "property '%s' of object class '%s' is not writable"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:278
+#, c-format
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:286
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:295
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr ""
+
+#: ../shared/nm-utils/nm-shared-utils.c:306
+#, c-format
+msgid ""
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
+msgstr ""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr ""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr "აკლია დამატების ფაილი \"%s\""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr "რედაქტორის დამატების ჩატვირთვა შეუძლებელია: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr "დამატებიდან ქარხნის (%s) ჩატვირთვა შეუძლებელია: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
+msgid "unknown error creating editor instance"
+msgstr "უცნობ შეცდომა რედაქტორის ასლის შექმნისას"
+
+#: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "General"
+msgstr "ძირითადი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "_Gateway"
+msgstr "_ნაგულისხმები რაუტერი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IPsec ნაგულისხმები რაუტერის IP/ჰოსტის სახელი\n"
+"კონფიგურაციის მიხედვით: IPsec <gateway>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "User na_me"
+msgstr "_მომხმარებლის სახელი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"მომხმარებლის სახელი შეერთებისთვის\n"
+"კონფიგურაცია: Xauth-ის მომხმარებელია <user_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "User _password"
+msgstr "_მომხმარებლის _პაროლი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"მომხმარებლის პაროლი შეერთებისთვის\n"
+"კონფიგურაცია: Xauth-ის პაროლი <password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "G_roup name"
 msgstr "_ჯგუფის სახელი"
 
-#: ../properties/nm-vpnc-dialog.glade.h:7
+#: ../properties/nm-vpnc-dialog.ui.h:12
 msgid ""
-"Name used to identify the connection to the private network, e.g. \"Campus "
-"VPN\" or \"Corporate Network\""
+"Group name\n"
+"config: IPSec ID <group_name>"
 msgstr ""
-"სახელი VPN-ში შეერთების "
-"იდენტიფიცირებისათვის, მაგ.: "
-"\"CampusVPN\" ან \"Corporate Network\""
+"ჯგუფის სახელი\n"
+"კონფიგურაცია: IPsec ID <group_name>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:8
-msgid "Optional"
-msgstr ""
-"არ არის აუცილებელი\n"
-" \n"
-" "
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Gro_up password"
+msgstr "ჯგუფის _პაროლი"
 
-#: ../properties/nm-vpnc-dialog.glade.h:9
-msgid "Override _user name"
-msgstr "ს_ახელის ჩანაცვლება"
-
-#: ../properties/nm-vpnc-dialog.glade.h:10
+#: ../properties/nm-vpnc-dialog.ui.h:15
 msgid ""
-"Please enter the information provided by your system administrator below. Do "
-"not enter your password here as you will be prompted when connecting."
+"Group password\n"
+"config: IPSec secret <group_password>"
 msgstr ""
-"შეიყვანეთ სისტემური "
-"ადმინისტრატორისაგან "
-"მიღებული ინფორმაცია. ნუ "
-"შეიყვანთ თქვენს პაროლს "
-"დაკავშiრებისას ."
+"ჯგუფის პაროლი\n"
+"კონფიგურაცია: IPsec პაროლია <group_password>"
 
-#: ../properties/nm-vpnc-dialog.glade.h:11
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "Sho_w passwords"
+msgstr "პაროლების _ჩვენება"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "Use _hybrid authentication"
+msgstr "_ჰიბრიდული ავთენტიკაციის გამოყენება"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
 msgid ""
-"Please note that the file you import is not a Cisco VPN or VPNC "
-"configuration file. Ask your adminstrator for the file."
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
 msgstr ""
-"თქვენს მიერ იმპორტირებული "
-"ფაილი არ არის არც Cisco VPN და არც "
-"VPNC კონფიგურაციის ფაილი. "
-"მიმართეთ ადმინისტრატორს "
-"ფაილისათვის."
 
-#: ../properties/nm-vpnc-dialog.glade.h:12
-msgid "Use _domain for authentication"
-msgstr "_დომენი აუთენტიკაციისათვის"
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "Advance_d…"
+msgstr "_დამატებით…"
 
-#: ../properties/nm-vpnc-dialog.glade.h:13
-msgid "_Gateway"
-msgstr "_კარიბჭე"
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid "Advanced Options"
+msgstr "დამატებითი პარამეტრები"
 
-#: ../properties/nm-vpnc-dialog.glade.h:14
-msgid "_Import Saved Configuration..."
-msgstr ""
-"_შენახული კონფიგურაციის "
-"იმპორტი..."
+#: ../properties/nm-vpnc-dialog.ui.h:23
+msgid "Advanced Properties"
+msgstr "დამატებითი თვისებები"
 
-#: ../properties/nm-vpnc-dialog.glade.h:15
-msgid "_Only use VPN connection for these addresses"
-msgstr ""
-"მ_ოცემული "
-"მისამართებისათვის მხოლოდ VPN "
-"კავშირის გამოყენება"
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "_Cancel"
+msgstr "_გაუქმება"
 
-#: ../src/nm-vpnc-service.c:119
-msgid "The VPN login failed because the user name and password were not accepted."
-msgstr ""
-"სახელი ან პაროლი არასწორია, "
-"ავტორიზაცია არ შედგა."
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Apply"
+msgstr "_გადატარება"
 
-#: ../src/nm-vpnc-service.c:121
-msgid "The VPN login failed because the VPN program could not be started."
-msgstr ""
-"ვერ გაიშვა VPN-პროგრამა, "
-"ავტორიზაცია არ შედგა."
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "Identification"
+msgstr "იდენტიფიკაცია"
 
-#: ../src/nm-vpnc-service.c:123
+#: ../properties/nm-vpnc-dialog.ui.h:27
+msgid "_Domain"
+msgstr "_დომენი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
-"The VPN login failed because the VPN program could not connect to the VPN "
-"server."
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
 msgstr ""
-"VPN-პროგრამა ვერ დაუკავშირდა "
-"VPN-სერვერს, ავტორიზაცია არ "
-"შედგა."
+"ავთენტიკაციის (NT) დომენის სახელი\n"
+"კონფიგურაცია: დომენი <domain>"
 
-#: ../src/nm-vpnc-service.c:125
-msgid "The VPN login failed because the VPN configuration options were invalid."
-msgstr ""
-"VPN-კონფიგურაციის "
-"პარამეტრები არასწორია, "
-"ავტორიზაცია არ შედგა."
+#: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Vendor"
+msgstr "_მომწოდებელი"
 
-#: ../src/nm-vpnc-service.c:127
+#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
-"The VPN login failed because the VPN program received an invalid "
-"configuration from the VPN server."
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
 msgstr ""
-"VPN-პროგრამამ VPN-სერვერისაგან "
-"არასწორი კონფიგურაცია "
-"მიიღო, ავტორიზაცია არ შედგა."
+"თქვენი IPsec კონცენტრატორის მომწოდებელი\n"
+"კონფიგურაცია: მომწოდებელი <cisco/netscreen>"
 
+#: ../properties/nm-vpnc-dialog.ui.h:33
+msgid "Ve_rsion"
+msgstr "_ვერსია"
+
+#: ../properties/nm-vpnc-dialog.ui.h:34
+msgid ""
+"Application version to report. \n"
+"config: Application version <ASCII string>"
+msgstr ""
+"აპლიკაციის ვერსია ანგარიშისთვის\n"
+"კონფიგურაცია: აპლიკაცის ვერსია <ASCII string>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:36
+msgid "Transport and Security"
+msgstr "ტრანსპორტი და უსაფრთხოება"
+
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Tunnel _interface name"
+msgstr "გვირაბის _ინტერფეისის სახელი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+"გვირაბის ინტერფეისის სახელი\n"
+"კონფიგურაცია: ინტერფეისის სახელია <name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Encryption method"
+msgstr "_დაშიფვრის მეთოდი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+"encryption” for None"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal"
+msgstr "_NAT-ში გავლა"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "_IKE DH Group"
+msgstr "_IKE DH ჯგუფი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid "Perfect _Forward Secrecy"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:50
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:52
+msgid "_Local port"
+msgstr "_ლოკალური პორტი"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:56
+msgid "Disable Dead _Peer Detection"
+msgstr ""
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
