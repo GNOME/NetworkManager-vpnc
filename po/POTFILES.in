@@ -7,4 +7,4 @@ properties/nm-vpnc-editor.c
 src/nm-vpnc-service.c
 shared/nm-utils/nm-shared-utils.c
 shared/nm-utils/nm-vpn-plugin-utils.c
-[type: gettext/glade]properties/nm-vpnc-dialog.ui
+properties/nm-vpnc-dialog.ui

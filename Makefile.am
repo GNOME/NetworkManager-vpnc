@@ -338,7 +338,9 @@ if WITH_GNOME
 appdata_DATA = $(appdata_files)
 endif
 appdata_in_files = appdata/network-manager-vpnc.metainfo.xml.in
-@INTLTOOL_XML_RULE@
+
+appdata/network-manager-vpnc.metainfo.xml: appdata/network-manager-vpnc.metainfo.xml.in
+	$(AM_V_GEN)$(MSGFMT) --xml --template $< -d $(top_srcdir)/po -o $@
 
 nm-vpnc-service.name: $(srcdir)/nm-vpnc-service.name.in
 	sed -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
@@ -379,10 +381,7 @@ EXTRA_DIST = \
 	nm-vpnc-service.name.in \
 	$(dbusservice_DATA)  \
 	$(appdata_in_files)  \
-	$(appdata_files)     \
-	intltool-extract.in  \
-	intltool-merge.in    \
-	intltool-update.in
+	$(appdata_files)
 
 # Include a prebuilt file in tarball, to avoid hitting
 # https://gitlab.gnome.org/GNOME/gtk/-/merge_requests/4415
@@ -396,7 +395,5 @@ CLEANFILES = *.bak *~ \
 	properties/resources.h \
 	gtk4/resources.c \
 	gtk4/nm-vpnc-dialog.ui
-
-DISTCLEANFILES = intltool-extract intltool-merge intltool-update
 
 ACLOCAL_AMFLAGS = -I m4
