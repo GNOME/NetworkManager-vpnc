@@ -7,8 +7,8 @@
   <extends>nm-connection-editor.desktop</extends>
   <extends>org.gnome.Settings.desktop</extends>
   <extends>gnome-control-center.desktop</extends>
-  <_name>Legacy Cisco VPNC client</_name>
-  <_summary>Client for Cisco IPsec virtual private networks</_summary>
+  <name>Legacy Cisco VPNC client</name>
+  <summary>Client for Cisco IPsec virtual private networks</summary>
 
   <keywords>
     <keyword>network</keyword>
@@ -22,8 +22,8 @@
   </keywords>
 
   <description>
-    <_p>Support for configuring virtual private networks based on VPNC.</_p>
-    <_p>Compatible with Cisco VPN concentrators configured to use IPsec.</_p>
+    <p>Support for configuring virtual private networks based on VPNC.</p>
+    <p>Compatible with Cisco VPN concentrators configured to use IPsec.</p>
   </description>
 
   <screenshots>
@@ -40,5 +40,5 @@
   <url type="bugtracker">https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issues</url>
   <update_contact>networkmanager-maint@gnome.bugs</update_contact>
   <translation type="gettext">NetworkManager-vpnc</translation>
-  <_developer_name>The NetworkManager Developers</_developer_name>
+  <developer_name>The NetworkManager Developers</developer_name>
 </component>
