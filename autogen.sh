@@ -15,8 +15,6 @@ PKG_NAME=NetworkManager-vpnc
 
 (cd $srcdir;
     autoreconf --install --symlink &&
-    intltoolize --force &&
-    autoreconf &&
     ./configure --enable-maintainer-mode --enable-more-warnings=error $@
 )
 
