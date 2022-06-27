@@ -27,6 +27,7 @@
 #include "nm-default.h"
 
 #include "nm-vpnc-editor.h"
+#include "nm-vpnc-editor-plugin.h"
 
 #include <nma-cert-chooser.h>
 #include <netinet/in.h>
@@ -1129,21 +1130,3 @@ vpnc_editor_interface_init (NMVpnEditorInterface *iface)
 	iface->get_widget = get_widget;
 	iface->update_connection = update_connection;
 }
-
-/*****************************************************************************/
-
-#ifndef NM_VPN_OLD
-
-#include "nm-vpnc-editor-plugin.h"
-
-G_MODULE_EXPORT NMVpnEditor *
-nm_vpn_editor_factory_vpnc (NMVpnEditorPlugin *editor_plugin,
-                            NMConnection *connection,
-                            GError **error)
-{
-	g_return_val_if_fail (!error || !*error, NULL);
-
-	return nm_vpnc_editor_new (connection, error);
-}
-#endif
-

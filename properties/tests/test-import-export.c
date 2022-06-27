@@ -34,12 +34,7 @@
 #include "nm-utils/nm-test-utils.h"
 
 #define SRCDIR TEST_SRCDIR"/pcf"
-
-#ifdef NM_VPN_OLD
-#define TMPDIR TEST_BUILDDIR"/pcf-tmp-old"
-#else
-#define TMPDIR TEST_BUILDDIR"/pcf-tmp-new"
-#endif
+#define TMPDIR TEST_BUILDDIR"/pcf-tmp"
 
 /*****************************************************************************/
 
@@ -155,6 +150,7 @@ test_basic_import (void)
 	NMSettingConnection *s_con;
 	NMSettingIPConfig *s_ip4;
 	NMSettingVpn *s_vpn;
+	NMIPRoute *route;
 	const char *expected_id = "Basic VPN";
 
 	connection = get_basic_connection ("basic-import", plugin, SRCDIR, "basic.pcf");
@@ -182,37 +178,16 @@ test_basic_import (void)
 	g_assert_cmpint (nm_setting_ip_config_get_num_dns (s_ip4), ==, 0);
 	g_assert_cmpint (nm_setting_ip_config_get_num_routes (s_ip4), ==, 2);
 
-#ifdef NM_VPN_OLD
-	{
-		NMIP4Route *route;
+	route = nm_setting_ip_config_get_route (s_ip4, 0);
+	g_assert (!nm_ip_route_get_next_hop (route));
+	g_assert_cmpint (nm_ip_route_get_prefix (route), ==, 8);
+	g_assert_cmpint (nm_ip_route_get_metric (route), ==, -1);
 
-		route = nm_setting_ip4_config_get_route (s_ip4, 0);
-		g_assert (!nm_ip4_route_get_next_hop (route));
-		g_assert_cmpint (nm_ip4_route_get_prefix (route), ==, 8);
-		g_assert_cmpint (nm_ip4_route_get_metric (route), ==, 0);
-
-		route = nm_setting_ip4_config_get_route (s_ip4, 1);
-		g_assert_cmpint (nm_ip4_route_get_dest (route), ==, nmtst_inet4_from_string ("172.16.0.0"));
-		g_assert (!nm_ip4_route_get_next_hop (route));
-		g_assert_cmpint (nm_ip4_route_get_prefix (route), ==, 16);
-		g_assert_cmpint (nm_ip4_route_get_metric (route), ==, 0);
-	}
-#else
-	{
-		NMIPRoute *route;
-
-		route = nm_setting_ip_config_get_route (s_ip4, 0);
-		g_assert (!nm_ip_route_get_next_hop (route));
-		g_assert_cmpint (nm_ip_route_get_prefix (route), ==, 8);
-		g_assert_cmpint (nm_ip_route_get_metric (route), ==, -1);
-
-		route = nm_setting_ip_config_get_route (s_ip4, 1);
-		g_assert_cmpstr (nm_ip_route_get_dest (route), ==, "172.16.0.0");
-		g_assert (!nm_ip_route_get_next_hop (route));
-		g_assert_cmpint (nm_ip_route_get_prefix (route), ==, 16);
-		g_assert_cmpint (nm_ip_route_get_metric (route), ==, -1);
-	}
-#endif
+	route = nm_setting_ip_config_get_route (s_ip4, 1);
+	g_assert_cmpstr (nm_ip_route_get_dest (route), ==, "172.16.0.0");
+	g_assert (!nm_ip_route_get_next_hop (route));
+	g_assert_cmpint (nm_ip_route_get_prefix (route), ==, 16);
+	g_assert_cmpint (nm_ip_route_get_metric (route), ==, -1);
 
 	/* VPN setting */
 	s_vpn = nm_connection_get_setting_vpn (connection);

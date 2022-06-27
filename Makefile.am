@@ -85,9 +85,6 @@ plugindir = $(libdir)/NetworkManager
 plugin_LTLIBRARIES = properties/libnm-vpn-plugin-vpnc.la
 if WITH_GNOME
 plugin_LTLIBRARIES += properties/libnm-vpn-plugin-vpnc-editor.la
-if WITH_LIBNM_GLIB
-plugin_LTLIBRARIES += properties/libnm-vpnc-properties.la
-endif
 endif
 if WITH_GTK4
 plugin_LTLIBRARIES += properties/libnm-gtk4-vpn-plugin-vpnc-editor.la
@@ -195,51 +192,12 @@ properties_libnm_vpn_plugin_vpnc_editor_la_LDFLAGS = \
 
 ###############################################################################
 
-properties_libnm_vpnc_properties_la_SOURCES = \
-	$(shared_sources) \
-	$(plugin_sources) \
-	$(editor_sources)
-
-nodist_properties_libnm_vpnc_properties_la_SOURCES = \
-	properties/resources.h \
-	properties/resources.c
-
-properties_libnm_vpnc_properties_la_CFLAGS = \
-	-DNM_VPN_OLD \
-	-DNETWORKMANAGER_COMPILATION=NM_NETWORKMANAGER_COMPILATION_LIB \
-	-DLOCALEDIR=\"$(datadir)/locale\"
-	$(common_cppflags) \
-	$(GTK_CFLAGS) \
-	$(LIBNM_GLIB_CFLAGS) \
-	$(LIBNM_GTK_CFLAGS)
-
-properties_libnm_vpnc_properties_la_LIBADD = \
-	$(GTK_LIBS) \
-	$(LIBNM_GLIB_LIBS) \
-	$(LIBNM_GTK_LIBS)
-
-properties_libnm_vpnc_properties_la_LDFLAGS = \
-	-avoid-version \
-	-Wl,--version-script=$(srcdir)/libnm-vpnc-properties.ver
-
-###############################################################################
-
 noinst_LTLIBRARIES += properties/libnm-vpn-plugin-vpnc-test.la
 
 properties_libnm_vpn_plugin_vpnc_test_la_SOURCES = $(properties_libnm_vpn_plugin_vpnc_la_SOURCES)
 properties_libnm_vpn_plugin_vpnc_test_la_CFLAGS = $(properties_libnm_vpn_plugin_vpnc_la_CFLAGS)
 properties_libnm_vpn_plugin_vpnc_test_la_LIBADD = $(properties_libnm_vpn_plugin_vpnc_la_LIBADD)
 properties_libnm_vpn_plugin_vpnc_test_la_LDFLAGS = \
-	-avoid-version
-
-if WITH_LIBNM_GLIB
-noinst_LTLIBRARIES += properties/libnm-vpnc-properties-test.la
-endif
-
-properties_libnm_vpnc_properties_test_la_SOURCES = $(properties_libnm_vpnc_properties_la_SOURCES)
-properties_libnm_vpnc_properties_test_la_CFLAGS = $(properties_libnm_vpnc_properties_la_CFLAGS)
-properties_libnm_vpnc_properties_test_la_LIBADD = $(properties_libnm_vpnc_properties_la_LIBADD)
-properties_libnm_vpnc_properties_test_la_LDFLAGS = \
 	-avoid-version
 
 ###############################################################################
@@ -269,27 +227,6 @@ properties_tests_test_import_export_LDADD = \
 	$(LIBNM_LIBS) \
 	$(top_builddir)/properties/libnm-vpn-plugin-vpnc-test.la
 
-if WITH_LIBNM_GLIB
-noinst_PROGRAMS += properties/tests/test-import-export-glib
-TESTS += properties/tests/test-import-export-glib
-endif
-
-properties_tests_test_import_export_glib_SOURCES = \
-	properties/tests/test-import-export.c
-
-properties_tests_test_import_export_glib_CPPFLAGS = \
-	-DNM_VPN_OLD \
-	$(test_cppflags) \
-	$(LIBNM_GLIB_CFLAGS) \
-	$(LIBNM_GTK_CFLAGS)
-
-properties_tests_test_import_export_glib_LDADD = \
-	$(GTHREAD_LIBS) \
-	$(GTK_LIBS) \
-	$(LIBNM_GLIB_LIBS) \
-	$(LIBNM_GTK_LIBS) \
-	$(top_builddir)/properties/libnm-vpnc-properties-test.la
-
 ###############################################################################
 
 libexec_PROGRAMS += auth-dialog/nm-vpnc-auth-dialog
@@ -317,21 +254,6 @@ dbusservice_DATA = nm-vpnc-service.conf
 nmvpnservicedir = $(NM_VPN_SERVICE_DIR)
 nmvpnservice_DATA = nm-vpnc-service.name
 
-if WITH_LIBNM_GLIB
-# Install a file with full path to plugins for an old gnome-shell
-# https://bugzilla.gnome.org/show_bug.cgi?id=693590
-install-data-hook:
-	mkdir -p $(DESTDIR)$(sysconfdir)/NetworkManager/VPN
-	sed -e "1s|^|# This file is obsoleted by a file in $(NM_VPN_SERVICE_DIR)\n\n|" \
-	    -e 's|[@]LIBEXECDIR[@]|$(libexecdir)|g' \
-	    -e 's|[@]PLUGINDIR[@]|@NM_PLUGIN_DIR@|g' \
-	    <$(srcdir)/nm-vpnc-service.name.in \
-	    >$(DESTDIR)$(sysconfdir)/NetworkManager/VPN/nm-vpnc-service.name
-
-uninstall-hook:
-	 rm -f $(DESTDIR)$(sysconfdir)/NetworkManager/VPN/nm-vpnc-service.name
-endif
-
 appdatadir = $(datadir)/metainfo
 appdata_files = $(appdata_in_files:.xml.in=.xml)
 if WITH_GNOME
@@ -355,7 +277,6 @@ DISTCHECK_CONFIGURE_FLAGS = \
 EXTRA_DIST = \
 	properties/libnm-vpn-plugin-vpnc.ver \
 	properties/libnm-vpn-plugin-vpnc-editor.ver \
-	properties/libnm-vpnc-properties.ver \
 	properties/nm-vpnc-dialog.ui \
 	properties/gresource.xml \
 	\

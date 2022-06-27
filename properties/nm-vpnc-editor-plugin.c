@@ -35,12 +35,7 @@
 #include <fcntl.h>
 
 #include "nm-vpnc-helper.h"
-
-#ifdef NM_VPN_OLD
-#include "nm-vpnc-editor.h"
-#else
 #include "nm-utils/nm-vpn-plugin-utils.h"
-#endif
 
 #define VPNC_PLUGIN_NAME    _("Cisco Compatible VPN (vpnc)")
 #define VPNC_PLUGIN_DESC    _("Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways.")
@@ -70,12 +65,8 @@ add_routes (NMSettingIPConfig *s_ip4, const char *routelist)
 	for (i = 0; substrs[i] != NULL; i++) {
 		char *p, *str_route;
 		long int prefix = 32;
-#ifdef NM_VPN_OLD
-		struct in_addr tmp;
-#else
 		NMIPRoute *route;
 		GError *error = NULL;
-#endif
 
 		str_route = g_strdup (substrs[i]);
 		p = strchr (str_route, '/');
@@ -92,17 +83,6 @@ add_routes (NMSettingIPConfig *s_ip4, const char *routelist)
 		}
 		*p = '\0';
 
-#ifdef NM_VPN_OLD
-		if (inet_pton (AF_INET, str_route, &tmp) > 0) {
-			NMIP4Route *route = nm_ip4_route_new ();
-
-			nm_ip4_route_set_dest (route, tmp.s_addr);
-			nm_ip4_route_set_prefix (route, (guint32) prefix);
-
-			nm_setting_ip_config_add_route (s_ip4, route);
-		} else
-			g_warning ("Ignoring invalid route '%s'", str_route);
-#else
 		route = nm_ip_route_new (AF_INET, str_route, prefix, NULL, -1, &error);
 		if (route) {
 			nm_setting_ip_config_add_route (s_ip4, route);
@@ -111,7 +91,6 @@ add_routes (NMSettingIPConfig *s_ip4, const char *routelist)
 			g_warning ("Ignoring invalid route '%s': %s", str_route, error->message);
 			g_clear_error (&error);
 		}
-#endif
 
 next:
 		g_free (str_route);
@@ -670,26 +649,13 @@ export (NMVpnEditorPlugin *plugin,
 		int i;
 
 		for (i = 0; i < nm_setting_ip_config_get_num_routes (s_ip4); i++) {
-#ifdef NM_VPN_OLD
-			NMIP4Route *route = nm_setting_ip_config_get_route (s_ip4, i);
-			char str_addr[INET_ADDRSTRLEN + 1];
-			struct in_addr num_addr;
-#else
 			NMIPRoute *route = nm_setting_ip_config_get_route (s_ip4, i);
-#endif
 
 			if (routes_count)
 				g_string_append_c (routes, ' ');
-#ifdef NM_VPN_OLD
-			num_addr.s_addr = nm_ip4_route_get_dest (route);
-			if (inet_ntop (AF_INET, &num_addr, &str_addr[0], INET_ADDRSTRLEN + 1))
-				g_string_append_printf (routes, "%s/%d", str_addr, nm_ip4_route_get_prefix (route));
-#else
 			g_string_append_printf (routes, "%s/%d",
 			                        nm_ip_route_get_dest (route),
 			                        nm_ip_route_get_prefix (route));
-#endif
-
 			routes_count++;
 		}
 	}
@@ -801,7 +767,6 @@ get_capabilities (NMVpnEditorPlugin *plugin)
 	return (NM_VPN_EDITOR_PLUGIN_CAPABILITY_IMPORT | NM_VPN_EDITOR_PLUGIN_CAPABILITY_EXPORT);
 }
 
-#ifndef NM_VPN_OLD
 static NMVpnEditor *
 _call_editor_factory (gpointer factory,
                       NMVpnEditorPlugin *editor_plugin,
@@ -813,7 +778,6 @@ _call_editor_factory (gpointer factory,
 	                                       connection,
 	                                       error);
 }
-#endif
 
 static NMVpnEditor *
 get_editor (NMVpnEditorPlugin *iface, NMConnection *connection, GError **error)
@@ -836,9 +800,6 @@ get_editor (NMVpnEditorPlugin *iface, NMConnection *connection, GError **error)
 		editor = "libnm-gtk4-vpn-plugin-vpnc-editor.so";
 	}
 
-#ifdef NM_VPN_OLD
-	return nm_vpnc_editor_new (connection, error);
-#else
 	return nm_vpn_plugin_utils_load_editor (editor,
 						"nm_vpn_editor_factory_vpnc",
 						_call_editor_factory,
@@ -846,7 +807,6 @@ get_editor (NMVpnEditorPlugin *iface, NMConnection *connection, GError **error)
 						connection,
 						NULL,
 						error);
-#endif
 }
 
 static void
