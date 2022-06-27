@@ -4,7 +4,7 @@ AC_INIT(NetworkManager-vpnc,
         1.2.9,
         https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issues,
         NetworkManager-vpnc)
-AM_INIT_AUTOMAKE([no-dist-gzip dist-xz])
+AM_INIT_AUTOMAKE([foreign no-dist-gzip dist-xz])
 AM_MAINTAINER_MODE
 
 AC_CONFIG_MACRO_DIR([m4])
