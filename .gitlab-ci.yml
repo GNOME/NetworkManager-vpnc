@@ -57,9 +57,9 @@ fedora36_dist:
     paths:
       - "*.xz"
 
-fedora_25_from_dist:
+fedora_27_from_dist:
   <<: *fedora_from_dist
-  image: fedora:25
+  image: fedora:27
 
 fedora_latest_from_dist:
   <<: *fedora_from_dist
