@@ -8,22 +8,23 @@
 # Wolfgang Stöggl <c72578@yahoo.de>, 2011, 2015-2016.
 # Daniel Winzen <d@winzen4.de>, 2012.
 # Paul Seyfert <pseyfert@mathphys.fsk.uni-heidelberg.de>, 2016.
+# Jürgen Benvenuti <gastornis@posteo.org>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: NetworkManager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2018-07-20 09:14+0000\n"
-"PO-Revision-Date: 2018-08-19 18:24+0200\n"
-"Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
+"POT-Creation-Date: 2022-07-08 04:04+0000\n"
+"PO-Revision-Date: 2022-07-15 09:41+0200\n"
+"Last-Translator: Jürgen Benvenuti <gastornis@posteo.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.1.1\n"
+"X-Generator: Poedit 3.1\n"
 "X-Project-Style: gnome\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
@@ -50,39 +51,34 @@ msgstr ""
 msgid "The NetworkManager Developers"
 msgstr "Die Entwickler von NetworkManager"
 
-#: ../auth-dialog/main.c:165
-#, c-format
-msgid "Authenticate VPN %s"
-msgstr "VPN %s legitimieren"
-
-#: ../auth-dialog/main.c:181
-msgid "Password:"
-msgstr "Passwort:"
-
-#: ../auth-dialog/main.c:189
-msgid "Group Password:"
-msgstr "Gruppenpasswort:"
-
-#: ../auth-dialog/main.c:224
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
 msgstr "VPN legitimieren"
 
-#: ../auth-dialog/main.c:233
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Passwort"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Gruppenpasswort"
+
+#: ../auth-dialog/main.c:232
 msgid "_Group Password:"
 msgstr "_Gruppenpasswort:"
 
-#: ../auth-dialog/main.c:491
+#: ../auth-dialog/main.c:489
 #, c-format
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr ""
 "Sie müssen sich legitimieren, um auf das Virtuelle private Netzwerk »%s« "
 "zugreifen zu können."
 
-#: ../properties/nm-vpnc-editor-plugin.c:44
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibler VPN-Client (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:46
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -90,7 +86,7 @@ msgstr ""
 "Kompatibel zu verschiedenen VPN-Gateways von Cisco, Juniper, Netscreen und "
 "Sonicwall (IPsec-basiert)."
 
-#: ../properties/nm-vpnc-editor-plugin.c:508
+#: ../properties/nm-vpnc-editor-plugin.c:509
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -106,73 +102,65 @@ msgstr ""
 "Die Verbindung kann dennoch mit unterdrücktem TCP-Tunneling erzeugt werden, "
 "allerdings besteht die Möglichkeit, dass sie nicht wie erwartet funktioniert."
 
-#: ../properties/nm-vpnc-editor.c:374
+#: ../properties/nm-vpnc-editor.c:601
 msgid "Secure (default)"
 msgstr "Sicher (Vorgabe)"
 
-#: ../properties/nm-vpnc-editor.c:377
+#: ../properties/nm-vpnc-editor.c:604
 msgid "Weak (use with caution)"
 msgstr "Schwach (mit Vorsicht zu verwenden)"
 
-#: ../properties/nm-vpnc-editor.c:385
+#: ../properties/nm-vpnc-editor.c:607
 msgid "None (completely insecure)"
 msgstr "Keine (komplett unsicher)"
 
-#: ../properties/nm-vpnc-editor.c:449
+#: ../properties/nm-vpnc-editor.c:651
 msgid "Cisco (default)"
 msgstr "Cisco (Vorgabe)"
 
-#: ../properties/nm-vpnc-editor.c:456
+#: ../properties/nm-vpnc-editor.c:654
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:497
+#: ../properties/nm-vpnc-editor.c:665
 msgid "NAT-T when available (default)"
 msgstr "NAT-T wenn verfügbar (Vorgabe)"
 
-#: ../properties/nm-vpnc-editor.c:504
+#: ../properties/nm-vpnc-editor.c:668
 msgid "NAT-T always"
 msgstr "Immer NAT-T"
 
-#: ../properties/nm-vpnc-editor.c:511
+#: ../properties/nm-vpnc-editor.c:671
 msgid "Cisco UDP"
 msgstr "Cisco-UDP"
 
-#: ../properties/nm-vpnc-editor.c:518
+#: ../properties/nm-vpnc-editor.c:674
 msgid "Disabled"
 msgstr "Deaktiviert"
 
-#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+#: ../properties/nm-vpnc-editor.c:685 ../properties/nm-vpnc-editor.c:708
 msgid "DH Group 1"
 msgstr "DH-Gruppe 1"
 
-#: ../properties/nm-vpnc-editor.c:545
+#: ../properties/nm-vpnc-editor.c:688
 msgid "DH Group 2 (default)"
 msgstr "DH-Gruppe 2 (Voreinstellung)"
 
-#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+#: ../properties/nm-vpnc-editor.c:691 ../properties/nm-vpnc-editor.c:714
 msgid "DH Group 5"
 msgstr "DH-Gruppe 5"
 
-#: ../properties/nm-vpnc-editor.c:610
+#: ../properties/nm-vpnc-editor.c:702
 msgid "Server (default)"
 msgstr "Server (Vorgabe)"
 
-#: ../properties/nm-vpnc-editor.c:617
+#: ../properties/nm-vpnc-editor.c:705
 msgid "None"
 msgstr "Keine"
 
-#: ../properties/nm-vpnc-editor.c:631
+#: ../properties/nm-vpnc-editor.c:711
 msgid "DH Group 2"
 msgstr "DH-Gruppe 2"
-
-#: ../properties/nm-vpnc-editor.c:678
-msgid "Choose a Certificate Authority (CA) certificate…"
-msgstr "Wählen Sie ein CA-Zertifikat …"
-
-#: ../properties/nm-vpnc-editor.c:682
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "PEM-Zertifikate (*.pem, *.crt, *.cer)"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
@@ -323,22 +311,27 @@ msgstr ""
 "Wert »%s« des Typs »%s« ist ungültig oder außerhalb des zulässigen Bereichs "
 "der Eigenschaft »%s« des Typs »%s«"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:80
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "Der Name der Editor-Erweiterung kann nicht ermittelt werden: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
 #, c-format
 msgid "missing plugin file \"%s\""
 msgstr "Erweiterungs-Datei »%s« fehlt"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:86
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
 #, c-format
 msgid "cannot load editor plugin: %s"
 msgstr "Editor-Erweiterung kann nicht geladen werden: %s"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:95
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
 #, c-format
 msgid "cannot load factory %s from plugin: %s"
 msgstr "Factory %s kann nicht aus Erweiterung geladen werden: %s"
 
-#: ../shared/nm-utils/nm-vpn-plugin-utils.c:121
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
 msgstr "Unbekannter Fehler beim Erzeugen der Editor-Instanz"
 
@@ -347,30 +340,10 @@ msgid "General"
 msgstr "Allgemein"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Sho_w passwords"
-msgstr "Pass_wörter anzeigen"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Gruppenpasswort\n"
-"config: IPSec secret <Gruppenpasswort>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password"
-msgstr "_Gruppenpasswort"
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid "_Gateway"
 msgstr "_Gateway"
 
-#: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name"
-msgstr "G_ruppenname"
-
-#: ../properties/nm-vpnc-dialog.ui.h:8
+#: ../properties/nm-vpnc-dialog.ui.h:3
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
@@ -378,27 +351,11 @@ msgstr ""
 "IP/Rechnername des IPsec-Gateways\n"
 "config: IPSec-Gateway <Gateway>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Gruppenname\n"
-"config: IPSec ID <Gruppenname>"
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "User na_me"
+msgstr "Benutzerna_me"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password"
-msgstr "Ben_utzerpasswort"
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Benutzerpasswort für die Verbindung\n"
-"config: Xauth password <Passwort>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
@@ -406,9 +363,45 @@ msgstr ""
 "Benutzername für die Verbindung\n"
 "config: Xauth username <Benutzername>"
 
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "User _password"
+msgstr "Ben_utzerpasswort"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"Benutzerpasswort für die Verbindung\n"
+"config: Xauth password <Passwort>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "G_roup name"
+msgstr "G_ruppenname"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"Gruppenname\n"
+"config: IPSec ID <Gruppenname>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Gro_up password"
+msgstr "_Gruppenpasswort"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"Gruppenpasswort\n"
+"config: IPSec secret <Gruppenpasswort>"
+
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me"
-msgstr "Benutzerna_me"
+msgid "Sho_w passwords"
+msgstr "Pass_wörter anzeigen"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -424,24 +417,24 @@ msgstr ""
 "config: IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File"
-msgstr "_CA-Datei"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"Zertifizierungsstellendatei im .pem-Format.\n"
-"config: CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
 msgstr "_Erweitert …"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid "Advanced Options"
 msgstr "Erweiterte Einstellungen"
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
+msgid "Advanced Properties"
+msgstr "Erweiterte Eigenschaften"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "_Cancel"
+msgstr "Abbre_chen"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Apply"
+msgstr "_Anwenden"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
@@ -460,16 +453,16 @@ msgstr ""
 "config: Domain <domain>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Vendor"
+msgstr "_Hersteller"
+
+#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
 msgstr ""
 "Hersteller Ihres IPsec-Gateway\n"
 "config: Vendor <cisco/netscreen>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor"
-msgstr "_Hersteller"
 
 #: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion"
@@ -488,72 +481,22 @@ msgid "Transport and Security"
 msgstr "Übertragung und Sicherheit"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Disable Dead _Peer Detection"
-msgstr "Peer-To-Peer-Erkennung deaktivieren"
+msgid "Tunnel _interface name"
+msgstr "Tunnel-Schn_ittstellenname"
 
-# CHECK
 #: ../properties/nm-vpnc-dialog.ui.h:38
 msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
 msgstr ""
-"Senden von DPD-Paketen deaktivieren (setzt die Zeitüberschreitung auf 0)\n"
-"config: DPD idle timeout (our side) 0"
+"Zu verwendender Tunnel-Schnittstellenname\n"
+"config: Interface name <name>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port"
-msgstr "_Lokaler Port"
+msgid "_Encryption method"
+msgstr "_Verschlüsselungsmethode"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy"
-msgstr "Perfect _Forward Secrecy"
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group"
-msgstr "_IKE DH-Gruppe"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_NAT-Traversal"
-
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Zu verwendender lokaler ISAKMP-Port (0 bedeutet zufälliger Port; 500 ist der "
-"Standardport von vpnc)\n"
-"config: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "0"
-msgstr "0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Für PFS zu verwendende Diffie-Hellman-Gruppe\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Name der IKE-DH-Gruppe\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Zu benutzende NAT-Traversalmethode\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
@@ -563,18 +506,88 @@ msgstr ""
 "config: nichts für Sicher, »Enable Single DES« für Weich, »Enable no "
 "encryption« für Keine"
 
-#: ../properties/nm-vpnc-dialog.ui.h:55
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal"
+msgstr "_NAT-Traversal"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
-"Tunnel interface name to use\n"
-"config: Interface name <name>"
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
-"Zu verwendender Tunnel-Schnittstellenname\n"
-"config: Interface name <name>"
+"Zu benutzende NAT-Traversalmethode\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "_IKE DH Group"
+msgstr "_IKE DH-Gruppe"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"Name der IKE-DH-Gruppe\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid "Perfect _Forward Secrecy"
+msgstr "Perfect _Forward Secrecy"
+
+#: ../properties/nm-vpnc-dialog.ui.h:50
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"Für PFS zu verwendende Diffie-Hellman-Gruppe\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:52
+msgid "_Local port"
+msgstr "_Lokaler Port"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"Zu verwendender lokaler ISAKMP-Port (0 bedeutet zufälliger Port; 500 ist der "
+"Standardport von vpnc)\n"
+"config: Local Port <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:56
+msgid "Disable Dead _Peer Detection"
+msgstr "Peer-To-Peer-Erkennung deaktivieren"
+
+# CHECK
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method"
-msgstr "_Verschlüsselungsmethode"
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"Senden von DPD-Paketen deaktivieren (setzt die Zeitüberschreitung auf 0)\n"
+"config: DPD idle timeout (our side) 0"
 
-#: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name"
-msgstr "Tunnel-Schn_ittstellenname"
+#, c-format
+#~ msgid "Authenticate VPN %s"
+#~ msgstr "VPN %s legitimieren"
+
+#~ msgid "Choose a Certificate Authority (CA) certificate…"
+#~ msgstr "Wählen Sie ein CA-Zertifikat …"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.cer)"
+#~ msgstr "PEM-Zertifikate (*.pem, *.crt, *.cer)"
+
+#~ msgid "CA _File"
+#~ msgstr "_CA-Datei"
+
+#~ msgid ""
+#~ "CA certificate in PEM format\n"
+#~ "config: CA-File"
+#~ msgstr ""
+#~ "Zertifizierungsstellendatei im .pem-Format.\n"
+#~ "config: CA-File"
