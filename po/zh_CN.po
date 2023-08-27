@@ -12,16 +12,16 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2020-08-31 14:19+0000\n"
-"PO-Revision-Date: 2021-11-07 14:54+0800\n"
-"Last-Translator: Dingzhong Chen <wsxy162@gmail.com>\n"
+"POT-Creation-Date: 2022-07-08 04:04+0000\n"
+"PO-Revision-Date: 2023-08-27 09:43-0400\n"
+"Last-Translator: Boyuan Yang <073plan@gmail.com>\n"
 "Language-Team: Chinese - China <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Gtranslator 40.0\n"
-"Plural-Forms: nplurals=1; plural=0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
 msgid "Legacy Cisco VPNC client"
@@ -64,11 +64,11 @@ msgstr "组密码(_G)："
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "您需要进行身份验证才能访问虚拟专用网络“%s”。"
 
-#: ../properties/nm-vpnc-editor-plugin.c:44
+#: ../properties/nm-vpnc-editor-plugin.c:45
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "思科兼容 VPN（vpnc）"
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:46
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -76,7 +76,7 @@ msgstr ""
 "与多种思科、瞻博（Juniper）、网屏（Netscreen）以及 Sonicwall 的基于 IPsec 的 "
 "VPN 网关兼容。"
 
-#: ../properties/nm-vpnc-editor-plugin.c:508
+#: ../properties/nm-vpnc-editor-plugin.c:509
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -89,73 +89,65 @@ msgstr ""
 "\n"
 "连接仍然可以建立，但 TCP 隧道将被禁用。连接可能无法正确工作。"
 
-#: ../properties/nm-vpnc-editor.c:374
+#: ../properties/nm-vpnc-editor.c:601
 msgid "Secure (default)"
 msgstr "安全（默认）"
 
-#: ../properties/nm-vpnc-editor.c:377
+#: ../properties/nm-vpnc-editor.c:604
 msgid "Weak (use with caution)"
 msgstr "弱安全性（谨慎使用）"
 
-#: ../properties/nm-vpnc-editor.c:385
+#: ../properties/nm-vpnc-editor.c:607
 msgid "None (completely insecure)"
 msgstr "无（不安全）"
 
-#: ../properties/nm-vpnc-editor.c:449
+#: ../properties/nm-vpnc-editor.c:651
 msgid "Cisco (default)"
 msgstr "思科（默认）"
 
-#: ../properties/nm-vpnc-editor.c:456
+#: ../properties/nm-vpnc-editor.c:654
 msgid "Netscreen"
 msgstr "网屏（Netscreen）"
 
-#: ../properties/nm-vpnc-editor.c:497
+#: ../properties/nm-vpnc-editor.c:665
 msgid "NAT-T when available (default)"
 msgstr "可用时使用 NAT-T（默认）"
 
-#: ../properties/nm-vpnc-editor.c:504
+#: ../properties/nm-vpnc-editor.c:668
 msgid "NAT-T always"
 msgstr "总是使用 NAT-T"
 
-#: ../properties/nm-vpnc-editor.c:511
+#: ../properties/nm-vpnc-editor.c:671
 msgid "Cisco UDP"
 msgstr "思科 UDP"
 
-#: ../properties/nm-vpnc-editor.c:518
+#: ../properties/nm-vpnc-editor.c:674
 msgid "Disabled"
 msgstr "禁用"
 
-#: ../properties/nm-vpnc-editor.c:538 ../properties/nm-vpnc-editor.c:624
+#: ../properties/nm-vpnc-editor.c:685 ../properties/nm-vpnc-editor.c:708
 msgid "DH Group 1"
 msgstr "DH 组 1"
 
-#: ../properties/nm-vpnc-editor.c:545
+#: ../properties/nm-vpnc-editor.c:688
 msgid "DH Group 2 (default)"
 msgstr "DH 组 2（默认）"
 
-#: ../properties/nm-vpnc-editor.c:552 ../properties/nm-vpnc-editor.c:638
+#: ../properties/nm-vpnc-editor.c:691 ../properties/nm-vpnc-editor.c:714
 msgid "DH Group 5"
 msgstr "DH 组 5"
 
-#: ../properties/nm-vpnc-editor.c:610
+#: ../properties/nm-vpnc-editor.c:702
 msgid "Server (default)"
 msgstr "服务器（默认）"
 
-#: ../properties/nm-vpnc-editor.c:617
+#: ../properties/nm-vpnc-editor.c:705
 msgid "None"
 msgstr "无"
 
-#: ../properties/nm-vpnc-editor.c:631
+#: ../properties/nm-vpnc-editor.c:711
 msgid "DH Group 2"
 msgstr "DH 组 2"
-
-#: ../properties/nm-vpnc-editor.c:678
-msgid "Choose a Certificate Authority (CA) certificate…"
-msgstr "选择证书颁发机构（CA）证书…"
-
-#: ../properties/nm-vpnc-editor.c:682
-msgid "PEM certificates (*.pem, *.crt, *.cer)"
-msgstr "PEM 证书（*.pem、*.crt、*.cer）"
 
 #: ../src/nm-vpnc-service.c:201
 #, c-format
@@ -318,30 +310,10 @@ msgid "General"
 msgstr "常规"
 
 #: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "Sho_w passwords"
-msgstr "显示密码"
+msgid "_Gateway"
+msgstr "网关(_G)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"组密码\n"
-"配置：IPSec secret <组密码>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "Gro_up password"
-msgstr "组密码(_U)："
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid "_Gateway"
-msgstr "网关(_G)："
-
-#: ../properties/nm-vpnc-dialog.ui.h:7
-msgid "G_roup name"
-msgstr "组名称(_R)："
-
-#: ../properties/nm-vpnc-dialog.ui.h:8
 msgid ""
 "IP/hostname of IPsec gateway\n"
 "config: IPSec gateway <gateway>"
@@ -349,27 +321,11 @@ msgstr ""
 "IPsec 网关的 IP/主机名\n"
 "配置：IPSec gateway <网关>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:10
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"组名称\n"
-"配置：IPSec ID <组名称>"
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "User na_me"
+msgstr "用户名(_M)"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid "User _password"
-msgstr "用户密码(_P)："
-
-#: ../properties/nm-vpnc-dialog.ui.h:13
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"连接用户密码\n"
-"配置：Xauth password <密码>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
+#: ../properties/nm-vpnc-dialog.ui.h:6
 msgid ""
 "User name for the connection\n"
 "config: Xauth username <user_name>"
@@ -377,9 +333,45 @@ msgstr ""
 "连接的用户名\n"
 "配置：Xauth username <用户名>"
 
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "User _password"
+msgstr "用户密码(_P)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"连接用户密码\n"
+"配置：Xauth password <密码>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "G_roup name"
+msgstr "组名称(_R)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"组名称\n"
+"配置：IPSec ID <组名称>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Gro_up password"
+msgstr "组密码(_U)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"组密码\n"
+"配置：IPSec secret <组密码>"
+
 #: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "User na_me"
-msgstr "用户名(_M)："
+msgid "Sho_w passwords"
+msgstr "显示密码"
 
 #: ../properties/nm-vpnc-dialog.ui.h:18
 msgid "Use _hybrid authentication"
@@ -394,24 +386,24 @@ msgstr ""
 "配置：IKE Authmode hybrid"
 
 #: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "CA _File"
-msgstr "CA 文件(_F)："
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid ""
-"CA certificate in PEM format\n"
-"config: CA-File"
-msgstr ""
-"PEM 格式的 CA 证书\n"
-"配置：CA-File"
-
-#: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "Advance_d…"
 msgstr "高级(_D)…"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
+#: ../properties/nm-vpnc-dialog.ui.h:22
 msgid "Advanced Options"
 msgstr "高级选项"
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
+msgid "Advanced Properties"
+msgstr "高级属性"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "_Cancel"
+msgstr "取消(_C)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Apply"
+msgstr "应用(_A)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:26
 msgid "Identification"
@@ -419,7 +411,7 @@ msgstr "鉴定"
 
 #: ../properties/nm-vpnc-dialog.ui.h:27
 msgid "_Domain"
-msgstr "域(_D)："
+msgstr "域(_D)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:28
 msgid ""
@@ -430,6 +422,10 @@ msgstr ""
 "配置：Domain <域名>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Vendor"
+msgstr "供应商(_V)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:31
 msgid ""
 "Vendor of your IPsec gateway\n"
 "config: Vendor <cisco/netscreen>"
@@ -437,13 +433,9 @@ msgstr ""
 "您的 IPSec 网关供应商\n"
 "配置：Vendor <cisco/netscreen>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:32
-msgid "_Vendor"
-msgstr "供应商(_V)："
-
 #: ../properties/nm-vpnc-dialog.ui.h:33
 msgid "Ve_rsion"
-msgstr "版本(_R)："
+msgstr "版本(_R)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:34
 msgid ""
@@ -458,70 +450,22 @@ msgid "Transport and Security"
 msgstr "传输与安全"
 
 #: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Disable Dead _Peer Detection"
-msgstr "禁用失效对等体检测（D_PD）"
+msgid "Tunnel _interface name"
+msgstr "隧道接口名称(_I)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:38
 msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
 msgstr ""
-"禁用发送 DPD 包（设置超时时间为 0）\n"
-"配置：DPD idle timeout (our side) 0"
+"使用的隧道接口名称\n"
+"配置：Interface name <名称>"
 
 #: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Local port"
-msgstr "本地端口(_L)："
+msgid "_Encryption method"
+msgstr "加密方法(_E)"
 
 #: ../properties/nm-vpnc-dialog.ui.h:41
-msgid "Perfect _Forward Secrecy"
-msgstr "完美前向保密(_F)："
-
-#: ../properties/nm-vpnc-dialog.ui.h:42
-msgid "_IKE DH Group"
-msgstr "_IKE DH 组："
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_NAT 遍历"
-
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"本地使用的 ISAKMP 端口（0 代表任意端口；500 为默认 vpnc 端口）\n"
-"配置：Local Port <0～65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "0"
-msgstr "0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"用于 PFS 的 Diffie-Hellman 组\n"
-"配置：Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"IKE DH 的组名\n"
-"配置：IKE DH Group <dh1/dh2/dh5>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:51
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"使用的 NAT 遍历方法\n"
-"配置：NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:53
 msgid ""
 "Encryption method\n"
 "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
@@ -531,21 +475,85 @@ msgstr ""
 "配置：无为安全加密，“Enable Single DES”为弱加密，“Enable no encryption”为无加"
 "密"
 
-#: ../properties/nm-vpnc-dialog.ui.h:55
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal"
+msgstr "_NAT 遍历"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
 msgid ""
-"Tunnel interface name to use\n"
-"config: Interface name <name>"
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 msgstr ""
-"使用的隧道接口名称\n"
-"配置：Interface name <名称>"
+"使用的 NAT 遍历方法\n"
+"配置：NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "_IKE DH Group"
+msgstr "_IKE DH 组"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"IKE DH 的组名\n"
+"配置：IKE DH Group <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid "Perfect _Forward Secrecy"
+msgstr "完美前向保密(_F)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:50
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"用于 PFS 的 Diffie-Hellman 组\n"
+"配置：Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:52
+msgid "_Local port"
+msgstr "本地端口(_L)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"本地使用的 ISAKMP 端口（0 代表任意端口；500 为默认 vpnc 端口）\n"
+"配置：Local Port <0～65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:56
+msgid "Disable Dead _Peer Detection"
+msgstr "禁用失效对等体检测（D_PD）"
 
 #: ../properties/nm-vpnc-dialog.ui.h:57
-msgid "_Encryption method"
-msgstr "加密方法(_E)"
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"禁用发送 DPD 包（设置超时时间为 0）\n"
+"配置：DPD idle timeout (our side) 0"
 
-#: ../properties/nm-vpnc-dialog.ui.h:58
-msgid "Tunnel _interface name"
-msgstr "隧道接口名称(_I)："
+#~ msgid "Choose a Certificate Authority (CA) certificate…"
+#~ msgstr "选择证书颁发机构（CA）证书…"
+
+#~ msgid "PEM certificates (*.pem, *.crt, *.cer)"
+#~ msgstr "PEM 证书（*.pem、*.crt、*.cer）"
+
+#~ msgid "CA _File"
+#~ msgstr "CA 文件(_F)："
+
+#~ msgid ""
+#~ "CA certificate in PEM format\n"
+#~ "config: CA-File"
+#~ msgstr ""
+#~ "PEM 格式的 CA 证书\n"
+#~ "配置：CA-File"
 
 #~ msgid "Authenticate VPN %s"
 #~ msgstr "验证 VPN %s"
