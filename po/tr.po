@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2022-03-13 12:32+0000\n"
-"PO-Revision-Date: 2022-03-20 22:50+0300\n"
-"Last-Translator: Emin Tufan Çetin <etcetin@gmail.com>\n"
+"POT-Creation-Date: 2022-07-08 04:04+0000\n"
+"PO-Revision-Date: 2023-10-17 17:33+0300\n"
+"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 2.4.3\n"
+"X-Generator: Poedit 3.4\n"
 "X-POOTLE-MTIME: 1419728809.000000\n"
 
 #: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
@@ -93,63 +93,63 @@ msgstr ""
 "Bağlantı yine oluşturulabilir ancak TCP tünelleme devre dışı olacağından "
 "istenildiği gibi çalışmayabilir."
 
-#: ../properties/nm-vpnc-editor.c:603
+#: ../properties/nm-vpnc-editor.c:601
 msgid "Secure (default)"
 msgstr "Güvenli (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:606
+#: ../properties/nm-vpnc-editor.c:604
 msgid "Weak (use with caution)"
 msgstr "Zayıf (dikkatli kullanın)"
 
-#: ../properties/nm-vpnc-editor.c:609
+#: ../properties/nm-vpnc-editor.c:607
 msgid "None (completely insecure)"
 msgstr "Hiçbiri (tamamen güvensiz)"
 
-#: ../properties/nm-vpnc-editor.c:653
+#: ../properties/nm-vpnc-editor.c:651
 msgid "Cisco (default)"
 msgstr "Cisco (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:656
+#: ../properties/nm-vpnc-editor.c:654
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:667
+#: ../properties/nm-vpnc-editor.c:665
 msgid "NAT-T when available (default)"
 msgstr "Mümkün olduğunda NAT-T (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:670
+#: ../properties/nm-vpnc-editor.c:668
 msgid "NAT-T always"
 msgstr "Her zaman NAT-T"
 
-#: ../properties/nm-vpnc-editor.c:673
+#: ../properties/nm-vpnc-editor.c:671
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:676
+#: ../properties/nm-vpnc-editor.c:674
 msgid "Disabled"
 msgstr "Kapalı"
 
-#: ../properties/nm-vpnc-editor.c:687 ../properties/nm-vpnc-editor.c:710
+#: ../properties/nm-vpnc-editor.c:685 ../properties/nm-vpnc-editor.c:708
 msgid "DH Group 1"
 msgstr "DH Kümesi 1"
 
-#: ../properties/nm-vpnc-editor.c:690
+#: ../properties/nm-vpnc-editor.c:688
 msgid "DH Group 2 (default)"
 msgstr "DH Kümesi 2 (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:693 ../properties/nm-vpnc-editor.c:716
+#: ../properties/nm-vpnc-editor.c:691 ../properties/nm-vpnc-editor.c:714
 msgid "DH Group 5"
 msgstr "DH Kümesi 5"
 
-#: ../properties/nm-vpnc-editor.c:704
+#: ../properties/nm-vpnc-editor.c:702
 msgid "Server (default)"
 msgstr "Sunucu (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:707
+#: ../properties/nm-vpnc-editor.c:705
 msgid "None"
 msgstr "Hiçbiri"
 
-#: ../properties/nm-vpnc-editor.c:713
+#: ../properties/nm-vpnc-editor.c:711
 msgid "DH Group 2"
 msgstr "DH Kümesi 2"
 
@@ -412,7 +412,7 @@ msgstr "Gelişmiş Özellikler"
 
 #: ../properties/nm-vpnc-dialog.ui.h:24
 msgid "_Cancel"
-msgstr "İptal _Et"
+msgstr "İ_ptal"
 
 #: ../properties/nm-vpnc-dialog.ui.h:25
 msgid "_Apply"
