@@ -1,0 +1,543 @@
+# Hindi translation for NetworkManager-vpnc.
+# Copyright (C) 2024 NetworkManager-vpnc's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-vpnc package.
+# Scrambled777 <weblate.scrambled777@simplelogin.com>, 2024.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-vpnc main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
+"issues\n"
+"POT-Creation-Date: 2024-02-09 11:59+0000\n"
+"PO-Revision-Date: 2024-04-23 20:30+0530\n"
+"Last-Translator: Scrambled777 <weblate.scrambled777@simplelogin.com>\n"
+"Language-Team: Hindi\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Gtranslator 46.0\n"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
+msgid "Legacy Cisco VPNC client"
+msgstr "विरासती Cisco VPNC क्लाइंट"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
+msgid "Client for Cisco IPsec virtual private networks"
+msgstr "Cisco IPsec वर्चुअल प्राइवेट नेटवर्क के लिए क्लाइंट"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
+msgid "Support for configuring virtual private networks based on VPNC."
+msgstr "VPNC पर आधारित वर्चुअल प्राइवेट नेटवर्क को विन्यस्त करने के लिए समर्थन।"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
+msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+msgstr "IPsec का उपयोग करने के लिए विन्यस्त किए गए Cisco VPN संकेंद्रक के साथ संगत।"
+
+#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
+msgid "The NetworkManager Developers"
+msgstr "NetworkManager विकासकर्ता"
+
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
+msgid "Authenticate VPN"
+msgstr "VPN को प्रमाणित करें"
+
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "पासवर्ड"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "समूह पासवर्ड"
+
+#: ../auth-dialog/main.c:232
+msgid "_Group Password:"
+msgstr "समूह पासवर्ड (_G):"
+
+#: ../auth-dialog/main.c:489
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr "आपको वर्चुअल प्राइवेट नेटवर्क “%s” तक पहुंचने के लिए प्रमाणित करने की आवश्यकता है।"
+
+#: ../properties/nm-vpnc-editor-plugin.c:45
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "Cisco संगत VPN (vpnc)"
+
+#: ../properties/nm-vpnc-editor-plugin.c:46
+msgid ""
+"Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
+"VPN gateways."
+msgstr ""
+"विभिन्न Cisco, Juniper, Netscreen और Sonicwall IPsecs-आधारित VPN गेटवे के साथ "
+"संगत।"
+
+#: ../properties/nm-vpnc-editor-plugin.c:509
+#, c-format
+msgid ""
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled "
+"through TCP which is currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it "
+"may not work as expected."
+msgstr ""
+"VPN सेटिंग्स फाइल “%s” निर्दिष्ट करती है कि VPN ट्रैफ़िक को TCP के माध्यम से टनल किया "
+"जाना चाहिए जो वर्तमान में vpnc सॉफ़्टवेयर में समर्थित नहीं है।\n"
+"\n"
+"TCP टनलिंग अक्षम होने पर भी कनेक्शन बनाया जा सकता है, हालाँकि यह अपेक्षा के अनुरूप काम "
+"नहीं कर सकता है।"
+
+#: ../properties/nm-vpnc-editor.c:601
+msgid "Secure (default)"
+msgstr "सुरक्षित (तयशुदा)"
+
+#: ../properties/nm-vpnc-editor.c:604
+msgid "Weak (use with caution)"
+msgstr "कमजोर (सावधानीपूर्वक प्रयोग करें)"
+
+#: ../properties/nm-vpnc-editor.c:607
+msgid "None (completely insecure)"
+msgstr "कोई नहीं (पूरी तरह से असुरक्षित)"
+
+#: ../properties/nm-vpnc-editor.c:651
+msgid "Cisco (default)"
+msgstr "Cisco (तयशुदा)"
+
+#: ../properties/nm-vpnc-editor.c:654
+msgid "Netscreen"
+msgstr "Netscreen"
+
+#: ../properties/nm-vpnc-editor.c:665
+msgid "NAT-T when available (default)"
+msgstr "उपलब्ध होने पर NAT-T (तयशुदा)"
+
+#: ../properties/nm-vpnc-editor.c:668
+msgid "NAT-T always"
+msgstr "NAT-T हमेशा"
+
+#: ../properties/nm-vpnc-editor.c:671
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc-editor.c:674
+msgid "Disabled"
+msgstr "अक्षम"
+
+#: ../properties/nm-vpnc-editor.c:685 ../properties/nm-vpnc-editor.c:708
+msgid "DH Group 1"
+msgstr "DH समूह 1"
+
+#: ../properties/nm-vpnc-editor.c:688
+msgid "DH Group 2 (default)"
+msgstr "DH समूह 2 (तयशुदा)"
+
+#: ../properties/nm-vpnc-editor.c:691 ../properties/nm-vpnc-editor.c:714
+msgid "DH Group 5"
+msgstr "DH समूह 5"
+
+#: ../properties/nm-vpnc-editor.c:702
+msgid "Server (default)"
+msgstr "सर्वर (तयशुदा)"
+
+#: ../properties/nm-vpnc-editor.c:705
+msgid "None"
+msgstr "कोई नहीं"
+
+#: ../properties/nm-vpnc-editor.c:711
+msgid "DH Group 2"
+msgstr "DH समूह 2"
+
+#: ../src/nm-vpnc-service.c:201
+#, c-format
+msgid "property “%s” invalid or not supported"
+msgstr "गुण “%s” अमान्य है या समर्थित नहीं है"
+
+#: ../src/nm-vpnc-service.c:216
+#, c-format
+msgid "property “%s” contains a newline character"
+msgstr "गुण “%s” में एक न्यूलाइन वर्ण है"
+
+#: ../src/nm-vpnc-service.c:228
+#, c-format
+msgid "property “%s” file path “%s” is not absolute or does not exist"
+msgstr "गुण “%s” फाइल पथ “%s” पूर्ण नहीं है या अस्तित्व में नहीं है"
+
+#: ../src/nm-vpnc-service.c:241
+#, c-format
+msgid "invalid integer property “%s” or out of range [%d -> %d]"
+msgstr "अमान्य पूर्णांक गुण “%s” या सीमा से बाहर [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:251
+#, c-format
+msgid "invalid boolean property “%s” (not yes or no)"
+msgstr "अमान्य बूलियन गुण “%s” (हां नहीं या नहीं)"
+
+#: ../src/nm-vpnc-service.c:258
+#, c-format
+msgid "unhandled property “%s” type %d"
+msgstr "असंभाला हुआ गुण “%s” प्रकार %d"
+
+#: ../src/nm-vpnc-service.c:275
+msgid "No VPN configuration options."
+msgstr "कोई VPN विन्यास विकल्प नहीं।"
+
+#: ../src/nm-vpnc-service.c:301
+msgid "No VPN secrets!"
+msgstr "कोई VPN रहस्य नहीं!"
+
+#: ../src/nm-vpnc-service.c:646
+msgid "Could not find vpnc binary."
+msgstr "VPNC बाइनरी नहीं मिल सका।"
+
+#: ../src/nm-vpnc-service.c:764
+#, c-format
+msgid "Config option “%s” invalid or unknown."
+msgstr "विन्यास विकल्प “%s” अमान्य या अज्ञात।"
+
+#: ../src/nm-vpnc-service.c:799
+#, c-format
+msgid "Config option “%s” not an integer."
+msgstr "विन्यास विकल्प “%s” एक पूर्णांक नहीं है।"
+
+#: ../src/nm-vpnc-service.c:987
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc अंतर्क्रियात्मक अनुरोधों का समर्थन नहीं करता"
+
+#: ../src/nm-vpnc-service.c:1011
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr "अंतर्क्रियात्मक मोड अक्षम होने के कारण नए रहस्यों का उपयोग नहीं किया जा सका।"
+
+#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
+msgid ""
+"Could not process the request because the VPN connection settings were "
+"invalid."
+msgstr "अनुरोध संसाधित नहीं किया जा सका क्योंकि VPN कनेक्शन सेटिंग्स अमान्य थीं।"
+
+#: ../src/nm-vpnc-service.c:1028
+msgid ""
+"Could not process the request because no pending authentication is required."
+msgstr ""
+"अनुरोध संसाधित नहीं किया जा सका क्योंकि किसी लंबित प्रमाणीकरण की आवश्यकता नहीं है।"
+
+#: ../src/nm-vpnc-service.c:1039
+#, c-format
+msgid ""
+"Could not process the request because the requested info “%s” was not "
+"provided."
+msgstr ""
+"अनुरोध संसाधित नहीं किया जा सका क्योंकि अनुरोधित जानकारी “%s” प्रदान नहीं की गई थी।"
+
+#: ../src/nm-vpnc-service.c:1237
+msgid "Don’t quit when VPN connection terminates"
+msgstr "VPN कनेक्शन समाप्त होने पर न छोड़ें"
+
+#: ../src/nm-vpnc-service.c:1238
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "वाचाल डिबग लॉगिंग सक्षम करें (पासवर्ड उजागर हो सकता है)"
+
+#: ../src/nm-vpnc-service.c:1239
+msgid "D-Bus name to use for this instance"
+msgstr "इस इंस्टैंस के लिए उपयोग हेतु D-Bus नाम"
+
+#: ../src/nm-vpnc-service.c:1262
+msgid ""
+"nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
+"NetworkManager."
+msgstr ""
+"nm-vpnc-service NetworkManager को एकीकृत Cisco विरासती IPsec VPN क्षमता प्रदान "
+"करती है।"
+
+#: ../shared/nm-utils/nm-shared-utils.c:264
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr "वस्तु वर्ग '%s' में '%s' नाम का कोई गुण नहीं है"
+
+#: ../shared/nm-utils/nm-shared-utils.c:271
+#, c-format
+msgid "property '%s' of object class '%s' is not writable"
+msgstr "वस्तु वर्ग '%2$s' का गुण '%1$s' लिखने योग्य नहीं है"
+
+#: ../shared/nm-utils/nm-shared-utils.c:278
+#, c-format
+msgid ""
+"construct property \"%s\" for object '%s' can't be set after construction"
+msgstr ""
+"वस्तु '%2$s' के लिए निर्माण गुण \"%1$s\" निर्माण के बाद निर्धारित नहीं की जा सकती"
+
+#: ../shared/nm-utils/nm-shared-utils.c:286
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr "'%s::%s' मान्य गुण नाम नहीं है; '%s' एक GObject उपप्रकार नहीं है"
+
+#: ../shared/nm-utils/nm-shared-utils.c:295
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr "'%2$s' प्रकार की गुण '%1$s' को '%3$s' प्रकार के मान से निर्धारित करने में असमर्थ"
+
+#: ../shared/nm-utils/nm-shared-utils.c:306
+#, c-format
+msgid ""
+"value \"%s\" of type '%s' is invalid or out of range for property '%s' of "
+"type '%s'"
+msgstr ""
+"प्रकार '%2$s' का मान \"%1$s\" प्रकार '%4$s' के गुण '%3$s' के लिए अमान्य या सीमा से "
+"बाहर है"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "संपादक प्लगइन नाम प्राप्त करने में असमर्थ: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr "अनुपलब्ध प्लगइन फाइल \"%s\""
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr "संपादक प्लगइन लोड नहीं कर सकता: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr "प्लगइन से फ़ैक्टरी %s लोड नहीं हो सकता: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
+msgid "unknown error creating editor instance"
+msgstr "संपादक इंस्टैंस बनाने में अज्ञात त्रुटि"
+
+#: ../properties/nm-vpnc-dialog.ui.h:1
+msgid "General"
+msgstr "सामान्य"
+
+#: ../properties/nm-vpnc-dialog.ui.h:2
+msgid "_Gateway"
+msgstr "गेटवे (_G)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:3
+msgid ""
+"IP/hostname of IPsec gateway\n"
+"config: IPSec gateway <gateway>"
+msgstr ""
+"IPsec गेटवे का IP/होस्टनाम\n"
+"विन्यास: IPSec गेटवे <gateway>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:5
+msgid "User na_me"
+msgstr "उपयोक्ता नाम (_m)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:6
+msgid ""
+"User name for the connection\n"
+"config: Xauth username <user_name>"
+msgstr ""
+"कनेक्शन के लिए उपयोक्ता नाम\n"
+"विन्यास: Xauth उपयोक्तानाम <user_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:8
+msgid "User _password"
+msgstr "उपयोक्ता पासवर्ड (_p)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:9
+msgid ""
+"User password for the connection\n"
+"config: Xauth password <password>"
+msgstr ""
+"कनेक्शन के लिए उपयोगकर्ता पासवर्ड\n"
+"विन्यास: Xauth पासवर्ड <password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:11
+msgid "G_roup name"
+msgstr "समूह नाम (_r)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:12
+msgid ""
+"Group name\n"
+"config: IPSec ID <group_name>"
+msgstr ""
+"समूह नाम\n"
+"विन्यास: IPSec ID <group_name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:14
+msgid "Gro_up password"
+msgstr "समूह पासवर्ड (_u)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:15
+msgid ""
+"Group password\n"
+"config: IPSec secret <group_password>"
+msgstr ""
+"समूह पासवर्ड\n"
+"विन्यास: IPSec रहस्य <group_password>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:17
+msgid "Sho_w passwords"
+msgstr "पासवर्ड दिखाएं (_w)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:18
+msgid "Use _hybrid authentication"
+msgstr "संकर प्रमाणीकरण का प्रयोग करें (_h)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:19
+msgid ""
+"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
+"config: IKE Authmode hybrid"
+msgstr ""
+"संकर प्रमाणीकरण सक्षम करें, यानी पासवर्ड के अतिरिक्त प्रमाणपत्र का उपयोग करें।\n"
+"विन्यास: IKE Authmode संकर"
+
+#: ../properties/nm-vpnc-dialog.ui.h:21
+msgid "Advance_d…"
+msgstr "उन्नत (_d)…"
+
+#: ../properties/nm-vpnc-dialog.ui.h:22
+msgid "Advanced Options"
+msgstr "उन्नत विकल्प"
+
+#: ../properties/nm-vpnc-dialog.ui.h:23
+msgid "Advanced Properties"
+msgstr "उन्नत गुण"
+
+#: ../properties/nm-vpnc-dialog.ui.h:24
+msgid "_Cancel"
+msgstr "रद्द करें (_C)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:25
+msgid "_Apply"
+msgstr "लागू (_A)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:26
+msgid "Identification"
+msgstr "पहचान"
+
+#: ../properties/nm-vpnc-dialog.ui.h:27
+msgid "_Domain"
+msgstr "डोमेन (_D)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:28
+msgid ""
+"(NT-)Domain name for authentication\n"
+"config: Domain <domain>"
+msgstr ""
+"(NT-)प्रमाणीकरण के लिए डोमेन नाम\n"
+"विन्यास: डोमेन <domain>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:30
+msgid "_Vendor"
+msgstr "विक्रेता (_V)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:31
+msgid ""
+"Vendor of your IPsec gateway\n"
+"config: Vendor <cisco/netscreen>"
+msgstr ""
+"आपके IPsec गेटवे का विक्रेता\n"
+"विन्यास: विक्रेता <cisco/netscreen>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:33
+msgid "Ve_rsion"
+msgstr "संस्करण (_r)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:34
+msgid ""
+"Application version to report. \n"
+"config: Application version <ASCII string>"
+msgstr ""
+"रिपोर्ट करने के लिए अनुप्रयोग संस्करण।\n"
+"विन्यास: अनुप्रयोग संस्करण <ASCII string>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:36
+msgid "Transport and Security"
+msgstr "परिवहन एवं सुरक्षा"
+
+#: ../properties/nm-vpnc-dialog.ui.h:37
+msgid "Tunnel _interface name"
+msgstr "टनल इंटरफ़ेस का नाम (_i)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:38
+msgid ""
+"Tunnel interface name to use\n"
+"config: Interface name <name>"
+msgstr ""
+"उपयोग के लिए टनल इंटरफ़ेस का नाम\n"
+"विन्यास: इंटरफ़ेस नाम <name>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:40
+msgid "_Encryption method"
+msgstr "एन्क्रिप्शन पद्धति (_E)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:41
+msgid ""
+"Encryption method\n"
+"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+"encryption” for None"
+msgstr ""
+"एन्क्रिप्शन पद्धति\n"
+"विन्यास: सुरक्षित के लिए कुछ भी नहीं, कमजोर के लिए “एकल DES सक्षम करें”, किसी के लिए "
+"नहीं “कोई एन्क्रिप्शन सक्षम न करें”।"
+
+#: ../properties/nm-vpnc-dialog.ui.h:43
+msgid "_NAT traversal"
+msgstr "_NAT ट्रेवर्सल"
+
+#: ../properties/nm-vpnc-dialog.ui.h:44
+msgid ""
+"NAT traversal method to use\n"
+"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+msgstr ""
+"उपयोग करने के लिए NAT ट्रैवर्सल पद्धति\n"
+"विन्यास: NAT ट्रैवर्सल मोड <natt/none/force-natt/cisco-udp>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:46
+msgid "_IKE DH Group"
+msgstr "_IKE DH समूह"
+
+#: ../properties/nm-vpnc-dialog.ui.h:47
+msgid ""
+"Name of the IKE DH group\n"
+"config: IKE DH Group <dh1/dh2/dh5>"
+msgstr ""
+"IKE DH समूह का नाम\n"
+"विन्यास: IKE DH ग्रुप <dh1/dh2/dh5>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:49
+msgid "Perfect _Forward Secrecy"
+msgstr "उत्तम अग्रेषण गुप्तता (_F)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:50
+msgid ""
+"Diffie-Hellman group to use for PFS\n"
+"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+msgstr ""
+"PFS के लिए Diffie-Hellman समूह का उपयोग\n"
+"विन्यास: उत्तम अग्रेषण गुप्तता <nopfs/dh1/dh2/dh5/server>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:52
+msgid "_Local port"
+msgstr "स्थानीय पोर्ट (_L)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:53
+msgid ""
+"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+"config: Local Port <0-65535>"
+msgstr ""
+"उपयोग के लिए स्थानीय ISAKMP पोर्ट (0 का अर्थ है यादृच्छिक पोर्ट; 500 vpnc का तयशुदा "
+"है)\n"
+"विन्यास: स्थानीय पोर्ट <0-65535>"
+
+#: ../properties/nm-vpnc-dialog.ui.h:55
+msgid "0"
+msgstr "0"
+
+#: ../properties/nm-vpnc-dialog.ui.h:56
+msgid "Disable Dead _Peer Detection"
+msgstr "मृत पीयर खोज अक्षम करें (_P)"
+
+#: ../properties/nm-vpnc-dialog.ui.h:57
+msgid ""
+"Disable sending DPD packets (sets timeout to 0)\n"
+"config: DPD idle timeout (our side) 0"
+msgstr ""
+"DPD पैकेट भेजना अक्षम करें (समयबाह्य को 0 पर निर्धारित करें)\n"
+"विन्यास: DPD निष्क्रिय समयबाह्य (हमारी तरफ) 0"
