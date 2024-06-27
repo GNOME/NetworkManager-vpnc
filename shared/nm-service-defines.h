@@ -45,6 +45,7 @@
 #define NM_VPNC_KEY_LOCAL_PORT "Local Port"
 #define NM_VPNC_KEY_AUTHMODE "IKE Authmode"
 #define NM_VPNC_KEY_CA_FILE "CA-File"
+#define NM_VPNC_KEY_MTU "Interface MTU"
 
 #define NM_VPNC_NATT_MODE_NATT        "natt"
 #define NM_VPNC_NATT_MODE_NONE        "none"
