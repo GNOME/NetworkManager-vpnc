@@ -448,6 +448,20 @@ populate_adv_dialog (VpncEditor *self)
 	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_MTU);
 	if (value)
 		gtk_editable_set_text (GTK_EDITABLE (widget), value);
+
+	/* Weak Authentication */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "weak_authentication_checkbutton"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_WEAK_AUTH);
+	if (value && !strcmp(value, "yes"))
+		gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), TRUE);
+
+	/* Weak Encryption */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "weak_encryption_checkbutton"));
+	g_return_if_fail (widget != NULL);
+	value = nm_setting_vpn_get_data_item (priv->s_vpn, NM_VPNC_KEY_WEAK_ENCRYPT);
+	if (value && !strcmp(value, "yes"))
+		gtk_check_button_set_active (GTK_CHECK_BUTTON (widget), TRUE);
 }
 
 static void
@@ -574,6 +588,16 @@ update_adv_settings (VpncEditor *self, NMSettingVpn *s_vpn)
 		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_MTU, value);
 	else
 		nm_setting_vpn_remove_data_item (s_vpn, NM_VPNC_KEY_MTU);
+
+	/* Weak Authentication */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "weak_authentication_checkbutton"));
+	if (gtk_check_button_get_active (GTK_CHECK_BUTTON (widget)))
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_WEAK_AUTH, "yes");
+
+	/* Weak Encryption */
+	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "weak_encryption_checkbutton"));
+	if (gtk_check_button_get_active (GTK_CHECK_BUTTON (widget)))
+		nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_WEAK_ENCRYPT, "yes");
 }
 
 static void

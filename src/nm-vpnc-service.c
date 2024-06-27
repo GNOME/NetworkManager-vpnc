@@ -122,6 +122,8 @@ static ValidProperty valid_properties[] = {
 	{ NM_VPNC_KEY_CISCO_UDP_ENCAPS_PORT, ITEM_TYPE_INT, 0, 65535 },
 	{ NM_VPNC_KEY_LOCAL_PORT,            ITEM_TYPE_INT, 0, 65535 },
 	{ NM_VPNC_KEY_MTU,                   ITEM_TYPE_INT, 1200, 12000 },
+	{ NM_VPNC_KEY_WEAK_AUTH,             ITEM_TYPE_BOOLEAN, 0, 0 },
+	{ NM_VPNC_KEY_WEAK_ENCRYPT,          ITEM_TYPE_BOOLEAN, 0, 0 },
 	/* Hybrid Auth */
 	{ NM_VPNC_KEY_AUTHMODE,              ITEM_TYPE_STRING, 0, 0 },
 	{ NM_VPNC_KEY_CA_FILE,               ITEM_TYPE_PATH, 0, 0 },

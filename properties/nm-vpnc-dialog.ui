@@ -781,9 +781,43 @@ config: DPD idle timeout (our side) 0</property>
               </object>
               <packing>
                 <property name="left_attach">1</property>
-                <property name="top_attach">11</property>
+                <property name="top_attach">12</property>
               </packing>
             </child>
+
+            <child>
+              <object class="GtkCheckButton" id="weak_authentication_checkbutton">
+                <property name="label" translatable="yes">Enable weak (insecure) authentication</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Enable use of known insecure algorithms (such as MD5) for password hashing</property>
+                <property name="use_underline">True</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">13</property>
+              </packing>
+            </child>
+
+            <child>
+              <object class="GtkCheckButton" id="weak_encryption_checkbutton">
+                <property name="label" translatable="yes">Enable weak (insecure) encryption</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="tooltip_text" translatable="yes">Enable use of known insecure algorithms (such as DES and 3DES) for encryption</property>
+                <property name="use_underline">True</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">1</property>
+                <property name="top_attach">14</property>
+              </packing>
+            </child>
+
+
           </object>
         </child>
       </object>
