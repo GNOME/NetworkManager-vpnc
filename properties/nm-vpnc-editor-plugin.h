@@ -33,6 +33,7 @@ typedef struct _VpncEditorPluginClass VpncEditorPluginClass;
 
 struct _VpncEditorPlugin {
 	GObject parent;
+	char *module_path;
 };
 
 struct _VpncEditorPluginClass {
@@ -51,4 +52,3 @@ nm_vpn_editor_factory_vpnc (NMVpnEditorPlugin *editor_plugin,
                             GError **error);
 
 #endif /* __NM_VPNC_EDITOR_PLUGIN_H__ */
-
