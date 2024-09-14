@@ -483,7 +483,7 @@ import (NMVpnEditorPlugin *plugin, const char *path, GError **error)
 	if (*error)
 		goto error;
 	if (buf) {
-		if (!strcmp (buf, "1") || !strcmp (buf, "2") || !strcmp (buf, "5")) {
+		if (!strcmp (buf, "1") || !strcmp (buf, "2") || !strcmp (buf, "5") || !strcmp (buf, "14") || !strcmp (buf, "15") || !strcmp (buf, "16") || !strcmp (buf, "17") || !strcmp (buf, "18")) {
 			char *tmp;
 			tmp = g_strdup_printf ("dh%s", buf);
 			nm_setting_vpn_add_data_item (s_vpn, NM_VPNC_KEY_DHGROUP, tmp);

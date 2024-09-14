@@ -666,7 +666,7 @@ config: NAT Traversal Mode &lt;natt/none/force-natt/cisco-udp&gt;</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Name of the IKE DH group
-config: IKE DH Group &lt;dh1/dh2/dh5&gt;</property>
+config: IKE DH Group &lt;dh1/dh2/dh5/dh14/dh15/dh16/dh17/dh18&gt;</property>
                 <property name="model">model5</property>
                 <child>
                   <object class="GtkCellRendererText" id="renderer5"/>
@@ -699,7 +699,7 @@ config: IKE DH Group &lt;dh1/dh2/dh5&gt;</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Diffie-Hellman group to use for PFS
-config: Perfect Forward Secrecy &lt;nopfs/dh1/dh2/dh5/server&gt;</property>
+config: Perfect Forward Secrecy &lt;nopfs/dh1/dh2/dh5/dh14/dh15/dh16/dh17/dh18/server&gt;</property>
                 <property name="model">model7</property>
                 <child>
                   <object class="GtkCellRendererText" id="renderer7"/>

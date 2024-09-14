@@ -345,6 +345,26 @@ populate_adv_dialog (VpncEditor *self)
 		if (!strcmp (value, NM_VPNC_DHGROUP_DH5))
 			active = 2;
 	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH14))
+			active = 3;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH15))
+			active = 4;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH16))
+			active = 5;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH17))
+			active = 6;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_DHGROUP_DH18))
+			active = 7;
+	}
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 1 : active);
 
 	/* Perfect Forward Secrecy combo */
@@ -371,6 +391,26 @@ populate_adv_dialog (VpncEditor *self)
 	if ((active == -1) && value) {
 		if (!strcmp (value, NM_VPNC_PFS_DH5))
 			active = 4;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH14))
+			active = 5;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH15))
+			active = 6;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH16))
+			active = 7;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH17))
+			active = 8;
+	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_PFS_DH18))
+			active = 9;
 	}
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 0 : active);
 
@@ -690,6 +730,21 @@ init_plugin_ui (VpncEditor *self,
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 5"), 1, NM_VPNC_DHGROUP_DH5, -1);
 
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 14"), 1, NM_VPNC_DHGROUP_DH14, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 15"), 1, NM_VPNC_DHGROUP_DH15, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 16"), 1, NM_VPNC_DHGROUP_DH16, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 17"), 1, NM_VPNC_DHGROUP_DH17, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 18"), 1, NM_VPNC_DHGROUP_DH18, -1);
+
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "dhgroup_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
 	gtk_combo_box_set_model (GTK_COMBO_BOX (widget), GTK_TREE_MODEL (store));
@@ -712,6 +767,22 @@ init_plugin_ui (VpncEditor *self,
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("DH Group 5"), 1, NM_VPNC_PFS_DH5, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 14"), 1, NM_VPNC_PFS_DH14, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 15"), 1, NM_VPNC_PFS_DH15, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 16"), 1, NM_VPNC_PFS_DH16, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 17"), 1, NM_VPNC_PFS_DH17, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("DH Group 18"), 1, NM_VPNC_PFS_DH18, -1);
+
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "pfsecrecy_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
