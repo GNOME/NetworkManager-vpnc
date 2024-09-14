@@ -501,7 +501,7 @@ config: Domain &lt;domain&gt;</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="tooltip_text" translatable="yes">Vendor of your IPsec gateway
-config: Vendor &lt;cisco/netscreen&gt;</property>
+config: Vendor &lt;cisco/netscreen/fortigate&gt;</property>
                 <property name="model">model6</property>
                 <child>
                   <object class="GtkCellRendererText" id="renderer6"/>

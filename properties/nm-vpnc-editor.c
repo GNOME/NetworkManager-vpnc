@@ -273,6 +273,10 @@ populate_adv_dialog (VpncEditor *self)
 		if (!strcmp (value, NM_VPNC_VENDOR_NETSCREEN))
 			active = 1;
 	}
+	if ((active == -1) && value) {
+		if (!strcmp (value, NM_VPNC_VENDOR_FORTIGATE))
+			active = 2;
+	}
 	gtk_combo_box_set_active (GTK_COMBO_BOX (widget), active == -1 ? 0 : active);
 
 	/* Application version */
@@ -692,6 +696,9 @@ init_plugin_ui (VpncEditor *self,
 
 	gtk_list_store_append (store, &iter);
 	gtk_list_store_set (store, &iter, 0, _("Netscreen"), 1, NM_VPNC_VENDOR_NETSCREEN, -1);
+
+	gtk_list_store_append (store, &iter);
+	gtk_list_store_set (store, &iter, 0, _("Fortigate"), 1, NM_VPNC_VENDOR_FORTIGATE, -1);
 
 	widget = GTK_WIDGET (gtk_builder_get_object (priv->builder, "vendor_combo"));
 	g_return_val_if_fail (widget != NULL, FALSE);
