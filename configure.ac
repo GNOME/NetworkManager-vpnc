@@ -1,7 +1,7 @@
 AC_PREREQ(2.52)
 
 AC_INIT(NetworkManager-vpnc,
-        1.2.9,
+        1.4.0,
         https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issues,
         NetworkManager-vpnc)
 AM_INIT_AUTOMAKE([foreign no-dist-gzip dist-xz])
