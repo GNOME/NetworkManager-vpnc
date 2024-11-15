@@ -1,4 +1,21 @@
 =======================================================
+NetworkManager-vpnc-1.4.0
+Overview of changes since NetworkManager-vpnc-1.2.8
+=======================================================
+
+This is a new stable release of NetworkManager-vpnc.  Notable changes include:
+
+* Added support for configuring MTU.
+* Added support for more secure DH groups.
+* Added options to relax security for old insecure gateways.
+* Added support for Fortigate vendor-specific compatibility quirks.
+* Removed obsolete libm-glib support.
+* Updated Basque, Brazilian Portuguese, Catalan, Chinese, Croatian, Czech,
+  Danish, Dutch, Georgian, German, Hindi, Hungarian, Indonesian, Lithuanian,
+  Polish, Romanian, Russian, Serbian, Slovenian, Spanish, Swedish, Turkish
+  and Ukrainian translations.
+
+=======================================================
 NetworkManager-vpnc-1.2.8
 Overview of changes since NetworkManager-vpnc-1.2.6
 =======================================================
