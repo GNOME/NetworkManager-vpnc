@@ -9,13 +9,14 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2010, 2011.
 # Stas Solovey <whats_up@tut.by>, 2014.
 # Дронова Юлия <juliette.tux@gmail.com>, 2025.
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issue"
 "s\n"
 "POT-Creation-Date: 2025-01-12 11:06+0000\n"
-"PO-Revision-Date: 2025-01-28 14:01+0300\n"
+"PO-Revision-Date: 2025-01-28 14:11+0300\n"
 "Last-Translator: Дронова Юлия <juliette.tux@gmail.com>\n"
 "Language-Team: RU\n"
 "Language: ru\n"
@@ -178,7 +179,8 @@ msgstr ""
 #: ../src/nm-vpnc-service.c:244
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
-msgstr "параметр “%s” недействителен, либо вне диапазона [%d -> %d]"
+msgstr ""
+"целочисленный параметр “%s” недействителен, либо вне диапазона [%d -> %d]"
 
 #: ../src/nm-vpnc-service.c:254
 #, c-format
