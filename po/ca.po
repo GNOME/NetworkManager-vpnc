@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issues\n"
 "POT-Creation-Date: 2022-03-13 12:32+0000\n"
-"PO-Revision-Date: 2018-07-22 16:28+0200\n"
+"PO-Revision-Date: 2028-08-26 16:28+0200\n"
 "Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
 "Language: ca\n"
@@ -201,27 +201,27 @@ msgstr "L'opció «%s» no és un enter."
 
 #: ../src/nm-vpnc-service.c:987
 msgid "vpnc does not support interactive requests"
-msgstr "El vpnc no dona suport a demandes interactives"
+msgstr "El vpnc no dona suport a peticions interactives"
 
 #: ../src/nm-vpnc-service.c:1011
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "No s'han pogut usar els secrets nous perquè que el mode interactiu "
-"desactivat."
+"està desactivat."
 
 #: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr ""
-"No s'ha pogut processar la demanda perquè la configuració de la VPN no era "
+"No s'ha pogut processar la petició perquè la configuració de la VPN no era "
 "vàlida."
 
 #: ../src/nm-vpnc-service.c:1028
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
-"No s'ha pogut processar la demanda perquè que no es requereix cap "
+"No s'ha pogut processar la petició perquè que no es requereix cap "
 "autenticació pendent."
 
 #: ../src/nm-vpnc-service.c:1039
@@ -230,7 +230,7 @@ msgid ""
 "Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr ""
-"No s'ha pogut processar la demanda perquè no s'ha proveït la informació "
+"No s'ha pogut processar la petició perquè no s'ha proveït la informació "
 "requerida «%s»."
 
 #: ../src/nm-vpnc-service.c:1237
