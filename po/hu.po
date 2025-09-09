@@ -1,46 +1,25 @@
 # Hungarian translation of network-manager-vpnc
-# Copyright (C) 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2016, 2019, 2021, 2022 Free Software Foundation, Inc.
+# Copyright (C) 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2016, 2019, 2021, 2022, 2025 Free Software Foundation, Inc.
 # This file is distributed under the same license as the network-manager-vpnc package.
 #
 # Gabor Kelemen <kelemeng at gnome dot hu>, 2006, 2007, 2008, 2010, 2011, 2012, 2014, 2016.
 # Mate Ory <orymate at ubuntu dot com>, 2011.
-# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2019, 2021, 2022.
+# Balázs Úr <ur.balazs at fsf dot hu>, 2014, 2019, 2021, 2022, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issue"
 "s\n"
-"POT-Creation-Date: 2022-03-13 12:32+0000\n"
-"PO-Revision-Date: 2022-03-18 01:48+0100\n"
+"POT-Creation-Date: 2025-09-06 12:11+0000\n"
+"PO-Revision-Date: 2025-09-09 22:28+0200\n"
 "Last-Translator: Balázs Úr <ur.balazs at fsf dot hu>\n"
-"Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
+"Language-Team: Hungarian <openscope at fsf dot hu>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 19.12.3\n"
+"X-Generator: Lokalize 24.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
-msgid "Legacy Cisco VPNC client"
-msgstr "Örökölt Cisco VPNC kliens"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
-msgid "Client for Cisco IPsec virtual private networks"
-msgstr "Kliens a Cisco IPsec virtuális magánhálózatokhoz"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
-msgid "Support for configuring virtual private networks based on VPNC."
-msgstr "A VPNC alapú virtuális magánhálózatok beállításának támogatása."
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
-msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
-msgstr ""
-"Kompatibilis az IPsec használatára beállított Cisco VPN koncentrátorokkal"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
-msgid "The NetworkManager Developers"
-msgstr "A Hálózatkezelő fejlesztői"
 
 #: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
@@ -63,11 +42,11 @@ msgstr "_Csoportjelszó:"
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "Hitelesítenie kell magát a(z) „%s” virtuális magánhálózat eléréséhez."
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:40
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-kompatibilis VPN-kliens (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:46
+#: ../properties/nm-vpnc-editor-plugin.c:41
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -75,7 +54,7 @@ msgstr ""
 "Kompatibilis számos Cisco, Juniper, Netscreen és Sonicwall IPsec-alapú VPN-"
 "átjáróval."
 
-#: ../properties/nm-vpnc-editor-plugin.c:509
+#: ../properties/nm-vpnc-editor-plugin.c:488
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -90,129 +69,158 @@ msgstr ""
 "A kapcsolat így is létrehozható letiltott TCP alagutazással, azonban "
 "lehetséges, hogy nem a várt módon fog működni."
 
-#: ../properties/nm-vpnc-editor.c:603
+#: ../properties/nm-vpnc-editor.c:685
 msgid "Secure (default)"
 msgstr "Biztonságos (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:606
+#: ../properties/nm-vpnc-editor.c:688
 msgid "Weak (use with caution)"
 msgstr "Gyenge (óvatosan használja)"
 
-#: ../properties/nm-vpnc-editor.c:609
+#: ../properties/nm-vpnc-editor.c:691
 msgid "None (completely insecure)"
 msgstr "Nincs (nem biztonságos)"
 
-#: ../properties/nm-vpnc-editor.c:653
+#: ../properties/nm-vpnc-editor.c:735
 msgid "Cisco (default)"
 msgstr "Cisco (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:656
+#: ../properties/nm-vpnc-editor.c:738
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:667
+#: ../properties/nm-vpnc-editor.c:741
+msgid "Fortigate"
+msgstr "Fortigate"
+
+#: ../properties/nm-vpnc-editor.c:752
 msgid "NAT-T when available (default)"
 msgstr "NAT-T ha elérhető (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:670
+#: ../properties/nm-vpnc-editor.c:755
 msgid "NAT-T always"
 msgstr "NAT-T mindig"
 
-#: ../properties/nm-vpnc-editor.c:673
+#: ../properties/nm-vpnc-editor.c:758
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:676
+#: ../properties/nm-vpnc-editor.c:761
 msgid "Disabled"
 msgstr "Tiltva"
 
-#: ../properties/nm-vpnc-editor.c:687 ../properties/nm-vpnc-editor.c:710
+#: ../properties/nm-vpnc-editor.c:772 ../properties/nm-vpnc-editor.c:810
 msgid "DH Group 1"
 msgstr "1. DH csoport"
 
-#: ../properties/nm-vpnc-editor.c:690
+#: ../properties/nm-vpnc-editor.c:775
 msgid "DH Group 2 (default)"
 msgstr "2. DH csoport (alapbeállítás)"
 
-#: ../properties/nm-vpnc-editor.c:693 ../properties/nm-vpnc-editor.c:716
+#: ../properties/nm-vpnc-editor.c:778 ../properties/nm-vpnc-editor.c:816
 msgid "DH Group 5"
 msgstr "5. DH csoport"
 
-#: ../properties/nm-vpnc-editor.c:704
+#: ../properties/nm-vpnc-editor.c:781 ../properties/nm-vpnc-editor.c:819
+#| msgid "DH Group 1"
+msgid "DH Group 14"
+msgstr "14. DH csoport"
+
+#: ../properties/nm-vpnc-editor.c:784 ../properties/nm-vpnc-editor.c:822
+#| msgid "DH Group 1"
+msgid "DH Group 15"
+msgstr "15. DH csoport"
+
+#: ../properties/nm-vpnc-editor.c:787 ../properties/nm-vpnc-editor.c:825
+#| msgid "DH Group 1"
+msgid "DH Group 16"
+msgstr "16. DH csoport"
+
+#: ../properties/nm-vpnc-editor.c:790 ../properties/nm-vpnc-editor.c:828
+#| msgid "DH Group 1"
+msgid "DH Group 17"
+msgstr "17. DH csoport"
+
+#: ../properties/nm-vpnc-editor.c:793 ../properties/nm-vpnc-editor.c:831
+#| msgid "DH Group 1"
+msgid "DH Group 18"
+msgstr "18. DH csoport"
+
+#: ../properties/nm-vpnc-editor.c:804
 msgid "Server (default)"
 msgstr "Kiszolgáló (alapértelmezett)"
 
-#: ../properties/nm-vpnc-editor.c:707
+#: ../properties/nm-vpnc-editor.c:807
 msgid "None"
 msgstr "Nincs"
 
-#: ../properties/nm-vpnc-editor.c:713
+#: ../properties/nm-vpnc-editor.c:813
 msgid "DH Group 2"
 msgstr "2. DH csoport"
 
-#: ../src/nm-vpnc-service.c:201
+#: ../src/nm-vpnc-service.c:204
 #, c-format
 msgid "property “%s” invalid or not supported"
 msgstr "a(z) „%s” tulajdonság érvénytelen vagy nem támogatott"
 
-#: ../src/nm-vpnc-service.c:216
+#: ../src/nm-vpnc-service.c:219
 #, c-format
 msgid "property “%s” contains a newline character"
 msgstr "a(z) „%s” tulajdonság egy soremelés karaktert tartalmaz"
 
-#: ../src/nm-vpnc-service.c:228
+#: ../src/nm-vpnc-service.c:231
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "a(z) „%s” tulajdonság „%s” elérési útja nem abszolút vagy nem létezik"
 
-#: ../src/nm-vpnc-service.c:241
+#: ../src/nm-vpnc-service.c:244
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr ""
 "érvénytelen, vagy a(z) %2$d…%3$d tartományon kívüli egész érték: „%1$s”"
 
-#: ../src/nm-vpnc-service.c:251
+#: ../src/nm-vpnc-service.c:254
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "érvénytelen logikai érték: „%s” (érvényes értékek: yes, no)"
 
-#: ../src/nm-vpnc-service.c:258
+#: ../src/nm-vpnc-service.c:261
 #, c-format
 msgid "unhandled property “%s” type %d"
 msgstr "kezeletlen %2$d típusú tulajdonság: „%1$s”"
 
-#: ../src/nm-vpnc-service.c:275
+#: ../src/nm-vpnc-service.c:278
 msgid "No VPN configuration options."
 msgstr "Nincsenek VPN-beállítások."
 
-#: ../src/nm-vpnc-service.c:301
+#: ../src/nm-vpnc-service.c:304
 msgid "No VPN secrets!"
 msgstr "Nincs VPN-titok!"
 
-#: ../src/nm-vpnc-service.c:646
+#: ../src/nm-vpnc-service.c:649
 msgid "Could not find vpnc binary."
 msgstr "Nem található a vpnc program."
 
-#: ../src/nm-vpnc-service.c:764
+#: ../src/nm-vpnc-service.c:767
 #, c-format
 msgid "Config option “%s” invalid or unknown."
 msgstr "A(z) „%s” beállítás érvénytelen vagy ismeretlen."
 
-#: ../src/nm-vpnc-service.c:799
+#: ../src/nm-vpnc-service.c:802
 #, c-format
 msgid "Config option “%s” not an integer."
 msgstr "A(z) „%s” beállítás nem egész érték."
 
-#: ../src/nm-vpnc-service.c:987
+#: ../src/nm-vpnc-service.c:990
 msgid "vpnc does not support interactive requests"
 msgstr "A vpnc nem támogatja az interaktív kéréseket"
 
-#: ../src/nm-vpnc-service.c:1011
+#: ../src/nm-vpnc-service.c:1014
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "Az új titkok nem használhatók, mivel az interaktív mód ki van kapcsolva."
 
-#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
+#: ../src/nm-vpnc-service.c:1023 ../src/nm-vpnc-service.c:1097
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
@@ -220,14 +228,14 @@ msgstr ""
 "A kérés feldolgozása sikertelen, mivel a VPN-kapcsolat beállításai "
 "érvénytelenek."
 
-#: ../src/nm-vpnc-service.c:1028
+#: ../src/nm-vpnc-service.c:1031
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
 "A kérés feldolgozása sikertelen, mivel nem szükséges függőben lévő "
 "hitelesítés."
 
-#: ../src/nm-vpnc-service.c:1039
+#: ../src/nm-vpnc-service.c:1042
 #, c-format
 msgid ""
 "Could not process the request because the requested info “%s” was not "
@@ -236,19 +244,19 @@ msgstr ""
 "A kérés feldolgozása sikertelen, mivel a kért „%s” információ nem lett "
 "megadva."
 
-#: ../src/nm-vpnc-service.c:1237
+#: ../src/nm-vpnc-service.c:1240
 msgid "Don’t quit when VPN connection terminates"
 msgstr "Ne lépjen ki, ha a VPN-kapcsolat megszakad"
 
-#: ../src/nm-vpnc-service.c:1238
+#: ../src/nm-vpnc-service.c:1241
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Részletes hibakeresési naplózás engedélyezése (jelszavak is "
 
-#: ../src/nm-vpnc-service.c:1239
+#: ../src/nm-vpnc-service.c:1242
 msgid "D-Bus name to use for this instance"
 msgstr "Ehhez a példányhoz használandó D-Bus név"
 
-#: ../src/nm-vpnc-service.c:1262
+#: ../src/nm-vpnc-service.c:1265
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -319,240 +327,3 @@ msgstr "nem tölthető be a(z) %s gyár a bővítményből: %s"
 #: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
 msgid "unknown error creating editor instance"
 msgstr "ismeretlen hiba a szerkesztő példány létrehozásakor"
-
-#: ../properties/nm-vpnc-dialog.ui.h:1
-msgid "General"
-msgstr "Általános"
-
-#: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "_Gateway"
-msgstr "Á_tjáró"
-
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-"Az IPsec átjáró IP-címe/gépneve.\n"
-"config: IPSec gateway <átjáró>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "User na_me"
-msgstr "_Felhasználónév"
-
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
-msgstr ""
-"Felhasználónév a kapcsolathoz.\n"
-"config: Xauth username <felhasználónév>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "User _password"
-msgstr "_Felhasználó jelszava"
-
-#: ../properties/nm-vpnc-dialog.ui.h:9
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Felhasználói jelszó a kapcsolathoz.\n"
-"config: Xauth password <jelszó>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "G_roup name"
-msgstr "Cso_portnév"
-
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Csoportnév.\n"
-"config: IPSec ID <csoportnév>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "Gro_up password"
-msgstr "_Csoportjelszó"
-
-#: ../properties/nm-vpnc-dialog.ui.h:15
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Csoportjelszó.\n"
-"config: IPSec secret <csoportjelszó>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "Sho_w passwords"
-msgstr "_Jelszavak megjelenítése"
-
-#: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "Use _hybrid authentication"
-msgstr "_Hibrid hitelesítés használata"
-
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
-"config: IKE Authmode hybrid"
-msgstr ""
-"Hibrid hitelesítés engedélyezése, azaz tanúsítvány használata a jelszón "
-"felül.\n"
-"config: IKE Authmode hybrid"
-
-#: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "Advance_d…"
-msgstr "Spe_ciális…"
-
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Advanced Options"
-msgstr "Speciális beállítások"
-
-#: ../properties/nm-vpnc-dialog.ui.h:23
-#| msgid "Advanced Options"
-msgid "Advanced Properties"
-msgstr "Speciális tulajdonságok"
-
-#: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "_Cancel"
-msgstr "_Mégse"
-
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Apply"
-msgstr "_Alkalmaz"
-
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid "Identification"
-msgstr "Azonosítás"
-
-#: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain"
-msgstr "_Tartomány"
-
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid ""
-"(NT-)Domain name for authentication\n"
-"config: Domain <domain>"
-msgstr ""
-"(NT-)Tartománynév hitelesítéshez.\n"
-"config: Domain <tartomány>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "_Vendor"
-msgstr "S_zállító"
-
-#: ../properties/nm-vpnc-dialog.ui.h:31
-msgid ""
-"Vendor of your IPsec gateway\n"
-"config: Vendor <cisco/netscreen>"
-msgstr ""
-"Az IPsec átjáró szállítója.\n"
-"config: Vendor <cisco/netscreen>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion"
-msgstr "_Verzió"
-
-#: ../properties/nm-vpnc-dialog.ui.h:34
-msgid ""
-"Application version to report. \n"
-"config: Application version <ASCII string>"
-msgstr ""
-"Jelentendő alkalmazásverzió.\n"
-"config: Application version <ASCII karakterlánc>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "Transport and Security"
-msgstr "Átvitel és biztonság"
-
-#: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Tunnel _interface name"
-msgstr "_Alagútcsatoló neve"
-
-#: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"Tunnel interface name to use\n"
-"config: Interface name <name>"
-msgstr ""
-"Használandó alagútcsatoló neve\n"
-"config: Interface name <név>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Encryption method"
-msgstr "_Titkosítási mód"
-
-#: ../properties/nm-vpnc-dialog.ui.h:41
-msgid ""
-"Encryption method\n"
-"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
-"encryption” for None"
-msgstr ""
-"Titkosítási módszer.\n"
-"config: semmi = biztonságos, „Enable Single DES” (Egyszeres DES "
-"engedélyezése) = gyenge, „Enable no encryption” (Titkosítás tiltása) = nincs"
-
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_NAT bejárás"
-
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"A használandó NAT bejárási mód.\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "_IKE DH Group"
-msgstr "_IKE DH csoport"
-
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"Az IKE DH csoport neve\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-
-# MS szótár szerint...
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid "Perfect _Forward Secrecy"
-msgstr "_Sérülés utáni titkosságvédelem (PFS)"
-
-#: ../properties/nm-vpnc-dialog.ui.h:50
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"A PFS-hez használandó Diffie-Hellman csoport\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:52
-msgid "_Local port"
-msgstr "_Helyi port"
-
-#: ../properties/nm-vpnc-dialog.ui.h:53
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Használandó helyi ISAKMP port (0=véletlenszerű, 500=a vpnc alapértelmezése)\n"
-"config: Local Port <0-65535>"
-
-#: ../properties/nm-vpnc-dialog.ui.h:55
-msgid "0"
-msgstr "0"
-
-#: ../properties/nm-vpnc-dialog.ui.h:56
-msgid "Disable Dead _Peer Detection"
-msgstr "_Halott partnerek felismerésének kikapcsolása"
-
-#: ../properties/nm-vpnc-dialog.ui.h:57
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"DPD csomagok küldésének letiltása (az időkorlátot 0-ra állítja).\n"
-"config: DPD idle timeout (our side) 0"
