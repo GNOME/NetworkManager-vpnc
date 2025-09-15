@@ -10,38 +10,17 @@ msgstr ""
 "Project-Id-Version: NetworkManager-vpnc HEAD\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2022-07-08 04:04+0000\n"
-"PO-Revision-Date: 2023-02-27 22:33+0200\n"
-"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"POT-Creation-Date: 2025-09-10 22:16+0000\n"
+"PO-Revision-Date: 2025-09-14 19:14+0300\n"
+"Last-Translator: Aurimas Černius <aurimas.cernius@mailo.com>\n"
 "Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"(n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Gtranslator 42.0\n"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
-msgid "Legacy Cisco VPNC client"
-msgstr "Pasenęs Cisco VPNC klientas"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
-msgid "Client for Cisco IPsec virtual private networks"
-msgstr "Cisco IPsec virtualių privačių tinklų klientas"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
-msgid "Support for configuring virtual private networks based on VPNC."
-msgstr "VPNC pagrindo virtualių privačių tinklų konfigūracijos palaikymas."
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
-msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
-msgstr ""
-"Suderinamas su Cisco VPN koncentratoriais, sukonfigūruotas IPsec naudojimui."
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
-msgid "The NetworkManager Developers"
-msgstr "NetworkManager kūrėjai"
+"(n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 3.7\n"
 
 #: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
@@ -66,11 +45,11 @@ msgstr ""
 "Norint gauti prieigą prie Virtualiojo Privačiojo Tinklo „%s“, reikia "
 "nustatyti jūsų tapatybę."
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:40
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Su Cisco suderinamas VPN (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:46
+#: ../properties/nm-vpnc-editor-plugin.c:41
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -78,7 +57,7 @@ msgstr ""
 "Suderinamas su įvairiais Cisco, Juniper, Netscreen ir Sonicwall IPsec "
 "pagrįstais VPN tinklų sietuvais."
 
-#: ../properties/nm-vpnc-editor-plugin.c:509
+#: ../properties/nm-vpnc-editor-plugin.c:488
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -93,140 +72,164 @@ msgstr ""
 "Ryšį vis dar galima sukurti, išjungus TCP tuneliavimą, tačiau tikėtina, kad "
 "jis neveiks kaip turėtų."
 
-#: ../properties/nm-vpnc-editor.c:601
+#: ../properties/nm-vpnc-editor.c:685
 msgid "Secure (default)"
 msgstr "Saugus (numatytasis)"
 
-#: ../properties/nm-vpnc-editor.c:604
+#: ../properties/nm-vpnc-editor.c:688
 msgid "Weak (use with caution)"
 msgstr "Silpnas (naudokite atsargiai)"
 
-#: ../properties/nm-vpnc-editor.c:607
+#: ../properties/nm-vpnc-editor.c:691
 msgid "None (completely insecure)"
 msgstr "Nėra (visiškai nesaugu)"
 
-#: ../properties/nm-vpnc-editor.c:651
+#: ../properties/nm-vpnc-editor.c:735
 msgid "Cisco (default)"
 msgstr "Cisco (numatytasis)"
 
-#: ../properties/nm-vpnc-editor.c:654
+#: ../properties/nm-vpnc-editor.c:738
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:665
+#: ../properties/nm-vpnc-editor.c:741
+msgid "Fortigate"
+msgstr "Fortigate"
+
+#: ../properties/nm-vpnc-editor.c:752
 msgid "NAT-T when available (default)"
 msgstr "NAT-T kai prieinama (numatytasis)"
 
-#: ../properties/nm-vpnc-editor.c:668
+#: ../properties/nm-vpnc-editor.c:755
 msgid "NAT-T always"
 msgstr "NAT-T visada"
 
-#: ../properties/nm-vpnc-editor.c:671
+#: ../properties/nm-vpnc-editor.c:758
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:674
+#: ../properties/nm-vpnc-editor.c:761
 msgid "Disabled"
 msgstr "Išjungta"
 
-#: ../properties/nm-vpnc-editor.c:685 ../properties/nm-vpnc-editor.c:708
+#: ../properties/nm-vpnc-editor.c:772 ../properties/nm-vpnc-editor.c:810
 msgid "DH Group 1"
 msgstr "DH grupė 1"
 
-#: ../properties/nm-vpnc-editor.c:688
+#: ../properties/nm-vpnc-editor.c:775
 msgid "DH Group 2 (default)"
 msgstr "DH grupė 2 (numatytoji)"
 
-#: ../properties/nm-vpnc-editor.c:691 ../properties/nm-vpnc-editor.c:714
+#: ../properties/nm-vpnc-editor.c:778 ../properties/nm-vpnc-editor.c:816
 msgid "DH Group 5"
 msgstr "DH grupė 5"
 
-#: ../properties/nm-vpnc-editor.c:702
+#: ../properties/nm-vpnc-editor.c:781 ../properties/nm-vpnc-editor.c:819
+msgid "DH Group 14"
+msgstr "DH grupė 14"
+
+#: ../properties/nm-vpnc-editor.c:784 ../properties/nm-vpnc-editor.c:822
+msgid "DH Group 15"
+msgstr "DH grupė 15"
+
+#: ../properties/nm-vpnc-editor.c:787 ../properties/nm-vpnc-editor.c:825
+msgid "DH Group 16"
+msgstr "DH grupė 16"
+
+#: ../properties/nm-vpnc-editor.c:790 ../properties/nm-vpnc-editor.c:828
+msgid "DH Group 17"
+msgstr "DH grupė 17"
+
+#: ../properties/nm-vpnc-editor.c:793 ../properties/nm-vpnc-editor.c:831
+msgid "DH Group 18"
+msgstr "DH grupė 18"
+
+#: ../properties/nm-vpnc-editor.c:804
 msgid "Server (default)"
 msgstr "Serveris (numatytasis)"
 
-#: ../properties/nm-vpnc-editor.c:705
+#: ../properties/nm-vpnc-editor.c:807
 msgid "None"
 msgstr "Joks"
 
-#: ../properties/nm-vpnc-editor.c:711
+#: ../properties/nm-vpnc-editor.c:813
 msgid "DH Group 2"
 msgstr "DH grupė 2"
 
-#: ../src/nm-vpnc-service.c:201
+#: ../src/nm-vpnc-service.c:204
 #, c-format
 msgid "property “%s” invalid or not supported"
 msgstr "savybė „%s“ netinkama arba nepalaikoma"
 
-#: ../src/nm-vpnc-service.c:216
+#: ../src/nm-vpnc-service.c:219
 #, c-format
 msgid "property “%s” contains a newline character"
 msgstr "savybė „%s“ turi naujos eilutės simbolį"
 
-#: ../src/nm-vpnc-service.c:228
+#: ../src/nm-vpnc-service.c:231
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "savybės „%s“ failo kelias „%s“ nėra absoliutus arba jo nėra"
 
-#: ../src/nm-vpnc-service.c:241
+#: ../src/nm-vpnc-service.c:244
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr "netinkama sveikaskaitinė savybė „%s“ arba už ribų [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:251
+#: ../src/nm-vpnc-service.c:254
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "netinkama loginė savybė „%s“ (ne taip arba ne)"
 
-#: ../src/nm-vpnc-service.c:258
+#: ../src/nm-vpnc-service.c:261
 #, c-format
 msgid "unhandled property “%s” type %d"
 msgstr "neapdorotas savybės „%s“ tipas %d"
 
-#: ../src/nm-vpnc-service.c:275
+#: ../src/nm-vpnc-service.c:278
 msgid "No VPN configuration options."
 msgstr "Nėra VPN konfigūracijos parametrų."
 
-#: ../src/nm-vpnc-service.c:301
+#: ../src/nm-vpnc-service.c:304
 msgid "No VPN secrets!"
 msgstr "Nėra VPN paslapčių!"
 
-#: ../src/nm-vpnc-service.c:646
+#: ../src/nm-vpnc-service.c:649
 msgid "Could not find vpnc binary."
 msgstr "Nepavyko rasti vpnc programos."
 
-#: ../src/nm-vpnc-service.c:764
+#: ../src/nm-vpnc-service.c:767
 #, c-format
 msgid "Config option “%s” invalid or unknown."
 msgstr "Konfigūracijos parametras „%s“ netinkamas arba nežinomas."
 
-#: ../src/nm-vpnc-service.c:799
+#: ../src/nm-vpnc-service.c:802
 #, c-format
 msgid "Config option “%s” not an integer."
 msgstr "Konfigūracijos parametras „%s“ nėra sveikas skaičius."
 
-#: ../src/nm-vpnc-service.c:987
+#: ../src/nm-vpnc-service.c:990
 msgid "vpnc does not support interactive requests"
 msgstr "vpnc nepalaiko interaktyvių užklausų"
 
-#: ../src/nm-vpnc-service.c:1011
+#: ../src/nm-vpnc-service.c:1014
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
 "Negalima naudoti naujų paslapčių, kadangi interaktyvi veiksena išjungta."
 
-#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
+#: ../src/nm-vpnc-service.c:1023 ../src/nm-vpnc-service.c:1097
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr "Nepavyko apdoroti užklausos, nes VPN ryšio nustatymai buvo netinkami."
 
-#: ../src/nm-vpnc-service.c:1028
+#: ../src/nm-vpnc-service.c:1031
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
 "Nepavyko apdoroti užklausos, nes nereikalingas tapatybės patvirtinimas."
 
-#: ../src/nm-vpnc-service.c:1039
+#: ../src/nm-vpnc-service.c:1042
 #, c-format
 msgid ""
 "Could not process the request because the requested info “%s” was not "
@@ -234,19 +237,19 @@ msgid ""
 msgstr ""
 "Nepavyko apdoroti užklausos, nes užklausos informacija „%s“ nepateikta."
 
-#: ../src/nm-vpnc-service.c:1237
+#: ../src/nm-vpnc-service.c:1240
 msgid "Don’t quit when VPN connection terminates"
 msgstr "Neišeiti, kai nutrūksta VPN ryšys"
 
-#: ../src/nm-vpnc-service.c:1238
+#: ../src/nm-vpnc-service.c:1241
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr "Įjungti išsamų derinimo žurnalą (gali atskleisti slaptažodžius)"
 
-#: ../src/nm-vpnc-service.c:1239
+#: ../src/nm-vpnc-service.c:1242
 msgid "D-Bus name to use for this instance"
 msgstr "D-Bus vardas šiam egzemplioriui"
 
-#: ../src/nm-vpnc-service.c:1262
+#: ../src/nm-vpnc-service.c:1265
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -313,241 +316,217 @@ msgstr "nepavyksta įkelti %s gamyklos iš įskiepio: %s"
 msgid "unknown error creating editor instance"
 msgstr "nežinoma klaida kuriant redaktoriaus egzempliorių"
 
-#: ../properties/nm-vpnc-dialog.ui.h:1
-msgid "General"
-msgstr "Bendra"
+#~ msgid "Legacy Cisco VPNC client"
+#~ msgstr "Pasenęs Cisco VPNC klientas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "_Gateway"
-msgstr "_Tinklų sietuvas"
+#~ msgid "Client for Cisco IPsec virtual private networks"
+#~ msgstr "Cisco IPsec virtualių privačių tinklų klientas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-"IPsec tinklų sietuvo IP/serverio pavadinimas\n"
-"konfig.: IPSec gateway <gateway>"
+#~ msgid "Support for configuring virtual private networks based on VPNC."
+#~ msgstr "VPNC pagrindo virtualių privačių tinklų konfigūracijos palaikymas."
 
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "User na_me"
-msgstr "Naudotojo _vardas"
+#~ msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+#~ msgstr ""
+#~ "Suderinamas su Cisco VPN koncentratoriais, sukonfigūruotas IPsec "
+#~ "naudojimui."
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
-msgstr ""
-"Naudotojo vardas ryšiui\n"
-"konfig.: Xauth username <naudotojo_vardas>"
+#~ msgid "The NetworkManager Developers"
+#~ msgstr "NetworkManager kūrėjai"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "User _password"
-msgstr "_Naudotojo slaptažodis"
+#~ msgid "General"
+#~ msgstr "Bendra"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Naudotojo slaptažodis ryšiui\n"
-"konfig.: Xauth password <slaptažodis>"
+#~ msgid "_Gateway"
+#~ msgstr "_Tinklų sietuvas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "G_roup name"
-msgstr "G_rupės vardas"
+#~ msgid ""
+#~ "IP/hostname of IPsec gateway\n"
+#~ "config: IPSec gateway <gateway>"
+#~ msgstr ""
+#~ "IPsec tinklų sietuvo IP/serverio pavadinimas\n"
+#~ "konfig.: IPSec gateway <gateway>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Grupės pavadinimas\n"
-"konfig.: IPSec ID <group_name>"
+#~ msgid "User na_me"
+#~ msgstr "Naudotojo _vardas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "Gro_up password"
-msgstr "Gr_upės slaptažodis"
+#~ msgid ""
+#~ "User name for the connection\n"
+#~ "config: Xauth username <user_name>"
+#~ msgstr ""
+#~ "Naudotojo vardas ryšiui\n"
+#~ "konfig.: Xauth username <naudotojo_vardas>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Grupės slaptažodis\n"
-"konfig.: IPSec secret <group_password>"
+#~ msgid "User _password"
+#~ msgstr "_Naudotojo slaptažodis"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "Sho_w passwords"
-msgstr "Rod_yti slaptažodžius"
+#~ msgid ""
+#~ "User password for the connection\n"
+#~ "config: Xauth password <password>"
+#~ msgstr ""
+#~ "Naudotojo slaptažodis ryšiui\n"
+#~ "konfig.: Xauth password <slaptažodis>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "Use _hybrid authentication"
-msgstr "Naudoti _hibridinį tapatybės nustatymą"
+#~ msgid "G_roup name"
+#~ msgstr "G_rupės vardas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
-"config: IKE Authmode hybrid"
-msgstr ""
-"Įjungti hibridinį tapatybės nustatymą, pvz. naudoti liudijimą kartu su "
-"slaptažodžiu.\n"
-"konfig.: IKE Authmode hybrid"
+#~ msgid ""
+#~ "Group name\n"
+#~ "config: IPSec ID <group_name>"
+#~ msgstr ""
+#~ "Grupės pavadinimas\n"
+#~ "konfig.: IPSec ID <group_name>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "Advance_d…"
-msgstr "Išplėsti_niai…"
+#~ msgid "Gro_up password"
+#~ msgstr "Gr_upės slaptažodis"
 
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Advanced Options"
-msgstr "Išplėstiniai parametrai"
+#~ msgid ""
+#~ "Group password\n"
+#~ "config: IPSec secret <group_password>"
+#~ msgstr ""
+#~ "Grupės slaptažodis\n"
+#~ "konfig.: IPSec secret <group_password>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid "Advanced Properties"
-msgstr "Išplėstiniai parametrai"
+#~ msgid "Sho_w passwords"
+#~ msgstr "Rod_yti slaptažodžius"
 
-#: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "_Cancel"
-msgstr "_Atsisakyti"
+#~ msgid "Use _hybrid authentication"
+#~ msgstr "Naudoti _hibridinį tapatybės nustatymą"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Apply"
-msgstr "_Pritaikyti"
+#~ msgid ""
+#~ "Enable hybrid authentication, i.e. use certificate in addition to "
+#~ "password.\n"
+#~ "config: IKE Authmode hybrid"
+#~ msgstr ""
+#~ "Įjungti hibridinį tapatybės nustatymą, pvz. naudoti liudijimą kartu su "
+#~ "slaptažodžiu.\n"
+#~ "konfig.: IKE Authmode hybrid"
 
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid "Identification"
-msgstr "Identifikavimas"
+#~ msgid "Advance_d…"
+#~ msgstr "Išplėsti_niai…"
 
-#: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain"
-msgstr "_Sritis"
+#~ msgid "Advanced Options"
+#~ msgstr "Išplėstiniai parametrai"
 
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid ""
-"(NT-)Domain name for authentication\n"
-"config: Domain <domain>"
-msgstr ""
-"(NT-)Srities vardas tapatybės nustatymui\n"
-"konfig: Domain <domenas>"
+#~ msgid "Advanced Properties"
+#~ msgstr "Išplėstiniai parametrai"
 
-#: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "_Vendor"
-msgstr "_Tiekėjas"
+#~ msgid "_Cancel"
+#~ msgstr "_Atsisakyti"
 
-#: ../properties/nm-vpnc-dialog.ui.h:31
-msgid ""
-"Vendor of your IPsec gateway\n"
-"config: Vendor <cisco/netscreen>"
-msgstr ""
-"Jūsų IPsec tinklų sietuvo tiekėjas\n"
-"konfig.: Vendor <cisco/netscreen>"
+#~ msgid "_Apply"
+#~ msgstr "_Pritaikyti"
 
-#: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion"
-msgstr "Ve_rsija"
+#~ msgid "Identification"
+#~ msgstr "Identifikavimas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:34
-msgid ""
-"Application version to report. \n"
-"config: Application version <ASCII string>"
-msgstr ""
-"Pranešama programos versija. \n"
-"konfig.: Application version <ASCII eilutė>"
+#~ msgid "_Domain"
+#~ msgstr "_Sritis"
 
-#: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "Transport and Security"
-msgstr "Perdavimas ir saugumas"
+#~ msgid ""
+#~ "(NT-)Domain name for authentication\n"
+#~ "config: Domain <domain>"
+#~ msgstr ""
+#~ "(NT-)Srities vardas tapatybės nustatymui\n"
+#~ "konfig: Domain <domenas>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Tunnel _interface name"
-msgstr "Tunelio _sąsajos pavadinimas"
+#~ msgid "_Vendor"
+#~ msgstr "_Tiekėjas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"Tunnel interface name to use\n"
-"config: Interface name <name>"
-msgstr ""
-"Naudojamas tunelio sąsajos pavadinimas\n"
-"konfig.: Interface name <name>"
+#~ msgid ""
+#~ "Vendor of your IPsec gateway\n"
+#~ "config: Vendor <cisco/netscreen>"
+#~ msgstr ""
+#~ "Jūsų IPsec tinklų sietuvo tiekėjas\n"
+#~ "konfig.: Vendor <cisco/netscreen>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Encryption method"
-msgstr "Šifravimo metodas"
+#~ msgid "Ve_rsion"
+#~ msgstr "Ve_rsija"
 
-#: ../properties/nm-vpnc-dialog.ui.h:41
-msgid ""
-"Encryption method\n"
-"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
-"encryption” for None"
-msgstr ""
-"Šifravimo metodas\n"
-"konfig.: nothing saugiam, „Enable Single DES“ silpnam, „Enable no "
-"encryption“ jokiam"
+#~ msgid ""
+#~ "Application version to report. \n"
+#~ "config: Application version <ASCII string>"
+#~ msgstr ""
+#~ "Pranešama programos versija. \n"
+#~ "konfig.: Application version <ASCII eilutė>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_NAT perėjimas"
+#~ msgid "Transport and Security"
+#~ msgstr "Perdavimas ir saugumas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Naudojamas NAT perėjimo metodas\n"
-"konfig.: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+#~ msgid "Tunnel _interface name"
+#~ msgstr "Tunelio _sąsajos pavadinimas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "_IKE DH Group"
-msgstr "IKE DH grupė"
+#~ msgid ""
+#~ "Tunnel interface name to use\n"
+#~ "config: Interface name <name>"
+#~ msgstr ""
+#~ "Naudojamas tunelio sąsajos pavadinimas\n"
+#~ "konfig.: Interface name <name>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"IKE DH grupės pavadinimas\n"
-"konfig.: IKE DH Group <dh1/dh2/dh5>"
+#~ msgid "_Encryption method"
+#~ msgstr "Šifravimo metodas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid "Perfect _Forward Secrecy"
-msgstr "Tobulas slaptumas _pirmyn"
+#~ msgid ""
+#~ "Encryption method\n"
+#~ "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+#~ "encryption” for None"
+#~ msgstr ""
+#~ "Šifravimo metodas\n"
+#~ "konfig.: nothing saugiam, „Enable Single DES“ silpnam, „Enable no "
+#~ "encryption“ jokiam"
 
-#: ../properties/nm-vpnc-dialog.ui.h:50
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"Diffie-Hellman grupė, naudojama PFS\n"
-"konfig.: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+#~ msgid "_NAT traversal"
+#~ msgstr "_NAT perėjimas"
 
-#: ../properties/nm-vpnc-dialog.ui.h:52
-msgid "_Local port"
-msgstr "_Vietinis prievadas"
+#~ msgid ""
+#~ "NAT traversal method to use\n"
+#~ "config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+#~ msgstr ""
+#~ "Naudojamas NAT perėjimo metodas\n"
+#~ "konfig.: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:53
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Naudojamas vietinis ISAKMP prievadas (0 reiškia atsitiktinį prievadą; 500 "
-"yra vpnc numatytasis)\n"
-"konfig.: Local Port <0-65535>"
+#~ msgid "_IKE DH Group"
+#~ msgstr "IKE DH grupė"
 
-#: ../properties/nm-vpnc-dialog.ui.h:55
-msgid "0"
-msgstr "0"
+#~ msgid ""
+#~ "Name of the IKE DH group\n"
+#~ "config: IKE DH Group <dh1/dh2/dh5>"
+#~ msgstr ""
+#~ "IKE DH grupės pavadinimas\n"
+#~ "konfig.: IKE DH Group <dh1/dh2/dh5>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:56
-msgid "Disable Dead _Peer Detection"
-msgstr "Išjungti neatsakančių _lygiarangių aptikimą"
+#~ msgid "Perfect _Forward Secrecy"
+#~ msgstr "Tobulas slaptumas _pirmyn"
 
-#: ../properties/nm-vpnc-dialog.ui.h:57
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"Išjungti DPD paketų siuntimą (nustato laikmatį į 0)\n"
-"konfig.: DPD idle timeout (our side) 0"
+#~ msgid ""
+#~ "Diffie-Hellman group to use for PFS\n"
+#~ "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+#~ msgstr ""
+#~ "Diffie-Hellman grupė, naudojama PFS\n"
+#~ "konfig.: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+
+#~ msgid "_Local port"
+#~ msgstr "_Vietinis prievadas"
+
+#~ msgid ""
+#~ "Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+#~ "config: Local Port <0-65535>"
+#~ msgstr ""
+#~ "Naudojamas vietinis ISAKMP prievadas (0 reiškia atsitiktinį prievadą; 500 "
+#~ "yra vpnc numatytasis)\n"
+#~ "konfig.: Local Port <0-65535>"
+
+#~ msgid "0"
+#~ msgstr "0"
+
+#~ msgid "Disable Dead _Peer Detection"
+#~ msgstr "Išjungti neatsakančių _lygiarangių aptikimą"
+
+#~ msgid ""
+#~ "Disable sending DPD packets (sets timeout to 0)\n"
+#~ "config: DPD idle timeout (our side) 0"
+#~ msgstr ""
+#~ "Išjungti DPD paketų siuntimą (nustato laikmatį į 0)\n"
+#~ "konfig.: DPD idle timeout (our side) 0"
 
 #~ msgid "Choose a Certificate Authority (CA) certificate…"
 #~ msgstr "Pasirinkite kitą liudijimų įstaigos (LĮ) liudijimą…"
