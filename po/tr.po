@@ -1,49 +1,27 @@
 # Turkish translation for network-manager-vpnc.
-# Copyright (C) 2014-2019 network-manager-vpnc's COPYRIGHT HOLDER
+# Copyright (C) 2014-2025 network-manager-vpnc's COPYRIGHT HOLDER
 # This file is distributed under the same license as the network-manager-vpnc package.
 #
 # Necdet Yücel <necdetyucel@gmail.com>, 2014.
-# Sabri Ünal <libreajans@gmail.com>, 2019.
-# Emin Tufan Çetin <etcetin@gmail.com>, 2020, 2022.
+# Sabri Ünal <yakushabb@gmail.com>, 2019, 2025.
+# Emin Tufan Çetin <etcetin@gmail.com>, 2020, 2022, 2025.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: network-manager-vpnc master\n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2022-07-08 04:04+0000\n"
-"PO-Revision-Date: 2023-10-17 17:33+0300\n"
-"Last-Translator: Sabri Ünal <libreajans@gmail.com>\n"
-"Language-Team: Turkish <gnome-turk@gnome.org>\n"
+"POT-Creation-Date: 2025-10-04 13:02+0000\n"
+"PO-Revision-Date: 2025-10-08 18:29+0300\n"
+"Last-Translator: Sabri Ünal <yakushabb@gmail.com>\n"
+"Language-Team: Turkish <takim@gnome.org.tr>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.4\n"
+"X-Generator: Poedit 3.7\n"
 "X-POOTLE-MTIME: 1419728809.000000\n"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:1
-msgid "Legacy Cisco VPNC client"
-msgstr "Eski Cisco VPNC istemcisi"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:2
-msgid "Client for Cisco IPsec virtual private networks"
-msgstr "Cisco IPsec sanal özel ağları için istemci"
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:3
-msgid "Support for configuring virtual private networks based on VPNC."
-msgstr "VPNC temelli sanal özel ağları yapılandırma desteği."
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:4
-msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
-msgstr ""
-"IPsec kullanmak üzere yapılandırılmış Cisco VPN yoğunlaştırıcılarıyla "
-"uyumludur."
-
-#: ../appdata/network-manager-vpnc.metainfo.xml.in.h:5
-msgid "The NetworkManager Developers"
-msgstr "NetworkManager Geliştiricileri"
 
 #: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
@@ -66,11 +44,11 @@ msgstr "_Küme Parolası:"
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "“%s” Sanal Özel Ağına erişmek için kimlik doğrulamanız gerekir."
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:40
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco Uyumlu VPN (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:46
+#: ../properties/nm-vpnc-editor-plugin.c:41
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -78,7 +56,7 @@ msgstr ""
 "Çeşitli Cisco, Juniper, Netscreen ve Sonicwall IPsec tabanlı VPN ağ "
 "geçitleriyle uyumlu."
 
-#: ../properties/nm-vpnc-editor-plugin.c:509
+#: ../properties/nm-vpnc-editor-plugin.c:488
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -93,160 +71,185 @@ msgstr ""
 "Bağlantı yine oluşturulabilir ancak TCP tünelleme devre dışı olacağından "
 "istenildiği gibi çalışmayabilir."
 
-#: ../properties/nm-vpnc-editor.c:601
+#: ../properties/nm-vpnc-editor.c:685
 msgid "Secure (default)"
 msgstr "Güvenli (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:604
+#: ../properties/nm-vpnc-editor.c:688
 msgid "Weak (use with caution)"
 msgstr "Zayıf (dikkatli kullanın)"
 
-#: ../properties/nm-vpnc-editor.c:607
+#: ../properties/nm-vpnc-editor.c:691
 msgid "None (completely insecure)"
 msgstr "Hiçbiri (tamamen güvensiz)"
 
-#: ../properties/nm-vpnc-editor.c:651
+#: ../properties/nm-vpnc-editor.c:735
 msgid "Cisco (default)"
 msgstr "Cisco (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:654
+#: ../properties/nm-vpnc-editor.c:738
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:665
+# Marka adı. Çevirmeyin.
+#: ../properties/nm-vpnc-editor.c:741
+msgid "Fortigate"
+msgstr "Fortigate"
+
+#: ../properties/nm-vpnc-editor.c:752
 msgid "NAT-T when available (default)"
 msgstr "Mümkün olduğunda NAT-T (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:668
+#: ../properties/nm-vpnc-editor.c:755
 msgid "NAT-T always"
 msgstr "Her zaman NAT-T"
 
-#: ../properties/nm-vpnc-editor.c:671
+#: ../properties/nm-vpnc-editor.c:758
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:674
+#: ../properties/nm-vpnc-editor.c:761
 msgid "Disabled"
 msgstr "Kapalı"
 
-#: ../properties/nm-vpnc-editor.c:685 ../properties/nm-vpnc-editor.c:708
+#: ../properties/nm-vpnc-editor.c:772 ../properties/nm-vpnc-editor.c:810
 msgid "DH Group 1"
 msgstr "DH Kümesi 1"
 
-#: ../properties/nm-vpnc-editor.c:688
+#: ../properties/nm-vpnc-editor.c:775
 msgid "DH Group 2 (default)"
 msgstr "DH Kümesi 2 (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:691 ../properties/nm-vpnc-editor.c:714
+#: ../properties/nm-vpnc-editor.c:778 ../properties/nm-vpnc-editor.c:816
 msgid "DH Group 5"
 msgstr "DH Kümesi 5"
 
-#: ../properties/nm-vpnc-editor.c:702
+#: ../properties/nm-vpnc-editor.c:781 ../properties/nm-vpnc-editor.c:819
+msgid "DH Group 14"
+msgstr "DH Kümesi 14"
+
+#: ../properties/nm-vpnc-editor.c:784 ../properties/nm-vpnc-editor.c:822
+msgid "DH Group 15"
+msgstr "DH Kümesi 15"
+
+#: ../properties/nm-vpnc-editor.c:787 ../properties/nm-vpnc-editor.c:825
+msgid "DH Group 16"
+msgstr "DH Kümesi 16"
+
+#: ../properties/nm-vpnc-editor.c:790 ../properties/nm-vpnc-editor.c:828
+msgid "DH Group 17"
+msgstr "DH Kümesi 17"
+
+#: ../properties/nm-vpnc-editor.c:793 ../properties/nm-vpnc-editor.c:831
+msgid "DH Group 18"
+msgstr "DH Kümesi 18"
+
+#: ../properties/nm-vpnc-editor.c:804
 msgid "Server (default)"
 msgstr "Sunucu (öntanımlı)"
 
-#: ../properties/nm-vpnc-editor.c:705
+#: ../properties/nm-vpnc-editor.c:807
 msgid "None"
 msgstr "Hiçbiri"
 
-#: ../properties/nm-vpnc-editor.c:711
+#: ../properties/nm-vpnc-editor.c:813
 msgid "DH Group 2"
 msgstr "DH Kümesi 2"
 
-#: ../src/nm-vpnc-service.c:201
+#: ../src/nm-vpnc-service.c:204
 #, c-format
 msgid "property “%s” invalid or not supported"
 msgstr "“%s” özelliği geçersiz veya desteklenmiyor"
 
-#: ../src/nm-vpnc-service.c:216
+#: ../src/nm-vpnc-service.c:219
 #, c-format
 msgid "property “%s” contains a newline character"
 msgstr "“%s” özelliği yeni satır karakteri içeriyor"
 
-#: ../src/nm-vpnc-service.c:228
+#: ../src/nm-vpnc-service.c:231
 #, c-format
 msgid "property “%s” file path “%s” is not absolute or does not exist"
 msgstr "“%s” özelliğinin “%s” yolu mutlak yol değil veya geçersiz"
 
-#: ../src/nm-vpnc-service.c:241
+#: ../src/nm-vpnc-service.c:244
 #, c-format
 msgid "invalid integer property “%s” or out of range [%d -> %d]"
 msgstr "“%s” geçersiz tamsayı özelliği veya sınırların dışında [%d -> %d]"
 
-#: ../src/nm-vpnc-service.c:251
+#: ../src/nm-vpnc-service.c:254
 #, c-format
 msgid "invalid boolean property “%s” (not yes or no)"
 msgstr "“%s” geçersiz bir mantıksal sabit (evet veya hayır değil)"
 
-#: ../src/nm-vpnc-service.c:258
+#: ../src/nm-vpnc-service.c:261
 #, c-format
 msgid "unhandled property “%s” type %d"
 msgstr "tanınmayan özellik “%s” tür %d"
 
-#: ../src/nm-vpnc-service.c:275
+#: ../src/nm-vpnc-service.c:278
 msgid "No VPN configuration options."
 msgstr "VPN yapılandırma seçeneği yok."
 
-#: ../src/nm-vpnc-service.c:301
+#: ../src/nm-vpnc-service.c:304
 msgid "No VPN secrets!"
 msgstr "VPN gizli bilgisi yok!"
 
 # binary burada uygulama olarak çevrilmiş
-#: ../src/nm-vpnc-service.c:646
+#: ../src/nm-vpnc-service.c:649
 msgid "Could not find vpnc binary."
 msgstr "vpnc uygulaması bulunamıyor."
 
-#: ../src/nm-vpnc-service.c:764
+#: ../src/nm-vpnc-service.c:767
 #, c-format
 msgid "Config option “%s” invalid or unknown."
 msgstr "“%s” yapılandırma seçeneği geçersiz veya bilinmiyor."
 
-#: ../src/nm-vpnc-service.c:799
+#: ../src/nm-vpnc-service.c:802
 #, c-format
 msgid "Config option “%s” not an integer."
 msgstr "“%s” yapılandırma seçeneği bir tam sayı değil."
 
-#: ../src/nm-vpnc-service.c:987
+#: ../src/nm-vpnc-service.c:990
 msgid "vpnc does not support interactive requests"
 msgstr "vpnc etkileşimli istekleri desteklemiyor"
 
-#: ../src/nm-vpnc-service.c:1011
+#: ../src/nm-vpnc-service.c:1014
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr "Etkileşimli kip kapalı olduğundan yeni gizli bilgiler kullanılamadı."
 
-#: ../src/nm-vpnc-service.c:1020 ../src/nm-vpnc-service.c:1094
+#: ../src/nm-vpnc-service.c:1023 ../src/nm-vpnc-service.c:1097
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr "VPN bağlantı ayarları geçersiz olduğundan istek işlenemedi."
 
-#: ../src/nm-vpnc-service.c:1028
+#: ../src/nm-vpnc-service.c:1031
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr "Hiç bekleyen kimlik doğrulama isteği olmadığından istek işlenemedi."
 
-#: ../src/nm-vpnc-service.c:1039
+#: ../src/nm-vpnc-service.c:1042
 #, c-format
 msgid ""
 "Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr "İstenen “%s” bilgisi sağlanmadığından istek işlenemedi."
 
-#: ../src/nm-vpnc-service.c:1237
+#: ../src/nm-vpnc-service.c:1240
 msgid "Don’t quit when VPN connection terminates"
 msgstr "VPN bağlantısı sonlandığında çıkma"
 
-#: ../src/nm-vpnc-service.c:1238
+#: ../src/nm-vpnc-service.c:1241
 msgid "Enable verbose debug logging (may expose passwords)"
 msgstr ""
 "Ayrıntılı hata ayıklama günlüklemesini etkinleştir (parolaları görünür "
 "yapabilir)"
 
-#: ../src/nm-vpnc-service.c:1239
+#: ../src/nm-vpnc-service.c:1242
 msgid "D-Bus name to use for this instance"
 msgstr "Bu örnek için kullanılacak D-Bus adı"
 
-#: ../src/nm-vpnc-service.c:1262
+#: ../src/nm-vpnc-service.c:1265
 msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
@@ -317,242 +320,218 @@ msgstr "üretici %s eklentiden yüklenemedi: %s"
 msgid "unknown error creating editor instance"
 msgstr "düzenleyici örneği oluşturulurken bilinmeyen hata"
 
-#: ../properties/nm-vpnc-dialog.ui.h:1
-msgid "General"
-msgstr "Genel"
+#~ msgid "Legacy Cisco VPNC client"
+#~ msgstr "Eski Cisco VPNC istemcisi"
 
-#: ../properties/nm-vpnc-dialog.ui.h:2
-msgid "_Gateway"
-msgstr "_Ağ geçidi"
+#~ msgid "Client for Cisco IPsec virtual private networks"
+#~ msgstr "Cisco IPsec sanal özel ağları için istemci"
 
-#: ../properties/nm-vpnc-dialog.ui.h:3
-msgid ""
-"IP/hostname of IPsec gateway\n"
-"config: IPSec gateway <gateway>"
-msgstr ""
-"IPsec geçidinin IP adresi/makine adı\n"
-"yapılandırma: IPSec gateway <ağ_geçidi>"
+#~ msgid "Support for configuring virtual private networks based on VPNC."
+#~ msgstr "VPNC temelli sanal özel ağları yapılandırma desteği."
 
-#: ../properties/nm-vpnc-dialog.ui.h:5
-msgid "User na_me"
-msgstr "Kullanıcı a_dı"
+#~ msgid "Compatible with Cisco VPN concentrators configured to use IPsec."
+#~ msgstr ""
+#~ "IPsec kullanmak üzere yapılandırılmış Cisco VPN yoğunlaştırıcılarıyla "
+#~ "uyumludur."
 
-#: ../properties/nm-vpnc-dialog.ui.h:6
-msgid ""
-"User name for the connection\n"
-"config: Xauth username <user_name>"
-msgstr ""
-"Bağlantı için kullanıcı adı\n"
-"yapılandırma: Xauth username <kullanıcı_adı>"
+#~ msgid "The NetworkManager Developers"
+#~ msgstr "NetworkManager Geliştiricileri"
 
-#: ../properties/nm-vpnc-dialog.ui.h:8
-msgid "User _password"
-msgstr "Kullanıcı _parolası"
+#~ msgid "General"
+#~ msgstr "Genel"
 
-#: ../properties/nm-vpnc-dialog.ui.h:9
-msgid ""
-"User password for the connection\n"
-"config: Xauth password <password>"
-msgstr ""
-"Bağlantı için kullanıcı parolası\n"
-"yapılandırma: Xauth password <parola>"
+#~ msgid "_Gateway"
+#~ msgstr "_Ağ geçidi"
 
-#: ../properties/nm-vpnc-dialog.ui.h:11
-msgid "G_roup name"
-msgstr "_Küme adı"
+#~ msgid ""
+#~ "IP/hostname of IPsec gateway\n"
+#~ "config: IPSec gateway <gateway>"
+#~ msgstr ""
+#~ "IPsec geçidinin IP adresi/makine adı\n"
+#~ "yapılandırma: IPSec gateway <ağ_geçidi>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:12
-msgid ""
-"Group name\n"
-"config: IPSec ID <group_name>"
-msgstr ""
-"Küme adı\n"
-"yapılandırma: IPSec ID <küme_adı>"
+#~ msgid "User na_me"
+#~ msgstr "Kullanıcı a_dı"
 
-#: ../properties/nm-vpnc-dialog.ui.h:14
-msgid "Gro_up password"
-msgstr "K_üme parolası"
+#~ msgid ""
+#~ "User name for the connection\n"
+#~ "config: Xauth username <user_name>"
+#~ msgstr ""
+#~ "Bağlantı için kullanıcı adı\n"
+#~ "yapılandırma: Xauth username <kullanıcı_adı>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:15
-msgid ""
-"Group password\n"
-"config: IPSec secret <group_password>"
-msgstr ""
-"Küme parolası\n"
-"yapılandırma: IPSec secret <küme_parolası>"
+#~ msgid "User _password"
+#~ msgstr "Kullanıcı _parolası"
 
-#: ../properties/nm-vpnc-dialog.ui.h:17
-msgid "Sho_w passwords"
-msgstr "Parolaları _göster"
+#~ msgid ""
+#~ "User password for the connection\n"
+#~ "config: Xauth password <password>"
+#~ msgstr ""
+#~ "Bağlantı için kullanıcı parolası\n"
+#~ "yapılandırma: Xauth password <parola>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:18
-msgid "Use _hybrid authentication"
-msgstr "Melez _kimlik doğrulaması kullan"
+#~ msgid "G_roup name"
+#~ msgstr "_Küme adı"
 
-#: ../properties/nm-vpnc-dialog.ui.h:19
-msgid ""
-"Enable hybrid authentication, i.e. use certificate in addition to password.\n"
-"config: IKE Authmode hybrid"
-msgstr ""
-"Melez kimlik doğrulamasını etkinleştir, yani; parolanın yanında sertifika da "
-"kullan.\n"
-"yapılandırma: IKE Authmode hybrid"
+#~ msgid ""
+#~ "Group name\n"
+#~ "config: IPSec ID <group_name>"
+#~ msgstr ""
+#~ "Küme adı\n"
+#~ "yapılandırma: IPSec ID <küme_adı>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:21
-msgid "Advance_d…"
-msgstr "Geliş_miş…"
+#~ msgid "Gro_up password"
+#~ msgstr "K_üme parolası"
 
-#: ../properties/nm-vpnc-dialog.ui.h:22
-msgid "Advanced Options"
-msgstr "Gelişmiş Seçenekler"
+#~ msgid ""
+#~ "Group password\n"
+#~ "config: IPSec secret <group_password>"
+#~ msgstr ""
+#~ "Küme parolası\n"
+#~ "yapılandırma: IPSec secret <küme_parolası>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:23
-msgid "Advanced Properties"
-msgstr "Gelişmiş Özellikler"
+#~ msgid "Sho_w passwords"
+#~ msgstr "Parolaları _göster"
 
-#: ../properties/nm-vpnc-dialog.ui.h:24
-msgid "_Cancel"
-msgstr "İ_ptal"
+#~ msgid "Use _hybrid authentication"
+#~ msgstr "Melez _kimlik doğrulaması kullan"
 
-#: ../properties/nm-vpnc-dialog.ui.h:25
-msgid "_Apply"
-msgstr "_Uygula"
+#~ msgid ""
+#~ "Enable hybrid authentication, i.e. use certificate in addition to "
+#~ "password.\n"
+#~ "config: IKE Authmode hybrid"
+#~ msgstr ""
+#~ "Melez kimlik doğrulamasını etkinleştir, yani; parolanın yanında sertifika "
+#~ "da kullan.\n"
+#~ "yapılandırma: IKE Authmode hybrid"
 
-#: ../properties/nm-vpnc-dialog.ui.h:26
-msgid "Identification"
-msgstr "Kimlik Saptama"
+#~ msgid "Advance_d…"
+#~ msgstr "Geliş_miş…"
 
-#: ../properties/nm-vpnc-dialog.ui.h:27
-msgid "_Domain"
-msgstr "_Etki alanı"
+#~ msgid "Advanced Options"
+#~ msgstr "Gelişmiş Seçenekler"
 
-#: ../properties/nm-vpnc-dialog.ui.h:28
-msgid ""
-"(NT-)Domain name for authentication\n"
-"config: Domain <domain>"
-msgstr ""
-"(NT-)Kimlik doğrulaması için etki alanı\n"
-"yapılandırma: Domain <alanadı>"
+#~ msgid "Advanced Properties"
+#~ msgstr "Gelişmiş Özellikler"
 
-#: ../properties/nm-vpnc-dialog.ui.h:30
-msgid "_Vendor"
-msgstr "_Üretici"
+#~ msgid "_Cancel"
+#~ msgstr "İ_ptal"
 
-#: ../properties/nm-vpnc-dialog.ui.h:31
-msgid ""
-"Vendor of your IPsec gateway\n"
-"config: Vendor <cisco/netscreen>"
-msgstr ""
-"IPsec geçidinizin üreticisi\n"
-"yapılandırma: Vendor <cisco/netscreen>"
+#~ msgid "_Apply"
+#~ msgstr "_Uygula"
 
-#: ../properties/nm-vpnc-dialog.ui.h:33
-msgid "Ve_rsion"
-msgstr "Sü_rüm"
+#~ msgid "Identification"
+#~ msgstr "Kimlik Saptama"
 
-#: ../properties/nm-vpnc-dialog.ui.h:34
-msgid ""
-"Application version to report. \n"
-"config: Application version <ASCII string>"
-msgstr ""
-"Bildirilecek uygulama sürümü. \n"
-"yapılandırma: Application version <ASCII dizisi>"
+#~ msgid "_Domain"
+#~ msgstr "_Etki alanı"
 
-#: ../properties/nm-vpnc-dialog.ui.h:36
-msgid "Transport and Security"
-msgstr "Aktarım ve Güvenlik"
+#~ msgid ""
+#~ "(NT-)Domain name for authentication\n"
+#~ "config: Domain <domain>"
+#~ msgstr ""
+#~ "(NT-)Kimlik doğrulaması için etki alanı\n"
+#~ "yapılandırma: Domain <alanadı>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:37
-msgid "Tunnel _interface name"
-msgstr "Tünel arab_irimi adı"
+#~ msgid "_Vendor"
+#~ msgstr "_Üretici"
 
-#: ../properties/nm-vpnc-dialog.ui.h:38
-msgid ""
-"Tunnel interface name to use\n"
-"config: Interface name <name>"
-msgstr ""
-"Kullanılacak tünel arayüzünün adı\n"
-"yapılandırma: Interface name <ad>"
+#~ msgid ""
+#~ "Vendor of your IPsec gateway\n"
+#~ "config: Vendor <cisco/netscreen>"
+#~ msgstr ""
+#~ "IPsec geçidinizin üreticisi\n"
+#~ "yapılandırma: Vendor <cisco/netscreen>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:40
-msgid "_Encryption method"
-msgstr "_Şifreleme yöntemi"
+#~ msgid "Ve_rsion"
+#~ msgstr "Sü_rüm"
 
-#: ../properties/nm-vpnc-dialog.ui.h:41
-msgid ""
-"Encryption method\n"
-"config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
-"encryption” for None"
-msgstr ""
-"Şifreleme yöntemi\n"
-"yapılandırma: Güvenlik için boş, Zayıf güvenlik için “Enable Single "
-"DES” (Tekli DES’i Etkinleştir), Hiçbiri için “Enable no "
-"encryption” (Şifreleme yok)"
+#~ msgid ""
+#~ "Application version to report. \n"
+#~ "config: Application version <ASCII string>"
+#~ msgstr ""
+#~ "Bildirilecek uygulama sürümü. \n"
+#~ "yapılandırma: Application version <ASCII dizisi>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:43
-msgid "_NAT traversal"
-msgstr "_NAT geçişi"
+#~ msgid "Transport and Security"
+#~ msgstr "Aktarım ve Güvenlik"
 
-#: ../properties/nm-vpnc-dialog.ui.h:44
-msgid ""
-"NAT traversal method to use\n"
-"config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
-msgstr ""
-"Kullanılacak NAT geçişi\n"
-"yapılandırma: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+#~ msgid "Tunnel _interface name"
+#~ msgstr "Tünel arab_irimi adı"
 
-#: ../properties/nm-vpnc-dialog.ui.h:46
-msgid "_IKE DH Group"
-msgstr "_IKE DH Kümesi"
+#~ msgid ""
+#~ "Tunnel interface name to use\n"
+#~ "config: Interface name <name>"
+#~ msgstr ""
+#~ "Kullanılacak tünel arayüzünün adı\n"
+#~ "yapılandırma: Interface name <ad>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:47
-msgid ""
-"Name of the IKE DH group\n"
-"config: IKE DH Group <dh1/dh2/dh5>"
-msgstr ""
-"IKE DH kümesinin adı\n"
-"yapılandırma: IKE DH Group <dh1/dh2/dh5>"
+#~ msgid "_Encryption method"
+#~ msgstr "_Şifreleme yöntemi"
 
-#: ../properties/nm-vpnc-dialog.ui.h:49
-msgid "Perfect _Forward Secrecy"
-msgstr "Aktarım _Güvenliliğini Mükemmelleştir"
+#~ msgid ""
+#~ "Encryption method\n"
+#~ "config: nothing for Secure, “Enable Single DES” for Weak, “Enable no "
+#~ "encryption” for None"
+#~ msgstr ""
+#~ "Şifreleme yöntemi\n"
+#~ "yapılandırma: Güvenlik için boş, Zayıf güvenlik için “Enable Single DES” "
+#~ "(Tekli DES’i Etkinleştir), Hiçbiri için “Enable no encryption” (Şifreleme "
+#~ "yok)"
 
-#: ../properties/nm-vpnc-dialog.ui.h:50
-msgid ""
-"Diffie-Hellman group to use for PFS\n"
-"config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
-msgstr ""
-"PFS için Diffie-Hellman kümesi\n"
-"yapılandırma: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/sunucu>"
+#~ msgid "_NAT traversal"
+#~ msgstr "_NAT geçişi"
 
-#: ../properties/nm-vpnc-dialog.ui.h:52
-msgid "_Local port"
-msgstr "_Yerel bağlantı noktası"
+#~ msgid ""
+#~ "NAT traversal method to use\n"
+#~ "config: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
+#~ msgstr ""
+#~ "Kullanılacak NAT geçişi\n"
+#~ "yapılandırma: NAT Traversal Mode <natt/none/force-natt/cisco-udp>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:53
-msgid ""
-"Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
-"config: Local Port <0-65535>"
-msgstr ""
-"Kullanılacak yerel ISAKMP bağlantı noktası (0 rastgele bağlantı noktası; "
-"vpnc için öntanımlı 500)\n"
-"yapılandırma: Local Port <0-65535>"
+#~ msgid "_IKE DH Group"
+#~ msgstr "_IKE DH Kümesi"
 
-#: ../properties/nm-vpnc-dialog.ui.h:55
-msgid "0"
-msgstr "0"
+#~ msgid ""
+#~ "Name of the IKE DH group\n"
+#~ "config: IKE DH Group <dh1/dh2/dh5>"
+#~ msgstr ""
+#~ "IKE DH kümesinin adı\n"
+#~ "yapılandırma: IKE DH Group <dh1/dh2/dh5>"
 
-#: ../properties/nm-vpnc-dialog.ui.h:56
-msgid "Disable Dead _Peer Detection"
-msgstr "_Pasif Uç Algılamayı Kapat"
+#~ msgid "Perfect _Forward Secrecy"
+#~ msgstr "Aktarım _Güvenliliğini Mükemmelleştir"
 
-#: ../properties/nm-vpnc-dialog.ui.h:57
-msgid ""
-"Disable sending DPD packets (sets timeout to 0)\n"
-"config: DPD idle timeout (our side) 0"
-msgstr ""
-"DPD paketi gönderimini kapat (zaman aşımını 0 yapar)\n"
-"yapılandırma: DPD idle timeout (bizim tarafımız) 0"
+#~ msgid ""
+#~ "Diffie-Hellman group to use for PFS\n"
+#~ "config: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/server>"
+#~ msgstr ""
+#~ "PFS için Diffie-Hellman kümesi\n"
+#~ "yapılandırma: Perfect Forward Secrecy <nopfs/dh1/dh2/dh5/sunucu>"
+
+#~ msgid "_Local port"
+#~ msgstr "_Yerel bağlantı noktası"
+
+#~ msgid ""
+#~ "Local ISAKMP port to use (0 means random port; 500 is vpnc’s default)\n"
+#~ "config: Local Port <0-65535>"
+#~ msgstr ""
+#~ "Kullanılacak yerel ISAKMP bağlantı noktası (0 rastgele bağlantı noktası; "
+#~ "vpnc için öntanımlı 500)\n"
+#~ "yapılandırma: Local Port <0-65535>"
+
+#~ msgid "0"
+#~ msgstr "0"
+
+#~ msgid "Disable Dead _Peer Detection"
+#~ msgstr "_Pasif Uç Algılamayı Kapat"
+
+#~ msgid ""
+#~ "Disable sending DPD packets (sets timeout to 0)\n"
+#~ "config: DPD idle timeout (our side) 0"
+#~ msgstr ""
+#~ "DPD paketi gönderimini kapat (zaman aşımını 0 yapar)\n"
+#~ "yapılandırma: DPD idle timeout (bizim tarafımız) 0"
 
 #~ msgid "Choose a Certificate Authority (CA) certificate…"
 #~ msgstr "Sertifika Yetkilisi (CA) sertifikası seç…"
