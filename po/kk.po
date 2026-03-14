@@ -1,0 +1,289 @@
+# Kazakh translation for NetworkManager-vpnc.
+# Copyright (C) 2026 NetworkManager-vpnc's COPYRIGHT HOLDER
+# This file is distributed under the same license as the NetworkManager-vpnc package.
+# Baurzhan Muftakhidinov <baurthefirst@gmail.com>,  2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: NetworkManager-vpnc main\n"
+"Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/issues\n"
+"POT-Creation-Date: 2026-03-10 21:24+0000\n"
+"PO-Revision-Date: 2026-03-14 12:43+0500\n"
+"Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
+"Language-Team: Kazakh <Kazakh>\n"
+"Language: kk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.9\n"
+
+#: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
+msgid "Authenticate VPN"
+msgstr "VPN аутентификациялау"
+
+#: ../auth-dialog/main.c:178
+msgid "Password"
+msgstr "Пароль"
+
+#: ../auth-dialog/main.c:186
+msgid "Group Password"
+msgstr "Топтық пароль"
+
+#: ../auth-dialog/main.c:232
+msgid "_Group Password:"
+msgstr "_Топтық пароль:"
+
+#: ../auth-dialog/main.c:489
+#, c-format
+msgid "You need to authenticate to access the Virtual Private Network “%s”."
+msgstr "«%s» виртуалды жеке желісіне қол жеткізу үшін аутентификациядан өтуіңіз керек."
+
+#: ../properties/nm-vpnc-editor-plugin.c:40
+msgid "Cisco Compatible VPN (vpnc)"
+msgstr "Cisco үйлесімді VPN (vpnc)"
+
+#: ../properties/nm-vpnc-editor-plugin.c:41
+msgid "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based VPN gateways."
+msgstr "Әртүрлі Cisco, Juniper, Netscreen және Sonicwall IPsec негізіндегі VPN шлюздерімен үйлесімді."
+
+#: ../properties/nm-vpnc-editor-plugin.c:488
+#, c-format
+msgid ""
+"The VPN settings file “%s” specifies that VPN traffic should be tunneled through TCP which is "
+"currently not supported in the vpnc software.\n"
+"\n"
+"The connection can still be created, with TCP tunneling disabled, however it may not work as expected."
+msgstr ""
+"«%s» VPN баптаулар файлы VPN трафигін TCP арқылы туннельдеу керектігін көрсетеді, бірақ бұл қазіргі "
+"уақытта vpnc бағдарламалық қамтамасында қолданылмайды.\n"
+"\n"
+"Қосылымды TCP туннельдеуін сөндіріп жасауға болады, бірақ ол күтілгендей жұмыс істемеуі мүмкін."
+
+#: ../properties/nm-vpnc-editor.c:685
+msgid "Secure (default)"
+msgstr "Қауіпсіз (бастапқы)"
+
+#: ../properties/nm-vpnc-editor.c:688
+msgid "Weak (use with caution)"
+msgstr "Әлсіз (абайлап қолданыңыз)"
+
+#: ../properties/nm-vpnc-editor.c:691
+msgid "None (completely insecure)"
+msgstr "Жоқ (мүлдем қауіпсіз емес)"
+
+#: ../properties/nm-vpnc-editor.c:735
+msgid "Cisco (default)"
+msgstr "Cisco (бастапқы)"
+
+#: ../properties/nm-vpnc-editor.c:738
+msgid "Netscreen"
+msgstr "Netscreen"
+
+#: ../properties/nm-vpnc-editor.c:741
+msgid "Fortigate"
+msgstr "Fortigate"
+
+#: ../properties/nm-vpnc-editor.c:752
+msgid "NAT-T when available (default)"
+msgstr "Қолжетімді болғанда NAT-T (бастапқы)"
+
+#: ../properties/nm-vpnc-editor.c:755
+msgid "NAT-T always"
+msgstr "Әрқашан NAT-T"
+
+#: ../properties/nm-vpnc-editor.c:758
+msgid "Cisco UDP"
+msgstr "Cisco UDP"
+
+#: ../properties/nm-vpnc-editor.c:761
+msgid "Disabled"
+msgstr "Сөндірілген"
+
+#: ../properties/nm-vpnc-editor.c:772 ../properties/nm-vpnc-editor.c:810
+msgid "DH Group 1"
+msgstr "DH тобы 1"
+
+#: ../properties/nm-vpnc-editor.c:775
+msgid "DH Group 2 (default)"
+msgstr "DH тобы 2 (бастапқы)"
+
+#: ../properties/nm-vpnc-editor.c:778 ../properties/nm-vpnc-editor.c:816
+msgid "DH Group 5"
+msgstr "DH тобы 5"
+
+#: ../properties/nm-vpnc-editor.c:781 ../properties/nm-vpnc-editor.c:819
+msgid "DH Group 14"
+msgstr "DH тобы 14"
+
+#: ../properties/nm-vpnc-editor.c:784 ../properties/nm-vpnc-editor.c:822
+msgid "DH Group 15"
+msgstr "DH тобы 15"
+
+#: ../properties/nm-vpnc-editor.c:787 ../properties/nm-vpnc-editor.c:825
+msgid "DH Group 16"
+msgstr "DH тобы 16"
+
+#: ../properties/nm-vpnc-editor.c:790 ../properties/nm-vpnc-editor.c:828
+msgid "DH Group 17"
+msgstr "DH тобы 17"
+
+#: ../properties/nm-vpnc-editor.c:793 ../properties/nm-vpnc-editor.c:831
+msgid "DH Group 18"
+msgstr "DH тобы 18"
+
+#: ../properties/nm-vpnc-editor.c:804
+msgid "Server (default)"
+msgstr "Сервер (бастапқы)"
+
+#: ../properties/nm-vpnc-editor.c:807
+msgid "None"
+msgstr "Жоқ"
+
+#: ../properties/nm-vpnc-editor.c:813
+msgid "DH Group 2"
+msgstr "DH тобы 2"
+
+#: ../src/nm-vpnc-service.c:204
+#, c-format
+msgid "property “%s” invalid or not supported"
+msgstr "«%s» қасиеті жарамсыз немесе қолданылмайды"
+
+#: ../src/nm-vpnc-service.c:219
+#, c-format
+msgid "property “%s” contains a newline character"
+msgstr "«%s» қасиетінде жаңа жол таңбасы бар"
+
+#: ../src/nm-vpnc-service.c:231
+#, c-format
+msgid "property “%s” file path “%s” is not absolute or does not exist"
+msgstr "«%s» қасиетінің «%s» файл жолы абсолютті емес немесе жоқ"
+
+#: ../src/nm-vpnc-service.c:244
+#, c-format
+msgid "invalid integer property “%s” or out of range [%d -> %d]"
+msgstr "«%s» бүтін сан қасиеті жарамсыз немесе ауқымнан тыс [%d -> %d]"
+
+#: ../src/nm-vpnc-service.c:254
+#, c-format
+msgid "invalid boolean property “%s” (not yes or no)"
+msgstr "«%s» жарамсыз логикалық қасиеті (иә немесе жоқ емес)"
+
+#: ../src/nm-vpnc-service.c:261
+#, c-format
+msgid "unhandled property “%s” type %d"
+msgstr "өңделмеген «%s» қасиеті, түрі %d"
+
+#: ../src/nm-vpnc-service.c:278
+msgid "No VPN configuration options."
+msgstr "VPN конфигурациясының опциялары жоқ."
+
+#: ../src/nm-vpnc-service.c:304
+msgid "No VPN secrets!"
+msgstr "VPN құпиялары жоқ!"
+
+#: ../src/nm-vpnc-service.c:649
+msgid "Could not find vpnc binary."
+msgstr "vpnc бинарлық файлы табылмады."
+
+#: ../src/nm-vpnc-service.c:767
+#, c-format
+msgid "Config option “%s” invalid or unknown."
+msgstr "«%s» конфигурация опциясы жарамсыз немесе белгісіз."
+
+#: ../src/nm-vpnc-service.c:802
+#, c-format
+msgid "Config option “%s” not an integer."
+msgstr "«%s» конфигурация опциясы бүтін сан емес."
+
+#: ../src/nm-vpnc-service.c:990
+msgid "vpnc does not support interactive requests"
+msgstr "vpnc интерактивті сұранымдарды қолдамайды"
+
+#: ../src/nm-vpnc-service.c:1014
+msgid "Could not use new secrets as interactive mode is disabled."
+msgstr "Интерактивті режим сөндірілгендіктен, жаңа құпияларды пайдалану мүмкін емес."
+
+#: ../src/nm-vpnc-service.c:1023 ../src/nm-vpnc-service.c:1097
+msgid "Could not process the request because the VPN connection settings were invalid."
+msgstr "VPN қосылымының баптаулары жарамсыз болғандықтан, сұранымды өңдеу мүмкін болмады."
+
+#: ../src/nm-vpnc-service.c:1031
+msgid "Could not process the request because no pending authentication is required."
+msgstr "Күтіп тұрған аутентификация талап етілмегендіктен, сұранымды өңдеу мүмкін болмады."
+
+#: ../src/nm-vpnc-service.c:1042
+#, c-format
+msgid "Could not process the request because the requested info “%s” was not provided."
+msgstr "Сұралған «%s» ақпараты берілмегендіктен, сұранымды өңдеу мүмкін болмады."
+
+#: ../src/nm-vpnc-service.c:1240
+msgid "Don’t quit when VPN connection terminates"
+msgstr "VPN қосылымы аяқталған кезде шықпау"
+
+#: ../src/nm-vpnc-service.c:1241
+msgid "Enable verbose debug logging (may expose passwords)"
+msgstr "Толық дебаг журналын іске қосу (парольдерді ашуы мүмкін)"
+
+#: ../src/nm-vpnc-service.c:1242
+msgid "D-Bus name to use for this instance"
+msgstr "Бұл инстанция үшін қолданылатын D-Bus атауы"
+
+#: ../src/nm-vpnc-service.c:1265
+msgid "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to NetworkManager."
+msgstr ""
+"nm-vpnc-service бағдарламасы NetworkManager үшін интеграцияланған Cisco Legacy IPsec VPN мүмкіндігін "
+"ұсынады."
+
+#: ../shared/nm-utils/nm-shared-utils.c:264
+#, c-format
+msgid "object class '%s' has no property named '%s'"
+msgstr "'%s' объект класында '%s' атты қасиет жоқ"
+
+#: ../shared/nm-utils/nm-shared-utils.c:271
+#, c-format
+msgid "property '%s' of object class '%s' is not writable"
+msgstr "'%s' объект класының '%s' қасиетіне жазу мүмкін емес"
+
+#: ../shared/nm-utils/nm-shared-utils.c:278
+#, c-format
+msgid "construct property \"%s\" for object '%s' can't be set after construction"
+msgstr "'%s' объектісі үшін «%s» құрастыру қасиетін құрастырудан кейін орнату мүмкін емес"
+
+#: ../shared/nm-utils/nm-shared-utils.c:286
+#, c-format
+msgid "'%s::%s' is not a valid property name; '%s' is not a GObject subtype"
+msgstr "'%s::%s' жарамды қасиет атауы емес; '%s' GObject ішкі түрі емес"
+
+#: ../shared/nm-utils/nm-shared-utils.c:295
+#, c-format
+msgid "unable to set property '%s' of type '%s' from value of type '%s'"
+msgstr "'%s' түріндегі мәннен '%s' түріндегі '%s' қасиетін орнату мүмкін емес"
+
+#: ../shared/nm-utils/nm-shared-utils.c:306
+#, c-format
+msgid "value \"%s\" of type '%s' is invalid or out of range for property '%s' of type '%s'"
+msgstr "«%s» мәні ('%s' түрі) '%s' қасиеті үшін (түрі '%s') жарамсыз немесе ауқымнан тыс"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:69
+#, c-format
+msgid "unable to get editor plugin name: %s"
+msgstr "түзетуші плагинінің атауын алу мүмкін емес: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:103
+#, c-format
+msgid "missing plugin file \"%s\""
+msgstr "«%s» плагин файлы жоқ"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:109
+#, c-format
+msgid "cannot load editor plugin: %s"
+msgstr "түзетуші плагинін жүктеу мүмкін емес: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:118
+#, c-format
+msgid "cannot load factory %s from plugin: %s"
+msgstr "плагиннен %s фабрикасын жүктеу мүмкін емес: %s"
+
+#: ../shared/nm-utils/nm-vpn-plugin-utils.c:144
+msgid "unknown error creating editor instance"
+msgstr "түзетуші инстанциясын жасау кезіндегі белгісіз қате"
