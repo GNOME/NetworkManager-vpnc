@@ -1,15 +1,15 @@
 # Georgian translation for NetworkManager-vpnc.
 # Copyright (C) 2023 NetworkManager-vpnc's authors.
 # This file is distributed under the same license as the NetworkManager-vpnc package.
-# Ekaterine Papava <papava.e@gtu.ge>, 2023-2024.
+# Ekaterine Papava <papava.e@gtu.ge>, 2023-2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://gitlab.gnome.org/GNOME/NetworkManager-vpnc/"
 "issues\n"
-"POT-Creation-Date: 2024-11-14 13:35+0000\n"
-"PO-Revision-Date: 2024-12-02 05:05+0100\n"
+"POT-Creation-Date: 2026-04-10 20:15+0000\n"
+"PO-Revision-Date: 2026-04-25 11:59+0200\n"
 "Last-Translator: Ekaterine Papava <papava.e@gtu.ge>\n"
 "Language-Team: \n"
 "Language: ka\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.5\n"
+"X-Generator: Poedit 3.9\n"
 
 #: ../auth-dialog/main.c:164 ../auth-dialog/main.c:223
 msgid "Authenticate VPN"
@@ -40,11 +40,11 @@ msgstr "_ჯგუფის პაროლი:"
 msgid "You need to authenticate to access the Virtual Private Network “%s”."
 msgstr "VPN \"%s\"-თან წვდომისთვის საჭიროა ავთენტიკაცია."
 
-#: ../properties/nm-vpnc-editor-plugin.c:45
+#: ../properties/nm-vpnc-editor-plugin.c:40
 msgid "Cisco Compatible VPN (vpnc)"
 msgstr "Cisco-სთან თავსებადი VPN (vpnc)"
 
-#: ../properties/nm-vpnc-editor-plugin.c:46
+#: ../properties/nm-vpnc-editor-plugin.c:41
 msgid ""
 "Compatible with various Cisco, Juniper, Netscreen, and Sonicwall IPsec-based "
 "VPN gateways."
@@ -52,7 +52,7 @@ msgstr ""
 "თავსებადია Cisco, Juniper, Netscreen da Sonicwall-ის IPsec-ზე დაფუძნებულ VPN "
 "კონცენტრატორებთან."
 
-#: ../properties/nm-vpnc-editor-plugin.c:509
+#: ../properties/nm-vpnc-editor-plugin.c:488
 #, c-format
 msgid ""
 "The VPN settings file “%s” specifies that VPN traffic should be tunneled "
@@ -61,88 +61,93 @@ msgid ""
 "The connection can still be created, with TCP tunneling disabled, however it "
 "may not work as expected."
 msgstr ""
+"VPN პარამეტრების ფაილი '%s' მიუთითებს, რომ VPN ტრაფიკი TCP-ის უნდა იყოს "
+"გადაცემული, რაც vpnc-ის მიერ ამჟამად მხარდაჭერილი არაა.\n"
+"\n"
+"მიერთება მაინც შეიქმნება, მაგრამ TCP გვირაბ-გამორთულით, რატომაც მან შეიძლება "
+"არც იმუშაოს."
 
-#: ../properties/nm-vpnc-editor.c:684
+#: ../properties/nm-vpnc-editor.c:685
 msgid "Secure (default)"
 msgstr "დაცული (ნაგულისხმები)"
 
-#: ../properties/nm-vpnc-editor.c:687
+#: ../properties/nm-vpnc-editor.c:688
 msgid "Weak (use with caution)"
 msgstr "სუსტი (ფრთხილად)"
 
-#: ../properties/nm-vpnc-editor.c:690
+#: ../properties/nm-vpnc-editor.c:691
 msgid "None (completely insecure)"
 msgstr "არცერთი (საერთოდ დაუცველი)"
 
-#: ../properties/nm-vpnc-editor.c:734
+#: ../properties/nm-vpnc-editor.c:735
 msgid "Cisco (default)"
 msgstr "Cisco (ნაგულისხმები)"
 
-#: ../properties/nm-vpnc-editor.c:737
+#: ../properties/nm-vpnc-editor.c:738
 msgid "Netscreen"
 msgstr "Netscreen"
 
-#: ../properties/nm-vpnc-editor.c:740
+#: ../properties/nm-vpnc-editor.c:741
 msgid "Fortigate"
 msgstr "Fortigate"
 
-#: ../properties/nm-vpnc-editor.c:751
+#: ../properties/nm-vpnc-editor.c:752
 msgid "NAT-T when available (default)"
 msgstr "NAT-T როცა ხელმისაწვდომია (ნაგულისხმები)"
 
-#: ../properties/nm-vpnc-editor.c:754
+#: ../properties/nm-vpnc-editor.c:755
 msgid "NAT-T always"
 msgstr "NAT-T ყოველთვის"
 
-#: ../properties/nm-vpnc-editor.c:757
+#: ../properties/nm-vpnc-editor.c:758
 msgid "Cisco UDP"
 msgstr "Cisco UDP"
 
-#: ../properties/nm-vpnc-editor.c:760
+#: ../properties/nm-vpnc-editor.c:761
 msgid "Disabled"
 msgstr "გამორთულია"
 
-#: ../properties/nm-vpnc-editor.c:771 ../properties/nm-vpnc-editor.c:809
+#: ../properties/nm-vpnc-editor.c:772 ../properties/nm-vpnc-editor.c:810
 msgid "DH Group 1"
 msgstr "DH ჯგუფი 1"
 
-#: ../properties/nm-vpnc-editor.c:774
+#: ../properties/nm-vpnc-editor.c:775
 msgid "DH Group 2 (default)"
 msgstr "DH ჯგუფი 2 (ნაგულისხმები)"
 
-#: ../properties/nm-vpnc-editor.c:777 ../properties/nm-vpnc-editor.c:815
+#: ../properties/nm-vpnc-editor.c:778 ../properties/nm-vpnc-editor.c:816
 msgid "DH Group 5"
 msgstr "DH ჯგუფი 5"
 
-#: ../properties/nm-vpnc-editor.c:780 ../properties/nm-vpnc-editor.c:818
+#: ../properties/nm-vpnc-editor.c:781 ../properties/nm-vpnc-editor.c:819
 msgid "DH Group 14"
 msgstr "DH ჯგუფი 14"
 
-#: ../properties/nm-vpnc-editor.c:783 ../properties/nm-vpnc-editor.c:821
+#: ../properties/nm-vpnc-editor.c:784 ../properties/nm-vpnc-editor.c:822
 msgid "DH Group 15"
 msgstr "DH ჯგუფი 15"
 
-#: ../properties/nm-vpnc-editor.c:786 ../properties/nm-vpnc-editor.c:824
+#: ../properties/nm-vpnc-editor.c:787 ../properties/nm-vpnc-editor.c:825
 msgid "DH Group 16"
 msgstr "DH ჯგუფი 16"
 
-#: ../properties/nm-vpnc-editor.c:789 ../properties/nm-vpnc-editor.c:827
+#: ../properties/nm-vpnc-editor.c:790 ../properties/nm-vpnc-editor.c:828
 msgid "DH Group 17"
 msgstr "DH ჯგუფი 17"
 
-#: ../properties/nm-vpnc-editor.c:792 ../properties/nm-vpnc-editor.c:830
+#: ../properties/nm-vpnc-editor.c:793 ../properties/nm-vpnc-editor.c:831
 msgid "DH Group 18"
 msgstr "DH ჯგუფი 18"
 
-#: ../properties/nm-vpnc-editor.c:803
+#: ../properties/nm-vpnc-editor.c:804
 msgid "Server (default)"
 msgstr "სერვერი (ნაგულისხმები)"
 
-#: ../properties/nm-vpnc-editor.c:806
+#: ../properties/nm-vpnc-editor.c:807
 msgid "None"
 msgstr "არცერთი"
 
-#: ../properties/nm-vpnc-editor.c:812
+#: ../properties/nm-vpnc-editor.c:813
 msgid "DH Group 2"
 msgstr "DH ჯგუფი 2"
 
@@ -205,17 +210,21 @@ msgstr "vpnc-ს ინტერაქტიური მოთხოვნე�
 #: ../src/nm-vpnc-service.c:1014
 msgid "Could not use new secrets as interactive mode is disabled."
 msgstr ""
+"ახალი საიდუმლოების შექმნა შეუძლებელია, რადგან ინტერაქტიული რეჟიმი გამორთულია."
 
 #: ../src/nm-vpnc-service.c:1023 ../src/nm-vpnc-service.c:1097
 msgid ""
 "Could not process the request because the VPN connection settings were "
 "invalid."
 msgstr ""
+"მოთხოვნის დამუშავება შეუძლებელია, რადგან VPN კავშირის პარამეტრები არასწორი "
+"იყო."
 
 #: ../src/nm-vpnc-service.c:1031
 msgid ""
 "Could not process the request because no pending authentication is required."
 msgstr ""
+"მოთხოვნის დამუშავება შეუძლებელია, რადგან არ არსებობს ავთენტიკაციის მოთხოვნა."
 
 #: ../src/nm-vpnc-service.c:1042
 #, c-format
@@ -223,6 +232,8 @@ msgid ""
 "Could not process the request because the requested info “%s” was not "
 "provided."
 msgstr ""
+"მოთხოვნის დამუშავება შეუძლებელია, რადგან მოთხოვნილი ინფორმაცია \"%s\" "
+"მოწოდებული არ ყოფილა."
 
 #: ../src/nm-vpnc-service.c:1240
 msgid "Don’t quit when VPN connection terminates"
@@ -241,6 +252,8 @@ msgid ""
 "nm-vpnc-service provides integrated Cisco Legacy IPsec VPN capability to "
 "NetworkManager."
 msgstr ""
+"nm-vpnc-service ახორციელებს Cisco-ის მოძველებულ IPsec VPN-ის ფუნქციონალის "
+"მიწოდებას NetworkManager-ისთვის."
 
 #: ../shared/nm-utils/nm-shared-utils.c:264
 #, c-format
